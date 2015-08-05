@@ -1,0 +1,2 @@
+		[message_content]
+		[signature]

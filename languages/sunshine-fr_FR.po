@@ -1,0 +1,4272 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Sunshine Photo Cart\n"
+"POT-Creation-Date: 2014-04-07 09:52-0700\n"
+"PO-Revision-Date: 2014-04-07 09:52-0700\n"
+"Last-Translator: Derek Ashauer <derek@ashwebstudio.com>\n"
+"Language-Team: Sunshine Photo Cart <derek@sunshinephotocart.com>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+"X-Poedit-KeywordsList: __;_e;_n\n"
+"X-Poedit-Basepath: /Users/derekashauer/Dropbox/sunshine/sunshinepro.dev/wp-"
+"content/plugins/sunshine-pro\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: addons/analytics/index.php:90
+msgid "Gallery Analytics"
+msgstr "Galerie Analytics"
+
+#: addons/analytics/index.php:125
+msgid "No views yet"
+msgstr "Pas encore vues"
+
+#: addons/analytics/index.php:128
+#, fuzzy
+msgid "Images viewed"
+msgstr "Aucune image n'est encore vus"
+
+#: addons/analytics/index.php:150
+#, fuzzy
+msgid "Total views"
+msgstr "Pas encore vues"
+
+#: addons/analytics/index.php:159
+msgid "No images viewed yet"
+msgstr "Aucune image n'est encore vus"
+
+#: addons/analytics/index.php:162 addons/analytics/index.php:198
+msgid "No images for this gallery yet"
+msgstr "Pas d'images pour cette galerie encore"
+
+#: addons/analytics/index.php:166
+msgid "Images Purchased"
+msgstr "Images Acheté"
+
+#: addons/analytics/index.php:186 addons/analytics/index.php:508
+#, fuzzy
+msgid "Total purchases"
+msgstr "Total"
+
+#: addons/analytics/index.php:195
+#, fuzzy
+msgid "No images purchased yet"
+msgstr "Images Acheté"
+
+#: addons/analytics/index.php:206
+msgid "Product Cost"
+msgstr "Coût du produit"
+
+#: addons/analytics/index.php:280 addons/analytics/index.php:483
+msgid "No users have logged in yet"
+msgstr "Aucun utilisateur n'a encore connecté"
+
+#: addons/analytics/index.php:283
+msgid "Recent User Logins"
+msgstr "Dernières connexions utilisateur"
+
+#: addons/analytics/index.php:335
+msgid "Total Sales Revenue"
+msgstr "Chiffre d'affaires total des ventes"
+
+#: addons/analytics/index.php:337
+msgid "Total Orders Completed"
+msgstr "Total des commandes terminées"
+
+#: addons/analytics/index.php:339
+msgid "Average Sale Total"
+msgstr "Moyenne Sale"
+
+#: addons/analytics/index.php:341
+msgid "Actual Profit"
+msgstr "Bénéfice réel"
+
+#: addons/analytics/index.php:402
+#, fuzzy
+msgid "You do not have any sales yet"
+msgstr "Vous n'avez rien dans votre panier pour le moment!"
+
+#: addons/analytics/index.php:405
+msgid "Sales Totals"
+msgstr "Total des ventes"
+
+#: addons/analytics/index.php:452
+msgid "Nothing purchased yet"
+msgstr "Rien acheté encore"
+
+#: addons/analytics/index.php:455
+msgid "Most Popular Products Sold"
+msgstr "Produits les plus populaires vendus"
+
+#: addons/analytics/index.php:468
+#, fuzzy
+msgid "Gallery"
+msgstr "Galerie Analytics"
+
+#: addons/analytics/index.php:468
+#, fuzzy
+msgid "Total Sales"
+msgstr "Chiffre d'affaires total des ventes"
+
+#: addons/analytics/index.php:468
+#, fuzzy
+msgid "Profit"
+msgstr "Bénéfice réel"
+
+#: addons/analytics/index.php:468 admin/sunshine-galleries.php:27
+#: classes/sunshine.class.php:160 classes/sunshine.class.php:161
+#, fuzzy
+msgid "Price Level"
+msgstr "Parent Niveau de prix"
+
+#: addons/analytics/index.php:486
+msgid "Galleries With Best Sales"
+msgstr "Galeries avec les meilleures ventes"
+
+#: addons/analytics/index.php:514
+#, fuzzy
+msgid "No images have been purchased yet"
+msgstr "Lo sentimos, no hay imágenes se han añadido a esta galería aún"
+
+#: addons/analytics/index.php:517
+msgid "Most Purchased Images of All Time"
+msgstr "Images plus acheté de tous les temps"
+
+#: addons/colorbox/index.php:121
+msgid "Lightbox Options"
+msgstr "Options Visionneuse"
+
+#: addons/colorbox/index.php:123
+#, fuzzy
+msgid "Enable Lightbox for images"
+msgstr "Activer ma sélection"
+
+#: addons/colorbox/index.php:124
+msgid "Links to individual images shown in a lightbox window for easier use"
+msgstr "Liens vers des images individuelles montrées dans une fenêtre de la visionneuse pour faciliter l'utilisation"
+
+#: addons/colorbox/index.php:130
+#, fuzzy
+msgid "Enable Lightbox for purchasing"
+msgstr "Options Visionneuse"
+
+#: addons/colorbox/index.php:131
+#, fuzzy
+msgid ""
+"Links the purchasing page for an individual image into a lightbox window"
+msgstr "Liens vers des images individuelles montrées dans une fenêtre de la visionneuse pour faciliter l'utilisation"
+
+#: addons/digital-download/index.php:6
+msgid "Downloadable"
+msgstr "Téléchargeable"
+
+#: addons/digital-download/index.php:15
+msgid "Download Folder"
+msgstr "Dossier de téléchargement "
+
+#: addons/digital-download/index.php:16
+msgid "Please select folder"
+msgstr "S'il vous plaît sélectionner le dossier"
+
+#: addons/digital-download/index.php:84
+msgid "Download"
+msgstr "Téléchargement"
+
+#: addons/digital-download/index.php:86
+#, fuzzy
+msgid "Download all images from gallery"
+msgstr "Descarga todas las imágenes de esta orden"
+
+#: addons/digital-download/index.php:106 addons/digital-download/index.php:444
+#, fuzzy
+msgid "Sorry, this is not your order"
+msgstr "Désolé, il ya eu une erreur avec votre demande"
+
+#: addons/digital-download/index.php:113 addons/digital-download/index.php:451
+#, fuzzy
+msgid "Sorry, your order is not yet marked as complete"
+msgstr "Désolé, votre article ne peut pas encore être téléchargé"
+
+#: addons/digital-download/index.php:128 addons/digital-download/index.php:162
+msgid "Sorry, one of the download files does not exist"
+msgstr "Désolé, un des fichiers de téléchargement n'existe pas"
+
+#: addons/digital-download/index.php:145 addons/digital-download/index.php:157
+#: addons/digital-download/index.php:305 addons/digital-download/index.php:326
+#: addons/digital-download/index.php:368
+msgid "Could not create zip file for download"
+msgstr "Impossible de créer le fichier zip à télécharger"
+
+#: addons/digital-download/index.php:244 addons/digital-download/index.php:255
+#, fuzzy
+msgid "Download all images from this order"
+msgstr "Descarga todas las imágenes de esta orden"
+
+#: addons/digital-download/index.php:275
+#, fuzzy
+msgid "Download Image"
+msgstr "No hay imagen"
+
+#: addons/digital-download/index.php:281
+#, fuzzy
+msgid "Download All Images"
+msgstr "Descarga todas las imágenes de esta orden"
+
+#: addons/digital-download/index.php:287
+#, fuzzy
+msgid "Purchase entire session"
+msgstr "Options d'achat"
+
+#: addons/digital-download/index.php:360
+msgid "Download file does not exist"
+msgstr "Télécharger le fichier n'existe pas"
+
+#: addons/digital-download/index.php:402
+msgid "You do not have permission to download these files."
+msgstr "Vous n'avez pas la permission de télécharger ces fichiers."
+
+#: addons/digital-download/index.php:417
+msgid "You do not have permission to download this file."
+msgstr "Vous n'avez pas la permission de télécharger ce fichier."
+
+#: addons/digital-download/index.php:435
+#, fuzzy, php-format
+msgid "Sorry, you must be <a href=\"%s\">logged in</a> to download this file"
+msgstr "Lo sentimos, usted debe ser <a href=\"%s\"> iniciar sesión</ a> para descargar este archivo"
+
+#: addons/digital-download/index.php:467
+#, fuzzy
+msgid "Gallery digital negatives added to cart!"
+msgstr "Galería de impuestos negativos digitales"
+
+#: addons/digital-download/index.php:467 addons/packages/index.php:519
+#: addons/packages/index.php:546 sunshine-functions.php:79
+msgid "View cart"
+msgstr "Voir le Panier"
+
+#: addons/digital-download/index.php:508
+#, fuzzy
+msgid "Gallery Digital Negatives"
+msgstr "Galería de impuestos negativos digitales"
+
+#: addons/digital-download/index.php:568
+#, fuzzy
+msgid "No shipping, download only"
+msgstr "Téléchargement"
+
+#: addons/digital-download/index.php:577
+#, fuzzy
+msgid "Digital Download Options"
+msgstr "Opciones"
+
+#: addons/digital-download/index.php:580
+#, fuzzy
+msgid "None"
+msgstr "Ninguno"
+
+#: addons/digital-download/index.php:586
+#, fuzzy
+msgid "Print Release"
+msgstr "Sainte-Hélène"
+
+#: addons/digital-download/index.php:591
+#, fuzzy
+msgid ""
+"Print release file to be included with any file download, PDF recommended. "
+"Upload a file to your <a href=\"upload.php\">Media gallery</a>, then select "
+"it here."
+msgstr "Logo doit être 170px de large PNG transparent. Envoyer un fichier à votre <a href=\"upload.php\"> galerie des médias </ a>, puis sélectionnez-le ici"
+
+#: addons/digital-download/index.php:600
+#, fuzzy
+msgid "Gallery digital negatives"
+msgstr "Galería de impuestos negativos digitales"
+
+#: addons/digital-download/index.php:602
+#, fuzzy
+msgid "Tax gallery digital negatives"
+msgstr "Galería de impuestos negativos digitales"
+
+#: addons/digital-download/index.php:605
+#, fuzzy
+msgid "Apply a tax to the gallery digital negatives"
+msgstr "Aplicar un impuesto a la galería de negativos digitales"
+
+#: addons/digital-download/index.php:636
+#, fuzzy
+msgid "Sorry, this order does not belong to you"
+msgstr "Désolé, vous n'êtes pas autorisé à accéder à ces informations d'ordre"
+
+#: addons/digital-download/index.php:643
+msgid "Sorry, your item cannot yet be downloaded"
+msgstr "Désolé, votre article ne peut pas encore être téléchargé"
+
+#: addons/digital-download/index.php:654
+#, fuzzy
+msgid "Sorry, this is not a downloadable product"
+msgstr "Téléchargeable"
+
+#: addons/digital-download/index.php:660
+#, fuzzy
+msgid "Sorry, this image was not in your order"
+msgstr "Désolé, vous n'êtes pas autorisé à afficher cette image"
+
+#: addons/discounts/index.php:14
+msgid "Add New Coupon"
+msgstr "Ajouter un nouveau Coupon"
+
+#: addons/discounts/index.php:15
+msgid "Edit Discount"
+msgstr "Modifier Discount"
+
+#: addons/discounts/index.php:16
+msgid "New Discount"
+msgstr "New Discount"
+
+#: addons/discounts/index.php:17
+msgid "All Discounts"
+msgstr "Toutes les promos"
+
+#: addons/discounts/index.php:18
+msgid "View Discounts"
+msgstr "Voir les Réductions"
+
+#: addons/discounts/index.php:19
+msgid "Search Discounts"
+msgstr "Chercher Promotions"
+
+#: addons/discounts/index.php:20
+msgid "No discounts found"
+msgstr "Pas de réductions trouvés"
+
+#: addons/discounts/index.php:21
+msgid "No discounts found in trash"
+msgstr "Pas de réductions trouvé dans une poubelle"
+
+#: addons/discounts/index.php:23 sunshine-template-functions.php:760
+#: sunshine-template-functions.php:987 themes/2013/order.php:103
+#: themes/default/order.php:102 themes/theme/order.php:105
+msgid "Discounts"
+msgstr "Réductions"
+
+#: addons/discounts/index.php:47
+#, fuzzy
+msgid "Add discount code"
+msgstr "Envíos sin cargo con su código de descuento"
+
+#: addons/discounts/index.php:48
+#, fuzzy
+msgid "Enter code"
+msgstr "Introducir código"
+
+#: addons/discounts/index.php:48
+#, fuzzy
+msgid "Apply"
+msgstr "Aplicar"
+
+#: addons/discounts/index.php:54
+msgid "Discounts Applied"
+msgstr "Décotes appliquées"
+
+#: addons/discounts/index.php:57 addons/packages/index.php:183
+msgid "Remove"
+msgstr "Supprimer"
+
+#: addons/favorites/index.php:77 addons/favorites/index.php:194
+#: addons/favorites/index.php:205 themes/2013/favorites.php:3
+#: themes/default/favorites.php:3
+msgid "Favorites"
+msgstr "Favoris"
+
+#: addons/favorites/index.php:95 addons/favorites/index.php:131
+#: addons/favorites/index.php:173
+msgid "Add to Favorites"
+msgstr "Ajouter aux Favoris"
+
+#: addons/favorites/index.php:104 addons/favorites/index.php:140
+#: addons/favorites/index.php:169
+msgid "Remove from Favorites"
+msgstr "Supprimer des favoris"
+
+#: addons/favorites/index.php:113
+msgid "Remove All Favorites"
+msgstr "Supprimer tous les favoris"
+
+#: addons/favorites/index.php:118
+#, fuzzy
+msgid "Submit Favorites"
+msgstr "Favoris"
+
+#: addons/favorites/index.php:175
+msgid "Sorry, could not add to favorites"
+msgstr "Désolé, pas pu ajouter aux favoris"
+
+#: addons/favorites/index.php:180
+msgid "Sorry, there was an error with your request"
+msgstr "Désolé, il ya eu une erreur avec votre demande"
+
+#: addons/favorites/index.php:282
+#, fuzzy
+msgid "Favorites cleared"
+msgstr "Favoris"
+
+#: addons/favorites/index.php:294
+#, fuzzy
+msgid "Favorites submitted"
+msgstr "Favoris"
+
+#: addons/newsletter/index.php:63 addons/newsletter/index.php:74
+msgid "Join  email newsletter"
+msgstr "Rejoignez bulletin électronique"
+
+#: addons/newsletter/index.php:93
+msgid "Newsletter"
+msgstr "Bulletin"
+
+#: addons/newsletter/index.php:96
+msgid ""
+"We think Campaign Monitor is by far the best email newsletter system. <a "
+"href=\"https://signup.campaignmonitor.com/signup\" target=\"_blank\">Sign up "
+"for free!</a>"
+msgstr "Nous pensons Campaign Monitor est de loin le meilleur système d'email newsletter. <a href=\"https://signup.campaignmonitor.com/signup\" target=\"_blank\"> Inscrivez-vous gratuitement! </ a>"
+
+#: addons/newsletter/index.php:101 addons/newsletter/index.php:150
+msgid "API Key"
+msgstr "API clés"
+
+#: addons/newsletter/index.php:104 addons/newsletter/index.php:153
+msgid "Save this value then you can choose a list"
+msgstr "Enregistrez cette valeur, alors vous pouvez choisir une liste"
+
+#: addons/newsletter/index.php:132
+msgid "Invalid Campaign Monitor API key "
+msgstr "Campagne invalide Moniteur clé API "
+
+#: addons/newsletter/index.php:136 addons/newsletter/index.php:172
+msgid "List"
+msgstr "Liste"
+
+#: addons/newsletter/index.php:140 addons/newsletter/index.php:176
+#, fuzzy
+msgid "Please select list"
+msgstr "S'il vous plaît sélectionner le dossier"
+
+#: addons/newsletter/index.php:145
+msgid ""
+"MailChimp has a good free program if you have less than 2,000 subscribers. "
+"<a href=\"http://eepurl.com/vB7jf\" target=\"_blank\">Sign up for an account "
+"and get $30 in credit</a>"
+msgstr "MailChimp a un bon programme libre si vous avez moins de 2000 abonnés. <a href=\"http://eepurl.com/vB7jf\" target=\"_blank\"> Inscrivez-vous pour un compte et obtenez 30 $ de crédit </ a>"
+
+#: addons/newsletter/index.php:163
+msgid "Invalid MailChimp API key "
+msgstr "Invalide clé API MailChimp "
+
+#: addons/packages/index.php:30
+msgid ""
+"This page is not accessible via this method. Please visit a gallery first."
+msgstr "Cette page n'est pas accessible via cette méthode. S'il vous plaît visitez une galerie première."
+
+#: addons/packages/index.php:64 addons/packages/index.php:104
+#: addons/packages/index.php:115 themes/2013/packages.php:3
+#: themes/default/packages.php:3
+#, fuzzy
+msgid "Packages"
+msgstr "Vous n'avez pas rempli tous vos paquets"
+
+#: addons/packages/index.php:155 addons/packages/index.php:229
+msgid "Package"
+msgstr "Compacte et spacieuse"
+
+#: addons/packages/index.php:156
+msgid "This product is a package"
+msgstr "Ce produit est un paquet"
+
+#: addons/packages/index.php:159
+#, fuzzy
+msgid "Choose Products for Package"
+msgstr "Pas de produits ont été affectés à ce forfait"
+
+#: addons/packages/index.php:164 themes/2013/cart.php:16
+#: themes/2013/order.php:50 themes/default/cart.php:16
+#: themes/default/order.php:49 themes/theme/cart.php:16
+#: themes/theme/order.php:52
+msgid "Product"
+msgstr "PRODUIT"
+
+#: addons/packages/index.php:181 themes/2013/cart.php:17
+#: themes/2013/order.php:51 themes/default/cart.php:17
+#: themes/default/order.php:50 themes/theme/cart.php:17
+#: themes/theme/order.php:53
+msgid "Qty"
+msgstr "Qté"
+
+#: addons/packages/index.php:187
+#, fuzzy
+msgid "Add another product"
+msgstr "Ajouter un nouveau produit"
+
+#: addons/packages/index.php:279
+msgid "Unfilled items in package:"
+msgstr "Articles en carnet dans le paquet:"
+
+#: addons/packages/index.php:328
+#, fuzzy
+msgid "Select package"
+msgstr "Compacte et spacieuse"
+
+#: addons/packages/index.php:365
+msgid "remaining"
+msgstr "restantes"
+
+#: addons/packages/index.php:374
+#, fuzzy
+msgid "Completed"
+msgstr "Expédié / Terminé"
+
+#: addons/packages/index.php:380 sunshine-template-functions.php:610
+msgid "Add to Cart"
+msgstr "Ajouter au panier"
+
+#: addons/packages/index.php:426
+msgid "You have not filled all your packages"
+msgstr "Vous n'avez pas rempli tous vos paquets"
+
+#: addons/packages/index.php:455
+msgid "No products have been assigned to this package"
+msgstr "Pas de produits ont été affectés à ce forfait"
+
+#: addons/packages/index.php:486
+#, fuzzy
+msgid "Package added to cart!"
+msgstr "Article ajouté au panier!"
+
+#: addons/packages/index.php:492 addons/packages/index.php:496
+#: sunshine-functions.php:82
+msgid "Sorry, something went wrong with adding the item to cart."
+msgstr "Désolé, quelque chose s'est mal passé avec ajouter l'article à votre panier."
+
+#: addons/packages/index.php:519
+#, fuzzy
+msgid "Item added to package"
+msgstr "Article ajouté au panier!"
+
+#: addons/packages/index.php:521
+#, fuzzy
+msgid "Item could not be added to package"
+msgstr "Élément n'a pas pu être retiré de son emballage"
+
+#: addons/packages/index.php:546
+msgid "Item removed from package"
+msgstr "Point retiré de son emballage"
+
+#: addons/packages/index.php:548
+msgid "Item could not be removed from package"
+msgstr "Élément n'a pas pu être retiré de son emballage"
+
+#: addons/payment-offline/index.php:8 addons/payment-offline/index.php:86
+#: classes/sunshine.class.php:484 classes/sunshine.class.php:656
+msgid "Offline"
+msgstr "Hors ligne"
+
+#: addons/payment-offline/index.php:9
+msgid "Send payment in outside of website"
+msgstr "Envoyez le paiement en dehors du site"
+
+#: addons/payment-offline/index.php:86
+msgid ""
+"Offline payments can be anything you want, most likely for accepting checks"
+msgstr "Paiements hors ligne peut être tout ce que vous voulez, le plus probable pour acceptation de chèques"
+
+#: addons/payment-offline/index.php:88
+msgid "Enable offline payments"
+msgstr "Activer les paiements hors ligne"
+
+#: addons/payment-offline/index.php:94
+#: addons/payment-payjunction/index.php:218
+#: addons/payment-paypal/index.php:168 addons/payment-stripe/index.php:190
+#: addons/price-levels/index.php:63 addons/shipping-flatrate/index.php:26
+#: addons/shipping-local/index.php:26 addons/shipping-pickup/index.php:26
+#: admin/sunshine-products.php:74
+msgid "Name"
+msgstr "Nom"
+
+#: addons/payment-offline/index.php:97
+msgid "Name that users will see on the checkout page, defaults to \"Offline\""
+msgstr "Nom que les utilisateurs verront sur la page de paiement, par défaut \"Hors ligne\""
+
+#: addons/payment-offline/index.php:100
+#: addons/payment-payjunction/index.php:224
+#: addons/payment-paypal/index.php:174 addons/payment-stripe/index.php:196
+msgid "Description"
+msgstr "Description"
+
+#: addons/payment-offline/index.php:103
+#: addons/payment-payjunction/index.php:227
+#: addons/payment-paypal/index.php:177 addons/payment-stripe/index.php:199
+msgid "Description that users will see on the checkout page"
+msgstr "Description que les utilisateurs verront sur la page de paiement"
+
+#: addons/payment-offline/index.php:106
+msgid "Instructions"
+msgstr "Mode d'emploi"
+
+#: addons/payment-offline/index.php:107
+msgid ""
+"Use this to instruct customers how to submit payment (if check, mailing "
+"address would be a good idea)"
+msgstr "Utilisez cette option pour charger clients comment soumettre le paiement (si chèque, adresse postale serait une bonne idée)"
+
+#: addons/payment-payjunction/index.php:9 classes/sunshine.class.php:498
+#: classes/sunshine.class.php:670
+#, fuzzy
+msgid "Pay by credit card (Visa, MasterCard, American Express, Discover)"
+msgstr "Payer par carte de crédit (Visa, MasterCard, American Express, Discover, JCB et Diners Club)"
+
+#: addons/payment-payjunction/index.php:132
+#, php-format
+msgid "Payment could not process successfully (%s). %s"
+msgstr "Paiement n'a pas pu traiter avec succès ( %s ). %s"
+
+#: addons/payment-payjunction/index.php:134
+#, php-format
+msgid ""
+"Payment could not process successfully because of a server error (%s). %s"
+msgstr "Paiement n'a pas pu traiter avec succès à cause d'une erreur de serveur ( %s ). %s"
+
+#: addons/payment-payjunction/index.php:136
+msgid "An unknown error occurred and your payment could not be processed"
+msgstr "Une erreur inconnue s'est produite et votre paiement ne pouvait être traitée"
+
+#: addons/payment-payjunction/index.php:149
+#: addons/payment-stripe/index.php:121
+msgid "Card Number"
+msgstr "Numéro De Carte"
+
+#: addons/payment-payjunction/index.php:150
+#: addons/payment-stripe/index.php:122
+msgid "CVV"
+msgstr "CVV"
+
+#: addons/payment-payjunction/index.php:152
+#: addons/payment-stripe/index.php:124
+msgid "Expiration Date"
+msgstr "Date d'Expiration"
+
+#: addons/payment-payjunction/index.php:212
+#, fuzzy
+msgid "Enable payments via PayJunction"
+msgstr "Permettre les paiements par PayPal"
+
+#: addons/payment-payjunction/index.php:221
+#, fuzzy
+msgid ""
+"Name that users will see on the checkout page, defaults to \"PayJunction\""
+msgstr "Nom que les utilisateurs verront sur la page de paiement, par défaut \"Hors ligne\""
+
+#: addons/payment-payjunction/index.php:230
+#: addons/payment-stripe/index.php:202
+msgid "Force HTTPS"
+msgstr "Vigueur HTTPS"
+
+#: addons/payment-payjunction/index.php:231
+#, fuzzy
+msgid ""
+"PayJunction requires an SSL certificate to accept credit card information "
+"securely from your website. <a href=\"http://www.sunshinephotocart.com/docs/"
+"ssl\" target=\"_blank\">Learn more</a>"
+msgstr "Stripe requiere un certificado SSL para aceptar la información de tarjeta de crédito de forma segura desde su sitio web. <a href=\"http://www.sunshinephotocart.com/docs/ssl\" target=\"_blank\"> Más información </ a>"
+
+#: addons/payment-payjunction/index.php:237
+#: addons/payment-stripe/index.php:209
+msgid "Test Mode"
+msgstr "Mode de test"
+
+#: addons/payment-payjunction/index.php:243 classes/frontend.class.php:340
+msgid "Login"
+msgstr "connexion"
+
+#: addons/payment-payjunction/index.php:248 classes/frontend.class.php:296
+#: sunshine-functions.php:420 sunshine-template-functions.php:784
+msgid "Password"
+msgstr "Mot de passe"
+
+#: addons/payment-paypal/index.php:9 classes/sunshine.class.php:490
+#: classes/sunshine.class.php:662
+msgid "Submit payment via PayPal account or use a credit card"
+msgstr "Déposer le paiement via compte PayPal ou d'utiliser une carte de crédit"
+
+#: addons/payment-paypal/index.php:25 addons/payment-paypal/index.php:34
+msgid "Redirecting to PayPal"
+msgstr "Redirection vers PayPal"
+
+#: addons/payment-paypal/index.php:40
+msgid "Order from "
+msgstr "Afin de "
+
+#: addons/payment-paypal/index.php:83
+msgid "Submit payment via PayPal"
+msgstr "Soumettre les paiements via PayPal"
+
+#: addons/payment-paypal/index.php:162
+msgid "Enable payments via PayPal"
+msgstr "Permettre les paiements par PayPal"
+
+#: addons/payment-paypal/index.php:171
+msgid "Name that users will see on the checkout page, defaults to \"PayPal\""
+msgstr "Nom que les utilisateurs verront sur la page de paiement, par défaut \"PayPal\""
+
+#: addons/payment-paypal/index.php:180
+msgid "PayPal Email"
+msgstr "PayPal Email"
+
+#: addons/payment-paypal/index.php:185
+msgid "Enable test mode (Sandbox)"
+msgstr "Activer le mode test (Sandbox)"
+
+#: addons/payment-paypal/index.php:187
+msgid ""
+"More for developers, this lets you accept test transactions via PayPal. "
+"Requires developer account and being logged into the developer account."
+msgstr "Plus pour les développeurs, cela vous permet d'accepter des transactions de test via PayPal. Nécessite compte développeur et être connecté sur le compte développeur."
+
+#: addons/payment-stripe/index.php:9 classes/sunshine.class.php:494
+#: classes/sunshine.class.php:666
+msgid ""
+"Pay by credit card (Visa, MasterCard, American Express, Discover, JCB, and "
+"Diners Club)"
+msgstr "Payer par carte de crédit (Visa, MasterCard, American Express, Discover, JCB et Diners Club)"
+
+#: addons/payment-stripe/index.php:184
+msgid "Enable payments via Stripe"
+msgstr "Activer les paiements via Stripe"
+
+#: addons/payment-stripe/index.php:193
+msgid "Name that users will see on the checkout page, defaults to \"Stripe\""
+msgstr "Nom que les utilisateurs verront sur la page de paiement, par défaut \"Stripe\""
+
+#: addons/payment-stripe/index.php:203
+msgid ""
+"Stripe requires an SSL certificate to accept credit card information "
+"securely from your website. <a href=\"http://www.sunshinephotocart.com/docs/"
+"ssl\" target=\"_blank\">Learn more</a>"
+msgstr "Stripe nécessite un certificat SSL pour accepter les informations de carte de crédit en toute sécurité à partir de votre site web. <a href=\"http://www.sunshinephotocart.com/docs/ssl\" target=\"_blank\"> savoir plus </ a>"
+
+#: addons/payment-stripe/index.php:215
+msgid "Test Secret Key"
+msgstr "Essai clé secrète"
+
+#: addons/payment-stripe/index.php:220
+msgid "Test Publishable Key"
+msgstr "Test clé publiable"
+
+#: addons/payment-stripe/index.php:225
+msgid "Live Secret Key"
+msgstr "Vivre clé secrète"
+
+#: addons/payment-stripe/index.php:230
+msgid "Live Publishable Key"
+msgstr "Vivre clé publiable"
+
+#: addons/price-levels/index.php:14
+msgid "Base pricing off:"
+msgstr "Le prix de base off:"
+
+#: addons/price-levels/index.php:24
+msgid ""
+"Optionally select an existing price level to generate prices for this new "
+"price level on all existing products"
+msgstr "Vous pouvez aussi sélectionner un niveau de prix existant pour générer des prix pour ce nouveau niveau de prix sur tous les produits existants"
+
+#: addons/price-levels/index.php:28
+msgid "Percentage:"
+msgstr "Pourcentage"
+
+#: addons/price-levels/index.php:30
+msgid ""
+"What percent of the selected price level to create prices for this new price "
+"level. To make higher prices, enter a value greater than 100. To make "
+"smaller prices, enter a value less than 100."
+msgstr "Que pour cent du niveau de prix choisi de créer des prix pour ce nouveau niveau de prix. Pour rendre les prix plus élevés, entrez une valeur supérieure à 100. Pour faire des petits prix, entrez une valeur inférieure à 100."
+
+#: addons/price-levels/index.php:64 admin/sunshine-menu.php:15
+#: classes/sunshine.class.php:116
+msgid "Products"
+msgstr "Produits"
+
+#: addons/share/index.php:21
+msgid "Share This"
+msgstr "Partagez "
+
+#: addons/share/index.php:50
+msgid "Sharing on Gallery Pages"
+msgstr "Partage sur Galerie Pages"
+
+#: addons/share/index.php:51
+msgid ""
+"Let users share a gallery on social networks like Facebook, Twitter, "
+"Pinterest"
+msgstr "Permettre aux utilisateurs de partager une galerie sur les réseaux sociaux comme Facebook, Twitter, Pinterest"
+
+#: addons/share/index.php:57
+msgid "Sharing on Image Detail Pages"
+msgstr "Partage sur l'image pages de détails"
+
+#: addons/share/index.php:58
+msgid ""
+"Let users share an image on social networks like Facebook, Twitter, Pinterest"
+msgstr "Permettre aux utilisateurs de partager une image sur les réseaux sociaux comme Facebook, Twitter, Pinterest"
+
+#: addons/shipping-flatrate/index.php:20
+msgid "Enable Flat Rate Shipping"
+msgstr "Activer taux forfaitaire d'expédition"
+
+#: addons/shipping-flatrate/index.php:31
+msgid "Flat Rate Shipping Cost ($)"
+msgstr "Flat Rate Coût de livraison ($)"
+
+#: addons/shipping-flatrate/index.php:37 addons/shipping-local/index.php:43
+#: addons/shipping-pickup/index.php:37
+msgid "Taxable"
+msgstr "Imposable"
+
+#: addons/shipping-local/index.php:20
+msgid "Enable Local Delivery Shipping"
+msgstr "Activer Local Delivery Livraison"
+
+#: addons/shipping-local/index.php:31
+msgid "Local Delivery Shipping Cost ($)"
+msgstr "Expédition et livraison locale Coût ($)"
+
+#: addons/shipping-local/index.php:37
+msgid "Allowed zip/post codes"
+msgstr "Codes postaux / post admis"
+
+#: addons/shipping-local/index.php:40
+msgid ""
+"What zip/post codes is this allowed for? Separate each zip/post code with a "
+"comma."
+msgstr "Quels codes postaux / post est ce qui a permis à? Séparez chaque code postal / post avec une virgule."
+
+#: addons/shipping-local/index.php:58
+#, php-format
+msgid "Cannot choose %s shipping, not within allowed area"
+msgstr "Impossible de choisir %s l'expédition, ne relève pas de permis de zone"
+
+#: addons/shipping-pickup/index.php:18
+msgid "Pickup"
+msgstr "Ramassage"
+
+#: addons/shipping-pickup/index.php:20
+msgid "Enable Pickup Shipping"
+msgstr "Activer le ramassage Livraison"
+
+#: addons/shipping-pickup/index.php:31
+msgid "Pickup Shipping Cost ($)"
+msgstr "Ramassage Coût de livraison ($)"
+
+#: addons/watermark/index.php:4
+#, fuzzy
+msgid "Watermark"
+msgstr "Danemark"
+
+#: addons/watermark/index.php:4
+#, fuzzy
+msgid ""
+"Add image to all files uploaded to Sunshine (except digital download files)"
+msgstr "Añadir imágenes a todos los archivos subidos a Sunshine (excepto archivos de descarga digital)"
+
+#: addons/watermark/index.php:6 sunshine-options.php:270
+#: themes/default/functions.php:27
+msgid "No image"
+msgstr "Aucune image"
+
+#: addons/watermark/index.php:11 themes/2013/cart.php:15
+#: themes/2013/order.php:49 themes/default/cart.php:15
+#: themes/default/order.php:48 themes/theme/cart.php:15
+#: themes/theme/order.php:51
+msgid "Image"
+msgstr "Image"
+
+#: addons/watermark/index.php:16
+#, fuzzy
+msgid ""
+"Image should be transparent PNG. Upload a file to your <a href=\"upload.php"
+"\">Media gallery</a>, then select it here"
+msgstr "Logo doit être 170px de large PNG transparent. Envoyer un fichier à votre <a href=\"upload.php\"> galerie des médias </ a>, puis sélectionnez-le ici"
+
+#: addons/watermark/index.php:19
+#, fuzzy
+msgid "Position"
+msgstr "position de symbole de devises"
+
+#: addons/watermark/index.php:23
+#, fuzzy
+msgid "Top Left"
+msgstr "Gauche"
+
+#: addons/watermark/index.php:24
+#, fuzzy
+msgid "Top Right"
+msgstr "Vrai"
+
+#: addons/watermark/index.php:25
+#, fuzzy
+msgid "Bottom Left"
+msgstr "Gauche"
+
+#: addons/watermark/index.php:26
+#, fuzzy
+msgid "Bottom Right"
+msgstr "Vrai"
+
+#: addons/watermark/index.php:27
+#, fuzzy
+msgid "Center"
+msgstr "Centro"
+
+#: addons/watermark/index.php:31
+#, fuzzy
+msgid "Margin from edge"
+msgstr "Margen del borde"
+
+#: addons/watermark/index.php:32
+msgid "Number only, not used for \"Center\" position"
+msgstr "Sólo Number, no se utilizan para  posición \"Center\""
+
+#: admin/sunshine-admin.php:96
+msgid "On"
+msgstr "sur"
+
+#: admin/sunshine-admin.php:96
+msgid "Off"
+msgstr "Off"
+
+#: admin/sunshine-admin.php:98
+msgid "Your server supports fsockopen."
+msgstr "Votre serveur prend en charge fsockopen."
+
+#: admin/sunshine-admin.php:98
+msgid "Your server does not support fsockopen."
+msgstr "Votre serveur ne fonctionne pas avec fsockopen."
+
+#: admin/sunshine-bulk-add-products.php:19
+#, fuzzy
+msgid "Bulk Add Products"
+msgstr "Produits"
+
+#: admin/sunshine-dashboard.php:9 admin/sunshine-orders.php:239
+msgid "Order #"
+msgstr "Commande #"
+
+#: admin/sunshine-dashboard.php:10 admin/sunshine-orders.php:240
+msgid "Customer"
+msgstr "N° d'article"
+
+#: admin/sunshine-dashboard.php:11 admin/sunshine-orders.php:241
+msgid "Status"
+msgstr "Statut"
+
+#: admin/sunshine-dashboard.php:12 sunshine-template-functions.php:771
+#: themes/2013/order.php:114 themes/default/order.php:113
+#: themes/theme/order.php:116
+msgid "Total"
+msgstr "Total"
+
+#: admin/sunshine-dashboard.php:39
+msgid "Recent Orders"
+msgstr "Dernières commandes"
+
+#: admin/sunshine-dashboard.php:45 admin/sunshine-menu.php:8
+msgid "Dashboard"
+msgstr "Tableau de bord"
+
+#: admin/sunshine-discounts.php:8
+msgid "Options"
+msgstr "Options"
+
+#: admin/sunshine-galleries.php:8
+msgid "Gallery Options"
+msgstr "Options Galerie"
+
+#: admin/sunshine-galleries.php:110
+msgid "M j, Y @ G:i"
+msgstr "M j, Y @ G:i"
+
+#: admin/sunshine-galleries.php:135 admin/sunshine-galleries.php:305
+#, php-format
+msgid "%1$s-%2$s"
+msgstr "%1$s / %2$s"
+
+#: admin/sunshine-galleries.php:146 admin/sunshine-galleries.php:316
+#, php-format
+msgid "%1$s%2$s, %3$s @ %4$s : %5$s"
+msgstr "%1$s%2$s, %3$s @ %4$s : %5$s"
+
+#: admin/sunshine-galleries.php:152 admin/sunshine-galleries.php:331
+msgid "OK"
+msgstr "Enregistrer"
+
+#: admin/sunshine-galleries.php:153 admin/sunshine-galleries.php:332
+msgid "Cancel"
+msgstr "Annuler"
+
+#: admin/sunshine-image-processor.php:9
+msgid "Image Processor"
+msgstr "processeur d'image"
+
+#: admin/sunshine-image-processor.php:10
+msgid ""
+"We are processing your images! Please be patient, especially since there may "
+"be a lot"
+msgstr "Nous traitons vos images! S'il vous plaît être patient, d'autant plus qu'il peut y avoir beaucoup"
+
+#: admin/sunshine-image-processor.php:104
+#, fuzzy
+msgid "Next page"
+msgstr "Suivant"
+
+#: admin/sunshine-image-processor.php:116
+#, fuzzy
+msgid "Edit this gallery"
+msgstr "Modifier Galerie"
+
+#: admin/sunshine-menu.php:9 classes/sf-class-settings.php:149
+msgid "Settings"
+msgstr "Réglages"
+
+#: admin/sunshine-menu.php:13 classes/frontend.class.php:353
+#: classes/sunshine.class.php:81 sunshine-options.php:183
+msgid "Galleries"
+msgstr "Galeries"
+
+#: admin/sunshine-menu.php:14 classes/sunshine.class.php:136
+msgid "Product Categories"
+msgstr "Catégories de Produits"
+
+#: admin/sunshine-menu.php:16 classes/sunshine.class.php:196
+#: themes/2013/account.php:16 themes/default/account.php:16
+#: themes/theme/account.php:18
+msgid "Orders"
+msgstr "Commandes"
+
+#: admin/sunshine-menu.php:23
+#, fuzzy
+msgid "System Info"
+msgstr "Información del sistema"
+
+#: admin/sunshine-orders.php:8
+msgid "Order Data"
+msgstr "Données de commandes"
+
+#: admin/sunshine-orders.php:16
+msgid "Order Notes"
+msgstr "Notes de la Commande"
+
+#: admin/sunshine-orders.php:24 classes/sunshine.class.php:215
+#: classes/sunshine.class.php:216 sunshine-options.php:323
+msgid "Order Status"
+msgstr "État de la Commande"
+
+#: admin/sunshine-orders.php:242 sunshine-template-functions.php:995
+msgid "Order Total"
+msgstr "Total de la commande"
+
+#: admin/sunshine-orders.php:243
+msgid "Date"
+msgstr "Date"
+
+#: admin/sunshine-orders.php:301 classes/sunshine.class.php:508
+#: classes/sunshine.class.php:681
+msgid "Pending"
+msgstr "En attente"
+
+#: admin/sunshine-orders.php:302 classes/sunshine.class.php:510
+#: classes/sunshine.class.php:683
+msgid "New"
+msgstr "Nouveau"
+
+#: admin/sunshine-orders.php:303 classes/sunshine.class.php:512
+#: classes/sunshine.class.php:685
+msgid "Processing"
+msgstr "Traitement et transformation"
+
+#: admin/sunshine-orders.php:304 classes/sunshine.class.php:514
+#: classes/sunshine.class.php:687
+msgid "Shipped/Completed"
+msgstr "Expédié / Terminé"
+
+#: admin/sunshine-orders.php:305
+msgid "Cancelled"
+msgstr "Annulé"
+
+#: admin/sunshine-products.php:7
+msgid "Product Info"
+msgstr "Information de produit"
+
+#: admin/sunshine-products.php:75
+msgid "Category"
+msgstr "Catégorie"
+
+#: admin/sunshine-products.php:76
+msgid "Price"
+msgstr "Prix"
+
+#: admin/sunshine-products.php:104
+msgid "No categories"
+msgstr "Aucune catégorie"
+
+#: admin/sunshine-users.php:15
+msgid "Sunshine Favorites"
+msgstr "Soleil favoris"
+
+#: admin/sunshine-users.php:36
+msgid "Sunshine Gallery Credits for Purchases"
+msgstr "Sunshine galerie de crédits pour Achats"
+
+#: admin/sunshine-users.php:39 sunshine-template-functions.php:766
+#: sunshine-template-functions.php:991 themes/2013/account.php:9
+#: themes/2013/order.php:108 themes/default/account.php:9
+#: themes/default/order.php:107 themes/theme/account.php:11
+#: themes/theme/order.php:110
+msgid "Credits"
+msgstr "Crédits"
+
+#: admin/sunshine-users.php:55
+msgid "Sunshine Items in Cart"
+msgstr "Articles de soleil dans le panier"
+
+#: admin/sunshine-users.php:91
+msgid "No items in cart"
+msgstr "Aucun article dans le panier"
+
+#: classes/cart.class.php:168
+#, fuzzy
+msgid "Free shipping via discount code"
+msgstr "Envíos sin cargo con su código de descuento"
+
+#: classes/cart.class.php:290
+#, php-format
+msgid "Discount %s has now expired and has been removed from your cart"
+msgstr "Remise %s est maintenant terminée et a été retiré de votre panier"
+
+#: classes/cart.class.php:297
+#, php-format
+msgid ""
+"Discount %s has now exceeded the maximum uses and has been removed from your "
+"cart"
+msgstr "Remise %s est maintenant dépassé le maximum utilise et a été retiré de votre panier"
+
+#: classes/cart.class.php:528
+msgid "You are not allowed to add any more discounts to your cart"
+msgstr "Vous n'êtes pas autorisé à ajouter d'autres réductions à votre panier"
+
+#: classes/cart.class.php:532
+msgid "This discount is already applied to your cart"
+msgstr "Cette réduction est déjà appliquée à votre panier"
+
+#: classes/cart.class.php:547
+msgid "Your order does not yet meet the minimum order amount for this discount"
+msgstr "Votre commande ne répond pas encore le montant minimum de commande pour cette réduction"
+
+#: classes/cart.class.php:553
+#, fuzzy
+msgid "This coupon is not yet valid, please try again later"
+msgstr "Licence n'est pas valide, veuillez réessayer!"
+
+#: classes/cart.class.php:558
+msgid "This coupon has expired"
+msgstr "Ce coupon est expiré"
+
+#: classes/cart.class.php:566
+msgid "This coupon has exceeded the number of uses allowed"
+msgstr "Ce coupon a dépassé le nombre d'utilisations autorisées"
+
+#: classes/cart.class.php:573
+msgid "This coupon has exceeded the number of uses allowed per user"
+msgstr "Ce coupon a dépassé le nombre d'utilisations autorisées par utilisateur"
+
+#: classes/cart.class.php:579
+#, fuzzy
+msgid "discount added"
+msgstr "Modifier Discount"
+
+#: classes/cart.class.php:581
+#, fuzzy
+msgid "discount could not be added"
+msgstr "Modifier Discount"
+
+#: classes/cart.class.php:585
+#, fuzzy
+msgid "Not a valid discount code"
+msgstr "Envíos sin cargo con su código de descuento"
+
+#: classes/cart.class.php:596
+#, fuzzy
+msgid "Discount removed"
+msgstr "Editar Descuento"
+
+#: classes/cart.class.php:600
+msgid "Discount not applied to your cart and cannot be removed"
+msgstr "Remise non appliquée à votre panier et ne peut être retiré"
+
+#: classes/countries.class.php:10
+msgid "Afghanistan"
+msgstr "Afghanistan"
+
+#: classes/countries.class.php:11
+msgid "&#197;land Islands"
+msgstr "land Islands"
+
+#: classes/countries.class.php:12
+msgid "Albania"
+msgstr "Albanie"
+
+#: classes/countries.class.php:13
+msgid "Algeria"
+msgstr "Algérie"
+
+#: classes/countries.class.php:14
+msgid "American Samoa"
+msgstr "American Samoa"
+
+#: classes/countries.class.php:15
+msgid "Andorra"
+msgstr "Andorre"
+
+#: classes/countries.class.php:16
+msgid "Angola"
+msgstr "Angola"
+
+#: classes/countries.class.php:17
+msgid "Anguilla"
+msgstr "Anguilla"
+
+#: classes/countries.class.php:18
+msgid "Antarctica"
+msgstr "Antarctique"
+
+#: classes/countries.class.php:19
+msgid "Antigua and Barbuda"
+msgstr "Antigua-et-Barbuda"
+
+#: classes/countries.class.php:20
+msgid "Argentina"
+msgstr "Argentine"
+
+#: classes/countries.class.php:21
+msgid "Armenia"
+msgstr "Arménie"
+
+#: classes/countries.class.php:22
+msgid "Aruba"
+msgstr "Aruba"
+
+#: classes/countries.class.php:23
+#, fuzzy
+msgid "Australia"
+msgstr "Western Australia"
+
+#: classes/countries.class.php:24
+msgid "Austria"
+msgstr "Autriche"
+
+#: classes/countries.class.php:25
+msgid "Azerbaijan"
+msgstr "Azerbaïdjan"
+
+#: classes/countries.class.php:26
+msgid "Bahamas"
+msgstr "Bahamas"
+
+#: classes/countries.class.php:27
+msgid "Bahrain"
+msgstr "Bahreïn"
+
+#: classes/countries.class.php:28
+msgid "Bangladesh"
+msgstr "Bangladesh"
+
+#: classes/countries.class.php:29
+msgid "Barbados"
+msgstr "Barbade"
+
+#: classes/countries.class.php:30
+msgid "Belarus"
+msgstr "Bélarus"
+
+#: classes/countries.class.php:31
+msgid "Belgium"
+msgstr "Belgique"
+
+#: classes/countries.class.php:32
+msgid "Belize"
+msgstr "Belize"
+
+#: classes/countries.class.php:33
+msgid "Benin"
+msgstr "Bénin"
+
+#: classes/countries.class.php:34
+msgid "Bermuda"
+msgstr "Bermuda"
+
+#: classes/countries.class.php:35
+msgid "Bhutan"
+msgstr "Bhoutan"
+
+#: classes/countries.class.php:36
+msgid "Bolivia"
+msgstr "Bolivie"
+
+#: classes/countries.class.php:37
+msgid "Bosnia and Herzegovina"
+msgstr "Bosnie-Herzégovine"
+
+#: classes/countries.class.php:38
+msgid "Botswana"
+msgstr "Botswana"
+
+#: classes/countries.class.php:39
+#, fuzzy
+msgid "Brazil"
+msgstr "Real Brésilien (&#36;)"
+
+#: classes/countries.class.php:40
+msgid "British Indian Ocean Territory"
+msgstr "Territoire britannique de l'océan Indien"
+
+#: classes/countries.class.php:41
+msgid "British Virgin Islands"
+msgstr "Îles Vierges britanniques"
+
+#: classes/countries.class.php:42
+msgid "Brunei"
+msgstr "Brunei"
+
+#: classes/countries.class.php:43
+msgid "Bulgaria"
+msgstr "Bulgarie"
+
+#: classes/countries.class.php:44
+msgid "Burkina Faso"
+msgstr "Burkina Faso"
+
+#: classes/countries.class.php:45
+msgid "Burundi"
+msgstr "Burundi"
+
+#: classes/countries.class.php:46
+msgid "Cambodia"
+msgstr "Cambodge"
+
+#: classes/countries.class.php:47
+msgid "Cameroon"
+msgstr "Cameroun"
+
+#: classes/countries.class.php:48
+msgid "Canada"
+msgstr "Canada"
+
+#: classes/countries.class.php:49
+msgid "Cape Verde"
+msgstr "Cap-Vert"
+
+#: classes/countries.class.php:50
+msgid "Cayman Islands"
+msgstr "Îles Caïmans"
+
+#: classes/countries.class.php:51
+msgid "Central African Republic"
+msgstr "République Centrafricaine"
+
+#: classes/countries.class.php:52
+msgid "Chad"
+msgstr "Tchad"
+
+#: classes/countries.class.php:53
+msgid "Chile"
+msgstr "Chili"
+
+#: classes/countries.class.php:54
+msgid "China"
+msgstr "Chine"
+
+#: classes/countries.class.php:55
+msgid "Christmas Island"
+msgstr "Christmas (île)"
+
+#: classes/countries.class.php:56
+msgid "Cocos (Keeling) Islands"
+msgstr "Cocos (Keeling)"
+
+#: classes/countries.class.php:57
+msgid "Colombia"
+msgstr "Colombie"
+
+#: classes/countries.class.php:58
+msgid "Comoros"
+msgstr "Comores"
+
+#: classes/countries.class.php:59
+msgid "Congo (Brazzaville)"
+msgstr "Congo (Brazzaville)"
+
+#: classes/countries.class.php:60
+msgid "Congo (Kinshasa)"
+msgstr "Congo (Kinshasa)"
+
+#: classes/countries.class.php:61
+msgid "Cook Islands"
+msgstr "Îles Cook"
+
+#: classes/countries.class.php:62
+msgid "Costa Rica"
+msgstr "Costa Rica"
+
+#: classes/countries.class.php:63
+msgid "Croatia"
+msgstr "Croatie"
+
+#: classes/countries.class.php:64
+msgid "Cuba"
+msgstr "Cuba"
+
+#: classes/countries.class.php:65
+msgid "Cyprus"
+msgstr "Chypre"
+
+#: classes/countries.class.php:66
+msgid "Czech Republic"
+msgstr "République tchèque"
+
+#: classes/countries.class.php:67
+msgid "Denmark"
+msgstr "Danemark"
+
+#: classes/countries.class.php:68
+msgid "Djibouti"
+msgstr "Djibouti"
+
+#: classes/countries.class.php:69
+msgid "Dominica"
+msgstr "Dominique"
+
+#: classes/countries.class.php:70
+msgid "Dominican Republic"
+msgstr "République dominicaine"
+
+#: classes/countries.class.php:71
+msgid "Ecuador"
+msgstr "Équateur"
+
+#: classes/countries.class.php:72
+msgid "Egypt"
+msgstr "Égypte"
+
+#: classes/countries.class.php:73
+msgid "El Salvador"
+msgstr "République du Salvador"
+
+#: classes/countries.class.php:74
+msgid "Equatorial Guinea"
+msgstr "Guinée équatoriale"
+
+#: classes/countries.class.php:75
+msgid "Eritrea"
+msgstr "L'Erythrée"
+
+#: classes/countries.class.php:76
+msgid "Estonia"
+msgstr "Éstonie"
+
+#: classes/countries.class.php:77
+msgid "Ethiopia"
+msgstr "Éthiopie"
+
+#: classes/countries.class.php:78
+msgid "Falkland Islands"
+msgstr "Îles Falkland"
+
+#: classes/countries.class.php:79
+msgid "Faroe Islands"
+msgstr "Îles Féroé"
+
+#: classes/countries.class.php:80
+msgid "Fiji"
+msgstr "Fidji"
+
+#: classes/countries.class.php:81
+msgid "Finland"
+msgstr "Finlande"
+
+#: classes/countries.class.php:82
+#, fuzzy
+msgid "France"
+msgstr "Annuler"
+
+#: classes/countries.class.php:83
+msgid "French Guiana"
+msgstr "Guyane française"
+
+#: classes/countries.class.php:84
+msgid "French Polynesia"
+msgstr "Polynésie française"
+
+#: classes/countries.class.php:85
+msgid "French Southern Territories"
+msgstr "Terres australes françaises"
+
+#: classes/countries.class.php:86
+msgid "Gabon"
+msgstr "Gabon"
+
+#: classes/countries.class.php:87
+msgid "Gambia"
+msgstr "République de Gambie"
+
+#: classes/countries.class.php:88 classes/countries.class.php:360
+msgid "Georgia"
+msgstr "Géorgie"
+
+#: classes/countries.class.php:89
+msgid "Germany"
+msgstr "Allemagne"
+
+#: classes/countries.class.php:90
+msgid "Ghana"
+msgstr "Ghana"
+
+#: classes/countries.class.php:91
+msgid "Gibraltar"
+msgstr "Gibraltar"
+
+#: classes/countries.class.php:92
+msgid "Greece"
+msgstr "Grèce"
+
+#: classes/countries.class.php:93
+msgid "Greenland"
+msgstr "Groenland"
+
+#: classes/countries.class.php:94
+msgid "Grenada"
+msgstr "Grenade"
+
+#: classes/countries.class.php:95
+msgid "Guadeloupe"
+msgstr "Guadeloupe"
+
+#: classes/countries.class.php:96
+msgid "Guam"
+msgstr "Guam"
+
+#: classes/countries.class.php:97
+msgid "Guatemala"
+msgstr "Guatemala"
+
+#: classes/countries.class.php:98
+msgid "Guernsey"
+msgstr "Guernesey"
+
+#: classes/countries.class.php:99
+msgid "Guinea"
+msgstr "Guinée"
+
+#: classes/countries.class.php:100
+msgid "Guinea-Bissau"
+msgstr "Guinée-Bissau"
+
+#: classes/countries.class.php:101
+msgid "Guyana"
+msgstr "Guyane"
+
+#: classes/countries.class.php:102
+msgid "Haiti"
+msgstr "Haïti"
+
+#: classes/countries.class.php:103
+msgid "Honduras"
+msgstr "Honduras"
+
+#: classes/countries.class.php:104
+#, fuzzy
+msgid "Hong Kong"
+msgstr "Dollar de Hong Kong"
+
+#: classes/countries.class.php:105
+msgid "Hungary"
+msgstr "Hongrie"
+
+#: classes/countries.class.php:106
+msgid "Iceland"
+msgstr "Islande"
+
+#: classes/countries.class.php:107
+msgid "India"
+msgstr "Inde"
+
+#: classes/countries.class.php:108
+#, fuzzy
+msgid "Indonesia"
+msgstr "Indonésie Rupiah"
+
+#: classes/countries.class.php:109
+msgid "Iran"
+msgstr "Iran"
+
+#: classes/countries.class.php:110
+msgid "Iraq"
+msgstr "Irak"
+
+#: classes/countries.class.php:111
+msgid "Republic of Ireland"
+msgstr "République d'Irlande"
+
+#: classes/countries.class.php:112
+msgid "Isle of Man"
+msgstr "Île de Man"
+
+#: classes/countries.class.php:113
+#, fuzzy
+msgid "Israel"
+msgstr "Shekel Israelien"
+
+#: classes/countries.class.php:114
+msgid "Italy"
+msgstr "Italie"
+
+#: classes/countries.class.php:115
+msgid "Ivory Coast"
+msgstr "Côte d'Ivoire"
+
+#: classes/countries.class.php:116
+msgid "Jamaica"
+msgstr "Jamaïque"
+
+#: classes/countries.class.php:117
+msgid "Japan"
+msgstr "Japon"
+
+#: classes/countries.class.php:118
+msgid "Jersey"
+msgstr "Jersey"
+
+#: classes/countries.class.php:119
+msgid "Jordan"
+msgstr "Jordanie"
+
+#: classes/countries.class.php:120
+msgid "Kazakhstan"
+msgstr "Kazakhstan"
+
+#: classes/countries.class.php:121
+msgid "Kenya"
+msgstr "Kenya"
+
+#: classes/countries.class.php:122
+msgid "Kiribati"
+msgstr "Kiribati"
+
+#: classes/countries.class.php:123
+msgid "Kuwait"
+msgstr "Koweït"
+
+#: classes/countries.class.php:124
+msgid "Kyrgyzstan"
+msgstr "Kirghizistan"
+
+#: classes/countries.class.php:125
+msgid "Laos"
+msgstr "Laos"
+
+#: classes/countries.class.php:126
+msgid "Latvia"
+msgstr "Lettonie"
+
+#: classes/countries.class.php:127
+msgid "Lebanon"
+msgstr "Liban"
+
+#: classes/countries.class.php:128
+msgid "Lesotho"
+msgstr "Lesotho"
+
+#: classes/countries.class.php:129
+msgid "Liberia"
+msgstr "Liberia"
+
+#: classes/countries.class.php:130
+msgid "Libya"
+msgstr "Libye"
+
+#: classes/countries.class.php:131
+msgid "Liechtenstein"
+msgstr "Liechtenstein"
+
+#: classes/countries.class.php:132
+msgid "Lithuania"
+msgstr "Lituanie"
+
+#: classes/countries.class.php:133
+msgid "Luxembourg"
+msgstr "Luxembourg"
+
+#: classes/countries.class.php:134
+msgid "Macao S.A.R., China"
+msgstr "RAS de Macao, en Chine"
+
+#: classes/countries.class.php:135
+msgid "Macedonia"
+msgstr "Macédoine"
+
+#: classes/countries.class.php:136
+msgid "Madagascar"
+msgstr "Madagascar"
+
+#: classes/countries.class.php:137
+msgid "Malawi"
+msgstr "Malawi"
+
+#: classes/countries.class.php:138
+#, fuzzy
+msgid "Malaysia"
+msgstr "Ringgits malaisiens"
+
+#: classes/countries.class.php:139
+msgid "Maldives"
+msgstr "Maldives"
+
+#: classes/countries.class.php:140
+msgid "Mali"
+msgstr "Mali"
+
+#: classes/countries.class.php:141
+msgid "Malta"
+msgstr "Malte"
+
+#: classes/countries.class.php:142
+msgid "Marshall Islands"
+msgstr "Îles Marshall"
+
+#: classes/countries.class.php:143
+msgid "Martinique"
+msgstr "Martinique"
+
+#: classes/countries.class.php:144
+msgid "Mauritania"
+msgstr "Mauritanie"
+
+#: classes/countries.class.php:145
+msgid "Mauritius"
+msgstr "Maurice (îles)"
+
+#: classes/countries.class.php:146
+msgid "Mayotte"
+msgstr "Mayotte"
+
+#: classes/countries.class.php:147
+#, fuzzy
+msgid "Mexico"
+msgstr "Peso mexicain (&#36;)"
+
+#: classes/countries.class.php:148
+msgid "Micronesia"
+msgstr "Micronésie"
+
+#: classes/countries.class.php:149
+msgid "Moldova"
+msgstr "Moldavie"
+
+#: classes/countries.class.php:150
+msgid "Monaco"
+msgstr "Monaco"
+
+#: classes/countries.class.php:151
+msgid "Mongolia"
+msgstr "Mongolie"
+
+#: classes/countries.class.php:152
+msgid "Montenegro"
+msgstr "Monténégro"
+
+#: classes/countries.class.php:153
+msgid "Montserrat"
+msgstr "Montserrat"
+
+#: classes/countries.class.php:154
+msgid "Morocco"
+msgstr "Maroc"
+
+#: classes/countries.class.php:155
+msgid "Mozambique"
+msgstr "Mozambique"
+
+#: classes/countries.class.php:156
+msgid "Myanmar"
+msgstr "Myanmar"
+
+#: classes/countries.class.php:157
+msgid "Namibia"
+msgstr "Namibie"
+
+#: classes/countries.class.php:158
+msgid "Nauru"
+msgstr "Nauru"
+
+#: classes/countries.class.php:159
+msgid "Nepal"
+msgstr "Népal"
+
+#: classes/countries.class.php:160
+msgid "Netherlands"
+msgstr "Pays-Bas"
+
+#: classes/countries.class.php:161
+msgid "Netherlands Antilles"
+msgstr "Antilles Néerlandaises"
+
+#: classes/countries.class.php:162
+msgid "New Caledonia"
+msgstr "Nouvelle-Calédonie"
+
+#: classes/countries.class.php:163
+#, fuzzy
+msgid "New Zealand"
+msgstr "Dollar néo-zélandais (&#36;)"
+
+#: classes/countries.class.php:164
+msgid "Nicaragua"
+msgstr "Nicaragua"
+
+#: classes/countries.class.php:165
+msgid "Niger"
+msgstr "Niger"
+
+#: classes/countries.class.php:166
+msgid "Nigeria"
+msgstr "Nigeria"
+
+#: classes/countries.class.php:167
+msgid "Niue"
+msgstr "Niue"
+
+#: classes/countries.class.php:168
+msgid "Norfolk Island"
+msgstr "Île Norfolk"
+
+#: classes/countries.class.php:169
+msgid "North Korea"
+msgstr "Corée du Sud"
+
+#: classes/countries.class.php:170
+msgid "Northern Mariana Islands"
+msgstr "Mariannes du Nord"
+
+#: classes/countries.class.php:171
+msgid "Norway"
+msgstr "Norvège"
+
+#: classes/countries.class.php:172
+msgid "Oman"
+msgstr "Oman"
+
+#: classes/countries.class.php:173
+msgid "Pakistan"
+msgstr "Pakistan"
+
+#: classes/countries.class.php:174
+msgid "Palau"
+msgstr "Palau"
+
+#: classes/countries.class.php:175
+msgid "Palestinian Territory"
+msgstr "Territoire palestinien"
+
+#: classes/countries.class.php:176
+msgid "Panama"
+msgstr "Panama"
+
+#: classes/countries.class.php:177
+msgid "Papua New Guinea"
+msgstr "Papouasie-Nouvelle-Guinée"
+
+#: classes/countries.class.php:178
+msgid "Paraguay"
+msgstr "Paraguay"
+
+#: classes/countries.class.php:179
+msgid "Peru"
+msgstr "Pérou"
+
+#: classes/countries.class.php:180
+#, fuzzy
+msgid "Philippines"
+msgstr "Pesos philippins"
+
+#: classes/countries.class.php:181
+msgid "Pitcairn"
+msgstr "Pitcairn"
+
+#: classes/countries.class.php:182
+msgid "Poland"
+msgstr "Pologne"
+
+#: classes/countries.class.php:183
+msgid "Portugal"
+msgstr "Portugal"
+
+#: classes/countries.class.php:184
+msgid "Puerto Rico"
+msgstr "Porto Rico"
+
+#: classes/countries.class.php:185
+msgid "Qatar"
+msgstr "Qatar"
+
+#: classes/countries.class.php:186
+msgid "Reunion"
+msgstr "Réunion"
+
+#: classes/countries.class.php:187
+#, fuzzy
+msgid "Romania"
+msgstr "Leu roumain"
+
+#: classes/countries.class.php:188
+msgid "Russia"
+msgstr "Russie"
+
+#: classes/countries.class.php:189
+msgid "Rwanda"
+msgstr "Rwanda"
+
+#: classes/countries.class.php:190
+msgid "Saint Barth&eacute;lemy"
+msgstr "Saint Barthélemy"
+
+#: classes/countries.class.php:191
+msgid "Saint Helena"
+msgstr "Sainte-Hélène"
+
+#: classes/countries.class.php:192
+msgid "Saint Kitts and Nevis"
+msgstr "Saint-Kitts-et-Nevis"
+
+#: classes/countries.class.php:193
+msgid "Saint Lucia"
+msgstr "Sainte-Lucie"
+
+#: classes/countries.class.php:194
+msgid "Saint Martin (French part)"
+msgstr "Saint-Martin"
+
+#: classes/countries.class.php:195
+msgid "Saint Pierre and Miquelon"
+msgstr "Saint-Pierre-et-Miquelon"
+
+#: classes/countries.class.php:196
+msgid "Saint Vincent and the Grenadines"
+msgstr "Saint-Vincent-et-les Grenadines"
+
+#: classes/countries.class.php:197
+msgid "Samoa"
+msgstr "Samoa"
+
+#: classes/countries.class.php:198
+msgid "San Marino"
+msgstr "Saint-Marin"
+
+#: classes/countries.class.php:199
+msgid "S&atilde;o Tom&eacute; and Pr&iacute;ncipe"
+msgstr "São Tomé et Príncipe"
+
+#: classes/countries.class.php:200
+msgid "Saudi Arabia"
+msgstr "Arabie Saoudite"
+
+#: classes/countries.class.php:201
+msgid "Senegal"
+msgstr "Sénégal"
+
+#: classes/countries.class.php:202
+msgid "Serbia"
+msgstr "Serbie"
+
+#: classes/countries.class.php:203
+msgid "Seychelles"
+msgstr "Seychelles"
+
+#: classes/countries.class.php:204
+msgid "Sierra Leone"
+msgstr "Sierra Leone"
+
+#: classes/countries.class.php:205
+#, fuzzy
+msgid "Singapore"
+msgstr "Dollar de Singapour"
+
+#: classes/countries.class.php:206
+msgid "Slovakia"
+msgstr "Slovaquie"
+
+#: classes/countries.class.php:207
+msgid "Slovenia"
+msgstr "Slovénie"
+
+#: classes/countries.class.php:208
+msgid "Solomon Islands"
+msgstr "Îles Salomon"
+
+#: classes/countries.class.php:209
+msgid "Somalia"
+msgstr "Somalie"
+
+#: classes/countries.class.php:210
+#, fuzzy
+msgid "South Africa"
+msgstr "Corée du Nord"
+
+#: classes/countries.class.php:211
+msgid "South Georgia/Sandwich Islands"
+msgstr "Géorgie du Sud / îles Sandwich"
+
+#: classes/countries.class.php:212
+msgid "South Korea"
+msgstr "Corée du Nord"
+
+#: classes/countries.class.php:213
+msgid "Spain"
+msgstr "Espagne"
+
+#: classes/countries.class.php:214
+msgid "Sri Lanka"
+msgstr "Sri Lanka"
+
+#: classes/countries.class.php:215
+msgid "Sudan"
+msgstr "Soudan"
+
+#: classes/countries.class.php:216
+msgid "Suriname"
+msgstr "Suriname"
+
+#: classes/countries.class.php:217
+msgid "Svalbard and Jan Mayen"
+msgstr "Svalbard et Jan Mayen"
+
+#: classes/countries.class.php:218
+msgid "Swaziland"
+msgstr "Swaziland"
+
+#: classes/countries.class.php:219
+msgid "Sweden"
+msgstr "Suède"
+
+#: classes/countries.class.php:220
+msgid "Switzerland"
+msgstr "Suisse"
+
+#: classes/countries.class.php:221
+msgid "Syria"
+msgstr "Syrie"
+
+#: classes/countries.class.php:222
+msgid "Taiwan"
+msgstr "Taiwan"
+
+#: classes/countries.class.php:223
+msgid "Tajikistan"
+msgstr "Tadjikistan"
+
+#: classes/countries.class.php:224
+msgid "Tanzania"
+msgstr "Tanzanie"
+
+#: classes/countries.class.php:225
+msgid "Thailand"
+msgstr "Thaïlande"
+
+#: classes/countries.class.php:226
+msgid "Timor-Leste"
+msgstr "Timor Oriental"
+
+#: classes/countries.class.php:227
+msgid "Togo"
+msgstr "Togo"
+
+#: classes/countries.class.php:228
+msgid "Tokelau"
+msgstr "Tokelau"
+
+#: classes/countries.class.php:229
+msgid "Tonga"
+msgstr "Tonga"
+
+#: classes/countries.class.php:230
+msgid "Trinidad and Tobago"
+msgstr "Trinité-et-Tobago"
+
+#: classes/countries.class.php:231
+msgid "Tunisia"
+msgstr "Tunisie"
+
+#: classes/countries.class.php:232
+msgid "Turkey"
+msgstr "Turquie"
+
+#: classes/countries.class.php:233
+msgid "Turkmenistan"
+msgstr "Turkménistan"
+
+#: classes/countries.class.php:234
+msgid "Turks and Caicos Islands"
+msgstr "Îles Turques et Caïques"
+
+#: classes/countries.class.php:235
+msgid "Tuvalu"
+msgstr "Tuvalu"
+
+#: classes/countries.class.php:236
+msgid "U.S. Virgin Islands"
+msgstr "Îles Vierges américaines"
+
+#: classes/countries.class.php:237
+msgid "US Armed Forces"
+msgstr "US Armed Forces"
+
+#: classes/countries.class.php:238
+msgid "US Minor Outlying Islands"
+msgstr "Îles mineures éloignées des États-Unis"
+
+#: classes/countries.class.php:239
+msgid "Uganda"
+msgstr "Ouganda"
+
+#: classes/countries.class.php:240
+msgid "Ukraine"
+msgstr "Ukraine"
+
+#: classes/countries.class.php:241
+msgid "United Arab Emirates"
+msgstr "Émirats Arabes Unis"
+
+#: classes/countries.class.php:242
+msgid "United Kingdom"
+msgstr "Royaume-Uni"
+
+#: classes/countries.class.php:243
+#, fuzzy
+msgid "United States"
+msgstr "Royaume-Uni"
+
+#: classes/countries.class.php:244
+msgid "Uruguay"
+msgstr "Uruguay"
+
+#: classes/countries.class.php:245
+msgid "Uzbekistan"
+msgstr "Ouzbékistan"
+
+#: classes/countries.class.php:246
+msgid "Vanuatu"
+msgstr "Vanuatu"
+
+#: classes/countries.class.php:247
+msgid "Vatican"
+msgstr "vatican"
+
+#: classes/countries.class.php:248
+msgid "Venezuela"
+msgstr "Venezuela"
+
+#: classes/countries.class.php:249
+msgid "Vietnam"
+msgstr "Viêt Nam"
+
+#: classes/countries.class.php:250
+msgid "Wallis and Futuna"
+msgstr "Wallis et Futuna"
+
+#: classes/countries.class.php:251
+msgid "Western Sahara"
+msgstr "Sahara Occidental"
+
+#: classes/countries.class.php:252
+msgid "Yemen"
+msgstr "Yémen"
+
+#: classes/countries.class.php:253
+msgid "Zambia"
+msgstr "Zambie"
+
+#: classes/countries.class.php:254
+msgid "Zimbabwe"
+msgstr "Zimbabwe"
+
+#: classes/countries.class.php:259
+msgid "Australian Capital Territory"
+msgstr "Territoire de la capitale australienne"
+
+#: classes/countries.class.php:260
+msgid "New South Wales"
+msgstr "Nouvelle-Galles du Sud"
+
+#: classes/countries.class.php:261
+msgid "Northern Territory"
+msgstr "Territoire du Nord"
+
+#: classes/countries.class.php:262
+msgid "Queensland"
+msgstr "Queensland"
+
+#: classes/countries.class.php:263
+#, fuzzy
+msgid "South Australia"
+msgstr "Western Australia"
+
+#: classes/countries.class.php:264
+msgid "Tasmania"
+msgstr "Tasmanie"
+
+#: classes/countries.class.php:265
+msgid "Victoria"
+msgstr "Victoria"
+
+#: classes/countries.class.php:266
+msgid "Western Australia"
+msgstr "Western Australia"
+
+#: classes/countries.class.php:269
+msgid "Amazonas"
+msgstr "Amazonas"
+
+#: classes/countries.class.php:270
+msgid "Acre"
+msgstr "Acre"
+
+#: classes/countries.class.php:271
+msgid "Alagoas"
+msgstr "Alagoas"
+
+#: classes/countries.class.php:272
+msgid "Amap&aacute;"
+msgstr "Amapá"
+
+#: classes/countries.class.php:273
+msgid "Cear&aacute;"
+msgstr "Ceará"
+
+#: classes/countries.class.php:274
+msgid "Distrito Federal"
+msgstr "Distrito Federal"
+
+#: classes/countries.class.php:275
+msgid "Esp&iacute;rito Santo"
+msgstr "Espírito Santo"
+
+#: classes/countries.class.php:276
+msgid "Maranh&atilde;o"
+msgstr "Maranhão"
+
+#: classes/countries.class.php:277
+msgid "Paran&aacute;"
+msgstr "Paraná"
+
+#: classes/countries.class.php:278
+msgid "Pernambuco"
+msgstr "Pernambuco"
+
+#: classes/countries.class.php:279
+msgid "Piau&iacute;"
+msgstr "Piauí"
+
+#: classes/countries.class.php:280
+msgid "Rio Grande do Norte"
+msgstr "Rio Grande do Norte"
+
+#: classes/countries.class.php:281 classes/countries.class.php:294
+msgid "Rio Grande do Sul"
+msgstr "Rio Grande do Sul"
+
+#: classes/countries.class.php:282
+msgid "Rond&ocirc;nia"
+msgstr "Rondônia"
+
+#: classes/countries.class.php:283
+msgid "Roraima"
+msgstr "Roraima"
+
+#: classes/countries.class.php:284
+msgid "Santa Catarina"
+msgstr "Santa Catarina"
+
+#: classes/countries.class.php:285
+msgid "Sergipe"
+msgstr "Sergipe"
+
+#: classes/countries.class.php:286
+msgid "Tocantins"
+msgstr "Tocantins"
+
+#: classes/countries.class.php:287
+msgid "Par&aacute;"
+msgstr "Pará"
+
+#: classes/countries.class.php:288
+msgid "Bahia"
+msgstr "Bahia"
+
+#: classes/countries.class.php:289
+msgid "Goi&aacute;s"
+msgstr "Goiás"
+
+#: classes/countries.class.php:290
+msgid "Mato Grosso"
+msgstr "Mato Grosso"
+
+#: classes/countries.class.php:291
+msgid "Mato Grosso do Sul"
+msgstr "Mato Grosso do Sul"
+
+#: classes/countries.class.php:292
+msgid "Rio de Janeiro"
+msgstr "Rio de Janeiro"
+
+#: classes/countries.class.php:293
+msgid "S&atilde;o Paulo"
+msgstr "São Paulo"
+
+#: classes/countries.class.php:295
+msgid "Minas Gerais"
+msgstr "Minas Gerais"
+
+#: classes/countries.class.php:296
+msgid "Para&iacute;ba"
+msgstr "Paraíba"
+
+#: classes/countries.class.php:299
+msgid "Alberta"
+msgstr "Alberta*"
+
+#: classes/countries.class.php:300
+msgid "British Columbia"
+msgstr "Colombie-Britannique"
+
+#: classes/countries.class.php:301
+msgid "Manitoba"
+msgstr "Manitoba"
+
+#: classes/countries.class.php:302
+msgid "New Brunswick"
+msgstr "Nouveau-Brunswick"
+
+#: classes/countries.class.php:303
+msgid "Newfoundland"
+msgstr "Terre-Neuve"
+
+#: classes/countries.class.php:304
+msgid "Northwest Territories"
+msgstr "Territoires du Nord-Ouest"
+
+#: classes/countries.class.php:305
+msgid "Nova Scotia"
+msgstr "Nouvelle-Écosse"
+
+#: classes/countries.class.php:306
+msgid "Nunavut"
+msgstr "Nunavut"
+
+#: classes/countries.class.php:307
+msgid "Ontario"
+msgstr "l'Ontario;"
+
+#: classes/countries.class.php:308
+msgid "Prince Edward Island"
+msgstr "Île-du-Prince-Édouard"
+
+#: classes/countries.class.php:309
+msgid "Quebec"
+msgstr "Québec"
+
+#: classes/countries.class.php:310
+msgid "Saskatchewan"
+msgstr "Saskatchewan"
+
+#: classes/countries.class.php:311
+msgid "Yukon Territory"
+msgstr "Territoire du Yukon"
+
+#: classes/countries.class.php:314
+#, fuzzy
+msgid "Hong Kong Island"
+msgstr "Dollar de Hong Kong"
+
+#: classes/countries.class.php:315
+msgid "Kowloon"
+msgstr "Kowloon"
+
+#: classes/countries.class.php:316
+msgid "New Territories"
+msgstr "Nouveaux Territoires"
+
+#: classes/countries.class.php:319
+msgid "Drenthe"
+msgstr "Drenthe"
+
+#: classes/countries.class.php:320
+msgid "Flevoland"
+msgstr "Flevoland"
+
+#: classes/countries.class.php:321
+msgid "Friesland"
+msgstr "Frise"
+
+#: classes/countries.class.php:322
+msgid "Gelderland"
+msgstr "Gueldre"
+
+#: classes/countries.class.php:323
+msgid "Groningen"
+msgstr "Groningue"
+
+#: classes/countries.class.php:324
+msgid "Limburg"
+msgstr "Limbourg"
+
+#: classes/countries.class.php:325
+msgid "Noord-Brabant"
+msgstr "Brabant-du-Nord"
+
+#: classes/countries.class.php:326
+msgid "Noord-Holland"
+msgstr "Hollande-du-Nord"
+
+#: classes/countries.class.php:327
+msgid "Overijssel"
+msgstr "Overijssel"
+
+#: classes/countries.class.php:328
+msgid "Utrecht"
+msgstr "Utrecht"
+
+#: classes/countries.class.php:329
+msgid "Zeeland"
+msgstr "Zélande"
+
+#: classes/countries.class.php:330
+msgid "Zuid-Holland"
+msgstr "Hollande-du-Sud"
+
+#: classes/countries.class.php:333
+msgid "Northland"
+msgstr "Northland"
+
+#: classes/countries.class.php:334
+msgid "Auckland"
+msgstr "Auckland"
+
+#: classes/countries.class.php:335
+msgid "Waikato"
+msgstr "Waikato"
+
+#: classes/countries.class.php:336
+msgid "Bay of Plenty"
+msgstr "Bay of Plenty"
+
+#: classes/countries.class.php:337
+msgid "Taranaki"
+msgstr "Taranaki"
+
+#: classes/countries.class.php:338
+msgid "Hawke&rsquo;s Bay"
+msgstr "Baie de Hawke"
+
+#: classes/countries.class.php:339
+msgid "Manawatu-Wanganui"
+msgstr "Manawatu-Wanganui"
+
+#: classes/countries.class.php:340
+msgid "Wellington"
+msgstr "Wellington"
+
+#: classes/countries.class.php:341
+msgid "Nelson"
+msgstr "Nelson"
+
+#: classes/countries.class.php:342
+msgid "Marlborough"
+msgstr "Marlborough"
+
+#: classes/countries.class.php:343
+msgid "Tasman"
+msgstr "Tasman"
+
+#: classes/countries.class.php:344
+msgid "West Coast"
+msgstr "Côte Ouest"
+
+#: classes/countries.class.php:345
+msgid "Canterbury"
+msgstr "Canterbury"
+
+#: classes/countries.class.php:346
+msgid "Otago"
+msgstr "Otago"
+
+#: classes/countries.class.php:347
+msgid "Southland"
+msgstr "Southland"
+
+#: classes/countries.class.php:350
+msgid "Alabama"
+msgstr "Alabama"
+
+#: classes/countries.class.php:351
+msgid "Alaska"
+msgstr "Alaska"
+
+#: classes/countries.class.php:352
+msgid "Arizona"
+msgstr "Arizona"
+
+#: classes/countries.class.php:353
+msgid "Arkansas"
+msgstr "Arkansas"
+
+#: classes/countries.class.php:354
+msgid "California"
+msgstr "Californie"
+
+#: classes/countries.class.php:355
+msgid "Colorado"
+msgstr "Colorado"
+
+#: classes/countries.class.php:356
+msgid "Connecticut"
+msgstr "Connecticut"
+
+#: classes/countries.class.php:357
+msgid "Delaware"
+msgstr "Delaware"
+
+#: classes/countries.class.php:358
+msgid "District Of Columbia"
+msgstr "District de Columbia"
+
+#: classes/countries.class.php:359
+msgid "Florida"
+msgstr "Floride"
+
+#: classes/countries.class.php:361
+msgid "Hawaii"
+msgstr "Hawaï"
+
+#: classes/countries.class.php:362
+msgid "Idaho"
+msgstr "Idaho"
+
+#: classes/countries.class.php:363
+msgid "Illinois"
+msgstr "Illinois"
+
+#: classes/countries.class.php:364
+msgid "Indiana"
+msgstr "Indiana"
+
+#: classes/countries.class.php:365
+msgid "Iowa"
+msgstr "Iowa"
+
+#: classes/countries.class.php:366
+msgid "Kansas"
+msgstr "Kansas"
+
+#: classes/countries.class.php:367
+msgid "Kentucky"
+msgstr "Kentucky"
+
+#: classes/countries.class.php:368
+msgid "Louisiana"
+msgstr "Louisiane"
+
+#: classes/countries.class.php:369
+msgid "Maine"
+msgstr "Maine"
+
+#: classes/countries.class.php:370
+msgid "Maryland"
+msgstr "Maryland"
+
+#: classes/countries.class.php:371
+msgid "Massachusetts"
+msgstr "Massachusetts"
+
+#: classes/countries.class.php:372
+msgid "Michigan"
+msgstr "Michigan"
+
+#: classes/countries.class.php:373
+msgid "Minnesota"
+msgstr "Minnesota"
+
+#: classes/countries.class.php:374
+msgid "Mississippi"
+msgstr "Mississippi"
+
+#: classes/countries.class.php:375
+msgid "Missouri"
+msgstr "Missouri"
+
+#: classes/countries.class.php:376
+msgid "Montana"
+msgstr "Montana"
+
+#: classes/countries.class.php:377
+msgid "Nebraska"
+msgstr "Nebraska"
+
+#: classes/countries.class.php:378
+msgid "Nevada"
+msgstr "Nevada"
+
+#: classes/countries.class.php:379
+msgid "New Hampshire"
+msgstr "New Hampshire"
+
+#: classes/countries.class.php:380
+#, fuzzy
+msgid "New Jersey"
+msgstr "Jersey"
+
+#: classes/countries.class.php:381
+#, fuzzy
+msgid "New Mexico"
+msgstr "Nouveau"
+
+#: classes/countries.class.php:382
+msgid "New York"
+msgstr "New York"
+
+#: classes/countries.class.php:383
+msgid "North Carolina"
+msgstr "Caroline du Nord"
+
+#: classes/countries.class.php:384
+msgid "North Dakota"
+msgstr "Dakota du Nord"
+
+#: classes/countries.class.php:385
+msgid "Ohio"
+msgstr "Ohio"
+
+#: classes/countries.class.php:386
+msgid "Oklahoma"
+msgstr "Oklahoma"
+
+#: classes/countries.class.php:387
+msgid "Oregon"
+msgstr "Oregon"
+
+#: classes/countries.class.php:388
+msgid "Pennsylvania"
+msgstr "Pennsylvanie"
+
+#: classes/countries.class.php:389
+msgid "Rhode Island"
+msgstr "Rhode Island"
+
+#: classes/countries.class.php:390
+#, fuzzy
+msgid "South Carolina"
+msgstr "Caroline du Nord"
+
+#: classes/countries.class.php:391
+msgid "South Dakota"
+msgstr "Dakota du Sud"
+
+#: classes/countries.class.php:392
+msgid "Tennessee"
+msgstr "Tennessee"
+
+#: classes/countries.class.php:393
+msgid "Texas"
+msgstr "Texas"
+
+#: classes/countries.class.php:394
+msgid "Utah"
+msgstr "Utah"
+
+#: classes/countries.class.php:395
+msgid "Vermont"
+msgstr "Vermont"
+
+#: classes/countries.class.php:396
+msgid "Virginia"
+msgstr "Virginie"
+
+#: classes/countries.class.php:397
+msgid "Washington"
+msgstr "Washington"
+
+#: classes/countries.class.php:398
+msgid "West Virginia"
+msgstr "Virginie Occidentale"
+
+#: classes/countries.class.php:399
+#, fuzzy
+msgid "Wisconsin"
+msgstr "Réductions"
+
+#: classes/countries.class.php:400
+msgid "Wyoming"
+msgstr "Wyoming"
+
+#: classes/countries.class.php:403
+msgid "Americas"
+msgstr "Amériques"
+
+#: classes/countries.class.php:404
+#, fuzzy
+msgid "Europe"
+msgstr "Euros"
+
+#: classes/countries.class.php:405
+msgid "Pacific"
+msgstr "Pacifique"
+
+#: classes/countries.class.php:433
+#, fuzzy
+msgid "Select country"
+msgstr "pays"
+
+#: classes/countries.class.php:468 sunshine-functions.php:285
+#: sunshine-functions.php:303
+#, fuzzy
+msgid "Select state"
+msgstr "Pays / Etat"
+
+#: classes/frontend.class.php:295
+msgid ""
+"This gallery is password protected. To view it please enter your password "
+"below:"
+msgstr "Ce poste est protégé par mot de passe. Pour l'afficher entrer votre mot de passe ci-dessous:"
+
+#: classes/frontend.class.php:298
+msgid "Hint"
+msgstr "Astuce"
+
+#: classes/frontend.class.php:327
+msgid "Logout"
+msgstr "Déconnexion"
+
+#: classes/frontend.class.php:333 classes/sunshine.class.php:408
+#: classes/sunshine.class.php:580 sunshine-options.php:175
+#: themes/2013/account.php:3 themes/default/account.php:3
+msgid "Account"
+msgstr "COMPTE : "
+
+#: classes/frontend.class.php:345
+msgid "Register"
+msgstr "S'inscrire"
+
+#: classes/frontend.class.php:360 classes/sunshine.class.php:419
+#: classes/sunshine.class.php:591 sunshine-options.php:163
+#: themes/2013/cart.php:3 themes/default/cart.php:3
+msgid "Cart"
+msgstr "Panier"
+
+#: classes/frontend.class.php:367 classes/sunshine.class.php:430
+#: classes/sunshine.class.php:602 sunshine-options.php:169
+#: themes/2013/checkout.php:3 themes/default/checkout.php:3
+msgid "Checkout"
+msgstr "Commander"
+
+#: classes/frontend.class.php:385 themes/default/image.php:9
+msgid "Return to"
+msgstr "Réintégrer"
+
+#: classes/frontend.class.php:400
+msgid "Purchase Options"
+msgstr "Options d'achat"
+
+#: classes/frontend.class.php:454
+msgid "Sorry, you are not allowed to access this gallery"
+msgstr "Désolé, vous n'êtes pas autorisé à accéder à cette galerie"
+
+#: classes/frontend.class.php:454 classes/frontend.class.php:460
+#: classes/frontend.class.php:471 classes/frontend.class.php:481
+msgid "Access denied"
+msgstr "Accès refusé"
+
+#: classes/frontend.class.php:459
+#, php-format
+msgid ""
+"This gallery requires you to have an account and be logged in. <a href=\"%s"
+"\">Login</a> or <a href=\"%s\">Register</a>"
+msgstr "Cette galerie vous oblige à avoir un compte et être connecté <a href=\" %s\">Connexion </a> ou <a href=\"%s\">S'enregistrer</a>"
+
+#: classes/frontend.class.php:471
+msgid "Sorry, you are not allowed to view this image"
+msgstr "Désolé, vous n'êtes pas autorisé à afficher cette image"
+
+#: classes/frontend.class.php:481
+msgid "Sorry, you are not allowed to access this order information"
+msgstr "Désolé, vous n'êtes pas autorisé à accéder à ces informations d'ordre"
+
+#: classes/frontend.class.php:524
+#, fuzzy
+msgid "Registration is required to add items to favorites and checkout"
+msgstr "Es necesario estar registrado para añadir elementos a favoritos y finaliza la compra"
+
+#: classes/order.class.php:100
+#, php-format
+msgid "Receipt for your purchase from %s"
+msgstr "Reçu pour votre achat de %s"
+
+#: classes/order.class.php:101
+#, php-format
+msgid "Order placed on %s"
+msgstr "Commande passée le %s"
+
+#: classes/order.class.php:105
+msgid "Order completed successfully!"
+msgstr "Afin complété avec succès!"
+
+#: classes/sf-class-format-options.php:207
+msgid "Select a page..."
+msgstr "Sélectionnez une page ..."
+
+#: classes/sf-class-settings.php:292
+msgid "Could not load settings at: "
+msgstr "Impossible de charger les réglages à l'adresse: "
+
+#: classes/sf-class-settings.php:292
+msgid "Error - WP Settings Framework"
+msgstr "Erreur - Cadre Paramètres de WP"
+
+#: classes/sf-class-settings.php:357
+msgid "Settings saved."
+msgstr "Paramètres sauvegardés."
+
+#: classes/sf-class-settings.php:470
+#, php-format
+msgid "Save %s changes"
+msgstr "Économisez %s des changements"
+
+#: classes/sunshine.class.php:72
+msgid "Add New Gallery"
+msgstr "Ajouter une Nouvelle Galerie"
+
+#: classes/sunshine.class.php:73
+msgid "Edit Gallery"
+msgstr "Modifier Galerie"
+
+#: classes/sunshine.class.php:74
+msgid "New Gallery"
+msgstr "New Gallery"
+
+#: classes/sunshine.class.php:75
+msgid "All Galleries"
+msgstr "Toutes les galeries"
+
+#: classes/sunshine.class.php:76
+msgid "View Gallery"
+msgstr "Voir la galerie"
+
+#: classes/sunshine.class.php:77
+msgid "Search Galleries"
+msgstr "Recherche Galeries"
+
+#: classes/sunshine.class.php:78
+msgid "No galleries found"
+msgstr "Pas de galeries trouvé"
+
+#: classes/sunshine.class.php:79
+msgid "No galleries found in trash"
+msgstr "Pas de galeries trouvés dans une poubelle"
+
+#: classes/sunshine.class.php:107
+msgid "Add New Product"
+msgstr "Ajouter un nouveau produit"
+
+#: classes/sunshine.class.php:108
+msgid "Edit Product"
+msgstr "Modifier le produit"
+
+#: classes/sunshine.class.php:109
+msgid "New Product"
+msgstr "Nouveau Produit"
+
+#: classes/sunshine.class.php:110
+msgid "All Products"
+msgstr "All products >"
+
+#: classes/sunshine.class.php:111
+msgid "View Products"
+msgstr "Voir les produits"
+
+#: classes/sunshine.class.php:112
+msgid "Search Products"
+msgstr "Rechercher un produit"
+
+#: classes/sunshine.class.php:113
+msgid "No products found"
+msgstr "Pas de produits trouvés"
+
+#: classes/sunshine.class.php:114
+msgid "No products found in trash"
+msgstr "Pas de produits trouvés dans une poubelle"
+
+#: classes/sunshine.class.php:137
+msgid "Product Category"
+msgstr "Catégories de produits"
+
+#: classes/sunshine.class.php:138
+msgid "Search Product Categories"
+msgstr "Recherche Produits"
+
+#: classes/sunshine.class.php:139
+msgid "All Product Categories"
+msgstr "Toutes les catégories de produit"
+
+#: classes/sunshine.class.php:140
+msgid "Parent Product Category"
+msgstr "Catégorie de produit"
+
+#: classes/sunshine.class.php:141
+msgid "Parent Product Category:"
+msgstr "Catégorie de produit:"
+
+#: classes/sunshine.class.php:142
+msgid "Edit Product Category"
+msgstr "Modifier une catégorie de produit"
+
+#: classes/sunshine.class.php:143
+msgid "Update Product Category"
+msgstr "Mise à jour Catégorie de produit"
+
+#: classes/sunshine.class.php:144
+msgid "Add New Product Category"
+msgstr "Ajouter une nouvelle catégorie de produit"
+
+#: classes/sunshine.class.php:145
+msgid "New Product Category Name"
+msgstr "Nouveau produit Nom de la catégorie"
+
+#: classes/sunshine.class.php:146
+msgid "Separate categories with commas"
+msgstr " Séparer les catégories avec des virgules"
+
+#: classes/sunshine.class.php:147
+msgid "Choose from the most used categories"
+msgstr "Choisissez parmi les catégories les plus utilisés"
+
+#: classes/sunshine.class.php:162
+#, fuzzy
+msgid "Search Price Levels"
+msgstr "Tous les niveaux de prix"
+
+#: classes/sunshine.class.php:163
+msgid "All Price Levels"
+msgstr "Tous les niveaux de prix"
+
+#: classes/sunshine.class.php:164
+msgid "Parent Price Level"
+msgstr "Parent Niveau de prix"
+
+#: classes/sunshine.class.php:165
+#, fuzzy
+msgid "Parent Price Level:"
+msgstr "Parent Niveau de prix"
+
+#: classes/sunshine.class.php:166
+msgid "Edit Price Level"
+msgstr "Modifier Niveau de prix"
+
+#: classes/sunshine.class.php:167
+msgid "Update Price Level"
+msgstr "Mise à jour Niveau de prix"
+
+#: classes/sunshine.class.php:168
+#, fuzzy
+msgid "Add New Price Level"
+msgstr "Nuevo Nivel de Precios"
+
+#: classes/sunshine.class.php:169
+msgid "New Price Level"
+msgstr "New Niveau de prix"
+
+#: classes/sunshine.class.php:187
+msgid "Add New Order"
+msgstr "Ajouter un nouvel ordre"
+
+#: classes/sunshine.class.php:188
+msgid "Edit Order"
+msgstr "Modifier la commande"
+
+#: classes/sunshine.class.php:189
+msgid "New Order"
+msgstr "Nouvel ordre"
+
+#: classes/sunshine.class.php:190
+msgid "All Orders"
+msgstr "Toutes les commandes"
+
+#: classes/sunshine.class.php:191
+msgid "View Orders"
+msgstr "Affichage des Commandes"
+
+#: classes/sunshine.class.php:192
+msgid "Search Orders"
+msgstr "Ordres de recherche"
+
+#: classes/sunshine.class.php:193
+msgid "No orders found"
+msgstr "Pas de commande trouvés."
+
+#: classes/sunshine.class.php:194
+msgid "No orders found in trash"
+msgstr "Pas de commande trouvés dans une poubelle"
+
+#: classes/sunshine.class.php:217
+msgid "Search Order Status"
+msgstr "Recherche Suivi de commande"
+
+#: classes/sunshine.class.php:218
+msgid "All Order Status"
+msgstr "Tout Suivi de commande"
+
+#: classes/sunshine.class.php:219
+msgid "Parent Order Status"
+msgstr "Parent Suivi de commande"
+
+#: classes/sunshine.class.php:220
+msgid "Parent Order Status:"
+msgstr "Parent Suivi de commande:"
+
+#: classes/sunshine.class.php:221
+msgid "Edit Order Status"
+msgstr "Modifier Suivi de commande"
+
+#: classes/sunshine.class.php:222
+msgid "Update Order Status"
+msgstr "Mise à jour Suivi de commande"
+
+#: classes/sunshine.class.php:223
+msgid "Add New Order Status"
+msgstr "Ajouter un nouvel Suivi de commande"
+
+#: classes/sunshine.class.php:224
+msgid "New Order Status"
+msgstr "New Suivi de commande"
+
+#: classes/sunshine.class.php:399 classes/sunshine.class.php:571
+#, fuzzy
+msgid ""
+"This is a placeholder page that Sunshine uses to display itself. You can "
+"edit this text by going to Pages > Client Galleries."
+msgstr "Esta es una página de marcador de posición que Sol utiliza para mostrar a sí mismo. Puede editar este texto por ir a las Galerías Páginas> Cliente."
+
+#: classes/sunshine.class.php:450 classes/sunshine.class.php:622
+#, fuzzy
+msgid ""
+"Thank you for registering! You can now mark your favorite photos and make "
+"purchases on the website."
+msgstr "Gracias por registrarse! Ahora puede marcar sus fotos preferidas y hacer compras en la web."
+
+#: classes/sunshine.class.php:452 classes/sunshine.class.php:624
+#, fuzzy
+msgid ""
+"Thank you for your order! Below is a summary of the order for your records. "
+"You will receive a separate email when your item(s) have shipped."
+msgstr "Gracias por su pedido! A continuación se muestra un resumen de la orden para su archivo. Usted recibirá un correo electrónico por separado cuando su artículo (s) han enviado."
+
+#: classes/sunshine.class.php:454 classes/sunshine.class.php:626
+#, fuzzy
+msgid "Thank you!"
+msgstr "¡Muchas gracias!"
+
+#: classes/sunshine.class.php:478 classes/sunshine.class.php:650
+#, fuzzy
+msgid "Flat Rate Shipping"
+msgstr "Activer taux forfaitaire d'expédition"
+
+#: classes/sunshine.class.php:480 classes/sunshine.class.php:652
+#, fuzzy
+msgid "Local Delivery"
+msgstr "Activer Local Delivery Livraison"
+
+#: classes/sunshine.class.php:482 classes/sunshine.class.php:654
+#, fuzzy
+msgid "Local Pickup"
+msgstr "Ramassage"
+
+#: classes/sunshine.class.php:486 classes/sunshine.class.php:658
+#, fuzzy
+msgid "Send payment outside of website (ie, check, phone call, other)"
+msgstr "Envoyez le paiement en dehors du site"
+
+#: classes/sunshine.class.php:488 classes/sunshine.class.php:660
+#, fuzzy
+msgid "PayPal"
+msgstr "Redirection vers PayPal"
+
+#: classes/sunshine.class.php:508 classes/sunshine.class.php:681
+#, fuzzy
+msgid "We have received your order but payment is still pending"
+msgstr "Hemos recibido su pedido y pago aún está pendiente"
+
+#: classes/sunshine.class.php:510 classes/sunshine.class.php:683
+#, fuzzy
+msgid "We have received your order and payment"
+msgstr "Hemos recibido su pedido y pago"
+
+#: classes/sunshine.class.php:512 classes/sunshine.class.php:685
+#, fuzzy
+msgid "The images in your order are being processed and/or printed"
+msgstr "Las imágenes de su pedido están siendo procesados ​​y / o imprimir"
+
+#: classes/sunshine.class.php:514 classes/sunshine.class.php:687
+#, fuzzy
+msgid "Your items have shipped (or are available for download)!"
+msgstr "Sus artículos se envían (o están disponibles para su descarga)!"
+
+#: classes/sunshine.class.php:516 classes/sunshine.class.php:689
+#, fuzzy
+msgid "Cancelled/Refunded"
+msgstr "Su pedido fue cancelado y / o reembolsado"
+
+#: classes/sunshine.class.php:516 classes/sunshine.class.php:689
+#, fuzzy
+msgid "Your order was cancelled and/or refunded"
+msgstr "Su pedido fue cancelado y / o reembolsado"
+
+#: classes/sunshine.class.php:519 classes/sunshine.class.php:697
+#, fuzzy
+msgid "Default"
+msgstr "Pays par défaut"
+
+#: sunshine-functions.php:79
+msgid "Item added to cart!"
+msgstr "Article ajouté au panier!"
+
+#: sunshine-functions.php:121 sunshine-functions.php:161
+msgid "Cart updated"
+msgstr "Panier mis à jour"
+
+#: sunshine-functions.php:145
+#, fuzzy
+msgid "Item removed from cart"
+msgstr "Point retiré de son emballage"
+
+#: sunshine-functions.php:191
+#, fuzzy
+msgid "Username is required"
+msgstr "Ya existe Nombre de usuario"
+
+#: sunshine-functions.php:193
+#, fuzzy
+msgid "Username already exists"
+msgstr "Ya existe Nombre de usuario"
+
+#: sunshine-functions.php:198
+#, fuzzy
+msgid "Password is required"
+msgstr "Mot de passe"
+
+#: sunshine-functions.php:200
+#, fuzzy
+msgid "Email already exists"
+msgstr "Ya existe Nombre de usuario"
+
+#: sunshine-functions.php:236
+msgid "Valid email required"
+msgstr "E-mail valide est nécessaire"
+
+#: sunshine-functions.php:238
+msgid "Phone number required"
+msgstr "Numéro de téléphone requis"
+
+#: sunshine-functions.php:240
+#, fuzzy
+msgid "Billing country required"
+msgstr "Facturation prénom requis"
+
+#: sunshine-functions.php:242
+msgid "Billing first name required"
+msgstr "Facturation prénom requis"
+
+#: sunshine-functions.php:244
+msgid "Billing last name required"
+msgstr "Facturation nom requis"
+
+#: sunshine-functions.php:246
+msgid "Billing address required"
+msgstr "Adresse de facturation requis"
+
+#: sunshine-functions.php:248
+msgid "Billing city required"
+msgstr "ville de facturation obligatoire"
+
+#: sunshine-functions.php:250
+msgid "Billing state required"
+msgstr "état de facturation requis"
+
+#: sunshine-functions.php:252
+msgid "Billing zip required"
+msgstr "zip de facturation obligatoire"
+
+#: sunshine-functions.php:255
+#, fuzzy
+msgid "Shipping country required"
+msgstr "Livraison prénom requis"
+
+#: sunshine-functions.php:257
+msgid "Shipping first name required"
+msgstr "Livraison prénom requis"
+
+#: sunshine-functions.php:259
+msgid "Shipping last name required"
+msgstr "Livraison nom requis"
+
+#: sunshine-functions.php:261
+msgid "Shipping address required"
+msgstr "Adresse de livraison requise"
+
+#: sunshine-functions.php:263
+msgid "Shipping city required"
+msgstr "Livraison ville requise"
+
+#: sunshine-functions.php:265
+msgid "Shipping state required"
+msgstr "Etat de livraison requis"
+
+#: sunshine-functions.php:267
+msgid "Shipping zip required"
+msgstr "zip de livraison requise"
+
+#: sunshine-functions.php:270
+msgid "Shipping method required"
+msgstr "Mode de livraison requis"
+
+#: sunshine-functions.php:272
+msgid "Payment method required"
+msgstr "Mode de paiement requis"
+
+#: sunshine-functions.php:377
+msgid "New user registration on your Sunshine Photo Cart"
+msgstr "Enregistrement d'un nouvel utilisateur sur votre Soleil Photo Cart"
+
+#: sunshine-functions.php:378
+#, php-format
+msgid "E-mail: %s"
+msgstr "E-mail : %s"
+
+#: sunshine-functions.php:379
+#, php-format
+msgid "Name: %s"
+msgstr "Nom: %s"
+
+#: sunshine-functions.php:381
+#, php-format
+msgid "[%s] New User Registration"
+msgstr "[ %s ] Enregistrement d'un nouvel utilisateur"
+
+#: sunshine-functions.php:388
+#, php-format
+msgid "New user account info for %s"
+msgstr "Nouvel utilisateur informations de compte pour %s"
+
+#: sunshine-functions.php:407
+msgid ""
+"Thank you for registering! You have been automatically logged into your new "
+"account"
+msgstr "Merci de vous inscrire! Vous avez été déconnecté automatiquement sur votre nouveau compte"
+
+#: sunshine-functions.php:433
+msgid "Passwords must be at least six characters long"
+msgstr "Les mots de passe doivent comporter au moins six caractères"
+
+#: sunshine-functions.php:518
+msgid "Account updated"
+msgstr "Compte jour"
+
+#: sunshine-functions.php:585
+#, fuzzy
+msgid "Sorry, no galleries matched that password."
+msgstr "Désolé, aucune galeries n'ont pas encore été mis en place"
+
+#: sunshine-options.php:8
+msgid "General"
+msgstr "Général"
+
+#: sunshine-options.php:9
+msgid "License"
+msgstr "Licence"
+
+#: sunshine-options.php:11
+msgid "License is activated!"
+msgstr "Licence est activé!"
+
+#: sunshine-options.php:11 sunshine-options.php:17
+#, fuzzy
+msgid "Deactivate this license key"
+msgstr "License Key"
+
+#: sunshine-options.php:15
+msgid "License is invalid, please try again!"
+msgstr "Licence n'est pas valide, veuillez réessayer!"
+
+#: sunshine-options.php:19
+msgid "Enter your license key"
+msgstr "Entrez votre clé de licence"
+
+#: sunshine-options.php:23
+msgid "License Key"
+msgstr "License Key"
+
+#: sunshine-options.php:29
+msgid "Localization"
+msgstr "Localisation."
+
+#: sunshine-options.php:31
+msgid "Default Country"
+msgstr "Pays par défaut"
+
+#: sunshine-options.php:48
+msgid "Taxes"
+msgstr "Impôts"
+
+#: sunshine-options.php:59
+msgid "Do not use taxes"
+msgstr "Ne pas utiliser taxes"
+
+#: sunshine-options.php:61
+msgid "Country / State"
+msgstr "Pays / Etat"
+
+#: sunshine-options.php:62
+#, fuzzy
+msgid "What country or state should have taxes applied"
+msgstr "Dans quel état doit avoir taxes appliquées, généralement votre état"
+
+#: sunshine-options.php:69
+msgid "Tax rate (%)"
+msgstr "Taux de taxe"
+
+#: sunshine-options.php:70
+msgid "Number only"
+msgstr "Nombre seulement"
+
+#: sunshine-options.php:76
+msgid "Currency Formatting"
+msgstr "Formatage des devises"
+
+#: sunshine-options.php:79
+msgid "Australian Dollars"
+msgstr "Dollar australien (&#36;)"
+
+#: sunshine-options.php:80
+msgid "Brazilian Real"
+msgstr "Real Brésilien (&#36;)"
+
+#: sunshine-options.php:81
+msgid "Canadian Dollars"
+msgstr "Dollars canadiens (&#36;)"
+
+#: sunshine-options.php:82
+msgid "Chinese Yuan"
+msgstr "Yuan chinois"
+
+#: sunshine-options.php:83
+msgid "Czech Koruna"
+msgstr "Couronne Tchèque"
+
+#: sunshine-options.php:84
+msgid "Danish Krone"
+msgstr "Couronne danoise"
+
+#: sunshine-options.php:85
+msgid "Euros"
+msgstr "Euros"
+
+#: sunshine-options.php:86
+msgid "Hong Kong Dollar"
+msgstr "Dollar de Hong Kong"
+
+#: sunshine-options.php:87
+msgid "Hungarian Forint"
+msgstr "Forint Hongrois"
+
+#: sunshine-options.php:88
+msgid "Indonesia Rupiah"
+msgstr "Indonésie Rupiah"
+
+#: sunshine-options.php:89
+msgid "Israeli Shekel"
+msgstr "Shekel Israelien"
+
+#: sunshine-options.php:90
+msgid "Japanese Yen"
+msgstr "Yen Japonais"
+
+#: sunshine-options.php:91
+msgid "Malaysian Ringgits"
+msgstr "Ringgits malaisiens"
+
+#: sunshine-options.php:92
+msgid "Mexican Peso"
+msgstr "Peso mexicain (&#36;)"
+
+#: sunshine-options.php:93
+msgid "Norwegian Krone"
+msgstr "Couronne Norvégienne"
+
+#: sunshine-options.php:94
+msgid "New Zealand Dollar"
+msgstr "Dollar néo-zélandais (&#36;)"
+
+#: sunshine-options.php:95
+msgid "Philippine Pesos"
+msgstr "Pesos philippins"
+
+#: sunshine-options.php:96
+msgid "Polish Zloty"
+msgstr "Zloty Polonais"
+
+#: sunshine-options.php:97
+msgid "Pounds Sterling"
+msgstr "Livres Sterling (&pound;)"
+
+#: sunshine-options.php:98
+msgid "Romanian Leu"
+msgstr "Leu roumain"
+
+#: sunshine-options.php:99
+msgid "Singapore Dollar"
+msgstr "Dollar de Singapour"
+
+#: sunshine-options.php:100
+msgid "South African rand"
+msgstr "South African Rand"
+
+#: sunshine-options.php:101
+msgid "Swedish Krona"
+msgstr "Couronne Suédoise"
+
+#: sunshine-options.php:102
+msgid "Swiss Franc"
+msgstr "Franc suisse"
+
+#: sunshine-options.php:103
+msgid "Taiwan New Dollars"
+msgstr "Nouveau dollar de Taïwan"
+
+#: sunshine-options.php:104
+msgid "Thai Baht"
+msgstr "Baht thaïlandais"
+
+#: sunshine-options.php:105
+msgid "Turkish Lira"
+msgstr "Lire turque"
+
+#: sunshine-options.php:106
+msgid "US Dollars"
+msgstr "Dollar américain (&#36;)"
+
+#: sunshine-options.php:109
+msgid "Currency"
+msgstr "Devise"
+
+#: sunshine-options.php:116
+msgid "Currency symbol position"
+msgstr "position de symbole de devises"
+
+#: sunshine-options.php:119
+msgid "Left"
+msgstr "Gauche"
+
+#: sunshine-options.php:119
+msgid "Right"
+msgstr "Vrai"
+
+#: sunshine-options.php:119
+msgid "Left space"
+msgstr "Espace à gauche"
+
+#: sunshine-options.php:119
+msgid "Right space"
+msgstr "Espace à droite"
+
+#: sunshine-options.php:122
+msgid "Thousands separator"
+msgstr "Séparateur de milliers"
+
+#: sunshine-options.php:128
+msgid "Decimal separator"
+msgstr "Séparateur décimal"
+
+#: sunshine-options.php:134
+msgid "Number of decimals"
+msgstr "Nombre de décimales"
+
+#: sunshine-options.php:140
+#, fuzzy
+msgid "Cart, Checkout and Accounts"
+msgstr "Compras, pago y envío y Cuentas"
+
+#: sunshine-options.php:142
+#, fuzzy
+msgid "Require account to see products"
+msgstr "Exigir cuenta para ver productos"
+
+#: sunshine-options.php:145
+#, fuzzy
+msgid ""
+"Enabling this option means users cannot see products or add them to cart "
+"unless they have created an account and are logged in."
+msgstr "Activar esta opción significa que los usuarios no pueden ver los productos o añadirlos a la cesta a menos que hayan creado una cuenta y se ha autentificado"
+
+#: sunshine-options.php:153
+msgid "Pages"
+msgstr "Pages"
+
+#: sunshine-options.php:154
+msgid "Page options"
+msgstr "Options de la page"
+
+#: sunshine-options.php:154
+msgid ""
+"The following pages need selecting so that Sunshine knows where they are. "
+"These pages should have been created upon installation, if not you will need "
+"to create them."
+msgstr "Les pages suivantes doivent choisir de sorte que Soleil sait où ils sont. Ces pages doivent avoir été créés lors de l'installation, sinon vous devrez les créer."
+
+#: sunshine-options.php:156
+msgid "Sunshine page"
+msgstr "page Sunshine"
+
+#: sunshine-options.php:157
+msgid "Choose which page Sunshine will be displayed on"
+msgstr "Choisissez quelle page Soleil sera affichée sur"
+
+#: sunshine-options.php:184
+#, fuzzy
+msgid "Administration Options"
+msgstr "Options"
+
+#: sunshine-options.php:186
+#, fuzzy
+msgid "Delete images with gallery"
+msgstr "Pas d'images pour cette galerie encore"
+
+#: sunshine-options.php:189
+#, fuzzy
+msgid ""
+"This will remove all images from the Media Library AND the actual image "
+"files from your server when a gallery is permanently deleted"
+msgstr "Esto eliminará todas las imágenes de la biblioteca de medios de comunicación y los archivos de imágenes reales de su servidor cuando una galería se eliminará de forma permanente"
+
+#: sunshine-options.php:193
+msgid "Display Options"
+msgstr "Options d'affichage"
+
+#: sunshine-options.php:195
+#, fuzzy
+msgid "Gallery Order"
+msgstr "Commande #"
+
+#: sunshine-options.php:198
+#, fuzzy
+msgid "Custom ordering"
+msgstr "N° d'article"
+
+#: sunshine-options.php:198
+#, fuzzy
+msgid "Date (New to Old)"
+msgstr "Fecha (Nuevos a Antiguos)"
+
+#: sunshine-options.php:198
+#, fuzzy
+msgid "Date (Old to New)"
+msgstr "Fecha (Viejo a nuevo)"
+
+#: sunshine-options.php:198
+#, fuzzy
+msgid "Alphabetical"
+msgstr "Alfabético"
+
+#: sunshine-options.php:202
+msgid "Columns"
+msgstr "Colonnes"
+
+#: sunshine-options.php:208
+msgid "Rows"
+msgstr "Lignes"
+
+#: sunshine-options.php:214
+msgid "Image Theft Prevention"
+msgstr "Image prévention du vol"
+
+#: sunshine-options.php:217
+#, fuzzy, php-format
+msgid ""
+"Enabling this option will disable the right click menu and also not allow "
+"images to be dragged/dropped to the desktop. NOT a 100% effective method, "
+"but should stop most people."
+msgstr "Al habilitar esta opción desactivará el menú del botón derecho y no permitir que las imágenes pueden arrastrar / cayeron en el escritorio. No es un método 100% efectivo, pero debe dejar la mayoría de las personas."
+
+#: sunshine-options.php:221
+#, fuzzy
+msgid "Proofing Only"
+msgstr "Sólo corrección"
+
+#: sunshine-options.php:224
+#, fuzzy
+msgid ""
+"This will remove all aspects of purchasing abilities throughout the site, "
+"leaving just image viewing and adding to favorites"
+msgstr "Esto eliminará todos los aspectos de la compra de capacidades a través del sitio, dejando sólo la visualización de imágenes y añadir a favoritos"
+
+#: sunshine-options.php:228
+msgid "Thumbnail Width"
+msgstr "Miniature Largeur"
+
+#: sunshine-options.php:234
+msgid "Thumbnail Height"
+msgstr "Hauteur des vignettes"
+
+#: sunshine-options.php:240
+msgid "Crop"
+msgstr "Rogner"
+
+#: sunshine-options.php:242
+msgid ""
+"Should images be cropped to the exact dimensions of your thumbnail width / "
+"height"
+msgstr "Devraient être recadrées images aux dimensions exactes de votre largeur de vignettes / hauteur"
+
+#: sunshine-options.php:249 sunshine-template-functions.php:928
+msgid "Payment Methods"
+msgstr "Modes de Paiement"
+
+#: sunshine-options.php:253 sunshine-template-functions.php:906
+msgid "Shipping Methods"
+msgstr "Méthode de Livraison"
+
+#: sunshine-options.php:257
+msgid "Design"
+msgstr "DEFINITON"
+
+#: sunshine-options.php:258 themes/default/functions.php:13
+msgid "Design Elements"
+msgstr "Éléments de design"
+
+#: sunshine-options.php:260
+msgid "Theme"
+msgstr "Thème"
+
+#: sunshine-options.php:264
+msgid "My WordPress Theme"
+msgstr "Mon thème WordPress"
+
+#: sunshine-options.php:265
+msgid "Default Sunshine Theme"
+msgstr "Thème Sunshine par défaut"
+
+#: sunshine-options.php:266
+#, fuzzy
+msgid "Sunshine 2013 Theme"
+msgstr "Thème Sunshine par défaut"
+
+#: sunshine-options.php:275
+msgid "Logo"
+msgstr "Logo"
+
+#: sunshine-options.php:280
+msgid ""
+"Logo should be 170px wide transparent PNG. Upload a file to your <a href="
+"\"upload.php\">Media gallery</a>, then select it here"
+msgstr "Logo doit être 170px de large PNG transparent. Envoyer un fichier à votre <a href=\"upload.php\"> galerie des médias </ a>, puis sélectionnez-le ici"
+
+#: sunshine-options.php:285 sunshine-template-functions.php:794
+#: themes/2013/order.php:17 themes/default/order.php:17
+#: themes/theme/order.php:20
+msgid "Email"
+msgstr "adresse electronique (E-mail)"
+
+#: sunshine-options.php:286
+msgid "Email From"
+msgstr "Email De"
+
+#: sunshine-options.php:288
+msgid "From Name"
+msgstr "de (nom) :"
+
+#: sunshine-options.php:289
+msgid "When emails are sent to customers, what name should they come from"
+msgstr "Lorsque emails sont envoyés aux clients, quel nom ils devraient provenir"
+
+#: sunshine-options.php:294
+msgid "From Email"
+msgstr "De (courriel) :"
+
+#: sunshine-options.php:295
+msgid ""
+"When emails are sent to customers, what email address should they come from"
+msgstr "Lorsque les courriels sont envoyés à des clients, quelle adresse e-mail devraient-ils provenir"
+
+#: sunshine-options.php:299
+msgid "Email Text"
+msgstr "Email texte"
+
+#: sunshine-options.php:301
+msgid "Email Signature"
+msgstr "Email Signature"
+
+#: sunshine-options.php:302
+msgid "Appears at the end of every email message"
+msgstr "Apparaît à la fin de chaque e-mail"
+
+#: sunshine-options.php:309
+msgid "Receipt"
+msgstr "Reçu"
+
+#: sunshine-options.php:310
+msgid "Message at the top of email receipts"
+msgstr "Message en haut de recettes email"
+
+#: sunshine-options.php:316
+msgid "Registration"
+msgstr "Enregistrement"
+
+#: sunshine-options.php:317
+msgid "Message at top of new user registration email"
+msgstr "Un message en haut de la nouvelle immatriculation email de l'utilisateur"
+
+#: sunshine-options.php:324
+msgid "Message added to bottom order status change email"
+msgstr "Message ajouté à fond afin de changement de statut email"
+
+#: sunshine-template-functions.php:481 themes/theme/image.php:10
+msgid "Previous"
+msgstr "Précédent"
+
+#: sunshine-template-functions.php:489 themes/theme/image.php:11
+msgid "Next"
+msgstr "Suivant"
+
+#: sunshine-template-functions.php:515
+msgid "Select Product Type"
+msgstr "Sélectionner le type de produit"
+
+#: sunshine-template-functions.php:558
+msgid "Select Product"
+msgstr "Sélectionner un produit"
+
+#: sunshine-template-functions.php:583
+msgid "No products for this category"
+msgstr "Pas de produit pour cette catégorie"
+
+#: sunshine-template-functions.php:592
+msgid "Quantity"
+msgstr "Quantite"
+
+#: sunshine-template-functions.php:605
+msgid "Comments"
+msgstr "Commentaires"
+
+#: sunshine-template-functions.php:607
+#, fuzzy, php-format
+msgid "You have %s characters left"
+msgstr "Vous avez %s à crédit"
+
+#: sunshine-template-functions.php:639
+#, php-format
+msgid ""
+"You must first <a href=\"%s\">login</a> or <a href=\"%s\">register</a> "
+"before you can add pictures to your cart. This allows us to track your "
+"favorites and items in your cart when you return."
+msgstr "Vous devez d'abord <a href=\" %s\"> login </ a> ou <a href=\" %s\"> s'inscrire </ a> avant vous pouvez ajouter des images à votre panier. Cela nous permet de suivre vos favoris et articles dans votre panier lors de votre retour."
+
+#: sunshine-template-functions.php:745 themes/2013/order.php:91
+#: themes/default/order.php:90 themes/theme/order.php:93
+msgid "Subtotal"
+msgstr "Sous-total"
+
+#: sunshine-template-functions.php:750 sunshine-template-functions.php:979
+#: themes/2013/order.php:95 themes/default/order.php:94
+#: themes/theme/order.php:97
+msgid "Tax"
+msgstr "Taxe"
+
+#: sunshine-template-functions.php:755 sunshine-template-functions.php:983
+#: themes/2013/order.php:99 themes/default/order.php:98
+#: themes/theme/order.php:101
+msgid "Shipping"
+msgstr "Livraison"
+
+#: sunshine-template-functions.php:781 sunshine-template-functions.php:960
+#, fuzzy
+msgid "Create Account"
+msgstr "COMPTE : "
+
+#: sunshine-template-functions.php:782
+#, fuzzy
+msgid "A user account is required to checkout"
+msgstr "Nouvel utilisateur informations de compte pour %s"
+
+#: sunshine-template-functions.php:783 sunshine-template-functions.php:961
+#, fuzzy
+msgid "Username"
+msgstr "Ya existe Nombre de usuario"
+
+#: sunshine-template-functions.php:793 themes/2013/order.php:16
+#: themes/default/order.php:16 themes/theme/order.php:19
+msgid "Contact Information"
+msgstr "Pour nous joindre"
+
+#: sunshine-template-functions.php:795 themes/2013/order.php:18
+#: themes/default/order.php:18 themes/theme/order.php:21
+msgid "Phone"
+msgstr "Phone"
+
+#: sunshine-template-functions.php:804 themes/2013/order.php:21
+#: themes/default/order.php:21 themes/theme/order.php:24
+msgid "Billing Information"
+msgstr "Informations de facturation"
+
+#: sunshine-template-functions.php:805 sunshine-template-functions.php:853
+#: themes/2013/order.php:29 themes/2013/order.php:40
+#: themes/default/order.php:29 themes/default/order.php:40
+#: themes/theme/order.php:32 themes/theme/order.php:43
+msgid "Country"
+msgstr "pays"
+
+#: sunshine-template-functions.php:806 sunshine-template-functions.php:854
+#: themes/2013/gift-registry.php:9 themes/2013/order.php:22
+#: themes/2013/order.php:33 themes/default/gift-registry.php:9
+#: themes/default/order.php:22 themes/default/order.php:33
+#: themes/theme/order.php:25 themes/theme/order.php:36
+msgid "First Name"
+msgstr "Prénom"
+
+#: sunshine-template-functions.php:807 sunshine-template-functions.php:855
+#: sunshine-template-functions.php:962 themes/2013/gift-registry.php:10
+#: themes/2013/order.php:23 themes/2013/order.php:34
+#: themes/default/gift-registry.php:10 themes/default/order.php:23
+#: themes/default/order.php:34 themes/theme/order.php:26
+#: themes/theme/order.php:37
+msgid "Last Name"
+msgstr "Nom"
+
+#: sunshine-template-functions.php:808 sunshine-template-functions.php:856
+#: themes/2013/order.php:24 themes/2013/order.php:35
+#: themes/default/order.php:24 themes/default/order.php:35
+#: themes/theme/order.php:27 themes/theme/order.php:38
+msgid "Address"
+msgstr "Adresse"
+
+#: sunshine-template-functions.php:809 sunshine-template-functions.php:857
+#: themes/2013/order.php:25 themes/2013/order.php:36
+#: themes/default/order.php:25 themes/default/order.php:36
+#: themes/theme/order.php:28 themes/theme/order.php:39
+msgid "Address 2"
+msgstr "Adresse 2"
+
+#: sunshine-template-functions.php:810 sunshine-template-functions.php:858
+#: themes/2013/order.php:26 themes/2013/order.php:37
+#: themes/default/order.php:26 themes/default/order.php:37
+#: themes/theme/order.php:29 themes/theme/order.php:40
+msgid "City"
+msgstr "Ville"
+
+#: sunshine-template-functions.php:811 sunshine-template-functions.php:859
+#: themes/2013/order.php:27 themes/2013/order.php:38
+#: themes/default/order.php:27 themes/default/order.php:38
+#: themes/theme/order.php:30 themes/theme/order.php:41
+msgid "State / Province"
+msgstr "État / Province"
+
+#: sunshine-template-functions.php:812 sunshine-template-functions.php:860
+#: themes/2013/order.php:28 themes/2013/order.php:39
+#: themes/default/order.php:28 themes/default/order.php:39
+#: themes/theme/order.php:31 themes/theme/order.php:42
+msgid "Zip / Postcode"
+msgstr "Zip / Code postal"
+
+#: sunshine-template-functions.php:850 themes/2013/order.php:32
+#: themes/default/order.php:32 themes/theme/order.php:35
+msgid "Shipping Information"
+msgstr "Information sur la Livraison"
+
+#: sunshine-template-functions.php:851
+msgid "Shipping same as billing"
+msgstr "Livraison même que la facturation"
+
+#: sunshine-template-functions.php:931
+#, php-format
+msgid "Use my %s in credit"
+msgstr "Utiliser ma %s à crédit"
+
+#: sunshine-template-functions.php:972
+msgid "Order Summary"
+msgstr "Récapitulatif de commande"
+
+#: sunshine-template-functions.php:975
+msgid "Item(s) total"
+msgstr "Point (s) au total"
+
+#: sunshine-template-functions.php:1164
+msgid "Go"
+msgstr "Aller"
+
+#: sunshine-template-functions.php:1175
+#, php-format
+msgid "This gallery is set to expire on <strong>%s</strong>"
+msgstr "Cette galerie est configuré pour expirer sur <strong> %s </ strong>"
+
+#: sunshine-widgets.php:14
+msgid "Display a gallery password box"
+msgstr "Afficher une boîte de mot de passe de la galerie"
+
+#: sunshine-widgets.php:67 sunshine-widgets.php:148
+msgid "Title (Optional):"
+msgstr "Titre (facultatif):"
+
+#: sunshine-widgets.php:85
+msgid "Display Sunshine's main menu links"
+msgstr "Afficher principaux liens du menu de soleil"
+
+#: sunshine-widgets.php:152
+#, fuzzy
+msgid "Visibility (Optional):"
+msgstr "Titre (facultatif):"
+
+#: themes/2013/account.php:11 themes/default/account.php:11
+#: themes/theme/account.php:13
+#, php-format
+msgid "You have %s in credit"
+msgstr "Vous avez %s à crédit"
+
+#: themes/2013/account.php:23 themes/2013/order.php:9
+#: themes/default/account.php:23 themes/default/order.php:9
+#: themes/theme/account.php:25
+msgid "Order"
+msgstr "Commande"
+
+#: themes/2013/account.php:24 themes/default/account.php:24
+#: themes/theme/account.php:26
+#, php-format
+msgid "%d item"
+msgstr "%d article"
+
+#: themes/2013/account.php:37 themes/default/account.php:37
+#: themes/theme/account.php:39
+msgid "Update Account Info"
+msgstr "Mise à jour Informations sur le compte"
+
+#: themes/2013/cart.php:18 themes/2013/order.php:52 themes/default/cart.php:18
+#: themes/default/order.php:51 themes/theme/cart.php:18
+#: themes/theme/order.php:54
+msgid "Item Price"
+msgstr "Article Prix"
+
+#: themes/2013/cart.php:19 themes/2013/order.php:53 themes/default/cart.php:19
+#: themes/default/order.php:52 themes/theme/cart.php:19
+#: themes/theme/order.php:55
+msgid "Item Total"
+msgstr "Item Total"
+
+#: themes/2013/cart.php:60 themes/default/cart.php:59 themes/theme/cart.php:60
+msgid "Update Cart"
+msgstr "Rafraîchir le panier"
+
+#: themes/2013/cart.php:69 themes/default/cart.php:68 themes/theme/cart.php:69
+msgid "Continue to checkout"
+msgstr "Continuer à la caisse"
+
+#: themes/2013/cart.php:73 themes/default/cart.php:72 themes/theme/cart.php:73
+msgid "You do not have anything in your cart yet!"
+msgstr "Vous n'avez rien dans votre panier pour le moment!"
+
+#: themes/2013/checkout.php:34 themes/default/checkout.php:34
+#: themes/theme/checkout.php:34
+msgid "Complete my purchase"
+msgstr "Compléter mon achat"
+
+#: themes/2013/checkout.php:34 themes/default/checkout.php:34
+#: themes/theme/checkout.php:34
+msgid "or"
+msgstr "ou"
+
+#: themes/2013/checkout.php:34 themes/default/checkout.php:34
+#: themes/theme/checkout.php:34
+msgid "cancel and return to galleries"
+msgstr "annuler et revenir aux galeries"
+
+#: themes/2013/checkout.php:38 themes/default/checkout.php:38
+#: themes/theme/checkout.php:38
+msgid "You do not have anything in your cart yet"
+msgstr "Vous n'avez rien dans votre panier encore"
+
+#: themes/2013/favorites.php:31 themes/default/favorites.php:27
+#: themes/theme/favorites.php:28
+msgid "You have no images marked as a favorite"
+msgstr "Vous n'avez pas d'images marquées comme favori"
+
+#: themes/2013/functions.php:5 themes/default/functions.php:4
+msgid "Functionality"
+msgstr "Fonctionnalité"
+
+#: themes/2013/functions.php:7 themes/default/functions.php:6
+#, fuzzy
+msgid "Gallery Login Box"
+msgstr "L'activation de cette option aura la boîte de connexion galerie apparaître dans la barre latérale gauche."
+
+#: themes/2013/functions.php:10 themes/default/functions.php:9
+msgid ""
+"Enabling this option will have the gallery login box appear in the left "
+"sidebar."
+msgstr "L'activation de cette option aura la boîte de connexion galerie apparaître dans la barre latérale gauche."
+
+#: themes/2013/functions.php:14
+msgid "Main Area"
+msgstr "Zone principale"
+
+#: themes/2013/functions.php:16 themes/2013/functions.php:90
+#: themes/2013/functions.php:122 themes/default/functions.php:15
+msgid "Background Color"
+msgstr "Couleur de fond"
+
+#: themes/2013/functions.php:28 themes/default/functions.php:106
+msgid "Header Font"
+msgstr "Font-tête"
+
+#: themes/2013/functions.php:34
+#, fuzzy
+msgid "Header Text Color"
+msgstr "Bouton Couleur du texte"
+
+#: themes/2013/functions.php:46
+#, fuzzy
+msgid "Body Text Font"
+msgstr "Principal Copier Body police"
+
+#: themes/2013/functions.php:52
+#, fuzzy
+msgid "Body Text Color"
+msgstr "Bouton Couleur du texte"
+
+#: themes/2013/functions.php:64 themes/2013/functions.php:108
+#: themes/default/functions.php:46
+msgid "Link Color"
+msgstr "Couleur des liens"
+
+#: themes/2013/functions.php:76
+#, fuzzy
+msgid "Secondary Color"
+msgstr "Font-tête secondaire"
+
+#: themes/2013/functions.php:88
+msgid "Left Sidebar"
+msgstr "Sidebar à gauche"
+
+#: themes/2013/functions.php:102
+#, fuzzy
+msgid "Font"
+msgstr "Font-tête"
+
+#: themes/2013/functions.php:120
+#, fuzzy
+msgid "Buttons"
+msgstr "Couleur du bouton"
+
+#: themes/2013/functions.php:134
+#, fuzzy
+msgid "Text Color"
+msgstr "Bouton Couleur du texte"
+
+#: themes/2013/functions.php:146 themes/default/functions.php:129
+#: themes/theme/functions.php:4
+#, fuzzy
+msgid "Custom Styles"
+msgstr "N° d'article"
+
+#: themes/2013/functions.php:148 themes/default/functions.php:131
+#: themes/theme/functions.php:6
+msgid "CSS"
+msgstr "CSS"
+
+#: themes/2013/gallery.php:69 themes/default/gallery.php:66
+#: themes/theme/gallery.php:68
+msgid "Sorry, no images have been added to this gallery yet"
+msgstr "Désolé, aucune image n'a encore été ajoutée à cette galerie"
+
+#: themes/2013/gallery.php:74 themes/default/gallery.php:71
+#: themes/theme/gallery.php:72
+msgid "Sorry, this gallery has expired."
+msgstr "Désolé, cette galerie a expiré."
+
+#: themes/2013/gift-registry.php:3 themes/default/gift-registry.php:3
+msgid "Gift Registry"
+msgstr "Registre des Cadeaux"
+
+#: themes/2013/gift-registry.php:5 themes/default/gift-registry.php:5
+msgid "Find a Registry"
+msgstr "Trouvez un registre"
+
+#: themes/2013/gift-registry.php:6 themes/default/gift-registry.php:6
+msgid "Enter the first or last name of the person you are searching for"
+msgstr "Entrez le nom ou le prénom de la personne que vous recherchez"
+
+#: themes/2013/header.php:30 themes/default/header.php:30
+msgid "Enter gallery password"
+msgstr "Entrez le mot de passe de la galerie"
+
+#: themes/2013/home.php:25 themes/default/home.php:25 themes/theme/home.php:21
+msgid "Sorry, no galleries have been setup yet"
+msgstr "Désolé, aucune galeries n'ont pas encore été mis en place"
+
+#: themes/2013/order.php:45 themes/default/order.php:44
+#: themes/theme/order.php:47
+msgid "Items"
+msgstr "Articles"
+
+#: themes/2013/order.php:121 themes/default/order.php:120
+msgid "Order Comments"
+msgstr "Commentaires sur la Commande"
+
+#: themes/default/functions.php:32
+msgid "Background Image"
+msgstr "Image d'arrière-plan"
+
+#: themes/default/functions.php:37
+#, fuzzy
+msgid ""
+"Upload a file to your <a href=\"upload.php\">Media gallery</a>, then select "
+"it here"
+msgstr "Logo doit être 170px de large PNG transparent. Envoyer un fichier à votre <a href=\"upload.php\"> galerie des médias </ a>, puis sélectionnez-le ici"
+
+#: themes/default/functions.php:40
+msgid "Background Repeat"
+msgstr "Background repeat"
+
+#: themes/default/functions.php:43
+#, fuzzy
+msgid "Horizontally and Vertically"
+msgstr "Horizontal y verticalmente"
+
+#: themes/default/functions.php:43
+#, fuzzy
+msgid "Horizontally"
+msgstr "Horizontal y verticalmente"
+
+#: themes/default/functions.php:43
+#, fuzzy
+msgid "Vertically"
+msgstr "Verticalmente"
+
+#: themes/default/functions.php:43
+#, fuzzy
+msgid "No repeat"
+msgstr "Background repeat"
+
+#: themes/default/functions.php:58
+msgid "Button Color"
+msgstr "Couleur du bouton"
+
+#: themes/default/functions.php:70
+msgid "Button Text Color"
+msgstr "Bouton Couleur du texte"
+
+#: themes/default/functions.php:82
+msgid "Header Background Color"
+msgstr "Contexte tête de couleur"
+
+#: themes/default/functions.php:94
+msgid "Header Font Color"
+msgstr "Tête Couleur de police"
+
+#: themes/default/functions.php:112
+msgid "Secondary Header Font"
+msgstr "Font-tête secondaire"
+
+#: themes/default/functions.php:118
+msgid "Menu Font"
+msgstr "Menu police"
+
+#: themes/default/functions.php:124
+msgid "Main Body Copy Font"
+msgstr "Principal Copier Body police"
+
+#: themes/theme/functions.php:12
+#, fuzzy
+msgid "Before Sunshine"
+msgstr "Antes del Sol"
+
+#: themes/theme/functions.php:19
+#, fuzzy
+msgid "After Sunshine"
+msgstr "Soleil favoris"
+
+#~ msgid ""
+#~ "If you leave the password field empty one will be generated for you. "
+#~ "Password must be at least six characters long."
+#~ msgstr ""
+#~ "Si vous laissez le champ mot de passe vide vous sera généré pour vous. "
+#~ "Mot de passe doit comporter au moins six caractères."
+
+#, fuzzy
+#~ msgid "Allowed Countries"
+#~ msgstr "Codes postaux / post admis"
+
+#~ msgid "Sorry, the download file does not exist"
+#~ msgstr "Désolé, le fichier de téléchargement n'existe pas"
+
+#~ msgid "Extra HTML - Top"
+#~ msgstr "Très HTML - Top"
+
+#~ msgid "Extra HTML - Bottom"
+#~ msgstr "Très HTML - Bas"
+
+#~ msgid "Password:"
+#~ msgstr "Mot de passe:"
+
+#, fuzzy
+#~ msgid "Sidebar Background Color"
+#~ msgstr "Contexte tête de couleur"
+
+#, fuzzy
+#~ msgid "Menu Link Color"
+#~ msgstr "Couleur des liens"
+
+#~ msgid "Menu Hover Color"
+#~ msgstr "Couleur du menu lors du survol"
+
+#, fuzzy
+#~ msgid "Main Background Color"
+#~ msgstr "Couleur de fond"
+
+#~ msgid "See customization options"
+#~ msgstr "Voir les options de personnalisation"
+
+#~ msgid "State"
+#~ msgstr "état"
+
+#~ msgid "Disable Right Click"
+#~ msgstr "Désactiver Clic droit"
+
+#~ msgid "Zip"
+#~ msgstr "Code postal"
+
+#~ msgid "Shipped"
+#~ msgstr "Envoyer"
+
+#~ msgid "account overview"
+#~ msgstr "compte aperçu"
+

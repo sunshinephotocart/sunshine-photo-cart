@@ -1,0 +1,3682 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Sunshine Photo Cart\n"
+"POT-Creation-Date: 2013-11-05 21:41-0700\n"
+"PO-Revision-Date: 2014-04-07 09:35-0700\n"
+"Last-Translator: Derek Ashauer <derek@ashwebstudio.com>\n"
+"Language-Team:  <derek@ashwebstudio.com>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+"X-Poedit-KeywordsList: __;_e;_n\n"
+"X-Poedit-Basepath: /Users/derekashauer/Dropbox/sunshine/sunshinepro.dev/wp-content/plugins/sunshine-pro\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: sunshine-functions.php:79
+msgid "Item added to cart!"
+msgstr "Bildet ble lagt til i handlekurven."
+
+#: sunshine-functions.php:79 addons/digital-download/index.php:497
+#: addons/packages/index.php:475 addons/packages/index.php:502
+msgid "View cart"
+msgstr "Vis handlekurv"
+
+#: sunshine-functions.php:82 addons/packages/index.php:448
+#: addons/packages/index.php:452
+msgid "Sorry, something went wrong with adding the item to cart."
+msgstr "Sorry, gikk noe galt med å legge til elementet i handlekurven."
+
+#: sunshine-functions.php:107 sunshine-functions.php:123
+msgid "Cart updated"
+msgstr "Handlekurv oppdatert"
+
+#: sunshine-functions.php:174
+msgid "Valid email required"
+msgstr "Gyldig e påkrevd"
+
+#: sunshine-functions.php:176
+msgid "Phone number required"
+msgstr "Telefonnummer som kreves"
+
+#: sunshine-functions.php:178
+msgid "Billing country required"
+msgstr "Faktureringslandet nødvendig"
+
+#: sunshine-functions.php:180
+msgid "Billing first name required"
+msgstr "Fakturering fornavn nødvendig"
+
+#: sunshine-functions.php:182
+msgid "Billing last name required"
+msgstr "Fakturering etternavn som kreves"
+
+#: sunshine-functions.php:184
+msgid "Billing address required"
+msgstr "Fakturaadresse nødvendig"
+
+#: sunshine-functions.php:186
+msgid "Billing city required"
+msgstr "Faktureringsby nødvendig"
+
+#: sunshine-functions.php:188
+msgid "Billing state required"
+msgstr "Fakturering, krevdes"
+
+#: sunshine-functions.php:190
+msgid "Billing zip required"
+msgstr "Billing zip nødvendig"
+
+#: sunshine-functions.php:193
+msgid "Shipping country required"
+msgstr "Shipping landet nødvendig"
+
+#: sunshine-functions.php:195
+msgid "Shipping first name required"
+msgstr "Shipping fornavn nødvendig"
+
+#: sunshine-functions.php:197
+msgid "Shipping last name required"
+msgstr "Shipping etternavn som kreves"
+
+#: sunshine-functions.php:199
+msgid "Shipping address required"
+msgstr "Leveringsadresse påkrevd"
+
+#: sunshine-functions.php:201
+msgid "Shipping city required"
+msgstr "Sjøfartsby nødvendig"
+
+#: sunshine-functions.php:203
+msgid "Shipping state required"
+msgstr "Shipping, krevdes"
+
+#: sunshine-functions.php:205
+msgid "Shipping zip required"
+msgstr "Shipping zip nødvendig"
+
+#: sunshine-functions.php:208
+msgid "Shipping method required"
+msgstr "Shipping som er påkrevd"
+
+#: sunshine-functions.php:210
+msgid "Payment method required"
+msgstr "Betalingsmåte nødvendig"
+
+#: sunshine-functions.php:222 sunshine-functions.php:240
+#: classes/countries.class.php:466
+#, fuzzy
+msgid "Select state"
+msgstr "Velg produkt"
+
+#: sunshine-functions.php:310
+msgid "New user registration on your Sunshine Photo Cart"
+msgstr "Ny brukerregistrering på Sunshine Photo Cart"
+
+#: sunshine-functions.php:311
+#, php-format
+msgid "E-mail: %s"
+msgstr "E-post: %s"
+
+#: sunshine-functions.php:312
+#, php-format
+msgid "Name: %s"
+msgstr "Navn: %s"
+
+#: sunshine-functions.php:314
+#, php-format
+msgid "[%s] New User Registration"
+msgstr "[ %s ] Registrering av ny bruker"
+
+#: sunshine-functions.php:321
+#, php-format
+msgid "New user account info for %s"
+msgstr "Ny brukerkonto info for %s"
+
+#: sunshine-functions.php:340
+msgid "Thank you for registering! You have been automatically logged into your new account"
+msgstr "Takk for din registrering! Du har blitt automatisk logget på din nye konto"
+
+#: sunshine-functions.php:349 addons/payment-payjunction/index.php:248
+#: classes/frontend.class.php:249
+msgid "Password"
+msgstr "Passord"
+
+#: sunshine-functions.php:362
+msgid "Passwords must be at least six characters long"
+msgstr "Passord må være minst seks tegn"
+
+#: sunshine-functions.php:369
+msgid "If you leave the password field empty one will be generated for you. Password must be at least six characters long."
+msgstr "Hvis du lar passordfeltet være tomt vil bli generert for deg. Passordet må være minst seks tegn."
+
+#: sunshine-functions.php:446
+msgid "Account updated"
+msgstr "Account oppdatert"
+
+#: sunshine-functions.php:513
+msgid "Sorry, no galleries matched that password."
+msgstr "Beklager, ingen gallerier som passord."
+
+#: sunshine-options.php:8
+msgid "General"
+msgstr "Generelt"
+
+#: sunshine-options.php:9
+msgid "License"
+msgstr "Lisens"
+
+#: sunshine-options.php:11
+msgid "License is activated!"
+msgstr "Lisensen aktiveres!"
+
+#: sunshine-options.php:11 sunshine-options.php:17
+msgid "Deactivate this license key"
+msgstr "Deaktivere denne lisensnøkkelen"
+
+#: sunshine-options.php:15
+msgid "License is invalid, please try again!"
+msgstr "Lisensen er ugyldig, prøv igjen!"
+
+#: sunshine-options.php:19
+msgid "Enter your license key"
+msgstr "Skriv inn din lisensnøkkel"
+
+#: sunshine-options.php:23
+msgid "License Key"
+msgstr "License Key"
+
+#: sunshine-options.php:29
+msgid "Localization"
+msgstr "Lokalisering"
+
+#: sunshine-options.php:31
+msgid "Default Country"
+msgstr "Standard Land"
+
+#: sunshine-options.php:38
+msgid "Allowed Countries"
+msgstr "Tillatte Land"
+
+#: sunshine-options.php:46
+msgid "Taxes"
+msgstr "Skatter"
+
+#: sunshine-options.php:57
+msgid "Do not use taxes"
+msgstr "Ikke bruk skatter"
+
+#: sunshine-options.php:59
+msgid "Country / State"
+msgstr "Land / stat"
+
+#: sunshine-options.php:60
+msgid "What country or state should have taxes applied"
+msgstr "Hvilket land eller staten bør ha skatt påføres"
+
+#: sunshine-options.php:67
+msgid "Tax rate (%)"
+msgstr "Skattesats (%)"
+
+#: sunshine-options.php:68
+msgid "Number only"
+msgstr "Antall bare"
+
+#: sunshine-options.php:74
+msgid "Currency Formatting"
+msgstr "Valuta formatering"
+
+#: sunshine-options.php:77
+msgid "Australian Dollars"
+msgstr "Australske dollar"
+
+#: sunshine-options.php:78
+msgid "Brazilian Real"
+msgstr "Brasilianske real"
+
+#: sunshine-options.php:79
+msgid "Canadian Dollars"
+msgstr "Kanadiske dollar"
+
+#: sunshine-options.php:80
+msgid "Chinese Yuan"
+msgstr "Chinese Yuan"
+
+#: sunshine-options.php:81
+msgid "Czech Koruna"
+msgstr "Tsjekkiske koruna"
+
+#: sunshine-options.php:82
+msgid "Danish Krone"
+msgstr "Danske kroner"
+
+#: sunshine-options.php:83
+msgid "Euros"
+msgstr "Euro"
+
+#: sunshine-options.php:84
+msgid "Hong Kong Dollar"
+msgstr "Hong Kong Dollar"
+
+#: sunshine-options.php:85
+msgid "Hungarian Forint"
+msgstr "Ungarsk forint"
+
+#: sunshine-options.php:86
+msgid "Indonesia Rupiah"
+msgstr "Indonesia Rupiah"
+
+#: sunshine-options.php:87
+msgid "Israeli Shekel"
+msgstr "Israelske shekel"
+
+#: sunshine-options.php:88
+msgid "Japanese Yen"
+msgstr "Japanske yen"
+
+#: sunshine-options.php:89
+msgid "Malaysian Ringgits"
+msgstr "Malaysiske ringgit"
+
+#: sunshine-options.php:90
+msgid "Mexican Peso"
+msgstr "Meksikanske peso"
+
+#: sunshine-options.php:91
+msgid "Norwegian Krone"
+msgstr "Norske kroner"
+
+#: sunshine-options.php:92
+msgid "New Zealand Dollar"
+msgstr "New Zealand Dollar"
+
+#: sunshine-options.php:93
+msgid "Philippine Pesos"
+msgstr "Filippinsk Pesos"
+
+#: sunshine-options.php:94
+msgid "Polish Zloty"
+msgstr "Polske zloty"
+
+#: sunshine-options.php:95
+msgid "Pounds Sterling"
+msgstr "Pounds Sterling"
+
+#: sunshine-options.php:96
+msgid "Romanian Leu"
+msgstr "Rumensk leu"
+
+#: sunshine-options.php:97
+msgid "Singapore Dollar"
+msgstr "Singapore Dollar"
+
+#: sunshine-options.php:98
+msgid "South African rand"
+msgstr "Sørafrikanske rand"
+
+#: sunshine-options.php:99
+msgid "Swedish Krona"
+msgstr "Svenske kroner"
+
+#: sunshine-options.php:100
+msgid "Swiss Franc"
+msgstr "Sveitsiske Franc"
+
+#: sunshine-options.php:101
+msgid "Taiwan New Dollars"
+msgstr "Taiwan Nye Dollars"
+
+#: sunshine-options.php:102
+msgid "Thai Baht"
+msgstr "Thailandske baht"
+
+#: sunshine-options.php:103
+msgid "Turkish Lira"
+msgstr "Turkish Lira"
+
+#: sunshine-options.php:104
+msgid "US Dollars"
+msgstr "US Dollar"
+
+#: sunshine-options.php:107
+msgid "Currency"
+msgstr "Valuta"
+
+#: sunshine-options.php:114
+msgid "Currency symbol position"
+msgstr "Valuta symbol posisjon"
+
+#: sunshine-options.php:117
+msgid "Left"
+msgstr "Venstre"
+
+#: sunshine-options.php:117
+msgid "Right"
+msgstr "Høyre"
+
+#: sunshine-options.php:117
+msgid "Left space"
+msgstr "Venstre plass"
+
+#: sunshine-options.php:117
+msgid "Right space"
+msgstr "Høyre plass"
+
+#: sunshine-options.php:120
+msgid "Thousands separator"
+msgstr "Tusenskilletegn"
+
+#: sunshine-options.php:126
+msgid "Decimal separator"
+msgstr "Desimaltegn"
+
+#: sunshine-options.php:132
+msgid "Number of decimals"
+msgstr "Antall desimaler"
+
+#: sunshine-options.php:140
+msgid "Pages"
+msgstr "Sider"
+
+#: sunshine-options.php:141
+msgid "Page options"
+msgstr "Sidealternativer"
+
+#: sunshine-options.php:141
+msgid "The following pages need selecting so that Sunshine knows where they are. These pages should have been created upon installation, if not you will need to create them."
+msgstr "Følgende sider må velge slik at Sunshine vet hvor de er. Disse sidene skal ha blitt opprettet ved installasjon, hvis ikke vil du trenger for å lage dem."
+
+#: sunshine-options.php:143
+msgid "Sunshine page"
+msgstr "Sunshine side"
+
+#: sunshine-options.php:144
+msgid "Choose which page Sunshine will be displayed on"
+msgstr "Velg hvilken side Sunshine vil bli vist på"
+
+#: sunshine-options.php:150 classes/frontend.class.php:292
+#: themes/2013/cart.php:3 themes/default/cart.php:3
+msgid "Cart"
+msgstr "Handlekurv"
+
+#: sunshine-options.php:156 classes/frontend.class.php:298
+#: themes/2013/checkout.php:3 themes/default/checkout.php:3
+msgid "Checkout"
+msgstr "Kasse"
+
+#: sunshine-options.php:162 classes/frontend.class.php:286
+#: themes/2013/account.php:3 themes/default/account.php:3
+msgid "Account"
+msgstr "Konto"
+
+#: sunshine-options.php:170 classes/frontend.class.php:319
+#: classes/sunshine.class.php:75
+msgid "Galleries"
+msgstr "Gallerier"
+
+#: sunshine-options.php:171
+msgid "Display Options"
+msgstr "Visningsalternativer"
+
+#: sunshine-options.php:173
+msgid "Columns"
+msgstr "Kolonner"
+
+#: sunshine-options.php:179
+msgid "Rows"
+msgstr "Rader"
+
+#: sunshine-options.php:185
+msgid "Image Theft Prevention"
+msgstr "Bilde Theft Prevention"
+
+#: sunshine-options.php:188
+#, php-format
+msgid "Enabling this option will disable the right click menu and also not allow images to be dragged/dropped to the desktop. NOT a 100% effective method, but should stop most people."
+msgstr "Aktivering av dette alternativet vil deaktivere høyreklikk-menyen, og heller ikke at bildene kan dras / falt til skrivebordet. IKKE en 100% effektiv metode, men bør stoppe folk flest."
+
+#: sunshine-options.php:191
+msgid "Thumbnail Options"
+msgstr "Thumbnail Alternativer"
+
+#: sunshine-options.php:193
+msgid "Thumbnail Width"
+msgstr "Thumbnail Width"
+
+#: sunshine-options.php:199
+msgid "Thumbnail Height"
+msgstr "Thumbnail Høyde"
+
+#: sunshine-options.php:205
+msgid "Crop"
+msgstr "Crop"
+
+#: sunshine-options.php:207
+msgid "Should images be cropped to the exact dimensions of your thumbnail width / height"
+msgstr "Skulle bildene bli beskåret til eksakte dimensjonene på thumbnail bredde / høyde"
+
+#: sunshine-options.php:214 sunshine-template-functions.php:870
+msgid "Payment Methods"
+msgstr "Betalingsmåter"
+
+#: sunshine-options.php:218 sunshine-template-functions.php:848
+msgid "Shipping Methods"
+msgstr "Fraktmåter"
+
+#: sunshine-options.php:222
+msgid "Design"
+msgstr "Design"
+
+#: sunshine-options.php:223 themes/default/functions.php:13
+msgid "Design Elements"
+msgstr "Design Elementer"
+
+#: sunshine-options.php:225
+msgid "Theme"
+msgstr "Tema"
+
+#: sunshine-options.php:229
+msgid "My WordPress Theme"
+msgstr "Min WordPress Theme"
+
+#: sunshine-options.php:230
+msgid "Default Sunshine Theme"
+msgstr "Standard Sunshine Theme"
+
+#: sunshine-options.php:231
+msgid "Sunshine 2013 Theme"
+msgstr "Sunshine 2013 Theme"
+
+#: sunshine-options.php:235 themes/default/functions.php:27
+msgid "No image"
+msgstr "Ikke noe bilde"
+
+#: sunshine-options.php:240
+msgid "Logo"
+msgstr "Logo"
+
+#: sunshine-options.php:245
+msgid "Logo should be 170px wide transparent PNG. Upload a file to your <a href=\"upload.php\">Media gallery</a>, then select it here"
+msgstr "Logoen må være 170px bred gjennomsiktig PNG. Last opp en fil til din <a href=\"upload.php\"> Media gallery </ a>, så velger du den her"
+
+#: sunshine-options.php:250 sunshine-template-functions.php:732
+#: themes/2013/order.php:17 themes/default/order.php:17
+#: themes/theme/order.php:20
+msgid "Email"
+msgstr "Epost"
+
+#: sunshine-options.php:251
+msgid "Email From"
+msgstr "E-post fra"
+
+#: sunshine-options.php:253
+msgid "From Name"
+msgstr "Fra navn"
+
+#: sunshine-options.php:254
+msgid "When emails are sent to customers, what name should they come from"
+msgstr "Når e-post sendes til kunder, bør hvilket navn de kommer fra"
+
+#: sunshine-options.php:259
+msgid "From Email"
+msgstr "Fra e-post"
+
+#: sunshine-options.php:260
+msgid "When emails are sent to customers, what email address should they come from"
+msgstr "Når e-post sendes til kunder, bør hvilken e-postadresse de kommer fra"
+
+#: sunshine-options.php:264
+msgid "Email Text"
+msgstr "E-post Tekst"
+
+#: sunshine-options.php:266
+msgid "Email Signature"
+msgstr "E-signatur"
+
+#: sunshine-options.php:267
+msgid "Appears at the end of every email message"
+msgstr "Vises på slutten av hver e-postmelding"
+
+#: sunshine-options.php:274
+msgid "Receipt"
+msgstr "Kvittering"
+
+#: sunshine-options.php:275
+msgid "Message at the top of email receipts"
+msgstr "Melding på toppen av e-kvitteringer"
+
+#: sunshine-options.php:281
+msgid "Registration"
+msgstr "Registrering"
+
+#: sunshine-options.php:282
+msgid "Message at top of new user registration email"
+msgstr "Melding på toppen av ny bruker registrering epost"
+
+#: sunshine-options.php:288 admin/sunshine-orders.php:24
+#: classes/sunshine.class.php:209 classes/sunshine.class.php:210
+msgid "Order Status"
+msgstr "Order Status"
+
+#: sunshine-options.php:289
+msgid "Message added to bottom order status change email"
+msgstr "Melding lagt til bunn for statusendring epost"
+
+#: sunshine-template-functions.php:442 themes/theme/image.php:10
+msgid "Previous"
+msgstr "Forrige"
+
+#: sunshine-template-functions.php:450 themes/theme/image.php:11
+msgid "Next"
+msgstr "Neste"
+
+#: sunshine-template-functions.php:473
+msgid "Select Product Type"
+msgstr "Velg produkt"
+
+#: sunshine-template-functions.php:516
+msgid "Select Product"
+msgstr "Velg produkt"
+
+#: sunshine-template-functions.php:541
+msgid "No products for this category"
+msgstr "Ingen produkter for denne kategorien"
+
+#: sunshine-template-functions.php:550
+msgid "Quantity"
+msgstr "Antall"
+
+#: sunshine-template-functions.php:563
+msgid "Comments"
+msgstr "Kommentarer"
+
+#: sunshine-template-functions.php:568 addons/packages/index.php:352
+msgid "Add to Cart"
+msgstr "Legg i handlekurv"
+
+#: sunshine-template-functions.php:596
+#, php-format
+msgid "You must first <a href=\"%s\">login</a> or <a href=\"%s\">register</a> before you can add pictures to your cart. This allows us to track your favorites and items in your cart when you return."
+msgstr "Du må først <a href = \ " %s \ "> logg inn </ a> eller <a href = \" %s \ "> register </ a> før du kan legge til bilder i handlekurven. Dette gir oss muligheten til å spore dine favoritter og elementer i handlekurven din når du kommer tilbake."
+
+#: sunshine-template-functions.php:699 themes/2013/order.php:91
+#: themes/default/order.php:90 themes/theme/order.php:93
+msgid "Subtotal"
+msgstr "Totalsum"
+
+#: sunshine-template-functions.php:703 sunshine-template-functions.php:948
+#: themes/2013/order.php:95 themes/default/order.php:94
+#: themes/theme/order.php:97
+msgid "Tax"
+msgstr "Mva"
+
+#: sunshine-template-functions.php:707 sunshine-template-functions.php:952
+#: themes/2013/order.php:99 themes/default/order.php:98
+#: themes/theme/order.php:101
+msgid "Shipping"
+msgstr "Frakt"
+
+#: sunshine-template-functions.php:711 sunshine-template-functions.php:956
+#: addons/discounts/index.php:23 addons/discounts/index.php:47
+#: themes/2013/order.php:103 themes/default/order.php:102
+#: themes/theme/order.php:105
+msgid "Discounts"
+msgstr "Rabattkode"
+
+#: sunshine-template-functions.php:716 sunshine-template-functions.php:960
+#: admin/sunshine-users.php:39 themes/2013/account.php:9
+#: themes/2013/order.php:108 themes/default/account.php:9
+#: themes/default/order.php:107 themes/theme/account.php:13
+#: themes/theme/order.php:110
+msgid "Credits"
+msgstr "Credits"
+
+#: sunshine-template-functions.php:721 themes/2013/order.php:114
+#: themes/default/order.php:113 themes/theme/order.php:116
+msgid "Total"
+msgstr "Total"
+
+#: sunshine-template-functions.php:731 themes/2013/order.php:16
+#: themes/default/order.php:16 themes/theme/order.php:19
+msgid "Contact Information"
+msgstr "Kontaktinformasjon"
+
+#: sunshine-template-functions.php:733 themes/2013/order.php:18
+#: themes/default/order.php:18 themes/theme/order.php:21
+msgid "Phone"
+msgstr "Telefon"
+
+#: sunshine-template-functions.php:742 themes/2013/order.php:21
+#: themes/default/order.php:21 themes/theme/order.php:24
+msgid "Billing Information"
+msgstr "Betalingsinformasjon"
+
+#: sunshine-template-functions.php:743 sunshine-template-functions.php:793
+#: themes/2013/order.php:29 themes/2013/order.php:40
+#: themes/default/order.php:29 themes/default/order.php:40
+#: themes/theme/order.php:32 themes/theme/order.php:43
+msgid "Country"
+msgstr "Land"
+
+#: sunshine-template-functions.php:744 sunshine-template-functions.php:794
+#: themes/2013/gift-registry.php:9 themes/2013/order.php:22
+#: themes/2013/order.php:33 themes/default/gift-registry.php:9
+#: themes/default/order.php:22 themes/default/order.php:33
+#: themes/theme/order.php:25 themes/theme/order.php:36
+msgid "First Name"
+msgstr "Fornavn"
+
+#: sunshine-template-functions.php:745 sunshine-template-functions.php:795
+#: themes/2013/gift-registry.php:10 themes/2013/order.php:23
+#: themes/2013/order.php:34 themes/default/gift-registry.php:10
+#: themes/default/order.php:23 themes/default/order.php:34
+#: themes/theme/order.php:26 themes/theme/order.php:37
+msgid "Last Name"
+msgstr "Etternavn"
+
+#: sunshine-template-functions.php:746 sunshine-template-functions.php:796
+#: themes/2013/order.php:24 themes/2013/order.php:35
+#: themes/default/order.php:24 themes/default/order.php:35
+#: themes/theme/order.php:27 themes/theme/order.php:38
+msgid "Address"
+msgstr "Adresse"
+
+#: sunshine-template-functions.php:747 sunshine-template-functions.php:797
+#: themes/2013/order.php:25 themes/2013/order.php:36
+#: themes/default/order.php:25 themes/default/order.php:36
+#: themes/theme/order.php:28 themes/theme/order.php:39
+msgid "Address 2"
+msgstr "Adresse 2"
+
+#: sunshine-template-functions.php:748 sunshine-template-functions.php:798
+#: themes/2013/order.php:26 themes/2013/order.php:37
+#: themes/default/order.php:26 themes/default/order.php:37
+#: themes/theme/order.php:29 themes/theme/order.php:40
+msgid "City"
+msgstr "By"
+
+#: sunshine-template-functions.php:749 sunshine-template-functions.php:799
+#: themes/2013/order.php:27 themes/2013/order.php:38
+#: themes/default/order.php:27 themes/default/order.php:38
+#: themes/theme/order.php:30 themes/theme/order.php:41
+msgid "State / Province"
+msgstr "Stat / provins"
+
+#: sunshine-template-functions.php:750 sunshine-template-functions.php:800
+#: themes/2013/order.php:28 themes/2013/order.php:39
+#: themes/default/order.php:28 themes/default/order.php:39
+#: themes/theme/order.php:31 themes/theme/order.php:42
+msgid "Zip / Postcode"
+msgstr "Zip / postnummer"
+
+#: sunshine-template-functions.php:790 themes/2013/order.php:32
+#: themes/default/order.php:32 themes/theme/order.php:35
+msgid "Shipping Information"
+msgstr "Fraktmåte"
+
+#: sunshine-template-functions.php:791
+msgid "Shipping same as billing"
+msgstr "Leveringsadresse samme som betalingsadresse"
+
+#: sunshine-template-functions.php:873
+#, php-format
+msgid "Use my %s in credit"
+msgstr "Bruk mitt %s på kreditt"
+
+#: sunshine-template-functions.php:941
+msgid "Order Summary"
+msgstr "Ordresammendrag"
+
+#: sunshine-template-functions.php:944
+msgid "Item(s) total"
+msgstr "Totalsum"
+
+#: sunshine-template-functions.php:964 admin/sunshine-orders.php:244
+msgid "Order Total"
+msgstr "Totalsum"
+
+#: sunshine-template-functions.php:1123
+msgid "Go"
+msgstr "Gå"
+
+#: sunshine-template-functions.php:1134
+#, php-format
+msgid "This gallery is set to expire on <strong>%s</strong>"
+msgstr "Dette galleriet er satt til å utløpe på <strong> %s </ strong>"
+
+#: sunshine-widgets.php:14
+msgid "Display a gallery password box"
+msgstr "Vise et galleri passord boks"
+
+#: sunshine-widgets.php:67 sunshine-widgets.php:148
+msgid "Title (Optional):"
+msgstr "Tittel (Valgfritt):"
+
+#: sunshine-widgets.php:85
+msgid "Display Sunshine's main menu links"
+msgstr "Vise Sunshine hovedmeny lenker"
+
+#: sunshine-widgets.php:152
+msgid "Visibility (Optional):"
+msgstr "Synlighet (valgfritt):"
+
+#: addons/analytics/index.php:90
+msgid "Gallery Analytics"
+msgstr "Galleri Analytics"
+
+#: addons/analytics/index.php:125
+msgid "No views yet"
+msgstr "Ingen visninger ennå"
+
+#: addons/analytics/index.php:128
+msgid "Images viewed"
+msgstr "Bildene sett"
+
+#: addons/analytics/index.php:150
+msgid "Total views"
+msgstr "Totalt visninger"
+
+#: addons/analytics/index.php:159
+msgid "No images viewed yet"
+msgstr "Ingen bilder sett ennå"
+
+#: addons/analytics/index.php:162 addons/analytics/index.php:198
+msgid "No images for this gallery yet"
+msgstr "Ingen bilder for dette galleriet ennå"
+
+#: addons/analytics/index.php:166
+msgid "Images Purchased"
+msgstr "Bilder Kjøpt"
+
+#: addons/analytics/index.php:186 addons/analytics/index.php:506
+#, fuzzy
+msgid "Total purchases"
+msgstr "Bestill"
+
+#: addons/analytics/index.php:195
+msgid "No images purchased yet"
+msgstr "Ingen bilder kjøpt ennå"
+
+#: addons/analytics/index.php:206
+msgid "Product Cost"
+msgstr "Produkt Cost"
+
+#: addons/analytics/index.php:278 addons/analytics/index.php:481
+msgid "No users have logged in yet"
+msgstr "Ingen brukere har logget inn enda"
+
+#: addons/analytics/index.php:281
+msgid "Recent User Logins"
+msgstr "Siste brukerpålogginger"
+
+#: addons/analytics/index.php:333
+msgid "Total Sales Revenue"
+msgstr "Totale salgsinntekter"
+
+#: addons/analytics/index.php:335
+msgid "Total Orders Completed"
+msgstr "Totalt bestillinger Fullført"
+
+#: addons/analytics/index.php:337
+msgid "Average Sale Total"
+msgstr "Gjennomsnittlig Sale Total"
+
+#: addons/analytics/index.php:339
+msgid "Actual Profit"
+msgstr "Faktisk Profit"
+
+#: addons/analytics/index.php:400
+#, fuzzy
+msgid "You do not have any sales yet"
+msgstr "Du har ingen varer i handlekurven"
+
+#: addons/analytics/index.php:403
+msgid "Sales Totals"
+msgstr "Salgssummer"
+
+#: addons/analytics/index.php:450
+msgid "Nothing purchased yet"
+msgstr "Ingenting kjøpt ennå"
+
+#: addons/analytics/index.php:453
+msgid "Most Popular Products Sold"
+msgstr "Mest populære produkter som selges"
+
+#: addons/analytics/index.php:484
+msgid "Galleries With Best Sales"
+msgstr "Galleries Med Best Sales"
+
+#: addons/analytics/index.php:512
+msgid "No images have been purchased yet"
+msgstr "Ingen bilder er innkjøpt ennå"
+
+#: addons/analytics/index.php:515
+msgid "Most Purchased Images of All Time"
+msgstr "Mest kjøpte bilder av All Time"
+
+#: addons/colorbox/index.php:122
+msgid "Lightbox Options"
+msgstr "Lysboks Alternativer"
+
+#: addons/colorbox/index.php:124
+msgid "Enable Lightbox"
+msgstr "Aktiver Lightbox"
+
+#: addons/colorbox/index.php:125
+msgid "Links to individual images shown in a lightbox window for easier use"
+msgstr "Linker til enkeltbilder som vises i en lysboks vindu for enklere bruk"
+
+#: addons/digital-download/index.php:30
+msgid "Downloadable"
+msgstr "Nedlastbar"
+
+#: addons/digital-download/index.php:38
+msgid "Download Folder"
+msgstr "Last ned Folder"
+
+#: addons/digital-download/index.php:39
+msgid "Please select folder"
+msgstr "Velg mappe"
+
+#: addons/digital-download/index.php:97
+msgid "Download"
+msgstr "Last ned"
+
+#: addons/digital-download/index.php:99
+msgid "Download all images from gallery"
+msgstr "Last ned alle bilder fra galleriet"
+
+#: addons/digital-download/index.php:118
+msgid "Sorry, this item is not in one of your orders"
+msgstr "Beklager, er ikke dette elementet i en av dine ordre"
+
+#: addons/digital-download/index.php:125
+msgid "Sorry, your item cannot yet be downloaded"
+msgstr "Beklager, ditt element ennå ikke lastes ned"
+
+#: addons/digital-download/index.php:131
+msgid "Sorry, invalid download URL - this product is not a downloadable product"
+msgstr "Beklager, ugyldig nedlasting URL - er dette produktet ikke et nedlastbart produkt"
+
+#: addons/digital-download/index.php:143 addons/digital-download/index.php:154
+msgid "Sorry, the download file does not exist"
+msgstr "Beklager, den nedlastede filen ikke eksisterer"
+
+#: addons/digital-download/index.php:183 addons/digital-download/index.php:474
+msgid "Sorry, this is not your order"
+msgstr "Beklager, dette er ikke din bestilling"
+
+#: addons/digital-download/index.php:190 addons/digital-download/index.php:481
+msgid "Sorry, your order is not yet marked as complete"
+msgstr "Beklager, din bestilling ennå ikke merket som komplett"
+
+#: addons/digital-download/index.php:206 addons/digital-download/index.php:236
+msgid "Sorry, one of the download files does not exist"
+msgstr "Beklager, en av de laste ned filer ikke eksisterer"
+
+#: addons/digital-download/index.php:223 addons/digital-download/index.php:231
+#: addons/digital-download/index.php:363 addons/digital-download/index.php:380
+msgid "Could not create zip file for download"
+msgstr "Kunne ikke opprette zip-fil for nedlasting"
+
+#: addons/digital-download/index.php:270
+msgid "No shipping, downloads only"
+msgstr "Ingen frakt på nedlasting av filer"
+
+#: addons/digital-download/index.php:333
+msgid "Download Image"
+msgstr "Last ned fil"
+
+#: addons/digital-download/index.php:339
+msgid "Download All Images"
+msgstr "Last ned alle bilder"
+
+#: addons/digital-download/index.php:345
+msgid "Purchase entire session"
+msgstr "Kjøpe hele økten"
+
+#: addons/digital-download/index.php:409
+msgid "Download file does not exist"
+msgstr "Last ned fil eksisterer ikke"
+
+#: addons/digital-download/index.php:433
+msgid "You do not have permission to download these files."
+msgstr "Du har ikke tillatelse til å laste ned disse filene."
+
+#: addons/digital-download/index.php:448
+msgid "You do not have permission to download this file."
+msgstr "Du har ikke tillatelse til å laste ned denne filen."
+
+#: addons/digital-download/index.php:497
+msgid "Gallery digital negatives added to cart!"
+msgstr "Galleri digitale negativer lagt i handlekurven!"
+
+#: addons/digital-download/index.php:535
+msgid "Gallery Digital Negatives"
+msgstr "Galleri Digital Negative"
+
+#: addons/digital-download/index.php:553
+msgid "Gallery digital negatives"
+msgstr "Galleri digitale negativer"
+
+#: addons/discounts/index.php:14
+msgid "Add New Coupon"
+msgstr "Legg til ny kupong"
+
+#: addons/discounts/index.php:15
+msgid "Edit Discount"
+msgstr "Redigere Rabatt"
+
+#: addons/discounts/index.php:16
+msgid "New Discount"
+msgstr "New Rabatt"
+
+#: addons/discounts/index.php:17
+msgid "All Discounts"
+msgstr "Alle Rabatter"
+
+#: addons/discounts/index.php:18
+msgid "View Discounts"
+msgstr "Vis Rabatter"
+
+#: addons/discounts/index.php:19
+msgid "Search Discounts"
+msgstr "Søk Rabatter"
+
+#: addons/discounts/index.php:20
+msgid "No discounts found"
+msgstr "Ingen rabatter funnet"
+
+#: addons/discounts/index.php:21
+msgid "No discounts found in trash"
+msgstr "Ingen rabatter funnet i søpla"
+
+#: addons/discounts/index.php:54
+msgid "Discounts Applied"
+msgstr "Rabatter Applied"
+
+#: addons/discounts/index.php:57 addons/packages/index.php:180
+msgid "Remove"
+msgstr "Fjern"
+
+#: addons/favorites/index.php:77 addons/favorites/index.php:189
+#: addons/favorites/index.php:200 themes/2013/favorites.php:3
+#: themes/default/favorites.php:3
+msgid "Favorites"
+msgstr "Favoritter"
+
+#: addons/favorites/index.php:95 addons/favorites/index.php:126
+#: addons/favorites/index.php:168
+msgid "Add to Favorites"
+msgstr "Legg til i favoritter"
+
+#: addons/favorites/index.php:104 addons/favorites/index.php:135
+#: addons/favorites/index.php:164
+msgid "Remove from Favorites"
+msgstr "Fjern fra favoritter"
+
+#: addons/favorites/index.php:113
+msgid "Remove All Favorites"
+msgstr "Fjern alle favoritter"
+
+#: addons/favorites/index.php:170
+msgid "Sorry, could not add to favorites"
+msgstr "Beklager, kunne ikke legge til favoritter"
+
+#: addons/favorites/index.php:175
+msgid "Sorry, there was an error with your request"
+msgstr "Beklager, det oppstod en feil med din forespørsel"
+
+#: addons/favorites/index.php:277
+#, fuzzy
+msgid "Favorites cleared"
+msgstr "Favoritter"
+
+#: addons/newsletter/index.php:63 addons/newsletter/index.php:74
+msgid "Join  email newsletter"
+msgstr "Bli med nyhetsbrev"
+
+#: addons/newsletter/index.php:93
+msgid "Newsletter"
+msgstr "Nyhetsbrev"
+
+#: addons/newsletter/index.php:96
+msgid "We think Campaign Monitor is by far the best email newsletter system. <a href=\"https://signup.campaignmonitor.com/signup\" target=\"_blank\">Sign up for free!</a>"
+msgstr "Vi tror Campaign Monitor er uten tvil den beste nyhetsbrev system. <a href=\"https://signup.campaignmonitor.com/signup\" target=\"_blank\"> Registrer deg gratis! </ a>"
+
+#: addons/newsletter/index.php:101 addons/newsletter/index.php:150
+msgid "API Key"
+msgstr "API-nøkkel"
+
+#: addons/newsletter/index.php:104 addons/newsletter/index.php:153
+msgid "Save this value then you can choose a list"
+msgstr "Lagre denne verdien så kan du velge en liste"
+
+#: addons/newsletter/index.php:132
+msgid "Invalid Campaign Monitor API key "
+msgstr "Ugyldig Campaign Monitor API-nøkkel "
+
+#: addons/newsletter/index.php:136 addons/newsletter/index.php:172
+msgid "List"
+msgstr "Liste"
+
+#: addons/newsletter/index.php:145
+msgid "MailChimp has a good free program if you have less than 2,000 subscribers. <a href=\"http://eepurl.com/vB7jf\" target=\"_blank\">Sign up for an account and get $30 in credit</a>"
+msgstr "MailChimp har et godt gratis program hvis du har mindre enn 2000 abonnenter. <a href=\"http://eepurl.com/vB7jf\" target=\"_blank\"> Registrer deg for en konto og få $ 30 i kreditt </ a>"
+
+#: addons/newsletter/index.php:163
+msgid "Invalid MailChimp API key "
+msgstr "Ugyldig MailChimp API-nøkkel "
+
+#: addons/packages/index.php:29
+msgid "This page is not accessible via this method. Please visit a gallery first."
+msgstr "Denne siden er ikke tilgjengelig via denne metoden. Vennligst besøk et galleri først."
+
+#: addons/packages/index.php:62 addons/packages/index.php:102
+#: addons/packages/index.php:113 themes/2013/packages.php:3
+#: themes/default/packages.php:3
+msgid "Packages"
+msgstr "Pakker"
+
+#: addons/packages/index.php:153 addons/packages/index.php:226
+msgid "Package"
+msgstr "Pakke"
+
+#: addons/packages/index.php:154
+msgid "This product is a package"
+msgstr "Dette produktet er en pakke"
+
+#: addons/packages/index.php:157
+msgid "Choose Products for Package"
+msgstr "Velg produkter for Package"
+
+#: addons/packages/index.php:162 themes/2013/cart.php:16
+#: themes/2013/order.php:50 themes/default/cart.php:16
+#: themes/default/order.php:49 themes/theme/cart.php:16
+#: themes/theme/order.php:52
+msgid "Product"
+msgstr "Produkt"
+
+#: addons/packages/index.php:178 themes/2013/cart.php:17
+#: themes/2013/order.php:51 themes/default/cart.php:17
+#: themes/default/order.php:50 themes/theme/cart.php:17
+#: themes/theme/order.php:53
+msgid "Qty"
+msgstr "Antall"
+
+#: addons/packages/index.php:184
+msgid "Add another product"
+msgstr "Legg annet produkt"
+
+#: addons/packages/index.php:272
+msgid "Unfilled items in package:"
+msgstr "Ubesatte i forpakning:"
+
+#: addons/packages/index.php:316
+msgid "Select package"
+msgstr "Velg pakke"
+
+#: addons/packages/index.php:344
+msgid "remaining"
+msgstr "gjenværende"
+
+#: addons/packages/index.php:388
+msgid "You have not filled all your packages"
+msgstr "Du har ikke fylt alle dine pakker"
+
+#: addons/packages/index.php:411
+msgid "No products have been assigned to this package"
+msgstr "Ingen produkter har blitt tildelt denne pakken"
+
+#: addons/packages/index.php:442
+#, fuzzy
+msgid "Package added to cart!"
+msgstr "Bildet ble lagt til i handlekurven."
+
+#: addons/packages/index.php:475
+#, fuzzy
+msgid "Item added to package"
+msgstr "Bildet ble lagt til i handlekurven."
+
+#: addons/packages/index.php:477
+#, fuzzy
+msgid "Item could not be added to package"
+msgstr "Bildet ble lagt til i handlekurven."
+
+#: addons/packages/index.php:502
+msgid "Item removed from package"
+msgstr "Elementet fjernes fra pakken"
+
+#: addons/packages/index.php:504
+msgid "Item could not be removed from package"
+msgstr "Elementet kan ikke fjernes fra pakken"
+
+#: addons/payment-offline/index.php:8 addons/payment-offline/index.php:86
+msgid "Offline"
+msgstr "Offline"
+
+#: addons/payment-offline/index.php:9
+msgid "Send payment in outside of website"
+msgstr "Send betaling i utsiden av nettstedet"
+
+#: addons/payment-offline/index.php:86
+msgid "Offline payments can be anything you want, most likely for accepting checks"
+msgstr "Offline betalinger kan være alt du vil, mest sannsynlig for å akseptere sjekker"
+
+#: addons/payment-offline/index.php:88
+msgid "Enable offline payments"
+msgstr "Aktiver offline betalinger"
+
+#: addons/payment-offline/index.php:94
+#: addons/payment-payjunction/index.php:218
+#: addons/payment-paypal/index.php:165 addons/payment-stripe/index.php:190
+#: addons/shipping-flatrate/index.php:36 addons/shipping-local/index.php:36
+#: addons/shipping-pickup/index.php:36 admin/sunshine-products.php:74
+#: classes/sunshine.class.php:255
+msgid "Name"
+msgstr "Navn"
+
+#: addons/payment-offline/index.php:97
+msgid "Name that users will see on the checkout page, defaults to \"Offline\""
+msgstr "Navn som brukerne vil se på kassen siden, som standard \ "Frakoblet \""
+
+#: addons/payment-offline/index.php:100
+#: addons/payment-payjunction/index.php:224
+#: addons/payment-paypal/index.php:171 addons/payment-stripe/index.php:196
+msgid "Description"
+msgstr "Beskrivelse"
+
+#: addons/payment-offline/index.php:103
+#: addons/payment-payjunction/index.php:227
+#: addons/payment-paypal/index.php:174 addons/payment-stripe/index.php:199
+msgid "Description that users will see on the checkout page"
+msgstr "Beskrivelse som brukerne vil se på kassen siden"
+
+#: addons/payment-offline/index.php:106
+msgid "Instructions"
+msgstr "Instruksjoner"
+
+#: addons/payment-offline/index.php:107
+msgid "Use this to instruct customers how to submit payment (if check, mailing address would be a good idea)"
+msgstr "Bruk denne til å instruere kunder hvordan du sender betaling (hvis sjekk, ville postadresse være en god idé)"
+
+#: addons/payment-payjunction/index.php:9
+msgid "Pay by credit card (Visa, MasterCard, American Express, Discover)"
+msgstr "Betal med kredittkort (Visa, MasterCard, American Express, Discover)"
+
+#: addons/payment-payjunction/index.php:132
+#, php-format
+msgid "Payment could not process successfully (%s). %s"
+msgstr "Betaling kan ikke behandle med hell ( %s ). %s"
+
+#: addons/payment-payjunction/index.php:134
+#, php-format
+msgid "Payment could not process successfully because of a server error (%s). %s"
+msgstr "Betaling kan ikke behandle med hell på grunn av en feil på serveren ( %s ). %s"
+
+#: addons/payment-payjunction/index.php:136
+msgid "An unknown error occurred and your payment could not be processed"
+msgstr "En ukjent feil oppstod, og betalingen kan ikke behandles"
+
+#: addons/payment-payjunction/index.php:149
+#: addons/payment-stripe/index.php:121
+msgid "Card Number"
+msgstr "Kortnummer"
+
+#: addons/payment-payjunction/index.php:150
+#: addons/payment-stripe/index.php:122
+msgid "CVV"
+msgstr "CVV"
+
+#: addons/payment-payjunction/index.php:152
+#: addons/payment-stripe/index.php:124
+msgid "Expiration Date"
+msgstr "Utløpsdato"
+
+#: addons/payment-payjunction/index.php:212
+msgid "Enable payments via PayJunction"
+msgstr "Aktiver betalinger via PayJunction"
+
+#: addons/payment-payjunction/index.php:221
+msgid "Name that users will see on the checkout page, defaults to \"PayJunction\""
+msgstr "Navn som brukerne vil se på kassen siden, som standard \ "PayJunction \""
+
+#: addons/payment-payjunction/index.php:230
+#: addons/payment-stripe/index.php:202
+msgid "Force HTTPS"
+msgstr "Force HTTPS"
+
+#: addons/payment-payjunction/index.php:231
+msgid "PayJunction requires an SSL certificate to accept credit card information securely from your website. <a href=\"http://www.sunshinephotocart.com/docs/ssl\" target=\"_blank\">Learn more</a>"
+msgstr "PayJunction krever en SSL-sertifikat til å akseptere kredittkort informasjon sikkert fra ditt nettsted. <a href=\"http://www.sunshinephotocart.com/docs/ssl\" target=\"_blank\"> Les mer </ a>"
+
+#: addons/payment-payjunction/index.php:237
+#: addons/payment-stripe/index.php:209
+msgid "Test Mode"
+msgstr "Test Mode"
+
+#: addons/payment-payjunction/index.php:243 classes/frontend.class.php:306
+msgid "Login"
+msgstr "Logg inn"
+
+#: addons/payment-paypal/index.php:9
+msgid "Submit payment via PayPal account or use a credit card"
+msgstr "Send inn betaling via PayPal-konto eller bruke et kredittkort"
+
+#: addons/payment-paypal/index.php:25 addons/payment-paypal/index.php:34
+msgid "Redirecting to PayPal"
+msgstr "Omdirigere til PayPal"
+
+#: addons/payment-paypal/index.php:40
+msgid "Order from "
+msgstr "Bestill fra "
+
+#: addons/payment-paypal/index.php:83
+msgid "Submit payment via PayPal"
+msgstr "Send inn betaling via PayPal"
+
+#: addons/payment-paypal/index.php:159
+msgid "Enable payments via PayPal"
+msgstr "Aktiver betaling via PayPal"
+
+#: addons/payment-paypal/index.php:168
+msgid "Name that users will see on the checkout page, defaults to \"PayPal\""
+msgstr "Navn som brukerne vil se på kassen siden, som standard \ "PayPal \""
+
+#: addons/payment-paypal/index.php:177
+msgid "PayPal Email"
+msgstr "PayPal e-post"
+
+#: addons/payment-paypal/index.php:182
+msgid "Enable test mode (Sandbox)"
+msgstr "Aktiver testmodus (Sandbox)"
+
+#: addons/payment-paypal/index.php:184
+msgid "More for developers, this lets you accept test transactions via PayPal. Requires developer account and being logged into the developer account."
+msgstr "Mer for utviklere, lar dette deg akseptere test transaksjoner via PayPal. Krever developer konto og blir logget inn i utviklerens konto."
+
+#: addons/payment-stripe/index.php:9
+msgid "Pay by credit card (Visa, MasterCard, American Express, Discover, JCB, and Diners Club)"
+msgstr "Betal med kredittkort (Visa, MasterCard, American Express, Discover, JCB, og Diners Club)"
+
+#: addons/payment-stripe/index.php:184
+msgid "Enable payments via Stripe"
+msgstr "Aktiver betalinger via Stripe"
+
+#: addons/payment-stripe/index.php:193
+msgid "Name that users will see on the checkout page, defaults to \"Stripe\""
+msgstr "Navn som brukerne vil se på kassen siden, som standard \ "Stripe \""
+
+#: addons/payment-stripe/index.php:203
+msgid "Stripe requires an SSL certificate to accept credit card information securely from your website. <a href=\"http://www.sunshinephotocart.com/docs/ssl\" target=\"_blank\">Learn more</a>"
+msgstr "Stripe krever en SSL-sertifikat til å akseptere kredittkort informasjon sikkert fra ditt nettsted. <a href=\"http://www.sunshinephotocart.com/docs/ssl\" target=\"_blank\"> Les mer </ a>"
+
+#: addons/payment-stripe/index.php:215
+msgid "Test Secret Key"
+msgstr "Test hemmelig nøkkel"
+
+#: addons/payment-stripe/index.php:220
+msgid "Test Publishable Key"
+msgstr "Test publiserbar Key"
+
+#: addons/payment-stripe/index.php:225
+msgid "Live Secret Key"
+msgstr "Leve hemmelig nøkkel"
+
+#: addons/payment-stripe/index.php:230
+msgid "Live Publishable Key"
+msgstr "Leve publiserbar Key"
+
+#: addons/price-levels/index.php:14
+msgid "Base pricing off:"
+msgstr "Base prising av:"
+
+#: addons/price-levels/index.php:24
+msgid "Optionally select an existing price level to generate prices for this new price level on all existing products"
+msgstr "Eventuelt velge en eksisterende prisnivå å generere priser for denne nye prisnivået på alle eksisterende produkter"
+
+#: addons/price-levels/index.php:28
+msgid "Percentage:"
+msgstr "Prosent:"
+
+#: addons/price-levels/index.php:30
+msgid "What percent of the selected price level to create prices for this new price level. To make higher prices, enter a value greater than 100. To make smaller prices, enter a value less than 100."
+msgstr "Hvor mange prosent av det valgte prisnivået å lage priser for denne nye prisnivået. For å gjøre høyere priser, skriv en verdi som er større enn 100. Å gjøre mindre priser, angi en verdi mindre enn 100."
+
+#: addons/share/index.php:21
+msgid "Share This"
+msgstr "Del"
+
+#: addons/share/index.php:50
+msgid "Sharing on Gallery Pages"
+msgstr "Deling på Galleri Sider"
+
+#: addons/share/index.php:51
+msgid "Let users share a gallery on social networks like Facebook, Twitter, Pinterest"
+msgstr "La brukerne dele et galleri på sosiale nettverk som Facebook, Twitter, Pinterest"
+
+#: addons/share/index.php:57
+msgid "Sharing on Image Detail Pages"
+msgstr "Deling på bildedetaljer Sider"
+
+#: addons/share/index.php:58
+msgid "Let users share an image on social networks like Facebook, Twitter, Pinterest"
+msgstr "La brukerne dele et bilde på sosiale nettverk som Facebook, Twitter, Pinterest"
+
+#: addons/shipping-flatrate/index.php:30
+msgid "Enable Flat Rate Shipping"
+msgstr "Aktiver Flat Rate Shipping"
+
+#: addons/shipping-flatrate/index.php:41
+msgid "Flat Rate Shipping Cost ($)"
+msgstr "Flat Rate Shipping Cost ($)"
+
+#: addons/shipping-flatrate/index.php:47 addons/shipping-local/index.php:53
+#: addons/shipping-pickup/index.php:47
+msgid "Taxable"
+msgstr "Skattepliktig"
+
+#: addons/shipping-local/index.php:30
+msgid "Enable Local Delivery Shipping"
+msgstr "Aktiver Local Delivery Shipping"
+
+#: addons/shipping-local/index.php:41
+msgid "Local Delivery Shipping Cost ($)"
+msgstr "Local Delivery Shipping Cost ($)"
+
+#: addons/shipping-local/index.php:47
+msgid "Allowed zip/post codes"
+msgstr "Tillatt zip / post-koder"
+
+#: addons/shipping-local/index.php:50
+msgid "What zip/post codes is this allowed for? Separate each zip/post code with a comma."
+msgstr "Hva zip / post-koder er dette tillatt for? Skill hver zip / postnummer med komma."
+
+#: addons/shipping-local/index.php:67
+#, php-format
+msgid "Cannot choose %s shipping, not within allowed area"
+msgstr "Kan ikke velge %s shipping, ikke er innenfor tillatt område"
+
+#: addons/shipping-pickup/index.php:28
+msgid "Pickup"
+msgstr "Pickup"
+
+#: addons/shipping-pickup/index.php:30
+msgid "Enable Pickup Shipping"
+msgstr "Aktiver Pickup Shipping"
+
+#: addons/shipping-pickup/index.php:41
+msgid "Pickup Shipping Cost ($)"
+msgstr "Pickup Shipping Cost ($)"
+
+#: admin/sunshine-admin.php:96
+msgid "On"
+msgstr "På"
+
+#: admin/sunshine-admin.php:96
+msgid "Off"
+msgstr "Off"
+
+#: admin/sunshine-admin.php:98
+msgid "Your server supports fsockopen."
+msgstr "Din server støtter fsockopen."
+
+#: admin/sunshine-admin.php:98
+msgid "Your server does not support fsockopen."
+msgstr "Din server støtter ikke fsockopen."
+
+#: admin/sunshine-bulk-add-products.php:19
+#, fuzzy
+msgid "Bulk Add Products"
+msgstr "Produkter"
+
+#: admin/sunshine-dashboard.php:39
+msgid "Recent Orders"
+msgstr "Siste bestillinger"
+
+#: admin/sunshine-dashboard.php:45
+msgid "Dashboard"
+msgstr "Dashbord"
+
+#: admin/sunshine-discounts.php:8
+msgid "Options"
+msgstr "Alternativer"
+
+#: admin/sunshine-galleries.php:8
+msgid "Gallery Options"
+msgstr "Galleri Alternativer"
+
+#: admin/sunshine-galleries.php:27 classes/sunshine.class.php:154
+#: classes/sunshine.class.php:155
+msgid "Price Level"
+msgstr "Prisnivå"
+
+#: admin/sunshine-galleries.php:110
+msgid "M j, Y @ G:i"
+msgstr "M j, Y @ G: i"
+
+#: admin/sunshine-galleries.php:135 admin/sunshine-galleries.php:305
+#, php-format
+msgid "%1$s-%2$s"
+msgstr "%1$s - %2$s"
+
+#: admin/sunshine-galleries.php:146 admin/sunshine-galleries.php:316
+#, php-format
+msgid "%1$s%2$s, %3$s @ %4$s : %5$s"
+msgstr "%1$s %2$s , %3$s @ %4$s : %5$s"
+
+#: admin/sunshine-galleries.php:152 admin/sunshine-galleries.php:331
+msgid "OK"
+msgstr "OK"
+
+#: admin/sunshine-galleries.php:153 admin/sunshine-galleries.php:332
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: admin/sunshine-image-processor.php:9
+msgid "Image Processor"
+msgstr "Bildeprosessor"
+
+#: admin/sunshine-image-processor.php:10
+msgid "We are processing your images! Please be patient, especially since there may be a lot"
+msgstr "Vi behandler dine bilder! Vær tålmodig, spesielt siden det kan være mye"
+
+#: admin/sunshine-image-processor.php:129
+#, fuzzy
+msgid "Next page"
+msgstr "Neste"
+
+#: admin/sunshine-image-processor.php:140
+msgid "Edit this gallery"
+msgstr "Rediger dette galleriet"
+
+#: admin/sunshine-orders.php:8
+msgid "Order Data"
+msgstr "Bestill data"
+
+#: admin/sunshine-orders.php:16
+msgid "Order Notes"
+msgstr "Bestill Merknader"
+
+#: admin/sunshine-orders.php:241
+msgid "Order #"
+msgstr "Bestill #"
+
+#: admin/sunshine-orders.php:242
+msgid "Customer"
+msgstr "Kunde"
+
+#: admin/sunshine-orders.php:243
+msgid "Status"
+msgstr "Status"
+
+#: admin/sunshine-orders.php:245
+msgid "Date"
+msgstr "Dato"
+
+#: admin/sunshine-orders.php:304
+msgid "Pending"
+msgstr "Under behandling"
+
+#: admin/sunshine-orders.php:305
+msgid "New"
+msgstr "New"
+
+#: admin/sunshine-orders.php:306
+msgid "Processing"
+msgstr "Processing"
+
+#: admin/sunshine-orders.php:307
+msgid "Shipped/Completed"
+msgstr "Sendt / Fullført"
+
+#: admin/sunshine-orders.php:308
+msgid "Cancelled"
+msgstr "Avbrutt"
+
+#: admin/sunshine-products.php:7
+msgid "Product Info"
+msgstr "Produkt Info"
+
+#: admin/sunshine-products.php:75
+msgid "Category"
+msgstr "Kategori"
+
+#: admin/sunshine-products.php:76
+msgid "Price"
+msgstr "Pris"
+
+#: admin/sunshine-products.php:104
+msgid "No categories"
+msgstr "Ingen kategorier"
+
+#: admin/sunshine-users.php:15
+msgid "Sunshine Favorites"
+msgstr "Sunshine Favoritter"
+
+#: admin/sunshine-users.php:36
+msgid "Sunshine Gallery Credits for Purchases"
+msgstr "Sunshine Galleri Kreditter for kjøp"
+
+#: admin/sunshine-users.php:55
+msgid "Sunshine Items in Cart"
+msgstr "Sunshine Produkter i handlekurven"
+
+#: admin/sunshine-users.php:88
+msgid "No items in cart"
+msgstr "Ingen varer i handlekurven"
+
+#: classes/cart.class.php:253
+#, php-format
+msgid "Discount %s has now expired and has been removed from your cart"
+msgstr "Rabatt %s er nå utløpt og har blitt fjernet fra handlekurven"
+
+#: classes/cart.class.php:260
+#, php-format
+msgid "Discount %s has now exceeded the maximum uses and has been removed from your cart"
+msgstr "Rabatt %s har nå overskredet maksimalt bruker og har blitt fjernet fra handlekurven"
+
+#: classes/cart.class.php:479
+msgid "You are not allowed to add any more discounts to your cart"
+msgstr "Du har ikke lov til å legge til noe mer rabatter til handlekurven"
+
+#: classes/cart.class.php:483
+msgid "This discount is already applied to your cart"
+msgstr "Denne rabatten er allerede brukt til handlekurven"
+
+#: classes/cart.class.php:497
+msgid "Your order does not yet meet the minimum order amount for this discount"
+msgstr "Bestillingen ennå ikke oppfyller minstekravet for beløp for denne rabatten"
+
+#: classes/cart.class.php:503
+msgid "This coupon is not yet valid, please try again later"
+msgstr "Denne kupongen er ikke gyldig ennå, prøv igjen senere"
+
+#: classes/cart.class.php:508
+msgid "This coupon has expired"
+msgstr "Denne kupongen er utløpt"
+
+#: classes/cart.class.php:516
+msgid "This coupon has exceeded the number of uses allowed"
+msgstr "Denne kupongen har overskredet antall bruksområder tillatt"
+
+#: classes/cart.class.php:523
+msgid "This coupon has exceeded the number of uses allowed per user"
+msgstr "Denne kupongen har overskredet antall bruksområder tillatt per bruker"
+
+#: classes/cart.class.php:529
+#, fuzzy
+msgid "discount added"
+msgstr "Rabattkode"
+
+#: classes/cart.class.php:531
+msgid "discount could not be added"
+msgstr "rabatt kunne ikke legges"
+
+#: classes/cart.class.php:544
+#, fuzzy
+msgid "Discount removed"
+msgstr "Rabattkode"
+
+#: classes/cart.class.php:548
+msgid "Discount not applied to your cart and cannot be removed"
+msgstr "Rabatten ikke brukt i handlekurven og kan ikke fjernes"
+
+#: classes/countries.class.php:10
+msgid "Afghanistan"
+msgstr "Afghanistan"
+
+#: classes/countries.class.php:11
+msgid "&#197;land Islands"
+msgstr "Åland"
+
+#: classes/countries.class.php:12
+msgid "Albania"
+msgstr "Albania"
+
+#: classes/countries.class.php:13
+msgid "Algeria"
+msgstr "Algerie"
+
+#: classes/countries.class.php:14
+msgid "American Samoa"
+msgstr "Amerikansk Samoa"
+
+#: classes/countries.class.php:15
+msgid "Andorra"
+msgstr "Andorra"
+
+#: classes/countries.class.php:16
+msgid "Angola"
+msgstr "Angola"
+
+#: classes/countries.class.php:17
+msgid "Anguilla"
+msgstr "Anguilla"
+
+#: classes/countries.class.php:18
+msgid "Antarctica"
+msgstr "Antarktis"
+
+#: classes/countries.class.php:19
+msgid "Antigua and Barbuda"
+msgstr "Antigua og Barbuda"
+
+#: classes/countries.class.php:20
+msgid "Argentina"
+msgstr "Argentina"
+
+#: classes/countries.class.php:21
+msgid "Armenia"
+msgstr "Armenia"
+
+#: classes/countries.class.php:22
+msgid "Aruba"
+msgstr "Aruba"
+
+#: classes/countries.class.php:23
+msgid "Australia"
+msgstr "Australia"
+
+#: classes/countries.class.php:24
+msgid "Austria"
+msgstr "Østerrike"
+
+#: classes/countries.class.php:25
+msgid "Azerbaijan"
+msgstr "Aserbajdsjan"
+
+#: classes/countries.class.php:26
+msgid "Bahamas"
+msgstr "Bahamas"
+
+#: classes/countries.class.php:27
+msgid "Bahrain"
+msgstr "Bahrain"
+
+#: classes/countries.class.php:28
+msgid "Bangladesh"
+msgstr "Bangladesh"
+
+#: classes/countries.class.php:29
+msgid "Barbados"
+msgstr "Barbados"
+
+#: classes/countries.class.php:30
+msgid "Belarus"
+msgstr "Hviterussland"
+
+#: classes/countries.class.php:31
+msgid "Belgium"
+msgstr "Belgia"
+
+#: classes/countries.class.php:32
+msgid "Belize"
+msgstr "Belize"
+
+#: classes/countries.class.php:33
+msgid "Benin"
+msgstr "Benin"
+
+#: classes/countries.class.php:34
+msgid "Bermuda"
+msgstr "Bermuda"
+
+#: classes/countries.class.php:35
+msgid "Bhutan"
+msgstr "Bhutan"
+
+#: classes/countries.class.php:36
+msgid "Bolivia"
+msgstr "Bolivia"
+
+#: classes/countries.class.php:37
+msgid "Bosnia and Herzegovina"
+msgstr "Bosnia og Herzegovina"
+
+#: classes/countries.class.php:38
+msgid "Botswana"
+msgstr "Botswana"
+
+#: classes/countries.class.php:39
+msgid "Brazil"
+msgstr "Brasil"
+
+#: classes/countries.class.php:40
+msgid "British Indian Ocean Territory"
+msgstr "British Indian Ocean Territory"
+
+#: classes/countries.class.php:41
+msgid "British Virgin Islands"
+msgstr "British Virgin Islands"
+
+#: classes/countries.class.php:42
+msgid "Brunei"
+msgstr "Brunei"
+
+#: classes/countries.class.php:43
+msgid "Bulgaria"
+msgstr "Bulgaria"
+
+#: classes/countries.class.php:44
+msgid "Burkina Faso"
+msgstr "Burkina Faso"
+
+#: classes/countries.class.php:45
+msgid "Burundi"
+msgstr "Burundi"
+
+#: classes/countries.class.php:46
+msgid "Cambodia"
+msgstr "Kambodsja"
+
+#: classes/countries.class.php:47
+msgid "Cameroon"
+msgstr "Kamerun"
+
+#: classes/countries.class.php:48
+msgid "Canada"
+msgstr "Canada"
+
+#: classes/countries.class.php:49
+msgid "Cape Verde"
+msgstr "Kapp Verde"
+
+#: classes/countries.class.php:50
+msgid "Cayman Islands"
+msgstr "Cayman Islands"
+
+#: classes/countries.class.php:51
+msgid "Central African Republic"
+msgstr "Den sentralafrikanske republikk"
+
+#: classes/countries.class.php:52
+msgid "Chad"
+msgstr "Chad"
+
+#: classes/countries.class.php:53
+msgid "Chile"
+msgstr "Chile"
+
+#: classes/countries.class.php:54
+msgid "China"
+msgstr "Kina"
+
+#: classes/countries.class.php:55
+msgid "Christmas Island"
+msgstr "Julen Island"
+
+#: classes/countries.class.php:56
+msgid "Cocos (Keeling) Islands"
+msgstr "Cocos (Keeling) Islands"
+
+#: classes/countries.class.php:57
+msgid "Colombia"
+msgstr "Colombia"
+
+#: classes/countries.class.php:58
+msgid "Comoros"
+msgstr "Komorene"
+
+#: classes/countries.class.php:59
+msgid "Congo (Brazzaville)"
+msgstr "Kongo (Brazzaville)"
+
+#: classes/countries.class.php:60
+msgid "Congo (Kinshasa)"
+msgstr "Kongo (Kinshasa)"
+
+#: classes/countries.class.php:61
+msgid "Cook Islands"
+msgstr "Cook Islands"
+
+#: classes/countries.class.php:62
+msgid "Costa Rica"
+msgstr "Costa Rica"
+
+#: classes/countries.class.php:63
+msgid "Croatia"
+msgstr "Kroatia"
+
+#: classes/countries.class.php:64
+msgid "Cuba"
+msgstr "Cuba"
+
+#: classes/countries.class.php:65
+msgid "Cyprus"
+msgstr "Kypros"
+
+#: classes/countries.class.php:66
+msgid "Czech Republic"
+msgstr "Czech Republic"
+
+#: classes/countries.class.php:67
+msgid "Denmark"
+msgstr "Danmark"
+
+#: classes/countries.class.php:68
+msgid "Djibouti"
+msgstr "Djibouti"
+
+#: classes/countries.class.php:69
+msgid "Dominica"
+msgstr "Dominica"
+
+#: classes/countries.class.php:70
+msgid "Dominican Republic"
+msgstr "Den dominikanske republikk"
+
+#: classes/countries.class.php:71
+msgid "Ecuador"
+msgstr "Ecuador"
+
+#: classes/countries.class.php:72
+msgid "Egypt"
+msgstr "Egypt"
+
+#: classes/countries.class.php:73
+msgid "El Salvador"
+msgstr "El Salvador"
+
+#: classes/countries.class.php:74
+msgid "Equatorial Guinea"
+msgstr "Ekvatorial-Guinea"
+
+#: classes/countries.class.php:75
+msgid "Eritrea"
+msgstr "Eritrea"
+
+#: classes/countries.class.php:76
+msgid "Estonia"
+msgstr "Estland"
+
+#: classes/countries.class.php:77
+msgid "Ethiopia"
+msgstr "Etiopia"
+
+#: classes/countries.class.php:78
+msgid "Falkland Islands"
+msgstr "Falklandsøyene"
+
+#: classes/countries.class.php:79
+msgid "Faroe Islands"
+msgstr "Faroe Islands"
+
+#: classes/countries.class.php:80
+msgid "Fiji"
+msgstr "Fiji"
+
+#: classes/countries.class.php:81
+msgid "Finland"
+msgstr "Finland"
+
+#: classes/countries.class.php:82
+msgid "France"
+msgstr "Frankrike"
+
+#: classes/countries.class.php:83
+msgid "French Guiana"
+msgstr "Fransk Guyana"
+
+#: classes/countries.class.php:84
+msgid "French Polynesia"
+msgstr "Fransk Polynesia"
+
+#: classes/countries.class.php:85
+msgid "French Southern Territories"
+msgstr "Franske sørlige territorier"
+
+#: classes/countries.class.php:86
+msgid "Gabon"
+msgstr "Gabon"
+
+#: classes/countries.class.php:87
+msgid "Gambia"
+msgstr "Gambia"
+
+#: classes/countries.class.php:88 classes/countries.class.php:360
+msgid "Georgia"
+msgstr "Georgia"
+
+#: classes/countries.class.php:89
+msgid "Germany"
+msgstr "Tyskland"
+
+#: classes/countries.class.php:90
+msgid "Ghana"
+msgstr "Ghana"
+
+#: classes/countries.class.php:91
+msgid "Gibraltar"
+msgstr "Gibraltar"
+
+#: classes/countries.class.php:92
+msgid "Greece"
+msgstr "Hellas"
+
+#: classes/countries.class.php:93
+msgid "Greenland"
+msgstr "Grønland"
+
+#: classes/countries.class.php:94
+msgid "Grenada"
+msgstr "Grenada"
+
+#: classes/countries.class.php:95
+msgid "Guadeloupe"
+msgstr "Guadeloupe"
+
+#: classes/countries.class.php:96
+msgid "Guam"
+msgstr "Guam"
+
+#: classes/countries.class.php:97
+msgid "Guatemala"
+msgstr "Guatemala"
+
+#: classes/countries.class.php:98
+msgid "Guernsey"
+msgstr "Guernsey"
+
+#: classes/countries.class.php:99
+msgid "Guinea"
+msgstr "Guinea"
+
+#: classes/countries.class.php:100
+msgid "Guinea-Bissau"
+msgstr "Guinea-Bissau"
+
+#: classes/countries.class.php:101
+msgid "Guyana"
+msgstr "Guyana"
+
+#: classes/countries.class.php:102
+msgid "Haiti"
+msgstr "Haiti"
+
+#: classes/countries.class.php:103
+msgid "Honduras"
+msgstr "Honduras"
+
+#: classes/countries.class.php:104
+msgid "Hong Kong"
+msgstr "Hong Kong"
+
+#: classes/countries.class.php:105
+msgid "Hungary"
+msgstr "Ungarn"
+
+#: classes/countries.class.php:106
+msgid "Iceland"
+msgstr "Island"
+
+#: classes/countries.class.php:107
+msgid "India"
+msgstr "India"
+
+#: classes/countries.class.php:108
+msgid "Indonesia"
+msgstr "Indonesia"
+
+#: classes/countries.class.php:109
+msgid "Iran"
+msgstr "Iran"
+
+#: classes/countries.class.php:110
+msgid "Iraq"
+msgstr "Irak"
+
+#: classes/countries.class.php:111
+msgid "Republic of Ireland"
+msgstr "Republikken Irland"
+
+#: classes/countries.class.php:112
+msgid "Isle of Man"
+msgstr "Isle of Man"
+
+#: classes/countries.class.php:113
+msgid "Israel"
+msgstr "Israel"
+
+#: classes/countries.class.php:114
+msgid "Italy"
+msgstr "Italia"
+
+#: classes/countries.class.php:115
+msgid "Ivory Coast"
+msgstr "Elfenbenskysten"
+
+#: classes/countries.class.php:116
+msgid "Jamaica"
+msgstr "Jamaica"
+
+#: classes/countries.class.php:117
+msgid "Japan"
+msgstr "Japan"
+
+#: classes/countries.class.php:118
+msgid "Jersey"
+msgstr "Jersey"
+
+#: classes/countries.class.php:119
+msgid "Jordan"
+msgstr "Jordan"
+
+#: classes/countries.class.php:120
+msgid "Kazakhstan"
+msgstr "Kasakhstan"
+
+#: classes/countries.class.php:121
+msgid "Kenya"
+msgstr "Kenya"
+
+#: classes/countries.class.php:122
+msgid "Kiribati"
+msgstr "Kiribati"
+
+#: classes/countries.class.php:123
+msgid "Kuwait"
+msgstr "Kuwait"
+
+#: classes/countries.class.php:124
+msgid "Kyrgyzstan"
+msgstr "Kirgisistan"
+
+#: classes/countries.class.php:125
+msgid "Laos"
+msgstr "Laos"
+
+#: classes/countries.class.php:126
+msgid "Latvia"
+msgstr "Latvia"
+
+#: classes/countries.class.php:127
+msgid "Lebanon"
+msgstr "Libanon"
+
+#: classes/countries.class.php:128
+msgid "Lesotho"
+msgstr "Lesotho"
+
+#: classes/countries.class.php:129
+msgid "Liberia"
+msgstr "Liberia"
+
+#: classes/countries.class.php:130
+msgid "Libya"
+msgstr "Libya"
+
+#: classes/countries.class.php:131
+msgid "Liechtenstein"
+msgstr "Liechtenstein"
+
+#: classes/countries.class.php:132
+msgid "Lithuania"
+msgstr "Litauen"
+
+#: classes/countries.class.php:133
+msgid "Luxembourg"
+msgstr "Luxembourg"
+
+#: classes/countries.class.php:134
+msgid "Macao S.A.R., China"
+msgstr "Macao SAR, China"
+
+#: classes/countries.class.php:135
+msgid "Macedonia"
+msgstr "Makedonia"
+
+#: classes/countries.class.php:136
+msgid "Madagascar"
+msgstr "Madagaskar"
+
+#: classes/countries.class.php:137
+msgid "Malawi"
+msgstr "Malawi"
+
+#: classes/countries.class.php:138
+msgid "Malaysia"
+msgstr "Malaysia"
+
+#: classes/countries.class.php:139
+msgid "Maldives"
+msgstr "Maldivene"
+
+#: classes/countries.class.php:140
+msgid "Mali"
+msgstr "Mali"
+
+#: classes/countries.class.php:141
+msgid "Malta"
+msgstr "Malta"
+
+#: classes/countries.class.php:142
+msgid "Marshall Islands"
+msgstr "Marshall Islands"
+
+#: classes/countries.class.php:143
+msgid "Martinique"
+msgstr "Martinique"
+
+#: classes/countries.class.php:144
+msgid "Mauritania"
+msgstr "Mauritania"
+
+#: classes/countries.class.php:145
+msgid "Mauritius"
+msgstr "Mauritius"
+
+#: classes/countries.class.php:146
+msgid "Mayotte"
+msgstr "Mayotte"
+
+#: classes/countries.class.php:147
+msgid "Mexico"
+msgstr "Mexico"
+
+#: classes/countries.class.php:148
+msgid "Micronesia"
+msgstr "Mikronesia"
+
+#: classes/countries.class.php:149
+msgid "Moldova"
+msgstr "Moldova"
+
+#: classes/countries.class.php:150
+msgid "Monaco"
+msgstr "Monaco"
+
+#: classes/countries.class.php:151
+msgid "Mongolia"
+msgstr "Mongolia"
+
+#: classes/countries.class.php:152
+msgid "Montenegro"
+msgstr "Montenegro"
+
+#: classes/countries.class.php:153
+msgid "Montserrat"
+msgstr "Montserrat"
+
+#: classes/countries.class.php:154
+msgid "Morocco"
+msgstr "Marokko"
+
+#: classes/countries.class.php:155
+msgid "Mozambique"
+msgstr "Mosambik"
+
+#: classes/countries.class.php:156
+msgid "Myanmar"
+msgstr "Myanmar"
+
+#: classes/countries.class.php:157
+msgid "Namibia"
+msgstr "Namibia"
+
+#: classes/countries.class.php:158
+msgid "Nauru"
+msgstr "Nauru"
+
+#: classes/countries.class.php:159
+msgid "Nepal"
+msgstr "Nepal"
+
+#: classes/countries.class.php:160
+msgid "Netherlands"
+msgstr "Nederland"
+
+#: classes/countries.class.php:161
+msgid "Netherlands Antilles"
+msgstr "De nederlandske Antillene"
+
+#: classes/countries.class.php:162
+msgid "New Caledonia"
+msgstr "New Caledonia"
+
+#: classes/countries.class.php:163
+msgid "New Zealand"
+msgstr "New Zealand"
+
+#: classes/countries.class.php:164
+msgid "Nicaragua"
+msgstr "Nicaragua"
+
+#: classes/countries.class.php:165
+msgid "Niger"
+msgstr "Niger"
+
+#: classes/countries.class.php:166
+msgid "Nigeria"
+msgstr "Nigeria"
+
+#: classes/countries.class.php:167
+msgid "Niue"
+msgstr "Niue"
+
+#: classes/countries.class.php:168
+msgid "Norfolk Island"
+msgstr "Norfolk Island"
+
+#: classes/countries.class.php:169
+msgid "North Korea"
+msgstr "Nord-Korea"
+
+#: classes/countries.class.php:170
+msgid "Northern Mariana Islands"
+msgstr "Northern Mariana Islands"
+
+#: classes/countries.class.php:171
+msgid "Norway"
+msgstr "Norge"
+
+#: classes/countries.class.php:172
+msgid "Oman"
+msgstr "Oman"
+
+#: classes/countries.class.php:173
+msgid "Pakistan"
+msgstr "Pakistan"
+
+#: classes/countries.class.php:174
+msgid "Palau"
+msgstr "Palau"
+
+#: classes/countries.class.php:175
+msgid "Palestinian Territory"
+msgstr "Det palestinske området"
+
+#: classes/countries.class.php:176
+msgid "Panama"
+msgstr "Panama"
+
+#: classes/countries.class.php:177
+msgid "Papua New Guinea"
+msgstr "Papua Ny-Guinea"
+
+#: classes/countries.class.php:178
+msgid "Paraguay"
+msgstr "Paraguay"
+
+#: classes/countries.class.php:179
+msgid "Peru"
+msgstr "Peru"
+
+#: classes/countries.class.php:180
+#, fuzzy
+msgid "Philippines"
+msgstr "Frakt"
+
+#: classes/countries.class.php:181
+msgid "Pitcairn"
+msgstr "Pitcairn"
+
+#: classes/countries.class.php:182
+msgid "Poland"
+msgstr "Polen"
+
+#: classes/countries.class.php:183
+msgid "Portugal"
+msgstr "Portugal"
+
+#: classes/countries.class.php:184
+msgid "Puerto Rico"
+msgstr "Puerto Rico"
+
+#: classes/countries.class.php:185
+msgid "Qatar"
+msgstr "Qatar"
+
+#: classes/countries.class.php:186
+msgid "Reunion"
+msgstr "Reunion"
+
+#: classes/countries.class.php:187
+msgid "Romania"
+msgstr "Romania"
+
+#: classes/countries.class.php:188
+msgid "Russia"
+msgstr "Russland"
+
+#: classes/countries.class.php:189
+msgid "Rwanda"
+msgstr "Rwanda"
+
+#: classes/countries.class.php:190
+msgid "Saint Barth&eacute;lemy"
+msgstr "Saint Barthélemy"
+
+#: classes/countries.class.php:191
+msgid "Saint Helena"
+msgstr "Saint Helena"
+
+#: classes/countries.class.php:192
+msgid "Saint Kitts and Nevis"
+msgstr "Saint Kitts og Nevis"
+
+#: classes/countries.class.php:193
+msgid "Saint Lucia"
+msgstr "Saint Lucia"
+
+#: classes/countries.class.php:194
+msgid "Saint Martin (French part)"
+msgstr "Saint Martin (fransk del)"
+
+#: classes/countries.class.php:195
+msgid "Saint Pierre and Miquelon"
+msgstr "Saint-Pierre og Miquelon"
+
+#: classes/countries.class.php:196
+msgid "Saint Vincent and the Grenadines"
+msgstr "Saint Vincent og Grenadinene"
+
+#: classes/countries.class.php:197
+msgid "Samoa"
+msgstr "Samoa"
+
+#: classes/countries.class.php:198
+msgid "San Marino"
+msgstr "San Marino"
+
+#: classes/countries.class.php:199
+msgid "S&atilde;o Tom&eacute; and Pr&iacute;ncipe"
+msgstr "São Tomé og Príncipe"
+
+#: classes/countries.class.php:200
+msgid "Saudi Arabia"
+msgstr "Saudi-Arabia"
+
+#: classes/countries.class.php:201
+msgid "Senegal"
+msgstr "Senegal"
+
+#: classes/countries.class.php:202
+msgid "Serbia"
+msgstr "Serbia"
+
+#: classes/countries.class.php:203
+msgid "Seychelles"
+msgstr "Seychellene"
+
+#: classes/countries.class.php:204
+msgid "Sierra Leone"
+msgstr "Sierra Leone"
+
+#: classes/countries.class.php:205
+msgid "Singapore"
+msgstr "Singapore"
+
+#: classes/countries.class.php:206
+msgid "Slovakia"
+msgstr "Slovakia"
+
+#: classes/countries.class.php:207
+msgid "Slovenia"
+msgstr "Slovenia"
+
+#: classes/countries.class.php:208
+msgid "Solomon Islands"
+msgstr "Salomonøyene"
+
+#: classes/countries.class.php:209
+msgid "Somalia"
+msgstr "Somalia"
+
+#: classes/countries.class.php:210
+msgid "South Africa"
+msgstr "Sør-Afrika"
+
+#: classes/countries.class.php:211
+msgid "South Georgia/Sandwich Islands"
+msgstr "Sør-Georgia / Sandwichøyene"
+
+#: classes/countries.class.php:212
+msgid "South Korea"
+msgstr "Sør-Korea"
+
+#: classes/countries.class.php:213
+msgid "Spain"
+msgstr "Spania"
+
+#: classes/countries.class.php:214
+msgid "Sri Lanka"
+msgstr "Sri Lanka"
+
+#: classes/countries.class.php:215
+msgid "Sudan"
+msgstr "Sudan"
+
+#: classes/countries.class.php:216
+msgid "Suriname"
+msgstr "Surinam"
+
+#: classes/countries.class.php:217
+msgid "Svalbard and Jan Mayen"
+msgstr "Svalbard og Jan Mayen"
+
+#: classes/countries.class.php:218
+msgid "Swaziland"
+msgstr "Swaziland"
+
+#: classes/countries.class.php:219
+msgid "Sweden"
+msgstr "Sverige"
+
+#: classes/countries.class.php:220
+msgid "Switzerland"
+msgstr "Sveits"
+
+#: classes/countries.class.php:221
+msgid "Syria"
+msgstr "Syria"
+
+#: classes/countries.class.php:222
+msgid "Taiwan"
+msgstr "Taiwan"
+
+#: classes/countries.class.php:223
+msgid "Tajikistan"
+msgstr "Tadsjikistan"
+
+#: classes/countries.class.php:224
+msgid "Tanzania"
+msgstr "Tanzania"
+
+#: classes/countries.class.php:225
+msgid "Thailand"
+msgstr "Thailand"
+
+#: classes/countries.class.php:226
+msgid "Timor-Leste"
+msgstr "Øst-Timor"
+
+#: classes/countries.class.php:227
+msgid "Togo"
+msgstr "Togo"
+
+#: classes/countries.class.php:228
+msgid "Tokelau"
+msgstr "Tokelau"
+
+#: classes/countries.class.php:229
+msgid "Tonga"
+msgstr "Tonga"
+
+#: classes/countries.class.php:230
+msgid "Trinidad and Tobago"
+msgstr "Trinidad og Tobago"
+
+#: classes/countries.class.php:231
+msgid "Tunisia"
+msgstr "Tunisia"
+
+#: classes/countries.class.php:232
+msgid "Turkey"
+msgstr "Kalkun"
+
+#: classes/countries.class.php:233
+msgid "Turkmenistan"
+msgstr "Turkmenistan"
+
+#: classes/countries.class.php:234
+msgid "Turks and Caicos Islands"
+msgstr "Turks-og Caicosøyene"
+
+#: classes/countries.class.php:235
+msgid "Tuvalu"
+msgstr "Tuvalu"
+
+#: classes/countries.class.php:236
+msgid "U.S. Virgin Islands"
+msgstr "US Virgin Islands"
+
+#: classes/countries.class.php:237
+msgid "US Armed Forces"
+msgstr "US Armed Forces"
+
+#: classes/countries.class.php:238
+msgid "US Minor Outlying Islands"
+msgstr "US Minor Outlying Islands"
+
+#: classes/countries.class.php:239
+msgid "Uganda"
+msgstr "Uganda"
+
+#: classes/countries.class.php:240
+msgid "Ukraine"
+msgstr "Ukraina"
+
+#: classes/countries.class.php:241
+msgid "United Arab Emirates"
+msgstr "De forente arabiske emirater"
+
+#: classes/countries.class.php:242
+msgid "United Kingdom"
+msgstr "Storbritannia"
+
+#: classes/countries.class.php:243
+#, fuzzy
+msgid "United States"
+msgstr "Oppdater bestillingsstatus"
+
+#: classes/countries.class.php:244
+msgid "Uruguay"
+msgstr "Uruguay"
+
+#: classes/countries.class.php:245
+msgid "Uzbekistan"
+msgstr "Usbekistan"
+
+#: classes/countries.class.php:246
+msgid "Vanuatu"
+msgstr "Vanuatu"
+
+#: classes/countries.class.php:247
+msgid "Vatican"
+msgstr "Vatikanet"
+
+#: classes/countries.class.php:248
+msgid "Venezuela"
+msgstr "Venezuela"
+
+#: classes/countries.class.php:249
+msgid "Vietnam"
+msgstr "Vietnam"
+
+#: classes/countries.class.php:250
+msgid "Wallis and Futuna"
+msgstr "Wallis og Futuna"
+
+#: classes/countries.class.php:251
+msgid "Western Sahara"
+msgstr "Vest-Sahara"
+
+#: classes/countries.class.php:252
+msgid "Yemen"
+msgstr "Jemen"
+
+#: classes/countries.class.php:253
+msgid "Zambia"
+msgstr "Zambia"
+
+#: classes/countries.class.php:254
+msgid "Zimbabwe"
+msgstr "Zimbabwe"
+
+#: classes/countries.class.php:259
+msgid "Australian Capital Territory"
+msgstr "Australian Capital Territory"
+
+#: classes/countries.class.php:260
+msgid "New South Wales"
+msgstr "New South Wales"
+
+#: classes/countries.class.php:261
+msgid "Northern Territory"
+msgstr "Northern Territory"
+
+#: classes/countries.class.php:262
+msgid "Queensland"
+msgstr "Queensland"
+
+#: classes/countries.class.php:263
+msgid "South Australia"
+msgstr "South Australia"
+
+#: classes/countries.class.php:264
+msgid "Tasmania"
+msgstr "Tasmania"
+
+#: classes/countries.class.php:265
+msgid "Victoria"
+msgstr "Victoria"
+
+#: classes/countries.class.php:266
+msgid "Western Australia"
+msgstr "Western Australia"
+
+#: classes/countries.class.php:269
+msgid "Amazonas"
+msgstr "Amazonas"
+
+#: classes/countries.class.php:270
+msgid "Acre"
+msgstr "Acre"
+
+#: classes/countries.class.php:271
+msgid "Alagoas"
+msgstr "Alagoas"
+
+#: classes/countries.class.php:272
+msgid "Amap&aacute;"
+msgstr "Amapá"
+
+#: classes/countries.class.php:273
+msgid "Cear&aacute;"
+msgstr "Ceará"
+
+#: classes/countries.class.php:274
+msgid "Distrito Federal"
+msgstr "Distrito Federal"
+
+#: classes/countries.class.php:275
+msgid "Esp&iacute;rito Santo"
+msgstr "Espírito Santo"
+
+#: classes/countries.class.php:276
+msgid "Maranh&atilde;o"
+msgstr "Maranhão"
+
+#: classes/countries.class.php:277
+msgid "Paran&aacute;"
+msgstr "Paraná"
+
+#: classes/countries.class.php:278
+msgid "Pernambuco"
+msgstr "Pernambuco"
+
+#: classes/countries.class.php:279
+msgid "Piau&iacute;"
+msgstr "Piauí"
+
+#: classes/countries.class.php:280
+msgid "Rio Grande do Norte"
+msgstr "Rio Grande do Norte"
+
+#: classes/countries.class.php:281 classes/countries.class.php:294
+msgid "Rio Grande do Sul"
+msgstr "Rio Grande do Sul"
+
+#: classes/countries.class.php:282
+msgid "Rond&ocirc;nia"
+msgstr "Rondônia"
+
+#: classes/countries.class.php:283
+msgid "Roraima"
+msgstr "Roraima"
+
+#: classes/countries.class.php:284
+msgid "Santa Catarina"
+msgstr "Santa Catarina"
+
+#: classes/countries.class.php:285
+msgid "Sergipe"
+msgstr "Sergipe"
+
+#: classes/countries.class.php:286
+msgid "Tocantins"
+msgstr "Tocantins"
+
+#: classes/countries.class.php:287
+msgid "Par&aacute;"
+msgstr "Pará"
+
+#: classes/countries.class.php:288
+msgid "Bahia"
+msgstr "Bahia"
+
+#: classes/countries.class.php:289
+msgid "Goi&aacute;s"
+msgstr "Goiás"
+
+#: classes/countries.class.php:290
+msgid "Mato Grosso"
+msgstr "Mato Grosso"
+
+#: classes/countries.class.php:291
+msgid "Mato Grosso do Sul"
+msgstr "Mato Grosso do Sul"
+
+#: classes/countries.class.php:292
+msgid "Rio de Janeiro"
+msgstr "Rio de Janeiro"
+
+#: classes/countries.class.php:293
+msgid "S&atilde;o Paulo"
+msgstr "São Paulo"
+
+#: classes/countries.class.php:295
+msgid "Minas Gerais"
+msgstr "Minas Gerais"
+
+#: classes/countries.class.php:296
+msgid "Para&iacute;ba"
+msgstr "Paraíba"
+
+#: classes/countries.class.php:299
+msgid "Alberta"
+msgstr "Alberta"
+
+#: classes/countries.class.php:300
+msgid "British Columbia"
+msgstr "British Columbia"
+
+#: classes/countries.class.php:301
+msgid "Manitoba"
+msgstr "Manitoba"
+
+#: classes/countries.class.php:302
+msgid "New Brunswick"
+msgstr "New Brunswick"
+
+#: classes/countries.class.php:303
+msgid "Newfoundland"
+msgstr "Newfoundland"
+
+#: classes/countries.class.php:304
+msgid "Northwest Territories"
+msgstr "Northwest Territories"
+
+#: classes/countries.class.php:305
+msgid "Nova Scotia"
+msgstr "Nova Scotia"
+
+#: classes/countries.class.php:306
+msgid "Nunavut"
+msgstr "Nunavut"
+
+#: classes/countries.class.php:307
+msgid "Ontario"
+msgstr "Ontario"
+
+#: classes/countries.class.php:308
+msgid "Prince Edward Island"
+msgstr "Prince Edward Island"
+
+#: classes/countries.class.php:309
+msgid "Quebec"
+msgstr "Quebec"
+
+#: classes/countries.class.php:310
+msgid "Saskatchewan"
+msgstr "Saskatchewan"
+
+#: classes/countries.class.php:311
+msgid "Yukon Territory"
+msgstr "Yukon Territory"
+
+#: classes/countries.class.php:314
+msgid "Hong Kong Island"
+msgstr "Hong Kong Island"
+
+#: classes/countries.class.php:315
+msgid "Kowloon"
+msgstr "Kowloon"
+
+#: classes/countries.class.php:316
+msgid "New Territories"
+msgstr "New Territories"
+
+#: classes/countries.class.php:319
+msgid "Drenthe"
+msgstr "Drenthe"
+
+#: classes/countries.class.php:320
+msgid "Flevoland"
+msgstr "Flevoland"
+
+#: classes/countries.class.php:321
+msgid "Friesland"
+msgstr "Friesland"
+
+#: classes/countries.class.php:322
+msgid "Gelderland"
+msgstr "Gelderland"
+
+#: classes/countries.class.php:323
+msgid "Groningen"
+msgstr "Groningen"
+
+#: classes/countries.class.php:324
+msgid "Limburg"
+msgstr "Limburg"
+
+#: classes/countries.class.php:325
+msgid "Noord-Brabant"
+msgstr "Noord-Brabant"
+
+#: classes/countries.class.php:326
+msgid "Noord-Holland"
+msgstr "Noord-Holland"
+
+#: classes/countries.class.php:327
+msgid "Overijssel"
+msgstr "Overijssel"
+
+#: classes/countries.class.php:328
+msgid "Utrecht"
+msgstr "Utrecht"
+
+#: classes/countries.class.php:329
+msgid "Zeeland"
+msgstr "Zeeland"
+
+#: classes/countries.class.php:330
+msgid "Zuid-Holland"
+msgstr "Zuid-Holland"
+
+#: classes/countries.class.php:333
+msgid "Northland"
+msgstr "Northland"
+
+#: classes/countries.class.php:334
+msgid "Auckland"
+msgstr "Auckland"
+
+#: classes/countries.class.php:335
+msgid "Waikato"
+msgstr "Waikato"
+
+#: classes/countries.class.php:336
+msgid "Bay of Plenty"
+msgstr "Bay of Plenty"
+
+#: classes/countries.class.php:337
+msgid "Taranaki"
+msgstr "Taranaki"
+
+#: classes/countries.class.php:338
+msgid "Hawke&rsquo;s Bay"
+msgstr "Hawkes Bay"
+
+#: classes/countries.class.php:339
+msgid "Manawatu-Wanganui"
+msgstr "Manawatu-Wanganui"
+
+#: classes/countries.class.php:340
+msgid "Wellington"
+msgstr "Wellington"
+
+#: classes/countries.class.php:341
+msgid "Nelson"
+msgstr "Nelson"
+
+#: classes/countries.class.php:342
+msgid "Marlborough"
+msgstr "Marlborough"
+
+#: classes/countries.class.php:343
+msgid "Tasman"
+msgstr "Tasman"
+
+#: classes/countries.class.php:344
+msgid "West Coast"
+msgstr "West Coast"
+
+#: classes/countries.class.php:345
+msgid "Canterbury"
+msgstr "Canterbury"
+
+#: classes/countries.class.php:346
+msgid "Otago"
+msgstr "Otago"
+
+#: classes/countries.class.php:347
+msgid "Southland"
+msgstr "Southland"
+
+#: classes/countries.class.php:350
+msgid "Alabama"
+msgstr "Alabama"
+
+#: classes/countries.class.php:351
+msgid "Alaska"
+msgstr "Alaska"
+
+#: classes/countries.class.php:352
+msgid "Arizona"
+msgstr "Arizona"
+
+#: classes/countries.class.php:353
+msgid "Arkansas"
+msgstr "Arkansas"
+
+#: classes/countries.class.php:354
+msgid "California"
+msgstr "California"
+
+#: classes/countries.class.php:355
+msgid "Colorado"
+msgstr "Colorado"
+
+#: classes/countries.class.php:356
+msgid "Connecticut"
+msgstr "Connecticut"
+
+#: classes/countries.class.php:357
+msgid "Delaware"
+msgstr "Delaware"
+
+#: classes/countries.class.php:358
+msgid "District Of Columbia"
+msgstr "District Of Columbia"
+
+#: classes/countries.class.php:359
+msgid "Florida"
+msgstr "Florida"
+
+#: classes/countries.class.php:361
+msgid "Hawaii"
+msgstr "Hawaii"
+
+#: classes/countries.class.php:362
+msgid "Idaho"
+msgstr "Idaho"
+
+#: classes/countries.class.php:363
+msgid "Illinois"
+msgstr "Illinois"
+
+#: classes/countries.class.php:364
+msgid "Indiana"
+msgstr "Indiana"
+
+#: classes/countries.class.php:365
+msgid "Iowa"
+msgstr "Iowa"
+
+#: classes/countries.class.php:366
+msgid "Kansas"
+msgstr "Kansas"
+
+#: classes/countries.class.php:367
+msgid "Kentucky"
+msgstr "Kentucky"
+
+#: classes/countries.class.php:368
+msgid "Louisiana"
+msgstr "Louisiana"
+
+#: classes/countries.class.php:369
+msgid "Maine"
+msgstr "Maine"
+
+#: classes/countries.class.php:370
+msgid "Maryland"
+msgstr "Maryland"
+
+#: classes/countries.class.php:371
+msgid "Massachusetts"
+msgstr "Massachusetts"
+
+#: classes/countries.class.php:372
+msgid "Michigan"
+msgstr "Michigan"
+
+#: classes/countries.class.php:373
+msgid "Minnesota"
+msgstr "Minnesota"
+
+#: classes/countries.class.php:374
+msgid "Mississippi"
+msgstr "Mississippi"
+
+#: classes/countries.class.php:375
+msgid "Missouri"
+msgstr "Missouri"
+
+#: classes/countries.class.php:376
+msgid "Montana"
+msgstr "Montana"
+
+#: classes/countries.class.php:377
+msgid "Nebraska"
+msgstr "Nebraska"
+
+#: classes/countries.class.php:378
+msgid "Nevada"
+msgstr "Nevada"
+
+#: classes/countries.class.php:379
+msgid "New Hampshire"
+msgstr "New Hampshire"
+
+#: classes/countries.class.php:380
+#, fuzzy
+msgid "New Jersey"
+msgstr "Ny bestilling"
+
+#: classes/countries.class.php:381
+msgid "New Mexico"
+msgstr "New Mexico"
+
+#: classes/countries.class.php:382
+msgid "New York"
+msgstr "New York"
+
+#: classes/countries.class.php:383
+msgid "North Carolina"
+msgstr "North Carolina"
+
+#: classes/countries.class.php:384
+msgid "North Dakota"
+msgstr "North Dakota"
+
+#: classes/countries.class.php:385
+msgid "Ohio"
+msgstr "Ohio"
+
+#: classes/countries.class.php:386
+msgid "Oklahoma"
+msgstr "Oklahoma"
+
+#: classes/countries.class.php:387
+msgid "Oregon"
+msgstr "Oregon"
+
+#: classes/countries.class.php:388
+msgid "Pennsylvania"
+msgstr "Pennsylvania"
+
+#: classes/countries.class.php:389
+msgid "Rhode Island"
+msgstr "Rhode Island"
+
+#: classes/countries.class.php:390
+msgid "South Carolina"
+msgstr "South Carolina"
+
+#: classes/countries.class.php:391
+msgid "South Dakota"
+msgstr "South Dakota"
+
+#: classes/countries.class.php:392
+msgid "Tennessee"
+msgstr "Tennessee"
+
+#: classes/countries.class.php:393
+msgid "Texas"
+msgstr "Texas"
+
+#: classes/countries.class.php:394
+msgid "Utah"
+msgstr "Utah"
+
+#: classes/countries.class.php:395
+msgid "Vermont"
+msgstr "Vermont"
+
+#: classes/countries.class.php:396
+msgid "Virginia"
+msgstr "Virginia"
+
+#: classes/countries.class.php:397
+msgid "Washington"
+msgstr "Washington"
+
+#: classes/countries.class.php:398
+msgid "West Virginia"
+msgstr "West Virginia"
+
+#: classes/countries.class.php:399
+#, fuzzy
+msgid "Wisconsin"
+msgstr "Rabattkode"
+
+#: classes/countries.class.php:400
+msgid "Wyoming"
+msgstr "Wyoming"
+
+#: classes/countries.class.php:403
+msgid "Americas"
+msgstr "Amerika"
+
+#: classes/countries.class.php:404
+msgid "Europe"
+msgstr "Europa"
+
+#: classes/countries.class.php:405
+msgid "Pacific"
+msgstr "Pacific"
+
+#: classes/countries.class.php:433
+#, fuzzy
+msgid "Select country"
+msgstr "Velg produkt"
+
+#: classes/frontend.class.php:248
+msgid "This gallery is password protected. To view it please enter your password below:"
+msgstr "Dette galleriet er passordbeskyttet. For å se den må du oppgi passord nedenfor:"
+
+#: classes/frontend.class.php:251
+msgid "Hint"
+msgstr "Hint"
+
+#: classes/frontend.class.php:280
+msgid "Logout"
+msgstr "Logg ut"
+
+#: classes/frontend.class.php:311
+msgid "Register"
+msgstr "Registrer"
+
+#: classes/frontend.class.php:335 themes/default/image.php:9
+msgid "Return to"
+msgstr "Tilbake til"
+
+#: classes/frontend.class.php:347
+msgid "Purchase Options"
+msgstr "Kjøpsalternativer"
+
+#: classes/frontend.class.php:400
+msgid "Sorry, you are not allowed to access this gallery"
+msgstr "Beklager, du har ikke lov til å få tilgang til dette galleriet"
+
+#: classes/frontend.class.php:400 classes/frontend.class.php:406
+#: classes/frontend.class.php:417 classes/frontend.class.php:427
+msgid "Access denied"
+msgstr "Ingen tilgang"
+
+#: classes/frontend.class.php:405
+#, php-format
+msgid "This gallery requires you to have an account and be logged in. <a href=\"%s\">Login</a> or <a href=\"%s\">Register</a>"
+msgstr "Dette galleriet krever at du har en konto og være logget inn <a href = \ " %s \ "> Logg inn </ a> eller <a href = \" %s \ "> Registrer </ a>"
+
+#: classes/frontend.class.php:417
+msgid "Sorry, you are not allowed to view this image"
+msgstr "Beklager, du har ikke lov til å vise dette bildet"
+
+#: classes/frontend.class.php:427
+msgid "Sorry, you are not allowed to access this order information"
+msgstr "Beklager, du har ikke lov til å få tilgang til denne ordreinformasjon"
+
+#: classes/order.class.php:90
+#, php-format
+msgid "Receipt for your purchase from %s"
+msgstr "Kvittering for kjøpet fra %s"
+
+#: classes/order.class.php:91
+#, php-format
+msgid "Order placed on %s"
+msgstr "Ordre plassert på %s"
+
+#: classes/order.class.php:95
+msgid "Order completed successfully!"
+msgstr "Bestill fullført!"
+
+#: classes/sf-class-format-options.php:207
+msgid "Select a page..."
+msgstr "Velg en side ..."
+
+#: classes/sf-class-settings.php:149
+msgid "Settings"
+msgstr "Innstillinger"
+
+#: classes/sf-class-settings.php:292
+msgid "Could not load settings at: "
+msgstr "Kunne ikke laste inn innstillingene: "
+
+#: classes/sf-class-settings.php:292
+msgid "Error - WP Settings Framework"
+msgstr "Feil - WP Innstillinger Framework"
+
+#: classes/sf-class-settings.php:357
+msgid "Settings saved."
+msgstr "Innstillinger lagret."
+
+#: classes/sf-class-settings.php:470
+#, php-format
+msgid "Save %s changes"
+msgstr "Lagre %s endringer"
+
+#: classes/sunshine.class.php:66
+msgid "Add New Gallery"
+msgstr "Legg New Gallery"
+
+#: classes/sunshine.class.php:67
+msgid "Edit Gallery"
+msgstr "Edit Gallery"
+
+#: classes/sunshine.class.php:68
+msgid "New Gallery"
+msgstr "New Gallery"
+
+#: classes/sunshine.class.php:69
+msgid "All Galleries"
+msgstr "Alle Galleri"
+
+#: classes/sunshine.class.php:70
+msgid "View Gallery"
+msgstr "Se galleri"
+
+#: classes/sunshine.class.php:71
+msgid "Search Galleries"
+msgstr "Søk Gallerier"
+
+#: classes/sunshine.class.php:72
+msgid "No galleries found"
+msgstr "Ingen gallerier funnet"
+
+#: classes/sunshine.class.php:73
+msgid "No galleries found in trash"
+msgstr "Ingen gallerier funnet i søpla"
+
+#: classes/sunshine.class.php:101
+msgid "Add New Product"
+msgstr "Legg nytt produkt"
+
+#: classes/sunshine.class.php:102
+msgid "Edit Product"
+msgstr "Redigere Produkt"
+
+#: classes/sunshine.class.php:103
+msgid "New Product"
+msgstr "New Product"
+
+#: classes/sunshine.class.php:104
+msgid "All Products"
+msgstr "Alle produkter"
+
+#: classes/sunshine.class.php:105
+msgid "View Products"
+msgstr "Se produkter"
+
+#: classes/sunshine.class.php:106
+msgid "Search Products"
+msgstr "Søk Produkter"
+
+#: classes/sunshine.class.php:107
+msgid "No products found"
+msgstr "Ingen produkter funnet"
+
+#: classes/sunshine.class.php:108
+msgid "No products found in trash"
+msgstr "Ingen produkter funnet i søpla"
+
+#: classes/sunshine.class.php:110 classes/sunshine.class.php:256
+msgid "Products"
+msgstr "Produkter"
+
+#: classes/sunshine.class.php:130
+msgid "Product Categories"
+msgstr "Produktkategorier"
+
+#: classes/sunshine.class.php:131
+msgid "Product Category"
+msgstr "Produktkategori"
+
+#: classes/sunshine.class.php:132
+msgid "Search Product Categories"
+msgstr "Søk Produktkategorier"
+
+#: classes/sunshine.class.php:133
+msgid "All Product Categories"
+msgstr "Alle produktkategorier"
+
+#: classes/sunshine.class.php:134
+msgid "Parent Product Category"
+msgstr "Parent produktkategori"
+
+#: classes/sunshine.class.php:135
+msgid "Parent Product Category:"
+msgstr "Parent Product KATEGORIER:"
+
+#: classes/sunshine.class.php:136
+msgid "Edit Product Category"
+msgstr "Redigere produktkategori"
+
+#: classes/sunshine.class.php:137
+msgid "Update Product Category"
+msgstr "Oppdater produktkategori"
+
+#: classes/sunshine.class.php:138
+msgid "Add New Product Category"
+msgstr "Legg til ny produktkategori"
+
+#: classes/sunshine.class.php:139
+msgid "New Product Category Name"
+msgstr "New Product Category Name"
+
+#: classes/sunshine.class.php:140
+msgid "Separate categories with commas"
+msgstr "Separate kategorier med komma"
+
+#: classes/sunshine.class.php:141
+msgid "Choose from the most used categories"
+msgstr "Velg blant de mest brukte kategoriene"
+
+#: classes/sunshine.class.php:156
+msgid "Search Price Levels"
+msgstr "Søk Prisnivået"
+
+#: classes/sunshine.class.php:157
+msgid "All Price Levels"
+msgstr "Alle prisklasser"
+
+#: classes/sunshine.class.php:158
+msgid "Parent Price Level"
+msgstr "Parent Prisnivå"
+
+#: classes/sunshine.class.php:159
+msgid "Parent Price Level:"
+msgstr "Parent Prisnivå:"
+
+#: classes/sunshine.class.php:160
+msgid "Edit Price Level"
+msgstr "Redigere Prisnivå"
+
+#: classes/sunshine.class.php:161
+msgid "Update Price Level"
+msgstr "Oppdater Prisnivå"
+
+#: classes/sunshine.class.php:162
+msgid "Add New Price Level"
+msgstr "Legg nye prisnivået"
+
+#: classes/sunshine.class.php:163
+msgid "New Price Level"
+msgstr "New Prisnivå"
+
+#: classes/sunshine.class.php:181
+msgid "Add New Order"
+msgstr "Legg New Order"
+
+#: classes/sunshine.class.php:182
+msgid "Edit Order"
+msgstr "Endre bestilling"
+
+#: classes/sunshine.class.php:183
+msgid "New Order"
+msgstr "Ny bestilling"
+
+#: classes/sunshine.class.php:184
+msgid "All Orders"
+msgstr "Alle bestillinger"
+
+#: classes/sunshine.class.php:185
+msgid "View Orders"
+msgstr "Vis bestillinger"
+
+#: classes/sunshine.class.php:186
+msgid "Search Orders"
+msgstr "Søk bestillinger"
+
+#: classes/sunshine.class.php:187
+msgid "No orders found"
+msgstr "Ingen ordre funnet"
+
+#: classes/sunshine.class.php:188
+msgid "No orders found in trash"
+msgstr "Ingen ordre funnet i søpla"
+
+#: classes/sunshine.class.php:190 themes/2013/account.php:16
+#: themes/default/account.php:16 themes/theme/account.php:20
+msgid "Orders"
+msgstr "Bestillinger"
+
+#: classes/sunshine.class.php:211
+msgid "Search Order Status"
+msgstr "Søk Order Status"
+
+#: classes/sunshine.class.php:212
+msgid "All Order Status"
+msgstr "All Order Status"
+
+#: classes/sunshine.class.php:213
+msgid "Parent Order Status"
+msgstr "Parent Order Status"
+
+#: classes/sunshine.class.php:214
+msgid "Parent Order Status:"
+msgstr "Parent Order Status:"
+
+#: classes/sunshine.class.php:215
+msgid "Edit Order Status"
+msgstr "Redigere Order Status"
+
+#: classes/sunshine.class.php:216
+msgid "Update Order Status"
+msgstr "Oppdater bestillingsstatus"
+
+#: classes/sunshine.class.php:217
+msgid "Add New Order Status"
+msgstr "Legg New Order Status"
+
+#: classes/sunshine.class.php:218
+msgid "New Order Status"
+msgstr "New Order Status"
+
+#: themes/2013/account.php:11 themes/default/account.php:11
+#: themes/theme/account.php:15
+#, php-format
+msgid "You have %s in credit"
+msgstr "Du har %s på kreditt"
+
+#: themes/2013/account.php:23 themes/2013/order.php:9
+#: themes/default/account.php:23 themes/default/order.php:9
+#: themes/theme/account.php:27
+msgid "Order"
+msgstr "Bestill"
+
+#: themes/2013/account.php:24 themes/default/account.php:24
+#: themes/theme/account.php:28
+#, php-format
+msgid "%d item"
+msgstr "%d element"
+
+#: themes/2013/account.php:37 themes/default/account.php:37
+#: themes/theme/account.php:41
+msgid "Update Account Info"
+msgstr "Oppdater kontoinformasjon"
+
+#: themes/2013/cart.php:15 themes/2013/order.php:49 themes/default/cart.php:15
+#: themes/default/order.php:48 themes/theme/cart.php:15
+#: themes/theme/order.php:51
+msgid "Image"
+msgstr "Bilde"
+
+#: themes/2013/cart.php:18 themes/2013/order.php:52 themes/default/cart.php:18
+#: themes/default/order.php:51 themes/theme/cart.php:18
+#: themes/theme/order.php:54
+msgid "Item Price"
+msgstr "Pris pr stk"
+
+#: themes/2013/cart.php:19 themes/2013/order.php:53 themes/default/cart.php:19
+#: themes/default/order.php:52 themes/theme/cart.php:19
+#: themes/theme/order.php:55
+msgid "Item Total"
+msgstr "Totalpris"
+
+#: themes/2013/cart.php:58 themes/default/cart.php:58 themes/theme/cart.php:58
+msgid "Update Cart"
+msgstr "Oppdater handlekurv"
+
+#: themes/2013/cart.php:67 themes/default/cart.php:67 themes/theme/cart.php:67
+msgid "Continue to checkout"
+msgstr "Fortsett til kassen"
+
+#: themes/2013/cart.php:71 themes/default/cart.php:71 themes/theme/cart.php:71
+msgid "You do not have anything in your cart yet!"
+msgstr "Du har ingen varer i handlekurven"
+
+#: themes/2013/checkout.php:34 themes/default/checkout.php:34
+#: themes/theme/checkout.php:34
+msgid "Complete my purchase"
+msgstr "Bestill"
+
+#: themes/2013/checkout.php:34 themes/default/checkout.php:34
+#: themes/theme/checkout.php:34
+msgid "or"
+msgstr "eller"
+
+#: themes/2013/checkout.php:34 themes/default/checkout.php:34
+#: themes/theme/checkout.php:34
+msgid "cancel and return to galleries"
+msgstr "avbryt og gå tilbake til galleriene"
+
+#: themes/2013/checkout.php:38 themes/default/checkout.php:38
+#: themes/theme/checkout.php:38
+msgid "You do not have anything in your cart yet"
+msgstr "Du har ingen varer i handlekurven"
+
+#: themes/2013/favorites.php:31 themes/default/favorites.php:27
+#: themes/theme/favorites.php:29
+msgid "You have no images marked as a favorite"
+msgstr "Du har ingen bilder merket som en favoritt"
+
+#: themes/2013/functions.php:5 themes/default/functions.php:4
+msgid "Functionality"
+msgstr "Funksjonalitet"
+
+#: themes/2013/functions.php:7 themes/default/functions.php:6
+msgid "Gallery Login Box"
+msgstr "Gallery Logg Box"
+
+#: themes/2013/functions.php:10 themes/default/functions.php:9
+msgid "Enabling this option will have the gallery login box appear in the left sidebar."
+msgstr "Aktivering av dette alternativet vil ha galleriet login boksen vises i venstre sidebar."
+
+#: themes/2013/functions.php:14
+msgid "Main Area"
+msgstr "Main-området"
+
+#: themes/2013/functions.php:16 themes/2013/functions.php:90
+#: themes/2013/functions.php:122 themes/default/functions.php:15
+msgid "Background Color"
+msgstr "Bakgrunnsfarge"
+
+#: themes/2013/functions.php:28 themes/default/functions.php:106
+msgid "Header Font"
+msgstr "Header Font"
+
+#: themes/2013/functions.php:34
+msgid "Header Text Color"
+msgstr "Header Text Color"
+
+#: themes/2013/functions.php:46
+msgid "Body Text Font"
+msgstr "Body Text Font"
+
+#: themes/2013/functions.php:52
+msgid "Body Text Color"
+msgstr "Body Text Color"
+
+#: themes/2013/functions.php:64 themes/2013/functions.php:108
+#: themes/default/functions.php:46
+msgid "Link Color"
+msgstr "Link Color"
+
+#: themes/2013/functions.php:76
+msgid "Secondary Color"
+msgstr "Sekundær Color"
+
+#: themes/2013/functions.php:88
+msgid "Left Sidebar"
+msgstr "Venstre Sidebar"
+
+#: themes/2013/functions.php:102
+msgid "Font"
+msgstr "Font"
+
+#: themes/2013/functions.php:120
+msgid "Buttons"
+msgstr "Knapper"
+
+#: themes/2013/functions.php:134
+msgid "Text Color"
+msgstr "Tekstfarge"
+
+#: themes/2013/functions.php:146 themes/default/functions.php:129
+#: themes/theme/functions.php:4
+msgid "Custom Styles"
+msgstr "Egendefinerte stiler"
+
+#: themes/2013/functions.php:148 themes/default/functions.php:131
+#: themes/theme/functions.php:6
+msgid "CSS"
+msgstr "CSS"
+
+#: themes/2013/gallery.php:69 themes/default/gallery.php:66
+#: themes/theme/gallery.php:71
+msgid "Sorry, no images have been added to this gallery yet"
+msgstr "Beklager, ingen bilder er lagt til dette galleriet ennå"
+
+#: themes/2013/gallery.php:74 themes/default/gallery.php:71
+#: themes/theme/gallery.php:76
+msgid "Sorry, this gallery has expired."
+msgstr "Beklager, men dette galleriet utløpt."
+
+#: themes/2013/gift-registry.php:3 themes/default/gift-registry.php:3
+msgid "Gift Registry"
+msgstr "Gaveregister"
+
+#: themes/2013/gift-registry.php:5 themes/default/gift-registry.php:5
+msgid "Find a Registry"
+msgstr "Finn en Registry"
+
+#: themes/2013/gift-registry.php:6 themes/default/gift-registry.php:6
+msgid "Enter the first or last name of the person you are searching for"
+msgstr "Tast inn den første eller siste navnet på personen du søker etter"
+
+#: themes/2013/header.php:30 themes/default/header.php:30
+msgid "Enter gallery password"
+msgstr "Tast galleri passord"
+
+#: themes/2013/home.php:25 themes/default/home.php:25 themes/theme/home.php:27
+msgid "Sorry, no galleries have been setup yet"
+msgstr "Beklager, har ingen gallerier satt opp ennå"
+
+#: themes/2013/order.php:45 themes/default/order.php:44
+#: themes/theme/order.php:47
+msgid "Items"
+msgstr "Varer"
+
+#: themes/2013/order.php:121 themes/default/order.php:120
+msgid "Order Comments"
+msgstr "Kommentarer til orderen"
+
+#: themes/default/functions.php:32
+msgid "Background Image"
+msgstr "Bakgrunnsbilde"
+
+#: themes/default/functions.php:40
+msgid "Background Repeat"
+msgstr "Bakgrunn Repeat"
+
+#: themes/default/functions.php:58
+msgid "Button Color"
+msgstr "Button Color"
+
+#: themes/default/functions.php:70
+msgid "Button Text Color"
+msgstr "Button Tekstfarge"
+
+#: themes/default/functions.php:82
+msgid "Header Background Color"
+msgstr "Header Background Color"
+
+#: themes/default/functions.php:94
+msgid "Header Font Color"
+msgstr "Header Skriftfarge"
+
+#: themes/default/functions.php:112
+msgid "Secondary Header Font"
+msgstr "Sekundær Header Font"
+
+#: themes/default/functions.php:118
+msgid "Menu Font"
+msgstr "Meny Font"
+
+#: themes/default/functions.php:124
+msgid "Main Body Copy Font"
+msgstr "Hoveddel Kopier Font"
+
+#: themes/theme/functions.php:12
+msgid "Extra HTML - Top"
+msgstr "Ekstra HTML - Topp"
+
+#: themes/theme/functions.php:19
+msgid "Extra HTML - Bottom"
+msgstr "Ekstra HTML - Bottom"
+
+#~ msgid "State"
+#~ msgstr "Fylke"
+
+#~ msgid "Zip"
+#~ msgstr "Postnummer"
+
+#~ msgid "account overview"
+#~ msgstr "konto-oversikt"
