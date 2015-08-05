@@ -1,14 +1,13 @@
 === Sunshine Photo Cart ===
 Author URI: https://www.sunshinephotocart.com
 Plugin URI: https://www.sunshinephotocart.com
-Contributors: sunshinephotocart, sccr410
+Contributors: sunshinephotocart
 Tags: photo, photography, gallery, client gallery, e-store, eshop, ecommerce, e commerce, e-commerce, selling, wp-ecommerce, wp ecommerce 
 Requires at least: 3.7
-Tested up to: 4.2.3
-
-Stable Tag: 2.0.0
-
-License: GNU Version 2 or Any Later Version
+Tested up to: 4.2.4
+Stable tag: 2.0
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Client Gallery & Photo Cart Plugin for WordPress
 
