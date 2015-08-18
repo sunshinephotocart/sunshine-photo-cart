@@ -22,10 +22,6 @@
  * You should have received a copy of the GNU General Public License
  * along with Sunshine Photo Cart. If not, see <http://www.gnu.org/licenses/>.
  *
- * @package SunshinePhotoCart
- * @category Core
- * @author Derek Ashauer
- * @version 2.0
  */
 
 // Exit if accessed directly
@@ -108,6 +104,7 @@ function sunshine_init() {
 add_action( 'admin_init', 'sunshine_update_check' );
 function sunshine_update_check() {
 	global $sunshine;
+	if ( $sunshine->version == '' ) return;
 	if ( version_compare( $sunshine->version, SUNSHINE_VERSION, '<' ) || $sunshine->version == 0 || isset( $_GET['sunshine_force_update'] ) ) {
 		$sunshine->update();
 		add_action( 'admin_notices', 'sunshine_manual_update' );
@@ -117,7 +114,7 @@ function sunshine_update_check() {
 add_action( 'init', 'sunshine_pro_license', 0 );
 function sunshine_pro_license() {
 	if( class_exists( 'Sunshine_License' ) && is_admin() ) {
-		$sunshine_pro_license = new Sunshine_License( __FILE__, 'Sunshine Photo Cart Pro', '2.0', 'Sunshine Photo Cart' );
+		$sunshine_pro_license = new Sunshine_License( 'sunshine-pro', 'Sunshine Photo Cart Pro', '2.0', 'Sunshine Photo Cart' );
 	}
 }
 

@@ -1,43 +1,26 @@
 <?php
 add_action( 'show_user_profile', 'sunshine_admin_user_credits' );
 add_action( 'edit_user_profile', 'sunshine_admin_user_credits' );
-add_action( 'show_user_profile', 'sunshine_admin_user_show_favorites' );
-add_action( 'edit_user_profile', 'sunshine_admin_user_show_favorites' );
 add_action( 'show_user_profile', 'sunshine_admin_user_cart' );
 add_action( 'edit_user_profile', 'sunshine_admin_user_cart' );
 add_action( 'personal_options_update', 'sunshine_admin_user_credits_process' );
 add_action( 'edit_user_profile_update', 'sunshine_admin_user_credits_process' );
 
-function sunshine_admin_user_show_favorites( $user ) {
-	if ( current_user_can( 'manage_options' ) ) {
-		$favorites = get_user_meta( $user->ID, 'sunshine_favorite' );
-		if ( $favorites ) {
-			echo '<h3 id="sunshine-favorites">'.__( 'Sunshine Favorites','sunshine' ).' ('.count( $favorites ).')</h3>';
-			echo '<ul>';
-			foreach ( $favorites as $favorite ) {
-				$attachment = get_post( $favorite );
-				$image = wp_get_attachment_image_src( $attachment->ID, 'thumbnail' );
-				$url = get_permalink( $attachment->ID );
-?>
-			<li style="list-style: none; float: left; margin: 0 20px 20px 0;">
-				<a href="<?php echo $url; ?>"><img src="<?php echo $image[0]; ?>" height="100" alt="" /></a><br />
-				<?php echo get_the_title( $attachment->ID ); ?>
-			</li>
-		<?php }
-			echo '</ul><br clear="all" />';
-		}
-	}
-
-}
-
 function sunshine_admin_user_credits( $user ) {
 	if ( current_user_can( 'manage_options' ) ) {
 ?>
- 	<h3 id="sunshine-credits"><?php _e( 'Sunshine Gallery Credits for Purchases' ) ?></h3>
+ 	<h3 id="sunshine-credits"><?php _e( 'Sunshine Gallery Credits for Purchases', 'sunshine' ) ?></h3>
 	<table class="form-table">
  	<tr>
- 		<th><label for="sunshine_credits"><?php _e( 'Credits' ); ?></label></th>
- 		<td>$<input type="text" name="sunshine_credits" id="sunshine_credits" value="<?php echo esc_attr( SunshineUser::get_user_meta_by_id( $user->ID, 'credits' ) ); ?>" /></td>
+ 		<th><label for="sunshine_credits"><?php _e( 'Credits', 'sunshine' ); ?></label></th>
+ 		<td>
+			<?php
+			$currency_symbol = sunshine_currency_symbol();
+			$currency_symbol_format = sunshine_currency_symbol_format();
+			$text_field = '<input type="text" name="sunshine_credits" id="sunshine_credits" value="'.esc_attr( SunshineUser::get_user_meta_by_id( $user->ID, 'credits' ) ).'" />';
+			echo sprintf( $currency_symbol_format, $currency_symbol, $text_field );			
+			?>
+		</td>
  	</tr>
  	</table>
 <?php
@@ -45,28 +28,28 @@ function sunshine_admin_user_credits( $user ) {
 }
 
 function sunshine_admin_user_credits_process( $user_id ) {
-	SunshineUser::update_user_meta_by_id( $user_id, 'credits', $_POST['sunshine_credits'] );
+	SunshineUser::update_user_meta_by_id( $user_id, 'credits', sanitize_text_field( $_POST['sunshine_credits'] ) );
 }
 
 function sunshine_admin_user_cart( $user ) {
 	if ( current_user_can( 'manage_options' ) ) {
 		$items = SunshineUser::get_user_meta_by_id( $user->ID, 'cart', false );
 ?>
-	 	<h3 id="sunshine-cart"><?php _e( 'Sunshine Items in Cart' ) ?></h3>
+	 	<h3 id="sunshine-cart"><?php _e( 'Sunshine Items in Cart', 'sunshine' ) ?></h3>
 		<?php if ( $items ) { ?>
 			<table id="sunshine-cart-items" width="100%">
 			<tr>
-				<th class="image">Image</th>
-				<th class="name">Product</th>
-				<th class="qty">Qty</th>
-				<th class="price">Item Price</th>
+				<th class="image"><?php _e( 'Image', 'sunshine' ) ?></th>
+				<th class="name"><?php _e( 'Product', 'sunshine' ) ?></th>
+				<th class="qty"><?php _e( 'Quantity', 'sunshine' ) ?></th>
+				<th class="price"><?php _e( 'Item Price', 'sunshine' ) ?></th>
 			</tr>
 			<?php foreach ( $items as $item ) { ?>
 				<tr class="item">
 					<td class="image">
 						<?php
 				$thumb = wp_get_attachment_image_src( $item['image_id'], 'thumbnail' );
-				$image_html = '<a href="'.get_permalink( $item['image_id'] ).'"><img src="'.$thumb[0].'" alt="" class="image-thumb" /></a><br />'.get_the_title( $item['image_id'] );
+				$image_html = '<a href="'.get_permalink( $item['image_id'] ).'"><img src="'.$thumb[0].'" alt="" class="image-thumb" /></a>';
 				echo apply_filters( 'sunshine_cart_image_html', $image_html, $item, $thumb );
 ?>
 					</td>
@@ -100,7 +83,7 @@ function sunshine_admin_user_cart( $user ) {
 add_filter( 'user_row_actions', 'sunshine_user_link_row',10,2 );
 function sunshine_user_link_row( $actions, $user ) {
 	if ( current_user_can( 'manage_options', $user->ID ) ) {
-		$actions['sunshine_credits'] = '<a href="user-edit.php?user_id='.$user->ID.'#sunshine-credits">Credits</a>';
+		$actions['sunshine_credits'] = '<a href="user-edit.php?user_id='.$user->ID.'#sunshine-credits">' . __('Credits', 'sunshine') . '</a>';
 	}
 	return $actions;
 }

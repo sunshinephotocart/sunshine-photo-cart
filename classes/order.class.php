@@ -31,7 +31,6 @@ class SunshineOrder extends SunshineSingleton {
 				'ID' => $order_id,
 				'post_title' => 'Order #'.$order_id,
 				'post_name' => $post_id,
-				'comment_status' => 'open'
 			) );
 		update_post_meta( $order_id, '_sunshine_order_data', serialize( apply_filters( 'sunshine_order_data', $data ) ) );
 		update_post_meta( $order_id, '_sunshine_order_items', serialize( apply_filters( 'sunshine_order_items', $order_items ) ) );

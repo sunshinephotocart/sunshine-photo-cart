@@ -914,20 +914,20 @@ function sunshine_checkout_billing_fields() {
 ?>
 	<fieldset id="sunshine-billing-fields">
 	<h2><?php _e( 'Billing Information', 'sunshine' ); ?></h2>
-	<div class="field field-left required" id="sunshine-billing-country"><label><?php _e( 'Country', 'sunshine' ); ?><span class="required">*</span> <?php SunshineCountries::country_only_dropdown( 'billing_country', SunshineUser::get_user_meta( 'country' ) ); ?></label></div>
-	<div class="field field-left required" id="sunshine-billing-first-name"><label><?php _e( 'First Name', 'sunshine' ); ?><span class="required">*</span> <input type="text" name="billing_first_name" value="<?php echo esc_attr( SunshineUser::get_user_meta( 'first_name' ) ); ?>" /></label></div>
-	<div class="field field-right required" id="sunshine-billing-last-name"><label><?php _e( 'Last Name', 'sunshine' ); ?><span class="required">*</span> <input type="text" name="billing_last_name" value="<?php echo esc_attr( SunshineUser::get_user_meta( 'last_name' ) ); ?>" /></label></div>
-	<div class="field field-left required" id="sunshine-billing-address"><label><?php _e( 'Address', 'sunshine' ); ?><span class="required">*</span> <input type="text" name="billing_address" value="<?php echo esc_attr( SunshineUser::get_user_meta( 'billing_address' ) ); ?>" /></label></div>
-	<div class="field field-right" id="sunshine-billing-address2"><label><?php _e( 'Address 2', 'sunshine' ); ?> <input type="text" name="billing_address2" value="<?php echo esc_attr( SunshineUser::get_user_meta( 'billing_address2' ) ); ?>" /></label></div>
-	<div class="field field-left required" id="sunshine-billing-city"><label><?php _e( 'City', 'sunshine' ); ?><span class="required">*</span> <input type="text" name="billing_city" value="<?php echo esc_attr( SunshineUser::get_user_meta( 'billing_city' ) ); ?>" /></label></div>
-	<div class="field field-right required" id="sunshine-billing-state"><label><?php _e( 'State / Province', 'sunshine' ); ?><span class="required">*</span> <?php SunshineCountries::state_dropdown( SunshineUser::get_user_meta( 'billing_country' ), 'billing_state', SunshineUser::get_user_meta( 'billing_state' ) ); ?></label></div>
-	<div class="field field-left required" id="sunshine-billing-zip"><label><?php _e( 'Zip / Postcode', 'sunshine' ); ?><span class="required">*</span> <input type="text" name="billing_zip" value="<?php echo esc_attr( SunshineUser::get_user_meta( 'billing_zip' ) ); ?>" /></label></div>
+	<div class="field field-left required" id="sunshine-billing-country"><label><?php _e( 'Country', 'sunshine' ); ?><span class="required">*</span> <?php SunshineCountries::country_only_dropdown( 'country', SunshineUser::get_user_meta( 'country' ) ); ?></label></div>
+	<div class="field field-left required" id="sunshine-billing-first-name"><label><?php _e( 'First Name', 'sunshine' ); ?><span class="required">*</span> <input type="text" name="first_name" value="<?php echo esc_attr( SunshineUser::get_user_meta( 'first_name' ) ); ?>" /></label></div>
+	<div class="field field-right required" id="sunshine-billing-last-name"><label><?php _e( 'Last Name', 'sunshine' ); ?><span class="required">*</span> <input type="text" name="last_name" value="<?php echo esc_attr( SunshineUser::get_user_meta( 'last_name' ) ); ?>" /></label></div>
+	<div class="field field-left required" id="sunshine-billing-address"><label><?php _e( 'Address', 'sunshine' ); ?><span class="required">*</span> <input type="text" name="address" value="<?php echo esc_attr( SunshineUser::get_user_meta( 'address' ) ); ?>" /></label></div>
+	<div class="field field-right" id="sunshine-billing-address2"><label><?php _e( 'Address 2', 'sunshine' ); ?> <input type="text" name="address2" value="<?php echo esc_attr( SunshineUser::get_user_meta( 'address2' ) ); ?>" /></label></div>
+	<div class="field field-left required" id="sunshine-billing-city"><label><?php _e( 'City', 'sunshine' ); ?><span class="required">*</span> <input type="text" name="city" value="<?php echo esc_attr( SunshineUser::get_user_meta( 'city' ) ); ?>" /></label></div>
+	<div class="field field-right required" id="sunshine-billing-state"><label><?php _e( 'State / Province', 'sunshine' ); ?><span class="required">*</span> <?php SunshineCountries::state_dropdown( SunshineUser::get_user_meta( 'country' ), 'state', SunshineUser::get_user_meta( 'state' ) ); ?></label></div>
+	<div class="field field-left required" id="sunshine-billing-zip"><label><?php _e( 'Zip / Postcode', 'sunshine' ); ?><span class="required">*</span> <input type="text" name="zip" value="<?php echo esc_attr( SunshineUser::get_user_meta( 'zip' ) ); ?>" /></label></div>
 	<div class="field field-right required"><label><?php _e( 'Phone', 'sunshine' ); ?><span class="required">*</span> <input type="tel" name="phone" value="<?php echo esc_attr( SunshineUser::get_user_meta( 'phone' ) ); ?>" /></label></div>
 	<script type="text/javascript">
 	jQuery(document).ready(function(){
 
 		// Changing state selection
-		jQuery('select[name="billing_country"]').change(function() {
+		jQuery('select[name="country"]').change(function() {
 			var country = jQuery(this).val();
 			setTimeout(function () {
 				jQuery.ajax({
@@ -1137,11 +1137,11 @@ function sunshine_checkout_ajax_js() {
 	jQuery(document).ready(function() {
 
 		// Updating Cart Totals
-		jQuery('form#sunshine-checkout').on('change', 'select[name="billing_country"], select[name="shipping_country"], select[name="billing_state"], select[name="shipping_state"], input[name="billing_as_shipping"], input[name="shipping_method"], input[name="use_credits"]', function(event) {
+		jQuery('form#sunshine-checkout').on('change', 'select[name="country"], select[name="shipping_country"], select[name="state"], select[name="shipping_state"], input[name="billing_as_shipping"], input[name="shipping_method"], input[name="use_credits"]', function(event) {
 			jQuery('#sunshine-checkout').css({ opacity: 0.2 });
 			if (jQuery('input[name="billing_as_shipping"]').is(":checked")) {
-				var state = jQuery('[name="billing_state"]').val();
-				var country = jQuery('[name="billing_country"]').val();
+				var state = jQuery('[name="state"]').val();
+				var country = jQuery('[name="country"]').val();
 			} else {
 				var state = jQuery('[name="shipping_state"]').val();
 				var country = jQuery('[name="shipping_country"]').val();
@@ -1375,11 +1375,9 @@ function sunshine_gallery_requires_email( $gallery_id ) {
 	if ( $requires_email != 'email' ) {
 		return false;
 	} 
-	echo 'requires email';
 	if ( !is_array( SunshineSession::instance()->gallery_emails ) ) {
 		return true;
 	}
-	echo 'gallery_emails session is array';
 	sunshine_dump_var( SunshineSession::instance()->gallery_emails );
 	$in_gallery_emails = ( in_array( $gallery_id, SunshineSession::instance()->gallery_emails ) ) ? true : false;
 	if ( $in_gallery_emails ) {

@@ -6,7 +6,7 @@
 	<div id="sunshine-main">
 
 		<?php
-		$gallery_id = intval( $_GET['gallery_id'] 0;
+		$gallery_id = intval( $_GET['gallery_id'] );
 		$image_id = (isset($_GET['image_id'])) ? intval( $_GET['image_id'] ) : '';
 		$price_level = get_post_meta($gallery_id, 'sunshine_gallery_price_level', true);
 		$args = array(

@@ -14,7 +14,16 @@ function sunshine_reports_page() {
 		<h3>Sales Taxes Collected</h3>
 		<?php
 	$tax_years = array();
-	$orders = get_posts( 'post_type=sunshine-order&nopaging=true' );
+	$args = array(
+		'post_type' => 'sunshine-order',
+		'nopaging' => true,
+		'tax_query' => array(
+			'taxonomy' => 'sunshine-order-status',
+			'field'    => 'slug',
+			'terms'    => array( 'shipped' )
+		)
+	);
+	$orders = get_posts( $args );
 	foreach ( $orders as $order ) {
 		$order_data = unserialize( get_post_meta( $order->ID, '_sunshine_order_data', true ) );
 		$year = date( 'Y',strtotime( $order->post_date ) );

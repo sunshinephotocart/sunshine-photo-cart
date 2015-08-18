@@ -26,10 +26,17 @@ function sunshine_log( $message ) {
  * @param mixed $var String or array
  * @return void
  */
-function sunshine_dump_var( $var ) {
-	echo '<pre>';
-	print_r( $var );
-	echo '</pre>';
+function sunshine_dump_var( $var, $echo = true ) {
+	if ( $echo ) {
+		echo '<pre>';
+		print_r( $var );
+		echo '</pre>';
+	} else {
+		$content = '<pre>';
+		$content .= print_r( $var, true );
+		$content .= '</pre>';
+		return $content;
+	}
 }
 
 /**
@@ -311,34 +318,34 @@ function sunshine_checkout() {
 		}
 
 		// Update person's profile with info provided
-		$vars['billing_country'] = $_POST['billing_country'];
-		$vars['billing_first_name'] = $_POST['billing_first_name'];
-		$vars['billing_last_name'] = $_POST['billing_last_name'];
-		$vars['billing_address'] = $_POST['billing_address'];
-		$vars['billing_address2'] = $_POST['billing_address2'];
-		$vars['billing_city'] = $_POST['billing_city'];
-		$vars['billing_state'] = $_POST['billing_state'];
-		$vars['billing_zip'] = $_POST['billing_zip'];
+		$vars['country'] = $_POST['country'];
+		$vars['first_name'] = $_POST['first_name'];
+		$vars['last_name'] = $_POST['last_name'];
+		$vars['address'] = $_POST['address'];
+		$vars['address2'] = $_POST['address2'];
+		$vars['city'] = $_POST['city'];
+		$vars['state'] = $_POST['state'];
+		$vars['zip'] = $_POST['zip'];
 		$vars['phone'] = $_POST['phone'];
 		if ( !isset( $_POST['billing_as_shipping'] ) )
 			$vars['billing_as_shipping'] = '0';
 		else {
-			$vars['shipping_country'] = $_POST['billing_country'];
-			$vars['shipping_first_name'] = $_POST['billing_first_name'];
-			$vars['shipping_last_name'] = $_POST['billing_last_name'];
-			$vars['shipping_address'] = $_POST['billing_address'];
-			$vars['shipping_address2'] = $_POST['billing_address2'];
-			$vars['shipping_city'] = $_POST['billing_city'];
-			$vars['shipping_state'] = $_POST['billing_state'];
-			$vars['shipping_zip'] = $_POST['billing_zip'];
+			$vars['shipping_country'] = $_POST['country'];
+			$vars['shipping_first_name'] = $_POST['first_name'];
+			$vars['shipping_last_name'] = $_POST['_last_name'];
+			$vars['shipping_address'] = $_POST['address'];
+			$vars['shipping_address2'] = $_POST['address2'];
+			$vars['shipping_city'] = $_POST['city'];
+			$vars['shipping_state'] = $_POST['_state'];
+			$vars['shipping_zip'] = $_POST['zip'];
 		}
 		foreach ( $vars as $key => $item ) {
 			SunshineUser::update_user_meta_by_id( $user_id, $key, sanitize_text_field( $item ) );
 		}
 		$userdata['ID'] = $user_id;
 		$userdata['user_email'] = sanitize_email( $_POST['email'] );
-		$userdata['first_name'] = sanitize_text_field( $_POST['billing_first_name'] );
-		$userdata['last_name'] = sanitize_text_field( $_POST['billing_last_name'] );
+		$userdata['first_name'] = sanitize_text_field( $_POST['first_name'] );
+		$userdata['last_name'] = sanitize_text_field( $_POST['last_name'] );
 		wp_update_user( $userdata );
 
 		// Validate that we have all required fields
@@ -346,19 +353,19 @@ function sunshine_checkout() {
 			$sunshine->add_error( __( 'Valid email required','sunshine' ) );
 		if ( $_POST['phone'] == '' )
 			$sunshine->add_error( __( 'Phone number required','sunshine' ) );
-		if ( $_POST['billing_country'] == '' )
+		if ( $_POST['country'] == '' )
 			$sunshine->add_error( __( 'Billing country required','sunshine' ) );
-		if ( $_POST['billing_first_name'] == '' )
+		if ( $_POST['first_name'] == '' )
 			$sunshine->add_error( __( 'Billing first name required','sunshine' ) );
-		if ( $_POST['billing_last_name'] == '' )
+		if ( $_POST['last_name'] == '' )
 			$sunshine->add_error( __( 'Billing last name required','sunshine' ) );
-		if ( $_POST['billing_address'] == '' )
+		if ( $_POST['address'] == '' )
 			$sunshine->add_error( __( 'Billing address required','sunshine' ) );
-		if ( $_POST['billing_city'] == '' )
+		if ( $_POST['city'] == '' )
 			$sunshine->add_error( __( 'Billing city required','sunshine' ) );
-		if ( $_POST['billing_state'] == '' )
+		if ( $_POST['state'] == '' )
 			$sunshine->add_error( __( 'Billing state required','sunshine' ) );
-		if ( $_POST['billing_zip'] == '' )
+		if ( $_POST['zip'] == '' )
 			$sunshine->add_error( __( 'Billing zip required','sunshine' ) );
 		if ( !isset( $_POST['billing_as_shipping'] ) ) {
 			if ( $_POST['shipping_country'] == '' )
@@ -444,7 +451,7 @@ add_action( 'wp_ajax_sunshine_checkout_update_totals', 'sunshine_checkout_update
 function sunshine_checkout_update_totals() {
 	global $current_user;
 	SunshineUser::update_user_meta( 'shipping_method', sanitize_text_field( $_POST['shipping_method'] ) );
-	SunshineUser::update_user_meta( 'billing_state', sanitize_text_field( $_POST['state'] ) );
+	SunshineUser::update_user_meta( 'state', sanitize_text_field( $_POST['state'] ) );
 	SunshineUser::update_user_meta( 'shipping_state', sanitize_text_field( $_POST['state'] ) );
 	SunshineUser::update_user_meta( 'shipping_country', sanitize_text_field( $_POST['country'] ) );
 	SunshineUser::update_user_meta( 'use_credits', isset( $_POST['use_credits'] ) ? 1 : '' );

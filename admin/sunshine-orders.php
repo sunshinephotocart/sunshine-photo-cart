@@ -211,9 +211,9 @@ function sunshine_orders_save_postdata( $post_id ) {
 	if ( isset( $_POST['sunshine_email_customer_order_change'] ) && $_POST['sunshine_email_customer_order_change'] != '' ) {
 		$customer_id = get_post_meta( $post_id, '_sunshine_customer_id', true );
 		$customer = get_user_by( 'id', $customer_id );
-		$search = array( '[status]', '[status_description]', '[order_id]' );
+		$search = array( '[status]', '[status_description]', '[order_id]', '[order_url]' );
 		$status = get_term_by( 'slug', sanitize_text_field( $_POST['sunshine_order_status'] ), 'sunshine-order-status' );
-		$replace = array( $status->name, $status->description, $post_id );
+		$replace = array( $status->name, $status->description, $post_id, get_permalink( $post_id ) );
 		SunshineEmail::send_email( 'order_status', $customer->user_email, $sunshine->options['email_subject_order_status'], $sunshine->options['email_subject_order_status'], $search, $replace );
 	}
 

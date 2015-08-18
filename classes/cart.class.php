@@ -455,7 +455,7 @@ class SunshineCart {
 				$result = $price;
 		} else {
 			if ( $formatted )
-				$result = '<span class="sunshine-free">Free</span>';
+				$result = '<span class="sunshine-free">' . __('Free', 'sunshine') . '</span>';
 			else
 				$result = '0';
 		}

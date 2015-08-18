@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Sunshine Photo Cart\n"
-"POT-Creation-Date: 2014-04-29 10:56-0700\n"
-"PO-Revision-Date: 2014-04-29 10:57-0700\n"
+"POT-Creation-Date: 2015-08-17 20:55-0600\n"
+"PO-Revision-Date: 2015-08-17 21:03-0600\n"
 "Last-Translator: Derek Ashauer <derek@ashwebstudio.com>\n"
 "Language-Team: Cornelius <mail@corneliusfischer.ch>\n"
 "Language: de_CH\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.5\n"
+"X-Generator: Poedit 1.8.4\n"
 "X-Poedit-KeywordsList: __;_e;_n\n"
 "X-Poedit-Basepath: /Users/derekashauer/Dropbox/sunshine/sunshinepro.dev/wp-"
 "content/plugins/sunshine-pro\n"
@@ -38,6 +38,7 @@ msgid "No images viewed yet"
 msgstr "Es wurden noch keine Bilder betrachtet"
 
 #: addons/analytics/index.php:159 addons/analytics/index.php:195
+#: addons/digital-download/index.php:1362
 msgid "No images for this gallery yet"
 msgstr "In dieser Galerie gibt es noch keine Bilder"
 
@@ -45,283 +46,377 @@ msgstr "In dieser Galerie gibt es noch keine Bilder"
 msgid "Images Purchased"
 msgstr "Gekaufte Bilder"
 
-#: addons/analytics/index.php:183 addons/analytics/index.php:511
+#: addons/analytics/index.php:183 addons/analytics/index.php:535
 msgid "Total purchases"
 msgstr "Einkäufe gesamt"
 
-#: addons/analytics/index.php:192
+#: addons/analytics/index.php:192 addons/digital-download/index.php:1359
 msgid "No images purchased yet"
 msgstr "Es wurden noch keine Bilder gekauft"
 
-#: addons/analytics/index.php:203
+#: addons/analytics/index.php:221
 msgid "Product Cost"
 msgstr "Produktkosten"
 
-#: addons/analytics/index.php:277 addons/analytics/index.php:486
+#: addons/analytics/index.php:298 addons/analytics/index.php:510
 msgid "No users have logged in yet"
 msgstr "Bis jetzt hat sich noch kein Benutzer eingeloggt."
 
-#: addons/analytics/index.php:280
+#: addons/analytics/index.php:301
 msgid "Recent User Logins"
 msgstr "Letzte Benutzerlogins"
 
-#: addons/analytics/index.php:334
+#: addons/analytics/index.php:358
 msgid "Total Sales Revenue"
 msgstr "Verkaufserlöst Total"
 
-#: addons/analytics/index.php:336
+#: addons/analytics/index.php:360
 msgid "Total Orders Completed"
 msgstr "Abgeschlossene Bestellungen Total"
 
-#: addons/analytics/index.php:338
+#: addons/analytics/index.php:362
 msgid "Average Sale Total"
 msgstr "Umsatzdurchschnitt"
 
-#: addons/analytics/index.php:340
+#: addons/analytics/index.php:364
 msgid "Actual Profit"
 msgstr "Aktueller Gewinn"
 
-#: addons/analytics/index.php:402
+#: addons/analytics/index.php:426
 msgid "You do not have any sales yet"
 msgstr "Du hast noch keine Bilder verkauft"
 
-#: addons/analytics/index.php:405
+#: addons/analytics/index.php:429
 msgid "Sales Totals"
 msgstr "Verkäufe Total"
 
-#: addons/analytics/index.php:455
+#: addons/analytics/index.php:479
 msgid "Nothing purchased yet"
 msgstr "Du hast noch nichts gekauft"
 
-#: addons/analytics/index.php:458
+#: addons/analytics/index.php:482
 msgid "Most Popular Products Sold"
 msgstr "Beliebtestes verkauftes Produkt"
 
-#: addons/analytics/index.php:471
+#: addons/analytics/index.php:495
 #, fuzzy
 msgid "Gallery"
-msgstr "Galerie Analytics"
+msgstr "In dieser Galerie gibt es noch keine Bilder"
 
-#: addons/analytics/index.php:471
+#: addons/analytics/index.php:495
 #, fuzzy
 msgid "Total Sales"
 msgstr "Verkaufserlöst Total"
 
-#: addons/analytics/index.php:471
+#: addons/analytics/index.php:495
 #, fuzzy
 msgid "Profit"
 msgstr "Aktueller Gewinn"
 
-#: addons/analytics/index.php:471 admin/sunshine-galleries.php:27
-#: classes/sunshine.class.php:160 classes/sunshine.class.php:161
+#: addons/analytics/index.php:495 admin/sunshine-bulk-add-products.php:82
+#: admin/sunshine-galleries.php:319 classes/sunshine.class.php:153
+#: classes/sunshine.class.php:154
 msgid "Price Level"
 msgstr "Preisstufe"
 
-#: addons/analytics/index.php:489
+#: addons/analytics/index.php:513
 msgid "Galleries With Best Sales"
 msgstr "Galerien mit den meisten Verkäufen"
 
-#: addons/analytics/index.php:517
+#: addons/analytics/index.php:541
 msgid "No images have been purchased yet"
 msgstr "Es wurden noch keine Bilder gekauft"
 
-#: addons/analytics/index.php:520
+#: addons/analytics/index.php:544
 msgid "Most Purchased Images of All Time"
 msgstr "Meist verkaufte Bilder"
 
-#: addons/colorbox/index.php:121
-msgid "Lightbox Options"
-msgstr "Lightbox Optionen"
-
-#: addons/colorbox/index.php:123
-msgid "Enable Lightbox for images"
-msgstr "Lightbox für Bilder aktivieren"
-
-#: addons/colorbox/index.php:124
-msgid "Links to individual images shown in a lightbox window for easier use"
-msgstr "Verlinkt auf ein einzelne Bilder im Lightbox Fenster"
-
-#: addons/colorbox/index.php:130
-msgid "Enable Lightbox for purchasing"
-msgstr "Lightbox für Kaufabwicklung aktivieren"
-
-#: addons/colorbox/index.php:131
-msgid ""
-"Links the purchasing page for an individual image into a lightbox window"
-msgstr ""
-"Verlinkt die Verkaufsseite von einem einzelnem Bild in das Lightbox Fenster"
-
-#: addons/digital-download/index.php:6
+#: addons/digital-download/index.php:4
 msgid "Downloadable"
 msgstr "Herunterladbar"
 
-#: addons/digital-download/index.php:15
-msgid "Download Folder"
+#: addons/digital-download/index.php:13
+#, fuzzy
+msgid "FTP Download Folder"
 msgstr "Download-Verzeichnis"
 
-#: addons/digital-download/index.php:16
+#: addons/digital-download/index.php:14
 msgid "Please select folder"
 msgstr "Download-Verzeichnis auswählen"
 
-#: addons/digital-download/index.php:84
+#: addons/digital-download/index.php:35
+#, fuzzy
+msgid "Allow free downloads?"
+msgstr "Gratisversand mit dem Rabattcode"
+
+#: addons/digital-download/index.php:37
+#, fuzzy
+msgid ""
+"Allow users to download images in this gallery for free (no checkout "
+"required)"
+msgstr ""
+"Zulassen, dass Benutzer Bilder in dieser Galerie kostenlos herunterladen "
+"(keine Prüfung erforderlich)"
+
+#: addons/digital-download/index.php:38
+#, fuzzy
+msgid ""
+"Allow users to download entire gallery as zip file (no checkout required)"
+msgstr ""
+"Ermöglichen Sie Benutzern das ganze Galerie herunterladen als Zip-Datei "
+"(keine Prüfung erforderlich)"
+
+#: addons/digital-download/index.php:38
+#, fuzzy
+msgid ""
+"Warning! Entire gallery downloads are extremely server intensive, could be "
+"unstable and leave really large files on your server"
+msgstr ""
+"Warnung! Gesamte Galerie Downloads sind extrem intensive, Server können "
+"instabil sein und lassen Sie wirklich große Dateien auf Ihrem server"
+
+#: addons/digital-download/index.php:44
+#, fuzzy
+msgid "Restrict downloads to users?"
+msgstr "Bis jetzt hat sich noch kein Benutzer eingeloggt."
+
+#: addons/digital-download/index.php:114
 msgid "Download"
 msgstr "Download"
 
-#: addons/digital-download/index.php:86 addons/packages/index.php:313
+#: addons/digital-download/index.php:116 addons/packages/index.php:292
 msgid "Download all images from gallery"
 msgstr "Alle Bilder der Galerie runterladen"
 
-#: addons/digital-download/index.php:106 addons/digital-download/index.php:456
+#: addons/digital-download/index.php:136 addons/digital-download/index.php:755
 msgid "Sorry, this is not your order"
 msgstr "Dies ist keine deiner Bestellungen"
 
-#: addons/digital-download/index.php:113 addons/digital-download/index.php:463
+#: addons/digital-download/index.php:143 addons/digital-download/index.php:762
 msgid "Sorry, your order is not yet marked as complete"
 msgstr "Deine Bestellung wurde noch nicht als \"Abgeschlossen\" markiert"
 
-#: addons/digital-download/index.php:134 addons/digital-download/index.php:168
+#: addons/digital-download/index.php:167 addons/digital-download/index.php:202
+#: addons/digital-download/index.php:294
 msgid "Sorry, one of the download files does not exist"
 msgstr "Eine der Download-Dateien existiert nicht"
 
-#: addons/digital-download/index.php:151 addons/digital-download/index.php:163
-#: addons/digital-download/index.php:311 addons/digital-download/index.php:332
-#: addons/digital-download/index.php:380
+#: addons/digital-download/index.php:234 addons/digital-download/index.php:257
+#: addons/digital-download/index.php:531 addons/digital-download/index.php:562
+#: addons/digital-download/index.php:662 addons/digital-download/index.php:682
 msgid "Could not create zip file for download"
 msgstr "zip Datei für den Download konnte nicht erstellt werden"
 
-#: addons/digital-download/index.php:250 addons/digital-download/index.php:261
+#: addons/digital-download/index.php:382 addons/digital-download/index.php:394
 #, fuzzy
 msgid "Download all images from this order"
 msgstr "Alle Bilder der Galerie runterladen"
 
-#: addons/digital-download/index.php:281
+#: addons/digital-download/index.php:423 addons/digital-download/index.php:464
 msgid "Download Image"
 msgstr "Bilddatei für Download"
 
-#: addons/digital-download/index.php:287
+#: addons/digital-download/index.php:431
 msgid "Download All Images"
 msgstr "Alle Bilder runterladen"
 
-#: addons/digital-download/index.php:293
+#: addons/digital-download/index.php:438
 msgid "Purchase entire session"
 msgstr "Alle Bilder kaufen"
 
-#: addons/digital-download/index.php:372
+#: addons/digital-download/index.php:607 addons/digital-download/index.php:656
 msgid "Download file does not exist"
 msgstr "Download-Datei existiert nicht"
 
-#: addons/digital-download/index.php:414
+#: addons/digital-download/index.php:704
 msgid "You do not have permission to download these files."
 msgstr "Zum Download dieser Dateien fehlt dir das Zugriffsrecht"
 
-#: addons/digital-download/index.php:429
+#: addons/digital-download/index.php:721
 msgid "You do not have permission to download this file."
 msgstr "Zum Download dieser Datei fehlt dir das Zugriffsrecht"
 
-#: addons/digital-download/index.php:447
-#, php-format
+#: addons/digital-download/index.php:746
+#, fuzzy, php-format
 msgid "Sorry, you must be <a href=\"%s\">logged in</a> to download this file"
 msgstr ""
+"Leider müssen Sie diese Datei Download <a href=\"%s\">eingeloggt</a> sein"
 
-#: addons/digital-download/index.php:478
+#: addons/digital-download/index.php:777
 msgid "Gallery digital negatives added to cart!"
 msgstr "Digitale Negative zum Warenkorb hinzugefügt!"
 
-#: addons/digital-download/index.php:478 addons/packages/index.php:534
-#: addons/packages/index.php:561 sunshine-functions.php:79
+#: addons/digital-download/index.php:777 addons/packages/index.php:508
+#: addons/packages/index.php:521 addons/packages/index.php:548
 msgid "View cart"
 msgstr "Warenkorb anzeigen"
 
-#: addons/digital-download/index.php:519
+#: addons/digital-download/index.php:818
 msgid "Gallery Digital Negatives"
 msgstr "Galerie mit digitalen Negative"
 
-#: addons/digital-download/index.php:578
+#: addons/digital-download/index.php:877
 msgid "No shipping, download only"
 msgstr ""
 "Dieser Artikel kann nur digital runtergeladen werden. Ein Postversand ist "
 "nicht möglich."
 
-#: addons/digital-download/index.php:587
+#: addons/digital-download/index.php:886
 #, fuzzy
 msgid "Digital Download Options"
 msgstr "Optionen"
 
-#: addons/digital-download/index.php:590
+#: addons/digital-download/index.php:889 addons/email-automation/index.php:153
 msgid "None"
-msgstr ""
+msgstr "Keine"
 
-#: addons/digital-download/index.php:596
+#: addons/digital-download/index.php:895
 #, fuzzy
 msgid "Print Release"
 msgstr "Saint Helena"
 
-#: addons/digital-download/index.php:601
+#: addons/digital-download/index.php:900
 #, fuzzy
 msgid ""
-"Print release file to be included with any file download, PDF recommended. "
-"Upload a file to your <a href=\"upload.php\">Media gallery</a>, then select "
-"it here."
+"Print release file to be included with any file download. <strong>PDF "
+"required</strong>. Upload a file to your <a href=\"upload.php\">Media "
+"gallery</a>, then select it here."
 msgstr ""
 "Das Logo sollte 170px breit sein und als transparentes PNG vorliegen. Lade "
 "die Datei in deine <a href=\"upload.php\">Mediathek</a> hoch und wähle es "
 "anschliessend hier aus"
 
-#: addons/digital-download/index.php:610
+#: addons/digital-download/index.php:908
 msgid "Gallery digital negatives"
 msgstr "Galerie mit digitalen Negativen"
 
-#: addons/digital-download/index.php:610
+#: addons/digital-download/index.php:908
+#, fuzzy
 msgid ""
 "Allow users to purchase digital negatives of an the entire session. Leave "
 "price blank to disable this feature for a specific price level."
 msgstr ""
+"Kaufen digital negative von Benutzern ein die gesamte Sitzung. Lassen Sie "
+"Preis leer dieses Feature für ein bestimmtes Preisniveau deaktivieren."
 
-#: addons/digital-download/index.php:612
+#: addons/digital-download/index.php:910
 #, fuzzy
 msgid "Tax gallery digital negatives"
 msgstr "Galerie mit digitalen Negative"
 
-#: addons/digital-download/index.php:615
+#: addons/digital-download/index.php:913
 #, fuzzy
 msgid "Apply a tax to the gallery digital negatives"
 msgstr "Galerie mit digitalen Negative"
 
-#: addons/digital-download/index.php:628
+#: addons/digital-download/index.php:926
 #, fuzzy
 msgid "More Digital Download Options"
 msgstr "Optionen"
 
-#: addons/digital-download/index.php:630
+#: addons/digital-download/index.php:928
 #, fuzzy
 msgid "Alternate Download Method"
 msgstr "Download"
 
-#: addons/digital-download/index.php:633
+#: addons/digital-download/index.php:931
+#, fuzzy
 msgid ""
 "Check this if downloads are not working for your users. This tries to get "
 "them their download another way."
 msgstr ""
+"Überprüfen Sie dies, wenn Downloads nicht für Ihre Benutzer funktionieren. "
+"Dies versucht sie ihr Download zu bekommen einen anderen Weg."
 
-#: addons/digital-download/index.php:654
+#: addons/digital-download/index.php:935
+#, fuzzy
+msgid "Include low res files in download"
+msgstr "zip Datei für den Download konnte nicht erstellt werden"
+
+#: addons/digital-download/index.php:938
+#, fuzzy
+msgid ""
+"Check this if you want to include the low resolution images in downloads"
+msgstr ""
+"Dies zu überprüfen, ob die Bilder in reduzierter Auflösung Downloads "
+"enthalten sein sollen"
+
+#: addons/digital-download/index.php:959
 #, fuzzy
 msgid "Sorry, this order does not belong to you"
 msgstr "Auf diese Bestellinformationen darfst du leider nicht zugreifen."
 
-#: addons/digital-download/index.php:661
+#: addons/digital-download/index.php:966
 msgid "Sorry, your item cannot yet be downloaded"
 msgstr "Dein Artikel kann noch nicht heruntergeladen werden"
 
-#: addons/digital-download/index.php:672
+#: addons/digital-download/index.php:979 addons/digital-download/index.php:989
 #, fuzzy
 msgid "Sorry, this is not a downloadable product"
 msgstr ""
 "Ungültige Download-URL - Dieses Produkt kann nicht heruntergeladen werden"
 
-#: addons/digital-download/index.php:678
+#: addons/digital-download/index.php:996
 #, fuzzy
 msgid "Sorry, this image was not in your order"
 msgstr "Dies ist keine deiner Bestellungen"
+
+#: addons/digital-download/index.php:1016
+#, fuzzy
+msgid "Digital Downloads"
+msgstr "Optionen"
+
+#: addons/digital-download/index.php:1040 admin/sunshine-galleries.php:63
+msgid "Drop files here"
+msgstr "Dateien hier ablegen"
+
+#: addons/digital-download/index.php:1041 admin/sunshine-galleries.php:64
+msgid "or"
+msgstr "oder"
+
+#: addons/digital-download/index.php:1060 admin/sunshine-galleries.php:145
+#, fuzzy
+msgid "Allowed Files"
+msgstr "Erlaubte PLZ"
+
+#: addons/digital-download/index.php:1222
+#, fuzzy
+msgid "Sunshine found and fixed the download file for the following images:"
+msgstr ""
+"Sonnenschein, gefunden und behoben die Download-Datei für die folgenden "
+"Bilder:"
+
+#: addons/digital-download/index.php:1251
+#, fuzzy
+msgid "The following images do not have an associated file to download:"
+msgstr "Die folgenden Bilder haben keine zugeordnete Datei herunterladen:"
+
+#: addons/digital-download/index.php:1331
+#, fuzzy
+msgid "Images Downloaded"
+msgstr "Betrachtete Bilder"
+
+#: addons/digital-download/index.php:1350
+#, fuzzy
+msgid "Total downloads"
+msgstr "Optionen"
+
+#: addons/digital-download/index.php:1374
+#, fuzzy
+msgid "After user downloads free image"
+msgstr "Nachdem Benutzer kostenlose Image downloads"
+
+#: addons/digital-download/index.php:1375
+#, fuzzy
+msgid "After user downloads free gallery"
+msgstr "Nachdem Benutzer kostenlose Galerie-downloads"
+
+#: addons/discounts/index.php:4 addons/discounts/index.php:23
+#: sunshine-template-functions.php:887 sunshine-template-functions.php:1121
+#: themes/2013/order.php:103 themes/default/order.php:102
+#: themes/theme/order.php:103
+msgid "Discounts"
+msgstr "Rabatt"
 
 #: addons/discounts/index.php:14
 msgid "Add New Coupon"
@@ -355,12 +450,6 @@ msgstr "Keine Rabattecodes gefunden"
 msgid "No discounts found in trash"
 msgstr "Keine Rabattecodes im Papierkorb gefunden"
 
-#: addons/discounts/index.php:23 sunshine-template-functions.php:760
-#: sunshine-template-functions.php:987 themes/2013/order.php:103
-#: themes/default/order.php:102 themes/theme/order.php:105
-msgid "Discounts"
-msgstr "Rabatt"
-
 #: addons/discounts/index.php:47
 #, fuzzy
 msgid "Add discount code"
@@ -373,69 +462,576 @@ msgstr "Ungültiger Rabattcode"
 
 #: addons/discounts/index.php:48
 msgid "Apply"
-msgstr ""
+msgstr "Anwenden"
 
 #: addons/discounts/index.php:54
 msgid "Discounts Applied"
 msgstr "Rabattecode hinzugefügt"
 
-#: addons/discounts/index.php:57 addons/packages/index.php:183
-#: addons/tiered-pricing/index.php:28
+#: addons/discounts/index.php:57 addons/packages/index.php:161
+#: addons/packages/index.php:235 addons/product-options/index.php:93
+#: addons/product-options/index.php:109 addons/tiered-pricing/index.php:28
+#: admin/sunshine-bulk-add-products.php:92 themes/2013/cart.php:40
+#: themes/default/cart.php:40 themes/theme/cart.php:40
 msgid "Remove"
 msgstr "Entfernen"
 
-#: addons/favorites/index.php:77 addons/favorites/index.php:207
-#: addons/favorites/index.php:218 themes/2013/favorites.php:3
+#: addons/email-automation/index.php:4 addons/email-automation/index.php:23
+#, fuzzy
+msgid "Automated Emails"
+msgstr "Absender Email"
+
+#: addons/email-automation/index.php:14
+#, fuzzy
+msgid "Add New Automated Email"
+msgstr "Produktkategorie hinzufügen"
+
+#: addons/email-automation/index.php:15
+#, fuzzy
+msgid "Edit Automated Email"
+msgstr "Rabattcode bearbeiten"
+
+#: addons/email-automation/index.php:16
+#, fuzzy
+msgid "New Automated Email"
+msgstr "Email"
+
+#: addons/email-automation/index.php:17
+#, fuzzy
+msgid "All Automated Emails"
+msgstr "Alle Bilder runterladen"
+
+#: addons/email-automation/index.php:18
+#, fuzzy
+msgid "View Automated Emails"
+msgstr "Rabattecodes anzeigen"
+
+#: addons/email-automation/index.php:19
+#, fuzzy
+msgid "Search Automated Emails"
+msgstr "Produktkategorien durchsuchen"
+
+#: addons/email-automation/index.php:20
+#, fuzzy
+msgid "No automated emails found"
+msgstr "Keine Bestellungen gefunden"
+
+#: addons/email-automation/index.php:21
+#, fuzzy
+msgid "No automated emails found in trash"
+msgstr "Keine Bestellungen im Papierkorb gefunden"
+
+#: addons/email-automation/index.php:47
+#, fuzzy
+msgid "Add New Email Log"
+msgstr "Neue Galerie hinzufügen"
+
+#: addons/email-automation/index.php:48
+#, fuzzy
+msgid "Edit Email Log"
+msgstr "Rabattcode bearbeiten"
+
+#: addons/email-automation/index.php:49
+#, fuzzy
+msgid "New Email Log"
+msgstr "Mailadresse des Absenders"
+
+#: addons/email-automation/index.php:50
+#, fuzzy
+msgid "All Email Log"
+msgstr "Mailadresse des Absenders"
+
+#: addons/email-automation/index.php:51
+#, fuzzy
+msgid "View Email Log"
+msgstr "Warenkorb anzeigen"
+
+#: addons/email-automation/index.php:52
+#, fuzzy
+msgid "Search Email Log"
+msgstr "Rabattecodes durchsuchen"
+
+#: addons/email-automation/index.php:53
+#, fuzzy
+msgid "No Email Log found"
+msgstr "Keine Rabattecodes gefunden"
+
+#: addons/email-automation/index.php:54
+#, fuzzy
+msgid "No Email Log found in trash"
+msgstr "Keine Bestellungen im Papierkorb gefunden"
+
+#: addons/email-automation/index.php:56
+#, fuzzy
+msgid "Email Log"
+msgstr "Mailadresse des Absenders"
+
+#: addons/email-automation/index.php:80
+#, fuzzy
+msgid "Email Options"
+msgstr "Galerie Optionen"
+
+#: addons/email-automation/index.php:88
+#, fuzzy
+msgid "Template Variables"
+msgstr "Template-Variablen"
+
+#: addons/email-automation/index.php:100
+#, fuzzy
+msgid "Email Subject"
+msgstr "Email Text"
+
+#: addons/email-automation/index.php:105
+#, fuzzy
+msgid "After user registers"
+msgstr "Neue Benutzeraccount Information für %s"
+
+#: addons/email-automation/index.php:106
+#, fuzzy
+msgid "After user adds item to cart"
+msgstr "Artikel wurde zum Warenkorb hinzugefügt!"
+
+#: addons/email-automation/index.php:107
+#, fuzzy
+msgid "After user submits order"
+msgstr "Nach dem Absenden der Bestellung"
+
+#: addons/email-automation/index.php:108
+#, fuzzy
+msgid "After user views gallery for first time"
+msgstr "Nach Benutzer-Katalog \"Ansichten\" zum ersten Mal"
+
+#: addons/email-automation/index.php:109
+#, fuzzy
+msgid "Before gallery expires"
+msgstr "Diese Galerie ist leider abgelaufen."
+
+#: addons/email-automation/index.php:110
+#, fuzzy
+msgid "After gallery expires"
+msgstr "Bitte Passwort für die Galerie eingeben"
+
+#: addons/email-automation/index.php:111
+#, fuzzy
+msgid "After providing email to access gallery"
+msgstr "Nach der Bereitstellung von Email an Laubengang"
+
+#: addons/email-automation/index.php:120
+#, fuzzy
+msgid "Trigger"
+msgstr "Trigger"
+
+#: addons/email-automation/index.php:129
+#, fuzzy
+msgid "Time"
+msgstr "Meist verkaufte Bilder"
+
+#: addons/email-automation/index.php:133 addons/email-automation/index.php:164
+#, fuzzy
+msgid "Months"
+msgstr "Montserrat"
+
+#: addons/email-automation/index.php:134 addons/email-automation/index.php:165
+msgid "Days"
+msgstr "Tage"
+
+#: addons/email-automation/index.php:135 addons/email-automation/index.php:166
+msgid "Hours"
+msgstr "Stunden"
+
+#: addons/email-automation/index.php:136
+#, fuzzy
+msgid "How long before/after the trigger should this email get sent?"
+msgstr ""
+"Wie lange vor/nach der Trigger sollten diese e-Mail geschickt bekommen?"
+
+#: addons/email-automation/index.php:138
+msgid "Recipients"
+msgstr "Empfänger"
+
+#: addons/email-automation/index.php:141
+#, fuzzy
+msgid "All users"
+msgstr "Alle Bestellungen"
+
+#: addons/email-automation/index.php:142
+#, fuzzy
+msgid "User has favorites"
+msgstr "Sunshine Favoriten"
+
+#: addons/email-automation/index.php:143
+#, fuzzy
+msgid "User has items in cart"
+msgstr "Keine Artikel im Warenkorb"
+
+#: addons/email-automation/index.php:144
+#, fuzzy
+msgid "User has ordered"
+msgstr "Gültige Email Adresse benötigt"
+
+#: addons/email-automation/index.php:145
+#, fuzzy
+msgid "User has no orders"
+msgstr "Bestellungen"
+
+#: addons/email-automation/index.php:146
+#, fuzzy
+msgid "User has not ordered item from gallery"
+msgstr "Benutzer hat keine Artikel von Galerie bestellt."
+
+#: addons/email-automation/index.php:148
+#, fuzzy
+msgid "Select user attributes to determine who should receive this email"
+msgstr "Wählen Sie Benutzerattribute bestimmen, wer diese e-Mail erhalten soll"
+
+#: addons/email-automation/index.php:150
+#, fuzzy
+msgid "Discount code (Optional)"
+msgstr "Titel (Optional):"
+
+#: addons/email-automation/index.php:158
+#, fuzzy
+msgid ""
+"A unique coupon code will be generated based on the settings of the selected "
+"coupon and assigned to the specific user being emailed"
+msgstr ""
+"Ein einzigartige Gutschein-Code wird generiert basierend auf den "
+"Einstellungen des ausgewählten Gutscheins und für die bestimmten Benutzer "
+"wird per e-Mail"
+
+#: addons/email-automation/index.php:160
+#, fuzzy
+msgid "Discount Expiration (Optional)"
+msgstr "Optionen"
+
+#: addons/email-automation/index.php:167
+#, fuzzy
+msgid ""
+"How long should the coupon code be valid for after being created? This will "
+"override any expiration date settings of the selected discount code"
+msgstr ""
+"Wie lange sollte der Gutschein-Code für gültig nach erstellt wird? Dadurch "
+"werden alle Ablauf Datumseinstellungen der ausgewählten Rabatt-Code "
+"überschrieben."
+
+#: addons/email-automation/index.php:198
+#, fuzzy
+msgid "Personalize your email with the following tags:"
+msgstr "Personalisieren Sie Ihre e-Mail mit den folgenden Tags:"
+
+#: addons/email-automation/index.php:199
+#, fuzzy
+msgid "Gallery Name"
+msgstr "Galerie Analytics"
+
+#: addons/email-automation/index.php:200
+#, fuzzy
+msgid "Gallery URL"
+msgstr "Galerie Analytics"
+
+#: addons/email-automation/index.php:201
+#, fuzzy
+msgid "Gallery Password"
+msgstr "Bitte Passwort für die Galerie eingeben"
+
+#: addons/email-automation/index.php:202
+#, fuzzy
+msgid "Registration URL"
+msgstr "Registrierung"
+
+#: addons/email-automation/index.php:203 sunshine-template-functions.php:922
+#: sunshine-template-functions.php:971 themes/2013/gift-registry.php:9
+#: themes/2013/order.php:22 themes/2013/order.php:33
+#: themes/default/gift-registry.php:9 themes/default/order.php:22
+#: themes/default/order.php:33 themes/theme/order.php:23
+#: themes/theme/order.php:34
+msgid "First Name"
+msgstr "Vorname"
+
+#: addons/email-automation/index.php:204 sunshine-template-functions.php:923
+#: sunshine-template-functions.php:972 sunshine-template-functions.php:1096
+#: themes/2013/gift-registry.php:10 themes/2013/order.php:23
+#: themes/2013/order.php:34 themes/default/gift-registry.php:10
+#: themes/default/order.php:23 themes/default/order.php:34
+#: themes/theme/order.php:24 themes/theme/order.php:35
+msgid "Last Name"
+msgstr "Nachname"
+
+#: addons/email-automation/index.php:205
+#, fuzzy
+msgid "Site Name"
+msgstr "Vorname"
+
+#: addons/email-automation/index.php:206
+msgid "Site URL"
+msgstr "Seiten-URL"
+
+#: addons/email-automation/index.php:207
+#, fuzzy
+msgid "Sunshine Galleries Page"
+msgstr "Sunshine Gallery Gutschrift für Einkäufe"
+
+#: addons/email-automation/index.php:208
+#, fuzzy
+msgid "Generated Discount Code"
+msgstr "Ungültiger Rabattcode"
+
+#: addons/email-automation/index.php:209
+#, fuzzy
+msgid "Items in cart"
+msgstr "Keine Artikel im Warenkorb"
+
+#: addons/email-automation/index.php:210
+#, fuzzy
+msgid "Images in favorites"
+msgstr "Sunshine Favoriten"
+
+#: addons/email-automation/index.php:254
+#, fuzzy, php-format
+msgid "%s for %s"
+msgstr ""
+"Ihre Zahlung konnte aufgrund eines Serverfehlers nicht ausgeführt werden "
+"(%s). %s"
+
+#: addons/email-automation/index.php:724 addons/watermark/index.php:11
+#: classes/order.class.php:65 themes/2013/cart.php:15 themes/2013/order.php:49
+#: themes/default/cart.php:15 themes/default/order.php:48
+#: themes/theme/cart.php:15 themes/theme/order.php:49
+msgid "Image"
+msgstr "Bild"
+
+#: addons/email-automation/index.php:724 addons/payment-offline/index.php:94
+#: addons/payment-payjunction/index.php:218 addons/payment-paypal/index.php:213
+#: addons/payment-stripe/index.php:181 addons/price-levels/index.php:66
+#: addons/product-options/index.php:74 addons/shipping-flatrate/index.php:26
+#: addons/shipping-local/index.php:26 addons/shipping-pickup/index.php:26
+#: admin/sunshine-bulk-add-products.php:69 admin/sunshine-products.php:87
+#: classes/order.class.php:65
+msgid "Name"
+msgstr "Bezeichnung"
+
+#: addons/email-automation/index.php:724 classes/order.class.php:65
+#: sunshine-template-functions.php:704
+msgid "Quantity"
+msgstr "Anzahl"
+
+#: addons/email-automation/index.php:724 classes/order.class.php:65
+#, fuzzy
+msgid "Cost"
+msgstr "Kosten für pauschale Versandgebühren ($)"
+
+#: addons/email-automation/index.php:812
+#, fuzzy
+msgid "For automated email"
+msgstr "Absender Email"
+
+#: addons/email-automation/index.php:849
+#, fuzzy
+msgid "Exclude from Automated Emails"
+msgstr "Von der automatisierten E-Mails ausschließen"
+
+#: addons/favorites/index.php:35 addons/favorites/index.php:204
+#: addons/favorites/index.php:229 themes/2013/favorites.php:3
 #: themes/default/favorites.php:3
 msgid "Favorites"
 msgstr "Favoriten"
 
-#: addons/favorites/index.php:95 addons/favorites/index.php:131
-#: addons/favorites/index.php:186
+#: addons/favorites/index.php:51 addons/favorites/index.php:65
+#: addons/favorites/index.php:114
 msgid "Add to Favorites"
 msgstr "Zu den Favoriten hinzufügen"
 
-#: addons/favorites/index.php:104 addons/favorites/index.php:140
-#: addons/favorites/index.php:182
-msgid "Remove from Favorites"
-msgstr "Von den Favoriten entfernen"
-
-#: addons/favorites/index.php:113
+#: addons/favorites/index.php:76
 msgid "Remove All Favorites"
 msgstr "Alle Favoriten löschen"
 
-#: addons/favorites/index.php:118
+#: addons/favorites/index.php:82
 #, fuzzy
 msgid "Submit Favorites"
 msgstr "Favoriten"
 
-#: addons/favorites/index.php:188
+#: addons/favorites/index.php:170
 msgid "Sorry, could not add to favorites"
 msgstr "Das Bild konnte nicht zu den Favoriten hinzugefügt werden"
 
-#: addons/favorites/index.php:193
+#: addons/favorites/index.php:174 addons/lightbox/index.php:430
 msgid "Sorry, there was an error with your request"
 msgstr "Deine Anfrage konnte aufgrund eines Fehlers nicht verarbeitet werden."
 
-#: addons/favorites/index.php:295
+#: addons/favorites/index.php:215
+#, fuzzy
+msgid "Disable favorites feature"
+msgstr "Favoriten wurden gelöscht"
+
+#: addons/favorites/index.php:218
+#, fuzzy
+msgid ""
+"Check this if you do not want to allow users to use the favorites feature"
+msgstr ""
+"Wählen Sie aus, wenn Sie nicht, dass Benutzer die Favoriten-Funktion "
+"verwenden können möchten"
+
+#: addons/favorites/index.php:299
+#, fuzzy
+msgid ""
+"A user account is required to track your favorites so you can come back any "
+"time to see them."
+msgstr ""
+"Ein Benutzerkonto ist erforderlich, um Ihre Favoriten zu verfolgen, so dass "
+"Sie jederzeit zurückkehren können, sie zu sehen."
+
+#: addons/favorites/index.php:325
 msgid "Favorites cleared"
 msgstr "Favoriten wurden gelöscht"
 
-#: addons/favorites/index.php:307
+#: addons/favorites/index.php:337
 #, fuzzy
-msgid "Favorites submitted"
-msgstr "Favoriten"
+msgid "Your favorite images have been sent"
+msgstr "Es wurden noch keine Bilder gekauft"
 
-#: addons/messaging/index.php:10
-msgid "Messaging Templates"
+#: addons/favorites/index.php:408
+#, fuzzy
+msgid "After user adds image to favorites"
+msgstr "Zu den Favoriten hinzufügen"
+
+#: addons/lightbox/add-to-cart.php:14
+#, fuzzy
+msgid "Back to Favorites"
+msgstr "Zu den Favoriten hinzufügen"
+
+#: addons/lightbox/add-to-cart.php:14 addons/lightbox/comments.php:42
+#, fuzzy
+msgid "Back to Gallery"
+msgstr "Galerie bearbeiten"
+
+#: addons/lightbox/add-to-cart.php:15
+#, fuzzy
+msgid "View Cart"
+msgstr "Warenkorb anzeigen"
+
+#: addons/lightbox/comments.php:30
+#, fuzzy
+msgid "Add Comment"
+msgstr "Kommentar"
+
+#: addons/lightbox/comments.php:40
+#, fuzzy
+msgid "Back to Image"
+msgstr "Hintergrundbild"
+
+#: addons/lightbox/comments.php:59
+#, fuzzy
+msgid "Comment pending..."
+msgstr "Bestellung eingangen"
+
+#: addons/lightbox/comments.php:67
+#, fuzzy
+msgid "You might have left one of the fields blank, or be posting too quickly"
 msgstr ""
+"Sie können haben eines der Felder leer bleiben oder Entsendung zu schnell"
+
+#: addons/lightbox/comments.php:72
+#, fuzzy
+msgid "Your comment has been added!"
+msgstr "Dein Kommentar wurde hinzugefügt!"
+
+#: addons/lightbox/comments.php:76
+#, fuzzy
+msgid "Please wait a while before posting your next comment"
+msgstr "Bitte warten Sie eine Weile vor Ihrem nächsten Kommentar"
+
+#: addons/lightbox/index.php:234
+msgid "Lightbox Options"
+msgstr "Lightbox Optionen"
+
+#: addons/lightbox/index.php:236
+#, fuzzy
+msgid "Enable Lightbox"
+msgstr "Lightbox für Bilder aktivieren"
+
+#: addons/lightbox/index.php:242
+#, fuzzy
+msgid "Slideshow Interval"
+msgstr "Diaschau-Intervall"
+
+#: addons/lightbox/index.php:317 admin/sunshine-products.php:89
+msgid "Price"
+msgstr "Preis"
+
+#: addons/lightbox/index.php:318 addons/packages/index.php:159
+#: addons/tiered-pricing/index.php:24 themes/2013/cart.php:17
+#: themes/2013/order.php:51 themes/default/cart.php:17
+#: themes/default/order.php:50 themes/theme/cart.php:17
+#: themes/theme/order.php:51
+msgid "Qty"
+msgstr "Anzahl"
+
+#: addons/lightbox/index.php:341 addons/lightbox/index.php:408
+#: addons/packages/index.php:376 sunshine-template-functions.php:722
+msgid "Add to Cart"
+msgstr "Zum Warenkorb hinfügen"
+
+#: addons/lightbox/index.php:409 sunshine-functions.php:250
+#, fuzzy
+msgid "Item removed from cart"
+msgstr "Artikel aus dem Kombi-Paket entfernt"
+
+#: addons/lightbox/index.php:418
+#, fuzzy
+msgid "Update"
+msgstr "Produktkategorie aktualisieren"
+
+#: addons/lightbox/index.php:420
+#, fuzzy
+msgid "Added to cart"
+msgstr "Zum Warenkorb hinfügen"
+
+#: addons/lightbox/index.php:445 addons/packages/index.php:508
+#: addons/packages/index.php:521
+msgid "Item added to package"
+msgstr "Artikel wurde dem Kombi-Paket hinzugefügt"
+
+#: addons/lightbox/index.php:469 sunshine-template-functions.php:751
+#, php-format
+msgid ""
+"You must first <a href=\"%s\">login</a> or <a href=\"%s\">register</a> "
+"before you can add pictures to your cart. This allows us to track your "
+"favorites and items in your cart when you return."
+msgstr ""
+"Du musst dich zuerst <a href=\"%s\">einloggen</a> oder <a href=\"%s"
+"\">registrieren</a> bevor du Artikel zum Warenkorb hinzufügen kannst. Damit "
+"ermöglichst du es uns, deine Favoriten und den Warenkorb bis zum nächsten "
+"Besuch zu speichern."
+
+#: addons/masonry/index.php:5
+msgid "Masonry"
+msgstr "Mauerwerk"
+
+#: addons/masonry/index.php:7
+#, fuzzy
+msgid "Show images in a masonry style (Think Pinterest)"
+msgstr "Zeigen Sie Bilder in einem Mauerwerk-Stil (denke Pinterest)"
+
+#: addons/messaging/index.php:4 addons/messaging/index.php:49
+#, fuzzy
+msgid "Messaging"
+msgstr "Nachrichtenfunktion"
 
 #: addons/messaging/index.php:10
+#, fuzzy
+msgid "Messaging Templates"
+msgstr "Messaging-Vorlagen"
+
+#: addons/messaging/index.php:10
+#, fuzzy
 msgid ""
 "Allowed template variables are: {gallery_name}, {gallery_url}, "
 "{gallery_password}, {register_url}, {first_name}, {last_name}, {full_name}, "
 "{site_name}, {site_url}, {sunshine_url}"
 msgstr ""
+"Template-Variablen sind erlaubt: {Gallery_name}, {Gallery_url}, "
+"{Gallery_password}, {Register_url}, {Vorname} {Nachname}, {Full_name}, "
+"{Site_name}, {Site_url}, {Sunshine_url}"
 
 #: addons/messaging/index.php:12
 #, fuzzy
@@ -457,43 +1053,57 @@ msgstr "Registrieren"
 msgid "Register Invite"
 msgstr "Registrieren"
 
-#: addons/messaging/index.php:41
-msgid "Messaging"
-msgstr ""
-
-#: addons/messaging/index.php:145
+#: addons/messaging/index.php:161
 #, fuzzy
 msgid "Please select a gallery"
 msgstr "Download-Verzeichnis auswählen"
 
-#: addons/messaging/index.php:148
+#: addons/messaging/index.php:164
 #, fuzzy
 msgid "Please select a user"
 msgstr "Download-Verzeichnis auswählen"
 
-#: addons/messaging/index.php:150
+#: addons/messaging/index.php:166
 #, fuzzy
 msgid "Invalid email address"
 msgstr "Gültige Email Adresse benötigt"
 
-#: addons/messaging/index.php:153
+#: addons/messaging/index.php:169
 #, fuzzy
 msgid "Please provide a subject"
 msgstr "Download-Verzeichnis auswählen"
 
-#: addons/messaging/index.php:156
+#: addons/messaging/index.php:172
 #, fuzzy
 msgid "Please provide a message"
 msgstr "Nachrichten zu Beginn der Mailbestätigung"
 
-#: addons/messaging/index.php:187
+#: addons/messaging/index.php:203
+#, fuzzy
 msgid "Message has been sent!"
-msgstr ""
+msgstr "Nachricht wurde versandt!"
 
-#: addons/messaging/index.php:190
+#: addons/messaging/index.php:206
 #, fuzzy
 msgid "Sorry, message was not sent"
 msgstr "Nachrichten zu Beginn der Mailbestätigung"
+
+#: addons/messaging/index.php:226
+#, fuzzy, php-format
+msgid " or <a href=\"%s\">invite a user to this gallery</a>!"
+msgstr "oder die <a href=\"%s\">Einladung zu dieser Galerie</a>!"
+
+#: addons/minimum-order/index.php:25
+#, fuzzy, php-format
+msgid "You have not met the minimum order of %s for the gallery \"%s\""
+msgstr ""
+"Deine Bestellung hat die Mindestbestellmenge für den Rabattcode noch nicht "
+"erreicht."
+
+#: addons/minimum-order/index.php:35
+#, fuzzy
+msgid "Minimum Order"
+msgstr "Bestellung bearbeiten"
 
 #: addons/newsletter/index.php:63 addons/newsletter/index.php:74
 msgid "Join  email newsletter"
@@ -503,7 +1113,7 @@ msgstr "Newsletter abonnieren"
 msgid "Newsletter"
 msgstr "Newsletter"
 
-#: addons/newsletter/index.php:96
+#: addons/newsletter/index.php:97
 msgid ""
 "We think Campaign Monitor is by far the best email newsletter system. <a "
 "href=\"https://signup.campaignmonitor.com/signup\" target=\"_blank\">Sign up "
@@ -513,150 +1123,139 @@ msgstr ""
 "signup.campaignmonitor.com/signup\" target=\"_blank\">Melde dich hier "
 "kostenlos an!</a>"
 
-#: addons/newsletter/index.php:101 addons/newsletter/index.php:150
-msgid "API Key"
-msgstr "API Key"
-
-#: addons/newsletter/index.php:104 addons/newsletter/index.php:153
+#: addons/newsletter/index.php:127 addons/newsletter/index.php:172
 msgid "Save this value then you can choose a list"
 msgstr "Speichere diesen Wert und wähle eine Empfängerliste aus"
 
-#: addons/newsletter/index.php:132
+#: addons/newsletter/index.php:129
 msgid "Invalid Campaign Monitor API key "
 msgstr "Ungültiger Kampagnen Monitor API Schlüssel"
 
-#: addons/newsletter/index.php:136 addons/newsletter/index.php:172
+#: addons/newsletter/index.php:136 addons/newsletter/index.php:179
+msgid "API Key"
+msgstr "API Key"
+
+#: addons/newsletter/index.php:145 addons/newsletter/index.php:188
 msgid "List"
 msgstr "Empfängerliste"
 
-#: addons/newsletter/index.php:140 addons/newsletter/index.php:176
+#: addons/newsletter/index.php:149 addons/newsletter/index.php:192
 msgid "Please select list"
 msgstr "Bitte Empfängerliste auswählen"
 
-#: addons/newsletter/index.php:145
+#: addons/newsletter/index.php:154
+#, fuzzy
 msgid ""
-"MailChimp has a good free program if you have less than 2,000 subscribers. "
-"<a href=\"http://eepurl.com/vB7jf\" target=\"_blank\">Sign up for an account "
-"and get $30 in credit</a>"
+"MailChimp has a good free program if you have less than 2,000 subscribers"
 msgstr ""
-"MailChimp bietet ein gutes und kostenloses Programm, wenn du weniger als "
-"2'000 Abonnenten hast. <a href=\"http://eepurl.com/vB7jf\" target=\"_blank"
-"\">Melde dich an und erhalten einen Gutschein über 30$.</a>"
+"MailChimp hat ein gutes kostenloses Programm, wenn Sie weniger als 2.000 "
+"Abonnenten haben"
 
-#: addons/newsletter/index.php:163
+#: addons/newsletter/index.php:166
 msgid "Invalid MailChimp API key "
 msgstr "Ungültiger MailChimp API Schlüssel"
 
-#: addons/packages/index.php:30
+#: addons/packages/index.php:6
 msgid ""
 "This page is not accessible via this method. Please visit a gallery first."
 msgstr ""
 "Diese Seite ist nicht direkt abrufbar. Bitte besuche zuerst eine Galerie."
 
-#: addons/packages/index.php:64 addons/packages/index.php:104
-#: addons/packages/index.php:115 themes/2013/packages.php:3
+#: addons/packages/index.php:40 addons/packages/index.php:79
+#: addons/packages/index.php:92 themes/2013/packages.php:3
 #: themes/default/packages.php:3
 msgid "Packages"
 msgstr "Kombi-Pakete"
 
-#: addons/packages/index.php:155 addons/packages/index.php:234
+#: addons/packages/index.php:133 addons/packages/index.php:211
 msgid "Package"
 msgstr "Kombi-Paket"
 
-#: addons/packages/index.php:156
+#: addons/packages/index.php:134
 msgid "This product is a package"
 msgstr "Dieses Produkt ist ein Kombi-Paket"
 
-#: addons/packages/index.php:159
+#: addons/packages/index.php:137
 msgid "Choose Products for Package"
 msgstr "Produkte für Angebotspaket auswählen"
 
-#: addons/packages/index.php:164 themes/2013/cart.php:16
+#: addons/packages/index.php:142 themes/2013/cart.php:16
 #: themes/2013/order.php:50 themes/default/cart.php:16
-#: themes/default/order.php:49 themes/theme/cart.php:17
-#: themes/theme/order.php:52
+#: themes/default/order.php:49 themes/theme/cart.php:16
+#: themes/theme/order.php:50
 msgid "Product"
 msgstr "Produkt"
 
-#: addons/packages/index.php:178
+#: addons/packages/index.php:156
 #, fuzzy
 msgid "Entire session as digital download"
 msgstr "Alle Bilder kaufen"
 
-#: addons/packages/index.php:181 addons/tiered-pricing/index.php:24
-#: themes/2013/cart.php:17 themes/2013/order.php:51 themes/default/cart.php:17
-#: themes/default/order.php:50 themes/theme/cart.php:18
-#: themes/theme/order.php:53
-msgid "Qty"
-msgstr "Anzahl"
-
-#: addons/packages/index.php:187
+#: addons/packages/index.php:165 admin/sunshine-bulk-add-products.php:95
 msgid "Add another product"
 msgstr "Weiteres Produkt hinzufügen"
 
-#: addons/packages/index.php:269
+#: addons/packages/index.php:247
 #, fuzzy
 msgid "Entire gallery digital download"
 msgstr "Galerie mit digitalen Negative"
 
-#: addons/packages/index.php:286
+#: addons/packages/index.php:264
 #, fuzzy
 msgid "Unfilled items in package:"
 msgstr "Artikel"
 
-#: addons/packages/index.php:343
+#: addons/packages/index.php:323
+#, fuzzy
+msgid "Add image to package"
+msgstr "Artikel wurde dem Kombi-Paket hinzugefügt"
+
+#: addons/packages/index.php:323
 msgid "Select package"
 msgstr "Kombi-Paket auswählen"
 
-#: addons/packages/index.php:380
+#: addons/packages/index.php:361
 msgid "remaining"
 msgstr "verbleibende"
 
-#: addons/packages/index.php:389
+#: addons/packages/index.php:370
 #, fuzzy
 msgid "Completed"
-msgstr "Versendet/Abgeschlossen"
+msgstr "Abgeschlossene Bestellungen Total"
 
-#: addons/packages/index.php:395 sunshine-template-functions.php:610
-msgid "Add to Cart"
-msgstr "Zum Warenkorb hinfügen"
-
-#: addons/packages/index.php:441
+#: addons/packages/index.php:423
+#, fuzzy
 msgid "You have not filled all your packages"
-msgstr ""
+msgstr "Sie haben alle Ihre Pakete nicht gefüllt."
 
-#: addons/packages/index.php:470
+#: addons/packages/index.php:454
 msgid "No products have been assigned to this package"
 msgstr "Zu diesem Kombi-Paket wurden noch keine Produkt hinzugefügt"
 
-#: addons/packages/index.php:501
+#: addons/packages/index.php:474
 msgid "Package added to cart!"
 msgstr "Kombi-Paket wurde dem Warenkorb hinzugefügt!"
 
-#: addons/packages/index.php:507 addons/packages/index.php:511
-#: sunshine-functions.php:82
+#: addons/packages/index.php:480 addons/packages/index.php:484
+#: sunshine-functions.php:175
 msgid "Sorry, something went wrong with adding the item to cart."
 msgstr ""
 "Beim Hinzufügen des Artikel in den Warenkorb ist ein Fehler aufgetreten."
 
-#: addons/packages/index.php:534
-msgid "Item added to package"
-msgstr "Artikel wurde dem Kombi-Paket hinzugefügt"
-
-#: addons/packages/index.php:536
+#: addons/packages/index.php:510
 msgid "Item could not be added to package"
 msgstr "Artikel konnte dem Kombi-Paket nicht hinzugefügt werden"
 
-#: addons/packages/index.php:561
+#: addons/packages/index.php:548
 msgid "Item removed from package"
 msgstr "Artikel aus dem Kombi-Paket entfernt"
 
-#: addons/packages/index.php:563
+#: addons/packages/index.php:550
 msgid "Item could not be removed from package"
 msgstr "Artikel konnte nicht aus dem Kombi-Paket entfernt werden"
 
 #: addons/payment-offline/index.php:8 addons/payment-offline/index.php:86
-#: classes/sunshine.class.php:484 classes/sunshine.class.php:656
+#: classes/sunshine.class.php:470
 msgid "Offline"
 msgstr "Offline"
 
@@ -675,15 +1274,6 @@ msgstr ""
 msgid "Enable offline payments"
 msgstr "Offline Zahlungsoptionen aktivieren"
 
-#: addons/payment-offline/index.php:94
-#: addons/payment-payjunction/index.php:218
-#: addons/payment-paypal/index.php:168 addons/payment-stripe/index.php:190
-#: addons/price-levels/index.php:63 addons/shipping-flatrate/index.php:26
-#: addons/shipping-local/index.php:26 addons/shipping-pickup/index.php:26
-#: admin/sunshine-products.php:74
-msgid "Name"
-msgstr "Bezeichnung"
-
 #: addons/payment-offline/index.php:97
 msgid "Name that users will see on the checkout page, defaults to \"Offline\""
 msgstr ""
@@ -691,14 +1281,14 @@ msgstr ""
 "\"Offline-Zahlung\""
 
 #: addons/payment-offline/index.php:100
-#: addons/payment-payjunction/index.php:224
-#: addons/payment-paypal/index.php:174 addons/payment-stripe/index.php:196
+#: addons/payment-payjunction/index.php:224 addons/payment-paypal/index.php:219
+#: addons/payment-stripe/index.php:187
 msgid "Description"
 msgstr "Beschreibung"
 
 #: addons/payment-offline/index.php:103
-#: addons/payment-payjunction/index.php:227
-#: addons/payment-paypal/index.php:177 addons/payment-stripe/index.php:199
+#: addons/payment-payjunction/index.php:227 addons/payment-paypal/index.php:222
+#: addons/payment-stripe/index.php:190
 msgid "Description that users will see on the checkout page"
 msgstr "Beschreibung die der Kunde auf der Seite der Kasse sieht"
 
@@ -714,8 +1304,7 @@ msgstr ""
 "Nutze dieses Feld um dem Kunden zu beschreiben wie er seine Zahlung senden "
 "kann (bei Bestellungen auf Rechnung z.B. Kontoinformationen)"
 
-#: addons/payment-payjunction/index.php:9 classes/sunshine.class.php:498
-#: classes/sunshine.class.php:670
+#: addons/payment-payjunction/index.php:9 classes/sunshine.class.php:484
 msgid "Pay by credit card (Visa, MasterCard, American Express, Discover)"
 msgstr "Zahlung mit Kreditkarte (Visa, MasterCard, American Express, Discover)"
 
@@ -738,18 +1327,15 @@ msgstr ""
 "Ihre Zahlung konnte aufgrund eines unbekannten Fehlers nicht ausgeführt "
 "werden"
 
-#: addons/payment-payjunction/index.php:149
-#: addons/payment-stripe/index.php:121
+#: addons/payment-payjunction/index.php:149 addons/payment-stripe/index.php:120
 msgid "Card Number"
 msgstr "Kartennummer"
 
-#: addons/payment-payjunction/index.php:150
-#: addons/payment-stripe/index.php:122
+#: addons/payment-payjunction/index.php:150 addons/payment-stripe/index.php:121
 msgid "CVV"
 msgstr "CVV"
 
-#: addons/payment-payjunction/index.php:152
-#: addons/payment-stripe/index.php:124
+#: addons/payment-payjunction/index.php:152 addons/payment-stripe/index.php:123
 msgid "Expiration Date"
 msgstr "Ablaufdatum"
 
@@ -762,8 +1348,7 @@ msgid ""
 "Name that users will see on the checkout page, defaults to \"PayJunction\""
 msgstr "Beschreibung die der Kunde auf der Kassenseite sieht"
 
-#: addons/payment-payjunction/index.php:230
-#: addons/payment-stripe/index.php:202
+#: addons/payment-payjunction/index.php:230 addons/payment-stripe/index.php:193
 msgid "Force HTTPS"
 msgstr "HTTPS erzwingen"
 
@@ -777,22 +1362,21 @@ msgstr ""
 "über deine Website abwickeln zu können. <a href=\"http://www."
 "sunshinephotocart.com/docs/ssl\" target=\"_blank\">Weitere Informationen</a>"
 
-#: addons/payment-payjunction/index.php:237
-#: addons/payment-stripe/index.php:209
+#: addons/payment-payjunction/index.php:237 addons/payment-stripe/index.php:200
 msgid "Test Mode"
 msgstr "Testmodus"
 
-#: addons/payment-payjunction/index.php:243 classes/frontend.class.php:340
+#: addons/payment-payjunction/index.php:243 classes/frontend.class.php:375
 msgid "Login"
 msgstr "Login"
 
-#: addons/payment-payjunction/index.php:248 classes/frontend.class.php:296
-#: sunshine-functions.php:420 sunshine-template-functions.php:784
+#: addons/payment-payjunction/index.php:248 classes/frontend.class.php:331
+#: email/register.php:3 sunshine-functions.php:612
+#: sunshine-template-functions.php:911
 msgid "Password"
 msgstr "Passwort"
 
-#: addons/payment-paypal/index.php:9 classes/sunshine.class.php:490
-#: classes/sunshine.class.php:662
+#: addons/payment-paypal/index.php:9 classes/sunshine.class.php:476
 msgid "Submit payment via PayPal account or use a credit card"
 msgstr "Mit Paypal oder Kreditkarte bezahlen"
 
@@ -808,25 +1392,25 @@ msgstr "Bestellung von"
 msgid "Submit payment via PayPal"
 msgstr "Mit PayPal bezahlen"
 
-#: addons/payment-paypal/index.php:162
+#: addons/payment-paypal/index.php:207
 msgid "Enable payments via PayPal"
 msgstr "Zahlungen über Paypal aktivieren"
 
-#: addons/payment-paypal/index.php:171
+#: addons/payment-paypal/index.php:216
 msgid "Name that users will see on the checkout page, defaults to \"PayPal\""
 msgstr ""
 "Beschreibung die der Kunde auf der Kassenseite sieht. Voreingestellt ist "
 "\"PayPal\""
 
-#: addons/payment-paypal/index.php:180
+#: addons/payment-paypal/index.php:225
 msgid "PayPal Email"
 msgstr "PayPal Email"
 
-#: addons/payment-paypal/index.php:185
+#: addons/payment-paypal/index.php:230
 msgid "Enable test mode (Sandbox)"
 msgstr "Testmodus (Sandbox) aktivieren"
 
-#: addons/payment-paypal/index.php:187
+#: addons/payment-paypal/index.php:232
 msgid ""
 "More for developers, this lets you accept test transactions via PayPal. "
 "Requires developer account and being logged into the developer account."
@@ -834,24 +1418,23 @@ msgstr ""
 "Für Entwickler, diese Einstellung ermöglichst Testtransaktionen über Paypal. "
 "Hierzu wird ein Entwickler Account benötigt in dem man eingeloggt sein muss."
 
-#: addons/payment-stripe/index.php:9 classes/sunshine.class.php:494
-#: classes/sunshine.class.php:666
+#: addons/payment-stripe/index.php:9 classes/sunshine.class.php:480
 msgid ""
 "Pay by credit card (Visa, MasterCard, American Express, Discover, JCB, and "
 "Diners Club)"
 msgstr "Mit Kreditkarte bezahlen (Visa, MasterCard, American Express)"
 
-#: addons/payment-stripe/index.php:184
+#: addons/payment-stripe/index.php:175
 msgid "Enable payments via Stripe"
 msgstr "Zahlung über Stripe aktivieren"
 
-#: addons/payment-stripe/index.php:193
+#: addons/payment-stripe/index.php:184
 msgid "Name that users will see on the checkout page, defaults to \"Stripe\""
 msgstr ""
 "Beschreibung die der Kunde auf der Kassenseite sieht. Voreingestellt ist "
 "\"Stripe\""
 
-#: addons/payment-stripe/index.php:203
+#: addons/payment-stripe/index.php:194
 msgid ""
 "Stripe requires an SSL certificate to accept credit card information "
 "securely from your website. <a href=\"http://www.sunshinephotocart.com/docs/"
@@ -861,19 +1444,19 @@ msgstr ""
 "deine Website abwickeln zu können. <a href=\"http://www.sunshinephotocart."
 "com/docs/ssl\" target=\"_blank\">Weitere Informationen</a>"
 
-#: addons/payment-stripe/index.php:215
+#: addons/payment-stripe/index.php:206
 msgid "Test Secret Key"
 msgstr "Gemeiner Testschlüssel"
 
-#: addons/payment-stripe/index.php:220
+#: addons/payment-stripe/index.php:211
 msgid "Test Publishable Key"
 msgstr "Publizierbarer Testschlüssel"
 
-#: addons/payment-stripe/index.php:225
+#: addons/payment-stripe/index.php:216
 msgid "Live Secret Key"
 msgstr "Live Geheimschlüssel"
 
-#: addons/payment-stripe/index.php:230
+#: addons/payment-stripe/index.php:221
 msgid "Live Publishable Key"
 msgstr "Live publizierbarer Schlüssel"
 
@@ -894,26 +1477,118 @@ msgid "Percentage:"
 msgstr "Prozentsatz:"
 
 #: addons/price-levels/index.php:30
+#, fuzzy
 msgid ""
 "What percent of the selected price level to create prices for this new price "
 "level. To make higher prices, enter a value greater than 100. To make "
 "smaller prices, enter a value less than 100."
 msgstr ""
+"Wieviel Prozent des ausgewählten Preisniveaus um Preise für dieses neue "
+"Preisniveau zu erstellen. Um höhere Preise zu machen, geben Sie einen Wert "
+"größer als 100. Um kleinere Preise, geben Sie einen Wert kleiner als 100."
 
-#: addons/price-levels/index.php:64 admin/sunshine-menu.php:15
-#: classes/sunshine.class.php:116
+#: addons/price-levels/index.php:67 admin/sunshine-menu.php:15
+#: classes/sunshine.class.php:109
 msgid "Products"
 msgstr "Produkte"
 
-#: addons/share/index.php:21
+#: addons/product-options/index.php:7 addons/product-options/index.php:27
+#: addons/product-options/index.php:167 addons/product-options/index.php:338
+#, fuzzy
+msgid "Product Options"
+msgstr "Produktkosten"
+
+#: addons/product-options/index.php:18
+#, fuzzy
+msgid "Add New Product Option"
+msgstr "Produkt hinzufügen"
+
+#: addons/product-options/index.php:19
+#, fuzzy
+msgid "Edit Product Option"
+msgstr "Produkte bearbeiten"
+
+#: addons/product-options/index.php:20
+#, fuzzy
+msgid "New Product Option"
+msgstr "Neues Produkt"
+
+#: addons/product-options/index.php:21
+#, fuzzy
+msgid "All Product Options"
+msgstr "Alle Produkte"
+
+#: addons/product-options/index.php:22
+#, fuzzy
+msgid "View Product Options"
+msgstr "Produkte betrachten"
+
+#: addons/product-options/index.php:23
+#, fuzzy
+msgid "Search Product Option"
+msgstr "Produkte durchsuchen"
+
+#: addons/product-options/index.php:24
+#, fuzzy
+msgid "No Product Options found"
+msgstr "Keine Produkte gefunden"
+
+#: addons/product-options/index.php:25
+#, fuzzy
+msgid "No Product Options found in trash"
+msgstr "Keine Produkte im Papierkorb gefunden"
+
+#: addons/product-options/index.php:52 admin/sunshine-discounts.php:8
+msgid "Options"
+msgstr "Optionen"
+
+#: addons/product-options/index.php:75
+#, fuzzy
+msgid "Default Price"
+msgstr "Vorausgewähltes Land"
+
+#: addons/product-options/index.php:115
+#, fuzzy
+msgid "Add another option"
+msgstr "Weiteres Produkt hinzufügen"
+
+#: addons/product-options/index.php:168
+#, fuzzy
+msgid "This product has options"
+msgstr "Dieses Produkt ist ein Kombi-Paket"
+
+#: addons/product-options/index.php:171
+#, fuzzy
+msgid "Product Option Pricing"
+msgstr "Produktkategorien"
+
+#: addons/product-options/index.php:215
+#, fuzzy
+msgid ""
+"Leave price blank to make it unavailable for respective Price Level, enter "
+"\"0\" to make it free"
+msgstr ""
+"Preis für die jeweiligen Preisniveau nicht verfügbar zu machen, geben \"0\" "
+"leer lassen, um es frei zu machen"
+
+#: addons/product-options/index.php:345
+#, fuzzy
+msgid "Select option"
+msgstr "Land auswählen"
+
+#: addons/reports/index.php:4 addons/reports/index.php:13
+msgid "Reports"
+msgstr "Berichte"
+
+#: addons/share/index.php:27
 msgid "Share This"
 msgstr "Teilen"
 
-#: addons/share/index.php:50
+#: addons/share/index.php:56
 msgid "Sharing on Gallery Pages"
 msgstr "Teilen auf Galerie Seiten aktivieren"
 
-#: addons/share/index.php:51
+#: addons/share/index.php:57
 msgid ""
 "Let users share a gallery on social networks like Facebook, Twitter, "
 "Pinterest"
@@ -921,11 +1596,11 @@ msgstr ""
 "Benutzern das Teilen der Galerien in sozialen Netzwerken (Facebook, Twitter, "
 "Pinterest) erlauben"
 
-#: addons/share/index.php:57
+#: addons/share/index.php:63
 msgid "Sharing on Image Detail Pages"
 msgstr "Teilen auf der Einzelbildseite aktivieren"
 
-#: addons/share/index.php:58
+#: addons/share/index.php:64
 msgid ""
 "Let users share an image on social networks like Facebook, Twitter, Pinterest"
 msgstr ""
@@ -937,11 +1612,12 @@ msgid "Enable Flat Rate Shipping"
 msgstr "Pauschale Versandgebühr aktivieren"
 
 #: addons/shipping-flatrate/index.php:31
-msgid "Flat Rate Shipping Cost ($)"
+#, fuzzy
+msgid "Flat Rate Shipping Cost"
 msgstr "Kosten für pauschale Versandgebühren ($)"
 
 #: addons/shipping-flatrate/index.php:37 addons/shipping-local/index.php:43
-#: addons/shipping-pickup/index.php:37
+#: addons/shipping-pickup/index.php:37 admin/sunshine-bulk-add-products.php:89
 msgid "Taxable"
 msgstr "Steuerbar (MwSt.)"
 
@@ -950,7 +1626,8 @@ msgid "Enable Local Delivery Shipping"
 msgstr "Lokalen Versand aktivieren"
 
 #: addons/shipping-local/index.php:31
-msgid "Local Delivery Shipping Cost ($)"
+#, fuzzy
+msgid "Local Delivery Shipping Cost"
 msgstr "Lokale Versandkosten ($)"
 
 #: addons/shipping-local/index.php:37
@@ -977,7 +1654,8 @@ msgid "Enable Pickup Shipping"
 msgstr "Abholung als Lieferart aktivieren"
 
 #: addons/shipping-pickup/index.php:31
-msgid "Pickup Shipping Cost ($)"
+#, fuzzy
+msgid "Pickup Shipping Cost"
 msgstr "Abholkosten ($)"
 
 #: addons/tiered-pricing/index.php:15
@@ -998,7 +1676,7 @@ msgstr "Preis"
 #: addons/tiered-pricing/index.php:26
 #, fuzzy
 msgid "Discount"
-msgstr "Rabattcode bearbeiten"
+msgstr "Rabatt konnte nicht hinzugefügt werden"
 
 #: addons/tiered-pricing/index.php:32
 #, fuzzy
@@ -1011,27 +1689,23 @@ msgid "Watermark"
 msgstr "Denmark"
 
 #: addons/watermark/index.php:4
+#, fuzzy
 msgid ""
 "Add image to all files uploaded to Sunshine (except digital download files)"
 msgstr ""
+"Alle Dateien (außer digitalen Download-Dateien) auf Sunshine hochgeladen "
+"fügen Sie Bild hinzu"
 
-#: addons/watermark/index.php:6 sunshine-options.php:278
+#: addons/watermark/index.php:6 sunshine-options.php:335
 #: themes/default/functions.php:27
 msgid "No image"
 msgstr "Kein Bild"
 
-#: addons/watermark/index.php:11 themes/2013/cart.php:15
-#: themes/2013/order.php:49 themes/default/cart.php:15
-#: themes/default/order.php:48 themes/theme/cart.php:16
-#: themes/theme/order.php:51
-msgid "Image"
-msgstr "Bild"
-
 #: addons/watermark/index.php:16
 #, fuzzy
 msgid ""
-"Image should be transparent PNG. Upload a file to your <a href=\"upload.php"
-"\">Media gallery</a>, then select it here"
+"<strong>Image must be a transparent PNG.</strong> Upload a file to your <a "
+"href=\"upload.php\">Media gallery</a>, then select it here"
 msgstr ""
 "Das Logo sollte 170px breit sein und als transparentes PNG vorliegen. Lade "
 "die Datei in deine <a href=\"upload.php\">Mediathek</a> hoch und wähle es "
@@ -1073,22 +1747,67 @@ msgid "Margin from edge"
 msgstr "Bestellung von"
 
 #: addons/watermark/index.php:32
+#, fuzzy
 msgid "Number only, not used for \"Center\" position"
-msgstr ""
+msgstr "Nummer nur, nicht für \"Mittelstellung\" verwendet"
 
-#: admin/sunshine-admin.php:96
+#: admin/sunshine-admin.php:44
+#, fuzzy, php-format
+msgid ""
+"You need to <a href=\"%s\">enter a valid license key</a> for Sunshine Photo "
+"Cart."
+msgstr ""
+"Sie benötigen <a href=\"%s\">einen gültigen Lizenzschlüssel</a> eingeben für "
+"Sunshine-Foto-Warenkorb."
+
+#: admin/sunshine-admin.php:47
+#, fuzzy, php-format
+msgid ""
+"Sunshine does not work using the Default Permalink settings. <a href=\"%s"
+"\">Please choose another option</a> (we recommend \"Post name\")."
+msgstr ""
+"Sonnenschein funktioniert nicht mit den Standard-Permalink-Einstellungen. <a "
+"href=\"%s\">Bitte wählen Sie eine andere option</a> (Wir empfehlen \"Post-"
+"Name\")."
+
+#: admin/sunshine-admin.php:50
+#, fuzzy, php-format
+msgid ""
+"Sunshine requires that you enable user registration. <a href=\"%s\">Update "
+"your general settings</a> and \tenable the \"Anyone can register\" option "
+"for \"Membership\"."
+msgstr ""
+"Sonnenschein erfordert, dass Sie Benutzer-Registrierung aktivieren. <a href="
+"\"%s\">Allgemeinen Einstellungen aktualisieren</a> und aktivieren die Option "
+"\"Jeder kann registrieren\" für die \"Mitgliedschaft\"."
+
+#: admin/sunshine-admin.php:50 admin/sunshine-admin.php:53
+msgid "Dismiss"
+msgstr "Verwerfen"
+
+#: admin/sunshine-admin.php:53
+#, fuzzy, php-format
+msgid ""
+"Sunshine cannot be the front page of your WordPress installation. <a href="
+"\"%s\" target=\"_blank\">Learn more on how to resolve this issue</a>."
+msgstr ""
+"Sonnenschein kann nicht auf der Titelseite Ihrer WordPress-Installation "
+"sein. <a href=\"%s\" target=\"_blank\">Erfahren Sie mehr darüber, wie dieses "
+"Problem zu beheben</a>."
+
+#: admin/sunshine-admin.php:113
 msgid "On"
 msgstr "Ein"
 
-#: admin/sunshine-admin.php:96
+#: admin/sunshine-admin.php:113
 msgid "Off"
 msgstr "Aus"
 
-#: admin/sunshine-admin.php:98
+#: admin/sunshine-admin.php:115
 msgid "Your server supports fsockopen."
 msgstr "Dein Server unterstützt fsockopen."
 
-#: admin/sunshine-admin.php:98
+#: admin/sunshine-admin.php:115
 msgid "Your server does not support fsockopen."
 msgstr "Dein Server unterstützt fsockopen nicht."
 
@@ -1096,77 +1815,241 @@ msgstr "Dein Server unterstützt fsockopen nicht."
 msgid "Bulk Add Products"
 msgstr "Mehrere Produkte hinzufügen"
 
-#: admin/sunshine-dashboard.php:9 admin/sunshine-orders.php:239
+#: admin/sunshine-bulk-add-products.php:71 admin/sunshine-products.php:88
+msgid "Category"
+msgstr "Kategorie"
+
+#: admin/sunshine-bulk-add-products.php:97
+#, fuzzy
+msgid "Before you add these, please double check everything is accurate!"
+msgstr "Bevor Sie diese hinzufügen, bitte überprüfen Sie alles ist korrekt!"
+
+#: admin/sunshine-bulk-add-products.php:99
+#, fuzzy
+msgid "Add these products"
+msgstr "Mehrere Produkte hinzufügen"
+
+#: admin/sunshine-dashboard.php:9 admin/sunshine-orders.php:282
 msgid "Order #"
 msgstr "Bestellnummer #"
 
-#: admin/sunshine-dashboard.php:10 admin/sunshine-orders.php:240
+#: admin/sunshine-dashboard.php:10 admin/sunshine-orders.php:283
 msgid "Customer"
 msgstr "Kunde"
 
-#: admin/sunshine-dashboard.php:11 admin/sunshine-orders.php:241
+#: admin/sunshine-dashboard.php:11 admin/sunshine-orders.php:284
 msgid "Status"
 msgstr "Bestellstatus"
 
-#: admin/sunshine-dashboard.php:12 sunshine-template-functions.php:771
+#: admin/sunshine-dashboard.php:12 sunshine-template-functions.php:898
 #: themes/2013/order.php:114 themes/default/order.php:113
-#: themes/theme/order.php:116
+#: themes/theme/order.php:114
 msgid "Total"
 msgstr "Total"
 
-#: admin/sunshine-dashboard.php:39
+#: admin/sunshine-dashboard.php:40
 msgid "Recent Orders"
 msgstr "Letzte Bestellungen"
 
-#: admin/sunshine-dashboard.php:45 admin/sunshine-menu.php:8
+#: admin/sunshine-dashboard.php:46 admin/sunshine-menu.php:8
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: admin/sunshine-discounts.php:8
-msgid "Options"
-msgstr "Optionen"
+#: admin/sunshine-discounts.php:75
+#, fuzzy
+msgid "Discount Code"
+msgstr "Gratisversand mit dem Rabattcode"
 
-#: admin/sunshine-galleries.php:8
+#: admin/sunshine-discounts.php:81
+#, fuzzy
+msgid "Discount Type"
+msgstr "Rabattcode bearbeiten"
+
+#: admin/sunshine-discounts.php:83 admin/sunshine-discounts.php:84
+#, fuzzy
+msgid "off order"
+msgstr "Aus"
+
+#: admin/sunshine-discounts.php:85 admin/sunshine-discounts.php:86
+#, fuzzy
+msgid "off product(s)"
+msgstr "Keine Produkte gefunden"
+
+#: admin/sunshine-discounts.php:90
+#, fuzzy
+msgid "Discount Amount"
+msgstr "Rabatt entfernt"
+
+#: admin/sunshine-discounts.php:96
+#, fuzzy
+msgid "Start Date"
+msgstr "Warenkorb wurde aktualisiert"
+
+#: admin/sunshine-discounts.php:102
+#, fuzzy
+msgid "End Date"
+msgstr "Datum"
+
+#: admin/sunshine-discounts.php:108
+#, fuzzy
+msgid "Max Quantity"
+msgstr "Anzahl"
+
+#: admin/sunshine-discounts.php:111
+#, fuzzy
+msgid "The maximum number of any one item this can be applied towards"
+msgstr ""
+"Die maximale Anzahl eines Artikels, die dies gegenüber angewendet werden "
+"können"
+
+#: admin/sunshine-discounts.php:115
+#, fuzzy
+msgid "Total Max Uses"
+msgstr "Verkaufserlöst Total"
+
+#: admin/sunshine-discounts.php:121
+#, fuzzy
+msgid "Max Uses Per Person"
+msgstr "Max verwendet pro Person"
+
+#: admin/sunshine-discounts.php:127
+#, fuzzy
+msgid "Only This Discount"
+msgstr "Rabattcode bearbeiten"
+
+#: admin/sunshine-discounts.php:129
+#, fuzzy
+msgid "Only allow customer to use this coupon, disallow all other coupons"
+msgstr ""
+"Erlauben Sie nur Kunden diesen Gutschein verwenden, nicht zulassen alle "
+"anderen Gutscheine"
+
+#: admin/sunshine-discounts.php:133
+#, fuzzy
+msgid "Free Shipping"
+msgstr "Versandkosten"
+
+#: admin/sunshine-discounts.php:135
+#, fuzzy
+msgid "Make shipping free on entire order"
+msgstr "Versand kostenlos auf die gesamte Bestellung zu machen"
+
+#: admin/sunshine-discounts.php:139
+#, fuzzy
+msgid "Minimum Purchase Amount"
+msgstr "Mindestbetrag"
+
+#: admin/sunshine-discounts.php:149
+#, fuzzy
+msgid "Apply Before Tax"
+msgstr "MwSt. Satz (%)"
+
+#: admin/sunshine-discounts.php:151
+#, fuzzy
+msgid "Should this coupon be applied before calculating tax"
+msgstr "Dieser Gutschein angewendet werden soll, vor der Berechnung der Steuer"
+
+#: admin/sunshine-discounts.php:158
+#, fuzzy
+msgid "Allowed Products"
+msgstr "Alle Produkte"
+
+#: admin/sunshine-discounts.php:190
+#, fuzzy
+msgid "Disallowed Products"
+msgstr "Alle Produkte"
+
+#: admin/sunshine-discounts.php:223
+#, fuzzy
+msgid "Allowed Categories"
+msgstr "Alle Produktkategorien"
+
+#: admin/sunshine-discounts.php:241
+#, fuzzy
+msgid "Disallowed Categories"
+msgstr "Alle Produktkategorien"
+
+#: admin/sunshine-galleries.php:10
+msgid "Photos"
+msgstr "Fotos"
+
+#: admin/sunshine-galleries.php:18
 msgid "Gallery Options"
 msgstr "Galerie Optionen"
 
-#: admin/sunshine-galleries.php:113
+#: admin/sunshine-galleries.php:27
+#, fuzzy
+msgid "Gallery Emails"
+msgstr "Galerie Analytics"
+
+#: admin/sunshine-galleries.php:125
+#, fuzzy
+msgid "Sorry, the image could not be deleted for some reason"
+msgstr "Dies ist keine deiner Bestellungen"
+
+#: admin/sunshine-galleries.php:339
+#, fuzzy
+msgid "Normal access"
+msgstr "Zugang verweigert"
+
+#: admin/sunshine-galleries.php:340
+#, fuzzy
+msgid "Registered and logged in"
+msgstr "Bis jetzt hat sich noch kein Benutzer eingeloggt."
+
+#: admin/sunshine-galleries.php:341
+#, fuzzy
+msgid "Provide email address"
+msgstr "Gültige Email Adresse benötigt"
+
+#: admin/sunshine-galleries.php:426
 msgid "M j, Y @ G:i"
 msgstr "M j, Y @ G:i"
 
-#: admin/sunshine-galleries.php:138 admin/sunshine-galleries.php:309
+#: admin/sunshine-galleries.php:451 admin/sunshine-galleries.php:611
 #, php-format
 msgid "%1$s-%2$s"
 msgstr "%1$s-%2$s"
 
-#: admin/sunshine-galleries.php:149 admin/sunshine-galleries.php:320
+#: admin/sunshine-galleries.php:462 admin/sunshine-galleries.php:622
 #, php-format
 msgid "%1$s%2$s, %3$s @ %4$s : %5$s"
 msgstr "%1$s%2$s, %3$s @ %4$s : %5$s"
 
-#: admin/sunshine-galleries.php:155 admin/sunshine-galleries.php:335
+#: admin/sunshine-galleries.php:468 admin/sunshine-galleries.php:637
 msgid "OK"
 msgstr "OK"
 
-#: admin/sunshine-galleries.php:156 admin/sunshine-galleries.php:336
+#: admin/sunshine-galleries.php:469 admin/sunshine-galleries.php:638
 msgid "Cancel"
 msgstr "Abbrechen"
+
+#: admin/sunshine-galleries.php:712
+#, fuzzy, php-format
+msgid "<strong>Gallery updated</strong>, <a href=\"%s\">view gallery</a>"
+msgstr "<strong>Galerie aktualisiert</strong>, <a href=\"%s\">Galerie</a>"
+
+#: admin/sunshine-galleries.php:713
+#, fuzzy, php-format
+msgid "<strong>Gallery created</strong>, <a href=\"%s\">view gallery</a>"
+msgstr "<strong>Galerie erstellt</strong>, <a href=\"%s\">Galerie</a>"
 
 #: admin/sunshine-image-processor.php:9
 msgid "Image Processor"
 msgstr "Bildprozessor"
 
 #: admin/sunshine-image-processor.php:10
+#, fuzzy
 msgid ""
-"We are processing your images! Please be patient, especially since there may "
-"be a lot"
+"We are processing your images! Please be patient, especially if you have a "
+"lot."
 msgstr "Deine Bilder werden verarbeitet! Bitte habe etwas Geduld."
 
-#: admin/sunshine-image-processor.php:106
+#: admin/sunshine-image-processor.php:128
 msgid "Next page"
 msgstr "Nächste Seite"
 
-#: admin/sunshine-image-processor.php:118
+#: admin/sunshine-image-processor.php:140
 msgid "Edit this gallery"
 msgstr "Galerie bearbeiten"
 
@@ -1174,16 +2057,16 @@ msgstr "Galerie bearbeiten"
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: admin/sunshine-menu.php:13 classes/frontend.class.php:353
-#: classes/sunshine.class.php:81 sunshine-options.php:183
+#: admin/sunshine-menu.php:13 classes/frontend.class.php:388
+#: classes/sunshine.class.php:73 sunshine-options.php:225
 msgid "Galleries"
 msgstr "Galerien"
 
-#: admin/sunshine-menu.php:14 classes/sunshine.class.php:136
+#: admin/sunshine-menu.php:14 classes/sunshine.class.php:129
 msgid "Product Categories"
 msgstr "Produktkategorien"
 
-#: admin/sunshine-menu.php:16 classes/sunshine.class.php:196
+#: admin/sunshine-menu.php:16 classes/sunshine.class.php:189
 #: themes/2013/account.php:16 themes/default/account.php:16
 #: themes/theme/account.php:18
 msgid "Orders"
@@ -1202,58 +2085,61 @@ msgstr "Bestelldatum"
 msgid "Order Notes"
 msgstr "Notizen zur Bestellung"
 
-#: admin/sunshine-orders.php:24 classes/sunshine.class.php:215
-#: classes/sunshine.class.php:216 sunshine-options.php:331
+#: admin/sunshine-orders.php:24 classes/sunshine.class.php:209
+#: classes/sunshine.class.php:210 sunshine-options.php:388
+#: sunshine-options.php:422
 msgid "Order Status"
 msgstr "Bestellstatus"
 
-#: admin/sunshine-orders.php:242 sunshine-template-functions.php:995
+#: admin/sunshine-orders.php:285 sunshine-template-functions.php:1129
 msgid "Order Total"
 msgstr "Bestellung Total"
 
-#: admin/sunshine-orders.php:243
+#: admin/sunshine-orders.php:286
 msgid "Date"
 msgstr "Datum"
 
-#: admin/sunshine-orders.php:301 classes/sunshine.class.php:508
-#: classes/sunshine.class.php:681
+#: admin/sunshine-orders.php:344 classes/sunshine.class.php:510
 msgid "Pending"
 msgstr "Bestellung eingangen"
 
-#: admin/sunshine-orders.php:302 classes/sunshine.class.php:510
-#: classes/sunshine.class.php:683
+#: admin/sunshine-orders.php:345 classes/sunshine.class.php:512
 msgid "New"
 msgstr "Neu"
 
-#: admin/sunshine-orders.php:303 classes/sunshine.class.php:512
-#: classes/sunshine.class.php:685
+#: admin/sunshine-orders.php:346 classes/sunshine.class.php:514
 msgid "Processing"
 msgstr "In Bearbeitung"
 
-#: admin/sunshine-orders.php:304 classes/sunshine.class.php:514
-#: classes/sunshine.class.php:687
+#: admin/sunshine-orders.php:347 classes/sunshine.class.php:516
 msgid "Shipped/Completed"
 msgstr "Versendet/Abgeschlossen"
 
-#: admin/sunshine-orders.php:305
+#: admin/sunshine-orders.php:348
 msgid "Cancelled"
 msgstr "Storniert"
+
+#: admin/sunshine-orders.php:376
+msgid "Invoice"
+msgstr "Rechnung"
 
 #: admin/sunshine-products.php:7
 msgid "Product Info"
 msgstr "Produkt Informationen"
 
-#: admin/sunshine-products.php:75
-msgid "Category"
-msgstr "Kategorie"
-
-#: admin/sunshine-products.php:76
-msgid "Price"
-msgstr "Preis"
-
-#: admin/sunshine-products.php:104
+#: admin/sunshine-products.php:117
 msgid "No categories"
 msgstr "Keine Kategorien"
+
+#: admin/sunshine-products.php:194
+#, fuzzy
+msgid "<strong>Product updated</strong>"
+msgstr "Diese Galerie wird am <strong>%s</strong> ablaufen"
+
+#: admin/sunshine-products.php:195
+#, fuzzy
+msgid "<strong>Product created</strong>"
+msgstr "Diese Galerie wird am <strong>%s</strong> ablaufen"
 
 #: admin/sunshine-users.php:15
 msgid "Sunshine Favorites"
@@ -1263,11 +2149,11 @@ msgstr "Sunshine Favoriten"
 msgid "Sunshine Gallery Credits for Purchases"
 msgstr "Sunshine Gallery Gutschrift für Einkäufe"
 
-#: admin/sunshine-users.php:39 sunshine-template-functions.php:766
-#: sunshine-template-functions.php:991 themes/2013/account.php:9
+#: admin/sunshine-users.php:39 sunshine-template-functions.php:893
+#: sunshine-template-functions.php:1125 themes/2013/account.php:9
 #: themes/2013/order.php:108 themes/default/account.php:9
 #: themes/default/order.php:107 themes/theme/account.php:11
-#: themes/theme/order.php:110
+#: themes/theme/order.php:108
 msgid "Credits"
 msgstr "Gutschriften"
 
@@ -1279,16 +2165,16 @@ msgstr "Sunshine Artikel im Warenkorb"
 msgid "No items in cart"
 msgstr "Keine Artikel im Warenkorb"
 
-#: classes/cart.class.php:169
+#: classes/cart.class.php:188
 msgid "Free shipping via discount code"
 msgstr "Gratisversand mit dem Rabattcode"
 
-#: classes/cart.class.php:291
+#: classes/cart.class.php:315
 #, php-format
 msgid "Discount %s has now expired and has been removed from your cart"
 msgstr "Rabattcode %s ist abgelaufen und wurde vom Warenkorb entfernt"
 
-#: classes/cart.class.php:298
+#: classes/cart.class.php:322
 #, php-format
 msgid ""
 "Discount %s has now exceeded the maximum uses and has been removed from your "
@@ -1297,57 +2183,53 @@ msgstr ""
 "Rabattcode %s hat die maximale Nutzung erreicht und wurde vom Warenkorb "
 "entfernt"
 
-#: classes/cart.class.php:531
+#: classes/cart.class.php:565
 msgid "You are not allowed to add any more discounts to your cart"
 msgstr "Sie können keine weiteren Rabatte zum Warenkorb hinzufügen"
 
-#: classes/cart.class.php:535
+#: classes/cart.class.php:569
 msgid "This discount is already applied to your cart"
 msgstr "Rabattcode wurde bereits zum Warenkorb hinzugefügt"
 
-#: classes/cart.class.php:550
+#: classes/cart.class.php:584
 msgid "Your order does not yet meet the minimum order amount for this discount"
 msgstr ""
 "Deine Bestellung hat die Mindestbestellmenge für den Rabattcode noch nicht "
 "erreicht."
 
-#: classes/cart.class.php:556
+#: classes/cart.class.php:590
 msgid "This coupon is not yet valid, please try again later"
 msgstr ""
 "Dieser Gutschein ist noch nicht gültig. Bitte versuche es später nochmals."
 
-#: classes/cart.class.php:561
+#: classes/cart.class.php:595
 msgid "This coupon has expired"
 msgstr "Dieser Gutschein ist abgelaufen."
 
-#: classes/cart.class.php:569
+#: classes/cart.class.php:603
 msgid "This coupon has exceeded the number of uses allowed"
 msgstr ""
 "Dieser Gutschein ist aufgebraucht und kann nicht weiter verwendet werden."
 
-#: classes/cart.class.php:576
+#: classes/cart.class.php:610
 msgid "This coupon has exceeded the number of uses allowed per user"
 msgstr ""
 "Dieser Gutschein hat die maximal Nutzung pro Kunde erreicht und kann nicht "
 "weiter verwendet werden."
 
-#: classes/cart.class.php:582
+#: classes/cart.class.php:619
 msgid "discount added"
 msgstr "Rabatt hinzugefügt"
 
-#: classes/cart.class.php:584
-msgid "discount could not be added"
-msgstr "Rabatt konnte nicht hinzugefügt werden"
-
-#: classes/cart.class.php:588
+#: classes/cart.class.php:624
 msgid "Not a valid discount code"
 msgstr "Ungültiger Rabattcode"
 
-#: classes/cart.class.php:599
+#: classes/cart.class.php:638
 msgid "Discount removed"
 msgstr "Rabatt entfernt"
 
-#: classes/cart.class.php:603
+#: classes/cart.class.php:642
 msgid "Discount not applied to your cart and cannot be removed"
 msgstr ""
 "Rabattcode wurde nicht zum Warenkorb hinzugefügt und kann daher nicht "
@@ -2861,12 +3743,27 @@ msgstr "Pacific"
 msgid "Select country"
 msgstr "Land auswählen"
 
-#: classes/countries.class.php:468 sunshine-functions.php:285
-#: sunshine-functions.php:303
+#: classes/countries.class.php:468 sunshine-functions.php:400
+#: sunshine-functions.php:424
 msgid "Select state"
 msgstr "Bundesland auswählen"
 
-#: classes/frontend.class.php:295
+#: classes/frontend.class.php:273
+#, fuzzy
+msgid "Search for"
+msgstr "Bestellungen suchen"
+
+#: classes/frontend.class.php:284 themes/2013/account.php:23
+#: themes/2013/order.php:9 themes/default/account.php:23
+#: themes/default/order.php:9 themes/theme/account.php:25
+msgid "Order"
+msgstr "Bestellung"
+
+#: classes/frontend.class.php:322
+msgid "Expires on"
+msgstr "Läuft ab am"
+
+#: classes/frontend.class.php:330
 msgid ""
 "This gallery is password protected. To view it please enter your password "
 "below:"
@@ -2874,85 +3771,104 @@ msgstr ""
 "Diese Galerie ist passwortgeschützt. Bitte gib das Passwort ein um sie "
 "betrachten zu können:"
 
-#: classes/frontend.class.php:298
+#: classes/frontend.class.php:333
 msgid "Hint"
 msgstr "Hinweis"
 
-#: classes/frontend.class.php:327
+#: classes/frontend.class.php:362
 msgid "Logout"
 msgstr "Abmelden"
 
-#: classes/frontend.class.php:333 classes/sunshine.class.php:408
-#: classes/sunshine.class.php:580 sunshine-options.php:175
-#: themes/2013/account.php:3 themes/default/account.php:3
+#: classes/frontend.class.php:368 classes/sunshine.class.php:394
+#: sunshine-options.php:217 themes/2013/account.php:3
+#: themes/default/account.php:3
 msgid "Account"
 msgstr "Account"
 
-#: classes/frontend.class.php:345
+#: classes/frontend.class.php:380 sunshine-options.php:378
 msgid "Register"
 msgstr "Registrieren"
 
-#: classes/frontend.class.php:360 classes/sunshine.class.php:419
-#: classes/sunshine.class.php:591 sunshine-options.php:163
-#: themes/2013/cart.php:3 themes/default/cart.php:3
+#: classes/frontend.class.php:400 classes/sunshine.class.php:405
+#: sunshine-options.php:205 themes/2013/cart.php:3 themes/default/cart.php:3
 msgid "Cart"
 msgstr "Warenkorb"
 
-#: classes/frontend.class.php:367 classes/sunshine.class.php:430
-#: classes/sunshine.class.php:602 sunshine-options.php:169
-#: themes/2013/checkout.php:3 themes/default/checkout.php:3
+#: classes/frontend.class.php:407 classes/sunshine.class.php:416
+#: sunshine-options.php:211 themes/2013/checkout.php:3
+#: themes/default/checkout.php:3
 msgid "Checkout"
 msgstr "Zur Kasse"
 
-#: classes/frontend.class.php:385 themes/default/image.php:9
+#: classes/frontend.class.php:424 themes/default/image.php:9
 msgid "Return to"
 msgstr "Zurück zu"
 
-#: classes/frontend.class.php:400
-msgid "Purchase Options"
-msgstr "Kaufoptionen"
+#: classes/frontend.class.php:471
+#, fuzzy, php-format
+msgid "A photo from the gallery %s by %s"
+msgstr "Receipt for your purchase from %s"
 
-#: classes/frontend.class.php:454
-msgid "Sorry, you are not allowed to access this gallery"
-msgstr "Diese Galerie darfst du leider nicht öffnen."
+#: classes/frontend.class.php:482
+#, fuzzy, php-format
+msgid "A photo in the gallery %s by %s"
+msgstr "%1$s-%2$s"
 
-#: classes/frontend.class.php:454 classes/frontend.class.php:460
-#: classes/frontend.class.php:471 classes/frontend.class.php:481
+#: classes/frontend.class.php:524
+msgid "Sorry, you are not allowed to view this image"
+msgstr "Dieses Bild darfst du leider nicht betrachten."
+
+#: classes/frontend.class.php:524 classes/frontend.class.php:534
 msgid "Access denied"
 msgstr "Zugang verweigert"
 
-#: classes/frontend.class.php:459
-#, php-format
+#: classes/frontend.class.php:534
+msgid "Sorry, you are not allowed to access this order information"
+msgstr "Auf diese Bestellinformationen darfst du leider nicht zugreifen."
+
+#: classes/frontend.class.php:577
+#, fuzzy
 msgid ""
-"This gallery requires you to have an account and be logged in. <a href=\"%s"
-"\">Login</a> or <a href=\"%s\">Register</a>"
+"To continue to checkout, please enter your email address and password to "
+"establish an account. You can complete your purchase on the next page."
+msgstr ""
+"Um weiterhin zur Kasse, bitte geben Sie Ihre e-Mail-Adresse und Passwort ein "
+"Konto einrichten. Sie können Ihren Einkauf auf der nächsten Seite "
+"abschließen."
+
+#: classes/frontend.class.php:580
+#, fuzzy, php-format
+msgid ""
+"The gallery you are accessing requires you to have a user account to access. "
+"Please register below or <a href=\"%s\">login here</a>"
 msgstr ""
 "Um diese Galerie betrachten zu können, musst du angemeldet sein. <a href=\"%s"
 "\">Anmelden</a> oder <a href=\"%s\">registrieren</a>"
 
-#: classes/frontend.class.php:471
-msgid "Sorry, you are not allowed to view this image"
-msgstr "Dieses Bild darfst du leider nicht betrachten."
-
-#: classes/frontend.class.php:481
-msgid "Sorry, you are not allowed to access this order information"
-msgstr "Auf diese Bestellinformationen darfst du leider nicht zugreifen."
-
-#: classes/frontend.class.php:524
-msgid "Registration is required to add items to favorites and checkout"
+#: classes/frontend.class.php:583
+#, fuzzy, php-format
+msgid ""
+"The gallery you are accessing requires you to have a user account to access. "
+"Please login below or <a href=\"%s\">register here</a>"
 msgstr ""
+"Um diese Galerie betrachten zu können, musst du angemeldet sein. <a href=\"%s"
+"\">Anmelden</a> oder <a href=\"%s\">registrieren</a>"
 
-#: classes/order.class.php:102
-#, php-format
-msgid "Receipt for your purchase from %s"
-msgstr "Receipt for your purchase from %s"
+#: classes/frontend.class.php:586
+#, fuzzy
+msgid ""
+"The gallery you are accessing is private and only allowed for specific "
+"users. Please login below:"
+msgstr ""
+"Die Galerie, auf die Sie zugreifen ist privat und nur für bestimmte Benutzer "
+"erlaubt. Loggen Sie sich unten:"
 
-#: classes/order.class.php:103
+#: classes/order.class.php:116
 #, php-format
 msgid "Order placed on %s"
 msgstr "Bestellt am %s"
 
-#: classes/order.class.php:107
+#: classes/order.class.php:120
 msgid "Order completed successfully!"
 msgstr "Die Bestellung wurde erfolgreich abgeschlossen!"
 
@@ -2977,424 +3893,509 @@ msgstr "Einstellungen gespeichert."
 msgid "Save %s changes"
 msgstr "Änderungen %s speichern"
 
-#: classes/sunshine.class.php:72
+#: classes/sunshine.class.php:64
 msgid "Add New Gallery"
 msgstr "Neue Galerie hinzufügen"
 
-#: classes/sunshine.class.php:73
+#: classes/sunshine.class.php:65
 msgid "Edit Gallery"
 msgstr "Galerie bearbeiten"
 
-#: classes/sunshine.class.php:74
+#: classes/sunshine.class.php:66
 msgid "New Gallery"
 msgstr "Neue Galerie"
 
-#: classes/sunshine.class.php:75
+#: classes/sunshine.class.php:67
 msgid "All Galleries"
 msgstr "Alle Galerien"
 
-#: classes/sunshine.class.php:76
+#: classes/sunshine.class.php:68
 msgid "View Gallery"
 msgstr "Galerie anzeigen"
 
-#: classes/sunshine.class.php:77
+#: classes/sunshine.class.php:69
 msgid "Search Galleries"
 msgstr "Galerien durchsuchen"
 
-#: classes/sunshine.class.php:78
+#: classes/sunshine.class.php:70
 msgid "No galleries found"
 msgstr "Keine Galerien gefunden"
 
-#: classes/sunshine.class.php:79
+#: classes/sunshine.class.php:71
 msgid "No galleries found in trash"
 msgstr "Keine Galerien im Papierkorb gefunden"
 
-#: classes/sunshine.class.php:107
+#: classes/sunshine.class.php:100
 msgid "Add New Product"
 msgstr "Produkt hinzufügen"
 
-#: classes/sunshine.class.php:108
+#: classes/sunshine.class.php:101
 msgid "Edit Product"
 msgstr "Produkte bearbeiten"
 
-#: classes/sunshine.class.php:109
+#: classes/sunshine.class.php:102
 msgid "New Product"
 msgstr "Neues Produkt"
 
-#: classes/sunshine.class.php:110
+#: classes/sunshine.class.php:103
 msgid "All Products"
 msgstr "Alle Produkte"
 
-#: classes/sunshine.class.php:111
+#: classes/sunshine.class.php:104
 msgid "View Products"
 msgstr "Produkte betrachten"
 
-#: classes/sunshine.class.php:112
+#: classes/sunshine.class.php:105
 msgid "Search Products"
 msgstr "Produkte durchsuchen"
 
-#: classes/sunshine.class.php:113
+#: classes/sunshine.class.php:106
 msgid "No products found"
 msgstr "Keine Produkte gefunden"
 
-#: classes/sunshine.class.php:114
+#: classes/sunshine.class.php:107
 msgid "No products found in trash"
 msgstr "Keine Produkte im Papierkorb gefunden"
 
-#: classes/sunshine.class.php:137
+#: classes/sunshine.class.php:130
 msgid "Product Category"
 msgstr "Produktkategorie"
 
-#: classes/sunshine.class.php:138
+#: classes/sunshine.class.php:131
 msgid "Search Product Categories"
 msgstr "Produktkategorien durchsuchen"
 
-#: classes/sunshine.class.php:139
+#: classes/sunshine.class.php:132
 msgid "All Product Categories"
 msgstr "Alle Produktkategorien"
 
-#: classes/sunshine.class.php:140
+#: classes/sunshine.class.php:133
 msgid "Parent Product Category"
 msgstr "Stammkategorie für Produkt"
 
-#: classes/sunshine.class.php:141
+#: classes/sunshine.class.php:134
 msgid "Parent Product Category:"
 msgstr "Stammkategorie für Produkt:"
 
-#: classes/sunshine.class.php:142
+#: classes/sunshine.class.php:135
 msgid "Edit Product Category"
 msgstr "Produktkategorie bearbeiten"
 
-#: classes/sunshine.class.php:143
+#: classes/sunshine.class.php:136
 msgid "Update Product Category"
 msgstr "Produktkategorie aktualisieren"
 
-#: classes/sunshine.class.php:144
+#: classes/sunshine.class.php:137
 msgid "Add New Product Category"
 msgstr "Produktkategorie hinzufügen"
 
-#: classes/sunshine.class.php:145
+#: classes/sunshine.class.php:138
 msgid "New Product Category Name"
 msgstr "Neuer Name für Produktkategorie"
 
-#: classes/sunshine.class.php:146
+#: classes/sunshine.class.php:139
 msgid "Separate categories with commas"
 msgstr "Kategorien mittels Komma trennen"
 
-#: classes/sunshine.class.php:147
+#: classes/sunshine.class.php:140
 msgid "Choose from the most used categories"
 msgstr "Von der meist benutzten Kategorie wählen"
 
-#: classes/sunshine.class.php:162
+#: classes/sunshine.class.php:155
 msgid "Search Price Levels"
 msgstr "Preisstufen durchsuchen"
 
-#: classes/sunshine.class.php:163
+#: classes/sunshine.class.php:156
 msgid "All Price Levels"
 msgstr "Alle Preisstufen"
 
-#: classes/sunshine.class.php:164
+#: classes/sunshine.class.php:157
 msgid "Parent Price Level"
 msgstr "Stamm-Preisstufe"
 
-#: classes/sunshine.class.php:165
+#: classes/sunshine.class.php:158
 msgid "Parent Price Level:"
 msgstr "Stamm-Preisstufe:"
 
-#: classes/sunshine.class.php:166
+#: classes/sunshine.class.php:159
 msgid "Edit Price Level"
 msgstr "Preisstufe bearbeiten"
 
-#: classes/sunshine.class.php:167
+#: classes/sunshine.class.php:160
 msgid "Update Price Level"
 msgstr "Preisstufe aktualsieren"
 
-#: classes/sunshine.class.php:168
+#: classes/sunshine.class.php:161
 msgid "Add New Price Level"
 msgstr "Preisstufe hinzufügen"
 
-#: classes/sunshine.class.php:169
+#: classes/sunshine.class.php:162
 msgid "New Price Level"
 msgstr "Neue Preisstufe"
 
-#: classes/sunshine.class.php:187
+#: classes/sunshine.class.php:180
 msgid "Add New Order"
 msgstr "Neue Bestellung hinzufügen"
 
-#: classes/sunshine.class.php:188
+#: classes/sunshine.class.php:181
 msgid "Edit Order"
 msgstr "Bestellung bearbeiten"
 
-#: classes/sunshine.class.php:189
+#: classes/sunshine.class.php:182
 msgid "New Order"
 msgstr "Neue Bestellung"
 
-#: classes/sunshine.class.php:190
+#: classes/sunshine.class.php:183
 msgid "All Orders"
 msgstr "Alle Bestellungen"
 
-#: classes/sunshine.class.php:191
+#: classes/sunshine.class.php:184
 msgid "View Orders"
 msgstr "Bestellungen anzeigen"
 
-#: classes/sunshine.class.php:192
+#: classes/sunshine.class.php:185
 msgid "Search Orders"
 msgstr "Bestellungen suchen"
 
-#: classes/sunshine.class.php:193
+#: classes/sunshine.class.php:186
 msgid "No orders found"
 msgstr "Keine Bestellungen gefunden"
 
-#: classes/sunshine.class.php:194
+#: classes/sunshine.class.php:187
 msgid "No orders found in trash"
 msgstr "Keine Bestellungen im Papierkorb gefunden"
 
-#: classes/sunshine.class.php:217
+#: classes/sunshine.class.php:211
 msgid "Search Order Status"
 msgstr "Suche nach Bestellstatus"
 
-#: classes/sunshine.class.php:218
+#: classes/sunshine.class.php:212
 msgid "All Order Status"
 msgstr "Status aller Bestellungen"
 
-#: classes/sunshine.class.php:219
+#: classes/sunshine.class.php:213
 #, fuzzy
 msgid "Parent Order Status"
 msgstr "Bestellstatus"
 
-#: classes/sunshine.class.php:220
+#: classes/sunshine.class.php:214
 #, fuzzy
 msgid "Parent Order Status:"
 msgstr "Bestellstatus"
 
-#: classes/sunshine.class.php:221
+#: classes/sunshine.class.php:215
 msgid "Edit Order Status"
 msgstr "Bestellstatus bearbeiten"
 
-#: classes/sunshine.class.php:222
+#: classes/sunshine.class.php:216
 msgid "Update Order Status"
 msgstr "Bestellstatus aktualsieren"
 
-#: classes/sunshine.class.php:223
+#: classes/sunshine.class.php:217
 msgid "Add New Order Status"
 msgstr "Neuen Bestellstatus hinzufügen"
 
-#: classes/sunshine.class.php:224
+#: classes/sunshine.class.php:218
 msgid "New Order Status"
 msgstr "Neuer Bestsellstatus"
 
-#: classes/sunshine.class.php:399 classes/sunshine.class.php:571
+#: classes/sunshine.class.php:385
+#, fuzzy
 msgid ""
 "This is a placeholder page that Sunshine uses to display itself. You can "
 "edit this text by going to Pages > Client Galleries."
 msgstr ""
+"Dies ist eine Platzhalter-Seite, die Sonnenschein verwendet selbst "
+"angezeigt. Sie können diesen Text bearbeiten, indem Sie gonna Seiten > "
+"Client Galerien."
 
-#: classes/sunshine.class.php:450 classes/sunshine.class.php:622
+#: classes/sunshine.class.php:436
+#, fuzzy
 msgid ""
 "Thank you for registering! You can now mark your favorite photos and make "
 "purchases on the website."
 msgstr ""
+"Vielen Dank für Ihre Registrierung! Sie können jetzt markieren Sie Ihre "
+"Lieblingsfotos und Einkäufen auf der Website."
 
-#: classes/sunshine.class.php:452 classes/sunshine.class.php:624
+#: classes/sunshine.class.php:438
+#, fuzzy
 msgid ""
 "Thank you for your order! Below is a summary of the order for your records. "
 "You will receive a separate email when your item(s) have shipped."
 msgstr ""
+"Vielen Dank für Ihre Bestellung! Es folgt eine Zusammenfassung der "
+"Bestellung für Ihre Unterlagen. Sie erhalten eine separate e-Mail, wenn Ihr "
+"Artikel versendet haben."
 
-#: classes/sunshine.class.php:454 classes/sunshine.class.php:626
+#: classes/sunshine.class.php:440
 #, fuzzy
 msgid "Thank you!"
 msgstr ""
 "Vielen Dank für deine Registrierung. Du wurdest automatisch mit deinem neuen "
 "Account eingeloggt."
 
-#: classes/sunshine.class.php:478 classes/sunshine.class.php:650
+#: classes/sunshine.class.php:464
 #, fuzzy
 msgid "Flat Rate Shipping"
 msgstr "Pauschale Versandgebühr aktivieren"
 
-#: classes/sunshine.class.php:480 classes/sunshine.class.php:652
+#: classes/sunshine.class.php:466
 #, fuzzy
 msgid "Local Delivery"
 msgstr "Lokalen Versand aktivieren"
 
-#: classes/sunshine.class.php:482 classes/sunshine.class.php:654
+#: classes/sunshine.class.php:468
 #, fuzzy
 msgid "Local Pickup"
 msgstr "Abholung"
 
-#: classes/sunshine.class.php:486 classes/sunshine.class.php:658
+#: classes/sunshine.class.php:472
 #, fuzzy
 msgid "Send payment outside of website (ie, check, phone call, other)"
 msgstr "Zahlung ausserhalb der Website einsenden"
 
-#: classes/sunshine.class.php:488 classes/sunshine.class.php:660
+#: classes/sunshine.class.php:474
 #, fuzzy
 msgid "PayPal"
-msgstr "Weiterleitung zu PayPal"
+msgstr "Mit PayPal bezahlen"
 
-#: classes/sunshine.class.php:508 classes/sunshine.class.php:681
+#: classes/sunshine.class.php:490
+#, fuzzy
+msgid "New user account info at [sitename]"
+msgstr "Neue Benutzeraccount Information für %s"
+
+#: classes/sunshine.class.php:492
+#, fuzzy
+msgid "Receipt for order #[order_id] from [sitename]"
+msgstr "Receipt for your purchase from %s"
+
+#: classes/sunshine.class.php:494
+#, fuzzy
+msgid "Your order #[order_id] from [sitename] has been updated"
+msgstr "Ihre Bestellung #[Order_id] from [Sitename] wurde aktualisiert"
+
+#: classes/sunshine.class.php:496
+#, fuzzy
+msgid "A new comment on order #[order_id] at [sitename]"
+msgstr "Einen neuen Kommentar auf Bestellung #[Order_id] am [Sitename]"
+
+#: classes/sunshine.class.php:510
+#, fuzzy
 msgid "We have received your order but payment is still pending"
-msgstr ""
+msgstr "Wir haben Ihre Bestellung erhalten, aber Zahlung ist noch ausstehend"
 
-#: classes/sunshine.class.php:510 classes/sunshine.class.php:683
+#: classes/sunshine.class.php:512
+#, fuzzy
 msgid "We have received your order and payment"
-msgstr ""
+msgstr "Wir haben Ihre Bestellung und Zahlung erhalten."
 
-#: classes/sunshine.class.php:512 classes/sunshine.class.php:685
+#: classes/sunshine.class.php:514
+#, fuzzy
 msgid "The images in your order are being processed and/or printed"
-msgstr ""
+msgstr "Werden die Bilder in Ihrer Bestellung verarbeitet und/oder gedruckt"
 
-#: classes/sunshine.class.php:514 classes/sunshine.class.php:687
+#: classes/sunshine.class.php:516
+#, fuzzy
 msgid "Your items have shipped (or are available for download)!"
-msgstr ""
+msgstr "Ihre Artikel wurden geliefert (oder stehen zum Download)!"
 
-#: classes/sunshine.class.php:516 classes/sunshine.class.php:689
+#: classes/sunshine.class.php:518
 #, fuzzy
 msgid "Cancelled/Refunded"
 msgstr "Storniert"
 
-#: classes/sunshine.class.php:516 classes/sunshine.class.php:689
+#: classes/sunshine.class.php:518
 #, fuzzy
 msgid "Your order was cancelled and/or refunded"
 msgstr "Dies ist keine deiner Bestellungen"
 
-#: classes/sunshine.class.php:519 classes/sunshine.class.php:697
+#: classes/sunshine.class.php:521
 #, fuzzy
 msgid "Default"
-msgstr "Vorausgewähltes Land"
+msgstr "Standart Sunshine Layout (Theme)"
 
-#: sunshine-functions.php:79
-msgid "Item added to cart!"
-msgstr "Artikel wurde zum Warenkorb hinzugefügt!"
+#: classes/update.class.php:167
+#, php-format
+msgid ""
+"There is a new version of %1$s available. <a target=\"_blank\" class="
+"\"thickbox\" href=\"%2$s\">View version %3$s details</a>."
+msgstr ""
+"Neue Version von %1$s verfügbar. <a target=\\“_blank\\“ class=\\“thickbox\\“ "
+"href=\\“%2$s\\“>Details zu Version %3$s anzeigen</a>."
 
-#: sunshine-functions.php:121 sunshine-functions.php:161
+#: classes/update.class.php:174
+#, php-format
+msgid ""
+"There is a new version of %1$s available. <a target=\"_blank\" class="
+"\"thickbox\" href=\"%2$s\">View version %3$s details</a> or <a href=\"%4$s"
+"\">update now</a>."
+msgstr ""
+"Neue Version von %1$s verfügbar. <a target=\"_blank\" class=\"thickbox\" "
+"href=\"%2$s\">Details zu Version %3$s anzeigen</a> oder <a href=\"%4$s"
+"\">Jetzt updaten</a>."
+
+#: classes/update.class.php:314
+#, fuzzy
+msgid "You do not have permission to install plugin updates"
+msgstr "Zum Download dieser Datei fehlt dir das Zugriffsrecht"
+
+#: classes/update.class.php:314
+#, fuzzy
+msgid "Error"
+msgstr ""
+"Ihre Zahlung konnte aufgrund eines unbekannten Fehlers nicht ausgeführt "
+"werden"
+
+#: email/order_comment_admin.php:1
+#, fuzzy
+msgid "Comment from"
+msgstr "Kommentar"
+
+#: email/receipt.php:2 email/receipt_admin.php:1
+#, fuzzy
+msgid "Cart Items"
+msgstr "Artikel"
+
+#: email/receipt.php:4 email/receipt_admin.php:3
+msgid "Ship To"
+msgstr "Lieferung nach"
+
+#: email/receipt.php:6
+#, fuzzy
+msgid ""
+"If you have any questions or concerns about this order, simply reply to this "
+"email"
+msgstr ""
+"Wenn Sie Fragen oder Bedenken hinsichtlich dieser Ordnung haben, Antworten "
+"Sie einfach auf diese e-Mail"
+
+#: email/register.php:2 sunshine-template-functions.php:1095
+#, fuzzy
+msgid "Username"
+msgstr "Suriname"
+
+#: sunshine-functions.php:170
+#, fuzzy, php-format
+msgid ""
+"Item added to cart! <a href=\"%s\" target=\"_top\">View cart</a> or <a href="
+"\"%s\">Return to %s</a>"
+msgstr ""
+"Artikel zum Warenkorb hinzugefügt! <a href=\"%s\" target=\"_top\">Warenkorb "
+"anzeigen</a> oder <a href=\"%s\">kehren Sie zu %s</a>"
+
+#: sunshine-functions.php:222
 msgid "Cart updated"
 msgstr "Warenkorb wurde aktualisiert"
 
-#: sunshine-functions.php:145
+#: sunshine-functions.php:276
 #, fuzzy
-msgid "Item removed from cart"
-msgstr "Artikel aus dem Kombi-Paket entfernt"
-
-#: sunshine-functions.php:191
-#, fuzzy
-msgid "Username is required"
+msgid "Valid email is required"
 msgstr "Gültige Email Adresse benötigt"
 
-#: sunshine-functions.php:193
-#, fuzzy
-msgid "Username already exists"
-msgstr "Rabattcode wurde bereits zum Warenkorb hinzugefügt"
-
-#: sunshine-functions.php:198
-#, fuzzy
-msgid "Password is required"
-msgstr "Passwort"
-
-#: sunshine-functions.php:200
+#: sunshine-functions.php:278
 #, fuzzy
 msgid "Email already exists"
 msgstr "Email"
 
-#: sunshine-functions.php:236
+#: sunshine-functions.php:283
+#, fuzzy
+msgid "Password is required"
+msgstr "Passwort"
+
+#: sunshine-functions.php:345
 msgid "Valid email required"
 msgstr "Gültige Email Adresse benötigt"
 
-#: sunshine-functions.php:238
+#: sunshine-functions.php:347
 msgid "Phone number required"
 msgstr "Telefonnummer benötigt"
 
-#: sunshine-functions.php:240
+#: sunshine-functions.php:349
 msgid "Billing country required"
 msgstr "Rechnungsland benötigt"
 
-#: sunshine-functions.php:242
+#: sunshine-functions.php:351
 msgid "Billing first name required"
 msgstr "Vorname für Rechnung benötigt"
 
-#: sunshine-functions.php:244
+#: sunshine-functions.php:353
 msgid "Billing last name required"
 msgstr "Nachname für Rechnung benötigt"
 
-#: sunshine-functions.php:246
+#: sunshine-functions.php:355
 msgid "Billing address required"
 msgstr "Adresse für Rechnung benötigt"
 
-#: sunshine-functions.php:248
+#: sunshine-functions.php:357
 msgid "Billing city required"
 msgstr "Stadt für Rechnung benötigt"
 
-#: sunshine-functions.php:250
+#: sunshine-functions.php:359
 msgid "Billing state required"
 msgstr "Bundesland für Rechnung benötigt"
 
-#: sunshine-functions.php:252
+#: sunshine-functions.php:361
 msgid "Billing zip required"
 msgstr "PLZ für Rechnung benötigt"
 
-#: sunshine-functions.php:255
+#: sunshine-functions.php:364
 msgid "Shipping country required"
 msgstr "Versandland benötigt"
 
-#: sunshine-functions.php:257
+#: sunshine-functions.php:366
 msgid "Shipping first name required"
 msgstr "Name für Versand benötigt"
 
-#: sunshine-functions.php:259
+#: sunshine-functions.php:368
 msgid "Shipping last name required"
 msgstr "Nachname für Versand benötigt"
 
-#: sunshine-functions.php:261
+#: sunshine-functions.php:370
 msgid "Shipping address required"
 msgstr "Adresse für Versand benötigt"
 
-#: sunshine-functions.php:263
+#: sunshine-functions.php:372
 msgid "Shipping city required"
 msgstr "Stadt für Versand benötigit"
 
-#: sunshine-functions.php:265
+#: sunshine-functions.php:374
 msgid "Shipping state required"
 msgstr "Bundesland für Versand benötigt"
 
-#: sunshine-functions.php:267
+#: sunshine-functions.php:376
 msgid "Shipping zip required"
 msgstr "PLZ für Versand benötigt"
 
-#: sunshine-functions.php:270
+#: sunshine-functions.php:379
 msgid "Shipping method required"
 msgstr "Versandart benötigt"
 
-#: sunshine-functions.php:272
+#: sunshine-functions.php:381
 msgid "Payment method required"
 msgstr "Zahlungsart benötigt"
 
-#: sunshine-functions.php:377
+#: sunshine-functions.php:523
 msgid "New user registration on your Sunshine Photo Cart"
 msgstr ""
 "Es hat sich ein neuer Benutzer in deinem Sunshine Photo Cart registiert"
 
-#: sunshine-functions.php:378
+#: sunshine-functions.php:524
 #, php-format
 msgid "E-mail: %s"
 msgstr "E-mail: %s"
 
-#: sunshine-functions.php:379
+#: sunshine-functions.php:525
 #, php-format
 msgid "Name: %s"
 msgstr "Name: %s"
 
-#: sunshine-functions.php:381
+#: sunshine-functions.php:527
 #, php-format
 msgid "[%s] New User Registration"
 msgstr "[%s] Neue Benutzerregistierung"
 
-#: sunshine-functions.php:388
-#, php-format
-msgid "New user account info for %s"
-msgstr "Neue Benutzeraccount Information für %s"
-
-#: sunshine-functions.php:407
+#: sunshine-functions.php:561
 msgid ""
 "Thank you for registering! You have been automatically logged into your new "
 "account"
@@ -3402,17 +4403,32 @@ msgstr ""
 "Vielen Dank für deine Registrierung. Du wurdest automatisch mit deinem neuen "
 "Account eingeloggt."
 
-#: sunshine-functions.php:433
+#: sunshine-functions.php:634
 msgid "Passwords must be at least six characters long"
 msgstr "Das Passwort muss mindestens sechs Zeichen lang sein."
 
-#: sunshine-functions.php:518
+#: sunshine-functions.php:753 sunshine-functions.php:757
+#, fuzzy
+msgid "Username or Email"
+msgstr "Suriname"
+
+#: sunshine-functions.php:757
+#, fuzzy
+msgid "username"
+msgstr "Suriname"
+
+#: sunshine-functions.php:814
 msgid "Account updated"
 msgstr "Account aktualisiert"
 
-#: sunshine-functions.php:585
+#: sunshine-functions.php:905
 msgid "Sorry, no galleries matched that password."
 msgstr "Leider stimmt keine Galerie mit deinem Passwort überein."
+
+#: sunshine-functions.php:932
+#, fuzzy
+msgid "Not a valid email address"
+msgstr "Gültige Email Adresse benötigt"
 
 #: sunshine-options.php:8
 msgid "General"
@@ -3422,234 +4438,359 @@ msgstr "Allgemein"
 msgid "License"
 msgstr "Lizenz"
 
-#: sunshine-options.php:11
+#: sunshine-options.php:12
 msgid "License is activated!"
 msgstr "Lizenz ist aktiviert!"
 
-#: sunshine-options.php:11 sunshine-options.php:17
+#: sunshine-options.php:12 sunshine-options.php:18
 msgid "Deactivate this license key"
 msgstr "Du hast leider kein Zugriffsrecht für diese Galerie"
 
-#: sunshine-options.php:15
+#: sunshine-options.php:16
 msgid "License is invalid, please try again!"
 msgstr "Lizenz ist ungültig. Versuche es nochmals!"
 
-#: sunshine-options.php:19
+#: sunshine-options.php:20
 msgid "Enter your license key"
 msgstr "Bitte gib deinen Lizenzschlüssel ein"
 
-#: sunshine-options.php:23
+#: sunshine-options.php:24
 msgid "License Key"
 msgstr "Lizenzschlüssel"
 
-#: sunshine-options.php:29
+#: sunshine-options.php:30
 msgid "Localization"
 msgstr "Lokalisation"
 
-#: sunshine-options.php:31
+#: sunshine-options.php:32
 msgid "Default Country"
 msgstr "Vorausgewähltes Land"
 
-#: sunshine-options.php:48
+#: sunshine-options.php:39
 msgid "Taxes"
 msgstr "MwSt."
 
-#: sunshine-options.php:59
+#: sunshine-options.php:50
 msgid "Do not use taxes"
 msgstr "MwSt. nicht benutzen"
 
-#: sunshine-options.php:61
+#: sunshine-options.php:52
 msgid "Country / State"
 msgstr "Land / Bundesland"
 
-#: sunshine-options.php:62
+#: sunshine-options.php:53
 msgid "What country or state should have taxes applied"
 msgstr "Für welches Land / Bundesland soll die MwSt. hinzugefügt werden"
 
-#: sunshine-options.php:69
+#: sunshine-options.php:60
 msgid "Tax rate (%)"
 msgstr "MwSt. Satz (%)"
 
-#: sunshine-options.php:70
+#: sunshine-options.php:61
 msgid "Number only"
 msgstr "Nur Zahlen eingeben"
 
-#: sunshine-options.php:76
+#: sunshine-options.php:75
 msgid "Currency Formatting"
 msgstr "Währungsformat"
 
 #: sunshine-options.php:79
+#, fuzzy
+msgid "United Arab Emirates Dirham"
+msgstr "United Arab Emirates"
+
+#: sunshine-options.php:80
 msgid "Australian Dollars"
 msgstr "Australian Dollars"
 
-#: sunshine-options.php:80
+#: sunshine-options.php:81
+#, fuzzy
+msgid "Bangladeshi Taka"
+msgstr "Bangladesh"
+
+#: sunshine-options.php:82
 msgid "Brazilian Real"
 msgstr "Brazilian Real"
 
-#: sunshine-options.php:81
+#: sunshine-options.php:83
+#, fuzzy
+msgid "Bulgarian Lev"
+msgstr "Bulgaria"
+
+#: sunshine-options.php:84
 msgid "Canadian Dollars"
 msgstr "Canadian Dollars"
 
-#: sunshine-options.php:82
+#: sunshine-options.php:85
+#, fuzzy
+msgid "Chilean Peso"
+msgstr "Mexican Peso"
+
+#: sunshine-options.php:86
 msgid "Chinese Yuan"
 msgstr "Chinese Yuan"
 
-#: sunshine-options.php:83
+#: sunshine-options.php:87
+#, fuzzy
+msgid "Colombian Peso"
+msgstr "Colombia"
+
+#: sunshine-options.php:88
 msgid "Czech Koruna"
 msgstr "Czech Koruna"
 
-#: sunshine-options.php:84
+#: sunshine-options.php:89
 msgid "Danish Krone"
 msgstr "Danish Krone"
 
-#: sunshine-options.php:85
+#: sunshine-options.php:90
+#, fuzzy
+msgid "Dominican Peso"
+msgstr "Dominica"
+
+#: sunshine-options.php:91
 msgid "Euros"
 msgstr "Euros"
 
-#: sunshine-options.php:86
+#: sunshine-options.php:92
 msgid "Hong Kong Dollar"
 msgstr "Hong Kong Dollar"
 
-#: sunshine-options.php:87
+#: sunshine-options.php:93
+#, fuzzy
+msgid "Croatia kuna"
+msgstr "Croatia"
+
+#: sunshine-options.php:94
 msgid "Hungarian Forint"
 msgstr "Hungarian Forint"
 
-#: sunshine-options.php:88
+#: sunshine-options.php:95
+#, fuzzy
+msgid "Icelandic krona"
+msgstr "Iceland"
+
+#: sunshine-options.php:96
 msgid "Indonesia Rupiah"
 msgstr "Indonesia Rupiah"
 
-#: sunshine-options.php:89
+#: sunshine-options.php:97
+#, fuzzy
+msgid "Indian Rupee"
+msgstr "Indonesia Rupiah"
+
+#: sunshine-options.php:98
+#, fuzzy
+msgid "Nepali Rupee"
+msgstr "Nepalesische Rupie"
+
+#: sunshine-options.php:99
 msgid "Israeli Shekel"
 msgstr "Israeli Shekel"
 
-#: sunshine-options.php:90
+#: sunshine-options.php:100
 msgid "Japanese Yen"
 msgstr "Japanese Yen"
 
-#: sunshine-options.php:91
+#: sunshine-options.php:101
+#, fuzzy
+msgid "Lao Kip"
+msgstr "Lao Kip"
+
+#: sunshine-options.php:102
+#, fuzzy
+msgid "South Korean Won"
+msgstr "South Korea"
+
+#: sunshine-options.php:103
 msgid "Malaysian Ringgits"
 msgstr "Malaysian Ringgits"
 
-#: sunshine-options.php:92
+#: sunshine-options.php:104
 msgid "Mexican Peso"
 msgstr "Mexican Peso"
 
-#: sunshine-options.php:93
+#: sunshine-options.php:105
+#, fuzzy
+msgid "Nigerian Naira"
+msgstr "Nigeria"
+
+#: sunshine-options.php:106
 msgid "Norwegian Krone"
 msgstr "Norwegian Krone"
 
-#: sunshine-options.php:94
+#: sunshine-options.php:107
 msgid "New Zealand Dollar"
 msgstr "New Zealand Dollar"
 
-#: sunshine-options.php:95
+#: sunshine-options.php:108
+#, fuzzy
+msgid "Paraguayan Guaraní"
+msgstr "PYG - Guarani"
+
+#: sunshine-options.php:109
 msgid "Philippine Pesos"
 msgstr "Philippine Pesos"
 
-#: sunshine-options.php:96
+#: sunshine-options.php:110
 msgid "Polish Zloty"
 msgstr "Polish Zloty"
 
-#: sunshine-options.php:97
+#: sunshine-options.php:111
 msgid "Pounds Sterling"
 msgstr "Pounds Sterling"
 
-#: sunshine-options.php:98
+#: sunshine-options.php:112
+#, fuzzy
+msgid "Qatari Riyal"
+msgstr "Katar-Riyal"
+
+#: sunshine-options.php:113
 msgid "Romanian Leu"
 msgstr "Romanian Leu"
 
-#: sunshine-options.php:99
+#: sunshine-options.php:114
+#, fuzzy
+msgid "Russian Ruble"
+msgstr "Russia"
+
+#: sunshine-options.php:115
+#, fuzzy
+msgid "Seychelles Rupee"
+msgstr "Seychelles"
+
+#: sunshine-options.php:116
 msgid "Singapore Dollar"
 msgstr "Singapore Dollar"
 
-#: sunshine-options.php:100
+#: sunshine-options.php:117
 msgid "South African rand"
 msgstr "South African rand"
 
-#: sunshine-options.php:101
+#: sunshine-options.php:118
 msgid "Swedish Krona"
 msgstr "Swedish Krona"
 
-#: sunshine-options.php:102
+#: sunshine-options.php:119
 msgid "Swiss Franc"
 msgstr "Swiss Franc"
 
-#: sunshine-options.php:103
+#: sunshine-options.php:120
 msgid "Taiwan New Dollars"
 msgstr "Taiwan New Dollars"
 
-#: sunshine-options.php:104
+#: sunshine-options.php:121
 msgid "Thai Baht"
 msgstr "Thai Baht"
 
-#: sunshine-options.php:105
+#: sunshine-options.php:122
 msgid "Turkish Lira"
 msgstr "Turkish Lira"
 
-#: sunshine-options.php:106
+#: sunshine-options.php:123
+#, fuzzy
+msgid "Ukrainian Hryvnia"
+msgstr "UAH - Hrywna"
+
+#: sunshine-options.php:124
 msgid "US Dollars"
 msgstr "US Dollars"
 
-#: sunshine-options.php:109
+#: sunshine-options.php:125
+#, fuzzy
+msgid "Vietnamese Dong"
+msgstr "Vietnam"
+
+#: sunshine-options.php:126
+#, fuzzy
+msgid "Egyptian Pound"
+msgstr "Ägyptisches Pfund"
+
+#: sunshine-options.php:131
 msgid "Currency"
 msgstr "Währung"
 
-#: sunshine-options.php:116
+#: sunshine-options.php:138
 msgid "Currency symbol position"
 msgstr "Position des Währungssymbol"
 
-#: sunshine-options.php:119
+#: sunshine-options.php:141
 msgid "Left"
 msgstr "Links"
 
-#: sunshine-options.php:119
+#: sunshine-options.php:141
 msgid "Right"
 msgstr "Rechts"
 
-#: sunshine-options.php:119
+#: sunshine-options.php:141
 msgid "Left space"
 msgstr "Linker Bereich"
 
-#: sunshine-options.php:119
+#: sunshine-options.php:141
 msgid "Right space"
 msgstr "Rechter Bereich"
 
-#: sunshine-options.php:122
+#: sunshine-options.php:144
 msgid "Thousands separator"
 msgstr "Tausender Trennzeichen"
 
-#: sunshine-options.php:128
+#: sunshine-options.php:150
 msgid "Decimal separator"
 msgstr "Dezimal Trennzeichen"
 
-#: sunshine-options.php:134
+#: sunshine-options.php:156
 msgid "Number of decimals"
 msgstr "Anzahl Dezimalzeichen"
 
-#: sunshine-options.php:140
+#: sunshine-options.php:162
 #, fuzzy
 msgid "Cart, Checkout and Accounts"
 msgstr "Zur Kasse"
 
-#: sunshine-options.php:142
+#: sunshine-options.php:164
+#, fuzzy
 msgid "Require account to see products"
-msgstr ""
+msgstr "Erfordern Sie Konto zu sehen, Produkte"
 
-#: sunshine-options.php:145
+#: sunshine-options.php:167
+#, fuzzy
 msgid ""
 "Enabling this option means users cannot see products or add them to cart "
 "unless they have created an account and are logged in."
 msgstr ""
+"Durch Aktivieren dieser Option bedeutet Benutzer nicht finden Sie unter "
+"Produkte oder fügen Sie sie in den Warenkorb, wenn sie ein Konto erstellt "
+"haben und eingeloggt sind."
 
-#: sunshine-options.php:153
+#: sunshine-options.php:171
+#, fuzzy
+msgid "URLs"
+msgstr "URLs"
+
+#: sunshine-options.php:173
+#, fuzzy
+msgid "Gallery Endpoint"
+msgstr "Galerie Optionen"
+
+#: sunshine-options.php:179
+#, fuzzy
+msgid "Image Endpoint"
+msgstr "Kein Bild"
+
+#: sunshine-options.php:185
+#, fuzzy
+msgid "Order Endpoint"
+msgstr "Kommentar zur Bestellung"
+
+#: sunshine-options.php:194
 msgid "Pages"
 msgstr "Seiten"
 
-#: sunshine-options.php:154
+#: sunshine-options.php:195
 msgid "Page options"
 msgstr "Seitenoptionen"
 
-#: sunshine-options.php:154
+#: sunshine-options.php:195
 msgid ""
 "The following pages need selecting so that Sunshine knows where they are. "
 "These pages should have been created upon installation, if not you will need "
@@ -3660,81 +4801,93 @@ msgstr ""
 "Installation automatisch erstellt worden sein. Falls diese fehlen, erstelle "
 "sie von Hand."
 
-#: sunshine-options.php:156
+#: sunshine-options.php:198
 msgid "Sunshine page"
 msgstr "Sunshine Seite"
 
-#: sunshine-options.php:157
+#: sunshine-options.php:199
 msgid "Choose which page Sunshine will be displayed on"
 msgstr "Wähle auf welcher Seite Sunshine angezeigt werden soll"
 
-#: sunshine-options.php:184
+#: sunshine-options.php:226
 #, fuzzy
 msgid "Administration Options"
 msgstr "Optionen"
 
-#: sunshine-options.php:186
+#: sunshine-options.php:229
+#, fuzzy
 msgid "Delete Media Library images"
-msgstr ""
+msgstr "Mediathek Bilder löschen"
 
-#: sunshine-options.php:189
+#: sunshine-options.php:232
+#, fuzzy
 msgid ""
 "This will remove all images from the Media Library AND the actual image "
 "files from your server when a gallery is permanently deleted"
 msgstr ""
+"Dies entfernt alle Bilder von der Media Library AND die tatsächliche Image-"
+"Dateien von Ihrem Server wenn eine Galerie wird dauerhaft gelöscht."
 
-#: sunshine-options.php:193
+#: sunshine-options.php:236
 #, fuzzy
 msgid "Delete FTP folder"
 msgstr "Download-Verzeichnis"
 
-#: sunshine-options.php:196
+#: sunshine-options.php:239
+#, fuzzy
 msgid ""
 "This will remove the folder and images added via FTP, if this was used to "
 "create the gallery"
 msgstr ""
+"Dadurch werden die Ordner und Bilder per FTP, entfernt, wenn das verwendet "
+"wurde, um die Galerie zu erstellen"
 
-#: sunshine-options.php:201
+#: sunshine-options.php:244
 msgid "Display Options"
 msgstr "Darstellungsoptionen"
 
-#: sunshine-options.php:203
+#: sunshine-options.php:246
 #, fuzzy
 msgid "Gallery Order"
 msgstr "Bestelung"
 
-#: sunshine-options.php:206
+#: sunshine-options.php:250
 #, fuzzy
 msgid "Custom ordering"
 msgstr "Custom Styles"
 
-#: sunshine-options.php:206
+#: sunshine-options.php:251
 #, fuzzy
-msgid "Date (New to Old)"
+msgid "Order images shot (based on timestamp from camera)"
+msgstr "Bestellung Bilder geschossen (basierend auf Timestamp von Kamera)"
+
+#: sunshine-options.php:252
+#, fuzzy
+msgid "Image Upload Date (New to Old)"
 msgstr "Datum"
 
-#: sunshine-options.php:206
+#: sunshine-options.php:253
 #, fuzzy
-msgid "Date (Old to New)"
+msgid "Image Upload Date (Old to New)"
 msgstr "Datum"
 
-#: sunshine-options.php:206
+#: sunshine-options.php:254
 msgid "Alphabetical"
-msgstr ""
+msgstr "Alphabetisch"
 
-#: sunshine-options.php:210
+#: sunshine-options.php:259
 msgid "Columns"
 msgstr "Spalten"
 
-#: sunshine-options.php:216
+#: sunshine-options.php:265
 msgid "Rows"
 msgstr "Reihen"
 
-#: sunshine-options.php:222
+#: sunshine-options.php:271
 msgid "Image Theft Prevention"
 msgstr "Bildschutz"
 
-#: sunshine-options.php:225
+#: sunshine-options.php:274
 #, php-format
 msgid ""
 "Enabling this option will disable the right click menu and also not allow "
@@ -3745,350 +4898,400 @@ msgstr ""
 "direkte Abspeichern von Bildern zu verhindern. Diese Methode ist nicht "
 "100% effektiv, sollte aber die meisten Nutzer abhalten Bilder runterzuladen."
 
-#: sunshine-options.php:229
+#: sunshine-options.php:278
 #, fuzzy
 msgid "Proofing Only"
 msgstr "Nur Zahlen eingeben"
 
-#: sunshine-options.php:232
+#: sunshine-options.php:281
+#, fuzzy
 msgid ""
 "This will remove all aspects of purchasing abilities throughout the site, "
 "leaving just image viewing and adding to favorites"
 msgstr ""
+"Dies entfernt alle Aspekte Einkauf Fähigkeiten in der gesamten Website, "
+"verlassen nur image-anzeigen und zu Favoriten hinzufügen"
 
-#: sunshine-options.php:236
+#: sunshine-options.php:285
 msgid "Thumbnail Width"
 msgstr "Vorschaubild Breite"
 
-#: sunshine-options.php:242
+#: sunshine-options.php:291
 msgid "Thumbnail Height"
 msgstr "Vorschaubild Höhe"
 
-#: sunshine-options.php:248
+#: sunshine-options.php:297
 msgid "Crop"
 msgstr "Zuschnitt (Crop)"
 
-#: sunshine-options.php:250
+#: sunshine-options.php:299
+#, fuzzy, php-format
+msgid ""
+"Enabling this option will not affect already uploaded images. <a href=\"%s\" "
+"target=\"_blank\">Please see this help article</a>"
+msgstr ""
+"Durch Aktivieren dieser Option hat keine Auswirkungen auf bereits "
+"hochgeladenen Bilder. <a href=\"%s\" target=\"_blank\">Finden Sie in diesem "
+"Hilfeartikel</a>"
+
+#: sunshine-options.php:300
 msgid ""
 "Should images be cropped to the exact dimensions of your thumbnail width / "
 "height"
 msgstr "Sollen Fotos in die Breite/Höhe der Vorschaubilder eingepasst werden?"
 
-#: sunshine-options.php:257 sunshine-template-functions.php:928
-msgid "Payment Methods"
+#: sunshine-options.php:305
+#, fuzzy
+msgid "Show Image Names"
+msgstr "Kein Bild"
+
+#: sunshine-options.php:307
+#, fuzzy
+msgid "Show the file name of the image under the thumbnail"
+msgstr "Der Dateiname des Bildes unter der Miniaturansicht anzeigen"
+
+#: sunshine-options.php:314
+#, fuzzy
+msgid "Payments"
 msgstr "Zahlungsmethoden"
 
-#: sunshine-options.php:261 sunshine-template-functions.php:906
-msgid "Shipping Methods"
-msgstr "Versandart"
+#: sunshine-options.php:318 sunshine-template-functions.php:882
+#: sunshine-template-functions.php:1117 themes/2013/order.php:99
+#: themes/default/order.php:98 themes/theme/order.php:99
+msgid "Shipping"
+msgstr "Versandkosten"
 
-#: sunshine-options.php:265
+#: sunshine-options.php:322
 msgid "Design"
 msgstr "Design"
 
-#: sunshine-options.php:266 themes/default/functions.php:13
+#: sunshine-options.php:323 themes/default/functions.php:13
 msgid "Design Elements"
 msgstr "Designelemente"
 
-#: sunshine-options.php:268
+#: sunshine-options.php:325
 msgid "Theme"
 msgstr "Layout (Theme)"
 
-#: sunshine-options.php:272
+#: sunshine-options.php:329
 msgid "My WordPress Theme"
 msgstr "Mein Wordpress Layout (Theme)"
 
-#: sunshine-options.php:273
+#: sunshine-options.php:330
 msgid "Default Sunshine Theme"
 msgstr "Standart Sunshine Layout (Theme)"
 
-#: sunshine-options.php:274
+#: sunshine-options.php:331
 msgid "Sunshine 2013 Theme"
 msgstr "Sunshine 2013 Layout (Theme)"
 
-#: sunshine-options.php:283
+#: sunshine-options.php:340
 msgid "Logo"
 msgstr "Logo"
 
-#: sunshine-options.php:288
+#: sunshine-options.php:345
+#, fuzzy
 msgid ""
-"Logo should be 170px wide transparent PNG. Upload a file to your <a href="
-"\"upload.php\">Media gallery</a>, then select it here"
+"Logo should be no more than 320px wide transparent PNG. Upload a file to "
+"your <a href=\"upload.php\">Media gallery</a>, then select it here"
 msgstr ""
 "Das Logo sollte 170px breit sein und als transparentes PNG vorliegen. Lade "
 "die Datei in deine <a href=\"upload.php\">Mediathek</a> hoch und wähle es "
 "anschliessend hier aus"
 
-#: sunshine-options.php:293 sunshine-template-functions.php:794
-#: themes/2013/order.php:17 themes/default/order.php:17
-#: themes/theme/order.php:20
+#: sunshine-options.php:350 sunshine-template-functions.php:909
+#: sunshine-template-functions.php:1369 themes/2013/order.php:17
+#: themes/default/order.php:17 themes/theme/order.php:18
 msgid "Email"
 msgstr "Email"
 
-#: sunshine-options.php:294
+#: sunshine-options.php:351
+#, fuzzy
+msgid "Order Notifications"
+msgstr "Notizen zur Bestellung"
+
+#: sunshine-options.php:354
+#, fuzzy
+msgid "Email(s)"
+msgstr "Email"
+
+#: sunshine-options.php:355
+#, fuzzy
+msgid ""
+"Email address(es) to receive order notifications. Separate multiple emails "
+"with a comma."
+msgstr ""
+"E-Mail-Adressen stehen, Bestellung benachrichtigt zu werden. Trennen Sie "
+"mehrere e-Mails mit einem Komma."
+
+#: sunshine-options.php:360
 msgid "Email From"
 msgstr "Mailadresse des Absenders"
 
-#: sunshine-options.php:296
+#: sunshine-options.php:363
 msgid "From Name"
 msgstr "Name des Absenders"
 
-#: sunshine-options.php:297
+#: sunshine-options.php:364
 msgid "When emails are sent to customers, what name should they come from"
 msgstr "Welcher Name soll als Absender Emails an Kunden verwendet werden"
 
-#: sunshine-options.php:302
+#: sunshine-options.php:369
 msgid "From Email"
 msgstr "Absender Email"
 
-#: sunshine-options.php:303
+#: sunshine-options.php:370
 msgid ""
 "When emails are sent to customers, what email address should they come from"
 msgstr ""
 "Welche Email Adresse soll als Absender verwendet werden, wenn Emails an "
 "Kunden verschickt werden"
 
-#: sunshine-options.php:307
+#: sunshine-options.php:376
+#, fuzzy
+msgid "Email Subjects"
+msgstr "Email Text"
+
+#: sunshine-options.php:376
+#, fuzzy
+msgid "Allowed template variables are:"
+msgstr "Diese Galerie darfst du leider nicht öffnen."
+
+#: sunshine-options.php:383
+#, fuzzy
+msgid "Order Receipt"
+msgstr "Empfänger"
+
+#: sunshine-options.php:393
+#, fuzzy
+msgid "Order Comment"
+msgstr "Kommentar zur Bestellung"
+
+#: sunshine-options.php:399
 msgid "Email Text"
 msgstr "Email Text"
 
-#: sunshine-options.php:309
+#: sunshine-options.php:401
 msgid "Email Signature"
 msgstr "Email Signatur"
 
-#: sunshine-options.php:310
+#: sunshine-options.php:402
 msgid "Appears at the end of every email message"
 msgstr "Erscheint am Ende jeder Email"
 
-#: sunshine-options.php:317
+#: sunshine-options.php:408
 msgid "Receipt"
 msgstr "Empfänger"
 
-#: sunshine-options.php:318
+#: sunshine-options.php:409
 msgid "Message at the top of email receipts"
 msgstr "Nachrichten zu Beginn der Mailbestätigung"
 
-#: sunshine-options.php:324
+#: sunshine-options.php:415
 msgid "Registration"
 msgstr "Registrierung"
 
-#: sunshine-options.php:325
+#: sunshine-options.php:416
 msgid "Message at top of new user registration email"
 msgstr "Nachricht zu Beginn der Registierungsbestätigung"
 
-#: sunshine-options.php:332
+#: sunshine-options.php:423
 msgid "Message added to bottom order status change email"
 msgstr "Nachricht am Ende der Email zur Änderung des Bestellstatus"
 
-#: sunshine-template-functions.php:481 themes/theme/image.php:10
+#: sunshine-template-functions.php:200
+#, fuzzy
+msgid "Select shipping method above"
+msgstr "Versandart benötigt"
+
+#: sunshine-template-functions.php:202
+#, fuzzy
+msgid "Select on checkout page"
+msgstr "Kombi-Paket auswählen"
+
+#: sunshine-template-functions.php:584 themes/theme/image.php:6
 msgid "Previous"
 msgstr "Vor"
 
-#: sunshine-template-functions.php:489 themes/theme/image.php:11
+#: sunshine-template-functions.php:592 themes/theme/image.php:7
 msgid "Next"
 msgstr "Nächste"
 
-#: sunshine-template-functions.php:515
+#: sunshine-template-functions.php:651
 msgid "Select Product Type"
 msgstr "Wähle die Produktart"
 
-#: sunshine-template-functions.php:558
+#: sunshine-template-functions.php:669
 msgid "Select Product"
 msgstr "Produkt auswählen"
 
-#: sunshine-template-functions.php:583
+#: sunshine-template-functions.php:694
 msgid "No products for this category"
 msgstr "Keine Produkte in dieser Kategorie"
 
-#: sunshine-template-functions.php:592
-msgid "Quantity"
-msgstr "Anzahl"
-
-#: sunshine-template-functions.php:605
+#: sunshine-template-functions.php:717
 msgid "Comments"
 msgstr "Kommentar"
 
-#: sunshine-template-functions.php:607
+#: sunshine-template-functions.php:719
 #, fuzzy, php-format
 msgid "You have %s characters left"
 msgstr "Deine Gutschrift beträgt %s"
 
-#: sunshine-template-functions.php:639
-#, php-format
-msgid ""
-"You must first <a href=\"%s\">login</a> or <a href=\"%s\">register</a> "
-"before you can add pictures to your cart. This allows us to track your "
-"favorites and items in your cart when you return."
-msgstr ""
-"Du musst dich zuerst <a href=\"%s\">einloggen</a> oder <a href=\"%s"
-"\">registrieren</a> bevor du Artikel zum Warenkorb hinzufügen kannst. Damit "
-"ermöglichst du es uns, deine Favoriten und den Warenkorb bis zum nächsten "
-"Besuch zu speichern."
-
-#: sunshine-template-functions.php:745 themes/2013/order.php:91
-#: themes/default/order.php:90 themes/theme/order.php:93
+#: sunshine-template-functions.php:872 themes/2013/order.php:91
+#: themes/default/order.php:90 themes/theme/order.php:91
 msgid "Subtotal"
 msgstr "Subtotal"
 
-#: sunshine-template-functions.php:750 sunshine-template-functions.php:979
+#: sunshine-template-functions.php:877 sunshine-template-functions.php:1113
 #: themes/2013/order.php:95 themes/default/order.php:94
-#: themes/theme/order.php:97
+#: themes/theme/order.php:95
 msgid "Tax"
 msgstr "MwSt."
 
-#: sunshine-template-functions.php:755 sunshine-template-functions.php:983
-#: themes/2013/order.php:99 themes/default/order.php:98
-#: themes/theme/order.php:101
-msgid "Shipping"
-msgstr "Versandkosten"
-
-#: sunshine-template-functions.php:781 sunshine-template-functions.php:960
+#: sunshine-template-functions.php:908
 #, fuzzy
-msgid "Create Account"
-msgstr "Account"
-
-#: sunshine-template-functions.php:782
-#, fuzzy
-msgid "A user account is required to checkout"
-msgstr "Neue Benutzeraccount Information für %s"
-
-#: sunshine-template-functions.php:783 sunshine-template-functions.php:961
-#, fuzzy
-msgid "Username"
-msgstr "Suriname"
-
-#: sunshine-template-functions.php:793 themes/2013/order.php:16
-#: themes/default/order.php:16 themes/theme/order.php:19
-msgid "Contact Information"
+msgid "Account Information"
 msgstr "Kontaktdaten"
 
-#: sunshine-template-functions.php:795 themes/2013/order.php:18
-#: themes/default/order.php:18 themes/theme/order.php:21
-msgid "Phone"
-msgstr "Telefonnummer"
+#: sunshine-template-functions.php:911
+#, fuzzy
+msgid "For added security and accessing any downloads"
+msgstr "Für mehr Sicherheit und Zugriff auf downloads"
 
-#: sunshine-template-functions.php:804 themes/2013/order.php:21
-#: themes/default/order.php:21 themes/theme/order.php:24
+#: sunshine-template-functions.php:920 themes/2013/order.php:21
+#: themes/default/order.php:21 themes/theme/order.php:22
 msgid "Billing Information"
 msgstr "Rechnungsadresse"
 
-#: sunshine-template-functions.php:805 sunshine-template-functions.php:853
+#: sunshine-template-functions.php:921 sunshine-template-functions.php:970
 #: themes/2013/order.php:29 themes/2013/order.php:40
 #: themes/default/order.php:29 themes/default/order.php:40
-#: themes/theme/order.php:32 themes/theme/order.php:43
+#: themes/theme/order.php:30 themes/theme/order.php:41
 msgid "Country"
 msgstr "Land"
 
-#: sunshine-template-functions.php:806 sunshine-template-functions.php:854
-#: themes/2013/gift-registry.php:9 themes/2013/order.php:22
-#: themes/2013/order.php:33 themes/default/gift-registry.php:9
-#: themes/default/order.php:22 themes/default/order.php:33
-#: themes/theme/order.php:25 themes/theme/order.php:36
-msgid "First Name"
-msgstr "Vorname"
-
-#: sunshine-template-functions.php:807 sunshine-template-functions.php:855
-#: sunshine-template-functions.php:962 themes/2013/gift-registry.php:10
-#: themes/2013/order.php:23 themes/2013/order.php:34
-#: themes/default/gift-registry.php:10 themes/default/order.php:23
-#: themes/default/order.php:34 themes/theme/order.php:26
-#: themes/theme/order.php:37
-msgid "Last Name"
-msgstr "Nachname"
-
-#: sunshine-template-functions.php:808 sunshine-template-functions.php:856
+#: sunshine-template-functions.php:924 sunshine-template-functions.php:973
 #: themes/2013/order.php:24 themes/2013/order.php:35
 #: themes/default/order.php:24 themes/default/order.php:35
-#: themes/theme/order.php:27 themes/theme/order.php:38
+#: themes/theme/order.php:25 themes/theme/order.php:36
 msgid "Address"
 msgstr "Adresse"
 
-#: sunshine-template-functions.php:809 sunshine-template-functions.php:857
+#: sunshine-template-functions.php:925 sunshine-template-functions.php:974
 #: themes/2013/order.php:25 themes/2013/order.php:36
 #: themes/default/order.php:25 themes/default/order.php:36
-#: themes/theme/order.php:28 themes/theme/order.php:39
+#: themes/theme/order.php:26 themes/theme/order.php:37
 msgid "Address 2"
 msgstr "Adresse 2"
 
-#: sunshine-template-functions.php:810 sunshine-template-functions.php:858
+#: sunshine-template-functions.php:926 sunshine-template-functions.php:975
 #: themes/2013/order.php:26 themes/2013/order.php:37
 #: themes/default/order.php:26 themes/default/order.php:37
-#: themes/theme/order.php:29 themes/theme/order.php:40
+#: themes/theme/order.php:27 themes/theme/order.php:38
 msgid "City"
 msgstr "Stadt"
 
-#: sunshine-template-functions.php:811 sunshine-template-functions.php:859
-#: themes/2013/order.php:27 themes/2013/order.php:38
-#: themes/default/order.php:27 themes/default/order.php:38
-#: themes/theme/order.php:30 themes/theme/order.php:41
+#: sunshine-template-functions.php:927 sunshine-template-functions.php:947
+#: sunshine-template-functions.php:976 themes/2013/order.php:27
+#: themes/2013/order.php:38 themes/default/order.php:27
+#: themes/default/order.php:38 themes/theme/order.php:28
+#: themes/theme/order.php:39
 msgid "State / Province"
 msgstr "Bundesland"
 
-#: sunshine-template-functions.php:812 sunshine-template-functions.php:860
+#: sunshine-template-functions.php:928 sunshine-template-functions.php:977
 #: themes/2013/order.php:28 themes/2013/order.php:39
 #: themes/default/order.php:28 themes/default/order.php:39
-#: themes/theme/order.php:31 themes/theme/order.php:42
+#: themes/theme/order.php:29 themes/theme/order.php:40
 msgid "Zip / Postcode"
 msgstr "PLZ"
 
-#: sunshine-template-functions.php:850 themes/2013/order.php:32
-#: themes/default/order.php:32 themes/theme/order.php:35
+#: sunshine-template-functions.php:929 themes/2013/order.php:18
+#: themes/default/order.php:18 themes/theme/order.php:19
+msgid "Phone"
+msgstr "Telefonnummer"
+
+#: sunshine-template-functions.php:967 themes/2013/order.php:32
+#: themes/default/order.php:32 themes/theme/order.php:33
 msgid "Shipping Information"
 msgstr "Versandadresse"
 
-#: sunshine-template-functions.php:851
+#: sunshine-template-functions.php:968
 msgid "Shipping same as billing"
 msgstr "Versand an Rechnungsadresse"
 
-#: sunshine-template-functions.php:931
+#: sunshine-template-functions.php:1023
+msgid "Shipping Methods"
+msgstr "Versandart"
+
+#: sunshine-template-functions.php:1044
+#, fuzzy
+msgid "Select shipping method"
+msgstr "Versandart"
+
+#: sunshine-template-functions.php:1062
+msgid "Payment Methods"
+msgstr "Zahlungsmethoden"
+
+#: sunshine-template-functions.php:1065
 #, php-format
 msgid "Use my %s in credit"
 msgstr "Benutze meine %s in der Gutschrift"
 
-#: sunshine-template-functions.php:972
+#: sunshine-template-functions.php:1094
+#, fuzzy
+msgid "Create Account"
+msgstr "Account"
+
+#: sunshine-template-functions.php:1106
 msgid "Order Summary"
 msgstr "Bestellübersicht"
 
-#: sunshine-template-functions.php:975
+#: sunshine-template-functions.php:1109
 msgid "Item(s) total"
 msgstr "Artikel Total"
 
-#: sunshine-template-functions.php:1164
+#: sunshine-template-functions.php:1304 sunshine-template-functions.php:1353
 msgid "Go"
 msgstr "Zur Galerie"
 
-#: sunshine-template-functions.php:1175
+#: sunshine-template-functions.php:1318
 #, php-format
 msgid "This gallery is set to expire on <strong>%s</strong>"
 msgstr "Diese Galerie wird am <strong>%s</strong> ablaufen"
+
+#: sunshine-template-functions.php:1368
+#, fuzzy, php-format
+msgid "To view the gallery \"%s\", please enter your email address:"
+msgstr "Um die Galerie \"%s\" anzusehen, bitte geben Sie Ihre e-Mail-Adresse:"
 
 #: sunshine-widgets.php:14
 msgid "Display a gallery password box"
 msgstr "Passwortbox für Galerie anzeigen"
 
-#: sunshine-widgets.php:67 sunshine-widgets.php:148
+#: sunshine-widgets.php:74 sunshine-widgets.php:158 sunshine-widgets.php:243
 msgid "Title (Optional):"
 msgstr "Titel (Optional):"
 
-#: sunshine-widgets.php:85
+#: sunshine-widgets.php:78 sunshine-widgets.php:162 sunshine-widgets.php:247
+msgid "Visibility (Optional):"
+msgstr "Sichtbarkeit (Optional):"
+
+#: sunshine-widgets.php:96
 msgid "Display Sunshine's main menu links"
 msgstr "Sunshine's Hauptmenü Links anzeigen"
 
-#: sunshine-widgets.php:152
-msgid "Visibility (Optional):"
-msgstr "Sichtbarkeit (Optional):"
+#: sunshine-widgets.php:181
+#, fuzzy
+msgid "Display a search box"
+msgstr "Passwortbox für Galerie anzeigen"
 
 #: themes/2013/account.php:11 themes/default/account.php:11
 #: themes/theme/account.php:13
 #, fuzzy, php-format
 msgid "You have %s in credit"
 msgstr "Deine Gutschrift beträgt %s"
-
-#: themes/2013/account.php:23 themes/2013/order.php:9
-#: themes/default/account.php:23 themes/default/order.php:9
-#: themes/theme/account.php:25
-msgid "Order"
-msgstr "Bestellung"
 
 #: themes/2013/account.php:24 themes/default/account.php:24
 #: themes/theme/account.php:26
@@ -4102,26 +5305,26 @@ msgid "Update Account Info"
 msgstr "Account Informationen aktualisieren"
 
 #: themes/2013/cart.php:18 themes/2013/order.php:52 themes/default/cart.php:18
-#: themes/default/order.php:51 themes/theme/cart.php:19
-#: themes/theme/order.php:54
+#: themes/default/order.php:51 themes/theme/cart.php:18
+#: themes/theme/order.php:52
 msgid "Item Price"
 msgstr "Artikelpreis"
 
 #: themes/2013/cart.php:19 themes/2013/order.php:53 themes/default/cart.php:19
-#: themes/default/order.php:52 themes/theme/cart.php:20
-#: themes/theme/order.php:55
+#: themes/default/order.php:52 themes/theme/cart.php:19
+#: themes/theme/order.php:53
 msgid "Item Total"
 msgstr "Artikel Total"
 
-#: themes/2013/cart.php:60 themes/default/cart.php:60 themes/theme/cart.php:61
+#: themes/2013/cart.php:60 themes/default/cart.php:60 themes/theme/cart.php:60
 msgid "Update Cart"
 msgstr "Warenkorb aktualisieren"
 
-#: themes/2013/cart.php:69 themes/default/cart.php:69 themes/theme/cart.php:70
+#: themes/2013/cart.php:69 themes/default/cart.php:69 themes/theme/cart.php:69
 msgid "Continue to checkout"
 msgstr "Zur Kasse"
 
-#: themes/2013/cart.php:73 themes/default/cart.php:73 themes/theme/cart.php:74
+#: themes/2013/cart.php:73 themes/default/cart.php:73 themes/theme/cart.php:73
 msgid "You do not have anything in your cart yet!"
 msgstr "Du hast noch keine Artikel im Warenkorb!"
 
@@ -4130,23 +5333,13 @@ msgstr "Du hast noch keine Artikel im Warenkorb!"
 msgid "Complete my purchase"
 msgstr "Bestellung abschliessen"
 
-#: themes/2013/checkout.php:34 themes/default/checkout.php:34
-#: themes/theme/checkout.php:34
-msgid "or"
-msgstr "oder"
-
-#: themes/2013/checkout.php:34 themes/default/checkout.php:34
-#: themes/theme/checkout.php:34
-msgid "cancel and return to galleries"
-msgstr "abbrechen und zu den Galerien zurückkehren"
-
 #: themes/2013/checkout.php:38 themes/default/checkout.php:38
 #: themes/theme/checkout.php:38
 msgid "You do not have anything in your cart yet"
 msgstr "Du hast noch keine ARtikel im Warenkorb"
 
 #: themes/2013/favorites.php:31 themes/default/favorites.php:27
-#: themes/theme/favorites.php:28
+#: themes/theme/favorites.php:35
 msgid "You have no images marked as a favorite"
 msgstr "Du hast noch keine Bilder als Favoriten markiert"
 
@@ -4218,21 +5411,19 @@ msgid "Text Color"
 msgstr "Textfarbe"
 
 #: themes/2013/functions.php:146 themes/default/functions.php:129
-#: themes/theme/functions.php:4
 msgid "Custom Styles"
 msgstr "Custom Styles"
 
 #: themes/2013/functions.php:148 themes/default/functions.php:131
-#: themes/theme/functions.php:6
 msgid "CSS"
 msgstr "CSS"
 
-#: themes/2013/gallery.php:69 themes/default/gallery.php:66
+#: themes/2013/gallery.php:74 themes/default/gallery.php:71
 #: themes/theme/gallery.php:68
 msgid "Sorry, no images have been added to this gallery yet"
 msgstr "Zu dieser Galerie wurden leider noch keine Bilder hinzugefügt"
 
-#: themes/2013/gallery.php:74 themes/default/gallery.php:71
+#: themes/2013/gallery.php:79 themes/default/gallery.php:76
 #: themes/theme/gallery.php:72
 msgid "Sorry, this gallery has expired."
 msgstr "Diese Galerie ist leider abgelaufen."
@@ -4258,14 +5449,25 @@ msgstr "Bitte Passwort für die Galerie eingeben"
 msgid "Sorry, no galleries have been setup yet"
 msgstr "Es wurden leider noch keine Galerien eingerichtet"
 
+#: themes/2013/order.php:16 themes/default/order.php:16
+#: themes/theme/order.php:17
+msgid "Contact Information"
+msgstr "Kontaktdaten"
+
 #: themes/2013/order.php:45 themes/default/order.php:44
-#: themes/theme/order.php:47
+#: themes/theme/order.php:45
 msgid "Items"
 msgstr "Artikel"
 
 #: themes/2013/order.php:121 themes/default/order.php:120
 msgid "Order Comments"
 msgstr "Kommentar zur Bestellung"
+
+#: themes/2013/search-results.php:34 themes/default/search-results.php:34
+#: themes/theme/search-results.php:35
+#, fuzzy
+msgid "Sorry, no images match your search"
+msgstr "Dies ist keine deiner Bestellungen"
 
 #: themes/default/functions.php:32
 msgid "Background Image"
@@ -4286,8 +5488,9 @@ msgid "Background Repeat"
 msgstr "Hintergrund Wiederholung"
 
 #: themes/default/functions.php:43
+#, fuzzy
 msgid "Horizontally and Vertically"
-msgstr ""
+msgstr "Horizontal und vertikal"
 
 #: themes/default/functions.php:43
 #, fuzzy
@@ -4295,8 +5498,9 @@ msgid "Horizontally"
 msgstr "Arizona"
 
 #: themes/default/functions.php:43
+#, fuzzy
 msgid "Vertically"
-msgstr ""
+msgstr "Vertikal"
 
 #: themes/default/functions.php:43
 #, fuzzy
@@ -4332,15 +5536,78 @@ msgstr "Schriftart für Navigation"
 msgid "Main Body Copy Font"
 msgstr "Body Text Schriftart"
 
+#: themes/theme/functions.php:4
+#, fuzzy
+msgid "Custom Code"
+msgstr "Custom Styles"
+
+#: themes/theme/functions.php:6
+#, fuzzy
+msgid "Disable Sunshine CSS"
+msgstr "Standart Sunshine Layout (Theme)"
+
 #: themes/theme/functions.php:12
+#, fuzzy
+msgid "Custom CSS"
+msgstr "Custom Styles"
+
+#: themes/theme/functions.php:18
 #, fuzzy
 msgid "Before Sunshine"
 msgstr "Sunshine Favoriten"
 
-#: themes/theme/functions.php:19
+#: themes/theme/functions.php:25
 #, fuzzy
 msgid "After Sunshine"
 msgstr "Sunshine Favoriten"
+
+#~ msgid "Links to individual images shown in a lightbox window for easier use"
+#~ msgstr "Verlinkt auf ein einzelne Bilder im Lightbox Fenster"
+
+#~ msgid "Enable Lightbox for purchasing"
+#~ msgstr "Lightbox für Kaufabwicklung aktivieren"
+
+#~ msgid ""
+#~ "Links the purchasing page for an individual image into a lightbox window"
+#~ msgstr ""
+#~ "Verlinkt die Verkaufsseite von einem einzelnem Bild in das Lightbox "
+#~ "Fenster"
+
+#~ msgid "Remove from Favorites"
+#~ msgstr "Von den Favoriten entfernen"
+
+#, fuzzy
+#~ msgid "Favorites submitted"
+#~ msgstr "Favoriten"
+
+#~ msgid ""
+#~ "MailChimp has a good free program if you have less than 2,000 "
+#~ "subscribers. <a href=\"http://eepurl.com/vB7jf\" target=\"_blank\">Sign "
+#~ "up for an account and get $30 in credit</a>"
+#~ msgstr ""
+#~ "MailChimp bietet ein gutes und kostenloses Programm, wenn du weniger als "
+#~ "2'000 Abonnenten hast. <a href=\"http://eepurl.com/vB7jf\" target=\"_blank"
+#~ "\">Melde dich an und erhalten einen Gutschein über 30$.</a>"
+
+#~ msgid "discount could not be added"
+#~ msgstr "Rabatt konnte nicht hinzugefügt werden"
+
+#~ msgid "Purchase Options"
+#~ msgstr "Kaufoptionen"
+
+#~ msgid "Sorry, you are not allowed to access this gallery"
+#~ msgstr "Diese Galerie darfst du leider nicht öffnen."
+
+#, fuzzy
+#~ msgid "Username already exists"
+#~ msgstr "Rabattcode wurde bereits zum Warenkorb hinzugefügt"
+
+#, fuzzy
+#~ msgid "A user account is required to checkout"
+#~ msgstr "Neue Benutzeraccount Information für %s"
+
+#~ msgid "cancel and return to galleries"
+#~ msgstr "abbrechen und zu den Galerien zurückkehren"
 
 #, fuzzy
 #~ msgid "Delete images with gallery"

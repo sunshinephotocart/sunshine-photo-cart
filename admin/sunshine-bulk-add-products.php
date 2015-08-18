@@ -22,8 +22,8 @@ function sunshine_bulk_add_products() {
 	if ( isset( $_POST['sunshine_bulk_add_products'] ) && $_POST['sunshine_bulk_add_products'] == 1 ) {
 		$added = 0;
 		for ( $i = 0; $i < count( $_POST['name'] ); $i++ ) {
-			$name = $_POST['name'][$i];
-			$category = intval( $_POST['category'][$i] );
+			$name = sanitize_text_field( $_POST['name'][$i] );
+			$category = sanitize_text_field( $_POST['category'][$i] );
 			$taxable = intval( $_POST['taxable'][$i] );
 			if ( $name != '' ) {
 				$current_user = wp_get_current_user();
@@ -82,7 +82,7 @@ function sunshine_bulk_add_products() {
 				<th><?php _e( 'Price Level','sunshine' ); ?>:</th>
 				<td>
 					<?php foreach ( $price_levels as $price_level ) {
-		$text_field = '<input type="text" name="price_'.$price_level->term_id.'" size="6" />';
+		$text_field = '<input type="text" name="price_'.$price_level->term_id.'[]" size="6" />';
 		echo $price_level->name.': '.sprintf( $currency_symbol_format, $currency_symbol, $text_field ).'<br />';
 	} ?>
 				</td>

@@ -57,7 +57,7 @@ html[xmlns] .sunshine-clearfix { display: block; }
 #sunshine #sunshine-gallery-list li a { margin: 0; padding: 0; }
 #sunshine #sunshine-gallery-list li img { width: 100%; height: auto; margin: 0 0 10px 0; }
 #sunshine #sunshine-gallery-list li h2 { font-weight: bold; font-size: 16px; margin: 0; line-height: 1.05; }
-#sunshine #sunshine-gallery-list li.password-required h2 { padding-left: 20px; background: transparent url(images/icons.png) 0 -200px no-repeat; }
+#sunshine #sunshine-gallery-list li.password-required h2:before { content: "\f023"; font-family: "FontAwesome"; color: #CCC; }
 #sunshine #sunshine-gallery-list li h2 a { text-decoration: none; }
 
 /* Gallery Images */
@@ -119,12 +119,11 @@ html[xmlns] .sunshine-clearfix { display: block; }
 #sunshine .sunshine-action-menu li { list-style: none; float: left; margin: 0 20px 0 0; line-height: 1.4; }
 #sunshine .sunshine-action-menu li a, .sunshine-action-menu li { color: #999; text-decoration: none; font-size: 12px; }
 #sunshine .sunshine-action-menu li a i { font-size: 14px; margin-right: 4px; }
-#sunshine .sunshine-action-menu li a:hover { color: #000; }
-#sunshine .sunshine-action-menu li.sunshine-download,
-#sunshine .sunshine-action-menu li a.favorite { background-position: 0 -98px; }
+#sunshine .sunshine-action-menu li a:hover, #sunshine .sunshine-action-menu li a.sunshine-favorite { color: #000; }
 #sunshine .sunshine-action-menu .sunshine-share-buttons { display: inline-block; margin: 0 0 0 5px; vertical-align: top; }
 #sunshine .stButton .chicklets { margin: -1px 0 0 0; padding: 0 0 0 16px !important; }
 #sunshine img { border: 0; padding: 0; box-shadow: none; }
+ 
 
 /* Image Detail Page */
 #sunshine h2 { clear: none; } /* Twenty Twelve */

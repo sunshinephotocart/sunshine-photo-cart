@@ -32,9 +32,11 @@ function sunshine_notices() {
 	if ( get_option( 'permalink_structure' ) == '' ) {
 		echo '<div class="error"><p>'.sprintf( __( 'Sunshine does not work using the Default Permalink settings. <a href="%s">Please choose another option</a> (we recommend "Post name").','sunshine' ),'options-permalink.php' ).'</p></div>';
 	}
+	/*
 	if ( get_option( 'users_can_register' ) != 1 && !SunshineUser::get_user_meta( 'sunshine_nag_users_can_register' ) ) {
 		echo '<div class="error"><p>'.sprintf( __( 'Sunshine requires that you enable user registration. <a href="%s">Update your general settings</a> and 	enable the "Anyone can register" option for "Membership".','sunshine' ),'options-general.php' ).' <a href="?sunshine_nag_users_can_register=1" style="float: right;">'.__( 'Dismiss','sunshine' ).'</a></p></div>';
 	}
+	*/
 	if ( get_option( 'page_on_front' ) == $sunshine->options['page'] && !SunshineUser::get_user_meta( 'sunshine_nag_sunshine_not_front_page' ) )
 		echo '<div class="error"><p>'.sprintf( __( 'Sunshine cannot be the front page of your WordPress installation. <a href="%s" target="_blank">Learn more on how to resolve this issue</a>.','sunshine' ),'http://www.sunshinephotocart.com/docs/sunshine-cannot-be-your-front-page/' ).' <a href="?sunshine_nag_sunshine_not_front_page=1" style="float: right;">'.__( 'Dismiss','sunshine' ).'</a></p></div>';
 }
@@ -145,7 +147,7 @@ function sunshine_system_info() {
 
 function sunshine_addons() {
 	global $sunshine;
-	if ( get_option( 'sunshine_photo_cart_pro_license_active') == 'valid' ) return;
+	if ( get_option( 'sunshine_pro_license_active') == 'valid' ) return;
 	
 ?>
 	<div class="wrap sunshine" id="sunshine-addons">
@@ -163,18 +165,20 @@ function sunshine_addons() {
 					$addons = wp_remote_retrieve_body( $feed );
 					set_transient( 'sunshine_addons', $addons, 3600 );
 				}
-			} else {
-				$addons = '<div class="error"><p>' . __( 'There was an error retrieving the add-ons list from the server. Please try again later.', 'sunshine' ) . '</div>';
-			}
+			} 
 		}
 		
-		echo '<ul id="sunshine-addons">';
 		$addons = json_decode( $addons );
-		foreach ( $addons as $addon ) {
-			echo '<li><h3><a href="' . $addon->link . '">' . $addon->title . '</a></h3><p>' . $addon->excerpt . '</p></li>';
+		if ( !is_array( $addons ) ) {
+			$addons = '<div class="error"><p>' . __( 'There was an error retrieving the add-ons list from the server. Please try again later.', 'sunshine' ) . '</div>';
+			delete_transient( 'sunshine_addons' );
+		} else {
+			echo '<ul id="sunshine-addons">';
+			foreach ( $addons as $addon ) {
+				echo '<li><h3><a href="' . $addon->url . '" target="_blank">' . $addon->title . '</a></h3><p>' . $addon->excerpt . '</p></li>';
+			}
+			echo '</ul>';
 		}
-		echo '</ul>';
-		
 		?>
 		
 	</div>
@@ -191,7 +195,7 @@ function sunshine_support() {
 			<ul>
 				<li><strong><a href="https://www.sunshinephotocart.com/docs" target="_blank">Documentation</a></strong> - Search the docs first! You're question may already be answered</li>
 				<li><strong><a href="https://wordpress.org/support/plugin/sunshine-photo-cart" target="_blank">Community Forums</a></strong> - Submit a question and a member of the Sunshine community may be able to answer it for you</li>
-				<li><strong><a href="https://www.sunshinephotocart.com/support-ticket/" target="_blank">Submit a support ticket</a></strong> - Sunshine Pro and Sunshine Priority Support users can get 1-on-1, in-depth support. We'll dig in and work tirelessly to find the solution to any problem you send over.</li>
+				<li><strong><a href="https://www.sunshinephotocart.com/support-ticket/" target="_blank">Submit a support ticket</a></strong> - Sunshine Pro and Premium Support members can get 1-on-1, in-depth support. We'll dig in and work tirelessly to find the solution to any problem you send over.</li>
 			</ul>
 			
 		</div>

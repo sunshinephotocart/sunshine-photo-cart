@@ -53,7 +53,7 @@ function sunshine_favorites_build_main_menu( $menu ) {
 add_filter( 'sunshine_action_menu', 'sunshine_favorites_build_action_menu', 20, 1 );
 function sunshine_favorites_build_action_menu( $menu ) {
 	global $post, $wp_query, $sunshine;
-	if ( !empty( $sunshine->current_image ) ) {
+	if ( !empty( SunshineFrontend::$current_image ) ) {
 		if ( is_user_logged_in() ) {
 			$menu[15] = array(
 				'icon' => 'heart',
@@ -61,18 +61,18 @@ function sunshine_favorites_build_action_menu( $menu ) {
 				'url' => '#',
 				'a_class' => 'add-to-favorites',
 				'attr' => array(
-					'data-image-id' => $sunshine->current_image->ID
+					'data-image-id' => SunshineFrontend::$current_image->ID
 				)
 			);
-			if ( sunshine_is_image_favorite( $sunshine->current_image->ID ) ) {
+			if ( sunshine_is_image_favorite( SunshineFrontend::$current_image->ID ) ) {
 				$menu[15]['a_class'] .= ' sunshine-favorite';
-				//$menu[15]['name'] = __('Remove from Favorites','sunshine');
+				$menu[15]['name'] = __('Remove from Favorites','sunshine');
 			}
 		} else {
-			$menu[50] = array(
+			$menu[15] = array(
 				'icon' => 'heart',
 				'name' => __( 'Add to Favorites','sunshine' ),
-				'url' => wp_login_url( add_query_arg( 'sunshine_favorite', $sunshine->current_image->ID, sunshine_current_url( false ) ) ),
+				'url' => wp_login_url( add_query_arg( 'sunshine_favorite', SunshineFrontend::$current_image->ID, sunshine_current_url( false ) ) ),
 				'a_class' => 'add-to-favorites',
 			);
 		}
@@ -114,7 +114,7 @@ function sunshine_favorites_build_image_menu( $menu, $image ) {
 			)
 		);
 		if ( sunshine_is_image_favorite( $image->ID ) ) {
-			$menu[50]['a_class'] = 'sunshine-favorite';
+			$menu[5]['a_class'] = 'sunshine-favorite';
 		}
 	}
 	else {
@@ -163,12 +163,14 @@ function sunshine_favorites_add_to_favorites_js() {
 			 	if (data == 'ADD') {
 		  			jQuery('#sunshine-image-'+image_id).addClass('sunshine-favorite');
 		  			jQuery(e).addClass('sunshine-favorite');
+					jQuery('span', e).html('<?php _e('Remove from favorites', 'sunshine'); ?>');
 					if (!jQuery('.sunshine-main-menu .sunshine-favorites .sunshine-favorite-count').length)
 						jQuery('.sunshine-main-menu .sunshine-favorites').append('<span class="sunshine-count sunshine-favorite-count">0</span>');
 					jQuery('.sunshine-main-menu .sunshine-favorite-count').html(parseInt(jQuery('.sunshine-main-menu .sunshine-favorite-count').html())+1);
 				} else if (data == 'DELETE') {
 		  			jQuery('#sunshine-image-'+image_id).removeClass('sunshine-favorite');
 		  			jQuery(e).removeClass('sunshine-favorite');
+					jQuery('span', e).html('<?php _e('Add to favorites', 'sunshine'); ?>');
 					jQuery('.sunshine-main-menu .sunshine-favorite-count').html(parseInt(jQuery('.sunshine-main-menu .sunshine-favorite-count').html())-1);
 					if (parseInt(jQuery('.sunshine-main-menu .sunshine-favorite-count').html()) == 0)
 						jQuery('.sunshine-main-menu .sunshine-favorite-count').remove();
@@ -403,6 +405,31 @@ function sunshine_user_favorites_link_row( $actions, $user ) {
 	}
 	return $actions;
 }
+
+add_action( 'show_user_profile', 'sunshine_admin_user_show_favorites' );
+add_action( 'edit_user_profile', 'sunshine_admin_user_show_favorites' );
+function sunshine_admin_user_show_favorites( $user ) {
+	if ( current_user_can( 'manage_options' ) ) {
+		$favorites = get_user_meta( $user->ID, 'sunshine_favorite' );
+		if ( $favorites ) {
+			echo '<h3 id="sunshine-favorites">'.__( 'Sunshine Favorites','sunshine' ).' ('.count( $favorites ).')</h3>';
+			echo '<ul>';
+			foreach ( $favorites as $favorite ) {
+				$attachment = get_post( $favorite );
+				$image = wp_get_attachment_image_src( $attachment->ID, 'thumbnail' );
+				$url = get_permalink( $attachment->ID );
+?>
+			<li style="list-style: none; float: left; margin: 0 20px 20px 0;">
+				<a href="<?php echo $url; ?>"><img src="<?php echo $image[0]; ?>" height="100" alt="" /></a><br />
+				<?php echo get_the_title( $attachment->ID ); ?>
+			</li>
+		<?php }
+			echo '</ul><br clear="all" />';
+		}
+	}
+
+}
+
 
 /**************************
 	EMAIL AUTOMATION

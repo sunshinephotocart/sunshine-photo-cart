@@ -7,6 +7,7 @@ class Sunshine {
 	public $messages = array();
 	public $base_url = '';
 	public $pages = array();
+	public $favorites = array();
 	public $shipping = array();
 	public $cart = array();
 

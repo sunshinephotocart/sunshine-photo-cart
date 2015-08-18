@@ -91,7 +91,7 @@ html[xmlns] .sunshine-clearfix { display: block; }
 #sunshine-gallery-list li a { margin: 0; padding: 0; }
 #sunshine-gallery-list li img { width: 100%; height: auto; margin: 0 0 10px 0; }
 #sunshine-gallery-list li h2 { font-weight: bold; font-size: 16px; margin: 0; line-height: 1.05; }
-#sunshine-gallery-list li.password-required h2 { padding-left: 20px; background: transparent url(images/icons.png) 0 -200px no-repeat; }
+#sunshine-gallery-list li.password-required h2 { padding-left: 20px; }
 #sunshine-gallery-list li h2 a { text-decoration: none; }
 
 /* Gallery Images */

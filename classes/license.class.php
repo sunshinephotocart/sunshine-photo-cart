@@ -40,7 +40,7 @@ if ( ! class_exists( 'Sunshine_License' ) ) :
 
 		$this->file           = $_file;
 		$this->item_name      = $_item_name;
-		$this->item_shortname = preg_replace( '/[^a-zA-Z0-9_\s]/', '', str_replace( ' ', '_', strtolower( $this->item_name ) ) );
+		$this->item_shortname = str_replace( array( '.php', '-' ) , array( '', '_' ), basename( $_file ) );
 		$this->version        = $_version;
 		$this->author         = $_author;
 		$this->api_url        = is_null( $_api_url ) ? $this->api_url : $_api_url;
@@ -96,7 +96,7 @@ if ( ! class_exists( 'Sunshine_License' ) ) :
 	 */
 	public function auto_updater() {
 					
-		if ( 'valid' !== get_option( $this->item_shortname . '_license_active' ) || $this->item_shortname == 'sunshine_photo_cart_pro' )
+		if ( 'valid' !== get_option( $this->item_shortname . '_license_active' ) || $this->item_shortname == 'sunshine_pro' )
 			return;
 
 		// Setup the updater

@@ -1,53 +1,90 @@
 <?php
-class SunshineShare extends SunshineSingleton {
+add_filter( 'sunshine_action_menu', 'sunshine_share_build_action_menu' );
+function sunshine_share_build_action_menu( $menu ) {
+	global $post, $wp_query, $sunshine;
 
-	function __construct() {
-
-		add_filter( 'sunshine_action_menu', array( $this, 'build_action_menu' ) );
-
-	}
-
-	function build_action_menu( $menu ) {
-		global $post, $wp_query, $sunshine;
-
-		if ( ( SunshineFrontend::$current_image && $sunshine->options['sharing_image'] ) || ( SunshineFrontend::$current_gallery && $sunshine->options['sharing_gallery'] && !SunshineFrontend::$current_image ) ) {
-			
-			if ( isset( SunshineFrontend::$current_image ) ) {
-				$url = get_permalink( SunshineFrontend::$current_image );
-			} else {
-				$url = get_permalink( SunshineFrontend::$current_gallery );
+	if ( ( SunshineFrontend::$current_image && $sunshine->options['sharing_image'] ) || ( SunshineFrontend::$current_gallery && $sunshine->options['sharing_gallery'] && !SunshineFrontend::$current_image ) ) {
+		
+		if ( isset( SunshineFrontend::$current_image ) ) {
+			$title = get_the_title( SunshineFrontend::$current_image ) . ' - ' . get_the_title( SunshineFrontend::$current_gallery );
+			$url = get_permalink( SunshineFrontend::$current_image->ID );
+			$img = wp_get_attachment_image_src( SunshineFrontend::$current_image->ID, 'full' );
+			$img = $img[0];
+		} else {
+			$title = get_the_title( SunshineFrontend::$current_gallery->ID );
+			$url = get_permalink( SunshineFrontend::$current_gallery->ID );
+			$post_thumbnail_id = get_post_thumbnail_id( SunshineFrontend::$current_gallery->ID );
+			if ( $post_thumbnail_id ) {
+				$img = wp_get_attachment_url( $post_thumbnail_id );
+			} elseif ( $images = get_children( array(
+						'post_parent' => $image->post_parent,
+						'post_type' => 'attachment',
+						'numberposts' => 1,
+						'post_mime_type' => 'image',
+						'orderby' => 'menu_order ID',
+						'order' => 'ASC' ) ) ) {
+				foreach( $images as $image ) {
+					$img = wp_get_attachment_image_src( $image->ID, $size );
+					$img = $img[0];
+				}
 			}
-
-			$menu[65] = array(
-				'name' => '',
-				'class' => 'sunshine-share',
-				'after_a' => '
-					<!-- AddThis Button BEGIN -->
-					<div class="addthis_toolbox addthis_default_style sunshine-share-buttons" addthis:url="' . $url .'">
-					<a class="addthis_button_compact"><img src="'.SUNSHINE_URL.'/addons/share/share.png" width="13" height="12" alt="" style="vertical-align: top; margin: 2px 4px 0 0;" /> '.__( 'Share This','sunshine' ).'</a>
-					</div>
-					<script type="text/javascript">var addthis_config = {"data_track_addressbar":false, "services_compact":"facebook,twitter,pinterest,google_plusone_share","services_exclude":"print"};</script>
-					<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
-					<!-- AddThis Button END -->
-				'
-			);
-
 		}
 
-		return $menu;
+		$menu[65] = array(
+			'icon' => 'share-square',
+			'name' => __('Share This', 'sunshine'),
+			'url' => 'http://www.sharethis.com/share?url=' . urlencode( $url ) . '&title=' . urlencode( $title ) . '&img=' . urlencode( $img ),
+			'target' => '_blank'
+		);
 
 	}
 
+	return $menu;
+
 }
 
+add_filter( 'sunshine_image_menu', 'sunshine_share_build_image_menu', 999, 2 );
+function sunshine_share_build_image_menu( $menu, $image ) {
+	global $post, $wp_query, $sunshine;
 
-if ( !is_admin() ) {
-	add_action( 'init', 'sunshine_share_init', 10 );
+	if ( $sunshine->options['sharing_image'] ) {
+		
+		$url = get_permalink( $image->ID );
+		$title = get_the_title( $image->ID ) . ' - ' . get_the_title( SunshineFrontend::$current_gallery->ID );
+		$img = wp_get_attachment_image_src( $image->ID, 'full' );
+		$img = $img[0];
+		
+		$menu[] = array(
+			'icon' => 'share-square',
+			'name' => __('Share This', 'sunshine'),
+			'url' => 'http://www.sharethis.com/share?url=' . urlencode( $url ) . '&title=' . urlencode( $title ) . '&img=' . urlencode( $img ),
+			'target' => '_blank'
+		);
+
+	}
+
+	return $menu;
+
 }
 
-function sunshine_share_init() {
-	SunshineShare::instance();
+add_filter( 'sunshine_lightbox_menu', 'sunshine_share_lightbox_menu', 10, 2 );
+function sunshine_share_lightbox_menu( $menu, $image ) {
+	global $sunshine;
+	
+	if ( !$sunshine->options['sharing_image'] ) {
+		return $menu;
+	}
+
+	$url = get_permalink( $image->ID );
+	$title = get_the_title( $image->ID ) . ' - ' . get_the_title( SunshineFrontend::$current_gallery->ID );
+	$img = wp_get_attachment_image_src( $image->ID, 'full' );
+	$img = $img[0];
+
+	$menu .= ' <a href="http://www.sharethis.com/share?url=' . urlencode( $url ) . '&title=' . urlencode( $title ) . '&img=' . urlencode( $img ) .'" target="_blank"><i class="fa fa-share-square"></i></a>';
+	
+	return $menu;
 }
+
 
 add_filter( 'sunshine_options_galleries', 'sunshine_share_options' );
 function sunshine_share_options( $options ) {

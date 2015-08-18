@@ -13,11 +13,11 @@ add_action( 'tgmpa_register', 'sunshine_addon_manager' );
 function sunshine_addon_manager() {
 	global $sunshine;
 	
-	if ( get_option( 'sunshine_photo_cart_pro_license_active') != 'valid' ) return;
+	if ( get_option( 'sunshine_pro_license_active') != 'valid' ) return;
 
 	$plugins = array();
 
-	if ( false === ( $plugins = get_transient( 'sunshine_addons' ) ) ) {
+	if ( false === ( $plugins = get_transient( 'sunshine_addons_manager' ) ) ) {
 
 		$url = SUNSHINE_STORE_URL.'/?sunshine_addons_feed&pro=1';
 		$feed = wp_remote_get( esc_url_raw( $url ), array( 'sslverify' => false ) );
@@ -26,6 +26,7 @@ function sunshine_addon_manager() {
 			if ( isset( $feed['body'] ) && strlen( $feed['body'] ) > 0 ) {
 				$addons = json_decode( wp_remote_retrieve_body( $feed ) );
 				foreach ($addons as $addon) {
+					if ( empty( $addon->file ) ) continue;
 					$plugins[] = array(
 			            'name'               => $addon->title,
 			            'slug'               => 'sunshine-'.$addon->slug,
@@ -34,7 +35,7 @@ function sunshine_addon_manager() {
 			            'external_url'       => $addon->url
 			        );
 				}
-				set_transient( 'sunshine_addons', $plugins, 3600 );
+				set_transient( 'sunshine_addons_manager', $plugins, 3600 );
 			} 
 		} 
 
@@ -79,6 +80,8 @@ function sunshine_addon_manager() {
 function sunshine_addon_manager_get_license( $shortname ) {
 	global $sunshine;
 	
+	if ( !$sunshine->options['sunshine_pro_license_key'] ) return;
+	
 	// Get license data from sunshine website
 	$url = SUNSHINE_STORE_URL.'/?sunshine_get_license&plugin='.$shortname.'&pro_license='.$sunshine->options['sunshine_pro_license_key'];
 	$feed = wp_remote_get( esc_url_raw( $url ), array( 'sslverify' => false ) );
@@ -96,10 +99,11 @@ function sunshine_addon_manager_get_license( $shortname ) {
 
 function sunshine_addon_manager_activate_license( $name, $shortname ) {
 	
-	$shortname = str_replace( 'sunshine-', '', $shortname );
-	$option_name = str_replace( '-', '_', $shortname );
+	$shortname = str_replace( array( '.php', '-' ) , array( '', '_' ), basename( $shortname ) );
 
 	$license = sunshine_addon_manager_get_license( $shortname );
+	
+	if ( !$license ) return;
 	
 	// Data to send to the API
 	$api_params = array(
@@ -127,19 +131,18 @@ function sunshine_addon_manager_activate_license( $name, $shortname ) {
 	// Decode license data
 	$license_data = json_decode( wp_remote_retrieve_body( $response ) );
 	
-	update_option( $option_name . '_license_active', $license_data->license );
+	update_option( $shortname . '_license_active', $license_data->license );
 	
 	// Put license key into global Sunshine options
 	$options = maybe_unserialize( get_option( 'sunshine_options' ) );
-	$options[ $option_name . '_license_key' ] = $license;
+	$options[ $shortname . '_license_key' ] = $license;
 	update_option( 'sunshine_options', $options );
 	
 }
 
 function sunshine_addon_manager_deactivate_license( $name, $shortname ) {
 	
-	$shortname = str_replace( 'sunshine-', '', $shortname );
-	$option_name = str_replace( '-', '_', $shortname );
+	$shortname = str_replace( array( '.php', '-' ) , array( '', '_' ), basename( $shortname ) );
 
 	$license = sunshine_addon_manager_get_license( $shortname );
 
@@ -169,11 +172,11 @@ function sunshine_addon_manager_deactivate_license( $name, $shortname ) {
 	// Decode the license data
 	$license_data = json_decode( wp_remote_retrieve_body( $response ) );
 
-	delete_option( $option_name . '_license_active' );
+	delete_option( $shortname . '_license_active' );
 	
 	// Put empty license key into global Sunshine options
 	$options = maybe_unserialize( get_option( 'sunshine_options' ) );
-	$options[ $option_name . '_license_key' ] = '';
+	$options[ $shortname . '_license_key' ] = '';
 	update_option( 'sunshine_options', $options );
 	
 }

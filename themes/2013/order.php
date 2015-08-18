@@ -133,7 +133,7 @@ $order_items = sunshine_get_order_items(SunshineFrontend::$current_order->ID);
 			'logged_in_as' => '',
 			'id_form' => 'sunshine-order-comment',
 			'id_submit' => 'sunshine-submit',
-			'title_reply' => 'Add Comment'
+			'title_reply' => __('Add Comment', 'sunshine')
 		), 
 		SunshineFrontend::$current_order->ID
 	); 

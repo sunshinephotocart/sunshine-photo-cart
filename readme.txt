@@ -2,9 +2,10 @@
 Author URI: https://www.sunshinephotocart.com
 Plugin URI: https://www.sunshinephotocart.com
 Contributors: sunshinephotocart
-Tags: photo, photography, gallery, client gallery, e-store, eshop, ecommerce, e commerce, e-commerce, selling, wp-ecommerce, wp ecommerce 
+Donate link: http://example.com/
+Tags: photo, photography, gallery, client gallery, e-store, eshop, ecommerce, e commerce, e-commerce, selling, wp-ecommerce, wp ecommerce
 Requires at least: 3.7
-Tested up to: 4.2.4
+Tested up to: 4.3
 Stable tag: 2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -13,7 +14,7 @@ Client Gallery & Photo Cart Plugin for WordPress
 
 == Description ==
 
-Sunshine Photo Cart is a complete client gallery and photo cart plugin built specifically for photographers. Since it's first release in 2013, Sunshine was a paid plugin - but now it is free! This free version is fully functional and has the following features:
+[Sunshine Photo Cart](https://www.sunshinephotocart.com) is a complete client gallery and photo cart plugin built specifically for photographers. Since it's first release in 2013, Sunshine was a paid plugin - but now it is free! This free version is fully functional and has the following features:
 
 * Cart system for letting users choose photo, select product and add to cart for purchase
 * Accept offline payments (check) or online payments (PayPal)
@@ -32,33 +33,34 @@ Sunshine Photo Cart is a complete client gallery and photo cart plugin built spe
 * Printable invoices
 * International ready - Works with all currencies and translated into German, French, Spanish, Dutch, Finnish, Portuguese, British, Norwegian
 
+[Check out the demo](http://demo.sunshinephotocart.com) to see it in action!
+
 = Addons =
 
 While the core plugin is free, there are paid add-ons to improve Sunshine's features:
 
-* [Analytics](https://www.sunshinephotocart.com/addon/analytics)
-* [Digital downloads](https://www.sunshinephotocart.com/addon/digital-downloads)
-* [Discount codes](https://www.sunshinephotocart.com/addon/discounts)
-* [Automated email marketing](https://www.sunshinephotocart.com/addon/automated-email-marketing)
-* [Favorites](https://www.sunshinephotocart.com/addon/favorites)
-* [Lightbox](https://www.sunshinephotocart.com/addon/lightbox)
-* [Masonry](https://www.sunshinephotocart.com/addon/masonry)
-* [Client messaging](https://www.sunshinephotocart.com/addon/client-messaging)
-* [Minimum order](https://www.sunshinephotocart.com/addon/minimum-order)
-* [MailChimp integration](https://www.sunshinephotocart.com/addon/mailchimp)
-* [Campaign Monitor integration](https://www.sunshinephotocart.com/addon/campaign-monitor)
-* [Packages](https://www.sunshinephotocart.com/addon/packages)
-* [PayJunction payment gateway](https://www.sunshinephotocart.com/addon/payjunction)
-* [Stripe payment gateway](https://www.sunshinephotocart.com/addon/stripe)
-* [Price levels (price sheets)](https://www.sunshinephotocart.com/addon/price-levels)
-* [Product options](https://www.sunshinephotocart.com/addon/product-options)
-* [Tiered pricing](https://www.sunshinephotocart.com/addon/tiered-pricing)
+* [Analytics](https://www.sunshinephotocart.com/addon/analytics/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
+* [Digital downloads](https://www.sunshinephotocart.com/addon/digital-downloads/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
+* [Discount codes](https://www.sunshinephotocart.com/addon/discounts/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
+* [Automated email marketing](https://www.sunshinephotocart.com/addon/automated-email-marketing/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
+* [Lightbox](https://www.sunshinephotocart.com/addon/lightbox/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
+* [Masonry](https://www.sunshinephotocart.com/addon/masonry/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
+* [Client messaging](https://www.sunshinephotocart.com/addon/messaging/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
+* [Minimum order](https://www.sunshinephotocart.com/addon/minimum-order/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
+* [MailChimp integration](https://www.sunshinephotocart.com/addon/mailchimp/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
+* [Campaign Monitor integration](https://www.sunshinephotocart.com/addon/campaign-monitor/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
+* [Packages](https://www.sunshinephotocart.com/addon/packages/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
+* [PayJunction payment gateway](https://www.sunshinephotocart.com/addon/payjunction/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
+* [Stripe payment gateway](https://www.sunshinephotocart.com/addon/stripe/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
+* [Price levels (price sheets)](https://www.sunshinephotocart.com/addon/price-levels/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
+* [Product options](https://www.sunshinephotocart.com/addon/product-options/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
+* [Tiered pricing](https://www.sunshinephotocart.com/addon/tiered-pricing/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
 
-...and so many more to come! [Feel free to request new features](https://www.sunshinephotocart.com/contact)
+...and so many more to come! [Feel free to request new features](https://www.sunshinephotocart.com/contact/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
 
 = Go PRO! =
 
-Get ALL our paid add-ons for an insanely discounted single price - [Buy now](https://www.sunshinephotocart.com/pro)
+Get ALL our paid add-ons for an insanely discounted single price - [Learn more](https://www.sunshinephotocart.com/pro/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
 
 == Installation ==
 
@@ -72,7 +74,7 @@ Get ALL our paid add-ons for an insanely discounted single price - [Buy now](htt
 
 = Where can I get help? =
 
-[Use the support section on our website](https://www.sunshinephotocart.com/support/)
+[Use the support section on our website](https://www.sunshinephotocart.com/support/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
 
 == Screenshots ==
 
@@ -93,6 +95,7 @@ Get ALL our paid add-ons for an insanely discounted single price - [Buy now](htt
 * Fix - Sharing image on social media had wrong URL
 * Fix - When user returns to site after PayPal payment, take them to their purchase receipt page instead of main Client Galleries page
 * Fix - Improved mobile-friendly styling
+* Fix - Sharing now uses sharethis.com, easier to work with than addthis.com
 * New - Ability to sort images in a gallery based on EXIF "created_date" which is now captured on upload
 
 = 1.9.6 =
