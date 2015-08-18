@@ -5,8 +5,8 @@ Contributors: sunshinephotocart
 Donate link: http://example.com/
 Tags: photo, photography, gallery, client gallery, e-store, eshop, ecommerce, e commerce, e-commerce, selling, wp-ecommerce, wp ecommerce
 Requires at least: 3.7
-Tested up to: 4.3
-Stable tag: 2.0
+Tested up to: 4.3 
+Stable tag: 2.0.1 
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -88,6 +88,9 @@ Get ALL our paid add-ons for an insanely discounted single price - [Learn more](
 8. Admin: Order details
 
 == Changelog ==
+
+= 2.0.1 =
+* Fix - Updated TGMPA to 2.5.2 which addresses issues with themes using older versions of TGMPA and a site crashing conflict which results
 
 = 2.0.0 =
 * Free! We have moved to the add-on model and now the core Sunshine Photo Cart plugin is now free. Various features split out into individual plugins.

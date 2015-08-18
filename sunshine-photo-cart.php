@@ -5,7 +5,7 @@
  * Description: Client Gallery Photo Cart & Proofing Plugin for WordPress
  * Author: Sunshine Photo Cart
  * Author URI: https://www.sunshinephotocart.com
- * Version: 2.0
+ * Version: 2.0.1
  * Text Domain: sunshine
  * Domain Path: languages
  *
@@ -29,7 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 define( 'SUNSHINE_PATH', plugin_dir_path( __FILE__ ) );
 define( 'SUNSHINE_URL', plugin_dir_url( __FILE__ ) );
-define( 'SUNSHINE_VERSION', '2.0' );
+define( 'SUNSHINE_VERSION', '2.0.1' );
 define( 'SUNSHINE_STORE_URL', 'https://www.sunshinephotocart.com' );
 
 include_once( 'classes/singleton.class.php' );
