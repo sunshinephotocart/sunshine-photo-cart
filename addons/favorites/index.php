@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Sunshine Photo Cart - Favorites
-Plugin URI: http://www.sunshinephotocart.com/download/favorites
+Plugin URI: http://www.sunshinephotocart.com/addon/favorites
 Description: Add-on for Sunshine Photo Cart - Allows clients to mark their favorites and submit them to you
 Version: 1.0
 Author: Sunshine Photo Cart
@@ -10,6 +10,7 @@ Author URI: http://www.sunshinephotocart.com
 
 if ( !is_admin() )
 	add_action( 'init', 'sunshine_favorites_init', 30 );
+	
 function sunshine_favorites_init() {
 	global $sunshine;
 	if ( is_user_logged_in() ) {
@@ -114,7 +115,7 @@ function sunshine_favorites_build_image_menu( $menu, $image ) {
 			)
 		);
 		if ( sunshine_is_image_favorite( $image->ID ) ) {
-			$menu[5]['a_class'] = 'sunshine-favorite';
+			$menu[5]['a_class'] .= ' sunshine-favorite';
 		}
 	}
 	else {

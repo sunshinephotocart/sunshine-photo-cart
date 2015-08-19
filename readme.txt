@@ -2,19 +2,18 @@
 Author URI: https://www.sunshinephotocart.com
 Plugin URI: https://www.sunshinephotocart.com
 Contributors: sunshinephotocart
-Donate link: http://example.com/
 Tags: photo, photography, gallery, client gallery, e-store, eshop, ecommerce, e commerce, e-commerce, selling, wp-ecommerce, wp ecommerce
 Requires at least: 3.7
 Tested up to: 4.3 
-Stable tag: 2.0.1 
+Stable tag: 2.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Client Gallery & Photo Cart Plugin for WordPress
+Client Proofing Gallery & Photo Cart Plugin for WordPress
 
 == Description ==
 
-[Sunshine Photo Cart](https://www.sunshinephotocart.com) is a complete client gallery and photo cart plugin built specifically for photographers. Since it's first release in 2013, Sunshine was a paid plugin - but now it is free! This free version is fully functional and has the following features:
+[Sunshine Photo Cart](https://www.sunshinephotocart.com) is a complete client proofing gallery and photo cart plugin built specifically for photographers. Since it's first release in 2013, Sunshine was a paid plugin - but now it is free! This free version is fully functional and has the following features:
 
 * Cart system for letting users choose photo, select product and add to cart for purchase
 * Accept offline payments (check) or online payments (PayPal)
@@ -88,6 +87,10 @@ Get ALL our paid add-ons for an insanely discounted single price - [Learn more](
 8. Admin: Order details
 
 == Changelog ==
+
+= 2.0.2 =
+* Fix - When image is marked as favorite, not showing it as favorite in gallery thumbnail view
+* Fix - Some users reported get_user_screen() fatal errors on activation
 
 = 2.0.1 =
 * Fix - Updated TGMPA to 2.5.2 which addresses issues with themes using older versions of TGMPA and a site crashing conflict which results

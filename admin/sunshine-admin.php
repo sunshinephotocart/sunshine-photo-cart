@@ -233,8 +233,14 @@ Clean up Media Library
 ***********************/
 add_action( 'pre_get_posts', 'sunshine_clean_media_library' );
 function sunshine_clean_media_library( $query ) {
-	$screen = get_current_screen();
-	if ( is_admin() && is_main_query() && $query->get( 'post_type' ) == 'attachment' && $screen->id == 'upload' ) {
+	if ( is_admin() && is_main_query() && $query->get( 'post_type' ) == 'attachment' ) {
+		if ( ! function_exists( 'get_current_screen' ) ) { 
+			return;
+		}
+		$screen = get_current_screen();
+		if ( !$screen->id == 'upload' ) {
+			return;
+		}
 		$galleries = get_posts( 'post_type=sunshine-gallery&nopaging=true&post_status=any' );
 		$gallery_ids = array();
 		foreach ( $galleries as $gallery ) {
