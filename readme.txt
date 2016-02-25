@@ -5,7 +5,7 @@ Contributors: sunshinephotocart
 Tags: photo, photography, gallery, client gallery, client proofing, proofing, e-store, eshop, ecommerce, e commerce, e-commerce, selling, wp-ecommerce, wp ecommerce
 Requires at least: 3.7
 Tested up to: 4.4.2
-Stable tag: 2.2.13
+Stable tag: 2.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
