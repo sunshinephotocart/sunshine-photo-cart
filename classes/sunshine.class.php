@@ -10,6 +10,8 @@ class Sunshine {
 	public $favorites = array();
 	public $shipping = array();
 	public $cart = array();
+	public $is_pro;
+	public $notices;
 
 	public $session = array();
 	public $current_gallery = array();
@@ -19,9 +21,9 @@ class Sunshine {
 	public function __construct() {
 
 		$this->options = apply_filters( 'sunshine_options', get_option( 'sunshine_options' ) );
-		$this->options['endpoint_gallery'] = ( $this->options['endpoint_gallery'] ) ? $this->options['endpoint_gallery'] : 'gallery';
-		$this->options['endpoint_image'] = ( $this->options['endpoint_image'] ) ? $this->options['endpoint_image'] : 'image';
-		$this->options['endpoint_order'] = ( $this->options['endpoint_order'] ) ? $this->options['endpoint_order'] : 'purchase';
+		$this->options['endpoint_gallery'] = ( !empty( $this->options['endpoint_gallery'] ) ) ? $this->options['endpoint_gallery'] : 'gallery';
+		$this->options['endpoint_image'] = ( !empty( $this->options['endpoint_image'] ) ) ? $this->options['endpoint_image'] : 'image';
+		$this->options['endpoint_order'] = ( !empty( $this->options['endpoint_order'] ) ) ? $this->options['endpoint_order'] : 'purchase';
 
 		$this->version = get_option( 'sunshine_version' );
 
@@ -77,13 +79,19 @@ class Sunshine {
 			'show_in_nav_menus' => false,
 			'show_in_menu' => false,
 			'query_var' => true,
-			'capability_type' => 'post',
 			'has_archive' => false,
 			'hierarchical' => true,
 			'register_meta_box_cb' => 'sunshine_gallery_meta_boxes',
-			'capability_type' => array( 'sunshine_gallery','sunshine_galleries' ),
-			'map_meta_cap' => true,
-			//'rewrite' => array('slug' => $base_page->post_name.'/gallery'),
+			'capability_type' => array( 'sunshine_gallery', 'sunshine_galleries' ),
+			'capabilities' => array(
+			        'edit_post' => 'edit_sunshine_gallery',
+			        'edit_posts' => 'edit_sunshine_galleries',
+			        'edit_others_posts' => 'edit_others_sunshine_galleries',
+			        'publish_posts' => 'publish_sunshine_gallery',
+			        'read_private_posts' => 'read_private_sunshine_galleries',
+			        'delete_post' => 'delete_sunshine_gallery',
+			        'delete_posts' => 'delete_sunshine_gallery'
+			    ),
 			'supports' => array( 'title', 'editor', 'page-attributes', 'thumbnail' )
 		);
 		register_post_type( 'sunshine-gallery',$args );
@@ -114,7 +122,16 @@ class Sunshine {
 			'show_in_menu' => false,
 			'query_var' => true,
 			'rewrite' => true,
-			'capability_type' => 'post',
+			'capability_type' => 'sunshine_product',
+			'capabilities' => array(
+			        'edit_post' => 'edit_sunshine_product',
+			        'edit_posts' => 'edit_sunshine_products',
+			        'edit_others_posts' => 'edit_others_sunshine_products',
+			        'publish_posts' => 'publish_sunshine_product',
+			        'read_private_posts' => 'read_private_sunshine_products',
+			        'delete_post' => 'delete_sunshine_product',
+			        'delete_posts' => 'delete_sunshine_product'
+			    ),
 			'has_archive' => false,
 			'hierarchical' => false,
 			'supports' => array( 'title', 'editor', 'thumbnail', 'page-attributes' )
@@ -137,8 +154,9 @@ class Sunshine {
 			'popular_items' => NULL
 		);
 		$args = array(
-			'label' => 'Product Category',
+			'label' => __( 'Product Category', 'sunshine' ),
 			'labels' => $labels,
+			'capability_type' => array( 'sunshine_manage_options' ),
 			'hierarchical' => true,
 			'show_ui'  => true,
 			'query_var'=> true
@@ -158,11 +176,12 @@ class Sunshine {
 			'new_item_name'    => __( 'New Price Level', 'sunshine' )
 		);
 		$args = array(
-			'label' => 'Price Level',
+			'label' => __( 'Price Level', 'sunshine' ),
 			'labels' => $labels,
+			'capability_type' => array( 'sunshine_manage_options' ),
 			'public' => false,
 			'hierarchical' => false,
-			'show_ui'  => false,
+			'show_ui'  => true,
 			'query_var'=> true,
 			'show_in_nav_menus' => false
 		);
@@ -193,10 +212,19 @@ class Sunshine {
 			'show_in_nav_menus' => false,
 			'show_in_menu' => false,
 			'query_var' => true,
+			'capability_type' => 'sunshine_order',
+			'capabilities' => array(
+			        'edit_post' => 'edit_sunshine_order',
+			        'edit_posts' => 'edit_sunshine_orders',
+			        'edit_others_posts' => 'edit_others_sunshine_orders',
+			        'publish_posts' => 'publish_sunshine_order',
+			        'read_private_posts' => 'read_private_sunshine_orders',
+			        'delete_post' => 'delete_sunshine_order',
+			        'delete_posts' => 'delete_sunshine_order'
+			    ),
 			'has_archive' => true,
 			'hierarchical' => false,
 			'register_meta_box_cb' => 'sunshine_order_meta_boxes',
-			//'rewrite' => array('slug' => $base_page->post_name.'/order'),
 			'supports' => array( 'comments' )
 		);
 		register_post_type( 'sunshine-order', $args );
@@ -267,10 +295,19 @@ class Sunshine {
 	}
 
 	function sunshine_image_sizes( $image_sizes ) {
-		if ( ( isset( $_POST['post_id'] ) && get_post_type( $_POST['post_id'] ) == 'sunshine-gallery' ) || ( isset( $_GET['page'] ) && $_GET['page'] == 'sunshine_image_processor' ) ) {
-			unset( $image_sizes );
-			$image_sizes[] = 'sunshine-thumbnail';
+		sunshine_log( $_POST );
+		if ( ( isset( $_POST['action'] ) && $_POST['action'] == 'sunshine_gallery_upload' ) || ( isset( $_GET['page'] ) && $_GET['page'] == 'sunshine_image_processor' ) ) {
+			sunshine_log( $image_sizes );
+			$new_image_sizes = array();
+			foreach ( $image_sizes as $image_size ) {
+				if ( strpos( $image_size, 'sunshine' ) ) {
+					$new_image_sizes[] = $image_size;
+				}
+			}
+			$new_image_sizes[] = 'sunshine-thumbnail';
+			$image_sizes = apply_filters( 'sunshine_image_sizes', $new_image_sizes );
 		}
+		sunshine_log( $image_sizes );
 		return $image_sizes;
 	}
 
@@ -337,7 +374,14 @@ class Sunshine {
 		SunshineSession::instance()->messages = $this->messages;
 		return $location;
 	}
-
+	
+	public function is_pro() {
+		if ( !empty( $this->is_pro ) ) {
+			return $this->is_pro;
+		}
+		$this->is_pro = ( get_option( 'sunshine_pro_license_active' ) == 'valid' ) ? true : false;
+		return $this->is_pro;
+	}
 
 	public function set_base_url() {
 		$this->base_url = get_permalink( $this->options['page'] );
@@ -348,6 +392,8 @@ class Sunshine {
 		global $sunshine;
 
 		$this->post_types();
+		
+		update_option( 'sunshine_version', SUNSHINE_VERSION );
 
 		flush_rewrite_rules();
 
@@ -363,6 +409,7 @@ class Sunshine {
 		$admin->add_cap( 'edit_sunshine_galleries' );
 		$admin->add_cap( 'edit_others_sunshine_galleries' );
 		$admin->add_cap( 'publish_sunshine_galleries' );
+		$admin->add_cap( 'publish_sunshine_gallery' );
 		$admin->add_cap( 'read_private_sunshine_galleries' );
 		$admin->add_cap( 'delete_sunshine_galleries' );
 		$admin->add_cap( 'delete_private_sunshine_galleries' );
@@ -370,6 +417,37 @@ class Sunshine {
 		$admin->add_cap( 'delete_others_sunshine_galleries' );
 		$admin->add_cap( 'edit_private_sunshine_galleries' );
 		$admin->add_cap( 'edit_published_sunshine_galleries' );
+
+		$admin->add_cap( 'edit_sunshine_product' );
+		$admin->add_cap( 'read_sunshine_product' );
+		$admin->add_cap( 'delete_sunshine_product' );
+		$admin->add_cap( 'edit_sunshine_products' );
+		$admin->add_cap( 'edit_others_sunshine_products' );
+		$admin->add_cap( 'publish_sunshine_products' );
+		$admin->add_cap( 'publish_sunshine_product' );
+		$admin->add_cap( 'read_private_sunshine_products' );
+		$admin->add_cap( 'delete_sunshine_products' );
+		$admin->add_cap( 'delete_private_sunshine_products' );
+		$admin->add_cap( 'delete_published_sunshine_products' );
+		$admin->add_cap( 'delete_others_sunshine_products' );
+		$admin->add_cap( 'edit_private_sunshine_products' );
+		$admin->add_cap( 'edit_published_sunshine_products' );
+		
+		$admin->add_cap( 'edit_sunshine_order' );
+		$admin->add_cap( 'read_sunshine_order' );
+		$admin->add_cap( 'delete_sunshine_order' );
+		$admin->add_cap( 'edit_sunshine_orders' );
+		$admin->add_cap( 'edit_others_sunshine_orders' );
+		$admin->add_cap( 'publish_sunshine_orders' );
+		$admin->add_cap( 'publish_sunshine_order' );
+		$admin->add_cap( 'read_private_sunshine_orders' );
+		$admin->add_cap( 'delete_sunshine_orders' );
+		$admin->add_cap( 'delete_private_sunshine_orders' );
+		$admin->add_cap( 'delete_published_sunshine_orders' );
+		$admin->add_cap( 'delete_others_sunshine_orders' );
+		$admin->add_cap( 'edit_private_sunshine_orders' );
+		$admin->add_cap( 'edit_published_sunshine_orders' );		
+		
 		$admin->add_cap( 'sunshine_manage_options' );
 
 		// Default options
@@ -533,6 +611,53 @@ class Sunshine {
 		
 		flush_rewrite_rules();
 		
+		$admin = get_role( 'administrator' );
+	
+		$admin->add_cap( 'edit_sunshine_gallery' );
+		$admin->add_cap( 'read_sunshine_gallery' );
+		$admin->add_cap( 'delete_sunshine_gallery' );
+		$admin->add_cap( 'edit_sunshine_galleries' );
+		$admin->add_cap( 'edit_others_sunshine_galleries' );
+		$admin->add_cap( 'publish_sunshine_galleries' );
+		$admin->add_cap( 'publish_sunshine_gallery' );
+		$admin->add_cap( 'read_private_sunshine_galleries' );
+		$admin->add_cap( 'delete_sunshine_galleries' );
+		$admin->add_cap( 'delete_private_sunshine_galleries' );
+		$admin->add_cap( 'delete_published_sunshine_galleries' );
+		$admin->add_cap( 'delete_others_sunshine_galleries' );
+		$admin->add_cap( 'edit_private_sunshine_galleries' );
+		$admin->add_cap( 'edit_published_sunshine_galleries' );
+
+		$admin->add_cap( 'edit_sunshine_product' );
+		$admin->add_cap( 'read_sunshine_product' );
+		$admin->add_cap( 'delete_sunshine_product' );
+		$admin->add_cap( 'edit_sunshine_products' );
+		$admin->add_cap( 'edit_others_sunshine_products' );
+		$admin->add_cap( 'publish_sunshine_products' );
+		$admin->add_cap( 'publish_sunshine_product' );
+		$admin->add_cap( 'read_private_sunshine_products' );
+		$admin->add_cap( 'delete_sunshine_products' );
+		$admin->add_cap( 'delete_private_sunshine_products' );
+		$admin->add_cap( 'delete_published_sunshine_products' );
+		$admin->add_cap( 'delete_others_sunshine_products' );
+		$admin->add_cap( 'edit_private_sunshine_products' );
+		$admin->add_cap( 'edit_published_sunshine_products' );
+		
+		$admin->add_cap( 'edit_sunshine_order' );
+		$admin->add_cap( 'read_sunshine_order' );
+		$admin->add_cap( 'delete_sunshine_order' );
+		$admin->add_cap( 'edit_sunshine_orders' );
+		$admin->add_cap( 'edit_others_sunshine_orders' );
+		$admin->add_cap( 'publish_sunshine_orders' );
+		$admin->add_cap( 'publish_sunshine_order' );
+		$admin->add_cap( 'read_private_sunshine_orders' );
+		$admin->add_cap( 'delete_sunshine_orders' );
+		$admin->add_cap( 'delete_private_sunshine_orders' );
+		$admin->add_cap( 'delete_published_sunshine_orders' );
+		$admin->add_cap( 'delete_others_sunshine_orders' );
+		$admin->add_cap( 'edit_private_sunshine_orders' );
+		$admin->add_cap( 'edit_published_sunshine_orders' );		
+		
 		// Default options
 		$options = get_option('sunshine_options');
 		$version = get_option('sunshine_version');
@@ -569,12 +694,68 @@ class Sunshine {
 			endwhile; wp_reset_postdata();	
 		}
 		
+		if ( version_compare($version, '2.2.5', '<') ) {
+			// Changes for all galleries
+			$args = array(
+				'post_type' => 'sunshine-gallery',
+				'has_password' => true,
+				'nopaging' => true
+			);
+			$the_query = new WP_Query( $args );
+			while ( $the_query->have_posts() ) : $the_query->the_post();
+				update_post_meta(get_the_ID(), 'sunshine_gallery_access', 'password');
+			endwhile; wp_reset_postdata();	
+		}
+		
+		if ( version_compare($version, '2.2.10', '<') ) {
+			// Changes for requiring email for all galleries
+			$args = array(
+				'post_type' => 'sunshine-gallery',
+				'nopaging' => true
+			);
+			$the_query = new WP_Query( $args );
+			while ( $the_query->have_posts() ) : $the_query->the_post();
+				$access = get_post_meta( get_the_ID(), 'sunshine_gallery_access', true );
+				$require_email = get_post_meta( get_the_ID(), 'sunshine_gallery_require_email', true );
+				update_post_meta( get_the_ID(), 'sunshine_gallery_status', $access );
+				delete_post_meta( get_the_ID(), 'sunshine_gallery_access' );
+				if ( $access == 'account' ) {
+					$new_access[] = 'account';
+				}
+				if ( $require_email ) {
+					$new_access[] = 'email';
+				}
+				if ( is_array( $new_access ) ) {
+					update_post_meta( get_the_ID(), 'sunshine_gallery_access', $new_access );
+				} 
+			endwhile; wp_reset_postdata();	
+		}
+
+		if ( version_compare($version, '2.2.7', '<') ) {
+			// Changes for requiring email for all galleries
+			$args = array(
+				'post_type' => 'sunshine-gallery',
+				'nopaging' => true
+			);
+			$the_query = new WP_Query( $args );
+			while ( $the_query->have_posts() ) : $the_query->the_post();
+				$access = get_post_meta( get_the_ID(), 'sunshine_gallery_access', true );
+				if ( $access == 'email' ) {
+					update_post_meta( get_the_ID(), 'sunshine_gallery_access', '' );
+					update_post_meta( get_the_ID(), 'sunshine_gallery_require_email', '1' );
+				}
+			endwhile; wp_reset_postdata();	
+		}
+		
 		update_option('sunshine_options', $options);
 
 		update_option('sunshine_version', SUNSHINE_VERSION);	
 		$sunshine->version = SUNSHINE_VERSION;
 		
 		do_action('sunshine_update');
+		
+		wp_redirect( admin_url( '/admin.php?page=sunshine_about&sunshine_updated' ) );
+		exit;
 
 	}
 

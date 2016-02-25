@@ -7,32 +7,32 @@
 	<?php sunshine_action_menu(); ?>
 </div>
 <div id="sunshine-gallery-images">
-<?php 
-if (!empty($sunshine->favorites)) {
-	echo '<ul class="sunshine-col-'.$sunshine->options['columns'].'">';
-	foreach ($sunshine->favorites as $favorite_id) {
-		$image = wp_get_attachment_image_src($favorite_id, 'thumbnail');
-		$url = get_attachment_link($favorite_id);
-?>
-	<li id="sunshine-image-<?php echo $favorite_id; ?>">
-		<a href="<?php echo $url; ?>"><img src="<?php echo $image[0]; ?>" alt="" class="sunshine-image-thumb" /></a>
-		<div class="sunshine-image-menu-container">
-			<?php sunshine_image_menu($favorite_id); ?>
-		</div>
-	</li>
-<?php
+	<?php 
+	if (!empty($sunshine->favorites)) {
+		echo '<ul class="sunshine-col-'.$sunshine->options['columns'].'">';
+		foreach ( $sunshine->favorites as $favorite_id ) {
+			$image = get_post( $favorite_id );
+			$thumb = wp_get_attachment_image_src($image->ID, 'sunshine-thumbnail');
+			$image_html = '<a href="'.get_permalink($image->ID).'"><img src="'.$thumb[0].'" alt="" class="sunshine-image-thumb" /></a>';
+			$image_html = apply_filters('sunshine_gallery_image_html', $image_html, $image->ID, $thumb);
+	?>
+		<li id="sunshine-image-<?php echo $image->ID; ?>" class="<?php sunshine_image_class($image->ID, array('sunshine-image-thumbnail')); ?>">
+			<?php echo $image_html; ?>
+			<?php if ($sunshine->options['show_image_names']) { ?>
+				<div class="sunshine-image-name"><?php echo apply_filters( 'sunshine_image_name', $image->post_title, $image ); ?></div>
+			<?php } ?>
+			<div class="sunshine-image-menu-container">
+				<?php sunshine_image_menu( $image ); ?>
+			</div>
+			<?php do_action( 'sunshine_image_thumbnail', $image ); ?>
+		</li>
+	<?php
+		}
+		echo '</ul>';
+	} else {
+		echo '<p>'.__('You have no images marked as a favorite', 'sunshine').'</p>';
 	}
-	echo '</ul>';
-} else {
-	echo '<p>'.__('You have no images marked as a favorite', 'sunshine').'</p>';
-}
-?>
+	?>
 </div>
-
-<script>
-jQuery(document).ready(function() {	
-jQuery('#sunshine-gallery-images li:nth-child(<?php echo $sunshine->options['columns']; ?>n+1), #sunshine-gallery-images li:first-child').addClass('first');
-});
-</script>
 
 <?php load_template(SUNSHINE_PATH.'themes/default/footer.php'); ?>

@@ -1,546 +1,637 @@
+# 
+# Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: Sunshine Photo Cart\n"
-"POT-Creation-Date: 2014-04-07 09:35-0700\n"
-"PO-Revision-Date: 2014-04-21 21:16+0200\n"
-"Last-Translator: Antti Roos <antti.roos@mediarouge.fi>\n"
-"Language-Team:  <derek@ashwebstudio.com>\n"
-"Language: en_US\n"
+"POT-Creation-Date: 2015-09-23 11:00-0600\n"
+"PO-Revision-Date: 2015-09-23 21:04+0000\n"
+"Last-Translator: FX Bénard <fxb@wp-translations.org>\n"
+"Language-Team: Finnish (http://www.transifex.com/wp-translations/sunshine-photo-cart/language/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.4\n"
-"X-Poedit-KeywordsList: __;_e;_n\n"
-"X-Poedit-Basepath: /Users/derekashauer/Dropbox/sunshine/sunshinepro.dev/wp-"
-"content/plugins/sunshine-pro\n"
-"X-Poedit-SourceCharset: UTF-8\n"
+"Language: fi\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.4\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-WPHeader: sunshine-photo-cart.php\n"
 
-#: addons/analytics/index.php:90
-msgid "Gallery Analytics"
-msgstr "Gallerian statistiikka"
+#: addons/addon-manager/class-tgm-plugin-activation.php:333
+msgid "Install Required Plugins"
+msgstr "Asenna vaaditut lisäosat"
 
-#: addons/analytics/index.php:125
-msgid "No views yet"
-msgstr "0 katselukertaa"
+#: addons/addon-manager/class-tgm-plugin-activation.php:334
+msgid "Install Plugins"
+msgstr "Asenna lisäosia"
 
-#: addons/analytics/index.php:128
-msgid "Images viewed"
-msgstr "Kuvien katselukertoja"
-
-#: addons/analytics/index.php:150
-msgid "Total views"
-msgstr "Katselukertoja yhteensä"
-
-#: addons/analytics/index.php:159
-msgid "No images viewed yet"
-msgstr "Kuvia ei ole vielä katsottu"
-
-#: addons/analytics/index.php:162 addons/analytics/index.php:198
-msgid "No images for this gallery yet"
-msgstr "Galleriaan ei ole vielä lisätty kuvia"
-
-#: addons/analytics/index.php:166
-msgid "Images Purchased"
-msgstr "Ostetut kuvat"
-
-#: addons/analytics/index.php:186 addons/analytics/index.php:508
-msgid "Total purchases"
-msgstr "Ostokset yhteensä"
-
-#: addons/analytics/index.php:195
-msgid "No images purchased yet"
-msgstr "Kuvia ei ole vielä ostettu"
-
-#: addons/analytics/index.php:206
-msgid "Product Cost"
-msgstr "Tuotteen kulut"
-
-#: addons/analytics/index.php:280 addons/analytics/index.php:483
-msgid "No users have logged in yet"
-msgstr "Kirjautuneita käyttäjiä ei ole"
-
-#: addons/analytics/index.php:283
-msgid "Recent User Logins"
-msgstr "Viimeaikaiset kirjautumiset"
-
-#: addons/analytics/index.php:335
-msgid "Total Sales Revenue"
-msgstr "Tulot kaikenkaikkiaan "
-
-#: addons/analytics/index.php:337
-msgid "Total Orders Completed"
-msgstr "Valmiita tilauksia"
-
-#: addons/analytics/index.php:339
-msgid "Average Sale Total"
-msgstr "Keskimääräinen myynti"
-
-#: addons/analytics/index.php:341
-msgid "Actual Profit"
-msgstr "Todellinen voitto"
-
-#: addons/analytics/index.php:402
-msgid "You do not have any sales yet"
-msgstr "Myyntiä ei vielä ole"
-
-#: addons/analytics/index.php:405
-msgid "Sales Totals"
-msgstr "Myynti yhteensä"
-
-#: addons/analytics/index.php:452
-msgid "Nothing purchased yet"
-msgstr "Mitään ei ole vielä ostettu"
-
-#: addons/analytics/index.php:455
-msgid "Most Popular Products Sold"
-msgstr "Eniten myydyt Tuotteet"
-
-#: addons/analytics/index.php:468
-msgid "Gallery"
-msgstr "Galleria"
-
-#: addons/analytics/index.php:468
-msgid "Total Sales"
-msgstr "Kokonaismyynti"
-
-#: addons/analytics/index.php:468
-msgid "Profit"
-msgstr "Voitto"
-
-#: addons/analytics/index.php:468 admin/sunshine-galleries.php:27
-#: classes/sunshine.class.php:160 classes/sunshine.class.php:161
-msgid "Price Level"
-msgstr "Hintataso"
-
-#: addons/analytics/index.php:486
-msgid "Galleries With Best Sales"
-msgstr "Galleriat, joissa eniten myyntiä"
-
-#: addons/analytics/index.php:514
-msgid "No images have been purchased yet"
-msgstr "Kuvia ei ole vielä ostettu"
-
-#: addons/analytics/index.php:517
-msgid "Most Purchased Images of All Time"
-msgstr "Ostetuimmat kuvat koko ajalta"
-
-#: addons/colorbox/index.php:121
-msgid "Lightbox Options"
-msgstr "Lightboxin asetukset"
-
-#: addons/colorbox/index.php:123
-msgid "Enable Lightbox for images"
-msgstr "Käytä Lightboxia kuville"
-
-#: addons/colorbox/index.php:124
-msgid "Links to individual images shown in a lightbox window for easier use"
-msgstr ""
-"Yksittäisen kuvan linkki näytetään Lightboxissa kuvan katselun "
-"helpottamiseksi"
-
-#: addons/colorbox/index.php:130
-msgid "Enable Lightbox for purchasing"
-msgstr "Käytä Lightboxia kuvan ostamisessa"
-
-#: addons/colorbox/index.php:131
-msgid ""
-"Links the purchasing page for an individual image into a lightbox window"
-msgstr "Avaa kuvan ostotoiminnot Lightbox-ikkunaan"
-
-#: addons/digital-download/index.php:6
-msgid "Downloadable"
-msgstr "Tallennettava tiedosto"
-
-#: addons/digital-download/index.php:15
-msgid "Download Folder"
-msgstr "Tallennuskansio"
-
-#: addons/digital-download/index.php:16
-msgid "Please select folder"
-msgstr "Valitse kansio"
-
-#: addons/digital-download/index.php:84
-msgid "Download"
-msgstr "Tallenna"
-
-#: addons/digital-download/index.php:86
-msgid "Download all images from gallery"
-msgstr "Tallenna kaikki kuvat tästä galleriasta"
-
-#: addons/digital-download/index.php:106 addons/digital-download/index.php:444
-msgid "Sorry, this is not your order"
-msgstr "Pahoittelut, tämä ei ole sinun tilauksesi"
-
-#: addons/digital-download/index.php:113 addons/digital-download/index.php:451
-msgid "Sorry, your order is not yet marked as complete"
-msgstr "Pahoittelut, tilaustasi ei vielä ole merkitty valmistuneeksi"
-
-#: addons/digital-download/index.php:128 addons/digital-download/index.php:162
-msgid "Sorry, one of the download files does not exist"
-msgstr "Pahoittelut, erästä tallennettavista tiedostoista ei löydy"
-
-#: addons/digital-download/index.php:145 addons/digital-download/index.php:157
-#: addons/digital-download/index.php:305 addons/digital-download/index.php:326
-#: addons/digital-download/index.php:368
-msgid "Could not create zip file for download"
-msgstr "Tallennettavan zip-tiedoston muodostaminen epäonnistui"
-
-#: addons/digital-download/index.php:244 addons/digital-download/index.php:255
-msgid "Download all images from this order"
-msgstr "Tallenna kaikki tämän tilauksen kuvat omalle tietokoneelle"
-
-#: addons/digital-download/index.php:275
-msgid "Download Image"
-msgstr "Tallenna Kuva"
-
-#: addons/digital-download/index.php:281
-msgid "Download All Images"
-msgstr "Tallenna kaikki kuvat"
-
-#: addons/digital-download/index.php:287
-msgid "Purchase entire session"
-msgstr "Osta kaikki tilaisuuden kuvat"
-
-#: addons/digital-download/index.php:360
-msgid "Download file does not exist"
-msgstr "Tallennettavaa tiedostoa ei löydy"
-
-#: addons/digital-download/index.php:402
-msgid "You do not have permission to download these files."
-msgstr "Sinulla ei ole oikeuksia tallentaa näitä tiedostoja."
-
-#: addons/digital-download/index.php:417
-msgid "You do not have permission to download this file."
-msgstr "Sinulla ei ole oikeuksia tallentaa tätä tiedostoa."
-
-#: addons/digital-download/index.php:435
+#: addons/addon-manager/class-tgm-plugin-activation.php:335
 #, php-format
-msgid "Sorry, you must be <a href=\"%s\">logged in</a> to download this file"
-msgstr ""
-"Pahoittelut, sinun tulee olla <a href=\"%s\">sisäänkirjautua</a> jotta voit "
-"tallentaa tämän tiedoston"
+msgid "Installing Plugin: %s"
+msgstr "Asennetaan lisäosia: %s"
 
-#: addons/digital-download/index.php:467
-msgid "Gallery digital negatives added to cart!"
-msgstr "Gallerian digitaaliset negatiivit on lisätty ostoskoriin!"
+#: addons/addon-manager/class-tgm-plugin-activation.php:336
+#: addons/addon-manager/index.php:58
+msgid "Something went wrong with the plugin API."
+msgstr "Jotain meni pieleen API-pluginissa."
 
-#: addons/digital-download/index.php:467 addons/packages/index.php:519
-#: addons/packages/index.php:546 sunshine-functions.php:79
-msgid "View cart"
-msgstr "Näytä kori"
+#: addons/addon-manager/class-tgm-plugin-activation.php:338
+#: addons/addon-manager/index.php:59
+#, php-format
+msgid "This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
 
-#: addons/digital-download/index.php:508
-msgid "Gallery Digital Negatives"
-msgstr "Gallerian Digitaaliset Negatiivit"
+#: addons/addon-manager/class-tgm-plugin-activation.php:343
+#: addons/addon-manager/index.php:60
+#, php-format
+msgid "This theme recommends the following plugin: %1$s."
+msgid_plural "This theme recommends the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
 
-#: addons/digital-download/index.php:568
-msgid "No shipping, download only"
-msgstr "Ei toimitusta, vain tiedostojen tallennus"
-
-#: addons/digital-download/index.php:577
-msgid "Digital Download Options"
-msgstr "Tiedostojen tallentamisen asetukset"
-
-#: addons/digital-download/index.php:580
-msgid "None"
-msgstr "Ei mikää"
-
-#: addons/digital-download/index.php:586
-msgid "Print Release"
-msgstr "Kuvien Käyttöoikeus"
-
-#: addons/digital-download/index.php:591
+#: addons/addon-manager/class-tgm-plugin-activation.php:348
+#, php-format
 msgid ""
-"Print release file to be included with any file download, PDF recommended. "
-"Upload a file to your <a href=\"upload.php\">Media gallery</a>, then select "
-"it here."
+"Sorry, but you do not have the correct permissions to install the %1$s "
+"plugin."
+msgid_plural ""
+"Sorry, but you do not have the correct permissions to install the %1$s "
+"plugins."
+msgstr[0] ""
+msgstr[1] ""
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:353
+#: addons/addon-manager/index.php:65
+#, php-format
+msgid ""
+"The following plugin needs to be updated to its latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgid_plural ""
+"The following plugins need to be updated to their latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:358
+#, php-format
+msgid "There is an update available for: %1$s."
+msgid_plural "There are updates available for the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:363
+#, php-format
+msgid ""
+"Sorry, but you do not have the correct permissions to update the %1$s "
+"plugin."
+msgid_plural ""
+"Sorry, but you do not have the correct permissions to update the %1$s "
+"plugins."
+msgstr[0] ""
+msgstr[1] ""
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:368
+#: addons/addon-manager/index.php:62
+#, php-format
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:373
+#: addons/addon-manager/index.php:63
+#, php-format
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:378
+#, php-format
+msgid ""
+"Sorry, but you do not have the correct permissions to activate the %1$s "
+"plugin."
+msgid_plural ""
+"Sorry, but you do not have the correct permissions to activate the %1$s "
+"plugins."
+msgstr[0] ""
+msgstr[1] ""
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:383
+#: addons/addon-manager/index.php:67
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:388
+msgid "Begin updating plugin"
+msgid_plural "Begin updating plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:393
+#: addons/addon-manager/index.php:68
+msgid "Begin activating plugin"
+msgid_plural "Begin activating plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:397
+msgid "Return to Required Plugins Installer"
+msgstr "Palaa tarvittavien lisäosien asennukseen"
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:398
+msgid "Return to the dashboard"
+msgstr "Palaa Ohjauspaneeli-sivulle"
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:399
+#: addons/addon-manager/class-tgm-plugin-activation.php:3029
+#: addons/addon-manager/index.php:70
+msgid "Plugin activated successfully."
+msgstr "Lisäosa aktivoitu onnistuneesti."
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:400
+#: addons/addon-manager/class-tgm-plugin-activation.php:2832
+msgid "The following plugin was activated successfully:"
+msgid_plural "The following plugins were activated successfully:"
+msgstr[0] ""
+msgstr[1] ""
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:401
+#, php-format
+msgid "No action taken. Plugin %1$s was already active."
 msgstr ""
-"Käyttöoikeusasiakirja, joka liitetään kaikkiin tallennettaviin tiedostoihin. "
-"PDF-muoto on suositeltu. Tallenna asiakirja <a href=\"upload.php"
-"\">Mediakirjastoon</a> ja valitse se sitten sieltä."
 
-#: addons/digital-download/index.php:600
-msgid "Gallery digital negatives"
-msgstr "Gallerian digitaaliset negatiivit"
+#: addons/addon-manager/class-tgm-plugin-activation.php:402
+#, php-format
+msgid ""
+"Plugin not activated. A higher version of %s is needed for this theme. "
+"Please update the plugin."
+msgstr ""
 
-#: addons/digital-download/index.php:602
-msgid "Tax gallery digital negatives"
-msgstr "Digitaalisten negatiivien vero"
+#: addons/addon-manager/class-tgm-plugin-activation.php:403
+#, php-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr "Kaikki lisäosat asennettu ja aktivoitu onnistuneesti: %1$s"
 
-#: addons/digital-download/index.php:605
-msgid "Apply a tax to the gallery digital negatives"
-msgstr "Aseta vero Gallerian digitaalisille negatiiveille"
+#: addons/addon-manager/class-tgm-plugin-activation.php:404
+msgid "Dismiss this notice"
+msgstr "Älä näytä tätä enää"
 
-#: addons/digital-download/index.php:636
-msgid "Sorry, this order does not belong to you"
-msgstr "Pahoittelut, tämä tilaus ei ole sinun"
+#: addons/addon-manager/class-tgm-plugin-activation.php:405
+msgid "Please contact the administrator of this site for help."
+msgstr ""
 
-#: addons/digital-download/index.php:643
-msgid "Sorry, your item cannot yet be downloaded"
-msgstr "Pahoittelut, kuvaa ei vielä voida tallentaa"
+#: addons/addon-manager/class-tgm-plugin-activation.php:520
+msgid "This plugin needs to be updated to be compatible with your theme."
+msgstr ""
 
-#: addons/digital-download/index.php:654
-msgid "Sorry, this is not a downloadable product"
-msgstr "Pahoittelut, tämä tuote ei ole tallennettavissa"
+#: addons/addon-manager/class-tgm-plugin-activation.php:521
+msgid "Update Required"
+msgstr ""
 
-#: addons/digital-download/index.php:660
-msgid "Sorry, this image was not in your order"
-msgstr "Pahoittelut, tämä kuva ei ole tilauksellasi"
+#: addons/addon-manager/class-tgm-plugin-activation.php:635
+msgid "Set the parent_slug config variable instead."
+msgstr ""
 
-#: addons/discounts/index.php:14
-msgid "Add New Coupon"
-msgstr "Lisää Uusi Kuponki"
+#: addons/addon-manager/class-tgm-plugin-activation.php:828
+#: addons/addon-manager/class-tgm-plugin-activation.php:3438
+msgid "Return to the Dashboard"
+msgstr ""
 
-#: addons/discounts/index.php:15
-msgid "Edit Discount"
-msgstr "Muokkaa Alennusta"
+#: addons/addon-manager/class-tgm-plugin-activation.php:935
+msgid ""
+"The remote plugin package does not contain a folder with the desired slug "
+"and renaming did not work."
+msgstr ""
 
-#: addons/discounts/index.php:16
-msgid "New Discount"
-msgstr "Uusi Alennus"
+#: addons/addon-manager/class-tgm-plugin-activation.php:935
+#: addons/addon-manager/class-tgm-plugin-activation.php:938
+msgid ""
+"Please contact the plugin provider and ask them to package their plugin "
+"according to the WordPress guidelines."
+msgstr ""
 
-#: addons/discounts/index.php:17
-msgid "All Discounts"
-msgstr "Kaikki Alennukset"
+#: addons/addon-manager/class-tgm-plugin-activation.php:938
+msgid ""
+"The remote plugin package consists of more than one file, but the files are "
+"not packaged in a folder."
+msgstr ""
 
-#: addons/discounts/index.php:18
-msgid "View Discounts"
-msgstr "Näytä Alennukset"
+#: addons/addon-manager/class-tgm-plugin-activation.php:1116
+#: addons/addon-manager/class-tgm-plugin-activation.php:2828
+msgctxt "plugin A *and* plugin B"
+msgid "and"
+msgstr ""
 
-#: addons/discounts/index.php:19
-msgid "Search Discounts"
-msgstr "Etsi Alennuksia"
+#: addons/addon-manager/class-tgm-plugin-activation.php:1881
+#, php-format
+msgctxt "%s = version number"
+msgid "TGMPA v%s"
+msgstr ""
 
-#: addons/discounts/index.php:20
-msgid "No discounts found"
-msgstr "Alennuksia ei löytynyt"
+#: addons/addon-manager/class-tgm-plugin-activation.php:2167
+msgid "Required"
+msgstr ""
 
-#: addons/discounts/index.php:21
-msgid "No discounts found in trash"
-msgstr "Poistettuja Alennuksia ei löytynyt"
+#: addons/addon-manager/class-tgm-plugin-activation.php:2170
+msgid "Recommended"
+msgstr "Suositeltu"
 
-#: addons/discounts/index.php:23 sunshine-template-functions.php:760
-#: sunshine-template-functions.php:987 themes/2013/order.php:103
-#: themes/default/order.php:102 themes/theme/order.php:105
-msgid "Discounts"
-msgstr "Alennukse"
+#: addons/addon-manager/class-tgm-plugin-activation.php:2186
+msgid "WordPress Repository"
+msgstr "WordPress Arkisto"
 
-#: addons/discounts/index.php:47
-msgid "Add discount code"
-msgstr "Lisää alennuskoodi"
+#: addons/addon-manager/class-tgm-plugin-activation.php:2189
+msgid "External Source"
+msgstr ""
 
-#: addons/discounts/index.php:48
-msgid "Enter code"
-msgstr "Syötä koodi"
+#: addons/addon-manager/class-tgm-plugin-activation.php:2192
+msgid "Pre-Packaged"
+msgstr "Paketoitu"
 
-#: addons/discounts/index.php:48
-msgid "Apply"
-msgstr "Vahvista"
+#: addons/addon-manager/class-tgm-plugin-activation.php:2209
+msgid "Not Installed"
+msgstr "Ei asennettu"
 
-#: addons/discounts/index.php:54
-msgid "Discounts Applied"
-msgstr "Käytety Alennukset"
+#: addons/addon-manager/class-tgm-plugin-activation.php:2213
+msgid "Installed But Not Activated"
+msgstr "Asennettu, mutta ei aktivoitu"
 
-#: addons/discounts/index.php:57 addons/packages/index.php:183
-msgid "Remove"
-msgstr "Poista"
+#: addons/addon-manager/class-tgm-plugin-activation.php:2215
+msgid "Active"
+msgstr "Voimassa"
 
-#: addons/favorites/index.php:77 addons/favorites/index.php:194
-#: addons/favorites/index.php:205 themes/2013/favorites.php:3
+#: addons/addon-manager/class-tgm-plugin-activation.php:2221
+msgid "Required Update not Available"
+msgstr ""
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:2224
+msgid "Requires Update"
+msgstr ""
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:2227
+msgid "Update recommended"
+msgstr ""
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:2235
+#, php-format
+msgctxt "%1$s = install status, %2$s = update status"
+msgid "%1$s, %2$s"
+msgstr ""
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:2280
+#, php-format
+msgctxt "plugins"
+msgid "All <span class=\"count\">(%s)</span>"
+msgid_plural "All <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:2283
+#, php-format
+msgid "To Install <span class=\"count\">(%s)</span>"
+msgid_plural "To Install <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:2286
+#, php-format
+msgid "Update Available <span class=\"count\">(%s)</span>"
+msgid_plural "Update Available <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:2289
+#, php-format
+msgid "To Activate <span class=\"count\">(%s)</span>"
+msgid_plural "To Activate <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:2371
+msgctxt "as in: \"version nr unknown\""
+msgid "unknown"
+msgstr ""
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:2379
+msgid "Installed version:"
+msgstr ""
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:2387
+msgid "Minimum required version:"
+msgstr ""
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:2399
+msgid "Available version:"
+msgstr ""
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:2422
+#, php-format
+msgid ""
+"No plugins to install, update or activate. <a href=\"%1$s\">Return to the "
+"Dashboard</a>"
+msgstr ""
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:2436
+msgid "Plugin"
+msgstr "Lisäosa"
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:2437
+msgid "Source"
+msgstr "Lähde"
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:2438
+#: admin/sunshine-orders.php:96
+msgid "Type"
+msgstr "Tyyppi"
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:2442
+msgid "Version"
+msgstr "Versio"
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:2443
+#: admin/sunshine-dashboard.php:11 admin/sunshine-orders.php:284
+msgid "Status"
+msgstr "Status"
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:2491
+#, php-format
+msgctxt "%2$s = plugin name in screen reader markup"
+msgid "Install %2$s"
+msgstr ""
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:2495
+#, php-format
+msgctxt "%2$s = plugin name in screen reader markup"
+msgid "Update %2$s"
+msgstr ""
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:2500
+#, php-format
+msgctxt "%2$s = plugin name in screen reader markup"
+msgid "Activate %2$s"
+msgstr ""
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:2570
+msgid "Upgrade message from the plugin author:"
+msgstr ""
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:2603
+msgid "Install"
+msgstr "Asenna"
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:2609
+msgid "Update"
+msgstr ""
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:2612
+msgid "Activate"
+msgstr "Aktivoi"
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:2643
+msgid "No plugins were selected to be installed. No action taken."
+msgstr ""
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:2645
+msgid "No plugins were selected to be updated. No action taken."
+msgstr ""
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:2681
+msgid "No plugins are available to be installed at this time."
+msgstr "Ei saatavilla olevia lisäosia tällä hetkellä."
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:2683
+msgid "No plugins are available to be updated at this time."
+msgstr ""
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:2788
+msgid "No plugins were selected to be activated. No action taken."
+msgstr ""
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:2814
+msgid "No plugins are available to be activated at this time."
+msgstr ""
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:3028
+msgid "Plugin activation failed."
+msgstr "Lisäosan aktivointi epäonnistui."
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:3362
+#, php-format
+msgid "Updating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:3364
+#, php-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr "Asentaessa tapahtui virhe %1$s: <strong>%2$s</strong>."
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:3365
+#, php-format
+msgid "The installation of %1$s failed."
+msgstr "Lisäosan %1$s asennus epäonnistui."
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:3369
+msgid ""
+"The installation and activation process is starting. This process may take a"
+" while on some hosts, so please be patient."
+msgstr "Asennus- ja aktivointiprosessit ovat käynnistymässä. Tämä saattaa kestää hetken, joten odota hetki."
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:3370
+#, php-format
+msgid "%1$s installed and activated successfully."
+msgstr "%1$s asennettu ja aktivoitu onnistuneesti"
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:3370
+#: addons/addon-manager/class-tgm-plugin-activation.php:3376
+msgid "Show Details"
+msgstr ""
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:3370
+#: addons/addon-manager/class-tgm-plugin-activation.php:3376
+msgid "Hide Details"
+msgstr ""
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:3371
+msgid "All installations and activations have been completed."
+msgstr "Kaikki asennukset ja aktivoinnit on suoritettu."
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:3372
+#, php-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr "Asentaa ja aktivoi lisäosaa %1$s (%2$d/%3$d)"
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:3375
+msgid ""
+"The installation process is starting. This process may take a while on some "
+"hosts, so please be patient."
+msgstr "Asennusprosessi on käynnistymässä. Tämä saattaa kestää hetken jollain palvelimilla, joten odota hetki."
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:3376
+#, php-format
+msgid "%1$s installed successfully."
+msgstr ""
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:3377
+msgid "All installations have been completed."
+msgstr "Kaikki asennukset suoritettu onnistuneesti."
+
+#: addons/addon-manager/class-tgm-plugin-activation.php:3378
+#, php-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr "Asentaa lisäosaa %1$s (%2$d/%3$d)"
+
+#: addons/addon-manager/index.php:55
+msgid "Sunshine Pro Add-on Manager"
+msgstr ""
+
+#: addons/addon-manager/index.php:56
+msgid "Add-on Manager"
+msgstr ""
+
+#: addons/addon-manager/index.php:57
+#, php-format
+msgid "Installing Add-on: %s"
+msgstr ""
+
+#: addons/addon-manager/index.php:61
+#, php-format
+msgid ""
+"Sorry, but you do not have the correct permissions to install the %s plugin."
+" Contact the administrator of this site for help on getting the plugin "
+"installed."
+msgid_plural ""
+"Sorry, but you do not have the correct permissions to install the %s "
+"plugins. Contact the administrator of this site for help on getting the "
+"plugins installed."
+msgstr[0] ""
+msgstr[1] ""
+
+#: addons/addon-manager/index.php:64
+#, php-format
+msgid ""
+"Sorry, but you do not have the correct permissions to activate the %s "
+"plugin. Contact the administrator of this site for help on getting the "
+"plugin activated."
+msgid_plural ""
+"Sorry, but you do not have the correct permissions to activate the %s "
+"plugins. Contact the administrator of this site for help on getting the "
+"plugins activated."
+msgstr[0] ""
+msgstr[1] ""
+
+#: addons/addon-manager/index.php:66
+#, php-format
+msgid ""
+"Sorry, but you do not have the correct permissions to update the %s plugin. "
+"Contact the administrator of this site for help on getting the plugin "
+"updated."
+msgid_plural ""
+"Sorry, but you do not have the correct permissions to update the %s plugins."
+" Contact the administrator of this site for help on getting the plugins "
+"updated."
+msgstr[0] ""
+msgstr[1] ""
+
+#: addons/addon-manager/index.php:69
+msgid "Return to Sunshine Pro Add-on Manager"
+msgstr ""
+
+#: addons/addon-manager/index.php:71
+#, php-format
+msgid "All plugins installed and activated successfully. %s"
+msgstr "Kaikki pluginit asennettu ja aktivoitu onnistuneesti. %s"
+
+#: addons/addon-manager/index.php:186
+msgid ""
+"Sorry, all Sunshine add-ons require that the main Sunshine Photo Cart plugin"
+" first be active"
+msgstr ""
+
+#: addons/favorites/index.php:45 addons/favorites/index.php:214
+#: addons/favorites/index.php:227 themes/2013/favorites.php:3
 #: themes/default/favorites.php:3
 msgid "Favorites"
 msgstr "Suosikit"
 
-#: addons/favorites/index.php:95 addons/favorites/index.php:131
-#: addons/favorites/index.php:173
+#: addons/favorites/index.php:61 addons/favorites/index.php:75
+#: addons/favorites/index.php:124
 msgid "Add to Favorites"
 msgstr "Lisää Suosikkeihin"
 
-#: addons/favorites/index.php:104 addons/favorites/index.php:140
-#: addons/favorites/index.php:169
+#: addons/favorites/index.php:70
 msgid "Remove from Favorites"
 msgstr "Poista Suosikeista"
 
-#: addons/favorites/index.php:113
+#: addons/favorites/index.php:86
 msgid "Remove All Favorites"
 msgstr "Poista kaikki Suosikit"
 
-#: addons/favorites/index.php:118
+#: addons/favorites/index.php:92
 msgid "Submit Favorites"
 msgstr "Lähetä suosikit"
 
-#: addons/favorites/index.php:175
-msgid "Sorry, could not add to favorites"
-msgstr "Pahoittelut, kuvaa ei voitu lisätä Suosikkeihin"
+#: addons/favorites/index.php:167
+msgid "Remove from favorites"
+msgstr ""
 
-#: addons/favorites/index.php:180
+#: addons/favorites/index.php:174
+msgid "Add to favorites"
+msgstr ""
+
+#: addons/favorites/index.php:184
 msgid "Sorry, there was an error with your request"
 msgstr "Pahoittelut, pyyntöä ei voitu toteuttaa"
 
-#: addons/favorites/index.php:282
+#: addons/favorites/index.php:297
+msgid ""
+"A user account is required to track your favorites so you can come back any "
+"time to see them."
+msgstr ""
+
+#: addons/favorites/index.php:323
 msgid "Favorites cleared"
 msgstr "Suosikit poistettu"
 
-#: addons/favorites/index.php:294
-msgid "Favorites submitted"
-msgstr "Lähetetyt suosikit"
-
-#: addons/newsletter/index.php:63 addons/newsletter/index.php:74
-msgid "Join  email newsletter"
-msgstr "Tilaa uutiskirje"
-
-#: addons/newsletter/index.php:93
-msgid "Newsletter"
-msgstr "Uutiskirje"
-
-#: addons/newsletter/index.php:96
-msgid ""
-"We think Campaign Monitor is by far the best email newsletter system. <a "
-"href=\"https://signup.campaignmonitor.com/signup\" target=\"_blank\">Sign up "
-"for free!</a>"
+#: addons/favorites/index.php:335
+msgid "Your favorite images have been sent"
 msgstr ""
-"Mielestämme Campaign Monitor on paras uutiskirjeen toimittamiseen. <a href="
-"\"https://signup.campaignmonitor.com/signup\" target=\"_blank\">Luo ilmainen "
-"tunnus!</a>"
 
-#: addons/newsletter/index.php:101 addons/newsletter/index.php:150
-msgid "API Key"
-msgstr "API-avain"
+#: addons/favorites/index.php:417
+msgid "Sunshine Favorites"
+msgstr "Sunshine Suosikit"
 
-#: addons/newsletter/index.php:104 addons/newsletter/index.php:153
-msgid "Save this value then you can choose a list"
-msgstr "Tallenna ja valitse lista"
-
-#: addons/newsletter/index.php:132
-msgid "Invalid Campaign Monitor API key "
-msgstr "Campaign Monitorin API-avain ei kelpaa"
-
-#: addons/newsletter/index.php:136 addons/newsletter/index.php:172
-msgid "List"
-msgstr "Lista"
-
-#: addons/newsletter/index.php:140 addons/newsletter/index.php:176
-msgid "Please select list"
-msgstr "Ole hyvä ja valitse lista"
-
-#: addons/newsletter/index.php:145
-msgid ""
-"MailChimp has a good free program if you have less than 2,000 subscribers. "
-"<a href=\"http://eepurl.com/vB7jf\" target=\"_blank\">Sign up for an account "
-"and get $30 in credit</a>"
+#: addons/favorites/index.php:419 admin/sunshine-orders.php:46
+msgid "Image File List"
 msgstr ""
-"MailChimp on hyvä uutiskirjeohjelma, joka on ilmainen alle 2000:lle "
-"tilaajalle. <a href=\"http://eepurl.com/vB7jf\" target=\"_blank\">Luo "
-"tunnus, niin saat 30 $:n edun</a>"
 
-#: addons/newsletter/index.php:163
-msgid "Invalid MailChimp API key "
-msgstr "MailChimpin API-avain ei kelpaa"
-
-#: addons/packages/index.php:30
+#: addons/favorites/index.php:430 admin/sunshine-orders.php:63
 msgid ""
-"This page is not accessible via this method. Please visit a gallery first."
-msgstr "Pääsy tälle sivulle on estetty. Käy ensin Galleriassa."
+"Copy and paste the file names above into Lightroom's search feature (Library"
+" filter) to quickly find and create a new collection to make processing this"
+" order easier. Make sure you are using the \"Contains\" (and not \"Contains "
+"All\") search parameter."
+msgstr ""
 
-#: addons/packages/index.php:64 addons/packages/index.php:104
-#: addons/packages/index.php:115 themes/2013/packages.php:3
-#: themes/default/packages.php:3
-msgid "Packages"
-msgstr "Paketit"
-
-#: addons/packages/index.php:155 addons/packages/index.php:229
-msgid "Package"
-msgstr "Paketti"
-
-#: addons/packages/index.php:156
-msgid "This product is a package"
-msgstr "Tämä tuote on paketti"
-
-#: addons/packages/index.php:159
-msgid "Choose Products for Package"
-msgstr "Valitse Tuottee, jotka lisätään Pakettiin"
-
-#: addons/packages/index.php:164 themes/2013/cart.php:16
-#: themes/2013/order.php:50 themes/default/cart.php:16
-#: themes/default/order.php:49 themes/theme/cart.php:16
-#: themes/theme/order.php:52
-msgid "Product"
-msgstr "Tuote"
-
-#: addons/packages/index.php:181 themes/2013/cart.php:17
-#: themes/2013/order.php:51 themes/default/cart.php:17
-#: themes/default/order.php:50 themes/theme/cart.php:17
-#: themes/theme/order.php:53
-msgid "Qty"
-msgstr "Määrä"
-
-#: addons/packages/index.php:187
-msgid "Add another product"
-msgstr "Lisää toinen tuote"
-
-#: addons/packages/index.php:279
-msgid "Unfilled items in package:"
-msgstr "Paketin käyttämättömät tuotteet"
-
-#: addons/packages/index.php:328
-msgid "Select package"
-msgstr "Valitse paketti"
-
-#: addons/packages/index.php:365
-msgid "remaining"
-msgstr "jäljellä"
-
-#: addons/packages/index.php:374
-msgid "Completed"
-msgstr "Valmiit"
-
-#: addons/packages/index.php:380 sunshine-template-functions.php:610
-msgid "Add to Cart"
-msgstr "Lisää koriin"
-
-#: addons/packages/index.php:426
-msgid "You have not filled all your packages"
-msgstr "Kaikkia paketteja ei ole täytetty"
-
-#: addons/packages/index.php:455
-msgid "No products have been assigned to this package"
-msgstr "Tähän pakettiin ei ole lisätty tuotteita"
-
-#: addons/packages/index.php:486
-msgid "Package added to cart!"
-msgstr "Paketti lisätty ostoskoriin!"
-
-#: addons/packages/index.php:492 addons/packages/index.php:496
-#: sunshine-functions.php:82
-msgid "Sorry, something went wrong with adding the item to cart."
-msgstr "Pahoittelut, jokin meni pieleen lisättäessä kohteita koriin."
-
-#: addons/packages/index.php:519
-msgid "Item added to package"
-msgstr "Tuote lisätty pakettiin"
-
-#: addons/packages/index.php:521
-msgid "Item could not be added to package"
-msgstr "Tuotetta ei voitu lisätä pakettiin"
-
-#: addons/packages/index.php:546
-msgid "Item removed from package"
-msgstr "Tuote poistettu paketista"
-
-#: addons/packages/index.php:548
-msgid "Item could not be removed from package"
-msgstr "Tuotetta ei voitu poistaa paketista"
+#: addons/favorites/index.php:466
+msgid "After user adds image to favorites"
+msgstr ""
 
 #: addons/payment-offline/index.php:8 addons/payment-offline/index.php:86
-#: classes/sunshine.class.php:484 classes/sunshine.class.php:656
+#: classes/sunshine.class.php:466
 msgid "Offline"
 msgstr "Ei-online maksu"
 
 #: addons/payment-offline/index.php:9
 msgid "Send payment in outside of website"
-msgstr ""
-"Suorita maksu jollain ei verkossa toimivalla palvelulla, kuten laskulla"
+msgstr "Suorita maksu jollain ei verkossa toimivalla palvelulla, kuten laskulla"
 
 #: addons/payment-offline/index.php:86
 msgid ""
@@ -551,12 +642,10 @@ msgstr "Ei-online maksut voivat olla mitä tahansa, yleisimmin laskuja"
 msgid "Enable offline payments"
 msgstr "Käytä ei-online maksuja"
 
-#: addons/payment-offline/index.php:94
-#: addons/payment-payjunction/index.php:218
-#: addons/payment-paypal/index.php:168 addons/payment-stripe/index.php:190
-#: addons/price-levels/index.php:63 addons/shipping-flatrate/index.php:26
-#: addons/shipping-local/index.php:26 addons/shipping-pickup/index.php:26
-#: admin/sunshine-products.php:74
+#: addons/payment-offline/index.php:94 addons/payment-paypal/index.php:210
+#: addons/shipping-flatrate/index.php:26 addons/shipping-local/index.php:26
+#: addons/shipping-pickup/index.php:26 admin/sunshine-bulk-add-products.php:69
+#: admin/sunshine-products.php:87 classes/order.class.php:64
 msgid "Name"
 msgstr "Nimi"
 
@@ -564,15 +653,11 @@ msgstr "Nimi"
 msgid "Name that users will see on the checkout page, defaults to \"Offline\""
 msgstr "Maksutavan nimi, jonka käyttäjä näkee Kassalla, oletus \"Ei-verkko\""
 
-#: addons/payment-offline/index.php:100
-#: addons/payment-payjunction/index.php:224
-#: addons/payment-paypal/index.php:174 addons/payment-stripe/index.php:196
+#: addons/payment-offline/index.php:100 addons/payment-paypal/index.php:216
 msgid "Description"
 msgstr "Kuvaus"
 
-#: addons/payment-offline/index.php:103
-#: addons/payment-payjunction/index.php:227
-#: addons/payment-paypal/index.php:177 addons/payment-stripe/index.php:199
+#: addons/payment-offline/index.php:103 addons/payment-paypal/index.php:219
 msgid "Description that users will see on the checkout page"
 msgstr "Kuvaus, jonka käyttäjä näkee kassalla"
 
@@ -586,233 +671,94 @@ msgid ""
 "address would be a good idea)"
 msgstr "Kirjoita tähän käyttäjälle annettava ohje maksun suorittamiseen"
 
-#: addons/payment-payjunction/index.php:9 classes/sunshine.class.php:498
-#: classes/sunshine.class.php:670
-msgid "Pay by credit card (Visa, MasterCard, American Express, Discover)"
-msgstr "Maksa luottokortilla (Visa, MasterCard, American Express, Discover)"
-
-#: addons/payment-payjunction/index.php:132
-#, php-format
-msgid "Payment could not process successfully (%s). %s"
-msgstr "Maksun käsittely ei onnistunut (%s). %s"
-
-#: addons/payment-payjunction/index.php:134
-#, php-format
-msgid ""
-"Payment could not process successfully because of a server error (%s). %s"
-msgstr ""
-"Maksun käsittely epäonnistui palvelimella tapahtuneen virheen takia (%s). %s"
-
-#: addons/payment-payjunction/index.php:136
-msgid "An unknown error occurred and your payment could not be processed"
-msgstr "Tapahtui tuntematon virhe, jonka takia maksuasi ei voitu käsitellä"
-
-#: addons/payment-payjunction/index.php:149
-#: addons/payment-stripe/index.php:121
-msgid "Card Number"
-msgstr "Kortin numero"
-
-#: addons/payment-payjunction/index.php:150
-#: addons/payment-stripe/index.php:122
-msgid "CVV"
-msgstr "CVV-tarkisteluku"
-
-#: addons/payment-payjunction/index.php:152
-#: addons/payment-stripe/index.php:124
-msgid "Expiration Date"
-msgstr "Vanhenemispäivämäärä"
-
-#: addons/payment-payjunction/index.php:212
-msgid "Enable payments via PayJunction"
-msgstr "Käytä PayJunction-maksutapaa"
-
-#: addons/payment-payjunction/index.php:221
-msgid ""
-"Name that users will see on the checkout page, defaults to \"PayJunction\""
-msgstr "Maksutavan nimi, jonka käyttäjä näkee Kassalla, oletus \"PayJunction\""
-
-#: addons/payment-payjunction/index.php:230
-#: addons/payment-stripe/index.php:202
-msgid "Force HTTPS"
-msgstr "Pakota HTTPS-yhteys"
-
-#: addons/payment-payjunction/index.php:231
-msgid ""
-"PayJunction requires an SSL certificate to accept credit card information "
-"securely from your website. <a href=\"http://www.sunshinephotocart.com/docs/"
-"ssl\" target=\"_blank\">Learn more</a>"
-msgstr ""
-"PayJunction edellyttää että sivustosi käyttää SSL-sertifikaattia, jotta "
-"luottokortin käyttö on turvallista. <a href=\"http://www.sunshinephotocart."
-"com/docs/ssl\" target=\"_blank\">Lue lisää</a>"
-
-#: addons/payment-payjunction/index.php:237
-#: addons/payment-stripe/index.php:209
-msgid "Test Mode"
-msgstr "Testitila"
-
-#: addons/payment-payjunction/index.php:243 classes/frontend.class.php:340
-msgid "Login"
-msgstr "Kirjaudu"
-
-#: addons/payment-payjunction/index.php:248 classes/frontend.class.php:296
-#: sunshine-functions.php:420 sunshine-template-functions.php:784
-msgid "Password"
-msgstr "Salasana"
-
-#: addons/payment-paypal/index.php:9 classes/sunshine.class.php:490
-#: classes/sunshine.class.php:662
+#: addons/payment-paypal/index.php:9 classes/sunshine.class.php:472
 msgid "Submit payment via PayPal account or use a credit card"
 msgstr "Suorita maksu PayPal-tilin kautta tai käytä luottokorttia"
 
-#: addons/payment-paypal/index.php:25 addons/payment-paypal/index.php:34
+#: addons/payment-paypal/index.php:25 addons/payment-paypal/index.php:32
 msgid "Redirecting to PayPal"
 msgstr "Ohjataan PayPalin verkkosivulle"
 
-#: addons/payment-paypal/index.php:40
+#: addons/payment-paypal/index.php:39
 msgid "Order from "
 msgstr "Tilaus"
 
-#: addons/payment-paypal/index.php:83
+#: addons/payment-paypal/index.php:82
 msgid "Submit payment via PayPal"
 msgstr "Suorita maksu PayPalilla"
 
-#: addons/payment-paypal/index.php:162
+#: addons/payment-paypal/index.php:204
 msgid "Enable payments via PayPal"
 msgstr "Käytä PayPalia"
 
-#: addons/payment-paypal/index.php:171
+#: addons/payment-paypal/index.php:213
 msgid "Name that users will see on the checkout page, defaults to \"PayPal\""
 msgstr "Maksutavan nimi, jonka käyttäjä näkee Kassalla, oletus \"PayPal\""
 
-#: addons/payment-paypal/index.php:180
+#: addons/payment-paypal/index.php:222
 msgid "PayPal Email"
 msgstr "PayPal sähköpostiosoite"
 
-#: addons/payment-paypal/index.php:185
+#: addons/payment-paypal/index.php:227
 msgid "Enable test mode (Sandbox)"
 msgstr "Käytä PayPalin testitilaa (Hiekkalaatikko)"
 
-#: addons/payment-paypal/index.php:187
+#: addons/payment-paypal/index.php:229
 msgid ""
 "More for developers, this lets you accept test transactions via PayPal. "
 "Requires developer account and being logged into the developer account."
+msgstr "Kehittäjille, tämä toiminto mahdollistaa hyväksyä testimaksutapahtua PayPalin testiympäristön avulla. Edellyttää kehittäjän käyttäjätiliä ja sille kirjautumista selaimessa."
+
+#: addons/reports/index.php:4 addons/reports/index.php:13
+msgid "Reports"
+msgstr "Raportit"
+
+#: addons/reports/index.php:39
+msgid "No taxes have been collected thus far"
 msgstr ""
-"Kehittäjille, tämä toiminto mahdollistaa hyväksyä testimaksutapahtua "
-"PayPalin testiympäristön avulla. Edellyttää kehittäjän käyttäjätiliä ja "
-"sille kirjautumista selaimessa."
 
-#: addons/payment-stripe/index.php:9 classes/sunshine.class.php:494
-#: classes/sunshine.class.php:666
-msgid ""
-"Pay by credit card (Visa, MasterCard, American Express, Discover, JCB, and "
-"Diners Club)"
-msgstr ""
-"Maksa luottokortilla (Visa, MasterCard, American Express, Discover, JCB, and "
-"Diners Club)"
-
-#: addons/payment-stripe/index.php:184
-msgid "Enable payments via Stripe"
-msgstr "Käytä Stripea"
-
-#: addons/payment-stripe/index.php:193
-msgid "Name that users will see on the checkout page, defaults to \"Stripe\""
-msgstr "Maksutavan nimi, jonka käyttäjä näkee Kassalla, oletus \"Stripe\""
-
-#: addons/payment-stripe/index.php:203
-msgid ""
-"Stripe requires an SSL certificate to accept credit card information "
-"securely from your website. <a href=\"http://www.sunshinephotocart.com/docs/"
-"ssl\" target=\"_blank\">Learn more</a>"
-msgstr ""
-"Stripe edellyttää että sivustosi käyttää SSL-sertifikaattia, jotta "
-"luottokortin käyttö on turvallista. <a href=\"http://www.sunshinephotocart."
-"com/docs/ssl\" target=\"_blank\">Lue lisää</a>"
-
-#: addons/payment-stripe/index.php:215
-msgid "Test Secret Key"
-msgstr "Testi Salainen Avain"
-
-#: addons/payment-stripe/index.php:220
-msgid "Test Publishable Key"
-msgstr "Testi Julkinen Avain"
-
-#: addons/payment-stripe/index.php:225
-msgid "Live Secret Key"
-msgstr "Live Salainen Avain"
-
-#: addons/payment-stripe/index.php:230
-msgid "Live Publishable Key"
-msgstr "Live Julkinen Avain"
-
-#: addons/price-levels/index.php:14
-msgid "Base pricing off:"
-msgstr "Hinnoittelu perustuu:"
-
-#: addons/price-levels/index.php:24
-msgid ""
-"Optionally select an existing price level to generate prices for this new "
-"price level on all existing products"
-msgstr ""
-"Vaihtoehtoisesti, valitse hintataso jonka perusteella muodostetaan hinnat "
-"olemassaoleville tuotteille"
-
-#: addons/price-levels/index.php:28
-msgid "Percentage:"
-msgstr "Prosentti:"
-
-#: addons/price-levels/index.php:30
-msgid ""
-"What percent of the selected price level to create prices for this new price "
-"level. To make higher prices, enter a value greater than 100. To make "
-"smaller prices, enter a value less than 100."
-msgstr ""
-"Määritä prosentteina, miten valitusta hintatasosta luodaan uudet hinnat. "
-"Korottaaksesi hintoja, syötä luku joka on suurempi kuin 100. Vähentääksesi "
-"hintoja, syötä luku joka on pienempi kuin 100."
-
-#: addons/price-levels/index.php:64 admin/sunshine-menu.php:15
-#: classes/sunshine.class.php:116
-msgid "Products"
-msgstr "Tuotteet"
-
-#: addons/share/index.php:21
+#: addons/share/index.php:38 addons/share/index.php:64
 msgid "Share This"
 msgstr "Jaa tämä"
 
-#: addons/share/index.php:50
+#: addons/share/index.php:98
+msgid "Gallery Sharing"
+msgstr ""
+
+#: addons/share/index.php:111
+msgid "Image Sharing"
+msgstr ""
+
+#: addons/share/index.php:141
 msgid "Sharing on Gallery Pages"
 msgstr "Sosiaalisen Median linkit Gallerian sivulla"
 
-#: addons/share/index.php:51
+#: addons/share/index.php:142
 msgid ""
 "Let users share a gallery on social networks like Facebook, Twitter, "
 "Pinterest"
-msgstr ""
-"Näyttää käyttäjälle Sosiaalisen Median linkit Galleria-sivulla, jotta "
-"käyttäjä voi jakaa linkin Galleriaan."
+msgstr "Näyttää käyttäjälle Sosiaalisen Median linkit Galleria-sivulla, jotta käyttäjä voi jakaa linkin Galleriaan."
 
-#: addons/share/index.php:57
+#: addons/share/index.php:148
 msgid "Sharing on Image Detail Pages"
 msgstr "Sosiaalisen Median linkit yksittäisen kuvan sivulla"
 
-#: addons/share/index.php:58
+#: addons/share/index.php:149
 msgid ""
-"Let users share an image on social networks like Facebook, Twitter, Pinterest"
-msgstr ""
-"Näyttää käyttäjälle Sosiaalisen Median linkit yksittäisen kuvan sivulla, "
-"jotta käyttäjä voi jakaa linkin kuvaan."
+"Let users share an image on social networks like Facebook, Twitter, "
+"Pinterest"
+msgstr "Näyttää käyttäjälle Sosiaalisen Median linkit yksittäisen kuvan sivulla, jotta käyttäjä voi jakaa linkin kuvaan."
 
 #: addons/shipping-flatrate/index.php:20
 msgid "Enable Flat Rate Shipping"
 msgstr "Käytä kiinteää toimituskulua"
 
 #: addons/shipping-flatrate/index.php:31
-msgid "Flat Rate Shipping Cost ($)"
-msgstr "Kiinteä toimituskulu (€)"
+msgid "Flat Rate Shipping Cost"
+msgstr ""
 
 #: addons/shipping-flatrate/index.php:37 addons/shipping-local/index.php:43
-#: addons/shipping-pickup/index.php:37
+#: addons/shipping-pickup/index.php:37 admin/sunshine-bulk-add-products.php:89
 msgid "Taxable"
 msgstr "Verotettava"
 
@@ -821,8 +767,8 @@ msgid "Enable Local Delivery Shipping"
 msgstr "Käytä Paikallista Toimitusta toimitustapana"
 
 #: addons/shipping-local/index.php:31
-msgid "Local Delivery Shipping Cost ($)"
-msgstr "Paikallisen Toimituksen kulut (€)"
+msgid "Local Delivery Shipping Cost"
+msgstr ""
 
 #: addons/shipping-local/index.php:37
 msgid "Allowed zip/post codes"
@@ -848,163 +794,385 @@ msgid "Enable Pickup Shipping"
 msgstr "Käytä Noutoa toimitustapana"
 
 #: addons/shipping-pickup/index.php:31
-msgid "Pickup Shipping Cost ($)"
-msgstr "Noudon kulut (€)"
+msgid "Pickup Shipping Cost"
+msgstr ""
 
-#: addons/watermark/index.php:4
+#: addons/watermark/index.php:13
 msgid "Watermark"
 msgstr "Vesileima"
 
-#: addons/watermark/index.php:6 sunshine-options.php:270
+#: addons/watermark/index.php:13
+msgid ""
+"Add image to all files uploaded to Sunshine (except digital download files)"
+msgstr ""
+
+#: addons/watermark/index.php:15 sunshine-options.php:330
 #: themes/default/functions.php:27
 msgid "No image"
 msgstr "Ei kuvaa"
 
-#: addons/watermark/index.php:11 themes/2013/cart.php:15
-#: themes/2013/order.php:49 themes/default/cart.php:15
-#: themes/default/order.php:48 themes/theme/cart.php:15
-#: themes/theme/order.php:51
+#: addons/watermark/index.php:20 admin/sunshine-orders.php:97
+#: admin/sunshine-users.php:42 classes/order.class.php:64
+#: themes/2013/cart.php:16 themes/2013/cart.php:24 themes/2013/order.php:49
+#: themes/default/cart.php:16 themes/default/cart.php:24
+#: themes/default/order.php:48 themes/theme/cart.php:16
+#: themes/theme/cart.php:24 themes/theme/order.php:49
 msgid "Image"
 msgstr "Kuva"
 
-#: addons/watermark/index.php:16
+#: addons/watermark/index.php:25
 msgid ""
-"Image should be transparent PNG. Upload a file to your <a href=\"upload.php"
-"\">Media gallery</a>, then select it here"
+"<strong>Image must be a transparent PNG.</strong> Upload a file to your <a "
+"href=\"upload.php\">Media gallery</a>, then select it here"
 msgstr ""
-"Kuvan tulisi olla läpikuultava PNG-tiedosto. Tallenna kuvatiedosto<a href="
-"\"upload.php\">Mediakirjastoon</a> ja valitse se sitten sieltä"
 
-#: addons/watermark/index.php:19
+#: addons/watermark/index.php:28
 msgid "Position"
 msgstr "Asettelu"
 
-#: addons/watermark/index.php:31
+#: addons/watermark/index.php:32
+msgid "Top Left"
+msgstr "Ylävasen"
+
+#: addons/watermark/index.php:33
+msgid "Top Right"
+msgstr "Yläoikea"
+
+#: addons/watermark/index.php:34
+msgid "Bottom Left"
+msgstr "Alavasen"
+
+#: addons/watermark/index.php:35
+msgid "Bottom Right"
+msgstr "Alaoikea"
+
+#: addons/watermark/index.php:36
+msgid "Center"
+msgstr "Keskelllä"
+
+#: addons/watermark/index.php:37
+msgid "Repeat"
+msgstr "Toista"
+
+#: addons/watermark/index.php:41
 msgid "Margin from edge"
 msgstr "Etäisyys reunasta"
 
-#: addons/watermark/index.php:32
+#: addons/watermark/index.php:42
 msgid "Number only, not used for \"Center\" position"
 msgstr "Vain numero, ei käytetä \"Keskitys\"-asetukselle"
 
-#: admin/sunshine-admin.php:96
+#: admin/sunshine-admin.php:32
+#, php-format
+msgid ""
+"Sunshine does not work using the Default Permalink settings. <a "
+"href=\"%s\">Please choose another option</a> (we recommend \"Post name\")."
+msgstr ""
+
+#: admin/sunshine-admin.php:36
+#, php-format
+msgid ""
+"Sunshine cannot be the front page of your WordPress installation. <a "
+"href=\"%s\" target=\"_blank\">Learn more on how to resolve this issue</a>."
+msgstr ""
+
+#: admin/sunshine-admin.php:36
+msgid "Dismiss"
+msgstr "Älä näytä"
+
+#: admin/sunshine-admin.php:53
+msgid ""
+"You having been using Sunshine Photo Cart for a while now and that's "
+"awesome! Could you please do Sunshine a big favor and give it a 5-star "
+"rating on WordPress?  Reviews from users like you really help Sunshine to "
+"grow and continue to improve."
+msgstr ""
+
+#: admin/sunshine-admin.php:54 admin/sunshine-admin.php:79
+msgid "Thank You"
+msgstr ""
+
+#: admin/sunshine-admin.php:56 admin/sunshine-admin.php:81
+msgid "Sure thing!"
+msgstr ""
+
+#: admin/sunshine-admin.php:57 admin/sunshine-admin.php:82
+msgid "Maybe later"
+msgstr ""
+
+#: admin/sunshine-admin.php:58 admin/sunshine-admin.php:83
+msgid "I already did"
+msgstr ""
+
+#: admin/sunshine-admin.php:78
+msgid ""
+"Would you like to earn $10 credit towards an add-on or a license renewal? "
+"Then go take the Sunshine survey! It will help us learn more about how you "
+"use Sunshine and what we can do to make it better."
+msgstr ""
+
+#: admin/sunshine-admin.php:90
+msgid "Update completed"
+msgstr ""
+
+#: admin/sunshine-admin.php:117
+#, php-format
+msgid "Welcome to Sunshine Photo Cart %s"
+msgstr ""
+
+#: admin/sunshine-admin.php:121
+msgid "Thanks, all done!"
+msgstr "Kiitos, kaikki valmista!"
+
+#: admin/sunshine-admin.php:123
+msgid "Thank you for updating to the latest version!"
+msgstr ""
+
+#: admin/sunshine-admin.php:125
+msgid "Thanks for installing!"
+msgstr "Kiitos asentamisesta!"
+
+#: admin/sunshine-admin.php:128
+#, php-format
+msgid ""
+"<strong>%s</strong> Sunshine %s is the most comprehensive client proofing "
+"and photo cart plugin for WordPress. We hope you enjoy greater selling "
+"success!"
+msgstr ""
+
+#: admin/sunshine-admin.php:138 admin/sunshine-menu.php:10
+#: classes/sf-class-settings.php:149
+msgid "Settings"
+msgstr "Asetukset"
+
+#: admin/sunshine-admin.php:139
+msgid "Docs"
+msgstr "Dokumentaatio"
+
+#: admin/sunshine-admin.php:141
+msgid "Go Pro!"
+msgstr ""
+
+#: admin/sunshine-admin.php:214
 msgid "On"
 msgstr "Päällä"
 
-#: admin/sunshine-admin.php:96
+#: admin/sunshine-admin.php:214
 msgid "Off"
 msgstr "Pois"
 
-#: admin/sunshine-admin.php:98
+#: admin/sunshine-admin.php:216
 msgid "Your server supports fsockopen."
 msgstr "Palvelimellasi on tuki fsockopenille"
 
-#: admin/sunshine-admin.php:98
+#: admin/sunshine-admin.php:216
 msgid "Your server does not support fsockopen."
 msgstr "Palvelimellasi ei ole tukea fsockpenille"
+
+#: admin/sunshine-admin.php:286
+msgid ""
+"There was an error retrieving the add-ons list from the server. Please try "
+"again later."
+msgstr ""
+
+#: admin/sunshine-admin.php:331
+#, php-format
+msgid ""
+"Thank you for using <a href=\"%1$s\" target=\"_blank\">Sunshine Photo "
+"Cart</a>! Please <a href=\"%2$s\" target=\"_blank\">rate us</a> on <a "
+"href=\"%2$s\" target=\"_blank\">WordPress.org</a>"
+msgstr ""
+
+#: admin/sunshine-bulk-add-products.php:9
+msgid "Bulk add products"
+msgstr ""
 
 #: admin/sunshine-bulk-add-products.php:19
 msgid "Bulk Add Products"
 msgstr "Usean Tuotteen lisääminen"
 
-#: admin/sunshine-dashboard.php:9 admin/sunshine-orders.php:239
+#: admin/sunshine-bulk-add-products.php:71 admin/sunshine-products.php:88
+msgid "Category"
+msgstr "Kategoria"
+
+#: admin/sunshine-bulk-add-products.php:82 admin/sunshine-galleries.php:368
+#: classes/sunshine.class.php:149 classes/sunshine.class.php:150
+msgid "Price Level"
+msgstr "Hintataso"
+
+#: admin/sunshine-bulk-add-products.php:92 themes/2013/cart.php:41
+#: themes/default/cart.php:41 themes/theme/cart.php:41
+msgid "Remove"
+msgstr "Poista"
+
+#: admin/sunshine-bulk-add-products.php:95
+msgid "Add another product"
+msgstr "Lisää toinen tuote"
+
+#: admin/sunshine-bulk-add-products.php:97
+msgid "Before you add these, please double check everything is accurate!"
+msgstr ""
+
+#: admin/sunshine-bulk-add-products.php:99
+msgid "Add these products"
+msgstr ""
+
+#: admin/sunshine-dashboard.php:9 admin/sunshine-orders.php:282
 msgid "Order #"
 msgstr "Tilaus #"
 
-#: admin/sunshine-dashboard.php:10 admin/sunshine-orders.php:240
+#: admin/sunshine-dashboard.php:10 admin/sunshine-orders.php:283
 msgid "Customer"
 msgstr "Asiakas"
 
-#: admin/sunshine-dashboard.php:11 admin/sunshine-orders.php:241
-msgid "Status"
-msgstr "Status"
-
-#: admin/sunshine-dashboard.php:12 sunshine-template-functions.php:771
-#: themes/2013/order.php:114 themes/default/order.php:113
-#: themes/theme/order.php:116
+#: admin/sunshine-dashboard.php:12 admin/sunshine-orders.php:174
+#: sunshine-template-functions.php:987 themes/2013/cart.php:46
+#: themes/2013/order.php:114 themes/default/cart.php:46
+#: themes/default/order.php:113 themes/theme/cart.php:46
+#: themes/theme/order.php:114
 msgid "Total"
 msgstr "Loppusumma"
 
-#: admin/sunshine-dashboard.php:39
+#: admin/sunshine-dashboard.php:40
 msgid "Recent Orders"
 msgstr "Viimeaikaiset Tilaukset"
 
-#: admin/sunshine-dashboard.php:45 admin/sunshine-menu.php:8
+#: admin/sunshine-dashboard.php:46 admin/sunshine-menu.php:9
 msgid "Dashboard"
 msgstr "Ohjausnäkymä"
 
-#: admin/sunshine-discounts.php:8
-msgid "Options"
-msgstr "Asetukset"
+#: admin/sunshine-galleries.php:10
+msgid "Photos"
+msgstr "Kuvat"
 
-#: admin/sunshine-galleries.php:8
+#: admin/sunshine-galleries.php:18
 msgid "Gallery Options"
 msgstr "Gallerian Asetukset"
 
-#: admin/sunshine-galleries.php:110
+#: admin/sunshine-galleries.php:27
+msgid "Gallery Emails"
+msgstr ""
+
+#: admin/sunshine-galleries.php:63
+msgid "Drop files here"
+msgstr ""
+
+#: admin/sunshine-galleries.php:64
+msgid "or"
+msgstr "tai"
+
+#: admin/sunshine-galleries.php:65
+msgid "Select Files"
+msgstr ""
+
+#: admin/sunshine-galleries.php:125
+msgid "Sorry, the image could not be deleted for some reason"
+msgstr ""
+
+#: admin/sunshine-galleries.php:145
+msgid "Allowed Files"
+msgstr ""
+
+#: admin/sunshine-galleries.php:388
+msgid "Normal access"
+msgstr ""
+
+#: admin/sunshine-galleries.php:389
+msgid "Registered and logged in"
+msgstr ""
+
+#: admin/sunshine-galleries.php:390
+msgid "Provide email address"
+msgstr ""
+
+#: admin/sunshine-galleries.php:433
 msgid "M j, Y @ G:i"
 msgstr "M j, Y @ G:i"
 
-#: admin/sunshine-galleries.php:135 admin/sunshine-galleries.php:305
+#: admin/sunshine-galleries.php:458 admin/sunshine-galleries.php:626
 #, php-format
 msgid "%1$s-%2$s"
 msgstr "%1$s-%2$s"
 
-#: admin/sunshine-galleries.php:146 admin/sunshine-galleries.php:316
+#: admin/sunshine-galleries.php:469 admin/sunshine-galleries.php:637
 #, php-format
 msgid "%1$s%2$s, %3$s @ %4$s : %5$s"
 msgstr "%1$s%2$s, %3$s @ %4$s : %5$s"
 
-#: admin/sunshine-galleries.php:152 admin/sunshine-galleries.php:331
+#: admin/sunshine-galleries.php:475 admin/sunshine-galleries.php:652
 msgid "OK"
 msgstr "OK"
 
-#: admin/sunshine-galleries.php:153 admin/sunshine-galleries.php:332
+#: admin/sunshine-galleries.php:476 admin/sunshine-galleries.php:653
 msgid "Cancel"
 msgstr "Peru"
 
-#: admin/sunshine-image-processor.php:9
+#: admin/sunshine-galleries.php:727
+#, php-format
+msgid "<strong>Gallery updated</strong>, <a href=\"%s\">view gallery</a>"
+msgstr ""
+
+#: admin/sunshine-galleries.php:728
+#, php-format
+msgid "<strong>Gallery created</strong>, <a href=\"%s\">view gallery</a>"
+msgstr ""
+
+#: admin/sunshine-image-processor.php:11
 msgid "Image Processor"
 msgstr "Kuvien Prosessointi"
 
-#: admin/sunshine-image-processor.php:10
+#: admin/sunshine-image-processor.php:12
 msgid ""
-"We are processing your images! Please be patient, especially since there may "
-"be a lot"
+"We are processing your images! Please be patient, especially if you have a "
+"lot."
 msgstr ""
-"Kuviasi prosessoidaan nyt! Olethan kärsivällinen, varsinkin jos kuvia on "
-"paljon"
 
-#: admin/sunshine-image-processor.php:104
+#: admin/sunshine-image-processor.php:131
 msgid "Next page"
 msgstr "Seuraava sivu"
 
-#: admin/sunshine-image-processor.php:116
+#: admin/sunshine-image-processor.php:143
 msgid "Edit this gallery"
 msgstr "Muokkaa galleriaa"
 
-#: admin/sunshine-menu.php:9 classes/sf-class-settings.php:149
-msgid "Settings"
-msgstr "Asetukset"
-
-#: admin/sunshine-menu.php:13 classes/frontend.class.php:353
-#: classes/sunshine.class.php:81 sunshine-options.php:183
+#: admin/sunshine-menu.php:13 classes/sunshine.class.php:69
+#: sunshine-options.php:205
 msgid "Galleries"
 msgstr "Galleriat"
 
-#: admin/sunshine-menu.php:14 classes/sunshine.class.php:136
+#: admin/sunshine-menu.php:14 classes/sunshine.class.php:125
 msgid "Product Categories"
 msgstr "Tuotekategoriat"
 
-#: admin/sunshine-menu.php:16 classes/sunshine.class.php:196
+#: admin/sunshine-menu.php:15 classes/sunshine.class.php:105
+msgid "Products"
+msgstr "Tuotteet"
+
+#: admin/sunshine-menu.php:16 classes/sunshine.class.php:185
 #: themes/2013/account.php:16 themes/default/account.php:16
 #: themes/theme/account.php:18
 msgid "Orders"
 msgstr "Tilaukset"
 
+#: admin/sunshine-menu.php:19
+msgid "Add-ons"
+msgstr ""
+
+#: admin/sunshine-menu.php:19
+msgid "Add-Ons"
+msgstr ""
+
+#: admin/sunshine-menu.php:22
+msgid "Support"
+msgstr "Tuki"
+
 #: admin/sunshine-menu.php:23
 msgid "System Info"
 msgstr "Järjestelmän tiedot"
+
+#: admin/sunshine-menu.php:31
+msgid "About Sunshine Photo Cart"
+msgstr ""
 
 #: admin/sunshine-orders.php:8
 msgid "Order Data"
@@ -1014,146 +1182,239 @@ msgstr "Tilauksen tiedot"
 msgid "Order Notes"
 msgstr "Tilaukset huomautukset"
 
-#: admin/sunshine-orders.php:24 classes/sunshine.class.php:215
-#: classes/sunshine.class.php:216 sunshine-options.php:323
+#: admin/sunshine-orders.php:24 classes/sunshine.class.php:205
+#: classes/sunshine.class.php:206 sunshine-options.php:383
+#: sunshine-options.php:417
 msgid "Order Status"
 msgstr "Tilauksen status"
 
-#: admin/sunshine-orders.php:242 sunshine-template-functions.php:995
+#: admin/sunshine-orders.php:46 admin/sunshine-orders.php:368
+msgid "Invoice"
+msgstr "Lasku"
+
+#: admin/sunshine-orders.php:73
+msgid "Order Date"
+msgstr "Tilauksen pvm"
+
+#: admin/sunshine-orders.php:75
+msgid "Billing Info"
+msgstr ""
+
+#: admin/sunshine-orders.php:75
+msgid "Shipping Info"
+msgstr "Toimitustiedot"
+
+#: admin/sunshine-orders.php:98 admin/sunshine-users.php:43
+#: themes/2013/cart.php:17 themes/2013/cart.php:31 themes/2013/order.php:50
+#: themes/default/cart.php:17 themes/default/cart.php:31
+#: themes/default/order.php:49 themes/theme/cart.php:17
+#: themes/theme/cart.php:31 themes/theme/order.php:50
+msgid "Product"
+msgstr "Tuote"
+
+#: admin/sunshine-orders.php:99 themes/2013/cart.php:18
+#: themes/2013/cart.php:39 themes/2013/order.php:51 themes/default/cart.php:18
+#: themes/default/cart.php:39 themes/default/order.php:50
+#: themes/theme/cart.php:18 themes/theme/cart.php:39 themes/theme/order.php:51
+msgid "Qty"
+msgstr "Määrä"
+
+#: admin/sunshine-orders.php:100 admin/sunshine-users.php:45
+#: themes/2013/cart.php:19 themes/2013/order.php:52 themes/default/cart.php:19
+#: themes/default/order.php:51 themes/theme/cart.php:19
+#: themes/theme/order.php:52
+msgid "Item Price"
+msgstr "Hinta"
+
+#: admin/sunshine-orders.php:101 themes/2013/cart.php:20
+#: themes/2013/order.php:53 themes/default/cart.php:20
+#: themes/default/order.php:52 themes/theme/cart.php:20
+#: themes/theme/order.php:53
+msgid "Item Total"
+msgstr "Yhteensä"
+
+#: admin/sunshine-orders.php:138 sunshine-template-functions.php:961
+#: themes/2013/order.php:91 themes/default/order.php:90
+#: themes/theme/order.php:91
+msgid "Subtotal"
+msgstr "Välisumma"
+
+#: admin/sunshine-orders.php:142 sunshine-template-functions.php:966
+#: sunshine-template-functions.php:1208 themes/2013/order.php:95
+#: themes/default/order.php:94 themes/theme/order.php:95
+msgid "Tax"
+msgstr "Vero"
+
+#: admin/sunshine-orders.php:146 sunshine-options.php:313
+#: sunshine-template-functions.php:971 sunshine-template-functions.php:1212
+#: themes/2013/order.php:99 themes/default/order.php:98
+#: themes/theme/order.php:99
+msgid "Shipping"
+msgstr "Toimitus"
+
+#: admin/sunshine-orders.php:153 sunshine-template-functions.php:976
+#: sunshine-template-functions.php:1216 themes/2013/order.php:103
+#: themes/default/order.php:102 themes/theme/order.php:103
+msgid "Discounts"
+msgstr "Alennukse"
+
+#: admin/sunshine-orders.php:168 admin/sunshine-users.php:15
+#: admin/sunshine-users.php:86 sunshine-template-functions.php:982
+#: sunshine-template-functions.php:1220 themes/2013/account.php:9
+#: themes/2013/order.php:108 themes/default/account.php:9
+#: themes/default/order.php:107 themes/theme/account.php:11
+#: themes/theme/order.php:108
+msgid "Credits"
+msgstr "Krediitit"
+
+#: admin/sunshine-orders.php:178
+msgid "Payment Method"
+msgstr ""
+
+#: admin/sunshine-orders.php:188
+msgid "This is for internal use only and is not visible to your customer"
+msgstr ""
+
+#: admin/sunshine-orders.php:226
+msgid "Show all Customers"
+msgstr ""
+
+#: admin/sunshine-orders.php:261
+msgid "Email customer about status change"
+msgstr ""
+
+#: admin/sunshine-orders.php:285 sunshine-template-functions.php:1224
 msgid "Order Total"
 msgstr "Tilaus yhteensä"
 
-#: admin/sunshine-orders.php:243
+#: admin/sunshine-orders.php:286
 msgid "Date"
 msgstr "Päiväys"
 
-#: admin/sunshine-orders.php:301 classes/sunshine.class.php:508
-#: classes/sunshine.class.php:681
+#: admin/sunshine-orders.php:345 classes/sunshine.class.php:506
 msgid "Pending"
 msgstr "Odottaa"
 
-#: admin/sunshine-orders.php:302 classes/sunshine.class.php:510
-#: classes/sunshine.class.php:683
+#: admin/sunshine-orders.php:346 classes/sunshine.class.php:508
 msgid "New"
 msgstr "Uusi"
 
-#: admin/sunshine-orders.php:303 classes/sunshine.class.php:512
-#: classes/sunshine.class.php:685
+#: admin/sunshine-orders.php:347 classes/sunshine.class.php:510
 msgid "Processing"
 msgstr "Käsitellään"
 
-#: admin/sunshine-orders.php:304 classes/sunshine.class.php:514
-#: classes/sunshine.class.php:687
+#: admin/sunshine-orders.php:348 classes/sunshine.class.php:512
 msgid "Shipped/Completed"
 msgstr "Toimitettu/Valmis"
 
-#: admin/sunshine-orders.php:305
+#: admin/sunshine-orders.php:349
 msgid "Cancelled"
 msgstr "Peruutettu"
+
+#: admin/sunshine-orders.php:383
+msgid "Sorry, no order specified"
+msgstr ""
 
 #: admin/sunshine-products.php:7
 msgid "Product Info"
 msgstr "Tuotteen tiedot"
 
-#: admin/sunshine-products.php:75
-msgid "Category"
-msgstr "Kategoria"
-
-#: admin/sunshine-products.php:76
+#: admin/sunshine-products.php:89 themes/2013/cart.php:43
+#: themes/default/cart.php:43 themes/theme/cart.php:43
 msgid "Price"
 msgstr "HInta"
 
-#: admin/sunshine-products.php:104
+#: admin/sunshine-products.php:117
 msgid "No categories"
 msgstr "Kategorioita ei ole"
 
-#: admin/sunshine-users.php:15
-msgid "Sunshine Favorites"
-msgstr "Sunshine Suosikit"
+#: admin/sunshine-products.php:197
+msgid "<strong>Product updated</strong>"
+msgstr ""
 
-#: admin/sunshine-users.php:36
+#: admin/sunshine-products.php:198
+msgid "<strong>Product created</strong>"
+msgstr ""
+
+#: admin/sunshine-users.php:12
 msgid "Sunshine Gallery Credits for Purchases"
 msgstr "Sunshine Krediittejä käytettävissä"
 
-#: admin/sunshine-users.php:39 sunshine-template-functions.php:766
-#: sunshine-template-functions.php:991 themes/2013/account.php:9
-#: themes/2013/order.php:108 themes/default/account.php:9
-#: themes/default/order.php:107 themes/theme/account.php:11
-#: themes/theme/order.php:110
-msgid "Credits"
-msgstr "Krediitit"
-
-#: admin/sunshine-users.php:55
+#: admin/sunshine-users.php:38
 msgid "Sunshine Items in Cart"
 msgstr "Sunshine-tuotteita ostoskorissa"
 
-#: admin/sunshine-users.php:91
+#: admin/sunshine-users.php:44 classes/order.class.php:64
+#: sunshine-template-functions.php:792
+msgid "Quantity"
+msgstr "Määrä"
+
+#: admin/sunshine-users.php:74
 msgid "No items in cart"
 msgstr "Ostoskorissa ei ole tuotteita"
 
-#: classes/cart.class.php:168
+#: classes/cart.class.php:193
 msgid "Free shipping via discount code"
 msgstr "Alennuskoodilla ilmainen toimitus"
 
-#: classes/cart.class.php:290
+#: classes/cart.class.php:320
 #, php-format
 msgid "Discount %s has now expired and has been removed from your cart"
 msgstr "Alennus %s on vanhentunut ja se on poistettu ostoskoristasi"
 
-#: classes/cart.class.php:297
+#: classes/cart.class.php:327
 #, php-format
 msgid ""
-"Discount %s has now exceeded the maximum uses and has been removed from your "
-"cart"
-msgstr ""
-"Alennusta %s on nyt käytetty niin monta kertaa kuin on sallittu ja se on "
-"poistettu ostoskoristasi"
+"Discount %s has now exceeded the maximum uses and has been removed from your"
+" cart"
+msgstr "Alennusta %s on nyt käytetty niin monta kertaa kuin on sallittu ja se on poistettu ostoskoristasi"
 
-#: classes/cart.class.php:528
+#: classes/cart.class.php:458
+msgid "Free"
+msgstr "Ilmainen"
+
+#: classes/cart.class.php:567
 msgid "You are not allowed to add any more discounts to your cart"
 msgstr "Et voi lisätä enempää alennuksia ostoskoriin"
 
-#: classes/cart.class.php:532
+#: classes/cart.class.php:571
 msgid "This discount is already applied to your cart"
 msgstr "Tämä alennus on jo käytössä ostoskorissa"
 
-#: classes/cart.class.php:547
-msgid "Your order does not yet meet the minimum order amount for this discount"
+#: classes/cart.class.php:586
+msgid ""
+"Your order does not yet meet the minimum order amount for this discount"
 msgstr "Tilauksesi loppusumma ei täytä alennuksen minimisummaa"
 
-#: classes/cart.class.php:553
+#: classes/cart.class.php:592
 msgid "This coupon is not yet valid, please try again later"
 msgstr "Syöttämäsi kuponki ei ole vielä voimassa, koita myöhemmin uudelleen"
 
-#: classes/cart.class.php:558
+#: classes/cart.class.php:597
 msgid "This coupon has expired"
 msgstr "Kuponki on vanhentunut"
 
-#: classes/cart.class.php:566
+#: classes/cart.class.php:605
 msgid "This coupon has exceeded the number of uses allowed"
 msgstr "Kuponkia on käytetty useampi kerta kuin mitä on sallittu"
 
-#: classes/cart.class.php:573
+#: classes/cart.class.php:612
 msgid "This coupon has exceeded the number of uses allowed per user"
 msgstr "Kuponkia on käytetty useampi kerta per käyttäjä kuin mitä on sallittu"
 
-#: classes/cart.class.php:579
+#: classes/cart.class.php:621
 msgid "discount added"
 msgstr "alennus lisätty"
 
-#: classes/cart.class.php:581
-msgid "discount could not be added"
-msgstr "alennusta ei voitu lisätä"
-
-#: classes/cart.class.php:585
+#: classes/cart.class.php:626
 msgid "Not a valid discount code"
 msgstr "Alennuskoodi ei kelpaa"
 
-#: classes/cart.class.php:596
+#: classes/cart.class.php:640
 msgid "Discount removed"
 msgstr "Alennus poistettu"
 
-#: classes/cart.class.php:600
+#: classes/cart.class.php:644
 msgid "Discount not applied to your cart and cannot be removed"
 msgstr "Alennusta ei lisätty koriin eikä sitä voitu poistaa"
 
@@ -2665,105 +2926,168 @@ msgstr "Tyynimeri"
 msgid "Select country"
 msgstr "Valitse maa"
 
-#: classes/countries.class.php:468 sunshine-functions.php:285
-#: sunshine-functions.php:303
+#: classes/countries.class.php:468 sunshine-functions.php:435
+#: sunshine-functions.php:459
 msgid "Select state"
 msgstr "Valitse kunta"
 
-#: classes/frontend.class.php:295
+#: classes/frontend.class.php:276
+msgid "Search for"
+msgstr ""
+
+#: classes/frontend.class.php:287 themes/2013/account.php:23
+#: themes/2013/order.php:9 themes/default/account.php:23
+#: themes/default/order.php:9 themes/theme/account.php:25
+msgid "Order"
+msgstr "Tilaus"
+
+#: classes/frontend.class.php:325
+msgid "Expires on"
+msgstr "Vanhenee:"
+
+#: classes/frontend.class.php:333
 msgid ""
 "This gallery is password protected. To view it please enter your password "
 "below:"
 msgstr "Galleria on salasanasuojattu. Avataksesi gallerian, syötä salasana."
 
-#: classes/frontend.class.php:298
+#: classes/frontend.class.php:334 email/register.php:3
+#: sunshine-functions.php:679 sunshine-template-functions.php:1000
+msgid "Password"
+msgstr "Salasana"
+
+#: classes/frontend.class.php:336
 msgid "Hint"
 msgstr "Vihje"
 
-#: classes/frontend.class.php:327
+#: classes/frontend.class.php:337 sunshine-template-functions.php:1464
+msgid "Submit"
+msgstr ""
+
+#: classes/frontend.class.php:365
 msgid "Logout"
 msgstr "Kirjaudu ulos"
 
-#: classes/frontend.class.php:333 classes/sunshine.class.php:408
-#: classes/sunshine.class.php:580 sunshine-options.php:175
-#: themes/2013/account.php:3 themes/default/account.php:3
+#: classes/frontend.class.php:371 classes/sunshine.class.php:390
+#: sunshine-options.php:197 themes/2013/account.php:3
+#: themes/default/account.php:3
 msgid "Account"
 msgstr "Käyttäjätili"
 
-#: classes/frontend.class.php:345
+#: classes/frontend.class.php:378
+msgid "Login"
+msgstr "Kirjaudu"
+
+#: classes/frontend.class.php:383 sunshine-options.php:373
 msgid "Register"
 msgstr "Rekisteröidy"
 
-#: classes/frontend.class.php:360 classes/sunshine.class.php:419
-#: classes/sunshine.class.php:591 sunshine-options.php:163
-#: themes/2013/cart.php:3 themes/default/cart.php:3
+#: classes/frontend.class.php:403 classes/sunshine.class.php:401
+#: sunshine-options.php:185 themes/2013/cart.php:3 themes/default/cart.php:3
 msgid "Cart"
 msgstr "Kori"
 
-#: classes/frontend.class.php:367 classes/sunshine.class.php:430
-#: classes/sunshine.class.php:602 sunshine-options.php:169
+#: classes/frontend.class.php:410 classes/sunshine.class.php:412
+#: sunshine-options.php:191 sunshine-options.php:294
 #: themes/2013/checkout.php:3 themes/default/checkout.php:3
 msgid "Checkout"
 msgstr "Kassa"
 
-#: classes/frontend.class.php:385 themes/default/image.php:9
+#: classes/frontend.class.php:427 themes/default/image.php:9
 msgid "Return to"
 msgstr "Palaa kohtaan"
 
-#: classes/frontend.class.php:400
-msgid "Purchase Options"
-msgstr "Ostamisen asetukset"
-
-#: classes/frontend.class.php:454
-msgid "Sorry, you are not allowed to access this gallery"
-msgstr "Pahoittelut, sinulla ei ole oikeuksia tähän gallerian"
-
-#: classes/frontend.class.php:454 classes/frontend.class.php:460
-#: classes/frontend.class.php:471 classes/frontend.class.php:481
-msgid "Access denied"
-msgstr "Pääsy kielletty"
-
-#: classes/frontend.class.php:459
+#: classes/frontend.class.php:474
 #, php-format
-msgid ""
-"This gallery requires you to have an account and be logged in. <a href=\"%s"
-"\">Login</a> or <a href=\"%s\">Register</a>"
+msgid "A photo from the gallery %s by %s"
 msgstr ""
-"Tämä galleria edellyttää että olet kirjautunut järjestelmään. Jos sinulla ei "
-"ole tunnusta, rekisteröidy. <a href=\"%s\">Kirjaudu</a> or <a href=\"%s"
-"\">Rekisteröidy</a>"
 
-#: classes/frontend.class.php:471
+#: classes/frontend.class.php:485
+#, php-format
+msgid "A photo in the gallery %s by %s"
+msgstr ""
+
+#: classes/frontend.class.php:527
 msgid "Sorry, you are not allowed to view this image"
 msgstr "Pahoittelut, sinulla ei ole oikeuksia katsoa tätä kuvaa"
 
-#: classes/frontend.class.php:481
+#: classes/frontend.class.php:527 classes/frontend.class.php:537
+msgid "Access denied"
+msgstr "Pääsy kielletty"
+
+#: classes/frontend.class.php:537
 msgid "Sorry, you are not allowed to access this order information"
 msgstr "Pahoittelut, sinulla ei ole oikeuksia näihin tilaustietoihin"
 
-#: classes/frontend.class.php:524
-msgid "Registration is required to add items to favorites and checkout"
+#: classes/frontend.class.php:580
+msgid ""
+"To continue to checkout, please enter your email address and password to "
+"establish an account. You can complete your purchase on the next page."
 msgstr ""
-"Jotta voit lisätä kuvia suosikkeihisi ja suorittaa ostoksia, tulee sinun "
-"rekisteröityä"
 
-#: classes/order.class.php:100
+#: classes/frontend.class.php:583
 #, php-format
-msgid "Receipt for your purchase from %s"
-msgstr "%s ostosten kuitti"
+msgid ""
+"The gallery you are accessing requires you to have a user account to access."
+" Please register below or <a href=\"%s\">login here</a>"
+msgstr ""
 
-#: classes/order.class.php:101
+#: classes/frontend.class.php:586
+#, php-format
+msgid ""
+"The gallery you are accessing requires you to have a user account to access."
+" Please login below or <a href=\"%s\">register here</a>"
+msgstr ""
+
+#: classes/frontend.class.php:589
+msgid ""
+"The gallery you are accessing is private and only allowed for specific "
+"users. Please login below:"
+msgstr ""
+
+#: classes/license.class.php:128
+msgid "Invalid license key"
+msgstr ""
+
+#: classes/license.class.php:296
+msgid "This license does not belong to the product you have entered it for."
+msgstr ""
+
+#: classes/license.class.php:301
+msgid "This license does not have any activations left"
+msgstr ""
+
+#: classes/license.class.php:306
+msgid "This license key is expired. Please renew it."
+msgstr ""
+
+#: classes/license.class.php:311
+#, php-format
+msgid ""
+"There was a problem activating your license key for %s, please try again or "
+"contact support. Error code: %s"
+msgstr ""
+
+#: classes/order.class.php:64
+msgid "Cost"
+msgstr ""
+
+#: classes/order.class.php:115
 #, php-format
 msgid "Order placed on %s"
 msgstr "Tilaus on tehty %s"
 
-#: classes/order.class.php:105
+#: classes/order.class.php:119
 msgid "Order completed successfully!"
 msgstr "Tilaus suoritettu onnistuneesti!"
 
 #: classes/sf-class-format-options.php:207
 msgid "Select a page..."
 msgstr "Valitse sivu..."
+
+#: classes/sf-class-format-options.php:263
+msgid "Deactivate this license"
+msgstr ""
 
 #: classes/sf-class-settings.php:292
 msgid "Could not load settings at: "
@@ -2773,1089 +3097,1348 @@ msgstr "Asetuksia ei voitu ladata:"
 msgid "Error - WP Settings Framework"
 msgstr "Virhe - WordPress Settings Framework"
 
-#: classes/sf-class-settings.php:357
+#: classes/sf-class-settings.php:359
 msgid "Settings saved."
 msgstr "Asetukset tallennettu."
 
-#: classes/sf-class-settings.php:470
-#, php-format
-msgid "Save %s changes"
-msgstr "Tallenna %s asetukset"
+#: classes/sf-class-settings.php:473
+msgid "Save changes"
+msgstr "Tallenna muutokset"
 
-#: classes/sunshine.class.php:72
+#: classes/sunshine.class.php:57
+msgctxt "post type general name"
+msgid "Galleries"
+msgstr "Galleriat"
+
+#: classes/sunshine.class.php:58
+msgctxt "post type singular name"
+msgid "Gallery"
+msgstr ""
+
+#: classes/sunshine.class.php:59
+msgctxt "gallery"
+msgid "Add New"
+msgstr ""
+
+#: classes/sunshine.class.php:60
 msgid "Add New Gallery"
 msgstr "Lisää uusi Galleria"
 
-#: classes/sunshine.class.php:73
+#: classes/sunshine.class.php:61
 msgid "Edit Gallery"
 msgstr "Muokkaa Galleriaa"
 
-#: classes/sunshine.class.php:74
+#: classes/sunshine.class.php:62
 msgid "New Gallery"
 msgstr "Uusi Galleria"
 
-#: classes/sunshine.class.php:75
+#: classes/sunshine.class.php:63
 msgid "All Galleries"
 msgstr "Kaikki Galleriat"
 
-#: classes/sunshine.class.php:76
+#: classes/sunshine.class.php:64
 msgid "View Gallery"
 msgstr "Näytä Galleria"
 
-#: classes/sunshine.class.php:77
+#: classes/sunshine.class.php:65
 msgid "Search Galleries"
 msgstr "Etsi Gallerioista"
 
-#: classes/sunshine.class.php:78
+#: classes/sunshine.class.php:66
 msgid "No galleries found"
 msgstr "Gallerioita ei löytynyt"
 
-#: classes/sunshine.class.php:79
+#: classes/sunshine.class.php:67
 msgid "No galleries found in trash"
 msgstr "Poistettuja Gallerioita ei ole"
 
-#: classes/sunshine.class.php:107
+#: classes/sunshine.class.php:93
+msgctxt "post type general name"
+msgid "Products"
+msgstr "Tuotteet"
+
+#: classes/sunshine.class.php:94
+msgctxt "post type singular name"
+msgid "Product"
+msgstr "Tuote"
+
+#: classes/sunshine.class.php:95
+msgctxt "product"
+msgid "Add Single Product"
+msgstr ""
+
+#: classes/sunshine.class.php:96
 msgid "Add New Product"
 msgstr "Lisää uusi Tuote"
 
-#: classes/sunshine.class.php:108
+#: classes/sunshine.class.php:97
 msgid "Edit Product"
 msgstr "Muokkaa Tuotetta"
 
-#: classes/sunshine.class.php:109
+#: classes/sunshine.class.php:98
 msgid "New Product"
 msgstr "Uusi Tuote"
 
-#: classes/sunshine.class.php:110
+#: classes/sunshine.class.php:99
 msgid "All Products"
 msgstr "Kaikki Tuotteet"
 
-#: classes/sunshine.class.php:111
+#: classes/sunshine.class.php:100
 msgid "View Products"
 msgstr "Näytä Tuotteet"
 
-#: classes/sunshine.class.php:112
+#: classes/sunshine.class.php:101
 msgid "Search Products"
 msgstr "Etsi Tuotteista"
 
-#: classes/sunshine.class.php:113
+#: classes/sunshine.class.php:102
 msgid "No products found"
 msgstr "Tuotteita ei löytynyt"
 
-#: classes/sunshine.class.php:114
+#: classes/sunshine.class.php:103
 msgid "No products found in trash"
 msgstr "Poistettuja tuotteita ei löytynyt"
 
-#: classes/sunshine.class.php:137
+#: classes/sunshine.class.php:126
 msgid "Product Category"
 msgstr "Tuotekategoria"
 
-#: classes/sunshine.class.php:138
+#: classes/sunshine.class.php:127
 msgid "Search Product Categories"
 msgstr "Etsi tuotekatekorioista"
 
-#: classes/sunshine.class.php:139
+#: classes/sunshine.class.php:128
 msgid "All Product Categories"
 msgstr "Kaikki tuotekategoriat"
 
-#: classes/sunshine.class.php:140
+#: classes/sunshine.class.php:129
 msgid "Parent Product Category"
 msgstr "Päätuotekategoria"
 
-#: classes/sunshine.class.php:141
+#: classes/sunshine.class.php:130
 msgid "Parent Product Category:"
 msgstr "Päätuotekategoria:"
 
-#: classes/sunshine.class.php:142
+#: classes/sunshine.class.php:131
 msgid "Edit Product Category"
 msgstr "Muokkaa tuotekategoriaa"
 
-#: classes/sunshine.class.php:143
+#: classes/sunshine.class.php:132
 msgid "Update Product Category"
 msgstr "Päivitä tuotekategoria"
 
-#: classes/sunshine.class.php:144
+#: classes/sunshine.class.php:133
 msgid "Add New Product Category"
 msgstr "Lisää uusi tuotekategoria"
 
-#: classes/sunshine.class.php:145
+#: classes/sunshine.class.php:134
 msgid "New Product Category Name"
 msgstr "Uuden tuotekategorian nimi"
 
-#: classes/sunshine.class.php:146
+#: classes/sunshine.class.php:135
 msgid "Separate categories with commas"
 msgstr "Erota kategoriat pilkulla"
 
-#: classes/sunshine.class.php:147
+#: classes/sunshine.class.php:136
 msgid "Choose from the most used categories"
 msgstr "Valitse eniten käytetyistä kategorioista"
 
-#: classes/sunshine.class.php:162
+#: classes/sunshine.class.php:151
 msgid "Search Price Levels"
 msgstr "Etsi Hintaryhmistä"
 
-#: classes/sunshine.class.php:163
+#: classes/sunshine.class.php:152
 msgid "All Price Levels"
 msgstr "Kaikki Hintaryhmät"
 
-#: classes/sunshine.class.php:164
+#: classes/sunshine.class.php:153
 msgid "Parent Price Level"
 msgstr "Päähintaryhmä"
 
-#: classes/sunshine.class.php:165
+#: classes/sunshine.class.php:154
 msgid "Parent Price Level:"
 msgstr "Päähintaryhmä:"
 
-#: classes/sunshine.class.php:166
+#: classes/sunshine.class.php:155
 msgid "Edit Price Level"
 msgstr "Muokkaa Hintaryhmää"
 
-#: classes/sunshine.class.php:167
+#: classes/sunshine.class.php:156
 msgid "Update Price Level"
 msgstr "Päivitä Hintaryhmä"
 
-#: classes/sunshine.class.php:168
+#: classes/sunshine.class.php:157
 msgid "Add New Price Level"
 msgstr "Lisää uusi Hintaryhmä"
 
-#: classes/sunshine.class.php:169
+#: classes/sunshine.class.php:158
 msgid "New Price Level"
 msgstr "Uusi Hintaryhmä"
 
-#: classes/sunshine.class.php:187
+#: classes/sunshine.class.php:173
+msgctxt "post type general name"
+msgid "Orders"
+msgstr "Tilaukset"
+
+#: classes/sunshine.class.php:174
+msgctxt "post type singular name"
+msgid "Order"
+msgstr "Tilaus"
+
+#: classes/sunshine.class.php:175
+msgctxt "order"
+msgid "Add New"
+msgstr ""
+
+#: classes/sunshine.class.php:176
 msgid "Add New Order"
 msgstr "Lisää uusi Tilaus"
 
-#: classes/sunshine.class.php:188
+#: classes/sunshine.class.php:177
 msgid "Edit Order"
 msgstr "Muokkaa Tilausta"
 
-#: classes/sunshine.class.php:189
+#: classes/sunshine.class.php:178
 msgid "New Order"
 msgstr "Uusi Tilaus"
 
-#: classes/sunshine.class.php:190
+#: classes/sunshine.class.php:179
 msgid "All Orders"
 msgstr "Kaikki Tilaukset"
 
-#: classes/sunshine.class.php:191
+#: classes/sunshine.class.php:180
 msgid "View Orders"
 msgstr "Näytä Tilaukset"
 
-#: classes/sunshine.class.php:192
+#: classes/sunshine.class.php:181
 msgid "Search Orders"
 msgstr "Etsi Tilauksista"
 
-#: classes/sunshine.class.php:193
+#: classes/sunshine.class.php:182
 msgid "No orders found"
 msgstr "Tilauksia ei löytynyt"
 
-#: classes/sunshine.class.php:194
+#: classes/sunshine.class.php:183
 msgid "No orders found in trash"
 msgstr "Poistettuja Tilauksia ei löytynyt"
 
-#: classes/sunshine.class.php:217
+#: classes/sunshine.class.php:207
 msgid "Search Order Status"
 msgstr "Etsi Tilausten Statuksia"
 
-#: classes/sunshine.class.php:218
+#: classes/sunshine.class.php:208
 msgid "All Order Status"
 msgstr "Kaikki Tilausten Statukset"
 
-#: classes/sunshine.class.php:219
+#: classes/sunshine.class.php:209
 msgid "Parent Order Status"
 msgstr "Tilausten päästatus"
 
-#: classes/sunshine.class.php:220
+#: classes/sunshine.class.php:210
 msgid "Parent Order Status:"
 msgstr "Tilausten päästatus:"
 
-#: classes/sunshine.class.php:221
+#: classes/sunshine.class.php:211
 msgid "Edit Order Status"
 msgstr "Muokkaa Tilauksen Statusta"
 
-#: classes/sunshine.class.php:222
+#: classes/sunshine.class.php:212
 msgid "Update Order Status"
 msgstr "Päivitä Tilauksen Statusta"
 
-#: classes/sunshine.class.php:223
+#: classes/sunshine.class.php:213
 msgid "Add New Order Status"
 msgstr "Lisää uusi Tilauksen Status"
 
-#: classes/sunshine.class.php:224
+#: classes/sunshine.class.php:214
 msgid "New Order Status"
 msgstr "Uusi Tilauksen Status"
 
-#: classes/sunshine.class.php:399 classes/sunshine.class.php:571
+#: classes/sunshine.class.php:381
 msgid ""
 "This is a placeholder page that Sunshine uses to display itself. You can "
 "edit this text by going to Pages > Client Galleries."
-msgstr ""
-"Tämä on mallisivu, jota Sunshine Photo Cart käyttää oman sisältönsä "
-"näyttämiseen. Voit muokata tätä tekstiä sisällönhallinnassa kohdasta Sivut > "
-"Client Galleries."
+msgstr "Tämä on mallisivu, jota Sunshine Photo Cart käyttää oman sisältönsä näyttämiseen. Voit muokata tätä tekstiä sisällönhallinnassa kohdasta Sivut > Client Galleries."
 
-#: classes/sunshine.class.php:450 classes/sunshine.class.php:622
+#: classes/sunshine.class.php:432
 msgid ""
 "Thank you for registering! You can now mark your favorite photos and make "
 "purchases on the website."
-msgstr ""
-"Kiitos rekisteröitymisestä! Voit nyt merkitä kuvia suosikeiksi ja tehdä "
-"ostoksia sivuilta."
+msgstr "Kiitos rekisteröitymisestä! Voit nyt merkitä kuvia suosikeiksi ja tehdä ostoksia sivuilta."
 
-#: classes/sunshine.class.php:452 classes/sunshine.class.php:624
+#: classes/sunshine.class.php:434
 msgid ""
 "Thank you for your order! Below is a summary of the order for your records. "
 "You will receive a separate email when your item(s) have shipped."
-msgstr ""
-"Kiitos tilauksestasi! Alla on yhteenveto tilaamistasi tuotteista. Saat vielä "
-"erillisen sähköpostin, kun kaikki tilaamasi tuotteet on toimitettu."
+msgstr "Kiitos tilauksestasi! Alla on yhteenveto tilaamistasi tuotteista. Saat vielä erillisen sähköpostin, kun kaikki tilaamasi tuotteet on toimitettu."
 
-#: classes/sunshine.class.php:454 classes/sunshine.class.php:626
+#: classes/sunshine.class.php:436
 msgid "Thank you!"
 msgstr "Kiitos!"
 
-#: classes/sunshine.class.php:478 classes/sunshine.class.php:650
+#: classes/sunshine.class.php:460
 msgid "Flat Rate Shipping"
 msgstr "Kiinteä toimituskulu"
 
-#: classes/sunshine.class.php:480 classes/sunshine.class.php:652
+#: classes/sunshine.class.php:462
 msgid "Local Delivery"
 msgstr "Paikallinen toimitus"
 
-#: classes/sunshine.class.php:482 classes/sunshine.class.php:654
+#: classes/sunshine.class.php:464
 msgid "Local Pickup"
 msgstr "Paikallinen nouto"
 
-#: classes/sunshine.class.php:486 classes/sunshine.class.php:658
+#: classes/sunshine.class.php:468
 msgid "Send payment outside of website (ie, check, phone call, other)"
-msgstr ""
-"Suorita maksu jollain ei verkossa toimivalla palvelulla, kuten paperisella "
-"laskulla."
+msgstr "Suorita maksu jollain ei verkossa toimivalla palvelulla, kuten paperisella laskulla."
 
-#: classes/sunshine.class.php:488 classes/sunshine.class.php:660
+#: classes/sunshine.class.php:470
 msgid "PayPal"
 msgstr "PayPal"
 
-#: classes/sunshine.class.php:508 classes/sunshine.class.php:681
+#: classes/sunshine.class.php:476
+msgid ""
+"Pay by credit card (Visa, MasterCard, American Express, Discover, JCB, and "
+"Diners Club)"
+msgstr "Maksa luottokortilla (Visa, MasterCard, American Express, Discover, JCB, and Diners Club)"
+
+#: classes/sunshine.class.php:480
+msgid "Pay by credit card (Visa, MasterCard, American Express, Discover)"
+msgstr "Maksa luottokortilla (Visa, MasterCard, American Express, Discover)"
+
+#: classes/sunshine.class.php:486
+msgid "New user account info at [sitename]"
+msgstr ""
+
+#: classes/sunshine.class.php:488
+msgid "Receipt for order #[order_id] from [sitename]"
+msgstr ""
+
+#: classes/sunshine.class.php:490
+msgid "Your order #[order_id] from [sitename] has been updated"
+msgstr ""
+
+#: classes/sunshine.class.php:492
+msgid "A new comment on order #[order_id] at [sitename]"
+msgstr ""
+
+#: classes/sunshine.class.php:506
 msgid "We have received your order but payment is still pending"
 msgstr "Olemme vastaanottaneet tilauksesi, mutta odotamme vielä maksua."
 
-#: classes/sunshine.class.php:510 classes/sunshine.class.php:683
+#: classes/sunshine.class.php:508
 msgid "We have received your order and payment"
 msgstr "Olemme vastaanottaneet tilauksesi ja maksusuorituksesi."
 
-#: classes/sunshine.class.php:512 classes/sunshine.class.php:685
+#: classes/sunshine.class.php:510
 msgid "The images in your order are being processed and/or printed"
 msgstr "Tilauksellasi olevia kuvia käsitellään ja valmistellaan juuri nyt"
 
-#: classes/sunshine.class.php:514 classes/sunshine.class.php:687
+#: classes/sunshine.class.php:512
 msgid "Your items have shipped (or are available for download)!"
-msgstr ""
-"Tilaamasi tuotteet on nyt toimitettu tai ne ovat nyt tallennettavissa omalle "
-"tietokoneellesi."
+msgstr "Tilaamasi tuotteet on nyt toimitettu tai ne ovat nyt tallennettavissa omalle tietokoneellesi."
 
-#: classes/sunshine.class.php:516 classes/sunshine.class.php:689
+#: classes/sunshine.class.php:514
 msgid "Cancelled/Refunded"
 msgstr "Peruutettu/Hyvitetty"
 
-#: classes/sunshine.class.php:516 classes/sunshine.class.php:689
+#: classes/sunshine.class.php:514
 msgid "Your order was cancelled and/or refunded"
 msgstr "Tilauksesi on peruutettu ja/tai hyvitetty"
 
-#: classes/sunshine.class.php:519 classes/sunshine.class.php:697
+#: classes/sunshine.class.php:517
 msgid "Default"
 msgstr "Oletus"
 
-#: sunshine-functions.php:79
-msgid "Item added to cart!"
-msgstr "Kohde lisätty koriin!"
+#: classes/update.class.php:167
+#, php-format
+msgid ""
+"There is a new version of %1$s available. <a target=\"_blank\" "
+"class=\"thickbox\" href=\"%2$s\">View version %3$s details</a>."
+msgstr ""
 
-#: sunshine-functions.php:121 sunshine-functions.php:161
+#: classes/update.class.php:174
+#, php-format
+msgid ""
+"There is a new version of %1$s available. <a target=\"_blank\" "
+"class=\"thickbox\" href=\"%2$s\">View version %3$s details</a> or <a "
+"href=\"%4$s\">update now</a>."
+msgstr ""
+
+#: classes/update.class.php:314
+msgid "You do not have permission to install plugin updates"
+msgstr ""
+
+#: classes/update.class.php:314
+msgid "Error"
+msgstr ""
+
+#: email/order_comment_admin.php:1
+msgid "Comment from"
+msgstr ""
+
+#: email/order_status.php:3
+msgid "Click here to view your order details"
+msgstr ""
+
+#: email/receipt.php:2 email/receipt_admin.php:1
+msgid "Cart Items"
+msgstr ""
+
+#: email/receipt.php:4 email/receipt_admin.php:3
+msgid "Ship To"
+msgstr ""
+
+#: email/receipt.php:6
+msgid ""
+"If you have any questions or concerns about this order, simply reply to this"
+" email"
+msgstr ""
+
+#: email/register.php:2 sunshine-template-functions.php:1190
+msgid "Username"
+msgstr "Käyttäjätunnus"
+
+#: sunshine-functions.php:178
+#, php-format
+msgid ""
+"Item added to cart! <a href=\"%s\" target=\"_top\">View cart</a> or <a "
+"href=\"%s\">Return to %s</a>"
+msgstr ""
+
+#: sunshine-functions.php:183
+msgid "Sorry, something went wrong with adding the item to cart."
+msgstr "Pahoittelut, jokin meni pieleen lisättäessä kohteita koriin."
+
+#: sunshine-functions.php:230
 msgid "Cart updated"
 msgstr "Kori päivitetty"
 
-#: sunshine-functions.php:145
+#: sunshine-functions.php:258
 msgid "Item removed from cart"
 msgstr "Artikkeli poistettiin ostoskorista"
 
-#: sunshine-functions.php:191
-msgid "Username is required"
-msgstr "Käyttäjänimi vaaditaan"
+#: sunshine-functions.php:286
+msgid "Valid email is required"
+msgstr ""
 
-#: sunshine-functions.php:193
-msgid "Username already exists"
-msgstr "Käyttäjänimi on jo rekisteröity"
+#: sunshine-functions.php:294
+msgid "Email already exists, but wrong password provided"
+msgstr ""
 
-#: sunshine-functions.php:198
+#: sunshine-functions.php:300
 msgid "Password is required"
 msgstr "Salasana vaaditaan"
 
-#: sunshine-functions.php:200
-msgid "Email already exists"
-msgstr "Sähköpostiosoite on jo rekisteröity"
-
-#: sunshine-functions.php:236
+#: sunshine-functions.php:372
 msgid "Valid email required"
 msgstr "Oikea sähköpostiosoite on vaadittu"
 
-#: sunshine-functions.php:238
+#: sunshine-functions.php:374
 msgid "Phone number required"
 msgstr "Puhelinnumero on vaadittu"
 
-#: sunshine-functions.php:240
+#: sunshine-functions.php:376
 msgid "Billing country required"
 msgstr "Maa on vaadittu laskulle"
 
-#: sunshine-functions.php:242
+#: sunshine-functions.php:378
 msgid "Billing first name required"
 msgstr "Etunimi on vaadittu laskulle"
 
-#: sunshine-functions.php:244
+#: sunshine-functions.php:380
 msgid "Billing last name required"
 msgstr "Sukunimi on vaadittu laskulle"
 
-#: sunshine-functions.php:246
+#: sunshine-functions.php:382
 msgid "Billing address required"
 msgstr "Laskutusoite on vaadittu"
 
-#: sunshine-functions.php:248
+#: sunshine-functions.php:384
 msgid "Billing city required"
 msgstr "Kaupunki on vaadittu laskulle"
 
-#: sunshine-functions.php:250
+#: sunshine-functions.php:386
 msgid "Billing state required"
 msgstr "Kunta on vaadittu laskulle"
 
-#: sunshine-functions.php:252
+#: sunshine-functions.php:388
 msgid "Billing zip required"
 msgstr "Postinumero on vaadittu laskulle"
 
-#: sunshine-functions.php:255
+#: sunshine-functions.php:391
 msgid "Shipping country required"
 msgstr "Maa vaaditaan toimitustietoihin"
 
-#: sunshine-functions.php:257
+#: sunshine-functions.php:393
 msgid "Shipping first name required"
 msgstr "Etunimi vaaditaan toimitustietoihin"
 
-#: sunshine-functions.php:259
+#: sunshine-functions.php:395
 msgid "Shipping last name required"
 msgstr "Sukunimi vaaditaan toimitustietoihin"
 
-#: sunshine-functions.php:261
+#: sunshine-functions.php:397
 msgid "Shipping address required"
 msgstr "Osoite vaaditaan toimitustietoihin"
 
-#: sunshine-functions.php:263
+#: sunshine-functions.php:399
 msgid "Shipping city required"
 msgstr "Kaupunki vaaditaan toimitustietoihin"
 
-#: sunshine-functions.php:265
+#: sunshine-functions.php:401
 msgid "Shipping state required"
 msgstr "Kunta vaaditaan toimitustietoihin"
 
-#: sunshine-functions.php:267
+#: sunshine-functions.php:403
 msgid "Shipping zip required"
 msgstr "Postinumero vaaditaan toimitustietoihin"
 
-#: sunshine-functions.php:270
+#: sunshine-functions.php:406
 msgid "Shipping method required"
 msgstr "Lähetystyyppi vaaditaan"
 
-#: sunshine-functions.php:272
+#: sunshine-functions.php:408
 msgid "Payment method required"
 msgstr "Maksutapa vaaditaan"
 
-#: sunshine-functions.php:377
+#: sunshine-functions.php:411
+msgid "You must approve our terms"
+msgstr ""
+
+#: sunshine-functions.php:558
+msgid "Agree to Terms"
+msgstr ""
+
+#: sunshine-functions.php:562
+msgid "I agree to the above terms"
+msgstr ""
+
+#: sunshine-functions.php:590
 msgid "New user registration on your Sunshine Photo Cart"
 msgstr "Uusi käyttäjä rekisteröityi Sunshin Photo Cartia varten"
 
-#: sunshine-functions.php:378
+#: sunshine-functions.php:591
 #, php-format
 msgid "E-mail: %s"
 msgstr "Sähköpostiosoite: %s"
 
-#: sunshine-functions.php:379
+#: sunshine-functions.php:592
 #, php-format
 msgid "Name: %s"
 msgstr "Nimi: %s"
 
-#: sunshine-functions.php:381
+#: sunshine-functions.php:594
 #, php-format
 msgid "[%s] New User Registration"
 msgstr "[%s] Uuden käyttäjän rekisteröityminen"
 
-#: sunshine-functions.php:388
-#, php-format
-msgid "New user account info for %s"
-msgstr "Uuden käyttäjän tiedot - %s"
-
-#: sunshine-functions.php:407
+#: sunshine-functions.php:628
 msgid ""
 "Thank you for registering! You have been automatically logged into your new "
 "account"
-msgstr ""
-"Kiitos rekisteröitymisestä! Olet nyt automaattisesti kirjautunut "
-"tunnuksellasi"
+msgstr "Kiitos rekisteröitymisestä! Olet nyt automaattisesti kirjautunut tunnuksellasi"
 
-#: sunshine-functions.php:433
+#: sunshine-functions.php:701
 msgid "Passwords must be at least six characters long"
 msgstr "Salasanan tulee olla vähintään kuusi merkkiä pitkä"
 
-#: sunshine-functions.php:518
+#: sunshine-functions.php:820 sunshine-functions.php:824
+msgid "Username or Email"
+msgstr "Käyttäjänimi tai sähköposti"
+
+#: sunshine-functions.php:824
+msgid "username"
+msgstr ""
+
+#: sunshine-functions.php:881
 msgid "Account updated"
 msgstr "Tiliä päivitetty"
 
-#: sunshine-functions.php:585
+#: sunshine-functions.php:973
 msgid "Sorry, no galleries matched that password."
 msgstr "Pahoittelut, salasanalla ei löytynyt gallerioita."
+
+#: sunshine-functions.php:1003
+msgid "Not a valid email address"
+msgstr ""
 
 #: sunshine-options.php:8
 msgid "General"
 msgstr "Yleiset"
 
-#: sunshine-options.php:9
-msgid "License"
-msgstr "Lisenssi"
-
-#: sunshine-options.php:11
-msgid "License is activated!"
-msgstr "Lisenssi aktivoitu"
-
-#: sunshine-options.php:11 sunshine-options.php:17
-msgid "Deactivate this license key"
-msgstr "Poista lisenssin aktivointi"
-
-#: sunshine-options.php:15
-msgid "License is invalid, please try again!"
-msgstr "Lisenssiavain ei käy, ole hyvä ja koita uudelleen!"
-
-#: sunshine-options.php:19
-msgid "Enter your license key"
-msgstr "Syötä lisenssiavain"
-
-#: sunshine-options.php:23
-msgid "License Key"
-msgstr "Lisenssiavain"
-
-#: sunshine-options.php:29
+#: sunshine-options.php:10
 msgid "Localization"
 msgstr "Lokalisointi"
 
-#: sunshine-options.php:31
+#: sunshine-options.php:12
 msgid "Default Country"
 msgstr "Oletusmaa"
 
-#: sunshine-options.php:48
+#: sunshine-options.php:19
 msgid "Taxes"
 msgstr "Verot"
 
-#: sunshine-options.php:59
+#: sunshine-options.php:30
 msgid "Do not use taxes"
 msgstr "Älä käytä veroja"
 
-#: sunshine-options.php:61
+#: sunshine-options.php:32
 msgid "Country / State"
 msgstr "Maa"
 
-#: sunshine-options.php:62
+#: sunshine-options.php:33
 msgid "What country or state should have taxes applied"
 msgstr "Mihin maahan veroja sovelletaan?"
 
-#: sunshine-options.php:69
+#: sunshine-options.php:40
 msgid "Tax rate (%)"
 msgstr "Veroprosentti (%)"
 
-#: sunshine-options.php:70
+#: sunshine-options.php:41
 msgid "Number only"
 msgstr "Vain numeroita"
 
-#: sunshine-options.php:76
+#: sunshine-options.php:55
 msgid "Currency Formatting"
 msgstr "Valuutan muoto"
 
-#: sunshine-options.php:79
+#: sunshine-options.php:59
+msgid "United Arab Emirates Dirham"
+msgstr ""
+
+#: sunshine-options.php:60
 msgid "Australian Dollars"
 msgstr "Australian dollari"
 
-#: sunshine-options.php:80
+#: sunshine-options.php:61
+msgid "Bangladeshi Taka"
+msgstr ""
+
+#: sunshine-options.php:62
 msgid "Brazilian Real"
 msgstr "Brazilian real"
 
-#: sunshine-options.php:81
+#: sunshine-options.php:63
+msgid "Bulgarian Lev"
+msgstr "Bulgarian leva"
+
+#: sunshine-options.php:64
 msgid "Canadian Dollars"
 msgstr "Kanadan dollari"
 
-#: sunshine-options.php:82
+#: sunshine-options.php:65
+msgid "Chilean Peso"
+msgstr "Chilen peso"
+
+#: sunshine-options.php:66
 msgid "Chinese Yuan"
 msgstr "Kiinan renmimbi"
 
-#: sunshine-options.php:83
+#: sunshine-options.php:67
+msgid "Colombian Peso"
+msgstr "Kolumbian peso"
+
+#: sunshine-options.php:68
 msgid "Czech Koruna"
 msgstr "Tsekin koruna"
 
-#: sunshine-options.php:84
+#: sunshine-options.php:69
 msgid "Danish Krone"
 msgstr "Tanskan kruunu"
 
-#: sunshine-options.php:85
+#: sunshine-options.php:70
+msgid "Dominican Peso"
+msgstr "Dominikaanin peso"
+
+#: sunshine-options.php:71
 msgid "Euros"
 msgstr "Euro"
 
-#: sunshine-options.php:86
+#: sunshine-options.php:72
 msgid "Hong Kong Dollar"
 msgstr "Hongkongin dollari"
 
-#: sunshine-options.php:87
+#: sunshine-options.php:73
+msgid "Croatia kuna"
+msgstr ""
+
+#: sunshine-options.php:74
 msgid "Hungarian Forint"
 msgstr "Unkarin forintti"
 
-#: sunshine-options.php:88
+#: sunshine-options.php:75
+msgid "Icelandic krona"
+msgstr ""
+
+#: sunshine-options.php:76
 msgid "Indonesia Rupiah"
 msgstr "Indonesian rupia"
 
-#: sunshine-options.php:89
+#: sunshine-options.php:77
+msgid "Indian Rupee"
+msgstr "Intian rupia"
+
+#: sunshine-options.php:78
+msgid "Nepali Rupee"
+msgstr ""
+
+#: sunshine-options.php:79
 msgid "Israeli Shekel"
 msgstr "Israelin sekeli"
 
-#: sunshine-options.php:90
+#: sunshine-options.php:80
 msgid "Japanese Yen"
 msgstr "Japanin jeni"
 
-#: sunshine-options.php:91
+#: sunshine-options.php:81
+msgid "Lao Kip"
+msgstr ""
+
+#: sunshine-options.php:82
+msgid "South Korean Won"
+msgstr ""
+
+#: sunshine-options.php:83
 msgid "Malaysian Ringgits"
 msgstr "Malesian ringgit"
 
-#: sunshine-options.php:92
+#: sunshine-options.php:84
 msgid "Mexican Peso"
 msgstr "Meksikon peso"
 
-#: sunshine-options.php:93
+#: sunshine-options.php:85
+msgid "Nigerian Naira"
+msgstr ""
+
+#: sunshine-options.php:86
 msgid "Norwegian Krone"
 msgstr "Norjan kruunu"
 
-#: sunshine-options.php:94
+#: sunshine-options.php:87
 msgid "New Zealand Dollar"
 msgstr "Uuden Seelannin dollari"
 
-#: sunshine-options.php:95
+#: sunshine-options.php:88
+msgid "Paraguayan Guaraní"
+msgstr ""
+
+#: sunshine-options.php:89
 msgid "Philippine Pesos"
 msgstr "Filippiinien peso"
 
-#: sunshine-options.php:96
+#: sunshine-options.php:90
 msgid "Polish Zloty"
 msgstr "Puolan zloty"
 
-#: sunshine-options.php:97
+#: sunshine-options.php:91
 msgid "Pounds Sterling"
 msgstr "Englannin punta"
 
-#: sunshine-options.php:98
+#: sunshine-options.php:92
+msgid "Qatari Riyal"
+msgstr ""
+
+#: sunshine-options.php:93
 msgid "Romanian Leu"
 msgstr "Romanian leu"
 
-#: sunshine-options.php:99
+#: sunshine-options.php:94
+msgid "Russian Ruble"
+msgstr "Venäjän ruplaa"
+
+#: sunshine-options.php:95
+msgid "Seychelles Rupee"
+msgstr "Seychellien rupia"
+
+#: sunshine-options.php:96
 msgid "Singapore Dollar"
 msgstr "Singaporen dollari"
 
-#: sunshine-options.php:100
+#: sunshine-options.php:97
 msgid "South African rand"
 msgstr "Etelä-Afrikan randi"
 
-#: sunshine-options.php:101
+#: sunshine-options.php:98
 msgid "Swedish Krona"
 msgstr "Ruotsin kruunu"
 
-#: sunshine-options.php:102
+#: sunshine-options.php:99
 msgid "Swiss Franc"
 msgstr "Sveitsin frangi"
 
-#: sunshine-options.php:103
+#: sunshine-options.php:100
 msgid "Taiwan New Dollars"
 msgstr "Uusi Taiwanin dollari"
 
-#: sunshine-options.php:104
+#: sunshine-options.php:101
 msgid "Thai Baht"
 msgstr "Thaimaan baht"
 
-#: sunshine-options.php:105
+#: sunshine-options.php:102
 msgid "Turkish Lira"
 msgstr "Turkin liira"
 
-#: sunshine-options.php:106
+#: sunshine-options.php:103
+msgid "Ukrainian Hryvnia"
+msgstr "Ukrainan hryvnia"
+
+#: sunshine-options.php:104
 msgid "US Dollars"
 msgstr "USA:n dollari"
 
-#: sunshine-options.php:109
+#: sunshine-options.php:105
+msgid "Vietnamese Dong"
+msgstr ""
+
+#: sunshine-options.php:106
+msgid "Egyptian Pound"
+msgstr "Egyptin punta"
+
+#: sunshine-options.php:111
 msgid "Currency"
 msgstr "Valuutta"
 
-#: sunshine-options.php:116
+#: sunshine-options.php:118
 msgid "Currency symbol position"
 msgstr "Valuutan symbolin paikka"
 
-#: sunshine-options.php:119
+#: sunshine-options.php:121
 msgid "Left"
 msgstr "Vasemmalla"
 
-#: sunshine-options.php:119
+#: sunshine-options.php:121
 msgid "Right"
 msgstr "Oikealla"
 
-#: sunshine-options.php:119
+#: sunshine-options.php:121
 msgid "Left space"
 msgstr "Vasen väli"
 
-#: sunshine-options.php:119
+#: sunshine-options.php:121
 msgid "Right space"
 msgstr "Oikea väli"
 
-#: sunshine-options.php:122
+#: sunshine-options.php:124
 msgid "Thousands separator"
 msgstr "Tuhaterotin"
 
-#: sunshine-options.php:128
+#: sunshine-options.php:130
 msgid "Decimal separator"
 msgstr "Desimaalin erotin"
 
-#: sunshine-options.php:134
+#: sunshine-options.php:136
 msgid "Number of decimals"
 msgstr "Desimaalien määrä"
 
-#: sunshine-options.php:140
+#: sunshine-options.php:142
 msgid "Cart, Checkout and Accounts"
 msgstr "Kori, Kassa ja Käyttäjätilit"
 
-#: sunshine-options.php:142
+#: sunshine-options.php:144
 msgid "Require account to see products"
 msgstr "Tuotteiden näkeminen edellyttää käyttäjätiliä"
 
-#: sunshine-options.php:145
+#: sunshine-options.php:147
 msgid ""
 "Enabling this option means users cannot see products or add them to cart "
 "unless they have created an account and are logged in."
+msgstr "Käyttäjätunnus ja järjestelmään kirjautuminen on edellytettyä, jotta käyttäjä voi nähdä tuotteet ja lisätä niitä ostoskoriin."
+
+#: sunshine-options.php:151
+msgid "URLs"
 msgstr ""
-"Käyttäjätunnus ja järjestelmään kirjautuminen on edellytettyä, jotta "
-"käyttäjä voi nähdä tuotteet ja lisätä niitä ostoskoriin."
 
 #: sunshine-options.php:153
+msgid "Gallery Endpoint"
+msgstr ""
+
+#: sunshine-options.php:159
+msgid "Image Endpoint"
+msgstr ""
+
+#: sunshine-options.php:165
+msgid "Order Endpoint"
+msgstr ""
+
+#: sunshine-options.php:174
 msgid "Pages"
 msgstr "Sivut"
 
-#: sunshine-options.php:154
+#: sunshine-options.php:175
 msgid "Page options"
 msgstr "Sivun asetukset"
 
-#: sunshine-options.php:154
+#: sunshine-options.php:175
 msgid ""
 "The following pages need selecting so that Sunshine knows where they are. "
-"These pages should have been created upon installation, if not you will need "
-"to create them."
-msgstr ""
-"Seuraavat sivut tulee valita, jotta Sunshine tietää missä ne ovat. Näiden "
-"sivujen pitäisi olla luotuja asennuksen yhteydessä, mikäli näin ei ole sinun "
-"pitää luoda nämä sivut."
+"These pages should have been created upon installation, if not you will need"
+" to create them."
+msgstr "Seuraavat sivut tulee valita, jotta Sunshine tietää missä ne ovat. Näiden sivujen pitäisi olla luotuja asennuksen yhteydessä, mikäli näin ei ole sinun pitää luoda nämä sivut."
 
-#: sunshine-options.php:156
+#: sunshine-options.php:178
 msgid "Sunshine page"
 msgstr "Sunshine sivu"
 
-#: sunshine-options.php:157
+#: sunshine-options.php:179
 msgid "Choose which page Sunshine will be displayed on"
 msgstr "Valitse millä sivulla Sunshine näytetään"
 
-#: sunshine-options.php:184
+#: sunshine-options.php:206
 msgid "Administration Options"
 msgstr "Hallinnan asetukset"
 
-#: sunshine-options.php:186
-msgid "Delete images with gallery"
-msgstr "Poista kuvat kun galleria poistetaan"
+#: sunshine-options.php:209
+msgid "Delete Media Library images"
+msgstr ""
 
-#: sunshine-options.php:189
+#: sunshine-options.php:212
 msgid ""
 "This will remove all images from the Media Library AND the actual image "
 "files from your server when a gallery is permanently deleted"
-msgstr ""
-"Kuvatiedostot poistetaan Mediakirjastosta SEKÄ palvelimeltasi, kun galleria "
-"poistetaan."
+msgstr "Kuvatiedostot poistetaan Mediakirjastosta SEKÄ palvelimeltasi, kun galleria poistetaan."
 
-#: sunshine-options.php:193
+#: sunshine-options.php:216
+msgid "Delete FTP folder"
+msgstr ""
+
+#: sunshine-options.php:219
+msgid ""
+"This will remove the folder and images added via FTP, if this was used to "
+"create the gallery"
+msgstr ""
+
+#: sunshine-options.php:224
 msgid "Display Options"
 msgstr "Näyttöasetukset"
 
-#: sunshine-options.php:195
-msgid "Gallery Order"
-msgstr "Gallerian järjestys"
+#: sunshine-options.php:226
+msgid "Image Order"
+msgstr ""
 
-#: sunshine-options.php:198
+#: sunshine-options.php:230
 msgid "Custom ordering"
 msgstr "Mukautettu järjestys"
 
-#: sunshine-options.php:198
-msgid "Date (New to Old)"
-msgstr "Päiväys (uusimmasta vanhempiin)"
+#: sunshine-options.php:231
+msgid "Order images shot (Images MUST have EXIF field \"DateTimeDigitized\")"
+msgstr ""
 
-#: sunshine-options.php:198
-msgid "Date (Old to New)"
-msgstr "Päiväys (vanhimmista uudempiin)"
+#: sunshine-options.php:232
+msgid "Image Upload Date (New to Old)"
+msgstr ""
 
-#: sunshine-options.php:198
+#: sunshine-options.php:233
+msgid "Image Upload Date (Old to New)"
+msgstr ""
+
+#: sunshine-options.php:234
 msgid "Alphabetical"
 msgstr "Aakkosellinen"
 
-#: sunshine-options.php:202
+#: sunshine-options.php:239
 msgid "Columns"
 msgstr "Sarakkeet"
 
-#: sunshine-options.php:208
+#: sunshine-options.php:245
 msgid "Rows"
 msgstr "Rivit"
 
-#: sunshine-options.php:214
+#: sunshine-options.php:251
 msgid "Image Theft Prevention"
 msgstr "Kuvien suojaaminen luvattomalta käytöltä"
 
-#: sunshine-options.php:217
-#, fuzzy, php-format
+#: sunshine-options.php:254
+#, php-format
 msgid ""
 "Enabling this option will disable the right click menu and also not allow "
 "images to be dragged/dropped to the desktop. NOT a 100% effective method, "
 "but should stop most people."
 msgstr ""
-"Estää kuvien luvattoman tallentamisen tietokoneelle hiiren oikealla "
-"klikkauksella tai kuvaa raahaamalla. Tämä ei välttämättä ole täysin varma "
-"suojaus, mutta estänee useimpia ihmisiä."
 
-#: sunshine-options.php:221
+#: sunshine-options.php:258
 msgid "Proofing Only"
 msgstr "Vain koevedokset"
 
-#: sunshine-options.php:224
+#: sunshine-options.php:261
 msgid ""
 "This will remove all aspects of purchasing abilities throughout the site, "
 "leaving just image viewing and adding to favorites"
-msgstr ""
-"Kaikki kuvien ostamiseen liittyvät oikeudet poistetaan. Käyttäjälle jää vain "
-"mahdollisuus selata kuvia ja merkitä niitä suosikeiksi."
+msgstr "Kaikki kuvien ostamiseen liittyvät oikeudet poistetaan. Käyttäjälle jää vain mahdollisuus selata kuvia ja merkitä niitä suosikeiksi."
 
-#: sunshine-options.php:228
+#: sunshine-options.php:265
 msgid "Thumbnail Width"
 msgstr "Esikatselukuvan leveys"
 
-#: sunshine-options.php:234
+#: sunshine-options.php:271
 msgid "Thumbnail Height"
 msgstr "Esikatselukuvan korkeus"
 
-#: sunshine-options.php:240
+#: sunshine-options.php:277
 msgid "Crop"
 msgstr "Rajaa"
 
-#: sunshine-options.php:242
+#: sunshine-options.php:279
+#, php-format
+msgid ""
+"Enabling this option will not affect already uploaded images. <a href=\"%s\""
+" target=\"_blank\">Please see this help article</a>"
+msgstr ""
+
+#: sunshine-options.php:280
 msgid ""
 "Should images be cropped to the exact dimensions of your thumbnail width / "
 "height"
 msgstr "Rajataanko kuvat leveys- ja korkeusasetuksien mukaan"
 
-#: sunshine-options.php:249 sunshine-template-functions.php:928
-msgid "Payment Methods"
-msgstr "Maksutavat"
+#: sunshine-options.php:285
+msgid "Show Image Names"
+msgstr ""
 
-#: sunshine-options.php:253 sunshine-template-functions.php:906
-msgid "Shipping Methods"
-msgstr "Toimitustavat"
+#: sunshine-options.php:287
+msgid "Show the file name of the image under the thumbnail"
+msgstr ""
 
-#: sunshine-options.php:257
+#: sunshine-options.php:297 sunshine-options.php:306
+msgid "Terms"
+msgstr "Käyttöehdot"
+
+#: sunshine-options.php:299
+msgid "Require Approval of Terms"
+msgstr ""
+
+#: sunshine-options.php:302
+msgid ""
+"Force users to check that they have read and agree to the terms (below)"
+msgstr ""
+
+#: sunshine-options.php:317
 msgid "Design"
 msgstr "Ulkoasu"
 
-#: sunshine-options.php:258 themes/default/functions.php:13
+#: sunshine-options.php:318 themes/default/functions.php:13
 msgid "Design Elements"
 msgstr "Ulkoasun osat"
 
-#: sunshine-options.php:260
+#: sunshine-options.php:320
 msgid "Theme"
 msgstr "Teema"
 
-#: sunshine-options.php:264
+#: sunshine-options.php:324
 msgid "My WordPress Theme"
 msgstr "WordPressin teema"
 
-#: sunshine-options.php:265
+#: sunshine-options.php:325
 msgid "Default Sunshine Theme"
 msgstr "Sunshinen oletusteema"
 
-#: sunshine-options.php:266
+#: sunshine-options.php:326
 msgid "Sunshine 2013 Theme"
 msgstr "Sunshine 2013 Teema"
 
-#: sunshine-options.php:275
+#: sunshine-options.php:335
 msgid "Logo"
 msgstr "Logo"
 
-#: sunshine-options.php:280
+#: sunshine-options.php:340
 msgid ""
-"Logo should be 170px wide transparent PNG. Upload a file to your <a href="
-"\"upload.php\">Media gallery</a>, then select it here"
+"Logo should be no more than 320px wide transparent PNG. Upload a file to "
+"your <a href=\"upload.php\">Media gallery</a>, then select it here"
 msgstr ""
-"Logon tulisi olla 170 px leveä läpikuultava PNG-tiedosto. Lisää tiedosto <a "
-"href=\"upload.php\">Mediakirjastoon</a> ja valitse se sieltä"
 
-#: sunshine-options.php:285 sunshine-template-functions.php:794
-#: themes/2013/order.php:17 themes/default/order.php:17
-#: themes/theme/order.php:20
+#: sunshine-options.php:345 sunshine-template-functions.php:998
+#: sunshine-template-functions.php:1463 themes/2013/order.php:17
+#: themes/default/order.php:17 themes/theme/order.php:18
 msgid "Email"
 msgstr "Sähköposti"
 
-#: sunshine-options.php:286
+#: sunshine-options.php:346
+msgid "Order Notifications"
+msgstr ""
+
+#: sunshine-options.php:349
+msgid "Email(s)"
+msgstr ""
+
+#: sunshine-options.php:350
+msgid ""
+"Email address(es) to receive order notifications. Separate multiple emails "
+"with a comma."
+msgstr ""
+
+#: sunshine-options.php:355
 msgid "Email From"
 msgstr "Sähköpostin lähettäjä"
 
-#: sunshine-options.php:288
+#: sunshine-options.php:358
 msgid "From Name"
 msgstr "Lähettäjän nimi"
 
-#: sunshine-options.php:289
+#: sunshine-options.php:359
 msgid "When emails are sent to customers, what name should they come from"
 msgstr "Nimi, jolla sähköpostiviestit lähetetään asiakkaille"
 
-#: sunshine-options.php:294
+#: sunshine-options.php:364
 msgid "From Email"
 msgstr "Lähettäjän sähköpostiosoite"
 
-#: sunshine-options.php:295
+#: sunshine-options.php:365
 msgid ""
 "When emails are sent to customers, what email address should they come from"
 msgstr "Sähköpostiosoite, josta viestit lähetetään asiakkaille"
 
-#: sunshine-options.php:299
+#: sunshine-options.php:371
+msgid "Email Subjects"
+msgstr ""
+
+#: sunshine-options.php:371
+msgid "Allowed template variables are:"
+msgstr ""
+
+#: sunshine-options.php:378
+msgid "Order Receipt"
+msgstr ""
+
+#: sunshine-options.php:388
+msgid "Order Comment"
+msgstr ""
+
+#: sunshine-options.php:394
 msgid "Email Text"
 msgstr "Sähköpostiviestin teksti"
 
-#: sunshine-options.php:301
+#: sunshine-options.php:396
 msgid "Email Signature"
 msgstr "Sähköpostin allekirjoitus"
 
-#: sunshine-options.php:302
+#: sunshine-options.php:397
 msgid "Appears at the end of every email message"
 msgstr "Lisätään jokaisen sähköpostin loppuun"
 
-#: sunshine-options.php:309
+#: sunshine-options.php:403
 msgid "Receipt"
 msgstr "Kuittaus"
 
-#: sunshine-options.php:310
+#: sunshine-options.php:404
 msgid "Message at the top of email receipts"
 msgstr "Sähköpostikuittauksissa näkyvä viesti"
 
-#: sunshine-options.php:316
+#: sunshine-options.php:410
 msgid "Registration"
 msgstr "Rekisteröinti"
 
-#: sunshine-options.php:317
+#: sunshine-options.php:411
 msgid "Message at top of new user registration email"
 msgstr "Uudelle käyttäjälle rekisteröitymisen yhteydessä lähetettävä viesti"
 
-#: sunshine-options.php:324
+#: sunshine-options.php:418
 msgid "Message added to bottom order status change email"
-msgstr ""
-"Teksti, joka näytetään tilauksen statuksen muutoksesta ilmoittavassa "
-"viestissä"
+msgstr "Teksti, joka näytetään tilauksen statuksen muutoksesta ilmoittavassa viestissä"
 
-#: sunshine-template-functions.php:481 themes/theme/image.php:10
+#: sunshine-options.php:427
+msgid "Licenses"
+msgstr "Luvat"
+
+#: sunshine-options.php:427
+msgid "Manage licenses for your Sunshine add-ons here"
+msgstr ""
+
+#: sunshine-template-functions.php:286
+msgid "Select shipping method above"
+msgstr ""
+
+#: sunshine-template-functions.php:288
+msgid "Select on checkout page"
+msgstr ""
+
+#: sunshine-template-functions.php:667 themes/theme/image.php:6
 msgid "Previous"
 msgstr "Edellinen"
 
-#: sunshine-template-functions.php:489 themes/theme/image.php:11
+#: sunshine-template-functions.php:675 themes/theme/image.php:7
 msgid "Next"
 msgstr "Seuraava"
 
-#: sunshine-template-functions.php:515
+#: sunshine-template-functions.php:734
 msgid "Select Product Type"
 msgstr "Valitse Tuotetyyppi"
 
-#: sunshine-template-functions.php:558
+#: sunshine-template-functions.php:752
 msgid "Select Product"
 msgstr "Valitse Tuote"
 
-#: sunshine-template-functions.php:583
+#: sunshine-template-functions.php:782
 msgid "No products for this category"
 msgstr "Tässä kategoriassa ei ole tuotteita"
 
-#: sunshine-template-functions.php:592
-msgid "Quantity"
-msgstr "Määrä"
-
-#: sunshine-template-functions.php:605
+#: sunshine-template-functions.php:805
 msgid "Comments"
 msgstr "Kommentit"
 
-#: sunshine-template-functions.php:607
+#: sunshine-template-functions.php:807
 #, php-format
 msgid "You have %s characters left"
 msgstr "%s merkkiä jäljellä"
 
-#: sunshine-template-functions.php:639
+#: sunshine-template-functions.php:810
+msgid "Add to Cart"
+msgstr "Lisää koriin"
+
+#: sunshine-template-functions.php:839
 #, php-format
 msgid ""
 "You must first <a href=\"%s\">login</a> or <a href=\"%s\">register</a> "
 "before you can add pictures to your cart. This allows us to track your "
 "favorites and items in your cart when you return."
+msgstr "<a href=\"%s\">Kirjaudu</a> or <a href=\"%s\">rekisteröidy</a> ensin, jotta voit lisätä tuotteita koriin. Näin pystymme seuraamaan valitsemiasi suosikkeja kun palaat."
+
+#: sunshine-template-functions.php:997
+msgid "Account Information"
+msgstr "Tilitiedot"
+
+#: sunshine-template-functions.php:1000
+msgid "For added security and accessing any downloads"
 msgstr ""
-"<a href=\"%s\">Kirjaudu</a> or <a href=\"%s\">rekisteröidy</a> ensin, jotta "
-"voit lisätä tuotteita koriin. Näin pystymme seuraamaan valitsemiasi "
-"suosikkeja kun palaat."
 
-#: sunshine-template-functions.php:745 themes/2013/order.php:91
-#: themes/default/order.php:90 themes/theme/order.php:93
-msgid "Subtotal"
-msgstr "Välisumma"
-
-#: sunshine-template-functions.php:750 sunshine-template-functions.php:979
-#: themes/2013/order.php:95 themes/default/order.php:94
-#: themes/theme/order.php:97
-msgid "Tax"
-msgstr "Vero"
-
-#: sunshine-template-functions.php:755 sunshine-template-functions.php:983
-#: themes/2013/order.php:99 themes/default/order.php:98
-#: themes/theme/order.php:101
-msgid "Shipping"
-msgstr "Toimitus"
-
-#: sunshine-template-functions.php:781 sunshine-template-functions.php:960
-msgid "Create Account"
-msgstr "Luo käyttäjätili"
-
-#: sunshine-template-functions.php:782
-msgid "A user account is required to checkout"
-msgstr "Käyttäjätili vaaditaan, jotta voit suorittaa ostoksia"
-
-#: sunshine-template-functions.php:783 sunshine-template-functions.php:961
-msgid "Username"
-msgstr "Käyttäjätunnus"
-
-#: sunshine-template-functions.php:793 themes/2013/order.php:16
-#: themes/default/order.php:16 themes/theme/order.php:19
-msgid "Contact Information"
-msgstr "Yhteystiedot"
-
-#: sunshine-template-functions.php:795 themes/2013/order.php:18
-#: themes/default/order.php:18 themes/theme/order.php:21
-msgid "Phone"
-msgstr "Puhelin"
-
-#: sunshine-template-functions.php:804 themes/2013/order.php:21
-#: themes/default/order.php:21 themes/theme/order.php:24
+#: sunshine-template-functions.php:1009 themes/2013/order.php:21
+#: themes/default/order.php:21 themes/theme/order.php:22
 msgid "Billing Information"
 msgstr "Laskutustiedot"
 
-#: sunshine-template-functions.php:805 sunshine-template-functions.php:853
+#: sunshine-template-functions.php:1010 sunshine-template-functions.php:1063
 #: themes/2013/order.php:29 themes/2013/order.php:40
 #: themes/default/order.php:29 themes/default/order.php:40
-#: themes/theme/order.php:32 themes/theme/order.php:43
+#: themes/theme/order.php:30 themes/theme/order.php:41
 msgid "Country"
 msgstr "Maa"
 
-#: sunshine-template-functions.php:806 sunshine-template-functions.php:854
-#: themes/2013/gift-registry.php:9 themes/2013/order.php:22
-#: themes/2013/order.php:33 themes/default/gift-registry.php:9
+#: sunshine-template-functions.php:1011 sunshine-template-functions.php:1064
+#: themes/2013/order.php:22 themes/2013/order.php:33
 #: themes/default/order.php:22 themes/default/order.php:33
-#: themes/theme/order.php:25 themes/theme/order.php:36
+#: themes/theme/order.php:23 themes/theme/order.php:34
 msgid "First Name"
 msgstr "Etunimi"
 
-#: sunshine-template-functions.php:807 sunshine-template-functions.php:855
-#: sunshine-template-functions.php:962 themes/2013/gift-registry.php:10
-#: themes/2013/order.php:23 themes/2013/order.php:34
-#: themes/default/gift-registry.php:10 themes/default/order.php:23
-#: themes/default/order.php:34 themes/theme/order.php:26
-#: themes/theme/order.php:37
+#: sunshine-template-functions.php:1012 sunshine-template-functions.php:1065
+#: sunshine-template-functions.php:1191 themes/2013/order.php:23
+#: themes/2013/order.php:34 themes/default/order.php:23
+#: themes/default/order.php:34 themes/theme/order.php:24
+#: themes/theme/order.php:35
 msgid "Last Name"
 msgstr "Sukunimi"
 
-#: sunshine-template-functions.php:808 sunshine-template-functions.php:856
+#: sunshine-template-functions.php:1013 sunshine-template-functions.php:1066
 #: themes/2013/order.php:24 themes/2013/order.php:35
 #: themes/default/order.php:24 themes/default/order.php:35
-#: themes/theme/order.php:27 themes/theme/order.php:38
+#: themes/theme/order.php:25 themes/theme/order.php:36
 msgid "Address"
 msgstr "Osoite"
 
-#: sunshine-template-functions.php:809 sunshine-template-functions.php:857
+#: sunshine-template-functions.php:1014 sunshine-template-functions.php:1067
 #: themes/2013/order.php:25 themes/2013/order.php:36
 #: themes/default/order.php:25 themes/default/order.php:36
-#: themes/theme/order.php:28 themes/theme/order.php:39
+#: themes/theme/order.php:26 themes/theme/order.php:37
 msgid "Address 2"
 msgstr "Osoiterivi 2"
 
-#: sunshine-template-functions.php:810 sunshine-template-functions.php:858
+#: sunshine-template-functions.php:1015 sunshine-template-functions.php:1068
 #: themes/2013/order.php:26 themes/2013/order.php:37
 #: themes/default/order.php:26 themes/default/order.php:37
-#: themes/theme/order.php:29 themes/theme/order.php:40
+#: themes/theme/order.php:27 themes/theme/order.php:38
 msgid "City"
 msgstr "Kaupunki"
 
-#: sunshine-template-functions.php:811 sunshine-template-functions.php:859
-#: themes/2013/order.php:27 themes/2013/order.php:38
-#: themes/default/order.php:27 themes/default/order.php:38
-#: themes/theme/order.php:30 themes/theme/order.php:41
+#: sunshine-template-functions.php:1016 sunshine-template-functions.php:1039
+#: sunshine-template-functions.php:1069 themes/2013/order.php:27
+#: themes/2013/order.php:38 themes/default/order.php:27
+#: themes/default/order.php:38 themes/theme/order.php:28
+#: themes/theme/order.php:39
 msgid "State / Province"
 msgstr "Kunta"
 
-#: sunshine-template-functions.php:812 sunshine-template-functions.php:860
+#: sunshine-template-functions.php:1017 sunshine-template-functions.php:1070
 #: themes/2013/order.php:28 themes/2013/order.php:39
 #: themes/default/order.php:28 themes/default/order.php:39
-#: themes/theme/order.php:31 themes/theme/order.php:42
+#: themes/theme/order.php:29 themes/theme/order.php:40
 msgid "Zip / Postcode"
 msgstr "Postinumero"
 
-#: sunshine-template-functions.php:850 themes/2013/order.php:32
-#: themes/default/order.php:32 themes/theme/order.php:35
+#: sunshine-template-functions.php:1018 themes/2013/order.php:18
+#: themes/default/order.php:18 themes/theme/order.php:19
+msgid "Phone"
+msgstr "Puhelin"
+
+#: sunshine-template-functions.php:1060 themes/2013/order.php:32
+#: themes/default/order.php:32 themes/theme/order.php:33
 msgid "Shipping Information"
 msgstr "Toimitustiedot"
 
-#: sunshine-template-functions.php:851
+#: sunshine-template-functions.php:1061
 msgid "Shipping same as billing"
 msgstr "Toimitustiedot ovat samat kuin laskulla"
 
-#: sunshine-template-functions.php:931
+#: sunshine-template-functions.php:1118
+msgid "Shipping Methods"
+msgstr "Toimitustavat"
+
+#: sunshine-template-functions.php:1139
+msgid "Select shipping method"
+msgstr ""
+
+#: sunshine-template-functions.php:1157
+msgid "Payment Methods"
+msgstr "Maksutavat"
+
+#: sunshine-template-functions.php:1160
 #, php-format
 msgid "Use my %s in credit"
 msgstr "Käytä omat %s krediiteissä"
 
-#: sunshine-template-functions.php:972
+#: sunshine-template-functions.php:1189
+msgid "Create Account"
+msgstr "Luo käyttäjätili"
+
+#: sunshine-template-functions.php:1201
 msgid "Order Summary"
 msgstr "Tilauksen yhteenveto"
 
-#: sunshine-template-functions.php:975
+#: sunshine-template-functions.php:1204
 msgid "Item(s) total"
 msgstr "Kuvia yhteensä"
 
-#: sunshine-template-functions.php:1164
+#: sunshine-template-functions.php:1398 sunshine-template-functions.php:1447
 msgid "Go"
 msgstr "Avaa"
 
-#: sunshine-template-functions.php:1175
+#: sunshine-template-functions.php:1412
 #, php-format
 msgid "This gallery is set to expire on <strong>%s</strong>"
 msgstr "Tämä galleria sulkeutuu <strong>%s</strong>"
+
+#: sunshine-template-functions.php:1462
+#, php-format
+msgid "To view the gallery \"%s\", please enter your email address:"
+msgstr ""
 
 #: sunshine-widgets.php:14
 msgid "Display a gallery password box"
 msgstr "Näytä salasana gallerialle"
 
-#: sunshine-widgets.php:67 sunshine-widgets.php:148
+#: sunshine-widgets.php:74 sunshine-widgets.php:158 sunshine-widgets.php:243
 msgid "Title (Optional):"
 msgstr "Otsikko (Vapaaehtoinen):"
 
-#: sunshine-widgets.php:85
+#: sunshine-widgets.php:78 sunshine-widgets.php:162 sunshine-widgets.php:247
+msgid "Visibility (Optional):"
+msgstr "Näkyyvyys (Vapaaehtoinen):"
+
+#: sunshine-widgets.php:96
 msgid "Display Sunshine's main menu links"
 msgstr "Näytä Sunshinen päävalikko"
 
-#: sunshine-widgets.php:152
-msgid "Visibility (Optional):"
-msgstr "Näkyyvyys (Vapaaehtoinen):"
+#: sunshine-widgets.php:181
+msgid "Display a search box"
+msgstr ""
 
 #: themes/2013/account.php:11 themes/default/account.php:11
 #: themes/theme/account.php:13
@@ -3863,69 +4446,43 @@ msgstr "Näkyyvyys (Vapaaehtoinen):"
 msgid "You have %s in credit"
 msgstr "Sinulla on %s krediittiä"
 
-#: themes/2013/account.php:23 themes/2013/order.php:9
-#: themes/default/account.php:23 themes/default/order.php:9
-#: themes/theme/account.php:25
-msgid "Order"
-msgstr "Tilaus"
-
 #: themes/2013/account.php:24 themes/default/account.php:24
 #: themes/theme/account.php:26
 #, php-format
 msgid "%d item"
-msgstr "%d kohde"
+msgid_plural "%d items"
+msgstr[0] ""
+msgstr[1] ""
 
 #: themes/2013/account.php:37 themes/default/account.php:37
 #: themes/theme/account.php:39
 msgid "Update Account Info"
 msgstr "Päivitä käyttäjätilin tietoja"
 
-#: themes/2013/cart.php:18 themes/2013/order.php:52 themes/default/cart.php:18
-#: themes/default/order.php:51 themes/theme/cart.php:18
-#: themes/theme/order.php:54
-msgid "Item Price"
-msgstr "Hinta"
-
-#: themes/2013/cart.php:19 themes/2013/order.php:53 themes/default/cart.php:19
-#: themes/default/order.php:52 themes/theme/cart.php:19
-#: themes/theme/order.php:55
-msgid "Item Total"
-msgstr "Yhteensä"
-
-#: themes/2013/cart.php:60 themes/default/cart.php:59 themes/theme/cart.php:60
+#: themes/2013/cart.php:61 themes/default/cart.php:61 themes/theme/cart.php:61
 msgid "Update Cart"
 msgstr "Päivitä Kori"
 
-#: themes/2013/cart.php:69 themes/default/cart.php:68 themes/theme/cart.php:69
+#: themes/2013/cart.php:70 themes/default/cart.php:70 themes/theme/cart.php:70
 msgid "Continue to checkout"
 msgstr "Jatka kassalle"
 
-#: themes/2013/cart.php:73 themes/default/cart.php:72 themes/theme/cart.php:73
+#: themes/2013/cart.php:74 themes/default/cart.php:74 themes/theme/cart.php:74
 msgid "You do not have anything in your cart yet!"
 msgstr "Korissasi ei vielä ole mitään!"
 
-#: themes/2013/checkout.php:34 themes/default/checkout.php:34
-#: themes/theme/checkout.php:34
+#: themes/2013/checkout.php:36 themes/default/checkout.php:36
+#: themes/theme/checkout.php:36
 msgid "Complete my purchase"
 msgstr "Toteuta tilaus"
 
-#: themes/2013/checkout.php:34 themes/default/checkout.php:34
-#: themes/theme/checkout.php:34
-msgid "or"
-msgstr "tai"
-
-#: themes/2013/checkout.php:34 themes/default/checkout.php:34
-#: themes/theme/checkout.php:34
-msgid "cancel and return to galleries"
-msgstr "peruuta ja palaa gallerioihin"
-
-#: themes/2013/checkout.php:38 themes/default/checkout.php:38
-#: themes/theme/checkout.php:38
+#: themes/2013/checkout.php:40 themes/default/checkout.php:40
+#: themes/theme/checkout.php:40
 msgid "You do not have anything in your cart yet"
 msgstr "Ostoskorissasi ei vielä ole mitään"
 
 #: themes/2013/favorites.php:31 themes/default/favorites.php:27
-#: themes/theme/favorites.php:28
+#: themes/theme/favorites.php:35
 msgid "You have no images marked as a favorite"
 msgstr "Et ole merkinnyt yhtään kuvaa suosikiksi"
 
@@ -3994,38 +4551,24 @@ msgid "Text Color"
 msgstr "Tekstin väri"
 
 #: themes/2013/functions.php:146 themes/default/functions.php:129
-#: themes/theme/functions.php:4
 msgid "Custom Styles"
 msgstr "Mukautetut tyylit"
 
 #: themes/2013/functions.php:148 themes/default/functions.php:131
-#: themes/theme/functions.php:6
 msgid "CSS"
 msgstr "CSS"
 
-#: themes/2013/gallery.php:69 themes/default/gallery.php:66
+#: themes/2013/gallery.php:70 themes/default/gallery.php:71
 #: themes/theme/gallery.php:68
 msgid "Sorry, no images have been added to this gallery yet"
 msgstr "Pahoittelut, galleriaan ei vielä ole lisätty kuvia"
 
-#: themes/2013/gallery.php:74 themes/default/gallery.php:71
+#: themes/2013/gallery.php:75 themes/default/gallery.php:76
 #: themes/theme/gallery.php:72
 msgid "Sorry, this gallery has expired."
 msgstr "Pahoittelut, tämä galleria ei ole enää käytettävissä"
 
-#: themes/2013/gift-registry.php:3 themes/default/gift-registry.php:3
-msgid "Gift Registry"
-msgstr "Lahjarekisteri"
-
-#: themes/2013/gift-registry.php:5 themes/default/gift-registry.php:5
-msgid "Find a Registry"
-msgstr "Etsi rekisteri"
-
-#: themes/2013/gift-registry.php:6 themes/default/gift-registry.php:6
-msgid "Enter the first or last name of the person you are searching for"
-msgstr "Syötä etsimäsi henkilön etu- tai sukunimi"
-
-#: themes/2013/header.php:30 themes/default/header.php:30
+#: themes/2013/header.php:34 themes/default/header.php:34
 msgid "Enter gallery password"
 msgstr "Syötä gallerian salasana"
 
@@ -4033,8 +4576,13 @@ msgstr "Syötä gallerian salasana"
 msgid "Sorry, no galleries have been setup yet"
 msgstr "Pahoittelut, gallerioita ei ole vielä julkaistu"
 
+#: themes/2013/order.php:16 themes/default/order.php:16
+#: themes/theme/order.php:17
+msgid "Contact Information"
+msgstr "Yhteystiedot"
+
 #: themes/2013/order.php:45 themes/default/order.php:44
-#: themes/theme/order.php:47
+#: themes/theme/order.php:45
 msgid "Items"
 msgstr "Tuotteet"
 
@@ -4042,13 +4590,49 @@ msgstr "Tuotteet"
 msgid "Order Comments"
 msgstr "Tilauksen kommentit"
 
+#: themes/2013/order.php:136 themes/default/order.php:135
+#: themes/theme/order.php:141
+msgid "Add Comment"
+msgstr "Lisää kommentti"
+
+#: themes/2013/packages.php:3 themes/default/packages.php:3
+msgid "Packages"
+msgstr "Paketit"
+
+#: themes/2013/search-results.php:34 themes/default/search-results.php:34
+#: themes/theme/search-results.php:35
+msgid "Sorry, no images match your search"
+msgstr ""
+
 #: themes/default/functions.php:32
 msgid "Background Image"
 msgstr "Taustakuva"
 
+#: themes/default/functions.php:37
+msgid ""
+"Upload a file to your <a href=\"upload.php\">Media gallery</a>, then select "
+"it here"
+msgstr ""
+
 #: themes/default/functions.php:40
 msgid "Background Repeat"
 msgstr "Taustan toistaminen"
+
+#: themes/default/functions.php:43
+msgid "Horizontally and Vertically"
+msgstr ""
+
+#: themes/default/functions.php:43
+msgid "Horizontally"
+msgstr ""
+
+#: themes/default/functions.php:43
+msgid "Vertically"
+msgstr ""
+
+#: themes/default/functions.php:43
+msgid "No repeat"
+msgstr "Ei toistoa"
 
 #: themes/default/functions.php:58
 msgid "Button Color"
@@ -4078,26 +4662,36 @@ msgstr "Valikon fontti"
 msgid "Main Body Copy Font"
 msgstr "Pääalueen kopion fontti"
 
+#: themes/theme/functions.php:4
+msgid "Custom Code"
+msgstr ""
+
+#: themes/theme/functions.php:6
+msgid "Disable Sunshine CSS"
+msgstr ""
+
 #: themes/theme/functions.php:12
+msgid "Custom CSS"
+msgstr "Räätälöity CSS"
+
+#: themes/theme/functions.php:18
 msgid "Before Sunshine"
 msgstr "Näytettävä koodi ennen Sunshinea"
 
-#: themes/theme/functions.php:19
+#: themes/theme/functions.php:25
 msgid "After Sunshine"
 msgstr "Näytettävä koodi Sunshinen jälkeen"
 
-#~ msgid ""
-#~ "If you leave the password field empty one will be generated for you. "
-#~ "Password must be at least six characters long."
-#~ msgstr ""
-#~ "Mikäli jätät Salasana-kentän tyhjäksi, sinulle luodaan salasana "
-#~ "automaattisesti. Salasanan tulee olla vähintään kuusi merkkiä pitkä."
+#. Plugin Name of the plugin/theme
+#. Author of the plugin/theme
+msgid "Sunshine Photo Cart"
+msgstr ""
 
-#~ msgid "Sorry, the download file does not exist"
-#~ msgstr "Pahoittelut, tallennettavaa tiedostoa ei löydy"
+#. Plugin URI of the plugin/theme
+#. Author URI of the plugin/theme
+msgid "https://www.sunshinephotocart.com"
+msgstr ""
 
-#~ msgid "Extra HTML - Top"
-#~ msgstr "Lisää HTML-koodia - Ennen"
-
-#~ msgid "Extra HTML - Bottom"
-#~ msgstr "Lisää HTML-koodia - Jälkeen"
+#. Description of the plugin/theme
+msgid "Client Gallery Photo Cart & Proofing Plugin for WordPress"
+msgstr ""

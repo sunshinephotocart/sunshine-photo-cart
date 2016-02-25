@@ -4,7 +4,7 @@
 
 	<div id="sunshine-main">
 
-		<form method="post" action="" id="cart">
+		<form method="post" action="" id="sunshine-cart">
 		<input type="hidden" name="sunshine_update_cart" value="1" />
 		<input type="hidden" name="nonce" value="<?php echo wp_create_nonce( 'sunshine_update_cart' ); ?>" />
 
@@ -23,7 +23,7 @@
 				<tr class="sunshine-cart-item <?php sunshine_product_class($item['product_id']); ?>">
 					<td class="sunshine-cart-item-image" data-label="<?php _e('Image', 'sunshine'); ?>">
 						<?php
-						$thumb = wp_get_attachment_image_src($item['image_id'], 'thumbnail');
+						$thumb = wp_get_attachment_image_src($item['image_id'], 'sunshine-thumbnail');
 						$image_html = '<a href="'.get_permalink($item['image_id']).'"><img src="'.$thumb[0].'" alt="" class="sunshine-image-thumb" /></a>';
 						echo apply_filters('sunshine_cart_image_html', $image_html, $item, $thumb);
 						?>
@@ -37,7 +37,7 @@
 						<div class="sunshine-item-comments"><?php echo apply_filters('sunshine_cart_item_comments', $item['comments'], $item); ?></div>
 					</td>
 					<td class="sunshine-cart-item-qty" data-label="<?php _e('Qty', 'sunshine'); ?>">
-						<input type="number" name="item[<?php echo $i; ?>][qty]" class="sunshine-qty" value="<?php echo $item['qty']; ?>" size="4" tabindex="<?php echo $tabindex; ?>" />
+						<input type="number" name="item[<?php echo $i; ?>][qty]" class="sunshine-qty" value="<?php echo $item['qty']; ?>" size="4" tabindex="<?php echo $tabindex; ?>" min="0" />
 						<a href="?delete_cart_item=<?php echo $item['hash']; ?>&nonce=<?php echo wp_create_nonce( 'sunshine_delete_cart_item' ); ?>"><?php _e('Remove','sunshine'); ?></a>
 					</td>
 					<td class="sunshine-cart-item-price" data-label="<?php _e('Price', 'sunshine'); ?>">
@@ -69,6 +69,23 @@
 				<?php sunshine_cart_totals(); ?>
 				<p id="sunshine-cart-checkout-button"><a href="<?php echo sunshine_url('checkout'); ?>" class="sunshine-button"><?php _e('Continue to checkout', 'sunshine'); ?> &rarr;</a></p>
 			</div>
+			
+			<script>
+			jQuery(document).ready(function($){
+				var sunshine_cart_change = false;
+				$('#sunshine input').change(function(){
+					sunshine_cart_change = true;
+				});
+				$('#sunshine-cart-checkout-button a').click(function(){
+					if ( sunshine_cart_change ) {
+						var r = confirm( '<?php _e( 'You have changed items in your cart but have not yet updated. Do you want to continue to checkout?', 'sunshine' ); ?>');
+						if ( !r ) {
+							return false;
+						}
+					}
+				});
+			});
+			</script>
 	
 		<?php } else { ?>
 			<p><?php _e('You do not have anything in your cart yet!', 'sunshine'); ?></p>

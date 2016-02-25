@@ -11,6 +11,7 @@ $status = sunshine_get_order_status(SunshineFrontend::$current_order->ID);
 <p id="sunshine-order-status" class="sunshine-status-<?php echo $status->slug; ?>"> 
 	<strong><?php echo $status->name; ?>:</strong> <?php echo $status->description; ?>
 </p>
+<?php do_action( 'sunshine_order_notes', SunshineFrontend::$current_order->ID ); ?>
 <div class="sunshine-form" id="sunshine-order">
 	<div id="sunshine-order-contact-fields">
 		<h2><?php _e('Contact Information','sunshine'); ?></h2>
@@ -57,7 +58,7 @@ $status = sunshine_get_order_status(SunshineFrontend::$current_order->ID);
 		<tr class="sunshine-cart-item">
 			<td class="sunshine-cart-item-image">
 				<?php
-				$thumb = wp_get_attachment_image_src($item['image_id'], 'thumbnail');
+				$thumb = wp_get_attachment_image_src($item['image_id'], 'sunshine-thumbnail');
 				$image_html = '<a href="'.get_permalink($item['image_id']).'"><img src="'.$thumb[0].'" alt="" class="sunshine-image-thumb" /></a>';
 				echo apply_filters('sunshine_cart_image_html', $image_html, $item, $thumb);
 				?>
@@ -95,7 +96,7 @@ $status = sunshine_get_order_status(SunshineFrontend::$current_order->ID);
 			<td><?php sunshine_money_format($order_data['tax']); ?></td>
 		</tr>
 		<tr class="sunshine-shipping">
-			<th><?php _e('Shipping','sunshine'); ?></th>
+			<th><?php _e('Shipping','sunshine'); ?> (<?php echo sunshine_get_shipping_method_name( $order_data['shipping_method'] ); ?>)</th>
 			<td><?php sunshine_money_format($order_data['shipping_cost']); ?></td>
 		</tr>
 		<tr class="sunshine-discounts">

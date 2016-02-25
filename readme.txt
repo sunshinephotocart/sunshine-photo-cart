@@ -2,10 +2,10 @@
 Author URI: https://www.sunshinephotocart.com
 Plugin URI: https://www.sunshinephotocart.com
 Contributors: sunshinephotocart
-Tags: photo, photography, gallery, client gallery, e-store, eshop, ecommerce, e commerce, e-commerce, selling, wp-ecommerce, wp ecommerce
+Tags: photo, photography, gallery, client gallery, client proofing, proofing, e-store, eshop, ecommerce, e commerce, e-commerce, selling, wp-ecommerce, wp ecommerce
 Requires at least: 3.7
-Tested up to: 4.3 
-Stable tag: 2.0.2
+Tested up to: 4.4.2
+Stable tag: 2.2.13
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,44 +22,45 @@ Client Proofing Gallery & Photo Cart Plugin for WordPress
 * Integrates directly into your theme automatically (or use one of our layouts)
 * Upload images via FTP or browser in WordPress admin
 * Galleries can be password protected, require email, require user account or be completely private for specified users
-* Galleries end dates - great for pressuring clients to buy and not wait forever without purchasing
+* Gallery end dates - great for pressuring clients to buy and not wait forever without purchasing
 * Sub galleries - great for weddings or large events
 * Favorites - Let users select their favorites, view any user's favorites in the admin
 * Social sharing - Get friends and family to see photos, increase exposure and possible sales!
 * Watermarking - Automatically have a watermark added to all your images when uploaded to a gallery
-* Multiple shipping methods (Flat rate, local, in person)
+* Multiple shipping methods (Flat rate, local delivery, pickup)
 * Easy order management
 * Printable invoices
 * International ready - Works with all currencies and translated into German, French, Spanish, Dutch, Finnish, Portuguese, British, Norwegian
 
 [Check out the demo](http://demo.sunshinephotocart.com) to see it in action!
 
-= Addons =
-
-While the core plugin is free, there are paid add-ons to improve Sunshine's features:
-
-* [Analytics](https://www.sunshinephotocart.com/addon/analytics/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
-* [Digital downloads](https://www.sunshinephotocart.com/addon/digital-downloads/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
-* [Discount codes](https://www.sunshinephotocart.com/addon/discounts/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
-* [Automated email marketing](https://www.sunshinephotocart.com/addon/automated-email-marketing/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
-* [Lightbox](https://www.sunshinephotocart.com/addon/lightbox/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
-* [Masonry](https://www.sunshinephotocart.com/addon/masonry/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
-* [Client messaging](https://www.sunshinephotocart.com/addon/messaging/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
-* [Minimum order](https://www.sunshinephotocart.com/addon/minimum-order/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
-* [MailChimp integration](https://www.sunshinephotocart.com/addon/mailchimp/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
-* [Campaign Monitor integration](https://www.sunshinephotocart.com/addon/campaign-monitor/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
-* [Packages](https://www.sunshinephotocart.com/addon/packages/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
-* [PayJunction payment gateway](https://www.sunshinephotocart.com/addon/payjunction/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
-* [Stripe payment gateway](https://www.sunshinephotocart.com/addon/stripe/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
-* [Price levels (price sheets)](https://www.sunshinephotocart.com/addon/price-levels/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
-* [Product options](https://www.sunshinephotocart.com/addon/product-options/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
-* [Tiered pricing](https://www.sunshinephotocart.com/addon/tiered-pricing/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
-
-...and so many more to come! [Feel free to request new features](https://www.sunshinephotocart.com/contact/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
-
-= Go PRO! =
-
-Get ALL our paid add-ons for an insanely discounted single price - [Learn more](https://www.sunshinephotocart.com/pro/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
+> **Addons**
+> 
+> While the core plugin is free, there are paid add-ons to improve Sunshine's features:
+> 
+> * [Analytics](https://www.sunshinephotocart.com/addon/analytics/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
+> * [Digital downloads](https://www.sunshinephotocart.com/addon/digital-downloads/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
+> * [Discount codes](https://www.sunshinephotocart.com/addon/discounts/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
+> * [Automated email marketing](https://www.sunshinephotocart.com/addon/automated-email-marketing/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
+> * [Lightbox](https://www.sunshinephotocart.com/addon/lightbox/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
+> * [Masonry](https://www.sunshinephotocart.com/addon/masonry/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
+> * [Client messaging](https://www.sunshinephotocart.com/addon/messaging/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
+> * [Minimum order](https://www.sunshinephotocart.com/addon/minimum-order/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
+> * [MailChimp integration](https://www.sunshinephotocart.com/addon/mailchimp/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
+> * [Campaign Monitor integration](https://www.sunshinephotocart.com/addon/campaign-monitor/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
+> * [Packages](https://www.sunshinephotocart.com/addon/packages/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
+> * [PayJunction payment gateway](https://www.sunshinephotocart.com/addon/payjunction/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
+> * [Stripe payment gateway](https://www.sunshinephotocart.com/addon/stripe/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
+> * [Mollie (with iDEAL support) payment gateway](https://www.sunshinephotocart.com/addon/mollie/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
+> * [Price levels (price sheets)](https://www.sunshinephotocart.com/addon/price-levels/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
+> * [Product options](https://www.sunshinephotocart.com/addon/product-options/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
+> * [Tiered pricing](https://www.sunshinephotocart.com/addon/tiered-pricing/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
+> 
+> ...and so many more to come! [Feel free to request new features](https://www.sunshinephotocart.com/contact/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
+> 
+> **Go PRO!**
+>
+> Get ALL our paid add-ons for an insanely discounted single price - [Learn more](https://www.sunshinephotocart.com/pro/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
 
 == Installation ==
 
@@ -87,6 +88,152 @@ Get ALL our paid add-ons for an insanely discounted single price - [Learn more](
 8. Admin: Order details
 
 == Changelog ==
+
+= 2.3 =
+* Better add-ons page in admin
+* Update - Re-order Checkout page, putting shipping first for better flow (example: don't ask for shipping info if pickup)
+* Update - Ability to see items in order on Checkout page
+* Update - Confirmation on Cart page if a user changes quantity but doesn't update
+* Update - New admin notices class, much easier way of adding notices in Sunshine to help users out and do promos
+* Fix - Only create Sunshine-related image sizes for Sunshine galleries
+* Fix - Slow servers, uploading large files times out. Set increased time limit for files to upload.
+* Fix - Allow bulk delete of Sunshine's various custom post types
+
+= 2.2.12 =
+* Update - Improved methods for how PayPal orders are created and handled for better fallback when issues arise
+* Add - Include IP address tracking on all new orders (working toward VAT rules)
+* Add - New insights tracking via Freemius.com
+* Fix - Bug when user not logged in at checkout, has error at checkout - cart would disappear
+* Fix - Better hiding of payment methods when order total is 0 (free)
+* Fix - Some issues with calculating discounts
+* Fix - Watermark compatibility issues with new Digital Downloads 2.0
+
+= 2.2.11 =
+* Fix - Bug not saving users for Private galleries
+
+= 2.2.10 =
+* Update - Further refinements to gallery status/access options, now more combinations available
+* Update - Improved UI for gallery thumbnails in admin, ajax load on request so large galleries don't make this page so slow
+
+= 2.2.9 =
+* Fix - Favorite page doesn't appear in sunshine_main_menu anymore, oops!
+
+= 2.2.8 =
+* Fix - Couldn't save gallery as a draft
+* Fix - Don't clear user's cart after PayPal payment until they get to the actual receipt page, not on redirect
+* Fix - Could not remove discounts from cart page in some cases
+* Fix - At some point defining DONOTCACHEPAGE got removed accidentally
+* Fix - When going to registration page from a Sunshine page, custom password was not being saved
+* Change - Itemize everything when sent to PayPal instead of a single lump sum order
+* Change - How items in cart are handled when logged in/out 
+
+= 2.2.7 = 
+* Fix - If gallery has expired, remove items from cart
+* Fix - If gallery has expired, don't allow items to be added to cart from Favorites page
+* Fix - If no cost for a shipping method is entered, default it to 0/free
+* Fix - Favorites page template not working with lightbox
+* Change - Make requiring an email for a gallery separate from the Access type
+* Change - Include gallery name when requesting gallery password
+
+= 2.2.6 =
+* Fix - Further fixes for new permissions setup
+* Fix - Not saving updated order status
+
+= 2.2.5 =
+* Fix - Password protected galleries, while still password protected, showing "Normal Access" in gallery edit settings
+* Fix - Pickup shipping method only at checkout would not let users finish, required shipping fields which were hidden
+* Add - New instructions field for Pickup shipping method
+* Add - Include pickup instructions on email receipt and order detail page if available
+
+= 2.2.4 =
+* Fix - In newer installations, the version of Sunshine was not being tracked properly and so during updates the update function was not running
+
+= 2.2.3 =
+* Fix - When viewing gallery on front end, make admin bar "edit" link go to gallery instead of Client Galleries page
+* Fix - Image processor typos
+* Fix - Issue applying discounts to logged in users
+* Fix - Missing a CSS class on the gallery list <ul> element for Sunshine themes
+* Update - Refined user capability access
+* Update - If Local Pickup is only shipping method, don't show shipping fields
+* Update - If Local Pickup is selected, hide shipping fields (even though they are above, might help reduce some confusion)
+* Update - If gallery requires email and logged in as admin, don't ask for email - not necessary!
+* Update - Made Image Processor ajax queued so it will not import the next image until the previous one is done. This helps slow servers from getting overwhelmed and causing errors.
+* Update - Remove automatically switching to "Uploaded to this page" when trying to set a featured image. Easy enough to do manually and causes issues when you don't want it from the current page.
+
+= 2.2.2 = 
+* Fix - Issues saving proper private users for a gallery
+* Fix - Issues saving proper expiration date for a gallery
+* Add - New option to include instructions for Pickup shipping method
+* Update - If order has pickup method, show instructions (if available) in receipt email and on order detail page
+
+= 2.2.1 =
+* Fix - Access to Price Levels via add-on may not have been possible in some circumstances
+
+= 2.2 =
+* Change - Big updates to how carts are stored for non-logged in users, handles really large carts better
+* Change - New FTP image processor, all ajaxy now and more efficient
+* Change - Gallery edit screen has all options in meta box, some moved from the Publish box
+* Change - Work with new 4.4 title tag requirements
+* Change - Update PayPal IPN handler to use wp_remote_post to work in more server situations
+* Change - Checkout is back to requiring users to be logged in before they check out as it was confusing to some users how it worked at Checkout if they were not already logged in to an existing account. Other updates to Checkout page to make this page more clear to understand including AJAX check and error if email already exists.
+* Add - More variables for email subjects
+* Add - CSS for [sunshine-menu] shortcode for better display by default
+* Add - Order ID in admin notification email subject
+* Add - Option to automatically add the Sunshine Main Menu before the Sunshine content on all Sunshine pages when using your own WordPress theme
+* Add - Option to disable breadcrumb display, helpful if you want to keep users to a single gallery
+* Add - On image detail page, add link back to it's gallery
+* Fix - Some strings were not translatable
+* Fix - Order images by created timestamp from oldest to newest instead of newest to oldest
+* Fix - PHP error notice clean up in dashboard
+* Fix - Users getting password updated notification when they register
+* Fix - In rare instances, doing checkout with PayPal when initially not logged in caused taxes to not be included
+
+= 2.1 =
+* Add - New option for Terms of Use at checkout
+* Add - At checkout, if user enters email address that already exists it tries to log the user in instead of giving error that email already exists. If new email address, creates new user account.
+* Add - Ability to copy image file list for user's favorites (just like what is already available for Orders)
+* Add - Items in cart will now stay in cart for 30 days when not logged in and you close your browser
+* Add - Gallery list has filter on CSS class, used for updates to Masonry add-on
+* Update - All currently available translations updated
+* Fix - Prevent an image from being added to favorites multiple times on slow servers
+* Fix - Link to Bulk Add Products fixed
+* Fix - $ / % off product discount calculations redone
+* Fix - Checkout states / taxes not updating for non-logged in users
+* Fix - Orders in admin sortable by user/customer
+* Fix - Ordering images immediately after browser upload
+* Change - Make it very clear that in order to sort images by their created date, it must have EXIF field DateTimeDigitized in order to work
+* Change - Save the created_timestamp even if it doesn't exist so images will still appear even if not available in the image meta data
+* Change - Making adjustments to accommodate future Bulk Galleries add-on
+* Change - Use shipping name, instead of ID, in order receipts
+
+= 2.0.6 =
+* Add - If you set the Featured Image for a product, a link to that image is now available on the add to cart form
+* Add - Filter for currency symbol
+* Add - Nag for review and survey
+* Fix - Media gallery cleanup running on admin pages it shouldn't
+* Fix - Media gallery popup when editing posts/pages or any non-Sunshine post type was not filtering out Sunshine gallery images and overwhelming the Media Library
+* Fix - Not saving shipping address information when it is different from billing
+* Fix - Reports using only shipped orders to determine total tax collected
+
+= 2.0.5 =
+* Add - Watermarks images can now be set to repeat
+* Fix - Default/2013 Sunshine theme not outputting necessary CSS classes on Favorites page for each image
+* Fix - Default/2013 Sunshine theme having wrong thumbnail image size on Favorites page
+* Fix - Default/2013 Sunshine theme not showing password protected icon next to gallery title
+* Fix - Social media sharing sometimes show even when not enabled
+* Fix - Don't let users change quantity to negative value in cart
+* Change - Don't show email request form for gallery if currently logged in user is admin
+
+= 2.0.4 =
+* Add - Define DONOTCACHEPAGE to prevent caching plugins from caching Sunshine pages
+* Add - About screen on install or update
+* Change - Main Menu now uses page title of Sunshine main page instead of "Galleries"
+* Fix - Outputting some debug code for email required galleries
+* Fix - Not pre-populating user email address for logged in user on checkout
+* Fix - Typo causing problems with PayPal checkout and invalid address errors
+
+= 2.0.3 =
+* Tweak - In admin, for main products list show a "-" when product has no price set instead of $0 to be very clear no price has been set
 
 = 2.0.2 =
 * Fix - When image is marked as favorite, not showing it as favorite in gallery thumbnail view
@@ -394,7 +541,7 @@ Get ALL our paid add-ons for an insanely discounted single price - [Learn more](
 = 1.5.6 =
 * Fix - Theme integration not showing content for respective pages
 
-= 1.5.5 = 
+= 1.5.5 =
 * Fix - Profit totals not accurate when users had a discount code or used credits
 * Fix - When updating line item qty on cart page, line item total not updating
 * Add - Discounts has new option - apply before/after tax
@@ -408,7 +555,7 @@ Get ALL our paid add-ons for an insanely discounted single price - [Learn more](
 = 1.5.4.1 =
 * Fix - Download files
 
-= 1.5.4 = 
+= 1.5.4 =
 * Add - Notice if a package does not have any products assigned to it
 * Fix - Users with apostrophe in their name broke Private Gallery user selection
 * Fix - Bulk add products didn't assign categories properly
@@ -425,7 +572,7 @@ Get ALL our paid add-ons for an insanely discounted single price - [Learn more](
 = 1.5.2.2 =
 * Fix - Image Processor and how it handles upper/lowercase file names for servers that are case sensitive
 
-= 1.5.2.1 = 
+= 1.5.2.1 =
 * Fix - Gallery password form not using translated text
 * Fix - Some users seeing PHP error in footer of their theme
 

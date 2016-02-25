@@ -1,13 +1,8 @@
 <?php
-add_action( 'show_user_profile', 'sunshine_admin_user_credits' );
 add_action( 'edit_user_profile', 'sunshine_admin_user_credits' );
-add_action( 'show_user_profile', 'sunshine_admin_user_cart' );
-add_action( 'edit_user_profile', 'sunshine_admin_user_cart' );
-add_action( 'personal_options_update', 'sunshine_admin_user_credits_process' );
-add_action( 'edit_user_profile_update', 'sunshine_admin_user_credits_process' );
-
+add_action( 'show_user_profile', 'sunshine_admin_user_credits' );
 function sunshine_admin_user_credits( $user ) {
-	if ( current_user_can( 'manage_options' ) ) {
+	if ( current_user_can( 'sunshine_manage_options' ) ) {
 ?>
  	<h3 id="sunshine-credits"><?php _e( 'Sunshine Gallery Credits for Purchases', 'sunshine' ) ?></h3>
 	<table class="form-table">
@@ -27,12 +22,16 @@ function sunshine_admin_user_credits( $user ) {
 	}
 }
 
+add_action( 'personal_options_update', 'sunshine_admin_user_credits_process' );
+add_action( 'edit_user_profile_update', 'sunshine_admin_user_credits_process' );
 function sunshine_admin_user_credits_process( $user_id ) {
 	SunshineUser::update_user_meta_by_id( $user_id, 'credits', sanitize_text_field( $_POST['sunshine_credits'] ) );
 }
 
+add_action( 'show_user_profile', 'sunshine_admin_user_cart' );
+add_action( 'edit_user_profile', 'sunshine_admin_user_cart' );
 function sunshine_admin_user_cart( $user ) {
-	if ( current_user_can( 'manage_options' ) ) {
+	if ( current_user_can( 'sunshine_manage_options' ) ) {
 		$items = SunshineUser::get_user_meta_by_id( $user->ID, 'cart', false );
 ?>
 	 	<h3 id="sunshine-cart"><?php _e( 'Sunshine Items in Cart', 'sunshine' ) ?></h3>
@@ -82,7 +81,7 @@ function sunshine_admin_user_cart( $user ) {
  */
 add_filter( 'user_row_actions', 'sunshine_user_link_row',10,2 );
 function sunshine_user_link_row( $actions, $user ) {
-	if ( current_user_can( 'manage_options', $user->ID ) ) {
+	if ( current_user_can( 'sunshine_manage_options', $user->ID ) ) {
 		$actions['sunshine_credits'] = '<a href="user-edit.php?user_id='.$user->ID.'#sunshine-credits">' . __('Credits', 'sunshine') . '</a>';
 	}
 	return $actions;

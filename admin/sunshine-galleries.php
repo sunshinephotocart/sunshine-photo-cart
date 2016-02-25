@@ -7,7 +7,7 @@ function sunshine_gallery_meta_boxes() {
 
 	$meta_boxes[10] = array(
 		'sunshine_gallery_images',
-		__( 'Photos', 'sunshine' ). ' (<span class="sunshine-gallery-image-count">'.$image_count.'</span> images)',
+		__( 'Photos', 'sunshine' ) . ' (<span class="sunshine-gallery-image-count">' . $image_count . '</span> ' . __( 'images', 'sunshine' ) . ')',
 		'sunshine_gallery_upload_meta_box',
 		'sunshine-gallery',
 		'advanced',
@@ -40,10 +40,13 @@ function sunshine_gallery_meta_boxes() {
 
 add_action( 'admin_enqueue_scripts', 'sunshine_gallery_admin_enqueue_scripts' );
 function sunshine_gallery_admin_enqueue_scripts( $page ){
-	if( ( $page !== 'post.php' ) || ( get_post_type() !== 'sunshine-gallery' ) )
+	if ( get_post_type() != 'sunshine-gallery' ) {
 		return;
+	}
 	wp_enqueue_script( 'plupload-all' );
 	wp_enqueue_script( 'jquery-ui' );
+	wp_enqueue_script( 'select2', '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js', array( 'jquery' ) );
+	wp_enqueue_style( 'select2', '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css' );
 }
 
 function sunshine_remove_add_media(){
@@ -54,7 +57,7 @@ function sunshine_remove_add_media(){
 add_action( 'admin_head', 'sunshine_remove_add_media' );
 
 function sunshine_gallery_upload_meta_box(){
-	global $post;
+	global $post, $wpdb;
 ?>
 	<div id="sunshine-gallery-images-processing"><div class="status"></div></div>
    	<div id="plupload-upload-ui" class="hide-if-no-js">
@@ -68,18 +71,66 @@ function sunshine_gallery_upload_meta_box(){
   	</div>
 
 	<div id="sunshine-gallery-images">
-		<ul class="sunshine-clearfix">
+		<ul id="images" class="sunshine-clearfix">
 			<?php
-	$images = get_posts( 'post_type=attachment&post_parent='.$post->ID.'&nopaging=true&orderby=menu_order&order=ASC' );
-	foreach ( $images as $image ) {
-		$thumbnail = wp_get_attachment_image_src( $image->ID, 'sunshine-thumbnail' );
-		echo '<li id="image-'.$image->ID.'"><img src="'.$thumbnail[0].'" alt="" /> <span class="sunshine-image-actions"><a href="media.php?attachment_id='.$image->ID.'&action=edit" class="sunshine-image-edit dashicons dashicons-edit edit" target="_blank"></a> <a href="#" class="sunshine-image-delete dashicons dashicons-no-alt remove" data-image-id="'.$image->ID.'"></a></span></li>';
-	}
-?>
+				$total_images = $wpdb->get_var( "SELECT COUNT(*) FROM $wpdb->posts WHERE post_parent = '$post->ID' AND post_type = 'attachment'" );
+				$images = get_children( 'post_type=attachment&post_parent='.$post->ID.'&posts_per_page=20&orderby=menu_order&order=ASC&post_mime_type=image' );
+				foreach ( $images as $image ) {
+					$thumbnail = wp_get_attachment_image_src( $image->ID, 'sunshine-thumbnail' );
+					echo '<li id="image-'.$image->ID.'"><img src="'.$thumbnail[0].'" alt="" /> <span class="sunshine-image-actions"><a href="media.php?attachment_id='.$image->ID.'&action=edit" class="sunshine-image-edit dashicons dashicons-edit edit" target="_blank"></a> <a href="#" class="sunshine-image-delete dashicons dashicons-no-alt remove" data-image-id="'.$image->ID.'"></a></span></li>';
+				}
+			?>
+		</ul>
+		<?php
+		if ( $total_images > 20 ) {
+			echo '<div id="sunshine-load-more">' . sprintf( __( 'Load %s more images', 'sunshine' ), '<select name="count"><option value="20">20</option><option value="50">50</option><option value="100">100</option><option value="999999999">All</option></select>' ) . ' <input type="button" name="loadmorego" id="sunshine-load-more-go" value="GO" class="button" /> &nbsp;&nbsp;&nbsp; (<span id="sunshine-gallery-images-loaded">20</span> of <span class="sunshine-gallery-image-count">' . $total_images . '</span> already loaded)</div>';
+		}
+		?>
+		<?php
+		$files = get_children( 'post_type=attachment&post_parent='.$post->ID.'&nopaging=true&orderby=menu_order&order=ASC' );
+		?>
+		<ul id="files">
+			<?php
+				foreach ( $files as $file ) {
+					$mime_type = get_post_mime_type( $file->ID );
+					if ( $mime_type != 'image/jpeg' ) {
+						$name = basename( get_attached_file( $file->ID ) );
+						echo '<li id="image-'.$file->ID.'">' . $name . ' <a href="#" class="sunshine-image-delete" data-image-id="'.$file->ID.'">Delete</a></li>';
+					}
+				}
+			?>
 		</ul>
 	</div>
 	<script>
 	jQuery(document).ready(function($) {
+		var total_images = <?php echo $total_images; ?>;
+		var start = 20;
+		var count = 20;
+		$('#sunshine-load-more-go').on('click', function(){
+			$(this).html('<?php _e( 'Loading', 'sunshine' ); ?> ');
+			count = parseInt( $('select[name="count"]').val() );
+			var data = {
+				'action': 'sunshine_gallery_load_more',
+				'gallery_id': <?php echo $post->ID; ?>,
+				'start': start,
+				'count': count
+			};
+			console.log( data );
+			$.post(ajaxurl, data, function(images) {
+				if ( images != '' ) {
+					$(this).data( 'start', ( start + 20 ) );
+					$('#images').append( images );
+					$('#sunshine-gallery-images-loaded').html( start );
+				} 
+			});
+			start = start + count;
+			if ( start > total_images ) {
+				$('#sunshine-load-more').remove();
+			}
+			return false;
+		});
+		
+		
 	    var itemList = $('#sunshine-gallery-images ul');
 
 	    itemList.sortable({
@@ -111,7 +162,7 @@ function sunshine_gallery_upload_meta_box(){
 	        }
 	    });
 
-		$('a.sunshine-image-delete').click(function(){
+		$('#images').delegate('a.sunshine-image-delete', 'click', function(){
 			var image_id = $(this).data('image-id');
 			var data = {
 				'action': 'sunshine_gallery_image_delete',
@@ -119,8 +170,11 @@ function sunshine_gallery_upload_meta_box(){
 			};
 
 			$.post(ajaxurl, data, function(response) {
-				if (response == 'SUCCESS')
+				if (response == 'SUCCESS') {
+					total_images--;
+					$('.sunshine-gallery-image-count').html(total_images);
 					$('li#image-'+image_id).fadeOut();
+				}
 				else
 					alert('<?php _e( 'Sorry, the image could not be deleted for some reason','sunshine' ); ?>');
 			});
@@ -142,7 +196,7 @@ function sunshine_gallery_upload_meta_box(){
 		'url'                 => admin_url( 'admin-ajax.php' ),
 		'flash_swf_url'       => includes_url( 'js/plupload/plupload.flash.swf' ),
 		'silverlight_xap_url' => includes_url( 'js/plupload/plupload.silverlight.xap' ),
-		'filters'             => array( array( 'title' => __( 'Allowed Files' ), 'extensions' => 'jpg' ) ),
+		'filters'             => array( array( 'title' => __( 'Allowed Files' ), 'extensions' => join( ',', sunshine_allowed_file_extensions() ) ) ),
 		'multipart'           => true,
 		'urlstream_upload'    => true,
 
@@ -181,7 +235,7 @@ function sunshine_gallery_upload_meta_box(){
 		uploader.init();
 
 		uploader.bind('UploadComplete', function(){
-			$('#sunshine-gallery-images-processing div.status').html('Images uploaded successfully!');
+			$('#sunshine-gallery-images-processing div.status').html('Files uploaded successfully!');
 			$('#sunshine-gallery-images-processing').addClass('success').delay( 2000 ).fadeOut( 400 );
 			var elem = document.getElementById('sunshine-gallery-images');
 			elem.scrollTop = elem.scrollHeight;
@@ -199,7 +253,7 @@ function sunshine_gallery_upload_meta_box(){
 				} else {
 					current_image_count = 0;
 					$('#sunshine-gallery-images-processing').removeClass('success');
-					$('#sunshine-gallery-images-processing div.status').html('Uploading <span class="processed">0</span> of <span class="total-files">'+total_images+'</span> images...<span class="current-file"></span>');
+					$('#sunshine-gallery-images-processing div.status').html('Uploading <span class="processed">0</span> of <span class="total-files">'+total_images+'</span> files...<span class="current-file"></span>');
 					$('#sunshine-gallery-images-processing').show();
 				}
 			});
@@ -212,26 +266,42 @@ function sunshine_gallery_upload_meta_box(){
     	uploader.bind('FileUploaded', function(up, file, response) {
 			var result = $.parseJSON(response.response);
 
-			current_image_count++;
- 			$('#sunshine-gallery-images-processing span.processed').html(current_image_count);
- 			$('#sunshine-gallery-images-processing div.status span.current-file').html(file.name+' uploaded');
-			$('#sunshine-gallery-images ul').append(
-				$('<li/>', {
-					'class': 'uploading-image',
-					'id': result.image_id,
-					html: $('<img/>', {
- 						src: result.thumbnail
-					})
-				})
-			);
+			if ( result.result == 'success') {
+				current_image_count++;
+	 			$('#sunshine-gallery-images-processing span.processed').html(current_image_count);
+	 			$('#sunshine-gallery-images-processing div.status span.current-file').html(file.name+' uploaded');
+				if ( result.thumbnail ) {
+					$('#sunshine-gallery-images ul#images').append(
+						$('<li/>', {
+							'class': 'uploading-image',
+							'id': 'image-'+result.image_id,
+							html: $('<img/>', {
+		 						src: result.thumbnail
+							})
+						})
+					);
+				} else {
+					console.log( 'Adding file' );
+					$('#sunshine-gallery-images ul#files').append(
+						$('<li/>', {
+							'id': 'image-'+result.image_id,
+							html: result.file.name
+						})
+					);
+				}
 
-			var image_count = $('.sunshine-gallery-image-count').html();
-			image_count++;
- 			$('.sunshine-gallery-image-count').html(image_count);
-
+				var image_count = $('.sunshine-gallery-image-count').html();
+				image_count++;
+	 			$('.sunshine-gallery-image-count').html(image_count);
+			}
     	});
 
-    });
+		uploader.bind('ChunkUploaded', function(up, file, info) {
+			var percent = Math.round( 100 - ( ( (info.total - info.offset) / info.total ) * 100 ) );
+			$('#sunshine-gallery-images-processing div.status span.current-file').html('Uploading file "'+file.name+'" ('+percent+'%)');
+		});
+
+   });
   </script>
   <?php
 }
@@ -241,11 +311,16 @@ function sunshine_gallery_admin_ajax_upload(){
 
 	check_ajax_referer( 'sunshine_gallery_upload' );
 	
+	set_time_limit( 600 );
+	
 	$gallery_id = intval( $_POST['gallery_id'] );
 
+	$menu_order = 0;
 	$last_image = get_posts( 'post_type=attachment&post_parent='.$gallery_id.'&posts_per_page=1&orderby=menu_order&order=DESC' );
-	$menu_order = $last_image[0]->menu_order;
-	$menu_order++;
+	if ( $last_image ) {
+		$menu_order = $last_image[0]->menu_order;
+		$menu_order++;		
+	}
 	$result['menu_order'] = $menu_order;
 
 	$file = $_FILES['sunshine_gallery_image'];
@@ -272,11 +347,9 @@ function sunshine_gallery_admin_ajax_upload(){
 				'post_title' => $attachment_meta_data['image_meta']['title']
 			) );
 		}
-		if ( !empty( $attachment_meta_data['image_meta']['created_timestamp'] ) ) {
-			add_post_meta( $attachment_id, 'created_timestamp', $attachment_meta_data['image_meta']['created_timestamp'] );
-		}
+		add_post_meta( $attachment_id, 'created_timestamp', $attachment_meta_data['image_meta']['created_timestamp'] );
 		wp_update_attachment_metadata( $attachment_id, $attachment_meta_data );
-		add_post_meta( $attachment_id, 'sunshine_file_name', strtolower( sanitize_file_name( basename( $file['name'] ) ) ) );
+		add_post_meta( $attachment_id, 'sunshine_file_name', sanitize_file_name( basename( $file['name'] ) ) );
 		$result['result'] = 'success';
 		$result['image_id'] = $attachment_id;
 		$thumbnail = wp_get_attachment_image_src( $attachment_id, 'sunshine-thumbnail' );
@@ -290,7 +363,7 @@ function sunshine_gallery_admin_ajax_upload(){
 }
 
 add_action( 'wp_ajax_sunshine_gallery_image_sort', 'sunshine_gallery_image_sort' );
-function sunshine_gallery_image_sort(){
+function sunshine_gallery_image_sort() {
 	$images = explode( ',', $_POST['images'] );
 	$counter = 0;
 	foreach ( $images as $image_id ) {
@@ -300,6 +373,18 @@ function sunshine_gallery_image_sort(){
 	}
 	exit;
 }
+
+add_action( 'wp_ajax_sunshine_gallery_load_more', 'sunshine_gallery_load_more' );
+function sunshine_gallery_load_more() {
+	$images = get_children( 'post_type=attachment&post_parent=' . $_POST['gallery_id'] . '&posts_per_page=' . $_POST['count'] . '&offset=' . $_POST['start'] . '&orderby=menu_order&order=ASC&post_mime_type=image' );
+	$html = '';
+	foreach ( $images as $image ) {
+		$thumbnail = wp_get_attachment_image_src( $image->ID, 'sunshine-thumbnail' );
+		$html .= '<li id="image-'.$image->ID.'"><img src="'.$thumbnail[0].'" alt="" /> <span class="sunshine-image-actions"><a href="media.php?attachment_id='.$image->ID.'&action=edit" class="sunshine-image-edit dashicons dashicons-edit edit" target="_blank"></a> <a href="#" class="sunshine-image-delete dashicons dashicons-no-alt remove" data-image-id="'.$image->ID.'"></a></span></li>';
+	}
+	die( $html );
+}
+
 
 add_action( 'wp_ajax_sunshine_gallery_image_delete', 'sunshine_gallery_image_delete' );
 function sunshine_gallery_image_delete() {
@@ -321,13 +406,42 @@ function sunshine_gallery_options_box( $post ) {
 	// The actual fields for data entry
 	echo '<table class="sunshine-meta">';
 
+	sunshine_gallery_options_box_html( $post );
+	do_action( 'sunshine_admin_galleries_meta', $post );
+
+	echo '</table>';
+
+?>
+	<script type="text/javascript">
+		jQuery(document).ready(function($) {			
+			$(".sunshine-multiselect").select2({
+			    width: '100%',
+				allowClear: true
+			});
+			
+			$(".sunshine-multiselect").change(function() {
+			    var selections = ( JSON.stringify($(this).select2('data')) );
+			    console.log('Selected options: ' + selections);
+			});			
+		});
+	</script>
+<?php
+}
+
+function sunshine_gallery_options_box_html( $post ) {
+	if ( empty( $post ) ) {
+		$post_id = '';
+	} else { 
+		$post_id = $post->ID;
+	}
+
 	$price_levels = get_terms( 'sunshine-product-price-level', array( 'hide_empty' => false ) );
 	if ( count( $price_levels ) > 1 ) {
 		echo '<tr><th><label for="sunshine_gallery_price_level">'.__( 'Price Level', 'sunshine' ).'</label></th>';
 		echo '<td>';
 		if ( count( $price_levels ) > 1 ) {
 			echo '<select id="sunshine_gallery_price_level" name="sunshine_gallery_price_level">';
-			$current_price_level = get_post_meta( $post->ID, 'sunshine_gallery_price_level', true );
+			$current_price_level = get_post_meta( $post_id, 'sunshine_gallery_price_level', true );
 			foreach ( $price_levels as $price_level ) {
 				echo '<option value="'.$price_level->term_id.'"'.selected( $current_price_level,$price_level->term_id,false ).'>'.$price_level->name.'</option>';
 			}
@@ -340,32 +454,96 @@ function sunshine_gallery_options_box( $post ) {
 	} else
 		echo '<input type="hidden" name="sunshine_gallery_price_level" value="'.$price_levels[0]->term_id.'" />';
 
-
-	echo '<tr><th><label for="sunshine_gallery_access">Access</label></th>';
+	$gallery_status = get_post_meta( $post_id, 'sunshine_gallery_status', true );
+	echo '<tr><th><label for="sunshine_gallery_status">' . __('Gallery Type', 'sunshine') . '</label></th>';
+	echo '<td><select name="sunshine_gallery_status">';
+	echo '<option value="">'.__( 'Standard', 'sunshine' ).'</option>';
+	echo '<option value="password" '.selected( $gallery_status, 'password', 0 ).'>'.__( 'Password Protected', 'sunshine' ).'</option>';
+	echo '<option value="private" '.selected( $gallery_status, 'private', 0 ).'>'.__( 'Private (only specified users)', 'sunshine' ).'</option>';
+	echo '</select>';
+	
+	/* Options basde on access type */
+	/* Password protected */
+	echo '<div class="sunshine-status-password sunshine-status-options" style="display: ' . ( ( $gallery_status == 'password' ) ? '' : 'none' ) . ';"><label for="sunshine_gallery_password">' . __('Password', 'sunshine') . '</label> ';
+	echo '<input name="sunshine_gallery_password" value="' . esc_attr( $post->post_password ) . '" /> ';
+	echo '<label for="sunshine_gallery_password_hint">' . __('Password Hint', 'sunshine') . '</label> ';
+	echo '<input name="sunshine_gallery_password_hint" value="' . esc_attr( get_post_meta( $post_id, 'sunshine_gallery_password_hint', true )
+	 ) . '" /></div>';
+	
+	/* Private */
+	$clients = get_users();
+	if ( $clients ) {
+		$selected_users = get_post_meta( $post->ID, 'sunshine_gallery_private_user' );
+		$client_list = '<select name="sunshine_gallery_private_user[]" class="sunshine-multiselect" multiple="multiple">';
+		foreach ( $clients as $client ) {
+			$checked = ( in_array( $client->ID, $selected_users ) ) ? ' selected="selected"' : '';
+			$client_list .= '<option value="'.$client->ID.'"'.$checked.' />' . esc_attr( $client->display_name ) . '</option>';
+		}
+		$client_list .= '</select>';
+	}
+	
+	echo '<div class="sunshine-status-private sunshine-status-options" style="display: ' . ( ( $post->post_status == 'private' ) ? '' : 'none' ) . ';"><label for="sunshine_gallery_private_user">' . __('Private Access Users', 'sunshine').'</label> ';
+	echo $client_list . '</div>';
+	
+	echo '</td></tr>';
+	
+	$gallery_access = get_post_meta( $post_id, 'sunshine_gallery_access', true );
+	echo '<tr><th><label for="sunshine_gallery_access">' . __( 'Access Type', 'sunshine' ) . '</label></th>';
 	echo '<td><select name="sunshine_gallery_access">';
-	echo '<option value="">'.__( 'Normal access','sunshine' ).'</option>';
-	echo '<option value="account" '.selected( get_post_meta( $post->ID, 'sunshine_gallery_access', true ), 'account', 0 ).'>'.__( 'Registered and logged in','sunshine' ).'</option>';
-	echo '<option value="email" '.selected( get_post_meta( $post->ID, 'sunshine_gallery_access', true ), 'email', 0 ).'>'.__( 'Provide email address','sunshine' ).'</option>';
+	echo '<option value="">'.__( 'None', 'sunshine' ).'</option>';
+	echo '<option value="account" '.selected( $gallery_access, 'account', 0 ).'>'.__( 'Registered and logged in', 'sunshine' ).'</option>';
+	echo '<option value="email" '.selected( $gallery_access, 'email', 0 ).'>'.__( 'Provide email address', 'sunshine' ).'</option>';
 	echo '</select></td></tr>';
+	
+	$end_date = get_post_meta( $post_id, 'sunshine_gallery_end_date', true );
+	$end_date_hidden = $end_date_picker = $end_hour = '';
+	if ( $end_date ) {
+		$end_date_picker = esc_attr( date( get_option( 'date_format' ), $end_date ) );
+		$end_date_hidden = esc_attr( date( 'Y-m-d', $end_date ) );
+		$end_hour = date( 'G', $end_date );
+	}
+	echo '<tr><th>' . __( 'End Date', 'sunshine' ) . '</th><td><input type="text" name="end_date" class="datepicker" value="' . $end_date_picker . '" /> <input type="hidden" id="sunshine-end-date" name="sunshine_end_date" value="' . $end_date_hidden . '" /> @ ';
+	echo '<select name="end_hour"><option></option>';
+	for ( $i = 0; $i < 24; $i++ ) {
+	  	echo '<option value="' . $i . '" ' . selected( $i, $end_hour, 0 ) . '>' . ( ( $i % 12 ) ? $i % 12 : 12 ) . ':00' . ( $i >= 12 ? 'pm' : 'am' ) . '</option>';
+	}
+	echo '</select>';
+	echo '</td></tr>';
+	
+	?>
+	<script>
+	jQuery(document).ready(function($){
+		$('select[name="sunshine_gallery_status"]').change(function(){
+			var gallery_status = $(this).val();
+			$('.sunshine-status-options').hide();
+			$('.sunshine-status-' + gallery_status ).show();
+		});
+		jQuery('.datepicker').datepicker( {
+			dateFormat: '<?php echo sunshine_date_format_php_to_js( get_option( 'date_format' ) ); ?>', 
+			gotoCurrent: true,
+			altField: '#sunshine-end-date',
+			altFormat: 'yy-mm-dd'
+		}).keyup(function(e) {
+		    if(e.keyCode == 8 || e.keyCode == 46) {
+		        $.datepicker._clearDate(this);
+		    }
+		});
+	});
+	</script>
+	
+	<?php
+	
 
-	/*
-	echo '<tr><th><label for="sunshine_gallery_require_account">Require Account</label></th>';
-	echo '<td><label><input type="checkbox" name="sunshine_gallery_require_account" value="1" '.checked(get_post_meta($post->ID, 'sunshine_gallery_require_account', true), 1, 0).' /> Require user have an account and be logged in to view this gallery</label></td></tr>';
+	echo '<tr><th><label for="sunshine_gallery_disable_products">' . __( 'Disable products', 'sunshine' ) . '</label></th>';
+	echo '<td><label><input type="checkbox" name="sunshine_gallery_disable_products" value="1" '.checked( get_post_meta( $post_id, 'sunshine_gallery_disable_products', true ), 1, 0 ).' /> Users will not be able to purchase any products for this gallery</label></td></tr>';
 
-	echo '<tr><th><label for="sunshine_gallery_require_email">Require Email</label></th>';
-	echo '<td><label><input type="checkbox" name="sunshine_gallery_require_email" value="1" '.checked(get_post_meta($post->ID, 'sunshine_gallery_require_email', true), 1, 0).' /> Require user to enter their email address in order to view gallery</label></td></tr>';
-	*/
+	echo '<tr><th><label for="sunshine_gallery_image_comments">' . __( 'Allow image comments', 'sunshine' ) . '</label></th>';
+	echo '<td><label><input type="checkbox" name="sunshine_gallery_image_comments" value="1" '.checked( get_post_meta( $post_id, 'sunshine_gallery_image_comments', true ), 1, 0 ).' /> Allow users to make comments on images</label></td></tr>';
 
-	echo '<tr><th><label for="sunshine_gallery_disable_products">Disable products</label></th>';
-	echo '<td><label><input type="checkbox" name="sunshine_gallery_disable_products" value="1" '.checked( get_post_meta( $post->ID, 'sunshine_gallery_disable_products', true ), 1, 0 ).' /> Users will not be able to purchase any products for this gallery</label></td></tr>';
-
-	echo '<tr><th><label for="sunshine_gallery_image_comments">Allow image comments</label></th>';
-	echo '<td><label><input type="checkbox" name="sunshine_gallery_image_comments" value="1" '.checked( get_post_meta( $post->ID, 'sunshine_gallery_image_comments', true ), 1, 0 ).' /> Allow users to make comments on images</label></td></tr>';
-
-	echo '<tr><th><label for="sunshine_gallery_images_directory">FTP Images Folder</label></th>';
+	echo '<tr><th><label for="sunshine_gallery_images_directory">' . __( 'FTP Images Folder', 'sunshine' ) . '</label></th>';
 	echo '<td><select id="sunshine_gallery_images_directory" name="sunshine_gallery_images_directory"><option value="">Please select folder</option>';
 	$upload_dir = wp_upload_dir();
-	$selected_dir = get_post_meta( $post->ID, 'sunshine_gallery_images_directory', true );
+	$selected_dir = get_post_meta( $post_id, 'sunshine_gallery_images_directory', true );
 	$folders = scandir( $upload_dir['basedir'].'/sunshine' );
 	$folders = apply_filters( 'sunshine_gallery_images_directory', $folders );
 	foreach ( $folders as $item ) {
@@ -380,41 +558,25 @@ function sunshine_gallery_options_box( $post ) {
 		}
 	}
 	echo '</select></td></tr>';
+	
+}
 
-	do_action( 'sunshine_admin_galleries_meta', $post );
-
-	echo '</table>';
-
-
-	// Add password hint field
-	$sunshine_gallery_password_hint = get_post_meta( $post->ID, 'sunshine_gallery_password_hint', true );
-	// Add clients for private galleries
-	$clients = get_users();
-	if ( $clients ) {
-		$selected_users = get_post_meta( $post->ID, 'sunshine_gallery_private_user' );
-		$client_list = '';
-		foreach ( $clients as $client ) {
-			$checked = ( in_array( $client->ID, $selected_users ) ) ? ' checked="checked"' : '';
-			$client_list .= '<label><input type="checkbox" name="sunshine_gallery_private_user[]" value="'.$client->ID.'"'.$checked.' /> '.esc_attr( $client->display_name ) . '</label><br />';
-		}
-	}
-?>
-	<script type="text/javascript">
-		jQuery(document).ready(function() {
-			jQuery('#password-span').append('<label for="sunshine_gallery_password_hint">Password Hint:</label><br /><input type="text" name="sunshine_gallery_password_hint" id="sunshine_gallery_password_hint" value="<?php echo addslashes( htmlspecialchars( $sunshine_gallery_password_hint ) ); ?>" style="width: 100%;"/><br />');
-			jQuery('label[for="visibility-radio-private"]').append('<div id="sunshine-gallery-private-users">Select users to give access:<br /><div style="height: 75px; overflow-y: scroll; font-size: 11px;"><?php echo $client_list; ?></div></div>');
-			jQuery('input[name="visibility"]').change(function() {
-				if (jQuery(this).val() == 'private')
-					jQuery('#sunshine-gallery-private-users').show();
-				else
-					jQuery('#sunshine-gallery-private-users').hide();
-			});
-			<?php if ( get_post_status( $post->ID ) != 'private' ) { ?>
-				jQuery('#sunshine-gallery-private-users').hide();
-			<?php } ?>
-		});
-	</script>
-<?php
+function sunshine_date_format_php_to_js( $sFormat ) {
+    switch( $sFormat ) {
+        //Predefined WP date formats
+        case 'F j, Y':
+            return( 'MM d, yy' );
+            break;
+        case 'Y/m/d':
+            return( 'yy/mm/dd' );
+            break;
+        case 'm/d/Y':
+            return( 'mm/dd/yy' );
+            break;
+        case 'd/m/Y':
+            return( 'dd/mm/yy' );
+            break;
+    }
 }
 
 function sunshine_gallery_emails_box( $post ) {
@@ -424,65 +586,7 @@ function sunshine_gallery_emails_box( $post ) {
 	}
 }
 
-add_action( 'post_submitbox_misc_actions', 'sunshine_gallery_publish_box' );
-function sunshine_gallery_publish_box() {
-	global $post, $wp_locale;
-	if ( $post->post_type == 'sunshine-gallery' || ( isset( $_GET['post_type'] ) && $_GET['post_type'] == 'sunshine-gallery' ) ) {
-		$end_date = get_post_meta( $post->ID, 'sunshine_gallery_end_date', true );
-		if ( $end_date ) {
-			$datef = __( 'M j, Y @ G:i' );
-			$endstamp = date_i18n( $datef, $end_date );
-		} else {
-			$endstamp = 'No end date set';
-		}
-?>
-	<div class="misc-pub-section curtime">
-		<span id="timestamp">Ends on: <b><?php echo $endstamp; ?></b></span>
-		<a href="#edit_endtimestamp" class="edit-endtimestamp hide-if-no-js" tabindex="4" onclick="jQuery('#endtimestampdiv').show(); jQuery('a.edit-endtimestamp').hide();">Edit</a>
-		<div id="endtimestampdiv" class="hide-if-js">
-
-			<?php
-		$end_day = ( $end_date ) ? date( 'd', $end_date ) : '';
-		$end_month = ( $end_date ) ? date( 'm', $end_date ) : '';
-		$end_year = ( $end_date ) ? date( 'Y', $end_date ) : '';
-		$end_hour = ( $end_date ) ? date( 'H', $end_date ) : '';
-		$end_min = ( $end_date ) ? date( 'i', $end_date ) : '';
-
-		$month = '<select name="end_month"><option value=""></option>';
-		for ( $i = 1; $i < 13; $i = $i +1 ) {
-			$monthnum = zeroise( $i, 2 );
-			$month .= "\t\t\t" . '<option value="' . $monthnum . '"';
-			if ( $i == $end_month )
-				$month .= ' selected="selected"';
-			/* translators: 1: month number (01, 02, etc.), 2: month abbreviation */
-			$month .= '>' . sprintf( __( '%1$s-%2$s' ), $monthnum, $wp_locale->get_month_abbrev( $wp_locale->get_month( $i ) ) ) . "</option>\n";
-		}
-		$month .= '</select>';
-
-		$day = '<input type="text" name="end_day" value="' . $end_day . '" size="2" maxlength="2"' . $tab_index_attribute . ' autocomplete="off" />';
-		$year = '<input type="text" name="end_year" value="' . $end_year . '" size="4" maxlength="4"' . $tab_index_attribute . ' autocomplete="off" />';
-		$hour = '<input type="text" name="end_hour" value="' . $end_hour . '" size="2" maxlength="2"' . $tab_index_attribute . ' autocomplete="off" />';
-		$minute = '<input type="text" name="end_min" value="' . $end_min . '" size="2" maxlength="2"' . $tab_index_attribute . ' autocomplete="off" />';
-
-		echo '<div class="timestamp-wrap">';
-		/* translators: 1: month input, 2: day input, 3: year input, 4: hour input, 5: minute input */
-		printf( __( '%1$s%2$s, %3$s @ %4$s : %5$s' ), $month, $day, $year, $hour, $minute );
-
-		echo '</div>';
-?>
-
-			<p>
-			<a href="#edit_endtimestamp" class="save-endtimestamp hide-if-no-js button" onclick="jQuery('#endtimestampdiv').hide();  jQuery('a.edit-endtimestamp').show();"><?php _e( 'OK' ); ?></a>
-			<a href="#edit_endtimestamp" class="cancel-endtimestamp hide-if-no-js" onclick="jQuery('#endtimestampdiv').hide();  jQuery('a.edit-endtimestamp').show();"><?php _e( 'Cancel' ); ?></a>
-			</p>
-
-		</div>
-	</div>
-<?php
-	}
-}
-
-add_action( 'save_post', 'sunshine_gallery_save_postdata' );
+add_action( 'save_post', 'sunshine_gallery_save_postdata', 999 );
 function sunshine_gallery_save_postdata( $post_id ) {
 	global $wpdb;
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
@@ -490,44 +594,67 @@ function sunshine_gallery_save_postdata( $post_id ) {
 	if ( !isset( $_POST['sunshine_noncename'] ) || !wp_verify_nonce( $_POST['sunshine_noncename'], plugin_basename( __FILE__ ) ) )
 		return;
 
-	if ( isset( $_POST['post_type'] ) && $_POST['post_type'] == 'sunshine-gallery' ) {
+	if ( ( isset( $_POST['post_type'] ) && $_POST['post_type'] == 'sunshine-gallery' ) ) {
 
-		if ( $_POST['sunshine_gallery_image_comments'] ) {
-			$wpdb->query( "UPDATE $wpdb->posts SET comment_status = 'open' WHERE post_parent = $post_id" );
-		}
-
-		// Update post meta data
-		update_post_meta( $post_id, 'sunshine_gallery_access', sanitize_text_field( $_POST['sunshine_gallery_access'] ) );
-		update_post_meta( $post_id, 'sunshine_gallery_image_comments', ( isset( $_POST['sunshine_gallery_image_comments'] ) ) ? sanitize_text_field( $_POST['sunshine_gallery_image_comments'] ) : '' );
-		update_post_meta( $post_id, 'sunshine_gallery_images_directory', ( isset( $_POST['sunshine_gallery_images_directory'] ) ) ? sanitize_text_field( $_POST['sunshine_gallery_images_directory'] ) : '' );
-		update_post_meta( $post_id, 'sunshine_gallery_password_hint', ( isset( $_POST['sunshine_gallery_password_hint'] ) ) ? sanitize_text_field( $_POST['sunshine_gallery_password_hint'] ) : '' );
-		update_post_meta( $post_id, 'sunshine_gallery_disable_products', ( isset( $_POST['sunshine_gallery_disable_products'] ) ) ? sanitize_text_field( $_POST['sunshine_gallery_disable_products'] ) : '' );
-		update_post_meta( $post_id, 'sunshine_gallery_price_level', ( isset( $_POST['sunshine_gallery_price_level'] ) ) ? sanitize_text_field( $_POST['sunshine_gallery_price_level'] ) : '' );
-
-		// Update users for private post
-		delete_post_meta( $post_id, 'sunshine_gallery_private_user' ); // Remove all previous users, then reassign
-		if ( $_POST['post_status'] == 'private' ) {
-			if ( !empty( $_POST['sunshine_gallery_private_user'] ) ) {
-				foreach ( $_POST['sunshine_gallery_private_user'] as $user ) {
-					add_post_meta( $post_id, 'sunshine_gallery_private_user', intval( $user ) );
-				}
-			}
-		} else
-			add_post_meta( $post_id, 'sunshine_gallery_private_user', '0' ); // Add 0 for every gallery to make OR query possible on home page
-
-		// Update end date
-		if ( $_POST['end_month'] ) {
-			$end_hour = ( $_POST['end_hour'] ) ? $_POST['end_hour'] : 0;
-			$end_min = ( $_POST['end_min'] ) ? $_POST['end_min'] : 0;
-			$end_month = ( $_POST['end_month'] ) ? $_POST['end_month'] : 0;
-			$end_day = ( $_POST['end_day'] ) ? $_POST['end_day'] : 0;
-			$end_year = ( $_POST['end_year'] ) ? $_POST['end_year'] : 0;
-			$end_date = mktime( $end_hour, $end_min, 0, $end_month, $end_day, $end_year );
-		} else
-			$end_date = '';
-		update_post_meta( $post_id, 'sunshine_gallery_end_date', sanitize_text_field( $end_date ) );
+		sunshine_gallery_save_postdata_process( $post_id, $_POST );
 
 	}
+}
+
+function sunshine_gallery_save_postdata_process( $post_id, $data ) {
+	global $wpdb;
+	
+	if ( isset( $data['sunshine_gallery_image_comments'] ) ) {
+		$wpdb->query( "UPDATE $wpdb->posts SET comment_status = 'open' WHERE post_parent = $post_id" );
+	}
+	
+	if ( isset( $data['sunshine_gallery_status'] ) && $data['sunshine_gallery_status'] == 'password' ) {
+		$password = sanitize_text_field( $data['sunshine_gallery_password'] );
+		$wpdb->query( "UPDATE $wpdb->posts SET post_password = '$password' WHERE ID = $post_id" );
+	} else {
+		$wpdb->query( "UPDATE $wpdb->posts SET post_password = '' WHERE ID = $post_id" );
+		delete_post_meta( $post_id, 'sunshine_gallery_password_hint' );
+	}
+	
+	if ( $_POST['post_status'] == 'draft' ) {
+		
+	} elseif ( isset( $data['sunshine_gallery_status'] ) && $data['sunshine_gallery_status'] == 'private' ) {
+		$wpdb->query( "UPDATE $wpdb->posts SET post_status = 'private' WHERE ID = $post_id" );
+	} else { 
+		$wpdb->query( "UPDATE $wpdb->posts SET post_status = 'publish' WHERE ID = $post_id" );
+	}
+
+	// Update post meta data
+	update_post_meta( $post_id, 'sunshine_gallery_status', sanitize_text_field( $data['sunshine_gallery_status'] ) );
+	update_post_meta( $post_id, 'sunshine_gallery_access', sanitize_text_field( $data['sunshine_gallery_access'] ) );
+	update_post_meta( $post_id, 'sunshine_gallery_image_comments', ( isset( $data['sunshine_gallery_image_comments'] ) ) ? sanitize_text_field( $data['sunshine_gallery_image_comments'] ) : '' );
+	update_post_meta( $post_id, 'sunshine_gallery_images_directory', ( isset( $data['sunshine_gallery_images_directory'] ) ) ? sanitize_text_field( $data['sunshine_gallery_images_directory'] ) : '' );
+	update_post_meta( $post_id, 'sunshine_gallery_password_hint', ( isset( $data['sunshine_gallery_password_hint'] ) ) ? sanitize_text_field( $data['sunshine_gallery_password_hint'] ) : '' );
+	update_post_meta( $post_id, 'sunshine_gallery_disable_products', ( isset( $data['sunshine_gallery_disable_products'] ) ) ? sanitize_text_field( $data['sunshine_gallery_disable_products'] ) : '' );
+	update_post_meta( $post_id, 'sunshine_gallery_price_level', ( isset( $data['sunshine_gallery_price_level'] ) ) ? sanitize_text_field( $data['sunshine_gallery_price_level'] ) : '' );
+
+	// Update users for private post
+	delete_post_meta( $post_id, 'sunshine_gallery_private_user' ); // Remove all previous users, then reassign
+	if ( $data['sunshine_gallery_status'] == 'private' ) {
+		if ( !empty( $data['sunshine_gallery_private_user'] ) ) {
+			foreach ( $data['sunshine_gallery_private_user'] as $user ) {
+				add_post_meta( $post_id, 'sunshine_gallery_private_user', intval( $user ) );
+			}
+		}
+	} else {
+		add_post_meta( $post_id, 'sunshine_gallery_private_user', '0' ); // Add 0 for every gallery to make OR query possible on home page
+	}
+
+	// Update end date
+	if ( $data['sunshine_end_date'] ) {
+		$end_date = strtotime( $data['sunshine_end_date'] );
+		$end_date += $data['end_hour'] * 60 * 60;
+	} else {
+		$end_date = '';
+	}
+	update_post_meta( $post_id, 'sunshine_gallery_end_date', $end_date );
+	
+	
 }
 
 add_action( 'admin_notices', 'sunshine_gallery_notice_more_images' );
@@ -733,7 +860,7 @@ function sunshine_sanitize_file_name( $filename ) {
 }
 
 function page_attributes_metabox_add_parents( $dropdown_args, $post = NULL ) {
-	if ( $post->post_type == 'sunshine-gallery' )
+	if ( isset( $post ) && $post->post_type == 'sunshine-gallery' )
 		$dropdown_args['post_status'] = array( 'publish', 'draft', 'pending', 'future', 'private' );
 	return $dropdown_args;
 }
@@ -741,5 +868,20 @@ function page_attributes_metabox_add_parents( $dropdown_args, $post = NULL ) {
 add_filter( 'page_attributes_dropdown_pages_args', 'page_attributes_metabox_add_parents', 10, 2 );
 add_filter( 'quick_edit_dropdown_pages_args', 'page_attributes_metabox_add_parents', 10 );
 
+//add_action( 'admin_head', 'sunshine_uploaded_to_page_default' );
+function sunshine_uploaded_to_page_default() {
+	global $parent_file;
+	if ( isset( $_GET['action'] ) && $_GET['action'] == 'edit' && isset( $_GET['post'] ) && $parent_file == 'edit.php?post_type=sunshine-gallery' ) {
+?>
+	<script>
+	jQuery(document).ready(function($) {
+		$('#wpcontent').ajaxStop(function() {
+			$('.media-modal .media-frame .attachment-filters [value="uploaded"]').attr( 'selected', true ).parent().trigger('change');
+		});
+	});
+	</script>
+<?php
+	}
+}
 
 ?>

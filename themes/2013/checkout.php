@@ -10,6 +10,7 @@
 <?php if (sunshine_cart_items()) { ?>
 
 	<ol id="sunshine-checkout-steps">
+		<?php do_action( 'sunshine_before_checkout_steps' ); ?>
 		<li id="sunshine-checkout-step-contact">
 			<?php sunshine_checkout_contact_fields(); ?>
 		</li>
@@ -28,6 +29,7 @@
 		<li id="sunshine-checkout-step-payment-methods">
 			<?php sunshine_checkout_payment_methods(); ?>
 		</li>
+		<?php do_action( 'sunshine_after_checkout_steps' ); ?>
 	</ol>
 
 	<div class="sunshine-checkout-buttons">

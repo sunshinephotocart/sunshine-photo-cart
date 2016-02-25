@@ -84,13 +84,12 @@ function sunshine_send_tracking_data() {
 
 	$data = array(
 		'hash'      => $hash,
-		'wp_version'   => get_bloginfo( 'version' ),
 		'url'    => get_bloginfo( 'url' ),
+		'name'    => get_bloginfo( 'name' ),
+		'wp_version'   => get_bloginfo( 'version' ),
 		'sunshine_version' => SUNSHINE_VERSION,
 		'lang'      => get_locale(),
-		'php_version'                 => phpversion(),
-		'php_max_execution_time'      => ini_get( 'max_execution_time' ),
-		'php_memory_limit'            => ini_get( 'memory_limit' ),
+		'php_version'  => phpversion(),
 		'theme'     => $theme,
 		'plugins'   => $plugins,
 		'post_counts' => $post_counts
@@ -102,7 +101,7 @@ function sunshine_send_tracking_data() {
 		'sslverify' => false,
 	);
 
-	wp_remote_post( 'https://www.sunshinephotocart.com/?tracking=1', $args );
+	wp_remote_post( 'http://www.sunshinephotocart.com/?tracking=1', $args );
 
 }
 

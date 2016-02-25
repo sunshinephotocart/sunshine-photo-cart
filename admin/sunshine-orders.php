@@ -1,11 +1,11 @@
 <?php
 /* SETUP META BOXES */
 add_action( 'add_meta_boxes', 'sunshine_order_meta_boxes' );
-
 function sunshine_order_meta_boxes() {
+	global $post;
 	add_meta_box(
 		'sunshine_order_data',
-		__( 'Order Data', 'sunshine' ),
+		sprintf( __( 'Order #%s', 'sunshine' ), $post->ID ),
 		'sunshine_order_data_inner',
 		'sunshine-order',
 		'normal',
@@ -43,51 +43,57 @@ function sunshine_order_data_inner( $post ) {
 	$items = unserialize( get_post_meta( $post->ID, '_sunshine_order_items', true ) );
 	sunshine_array_sort_by_column( $items, 'type' );
 ?>
-	<p><strong><a href="<?php echo admin_url( 'admin.php?page=sunshine_invoice_display&order=' . $post->ID . '&nonce=' .wp_create_nonce( 'sunshine_invoice' ) ); ?>"><?php _e( 'Invoice', 'sunshine' ); ?></a> | <a href="#sunshine-lightroom-file-list" id="sunshine-lightroom-file-list-link"><?php _e( 'Lightroom File List', 'sunshine' ); ?></a></strong></p>
-	<div id="sunshine-lightroom-file-list">
+	<p><strong><a href="<?php echo admin_url( 'admin.php?page=sunshine_invoice_display&order=' . $post->ID . '&nonce=' .wp_create_nonce( 'sunshine_invoice' ) ); ?>"><?php _e( 'Invoice', 'sunshine' ); ?></a> | <a href="#sunshine-lightroom-file-list" id="sunshine-file-list-link"><?php _e( 'Image File List', 'sunshine' ); ?></a></strong></p>
+	<div id="sunshine-file-list" style="display: none;">
 		<?php
 	foreach ( $items as $item ) {
 		if ( $item['type'] == 'image' ) {
-			$lightroom_file_list[$item['image_id']] = get_post_meta( $item['image_id'], 'sunshine_file_name', true );
+			$image_file_list[$item['image_id']] = get_post_meta( $item['image_id'], 'sunshine_file_name', true );
 		} elseif ( $item['type'] == 'package' ) {
 			foreach ( $item['package_products'] as $package_product ) {
-				$lightroom_file_list[$package_product['image_id']] = get_post_meta( $package_product['image_id'], 'sunshine_file_name', true );
+				$image_file_list[$package_product['image_id']] = get_post_meta( $package_product['image_id'], 'sunshine_file_name', true );
 			}
 		}
 	}
-	foreach ( $lightroom_file_list as &$file ) {
+	foreach ( $image_file_list as &$file ) {
 		$file = str_replace( array( '.jpg','.JPG' ), '', $file );
 	}
 ?>
-		<textarea rows="4" cols="50" onclick="this.focus();this.select()" readonly="readonly"><?php echo join( ', ', $lightroom_file_list ); ?></textarea>
+		<textarea rows="4" cols="50" onclick="this.focus();this.select()" readonly="readonly"><?php echo join( ', ', $image_file_list ); ?></textarea>
 		<p><?php _e( 'Copy and paste the file names above into Lightroom\'s search feature (Library filter) to quickly find and create a new collection to make processing this order easier. Make sure you are using the "Contains" (and not "Contains All") search parameter.', 'sunshine' ); ?></p>
 	</div>
 	<script>
 	jQuery(document).ready(function($){
-		$('#sunshine-lightroom-file-list-link').click(function(){
-			$('#sunshine-lightroom-file-list').slideToggle();
+		$('#sunshine-file-list-link').click(function(){
+			$('#sunshine-file-list').slideToggle();
 			return false;
 		});
 	});
 	</script>
 	<p><strong><?php _e( 'Order Date', 'sunshine' ); ?>:</strong> <?php echo date( 'M j, Y', strtotime( $post->post_date ) ); ?></p>
+	<?php if ( $ip = get_post_meta( $post->ID, 'ip', true ) ) { ?>
+		<p><strong>IP Address:</strong> <?php echo $ip; ?></p>
+	<?php } ?>
 	<table width="100%" cellspacing="0" cellpadding="0" id="sunshine-order-data">
 	<tr><th><?php _e( 'Billing Info', 'sunshine' ); ?></th><th><?php _e( 'Shipping Info', 'sunshine' ); ?></th></tr>
 	<tr>
 		<td>
 			<?php
-	echo $order_data['first_name'].' '.$order_data['last_name'].'<br />'.$order_data['address'];
-	if ( $order_data['address2'] )
-		echo '<br />'.$order_data['address2'];
-	echo '<br />'.$order_data['city'].', '.$order_data['state'].' '.$order_data['zip'].'<br />'.$order_data['country'].'<br />'.$order_data['email'].'<br />'.$order_data['phone']; ?>
+			echo $order_data['first_name'].' '.$order_data['last_name'].'<br />'.$order_data['address'];
+			if ( $order_data['address2'] )
+				echo '<br />'.$order_data['address2'];
+			echo '<br />'.$order_data['city'].', '.$order_data['state'].' '.$order_data['zip'].'<br />'.$order_data['country'].'<br />'.$order_data['email'].'<br />'.$order_data['phone']; 
+			?>
 		</td>
 		<td>
 			<?php
-	echo $order_data['shipping_first_name'].' '.$order_data['shipping_last_name'].'<br />'.$order_data['shipping_address'];
-	if ( $order_data['shipping_address2'] )
-		echo '<br />'.$order_data['shipping_address2'];
-	echo '<br />'.$order_data['shipping_city'].', '.$order_data['shipping_state'].' '.$order_data['shipping_zip'].'<br />'.$order_data['shipping_country'];
-?>
+			if ( $order_data['shipping_first_name'] ) {
+				echo $order_data['shipping_first_name'].' '.$order_data['shipping_last_name'].'<br />'.$order_data['shipping_address'];
+				if ( $order_data['shipping_address2'] )
+					echo '<br />'.$order_data['shipping_address2'];
+				echo '<br />'.$order_data['shipping_city'].', '.$order_data['shipping_state'].' '.$order_data['shipping_zip'].'<br />'.$order_data['shipping_country'];
+			}
+			?>
 		</td>
 	</tr>
 	</table>
@@ -143,7 +149,7 @@ function sunshine_order_data_inner( $post ) {
 			<td><?php sunshine_money_format( $order_data['tax'] ); ?></td>
 		</tr>
 		<tr class="shipping totals">
-			<th colspan="5" align="right"><?php _e( 'Shipping', 'sunshine' ); ?> (<?php echo $order_data['shipping_method']; ?>)</th>
+			<th colspan="5" align="right"><?php _e( 'Shipping', 'sunshine' ); ?> (<?php echo sunshine_get_shipping_method_name( $order_data['shipping_method'] ); ?>)</th>
 			<td>
 				<?php sunshine_money_format( $order_data['shipping_cost'] ); ?>
 			</td>
@@ -199,7 +205,7 @@ function sunshine_orders_save_postdata( $post_id ) {
 		return;
 
 	if ( isset( $_POST['post_type'] ) && 'sunshine-order' == $_POST['post_type'] ) {
-		if ( !current_user_can( 'edit_page', $post_id ) )
+		if ( !current_user_can( 'edit_sunshine_order', $post_id ) )
 			return;
 	} else {
 		return;
@@ -211,9 +217,9 @@ function sunshine_orders_save_postdata( $post_id ) {
 	if ( isset( $_POST['sunshine_email_customer_order_change'] ) && $_POST['sunshine_email_customer_order_change'] != '' ) {
 		$customer_id = get_post_meta( $post_id, '_sunshine_customer_id', true );
 		$customer = get_user_by( 'id', $customer_id );
-		$search = array( '[status]', '[status_description]', '[order_id]', '[order_url]' );
+		$search = array( '[status]', '[status_description]', '[order_id]', '[order_url]', '[first_name]', '[last_name]' );
 		$status = get_term_by( 'slug', sanitize_text_field( $_POST['sunshine_order_status'] ), 'sunshine-order-status' );
-		$replace = array( $status->name, $status->description, $post_id, get_permalink( $post_id ) );
+		$replace = array( $status->name, $status->description, $post_id, get_permalink( $post_id ), SunshineUser::get_user_meta_by_id( $customer_id, 'first_name' ), SunshineUser::get_user_meta_by_id( $customer_id, 'last_name' ) );
 		SunshineEmail::send_email( 'order_status', $customer->user_email, $sunshine->options['email_subject_order_status'], $sunshine->options['email_subject_order_status'], $search, $replace );
 	}
 
@@ -223,14 +229,24 @@ add_action( 'restrict_manage_posts', 'sunshine_show_order_customer_filter' );
 function sunshine_show_order_customer_filter() {
 	if ( isset( $_GET['post_type'] ) && post_type_exists( $_GET['post_type'] ) && in_array( strtolower( $_GET['post_type'] ), array( 'sunshine-order' ) ) ) {
 		wp_dropdown_users( array(
-				'show_option_all' => __( 'Show all Customers', 'sunshine' ),
-				'show_option_none' => false,
-				'name'   => 'author',
-				'selected'  => !empty( $_GET['author'] ) ? intval( $_GET['author'] ) : 0,
-				'include_selected' => false
-			) );
+			'show_option_all' => __( 'Show all Customers', 'sunshine' ),
+			'show_option_none' => false,
+			'name'   => 'customer',
+			'selected'  => !empty( $_GET['customer'] ) ? intval( $_GET['customer'] ) : 0,
+			'include_selected' => false
+		) );
 	}
 }
+
+add_filter( 'parse_query', 'sunshine_orders_show_by_user' );
+function sunshine_orders_show_by_user( $query ) {
+    global $pagenow;
+    if ( $pagenow == 'edit.php' && isset( $query->query_vars['post_type']) && $query->query_vars['post_type']=='sunshine-order' ) {
+        $query->query_vars['meta_key'] = '_sunshine_customer_id';
+		$query->query_vars['meta_value'] = sanitize_text_field( $_GET['customer'] );
+    }
+}
+
 
 add_action( 'comment_post', 'sunshine_order_comment_post' );
 function sunshine_order_comment_post( $comment_id ) {
@@ -241,8 +257,8 @@ function sunshine_order_comment_post( $comment_id ) {
 		$customer_id = get_post_meta( $order->ID, '_sunshine_customer_id', true );
 		if ( get_post_type( $order ) == 'sunshine-order' ) {
 			$customer = get_user_by( 'id', $customer_id );
-			$search = array( '[comment]', '[order_id]', '[order_url]' );
-			$replace = array( nl2br( $comment->comment_content ), $order->ID, get_permalink( $order->ID ) );
+			$search = array( '[comment]', '[order_id]', '[order_url]', '[first_name]', '[last_name]' );
+			$replace = array( nl2br( $comment->comment_content ), $order->ID, get_permalink( $order->ID ), SunshineUser::get_user_meta_by_id( $customer_id, 'first_name' ), SunshineUser::get_user_meta_by_id( $customer_id, 'last_name' ) );
 			SunshineEmail::send_email( 'order_comment', $customer->user_email, $sunshine->options['email_subject_order_comment'], $sunshine->options['email_subject_order_comment'], $search, $replace );
 		}
 	}

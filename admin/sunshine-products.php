@@ -96,38 +96,41 @@ function sunshine_product_columns_content( $column, $post_id ) {
 	global $post;
 
 	switch( $column ) {
-	case 'category':
-		$package = get_post_meta( $post_id, 'sunshine_product_package', true );
-		if ( $package ) {
-			echo 'Package';
-			break;
-		}
-		$terms = get_the_terms( $post_id, 'sunshine-product-category' );
-		if ( !empty( $terms ) ) {
-			$out = array();
-			foreach ( $terms as $term ) {
-				$out[] = sprintf( '<a href="%s">%s</a>',
-					esc_url( add_query_arg( array( 'post_type' => $post->post_type, 'sunshine-product-category' => $term->slug ), 'edit.php' ) ),
-					esc_html( sanitize_term_field( 'name', $term->name, $term->term_id, 'genre', 'display' ) )
-				);
+		case 'category':
+			$package = get_post_meta( $post_id, 'sunshine_product_package', true );
+			if ( $package ) {
+				echo 'Package';
+				break;
 			}
-			echo join( ', ', $out );
-		}
-		else {
-			_e( 'No categories' );
-		}
-		break;
-	case 'price':
-		$price_levels = get_terms( 'sunshine-product-price-level', array( 'hide_empty' => false ) );
-		foreach ( $price_levels as $price_level ) {
-			$price = get_post_meta( $post->ID, 'sunshine_product_price_'.$price_level->term_id, true );
-			echo $price_level->name.': ';
-			sunshine_money_format( $price );
-			echo '<br />';
-		}
-		break;
-	default:
-		break;
+			$terms = get_the_terms( $post_id, 'sunshine-product-category' );
+			if ( !empty( $terms ) ) {
+				$out = array();
+				foreach ( $terms as $term ) {
+					$out[] = sprintf( '<a href="%s">%s</a>',
+						esc_url( add_query_arg( array( 'post_type' => $post->post_type, 'sunshine-product-category' => $term->slug ), 'edit.php' ) ),
+						esc_html( sanitize_term_field( 'name', $term->name, $term->term_id, 'genre', 'display' ) )
+					);
+				}
+				echo join( ', ', $out );
+			}
+			else {
+				_e( 'No categories' );
+			}
+			break;
+		case 'price':
+			$price_levels = get_terms( 'sunshine-product-price-level', array( 'hide_empty' => false ) );
+			foreach ( $price_levels as $price_level ) {
+				$price = get_post_meta( $post->ID, 'sunshine_product_price_'.$price_level->term_id, true );
+				echo $price_level->name.': ';
+				if ( $price == '' )
+					echo '&mdash;';
+				else
+					sunshine_money_format( $price );
+				echo '<br />';
+			}
+			break;
+		default:
+			break;
 	}
 }
 

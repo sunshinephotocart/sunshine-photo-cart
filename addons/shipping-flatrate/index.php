@@ -6,8 +6,8 @@ function sunshine_init_flat_rate( $methods ) {
 		$methods['flat_rate'] = array(
 			'id' => 'flat_rate',
 			'title' => $sunshine->options['flat_rate_name'],
-			'taxable' => ( isset( $sunshine->options['flat_rate_taxable'] ) ) ? $sunshine->options['flat_rate_taxable'] : 0,
-			'cost' => ( isset( $sunshine->options['flat_rate_cost'] ) ) ? $sunshine->options['flat_rate_cost'] : 0
+			'taxable' => ( empty( $sunshine->options['flat_rate_taxable'] ) ) ? $sunshine->options['flat_rate_taxable'] : 0,
+			'cost' => ( $sunshine->options['flat_rate_cost'] > 0 ) ? $sunshine->options['flat_rate_cost'] : 0
 		);
 	}
 	return $methods;

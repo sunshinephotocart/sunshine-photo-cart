@@ -9,7 +9,7 @@ every add-on!
 
 require_once dirname( __FILE__ ) . '/class-tgm-plugin-activation.php';
 
-add_action( 'tgmpa_register', 'sunshine_addon_manager' );
+add_action( 'tgmpa_register', 'sunshine_addon_manager', 9999 );
 function sunshine_addon_manager() {
 	global $sunshine;
 	

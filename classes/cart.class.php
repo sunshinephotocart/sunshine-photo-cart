@@ -19,6 +19,8 @@ class SunshineCart {
 	function __construct() {
 
 		$this->set_cart();
+		add_action( 'wp', array( $this, 'maybe_set_cart_cookies' ), 99 ); // Set cookies
+		//add_action( 'shutdown', array( $this, 'maybe_set_cart_cookies' ), 0 ); // Set cookies before shutdown and ob flushing
 
 	}
 
@@ -80,26 +82,47 @@ class SunshineCart {
 		// Add item to the current cart
 		$current_cart[] = $item;
 
-		// Set user cart values
-		if ( is_user_logged_in() )
-			$result = SunshineUser::add_user_meta( 'cart', $item, false );
-		else
-			SunshineSession::instance()->cart = $current_cart;
-
 		// Update to current cart
 		$this->content = $current_cart;
 		$this->set_item_count();
+
+		// Set user cart values
+		if ( is_user_logged_in() ) {
+			$result = SunshineUser::add_user_meta( 'cart', $item, false );
+		} else {
+			$this->set_cart_cookies( true, 'add_to_cart' );
+		} 
 
 		do_action( 'sunshine_add_cart_item', $item );
 
 		return true;
 	}
+	
+	function remove_from_cart( $key ) {
+		$cart = $this->get_cart();
+		if ( is_user_logged_in() ) {
+			$cart_item = $cart[ $key ];
+			SunshineUser::delete_user_meta( 'cart', $cart_item );
+		} else {
+			SunshineSession::instance()->cart = $cart;
+		}
+		unset( $cart[ $key ] );
 
-	function empty_products() {
-		if ( is_user_logged_in() )
+		if ( empty( $cart ) ) {
+			$this->set_cart_cookies( false, 'remove_from_cart' );
+		} elseif ( $_COOKIE['sunshine_cart_hash'] ) {
+			update_option( 'sunshine_cart_hash_' . $_COOKIE['sunshine_cart_hash'], serialize( $cart ) );
+		}
+	}
+
+	function empty_products( $user_id = '' ) {
+		if ( is_user_logged_in() ) {
 			SunshineUser::delete_user_meta( 'cart' );
-		else
-			unset( SunshineSession::instance()->cart );
+		} elseif ( $user_id ) {
+			SunshineUser::delete_user_meta_by_id( $user_id, 'cart' );
+		} else {
+			$this->set_cart_cookies( false, 'empty_products' );
+		}
 		$this->content = '';
 	}
 
@@ -118,15 +141,23 @@ class SunshineCart {
 		$this->shipping_method = '';
 		$this->discounts = '';
 		$this->discount_items = '';
+		SunshineSession::instance()->shipping_method = array();
+		SunshineSession::instance()->discounts = array();
+		SunshineSession::instance()->discount_items = array();
 		SunshineSession::instance()->cart = array();
+		$this->set_cart_cookies( false, 'empty_cart' );
+		if ( isset( $_COOKIE['sunshine_cart_hash'] ) ) {
+			delete_option( 'sunshine_cart_hash_' . $_COOKIE['sunshine_cart_hash'] );
+		}
 	}
 
 	function set_cart_content() {
 		global $current_user;
 		if ( $current_user->ID > 0 ) {
 			$this->content = SunshineUser::get_user_meta( 'cart', false );
-		} else
-			$this->content = SunshineSession::instance()->cart;
+		} elseif ( isset( $_COOKIE['sunshine_cart_hash'] ) ) {
+			$this->content = maybe_unserialize( get_option( 'sunshine_cart_hash_' . $_COOKIE['sunshine_cart_hash'] ) );
+		} 
 
 		sunshine_array_sort_by_column( $this->content, 'type' );
 	}
@@ -136,22 +167,55 @@ class SunshineCart {
 	}
 
 	function get_cart_by_user( $user_id ) {
-		if ( $user_id > 0 )
-			$cart = SunshineUser::get_user_meta_by_id( $user_id, 'cart', false );
-		else
-			$cart = SunshineSession::instance()->cart;
-		return $cart;
+		if ( $user_id > 0 ) {
+			return SunshineUser::get_user_meta_by_id( $user_id, 'cart', false );
+		} 
+		return;
 	}
+	
+	/*
+	* Original Source: WooCommerce
+	*/
+	function maybe_set_cart_cookies() {
+		if ( ! headers_sent() ) {
+			if ( !empty( $this->content ) ) {
+				$this->set_cart_cookies( true, 'maybe_set_cart_cookies' );
+			} 
+		}
+	}
+	
+	/**
+	 * Set cart hash cookie and items in cart.
+	 *
+	 * @param bool $set (default: true)
+	 */
+	function set_cart_cookies( $set = true, $where = 'unknown' ) {
+		if ( empty( $this->content ) ) {
+			return;
+		}
+		if ( $set ) {
+			if ( isset( $_COOKIE['sunshine_cart_hash'] ) ) {
+				$hash = $_COOKIE['sunshine_cart_hash'];
+			} else {
+				$hash = md5( time() . json_encode( $this->content ) . uniqid() );
+			}
+			sunshine_setcookie( 'sunshine_cart_hash', $hash, time() + ( 30 * DAY_IN_SECONDS ) );
+			update_option( 'sunshine_cart_hash_' . $hash, $this->content );
+		} elseif ( isset( $_COOKIE['sunshine_cart_hash'] ) ) {
+			sunshine_setcookie( 'sunshine_cart_hash', '', time() - ( 30 * DAY_IN_SECONDS ) );
+			delete_option( 'sunshine_cart_hash_' . $_COOKIE['sunshine_cart_hash'] );
+			unset( $_COOKIE['sunshine_cart_hash'] );
+			sunshine_log( 'Clearing cart cookies' );
+		}
+	}
+	
 
-	function set_discounts() {
+	public function set_discounts() {
 		global $current_user;
-		if ( is_user_logged_in() )
-			$this->discounts = SunshineUser::get_user_meta( 'discount', false );
-		else
-			$this->discounts = SunshineSession::instance()->discounts;
+		$this->discounts = SunshineSession::instance()->discounts;
 	}
 
-	function set_discount_items() {
+	public function set_discount_items() {
 		if ( !empty( $this->discounts ) ) {
 			$ids = array( 0 );
 			foreach ( $this->discounts as $discount_id )
@@ -226,7 +290,7 @@ class SunshineCart {
 		global $sunshine;
 		// Get tax
 		$this->tax = 0;
-		if ( $sunshine->options['tax_location'] && $sunshine->options['tax_rate'] ) {
+		if ( ( isset( $this->shipping_method['id'] ) && $this->shipping_method['id'] == 'pickup' ) || ( $sunshine->options['tax_location'] && $sunshine->options['tax_rate'] ) ) {
 			$this->tax = $this->get_cart_taxes();
 		}
 	}
@@ -334,74 +398,79 @@ class SunshineCart {
 
 			// Passed all the tests!
 			switch ( $discount->discount_type ) {
-			case 'percent-total':
-				if ( $discount->before_tax == 1 )
-					$discount_total = $this->subtotal * ( $discount->amount / 100 );
-				else
-					$discount_total = ( $this->subtotal + $this->tax ) * ( $discount->amount / 100 );
-				break;
-			case 'amount-total':
-				if ( $discount_total > $this->subtotal )
-					$discount_total = $this->subtotal;
-				else
-					$discount_total = $discount->amount;
-				break;
-			case 'percent-product':
-				$product_count = array();
-				foreach ( $this->content as $item ) {
-					if ( !isset( $product_count[$item['product_id']] ) )
-						$product_count[$item['product_id']] = 1;
-					if ( $this->product_can_be_discounted( $item['product_id'], $discount ) ) {
-						if ( $discount->max_product_quantity > 0 && $product_count[$item['product_id']] > $discount->max_product_quantity ) {
-							$price_to_discount = 0;
-						} elseif ( $discount->max_product_quantity > 0 && $item['qty'] > $discount->max_product_quantity ) {
-							$price_to_discount = $item['price'] * $discount->max_product_quantity;
+				case 'percent-total':
+					if ( $discount->before_tax == 1 )
+						$discount_total = $this->subtotal * ( $discount->amount / 100 );
+					else
+						$discount_total = ( $this->subtotal + $this->tax ) * ( $discount->amount / 100 );
+					break;
+				case 'amount-total':
+					if ( $discount_total > $this->subtotal )
+						$discount_total = $this->subtotal;
+					else
+						$discount_total = $discount->amount;
+					break;
+				case 'percent-product':
+			
+					$discount_items = array();
+					foreach ( $this->content as $item ) {
+						if ( empty( $discount_items[ $item[ 'product_id' ] ] ) ) {
+							$discount_item_quantities[ $item[ 'product_id' ] ] = $item[ 'qty' ];
 						} else {
-							$price_to_discount = $item['total'];
+							$discount_item_quantities[ $item[ 'product_id' ] ] += $item[ 'qty' ];
 						}
-						if ( $discount->before_tax != 1 && $this->tax > 0 && get_post_meta( $item['product_id'], 'sunshine_product_taxable', true ) ) {
-							$tax_discount = ( $sunshine->options['tax_rate'] / 100 ) * $price_to_discount;
-							$price_to_discount += $tax_discount;
+						$discount_products[ $item[ 'product_id' ] ] = $item;
+					}
+				
+					if ( !empty( $discount_items ) ) {
+						foreach ( $discount_items as $product_id => $item ) {
+							if ( $this->product_can_be_discounted( $product_id, $discount ) ) {
+								if ( $discount->max_product_quantity > 0 && $discount_item_quantities[ $product_id ] > $discount->max_product_quantity )
+									$price_to_discount = $item['price'] * $discount->max_product_quantity;
+								else
+									$price_to_discount = $item['price'] * $discount_item_quantities[ $product_id ];
+								$discount_total = $discount_total + ( $price_to_discount * ( $discount->amount / 100 ) );
+							}
 						}
-						$discount_total = $discount_total + ( $price_to_discount * ( $discount->amount / 100 ) );
 					}
-					$product_count[$item['product_id']] += $item['qty'];
-				}
-				break;
-			case 'amount-product':
-				$product_count = array();
-				foreach ( $this->content as $item ) {
-					if ( !isset( $product_count[$item['product_id']] ) )
-						$product_count[$item['product_id']] = 1;
 
-					//echo 'Product Count: '.$product_count[$item['product_id']].' / Max Product Quantity: '.$discount->max_product_quantity.'<br />';
-
-					if ( $this->product_can_be_discounted( $item['product_id'], $discount ) ) {
-						if ( $discount->max_product_quantity > 0 && $product_count[$item['product_id']] > $discount->max_product_quantity )
-							$discount_item = 0;
-						elseif ( $discount->max_product_quantity > 0 && $item['qty'] > $discount->max_product_quantity )
-							$discount_item = $discount->max_product_quantity * $discount->amount;
-						elseif ( $item['total'] > $discount->amount )
-							$discount_item = $discount->amount;
-						else
-							$discount_item = $discount->amount;
-						$discount_total += $discount_item;
+					break;
+				case 'amount-product':
+				
+					$discount_items = array();
+					foreach ( $this->content as $item ) {
+						if ( empty( $discount_items[ $item[ 'product_id' ] ] ) ) {
+							$discount_items[ $item[ 'product_id' ] ] = $item[ 'qty' ];
+						} else {
+							$discount_items[ $item[ 'product_id' ] ] += $item[ 'qty' ];
+						}
 					}
-					$product_count[$item['product_id']] += $item['qty'];
-				}
-				break;
-			default:
-				break;
+				
+					if ( !empty( $discount_items ) ) { 
+						foreach ( $discount_items as $product_id => $qty ) {
+							if ( $this->product_can_be_discounted( $product_id, $discount ) ) {
+								if ( $discount->max_product_quantity > 0 && $qty > $discount->max_product_quantity ) {
+									$discount_item_amount = $discount->max_product_quantity * $discount->amount;
+								}
+								else {
+									$discount_item_amount = $discount->amount * $qty;
+								}
+								$discount_total += $discount_item_amount;
+							}
+						}
+					}
+
+					break;
+				default:
+					break;
 			}
-
-			$this->discount_total = $this->discount_total + $discount_total;
 
 		}
 
-		if ( $this->discount_total > ( $this->subtotal + $this->shipping_method['cost'] + $this->tax ) )
-			$this->discount_total = $this->subtotal + $this->shipping_method['cost'] + $this->tax;
+		if ( $discount_total > ( $this->subtotal + $this->shipping_method['cost'] + $this->tax ) )
+			$discount_total = $this->subtotal + $this->shipping_method['cost'] + $this->tax;
 
-		$this->discount_total = apply_filters( 'sunshine_discount_total', $this->discount_total, $this );
+		$this->discount_total = apply_filters( 'sunshine_discount_total', $discount_total, $this );
 
 	}
 
@@ -486,7 +555,9 @@ class SunshineCart {
 			return 0;
 
 		$tax_location_array = explode( '|', $sunshine->options['tax_location'] );
-		if ( isset( $tax_location_array[1] ) ) {
+		if (( isset( $this->shipping_method['id'] ) && $this->shipping_method['id'] == 'pickup' ) ) {
+			
+		} elseif ( isset( $tax_location_array[1] ) ) {
 			$tax_location = $tax_location_array[1];
 			$tax_state = SunshineUser::get_user_meta( 'shipping_state' );
 			if ( empty( $tax_state ) || $tax_state != $tax_location )
@@ -519,9 +590,6 @@ class SunshineCart {
 			} else
 				$taxable_total -= $this->discount_total;
 		}
-
-		if ( $this->credits > 0 && $this->use_credits )
-			$taxable_total -= $this->credits;
 
 		// If shipping method is taxable
 		if ( is_array( $this->shipping_method ) && isset( $this->shipping_method['cost'] ) && isset( $this->shipping_method['taxable'] ) && $this->shipping_method['taxable'] == 1 )
@@ -617,11 +685,8 @@ class SunshineCart {
 					}
 
 					$this->discounts[] = $discount->ID;
-					if ( is_user_logged_in() )
-						SunshineUser::add_user_meta( 'discount', $discount->ID, false );
-					else
-						SunshineSession::instance()->discounts = $this->discounts;
-					$sunshine->add_message( '"'.$discount->post_title.'" '.__( 'discount added','sunshine' ) );
+					SunshineSession::instance()->discounts = $this->discounts;
+					$sunshine->add_message( '"' . $discount->post_title . '" ' . __( 'discount added','sunshine' ) );
 
 					return true;
 				}
@@ -636,10 +701,7 @@ class SunshineCart {
 		if ( $this->discounts ) {
 			if( ( $key = array_search( $discount_id, $this->discounts ) ) !== false ) {
 				unset( $this->discounts[$key] );
-				if ( is_user_logged_in() )
-					SunshineUser::delete_user_meta( 'discount', $discount_id );
-				else
-					SunshineSession::instance()->discounts = $this->discounts;
+				SunshineSession::instance()->discounts = $this->discounts;
 				$sunshine->add_message( __( 'Discount removed','sunshine' ) );
 				return true;
 			}

@@ -13,10 +13,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 if ( ! class_exists( 'Sunshine_License' ) ) :
 
-	/**
-	 * sunshine_License Class
-	 */
-	class Sunshine_License {
+/**
+ * sunshine_License Class
+ */
+class Sunshine_License {
 	private $file;
 	private $license;
 	private $item_name;
@@ -83,7 +83,7 @@ if ( ! class_exists( 'Sunshine_License' ) ) :
 		add_action( 'admin_init', array( $this, 'deactivate_license' ), 0 );
 
 		// Updater
-		add_action( 'admin_init', array( $this, 'auto_updater' ), 1 );
+		add_action( 'admin_init', array( $this, 'auto_updater' ), 99 );
 
 		add_action( 'admin_notices', array( $this, 'notices' ) );
 	}

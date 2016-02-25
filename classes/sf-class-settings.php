@@ -188,9 +188,9 @@ if ( ! class_exists( 'SF_Settings_API' ) ) {
 		public function admin_enqueue_scripts()
 		{
 			wp_register_script( 'bootstrap-tooltip' , $this->assets_url . 'js/bootstrap-tooltip.js' ,  array( 'jquery' ), '1.0' );
-			wp_register_script( 'select2' , $this->assets_url . 'js/select2/select2.min.js' ,  array( 'jquery' ), '1.0' );
+			wp_register_script( 'select2' , '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js' ,  array( 'jquery' ), '1.0' );
 			wp_register_script( 'sf-scripts' , $this->assets_url . 'js/sf-jquery.js' ,  array( 'jquery' ), '1.0' );
-			wp_register_style( 'select2' , $this->assets_url . 'js/select2/select2.css' );
+			wp_register_style( 'select2' , '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css' );
 			wp_register_style( 'sf-styles' , $this->assets_url . 'css/sf-styles.css' );
 		}
 
@@ -235,7 +235,7 @@ if ( ! class_exists( 'SF_Settings_API' ) ) {
 		 */
 		public function create_menu()
 		{
-			$page = add_submenu_page( $this->menu, $this->title, $this->title, apply_filters( $this->id . '_manage_options', 'manage_options' ), $this->id, array( &$this, 'init_settings_page' ) );
+			$page = add_submenu_page( $this->menu, $this->title, $this->title, apply_filters( $this->id . '_manage_options', 'sunshine_manage_options' ), $this->id, array( &$this, 'init_settings_page' ) );
 			add_action( 'admin_print_scripts-' . $page, array( &$this, 'admin_print_scripts' ) );
 		}
 
@@ -431,6 +431,8 @@ if ( ! class_exists( 'SF_Settings_API' ) ) {
 				<h2 class="nav-tab-wrapper">
 					<?php echo $this->display_tabs(); ?>
 				</h2><?php
+				
+				do_action( $this->id . '_options_header' );
 
 			if ( !empty ( $_REQUEST['settings-updated'] ) )
 				settings_errors();

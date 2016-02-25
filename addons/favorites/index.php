@@ -36,7 +36,8 @@ function sunshine_favorites_body_class( $classes ) {
 
 add_filter( 'sunshine_main_menu', 'sunshine_favorites_build_main_menu', '20', 1 );
 function sunshine_favorites_build_main_menu( $menu ) {
-	if ( is_user_logged_in() ) {
+	global $sunshine;
+	if ( $sunshine->options['page_favorites'] && is_user_logged_in() ) {
 		$count = '';
 		if ( sunshine_favorite_count( false ) )
 			$count = '<span class="sunshine-count sunshine-favorite-count">'.sunshine_favorite_count( false ).'</span>';
@@ -178,9 +179,7 @@ function sunshine_favorites_add_to_favorites_js() {
 					<?php if ( is_page( $sunshine->options['page_favorites'] ) ) { ?>
 						jQuery('#sunshine-image-'+image_id).fadeOut();
 					<?php } ?>
-				} else {
-					alert('<?php _e( 'Sorry, could not add to favorites' ); ?>');
-				}
+				} 
 		  	},
 		  	error: function(MLHttpRequest, textStatus, errorThrown) {
 				alert('<?php _e( 'Sorry, there was an error with your request' ); ?> '+errorThrown+MLHttpRequest+textStatus);
@@ -235,6 +234,17 @@ function sunshine_make_favorites_page( $options ) {
 				'post_parent' => $options['page']
 			) );
 	}
+	return $options;
+}
+
+add_filter( 'sunshine_options_galleries', 'sunshine_favorites_options' );
+function sunshine_favorites_options( $options ) {
+	$options[] = array(
+		'name' => __( 'Disable Favorites', 'sunshine' ),
+		'id'   => 'disable_favorites',
+		'type' => 'checkbox',
+	);
+	
 	return $options;
 }
 
@@ -375,6 +385,9 @@ function sunshine_get_favorites() {
 
 function sunshine_add_favorite( $image_id ) {
 	$image_id = intval( $image_id );
+	$favorites = SunshineUser::get_user_meta( 'favorite', false );
+	if ( in_array( $image_id, $favorites ) )
+		return;
 	SunshineUser::add_user_meta( 'favorite', $image_id, false );
 	$favorite_count = get_post_meta( $image_id, 'sunshine_favorite_count', true );
 	$favorite_count++;
@@ -401,7 +414,7 @@ function sunshine_is_image_favorite( $image_id ) {
 
 add_filter( 'user_row_actions', 'sunshine_user_favorites_link_row',5,2 );
 function sunshine_user_favorites_link_row( $actions, $user ) {
-	if ( current_user_can( 'manage_options', $user->ID ) ) {
+	if ( current_user_can( 'sunshine_manage_options', $user->ID ) ) {
 		$actions['sunshine_favorites'] = '<a href="user-edit.php?user_id='.$user->ID.'#sunshine-favorites">Favorites</a>';
 	}
 	return $actions;
@@ -414,6 +427,30 @@ function sunshine_admin_user_show_favorites( $user ) {
 		$favorites = get_user_meta( $user->ID, 'sunshine_favorite' );
 		if ( $favorites ) {
 			echo '<h3 id="sunshine-favorites">'.__( 'Sunshine Favorites','sunshine' ).' ('.count( $favorites ).')</h3>';
+			?>
+				<p><a href="#sunshine-favorites-file-list" id="sunshine-favorites-file-list-link"><?php _e( 'Image File List', 'sunshine' ); ?></a></p>
+				<div id="sunshine-favorites-file-list" style="display: none;">
+					<?php
+				foreach ( $favorites as $image_id ) {
+					$image_file_list[$image_id] = get_post_meta( $image_id, 'sunshine_file_name', true );
+				}
+				foreach ( $image_file_list as &$file ) {
+					$file = str_replace( array( '.jpg','.JPG' ), '', $file );
+				}
+			?>
+					<textarea rows="4" cols="50" onclick="this.focus();this.select()" readonly="readonly"><?php echo join( ', ', $image_file_list ); ?></textarea>
+					<p><?php _e( 'Copy and paste the file names above into Lightroom\'s search feature (Library filter) to quickly find and create a new collection to make processing this order easier. Make sure you are using the "Contains" (and not "Contains All") search parameter.', 'sunshine' ); ?></p>
+				</div>
+				<script>
+				jQuery(document).ready(function($){
+					$('#sunshine-favorites-file-list-link').click(function(){
+						$('#sunshine-favorites-file-list').slideToggle();
+						return false;
+					});
+				});
+				</script>
+			
+			<?php
 			echo '<ul>';
 			foreach ( $favorites as $favorite ) {
 				$attachment = get_post( $favorite );
@@ -431,6 +468,27 @@ function sunshine_admin_user_show_favorites( $user ) {
 
 }
 
+
+add_action( 'wp', 'sunshine_favorites_check_availability' );
+function sunshine_favorites_check_availability() {
+	global $sunshine;
+	if ( empty( $sunshine->favorites ) ) return;
+	if ( is_page( $sunshine->options['page_favorites'] ) ) { // Remove items from favorites if image no longer exists
+		$removed_items = false;
+		foreach ( $sunshine->favorites as $favorite_id ) {
+			$image = get_post( $favorite_id );
+			if ( !$image ) {
+				sunshine_delete_favorite( $favorite_id );
+				$removed_items = true;
+			}
+		}
+		if ( $removed_items ) {
+			$sunshine->add_message( __( 'Images in your favorites have been removed because they are no longer available', 'sunshine' ) );
+			wp_redirect( get_permalink( $sunshine->options['page_favorites'] ) );
+			exit;
+		}
+	}
+}
 
 /**************************
 	EMAIL AUTOMATION

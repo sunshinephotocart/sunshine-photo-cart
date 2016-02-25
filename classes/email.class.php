@@ -1,7 +1,7 @@
 <?php
 class SunshineEmail extends SunshineSingleton {
 
-	function get_template( $name ) {
+	public static function get_template( $name ) {
 		if ( file_exists( TEMPLATEPATH.'/sunshine/email/'.$name.'.php' ) )
 			$template = TEMPLATEPATH.'/sunshine/email/'.$name.'.php';
 		else
@@ -13,7 +13,7 @@ class SunshineEmail extends SunshineSingleton {
 		return $template_content;
 	}
 
-	function send_email( $template, $to, $subject, $title, $search = array(), $replace = array(), $params=array() ) {
+	public static function send_email( $template, $to, $subject, $title, $search = array(), $replace = array(), $params=array() ) {
 		global $sunshine;
 		add_filter( 'wp_mail_content_type',create_function( '', 'return "text/html";' ) );
 		$content = '';

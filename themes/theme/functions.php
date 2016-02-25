@@ -1,6 +1,13 @@
 <?php
 add_filter('sunshine_options_templates', 'sunshine_theme_options');
 function sunshine_theme_options($options) {
+	$options[] = array(
+		'name' => __( 'Auto-include main menu', 'sunshine' ),
+		'id'   => 'main_menu',
+		'type' => 'checkbox',
+		'desc' => __( 'Automatically have the Sunshine Main Menu appear above the Sunshine content','sunshine' ),
+		'options' => array( 1 )
+	);
 	$options[] = array( 'name' => __('Custom Code', 'sunshine'), 'type' => 'title', 'desc' => '' );
 	$options[] = array(
 		'name' => __('Disable Sunshine CSS', 'sunshine'),
@@ -42,10 +49,20 @@ function sunshine_template_head() {
 	}
 }
 
-add_filter('sunshine_content', 'sunshine_template_content', 999);
-function sunshine_template_content($content) {
+add_action('sunshine_before_content', 'sunshine_template_before_content', 999);
+function sunshine_template_before_content( ) {
 	global $sunshine;
-	return $sunshine->options['theme_post_header'].$content.$sunshine->options['theme_pre_footer'];
+	if ( $sunshine->options['main_menu'] ) {
+		echo do_shortcode( '[sunshine-menu]' );
+	}
+	echo do_shortcode( $sunshine->options['theme_post_header'] );
 }
+
+add_action('sunshine_after_content', 'sunshine_template_after_content', 999);
+function sunshine_template_after_content( ) {
+	global $sunshine;
+	echo do_shortcode( $sunshine->options['theme_pre_footer'] );
+}
+
 
 ?>

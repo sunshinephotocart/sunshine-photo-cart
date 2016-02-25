@@ -6,7 +6,7 @@ function sunshine_product_bulk_add_link() {
 ?>
 	<script type="text/javascript">
 	jQuery(document).ready(function(){
-		jQuery('.wrap h2').append('<a href="<?php echo get_admin_url().'admin.php?page=sunshine_bulk_add_products'; ?>" class="add-new-h2">Bulk Add Products</a>');
+		jQuery('.wrap h1').append('<a href="<?php echo get_admin_url().'admin.php?page=sunshine_bulk_add_products'; ?>" class="page-title-action"><?php _e( 'Bulk add products', 'sunshine' ); ?></a>');
 	});
 	</script>
 <?php

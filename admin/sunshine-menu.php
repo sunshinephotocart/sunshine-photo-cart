@@ -10,22 +10,25 @@ function sunshine_admin_menu() {
 	add_submenu_page( 'sunshine_admin', __( 'Settings','sunshine' ),  __( 'Settings','sunshine' ), 'sunshine_manage_options', 'admin.php?page=sunshine' );
 
 	$sunshine_admin_submenu = array();
-	$sunshine_admin_submenu[10] = array( __( 'Galleries','sunshine' ), __( 'Galleries','sunshine' ), 'sunshine_manage_options', 'edit.php?post_type=sunshine-gallery' );
-	$sunshine_admin_submenu[20] = array( __( 'Product Categories','sunshine' ), __( 'Product Categories','sunshine' ), 'sunshine_manage_options', 'edit-tags.php?taxonomy=sunshine-product-category&post_type=sunshine-product' );
-	$sunshine_admin_submenu[30] = array( __( 'Products','sunshine' ), __( 'Products','sunshine' ), 'sunshine_manage_options', 'edit.php?post_type=sunshine-product' );
-	$sunshine_admin_submenu[40] = array( __( 'Orders','sunshine' ), __( 'Orders','sunshine' ), 'sunshine_manage_options', 'edit.php?post_type=sunshine-order' );
+	$sunshine_admin_submenu[9] = array( __( 'Orders','sunshine' ), __( 'Orders','sunshine' ), 'edit_sunshine_order', 'edit.php?post_type=sunshine-order' );
+	$sunshine_admin_submenu[10] = array( __( 'Galleries','sunshine' ), __( 'Galleries','sunshine' ), 'edit_sunshine_gallery', 'edit.php?post_type=sunshine-gallery' );
+	$sunshine_admin_submenu[20] = array( __( 'Product Categories','sunshine' ), __( 'Product Categories','sunshine' ), 'edit_sunshine_product', 'edit-tags.php?taxonomy=sunshine-product-category&post_type=sunshine-product' );
+	$sunshine_admin_submenu[30] = array( __( 'Products','sunshine' ), __( 'Products','sunshine' ), 'edit_sunshine_product', 'edit.php?post_type=sunshine-product' );
 	
 	if ( get_option( 'sunshine_pro_license_active') != 'valid' ) {
-		$sunshine_admin_submenu[110] = array( __( 'Add-ons','sunshine' ), __( 'Add-Ons','sunshine' ), 'sunshine_manage_options', 'sunshine_addons', 'sunshine_addons' );
+		$sunshine_admin_submenu[110] = array( __( 'Add-Ons or Go Pro!','sunshine' ), '<span id="sunshine-addons-link">' . __( 'Add-Ons or Go Pro!','sunshine' ) . '</span>', 'sunshine_manage_options', 'sunshine_addons', 'sunshine_addons' );
 	}
 	
-	$sunshine_admin_submenu[120] = array( __( 'Support','sunshine' ), __( 'Support','sunshine' ), 'sunshine_manage_options', 'sunshine_support', 'sunshine_support' );
 	$sunshine_admin_submenu[130] = array( __( 'System Info','sunshine' ), __( 'System Info','sunshine' ), 'sunshine_manage_options', 'sunshine_system_info', 'sunshine_system_info' );
+	$sunshine_admin_submenu[140] = array( __( 'Documentation','sunshine' ), __( 'Documentation','sunshine' ), 'sunshine_manage_options', 'sunshine_docs', 'sunshine_docs' );
 	$sunshine_admin_submenu = apply_filters( 'sunshine_admin_menu', $sunshine_admin_submenu );
 	ksort( $sunshine_admin_submenu );
 	foreach ( $sunshine_admin_submenu as $item ) {
 		add_submenu_page( 'sunshine_admin', $item[0], $item[1], $item[2], $item[3], ( !empty( $item[4] ) ) ? $item[4] : '' );
 	}
+	
+	if ( isset( $_GET['page'] ) && $_GET['page'] == 'sunshine_about' )
+		add_dashboard_page( __('About Sunshine Photo Cart', 'sunshine' ), __('About Sunshine Photo Cart', 'sunshine' ), 'manage_options', 'sunshine_about', 'sunshine_about' );
 
 	// "Hidden" page for image processor - allows us to make the page but not appear in menu
 	// This WordPress variable is essential: it stores which admin pages are registered to WordPress

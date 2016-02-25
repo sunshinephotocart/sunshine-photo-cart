@@ -1,6 +1,9 @@
 <html>
 <head>
 	<title>[title]</title>
+	<style type="text/css">
+		table img { max-width: 75px; }
+	</style>
 </head>
 <body>
 

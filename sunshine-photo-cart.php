@@ -5,7 +5,7 @@
  * Description: Client Gallery Photo Cart & Proofing Plugin for WordPress
  * Author: Sunshine Photo Cart
  * Author URI: https://www.sunshinephotocart.com
- * Version: 2.0.2
+ * Version: 2.3
  * Text Domain: sunshine
  * Domain Path: languages
  *
@@ -29,8 +29,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 define( 'SUNSHINE_PATH', plugin_dir_path( __FILE__ ) );
 define( 'SUNSHINE_URL', plugin_dir_url( __FILE__ ) );
-define( 'SUNSHINE_VERSION', '2.0.2' );
-define( 'SUNSHINE_STORE_URL', 'https://www.sunshinephotocart.com' );
+define( 'SUNSHINE_VERSION', '2.3' );
+define( 'SUNSHINE_STORE_URL', 'http://www.sunshinephotocart.com' );
 
 include_once( 'classes/singleton.class.php' );
 include_once( 'classes/session.class.php' );
@@ -56,10 +56,15 @@ foreach ( $addons as $addon ) {
 	include $addon.'/index.php';
 }
 
+/**
+ * Main initialization of Sunshine
+ *
+ * @since 1.0
+ * @return void
+ */
 $sunshine = new Sunshine();
 
-register_activation_hook( __FILE__, array( $sunshine,'install' ) );
-register_deactivation_hook( __FILE__, array( $sunshine,'deactivate_license' ) );
+register_activation_hook( __FILE__, array( $sunshine, 'install' ) );
 
 /**
  * Main initialization of Sunshine
@@ -95,6 +100,7 @@ function sunshine_init() {
 
 }
 
+
 /**
  * Update Sunshine
  *
@@ -104,10 +110,8 @@ function sunshine_init() {
 add_action( 'admin_init', 'sunshine_update_check' );
 function sunshine_update_check() {
 	global $sunshine;
-	if ( $sunshine->version == '' ) return;
-	if ( version_compare( $sunshine->version, SUNSHINE_VERSION, '<' ) || $sunshine->version == 0 || isset( $_GET['sunshine_force_update'] ) ) {
+	if ( version_compare( $sunshine->version, SUNSHINE_VERSION, '<' ) || isset( $_GET['sunshine_force_update'] ) ) {
 		$sunshine->update();
-		add_action( 'admin_notices', 'sunshine_manual_update' );
 	}
 }
 
@@ -118,4 +122,58 @@ function sunshine_pro_license() {
 	}
 }
 
+
+/**
+ * Freemius stuff
+ *
+ * @since 2.3
+ */
+// Create a helper function for easy SDK access.
+function spc_fs() {
+    global $spc_fs, $sunshine;
+
+    if ( ! isset( $spc_fs ) ) {
+        // Include Freemius SDK.
+        require_once SUNSHINE_PATH . '/freemius/start.php';
+		
+        $spc_fs = fs_dynamic_init( array(
+            'id'                => '200',
+            'slug'              => 'sunshine-photo-cart',
+            'public_key'        => 'pk_c522e4cb20d0f13fa11ef9b05e41e',
+            'is_premium'        => ( $sunshine->is_pro() ) ? true : false,
+            'has_addons'        => false,
+            'has_paid_plans'    => false,
+            'menu'              => array(
+                'slug'       => 'sunshine_admin',
+                'account'    => false,
+                'support'    => ( $sunshine->is_pro() ) ? false : true,
+                'contact'    => ( $sunshine->is_pro() ) ? true : false,
+            ),
+        ) );
+    }
+
+    return $spc_fs;
+}
+
+function spc_fs_custom_connect_message(
+    $message,
+    $user_first_name,
+    $plugin_title,
+    $user_login,
+    $site_link,
+    $freemius_link
+) {
+    return sprintf(
+        __fs( 'hey-x' ) . '<br>' .
+        __( 'To improve Sunshine Photo Cart and provide better support, Sunshine would like to connect your site to our new plugin analytics tool', 'sunshine-photo-cart' ),
+        $user_first_name
+    );
+}
+
+// Init Freemius.
+if ( is_admin() ) {
+	spc_fs();
+	spc_fs()->add_filter('connect_message', 'spc_fs_custom_connect_message', 10, 6);
+	spc_fs()->add_filter('connect_message_on_update', 'spc_fs_custom_connect_message', 10, 6);
+}
 ?>

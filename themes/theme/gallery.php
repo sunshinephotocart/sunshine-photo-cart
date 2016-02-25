@@ -6,9 +6,7 @@
 	<div id="sunshine-breadcrumb">
 		<?php sunshine_breadcrumb(); ?>
 	</div>
-	<!--
 	<h2><?php echo SunshineFrontend::$current_gallery->post_title; ?></h2>
-	-->
 	<?php 
 	$child_galleries = sunshine_get_child_galleries();
 	?>
@@ -24,7 +22,7 @@
 			sunshine_gallery_expiration_notice();
 			if (SunshineFrontend::$current_gallery->post_content) { ?>
 				<div id="sunshine-content">
-					<?php echo wpautop(SunshineFrontend::$current_gallery->post_content); ?>
+					<?php echo do_shortcode( wpautop( SunshineFrontend::$current_gallery->post_content ) ); ?>
 				</div>
 			<?php } 
 			if ($child_galleries->have_posts()) {

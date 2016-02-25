@@ -33,7 +33,8 @@ function sunshine_watermark_options( $options ) {
 			'topright' => __( 'Top Right','sunshine' ),
 			'bottomleft' => __( 'Bottom Left','sunshine' ),
 			'bottomright' => __( 'Bottom Right','sunshine' ),
-			'center' => __( 'Center','sunshine' )
+			'center' => __( 'Center','sunshine' ),
+			'repeat' => __( 'Repeat','sunshine' )
 		)
 	);
 	$options[] = array(
@@ -48,14 +49,29 @@ function sunshine_watermark_options( $options ) {
 	return $options;
 }
 
-function sunshine_watermark_image( $attachment_id ) {
+function sunshine_watermark_image( $attachment_id, $metadata = array() ) {
 	global $sunshine;
 	$attachment = get_post( $attachment_id );
 	if ( get_post_type( $attachment->post_parent ) == 'sunshine-gallery' && $sunshine->options['watermark_image'] ) {
+		
 		$watermark_image = get_attached_file( $sunshine->options['watermark_image'] );
 		$watermark_file_type = wp_check_filetype( $watermark_image );
-		if ( $watermark_file_type['ext'] == 'png' ) {
+		if ( file_exists( $watermark_image ) && $watermark_file_type['ext'] == 'png' ) {
+			if ( empty( $metadata ) ) {
+				$metadata = wp_get_attachment_metadata( $attachment_id );
+			}
 			$image = get_attached_file( $attachment_id, 'full' );
+			$image_size = apply_filters( 'sunshine_image_size', 'full' );
+			if ( $image_size != 'full' && !empty( $metadata['sizes'][$image_size]['file'] ) ) {
+				$image_basename = basename( $image );
+				$image_path = str_replace( $image_basename, '', $image );
+				$image = $image_path . $metadata['sizes'][$image_size]['file'];
+			}
+			
+			if ( !file_exists( $image ) || !file_exists( $watermark_image ) ) {
+				return;
+			}
+			
 			$watermark = imagecreatefrompng( $watermark_image );
 			$new_image = imagecreatefromjpeg( $image );
 
@@ -82,7 +98,12 @@ function sunshine_watermark_image( $attachment_id ) {
 				$y_pos = ( $new_image_height/2 ) - ( $watermark_height/2 );
 			}
 
-			imagecopy( $new_image, $watermark, $x_pos, $y_pos, 0, 0, $watermark_width, $watermark_height );
+			if ( $sunshine->options['watermark_position'] == 'repeat' ) {
+				imagesettile( $new_image, $watermark );
+				imagefilledrectangle( $new_image, 0, 0, $new_image_width, $new_image_height, IMG_COLOR_TILED );
+			} else {
+				imagecopy( $new_image, $watermark, $x_pos, $y_pos, 0, 0, $watermark_width, $watermark_height );				
+			}
 
 			// Output and free memory
 			imagejpeg( $new_image, $image, 100 );
@@ -100,7 +121,7 @@ function sunshine_watermark_after_image_process( $filename, $file_info, $attachm
 // For images uploaded via wp-admin
 add_filter( 'wp_generate_attachment_metadata', 'sunshine_watermark_media_upload', 10, 2 );
 function sunshine_watermark_media_upload( $metadata, $attachment_id ) {
-	sunshine_watermark_image( $attachment_id );
+	sunshine_watermark_image( $attachment_id, $metadata );
 	return $metadata;
 }
 

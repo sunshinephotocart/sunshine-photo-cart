@@ -223,12 +223,23 @@ $options[] = array(
 
 $options[] = array( 'name' => __( 'Display Options', 'sunshine' ), 'type' => 'title', 'desc' => '' );
 $options[] = array(
+	'name' => __( 'Gallery Order', 'sunshine' ),
+	'id'   => 'gallery_order',
+	'type' => 'select',
+	'options' => array( 
+		'menu_order' => __( 'Custom ordering', 'sunshine' ), 
+		'date_new_old' => __( 'Gallery Creation Date (New to Old)', 'sunshine' ), 
+		'date_old_new' => __( 'Gallery Creation Date (Old to New)', 'sunshine' ), 
+		'title' => __( 'Alphabetical', 'sunshine' ) 
+	)
+);
+$options[] = array(
 	'name' => __( 'Image Order', 'sunshine' ),
 	'id'   => 'image_order',
 	'type' => 'select',
 	'options' => array( 
 		'menu_order' => __( 'Custom ordering', 'sunshine' ), 
-		'shoot_order' => __( 'Order images shot (based on timestamp from camera)', 'sunshine' ), 
+		'shoot_order' => __( 'Order images shot (Images MUST have EXIF field "DateTimeDigitized")', 'sunshine' ), 
 		'date_new_old' => __( 'Image Upload Date (New to Old)', 'sunshine' ), 
 		'date_old_new' => __( 'Image Upload Date (Old to New)', 'sunshine' ), 
 		'title' => __( 'Alphabetical', 'sunshine' ) 
@@ -291,8 +302,23 @@ $options[] = array(
 $options = apply_filters( 'sunshine_options_galleries', $options );
 
 /* Payment Methods */
-$options[] = array( 'name' => __( 'Payments', 'sunshine' ), 'type' => 'heading' );
+$options[] = array( 'name' => __( 'Checkout', 'sunshine' ), 'type' => 'heading' );
 $options = apply_filters( 'sunshine_options_payment_methods', $options );
+
+$options[] = array( 'name' => __( 'Terms','sunshine' ), 'type' => 'title', 'desc' => '' );
+$options[] = array(
+	'name' => __( 'Require Approval of Terms', 'sunshine' ),
+	'id'   => 'require_terms',
+	'type' => 'checkbox',
+	'tip' => __( 'Force users to check that they have read and agree to the terms (below)','sunshine' ),
+	'options' => array( 1 )
+);
+$options[] = array(
+	'name' => __( 'Terms','sunshine' ),
+	'id'   => 'terms',
+	'type' => 'wysiwyg',
+	'settings' => array( 'textarea_rows' => 4 )
+);
 
 /* Shipping */
 $options[] = array( 'name' => __( 'Shipping', 'sunshine' ), 'type' => 'heading' );
@@ -324,6 +350,16 @@ $options[] = array(
 	'select2' => true,
 	'desc' => __( 'Logo should be no more than 320px wide transparent PNG. Upload a file to your <a href="upload.php">Media gallery</a>, then select it here','sunshine' )
 );
+
+$options[] = array( 'name' => __( 'Miscellaneous Elements','sunshine' ), 'type' => 'title', 'desc' => '' );
+$options[] = array(
+	'name' => __( 'Disable breadcrumbs', 'sunshine' ),
+	'id'   => 'disable_breadcrumbs',
+	'type' => 'checkbox',
+	'desc' => __( 'Do not show breadcrumbs throughout Sunshine pages. Helpful if you want users to stick to just a single gallery.','sunshine' ),
+	'options' => array( 1 )
+);
+
 $options = apply_filters( 'sunshine_options_templates', $options );
 
 /* Email Settings */
@@ -353,7 +389,7 @@ $options[] = array(
 );
 
 /* Email Subjects */
-$options[] = array( 'name' => __( 'Email Subjects', 'sunshine' ), 'type' => 'title', 'desc' => __( 'Allowed template variables are:','sunshine' ).' [sitename], [order_id]' );
+$options[] = array( 'name' => __( 'Email Subjects', 'sunshine' ), 'type' => 'title', 'desc' => __( 'Allowed template variables are:','sunshine' ).' [sitename], [order_id], [first_name], [last_name]' );
 $options[] = array(
 	'name' => __( 'Register','sunshine' ),
 	'id'   => 'email_subject_register',
@@ -406,6 +442,8 @@ $options[] = array(
 	'settings' => array( 'textarea_rows' => 4 )
 );
 $options = apply_filters( 'sunshine_options_email', $options );
+
+$options = apply_filters( 'sunshine_options_extra', $options );
 
 $license_options = apply_filters( 'sunshine_options_licenses', array() );
 if ( !empty( $license_options ) ) {
@@ -488,7 +526,5 @@ $options[] = array(
 	'type' => 'checkbox',
 );
 */
-
-$options = apply_filters( 'sunshine_options_extra', $options );
 
 endif;

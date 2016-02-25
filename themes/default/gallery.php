@@ -42,7 +42,7 @@ if (!sunshine_is_gallery_expired()) {
 		<?php }	else {		
 			$images = sunshine_get_gallery_images();
 			if ($images) {
-				echo '<ul class="sunshine-col-'.$sunshine->options['columns'].'">';
+				echo '<ul class="sunshine-image-list sunshine-col-'.$sunshine->options['columns'].'">';
 				foreach ($images as $image) {
 					$thumb = wp_get_attachment_image_src($image->ID, 'sunshine-thumbnail');
 					$image_html = '<a href="'.get_permalink($image->ID).'"><img src="'.$thumb[0].'" alt="" class="sunshine-image-thumb" /></a>';
@@ -51,7 +51,7 @@ if (!sunshine_is_gallery_expired()) {
 				<li id="sunshine-image-<?php echo $image->ID; ?>" class="<?php sunshine_image_class($image->ID, array('sunshine-image-thumbnail')); ?>">
 					<?php echo $image_html; ?>
 					<?php if ($sunshine->options['show_image_names']) { ?>
-						<div class="sunshine-image-name"><?php echo $image->post_title; ?></div>
+						<div class="sunshine-image-name"><?php echo apply_filters('sunshine_image_name', $image->post_title, $image); ?></div>
 					<?php } ?>
 					<div class="sunshine-image-menu-container">
 						<?php sunshine_image_menu($image); ?>

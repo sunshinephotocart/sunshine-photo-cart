@@ -6,8 +6,8 @@ function sunshine_init_local( $methods ) {
 		$methods['local'] = array(
 			'id' => 'local',
 			'title' => $sunshine->options['local_name'],
-			'taxable' => ( isset( $sunshine->options['local_taxable'] ) ) ? $sunshine->options['local_taxable'] : 0,
-			'cost' => ( isset( $sunshine->options['local_cost'] ) ) ? $sunshine->options['local_cost'] : 0
+			'taxable' => ( empty( $sunshine->options['local_taxable'] ) ) ? $sunshine->options['local_taxable'] : 0,
+			'cost' => ( $sunshine->options['local_cost'] > 0 ) ? $sunshine->options['local_cost'] : 0
 		);
 	}
 	return $methods;

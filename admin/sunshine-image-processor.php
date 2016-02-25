@@ -1,148 +1,204 @@
 <?php
-set_time_limit( 600 );
+add_action( 'admin_enqueue_scripts', 'sunshine_enqueue_image_processor_ajaxq' );
+function sunshine_enqueue_image_processor_ajaxq( $hook ) {
+    if ( isset( $_GET['page'] ) && $_GET['page'] == 'sunshine_image_processor' ) {
+	    wp_enqueue_script( 'ajaxq', SUNSHINE_URL . 'assets/js/ajaxq.js' );
+    }
+}
 
 function sunshine_image_processor() {
 	global $sunshine;
 	if ( !isset( $_GET['gallery'] ) ) return;
 	
 	$gallery_id = intval( $_GET['gallery'] );
-?>
-	<div class="wrap sunshine">
-		<h2><?php _e( 'Image Processor' ); ?></h2>
-		<p><?php _e( 'We are processing your images! Please be patient, especially if you have a lot.','sunshine' ); ?></p>
-<?php
-	$args = array(
-		'post_type' => 'attachment',
-		'post_parent' => $gallery_id,
-		'nopaging' => true
-	);
-	$attachments = get_posts( $args );
-	$existing_guids = array();
-	if ( $attachments ) {
-		foreach ( $attachments as $attachment ) {
-			$existing_guids[] = $attachment->guid;
-		}
-	}
-
 	$dir = get_post_meta( $gallery_id, 'sunshine_gallery_images_directory', true );
 	$upload_dir = wp_upload_dir();
-
-	// Check for special characters in folder and file names
-	if ( !ctype_alnum( $dir ) ) {
-		$sanitized_folder_name = sanitize_file_name( $dir );
-		if ( $sanitized_folder_name != $dir ) {
-			if ( rename( $upload_dir['basedir'].'/sunshine/'.$dir, $upload_dir['basedir'].'/sunshine/'.$sanitized_folder_name ) ) {
-				if ( update_post_meta( $_GET['gallery'], 'sunshine_gallery_images_directory', $sanitized_folder_name ) ) {
-					$updated_dir = 1;
-					$dir = $sanitized_folder_name;
-				}
-			} else {
-				echo '<div class="error"><p>The folder selected contains special characters (Example: spaces, apostrophes, ampersands). We tried to rename the folder for you but failed. Please rename your folder to something like "'.$sanitized_folder_name.'" and try again.</p></div>';
-			}
-			$sanitize_folder = true;
-		}
-	}
-
-	$images_processed = 0;
-	$image_size_total = 0;
-	$count = 0;
-	$offset = ( isset( $_GET['offset'] ) ) ? intval( $_GET['offset'] ) : 0;
 	$folder = $upload_dir['basedir'].'/sunshine/'.$dir;
-	$images = sunshine_get_images_in_folder( $folder );
+	$count = sunshine_image_folder_count( $folder );
+?>
+	<div class="wrap sunshine">
+		<h2><?php _e( 'Image Processor', 'sunshine' ); ?></h2>
+		<p><?php _e( 'We are processing your images! Please be patient, especially if you have a lot.','sunshine' ); ?></p>
+		<div id="progress-bar" style="background: #000; height: 30px; position: relative;">
+			<div id="percentage" style="height: 30px; background-color: green; width: 0%;"></div>
+			<div id="processed" style="position: absolute; top: 0; left: 0; width: 100%; color: #FFF; text-align: center; font-size: 18px; height: 30px; line-height: 30px;">
+				<span id="processed-count">0</span> of <span id="processed-total"><?php echo $count; ?></span>
+			</div>
+		</div>
+		<p align="center" id="abort"><a href="post.php?post=<?php echo $gallery_id; ?>&action=edit"><?php _e( 'Abort Import', 'sunshine' ); ?></a></p>
+		<p align="center" id="return" style="display: none;"><a href="post.php?post=<?php echo $gallery_id; ?>&action=edit"><?php _e( 'Return to Gallery', 'sunshine' ); ?></a></p>
+		<ul id="errors"></ul>
+		<script type="text/javascript">
+		jQuery(document).ready(function($) {
+			var processed = 0;
+			var total = <?php echo $count; ?>;
+			var percent = 0;
+			function sunshine_file_import(item_number) {
+				var data = {
+					'action': 'sunshine_file_save',
+					'gallery_id': <?php echo $gallery_id; ?>,
+					'dir': '<?php echo $dir; ?>',
+					'item_number': item_number
+				};
+				$.postq('sunshineimageprocessor', ajaxurl, data, function(response) {
+					var obj = $.parseJSON( response );
+					processed++;
+					if ( processed >= total ) {
+						$('#abort').hide();						
+						$('#return').show();						
+					}
+					$('#processed-count').html(processed);
+					percent = Math.round( (processed / total) * 100);
+					$('#percentage').css('width', percent+'%');
+					if ( obj.error ) {
+						$( '#errors' ).append( '<li><strong>' + obj.file + '</strong> - ' + obj.error + '</li>' );
+					}
+				});
+			}
+			for (i = 1; i <= total; i++) { 
+			    sunshine_file_import(i);
+			}
+		});
+		</script>
+	</div>
+<?php
+}
 
+add_action( 'wp_ajax_sunshine_file_save', 'sunshine_ajax_file_save' );
+function sunshine_ajax_file_save() {
+		
+	set_time_limit( 600 );
+	
+	$gallery_id = intval( $_POST['gallery_id'] );
+	$item_number = intval( $_POST['item_number'] );
+	$dir = $_POST['dir'];
+	
+	$existing_file_names = array();
 	$existing_images = get_children( array( 'post_parent' => $gallery_id, 'post_type' => 'attachment', 'post_mime_type' => 'image' ) );
 	foreach ( $existing_images as $existing_image ) {
 		$existing_file_names[] = get_post_meta( $existing_image->ID, 'sunshine_file_name', true );
 	}
+	$upload_dir = wp_upload_dir();
+	$folder = $upload_dir['basedir'].'/sunshine/'.$dir;
+	$images = sunshine_get_images_in_folder( $folder );
+	
+	$file_path = $images[ $item_number - 1 ];
+	$file_name = basename( $file_path );
+	
+	if ( is_array( $existing_file_names ) && in_array( $file_name, $existing_file_names ) ) {
+		echo json_encode( array( 'status' => 'error', 'file' => $file_name, 'error' => __( 'Already uploaded to gallery', 'sunshine' ) ) );
+		exit;
+	}
 
-	foreach ( $images as $filename ) { // Loop through all files
-		$count++;
-		$file_info = pathinfo( $filename );
-		$guid = $upload_dir['baseurl'].'/sunshine/'.$dir.'/'.$file_info['basename'];;
-		if ( $count > $offset ) {
-			if ( $images_processed >= 25 )
-				break;
+	$wp_filetype = wp_check_filetype( $file_name, null );
+	extract( $wp_filetype );
 
-			if ( !empty( $existing_file_names ) && in_array( basename( $filename ), $existing_file_names ) )
-				continue;
+	//$file_url = $upload_dir['baseurl'].'/sunshine/'.$dir.'/'.$file;
+	//$file_url = apply_filters( 'sunshine_image_save_url', $file_url, $folder );
+	
+	$new_file_name = wp_unique_filename( $upload_dir['path'], $file_name );
 
-			// Rename the image file name if it has special characters
-			$sanitized_basename = sanitize_file_name( $file_info['basename'] );
-			if ( $sanitized_basename != $file_info['basename'] ) {
-				rename( $upload_dir['basedir'].'/sunshine/'.$dir.'/'.$file_info['basename'], $upload_dir['basedir'].'/sunshine/'.$dir.'/'.$sanitized_basename );
-				$file_info['basename'] = $sanitized_basename;
-			}
+	// copy the file to the uploads dir
+	$new_file_path = $upload_dir['path'] . '/' . $new_file_name;
+	if ( false === @copy( $file_path, $new_file_path ) )
+		return new WP_Error( 'upload_error', sprintf( __( 'The selected file could not be copied to %s.', 'sunshine' ), $upload_dir['path'] ) );
 
-			$file_path = $upload_dir['basedir'].'/sunshine/'.$dir.'/'.$file_info['basename'];
-			$file_url = $upload_dir['baseurl'].'/sunshine/'.$dir.'/'.$file_info['basename'];
+	// Set correct file permissions
+	$stat = stat( dirname( $new_file_path ) );
+	$perms = $stat['mode'] & 0000666;
+	@ chmod( $new_file, $perms );
+	// Compute the URL
+	$url = $upload_dir['url'] . '/' . $new_file_name;
+	
+	// Apply upload filters
+	$return = apply_filters( 'wp_handle_upload', array( 'file' => $new_file_path, 'url' => $url, 'type' => $type ) );
+	$new_file = $return['file'];
+	$url = $return['url'];
+	$type = $return['type'];
 
-			$tmp = download_url( $file_url );
+	$title = preg_replace( '!\.[^.]+$!', '', basename( $file_name ) );
+	$content = '';
 
-			if ( is_wp_error( $tmp ) ) {
-				$error_string = $tmp->get_error_message();
-				echo '<div id="message" class="error"><p>' . $file_info['basename'].': '.$error_string . '</p></div>';
-				@unlink( $file_array['tmp_name'] );
-				$file_array['tmp_name'] = '';
-				continue;
-			}
-
-			preg_match( '/[^\?]+\.(jpg|JPG|jpe|JPE|jpeg|JPEG|gif|GIF|png|PNG)/', $file_url, $matches );
-			$file_array['name'] = basename( $matches[0] );
-			$file_array['tmp_name'] = $tmp;
-
-			$attachment_id = media_handle_sideload( $file_array, $gallery_id );
-			if ( is_wp_error( $attachment_id ) ) {
-				$error_string = $attachment_id->get_error_message();
-				echo '<div id="message" class="error"><p>' . $file_info['basename'].': '.$error_string . '</p></div>';
-				continue;
-			}
-			$attachment_meta_data = wp_get_attachment_metadata( $attachment_id );
-			add_post_meta( $attachment_id, 'sunshine_file_name', basename( $filename ) );
-
-			if ( $attachment_meta_data['image_meta']['title'] )
-				wp_update_post( array( 'ID' => $attachment_id, 'post_title' => $attachment_meta_data['image_meta']['title'] ) );
-
-			if ( is_wp_error( $attachment_id ) ) {
-				@unlink( $file_array['tmp_name'] );
-			}
-
-			$images_processed++;
-			$thumb_img = wp_get_attachment_image_src( $attachment_id,'sunshine-thumbnail' );
-			echo '<img src="'.$thumb_img[0].'" alt="" height="50" />';
-
-			do_action( 'sunshine_after_image_process', $attachment_id, $file_info, $gallery_id );
-
+	// use image exif/iptc data for title and caption defaults if possible
+	if ( $image_meta = @wp_read_image_metadata( $new_file ) ) {
+		if ( '' != trim( $image_meta['title'] ) ) {
+			$title = trim( $image_meta['title'] );
+		}
+		if ( '' != trim( $image_meta['caption'] ) ) {
+			$content = trim( $image_meta['caption'] );
 		}
 	}
 
-	// After processing, see how many attachments we have now and compare to images in directory
-	$attachments = get_posts( array(
-			'post_type' => 'attachment',
-			'post_parent' => $gallery_id,
-			'posts_per_page' => -1
-		) );
-	$file_count = count( $attachments );
-	$file_count_in_dir = sunshine_image_folder_count( $upload_dir['basedir'].'/sunshine/'.$dir );
+	$post_date = current_time( 'mysql' );
+	$post_date_gmt = current_time( 'mysql', 1 );
 
-	echo '<p>'.$file_count.' / '.$file_count_in_dir.'</p>';
-	if ( $file_count_in_dir > $file_count && !$error_string ) {
-		$offset += 25;
-		echo '<a href="'.get_admin_url().'admin.php?page=sunshine_image_processor&gallery='.$gallery_id.'&offset='.$offset.'&child_gallery='.$child_gallery_id.'&folder='.$folder.'"  id="sunshine-image-processor-next" style="display: none;">'.__( 'Next page','sunshine' ).'</a>';
-		echo '<script type="text/javascript">
-			jQuery(document).ready(function() {
-				jQuery("#sunshine-image-processor-next").bind("click", function() {
-				  window.location.href = this.href;
-				  return false;
-				}).delay(5000).trigger("click");
-			});
-			</script>';
-	} else {
-		do_action( 'sunshine_after_image_processor', $gallery_id );
-		echo '<p style="font-weight: bold;">All done! ';
-		echo '<a href="'.get_admin_url().'post.php?post='.$gallery_id.'&action=edit">'.__( 'Edit this gallery','sunshine' ).'</a></p>';
+	// Construct the attachment array
+	$attachment = array(
+		'post_mime_type' => $type,
+		'guid' => $url,
+		'post_parent' => $gallery_id,
+		'post_title' => $title,
+		'post_name' => $title,
+		'post_content' => $content,
+		'post_date' => $post_date,
+		'post_date_gmt' => $post_date_gmt
+	);
+
+	$new_file = str_replace( wp_normalize_path( $upload_dir['basedir'] ), $upload_dir['basedir'], $new_file );
+
+	// Save the data
+	$attachment_id = wp_insert_attachment( $attachment, $new_file, $gallery_id );
+	if ( !is_wp_error( $attachment_id ) ) {
+		$data = wp_generate_attachment_metadata( $attachment_id, $new_file );
+		$attachment_meta_data = wp_update_attachment_metadata( $attachment_id, $data );
+		add_post_meta( $attachment_id, 'created_timestamp', $attachment_meta_data['image_meta']['created_timestamp'] );
+		add_post_meta( $attachment_id, 'sunshine_file_name', $file_name );
+
+		if ( $attachment_meta_data['image_meta']['title'] )
+			wp_update_post( array( 'ID' => $attachment_id, 'post_title' => $attachment_meta_data['image_meta']['title'] ) );
+
+		do_action( 'sunshine_after_image_process', $attachment_id );
+		echo json_encode( array( 'status' => 'success', 'file' => $file_name ) );
 	}
-?>
-	</div>
-<?php
+	
+	/*
+	$tmp = download_url( $file_url );
+
+	if ( is_wp_error( $tmp ) ) {
+		$error_string = $tmp->get_error_message();
+		$file = '';
+		if ( is_array( $file_array ) ) {
+			@unlink( $file_array['tmp_name'] );
+			$file = $file_info['basename'];
+		}
+		echo json_encode( array( 'status' => 'error', 'file' => $file, 'error' => $error_string ) );
+		exit;
+	}
+
+	$file_array = array();
+	preg_match( '/[^\?]+\.(jpg|JPG|jpe|JPE|jpeg|JPEG|gif|GIF|png|PNG)/', $file_url, $matches );
+	$file_array['name'] = basename( $matches[0] );
+	$file_array['tmp_name'] = $tmp;
+
+	$attachment_id = media_handle_sideload( $file_array, $gallery_id );
+	if ( is_wp_error( $attachment_id ) ) {
+		$error_string = $attachment_id->get_error_message();
+		echo json_encode( array( 'status' => 'error', 'file' => $file, 'error' => $error_string ) );
+		exit;
+	}
+	$attachment_meta_data = wp_get_attachment_metadata( $attachment_id );
+	add_post_meta( $attachment_id, 'created_timestamp', $attachment_meta_data['image_meta']['created_timestamp'] );
+	add_post_meta( $attachment_id, 'sunshine_file_name', $file );
+
+	if ( $attachment_meta_data['image_meta']['title'] )
+		wp_update_post( array( 'ID' => $attachment_id, 'post_title' => $attachment_meta_data['image_meta']['title'] ) );
+
+	if ( is_wp_error( $attachment_id ) ) {
+		@unlink( $file_array['tmp_name'] );
+	}
+	*/
+	
+	exit;
+	
 }
 ?>

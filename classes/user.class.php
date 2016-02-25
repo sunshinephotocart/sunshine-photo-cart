@@ -38,7 +38,11 @@ class SunshineUser extends SunshineSingleton {
 		if ( !$user_id ) {
 			$value = SunshineSession::instance()->$option;
 		} else {
-			$value = get_user_meta( $user_id, 'sunshine_'.$option, $single );
+			if ( $option == 'email' ) {
+				$value = $current_user->user_email;
+			} else {
+				$value = get_user_meta( $user_id, 'sunshine_'.$option, $single );
+			}				
 		}
 		return $value;
 	}

@@ -13,26 +13,32 @@ function sunshine_reports_page() {
 		<h2><?php _e( 'Reports', 'sunshine' ); ?></h2>
 		<h3>Sales Taxes Collected</h3>
 		<?php
-	$tax_years = array();
-	$args = array(
-		'post_type' => 'sunshine-order',
-		'nopaging' => true,
-		'tax_query' => array(
-			'taxonomy' => 'sunshine-order-status',
-			'field'    => 'slug',
-			'terms'    => array( 'shipped' )
-		)
-	);
-	$orders = get_posts( $args );
-	foreach ( $orders as $order ) {
-		$order_data = unserialize( get_post_meta( $order->ID, '_sunshine_order_data', true ) );
-		$year = date( 'Y',strtotime( $order->post_date ) );
-		$tax_years[$year] += $order_data['tax'];
-	}
-	foreach ( $tax_years as $tax_year => $tax_amount ) {
-		echo '<p><strong>'.$tax_year.'</strong>: '.sunshine_money_format( $tax_amount,false ).'</p>';
-	}
-?>
+			$tax_years = array();
+			$args = array(
+				'post_type' => 'sunshine-order',
+				'nopaging' => true,
+				'tax_query' => array(
+					array(
+						'taxonomy' => 'sunshine-order-status',
+						'field'    => 'slug',
+						'terms'    => array( 'shipped' )
+					)
+				)
+			);
+			$orders = get_posts( $args );
+			foreach ( $orders as $order ) {
+				$order_data = unserialize( get_post_meta( $order->ID, '_sunshine_order_data', true ) );
+				$year = date( 'Y',strtotime( $order->post_date ) );
+				$tax_years[$year] += $order_data['tax'];
+			}
+			if ( !empty( $tax_years ) ) { 
+				foreach ( $tax_years as $tax_year => $tax_amount ) {
+					echo '<p><strong>'.$tax_year.'</strong>: '.sunshine_money_format( $tax_amount,false ).'</p>';
+				}
+			} else {
+				_e( 'No taxes have been collected thus far', 'sunshine' );
+			}
+		?>
 	</div>
 <?php
 }

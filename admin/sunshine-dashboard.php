@@ -4,7 +4,7 @@ function sunshine_dashboard_display() {
 	// Recent Orders
 	ob_start();
 ?>
-	<table>
+	<table width="100%;">
 	<tr>
 		<th><?php _e( 'Order #','sunshine' ); ?></th>
 		<th><?php _e( 'Customer','sunshine' ); ?></th>
@@ -18,11 +18,11 @@ function sunshine_dashboard_display() {
 	);
 	$the_query = new WP_Query( $args );
 	while ( $the_query->have_posts() ) : $the_query->the_post();
-	$customer_id = get_post_meta( get_the_ID(), '_sunshine_customer_id', true );
-	$customer = get_user_by( 'id', $customer_id );
-	$current_status = get_the_terms( get_the_ID(), 'sunshine-order-status' );
-	$status = array_values( $current_status );
-	$order_data = unserialize( get_post_meta( get_the_ID(), '_sunshine_order_data', true ) );
+		$customer_id = get_post_meta( get_the_ID(), '_sunshine_customer_id', true );
+		$customer = get_user_by( 'id', $customer_id );
+		$current_status = get_the_terms( get_the_ID(), 'sunshine-order-status' );
+		$status = array_values( $current_status );
+		$order_data = unserialize( get_post_meta( get_the_ID(), '_sunshine_order_data', true ) );
 ?>
 		<tr>
 			<td><a href="post.php?post=<?php the_ID(); ?>&action=edit"><?php the_title(); ?></a></td>
@@ -42,7 +42,6 @@ function sunshine_dashboard_display() {
 	);
 ?>
 <div class="wrap sunshine">
-	<div class="icon32 icon32-sunshine-dashboard" id="icon-sunshine"><br/></div>
 	<h2><?php _e( 'Dashboard' ); ?></h2>
 
 	<div id="sunshine-dashboard">
@@ -56,9 +55,9 @@ function sunshine_dashboard_display() {
 			<div class="postbox-container" style="width:49%; <?php if ( ( $i % 2 ) == 0 ) { echo 'float: right; clear: right;'; } else { echo 'clear: left;'; } ?>">
 				<div class="postbox">
 					<div style="float: right; margin: 12px 15px 0 0; ">
-						<?php echo $widget['links']; ?>
+						<?php if( !empty( $widget['links'] ) ) { echo $widget['links']; } ?>
 					</div>
-					<h3><?php echo $widget['title']; ?></h3>
+					<h2 class="hndle"><span><?php echo $widget['title']; ?></span></h2>
 					<div class="inside">
 						<?php echo $widget['content']; ?>
 					</div>
