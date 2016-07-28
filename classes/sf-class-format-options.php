@@ -55,13 +55,13 @@ if ( ! class_exists( 'SF_Format_Options' ) ) {
 
 			$setting['value'] = $this->get_option( $setting['id'] );
 			$setting['value'] = $setting['value'] !== false ? maybe_unserialize( $setting['value'] ) : false;
-			$setting['value'] = SF_Format_Options::sanitize_value( $setting['value'], $setting );
+			$setting['value'] = $this->sanitize_value( $setting['value'], $setting );
 
 			$setting['title'] = $setting['name'];
 			$setting['name']  = $this->id . "_options[{$setting['id']}]";
 
 			$setting['grouped'] = !$setting['title'] ? ' style="padding-top:0px;"' : '';
-			$setting['tip'] = SF_Format_Options::get_formatted_tip( $setting['tip'] );
+			$setting['tip'] = $this->get_formatted_tip( $setting['tip'] );
 
 			$header_types = apply_filters( $this->id . '_options_header_types', array( 'heading', 'title' ) );
 
@@ -102,7 +102,9 @@ if ( ! class_exists( 'SF_Format_Options' ) ) {
 					</tr>
 		<?php endforeach; ?>
 
-	<?php switch ( $type ) :
+	<?php 
+	
+	switch ( $type ) :
 
 			case 'text'   :
 			case 'color'  :
@@ -126,7 +128,7 @@ if ( ! class_exists( 'SF_Format_Options' ) ) {
 				 class="regular-text <?php echo $class; ?>"
 				 style="<?php echo $css; ?>"
 				 placeholder="<?php echo $placeholder; ?>"
-				 value="<?php echo $value !== false ? $value : $std; ?>"
+				 value="<?php echo $value !== false ? htmlentities( $value ) : htmlentities( $std ); ?>"
 				/>
 			<?php echo $description;
 			break;
@@ -204,7 +206,7 @@ if ( ! class_exists( 'SF_Format_Options' ) ) {
 			echo $description;
 
 			if ( $select2 ) : ?>
-				<script type="text/javascript">jQuery(function() {jQuery("#<?php echo $id; ?>").select2({ allowClear: true, placeholder: "<?php _e( 'Select a page...', 'geczy' ); ?>", width: '350px' });});</script>
+				<script type="text/javascript">jQuery(function() {jQuery("#<?php echo $id; ?>").select2({ allowClear: true, placeholder: "<?php _e( 'Select a page...', 'sunshine' ); ?>", width: '350px' });});</script>
 			<?php endif;
 
 			break;
@@ -247,22 +249,6 @@ if ( ! class_exists( 'SF_Format_Options' ) ) {
 		case 'wysiwyg':
 			wp_editor( $value, $id, array( 'textarea_name' => $name ) );
 			echo $description;
-			break;
-
-		case 'license':
-?>
-			<input name="<?php echo $name; ?>"
-			 id="<?php echo $id; ?>"
-			 type="text"
-			 class="regular-text <?php echo $class; ?>"
-			 style="<?php echo $css; ?>"
-			 placeholder="<?php echo $placeholder; ?>"
-			 value="<?php echo $value !== false ? $value : $std; ?>"
-			/>
-			<?php if ( $settings['status'] == 'valid' ) { ?>
-			<a href="<?php echo wp_nonce_url('admin.php?page=sunshine&tab=licenses&deactivate='.$id, 'deactivate_sunshine_license', 'deactivate_'.$id ); ?>" class="button"><?php _e( 'Deactivate this license','sunshine' ); ?></a>
-			<?php } ?>
-			<?php echo $description;
 			break;
 
 		default :

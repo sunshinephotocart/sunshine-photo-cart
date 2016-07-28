@@ -1,3 +1,4 @@
+<?php global $sunshine; ?>
 <div id="sunshine" class="sunshine-clearfix <?php sunshine_classes(); ?>">
 	
 	<?php do_action('sunshine_before_content'); ?>
@@ -25,8 +26,9 @@
 			<?php sunshine_add_to_cart_form(); ?>	
 		</div>
 			
-		<?php if (get_post_meta(SunshineFrontend::$current_gallery->ID, 'sunshine_gallery_image_comments', true)) { ?>
+		<?php if ( get_post_meta( SunshineFrontend::$current_gallery->ID, 'sunshine_gallery_image_comments', true ) ) { ?>
 		<div id="sunshine-image-comments">
+			<h2><?php _e( 'Comments', 'sunshine' ); ?></h2>
 			<?php
 			$comments = get_comments('post_id='.SunshineFrontend::$current_image->ID.'&order=ASC');
 			if ($comments) {
@@ -34,6 +36,7 @@
 				wp_list_comments('type=comment&avatar_size=0', $comments); 
 				echo '</ol>';
 			}
+			$sunshine->comment_status = 'IN_SUNSHINE';
 			comment_form(
 				array(
 					'comment_notes_before' => '',
@@ -45,9 +48,11 @@
 				),
 				SunshineFrontend::$current_image->ID
 			); 
+			$sunshine->comment_status = '';
 			?>
 		</div>
 		<?php } ?>
+
 	</div>
 
 	<?php do_action('sunshine_after_content'); ?>

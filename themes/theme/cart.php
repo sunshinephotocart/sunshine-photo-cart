@@ -60,7 +60,7 @@
 			<div id="sunshine-cart-update-button">
 				<input type="submit" value="<?php _e('Update Cart', 'sunshine'); ?>" class="sunshine-button-alt" />
 			</div>
-
+			
 			</form>
 
 			<?php do_action('sunshine_after_cart_form'); ?>

@@ -74,13 +74,13 @@ html[xmlns] .sunshine-clearfix { display: block; }
 
 #sunshine #sunshine-gallery-images li .sunshine-image-name { font-size: 11px; color: #999; margin: 0 0 10px 0; }
 
-#sunshine #sunshine-gallery-images li img { width: 100%; height: auto; margin: 0; position: relative; z-index: 1; }
+#sunshine #sunshine-gallery-images li img { max-width: 100%; height: auto; margin: 0 auto; position: relative; z-index: 1; }
 
 #sunshine #sunshine-gallery-images .sunshine-image-list { margin-top: 15px; }
 #sunshine #sunshine-gallery-images .sunshine-image-list:hover li { opacity: .6; -webkit-transition: all 0.5s; -moz-transition: all 0.5s; transition: all 0.5s; }
 #sunshine #sunshine-gallery-images .sunshine-image-list:hover li:hover { opacity: 1; }
 
-#sunshine #sunshine-gallery-images .sunshine-image-menu-container { /* Show on hover opacity: 0;*/ width: 100%; text-align: left; position: absolute; top: 0; left: 10px; margin: 0; padding: 0; z-index: 10; }
+#sunshine #sunshine-gallery-images .sunshine-image-menu-container { /* Show on hover opacity: 0;*/ text-align: left; position: absolute; top: 0; left: 10px; margin: 0; padding: 0; z-index: 10; }
 #sunshine #sunshine-gallery-images li:hover .sunshine-image-menu-container { opacity: 1; }
 #sunshine #sunshine-gallery-images .sunshine-image-thumbnail:hover .sunshine-image-menu a { opacity: 1; }
 #sunshine #sunshine-gallery-images .sunshine-image-menu li { opacity: 1 !important; width: auto !important; margin: 0 7px 0 0 !important; text-align: left; font-size: 11px; clear: none !important; }
@@ -161,39 +161,6 @@ html[xmlns] .sunshine-clearfix { display: block; }
 }
 .sunshine-product-option-error { font-size: 12px; color: #FF0000; display: block; }
 
-#sunshine-lightbox-add-to-cart h1, 
-#sunshine-lightbox-add-to-cart h2, 
-#sunshine-lightbox-add-to-cart p,
-#sunshine-lightbox-add-to-cart td,
-#sunshine-lightbox-add-to-cart th, #sunshine-lightbox-add-to-cart a {
-	color: #000 !important;
-}
-#sunshine-lightbox-add-to-cart-header { text-align: center; }
-#sunshine-lightbox-add-to-cart-header h1 { font-size: 15px; margin: 0 0 10px 0; }
-#sunshine-lightbox-add-to-cart #sunshine-add-form { float: none; width: 100%; max-width: 100%; text-align: center; }
-#sunshine-lightbox-add-to-cart-header img { margin: 0 auto 20px auto; max-height: 150px; width: auto; }
-#sunshine-lightbox-add-to-cart-categories li { display: inline-block; margin: 0 5px 5px 5px; }
-#sunshine-lightbox-add-to-cart-categories li a { display: inline-block; text-decoration: none; font-size: 10px; text-transform: uppercase; background: #666; color: #FFF !important; border-radius: 15px; padding: 5px 10px; color: #FFF; text-decoration: none; }
-#sunshine-lightbox-add-to-cart-categories li a:hover, #sunshine-lightbox-add-to-cart-categories li a.active { background: #000; }
-#sunshine-lightbox-add-to-cart #sunshine-product-categories { height: 300px; overflow-y: scroll; }
-#sunshine-lightbox-add-to-cart table { width: 100%; }
-#sunshine-lightbox-add-to-cart th { font-weight: bold; font-size: 12px; text-transform: uppercase; border-bottom: 1px solid #CCC; padding: 20px 0 5px 0; }
-#sunshine-lightbox-add-to-cart td { padding: 5px 0 0 0; }
-#sunshine-lightbox-add-to-cart tr td:first-child { text-align: left; width: 50%; }
-#sunshine-lightbox-add-to-cart td.sunshine-lightbox-product-quantity input { text-align: center; font-size: 16px; border: none !important; width: 20px !important; box-shadow: none !important; background: #FFF !important; color: #000 !important; padding: 0 !important; }
-#sunshine-continue { clear: both; text-align: center; margin: 20px 0; }
-#sunshine-continue a { background: #333; display: inline-block; margin: 0 5px 5px 5px; color: #FFF !important; border-radius: 20px; font-size: 12px; font-weight: bold; padding: 7px 15px; text-decoration: none; text-transform: uppercase; }
-.sunshine-lightbox-product-description td { font-size: 12px; color: #666; }
-.sunshine-lightbox-product-name a { font-size: 80%; margin-left: 10px; }
-
-#sunshine-lightbox-comments-header { text-align: center; }
-#sunshine-lightbox-comments-header h1 { text-align: center; font-size: 15px; margin: 0 0 10px 0; }
-#sunshine-lightbox-comments-header img { margin: 0 auto 20px auto; max-height: 150px; width: auto; }
-#sunshine-lightbox-comments-list li { list-style: none; margin: 0 0 15px 0; }
-#sunshine-lightbox-comments-list li .sunshine-lightbox-comment-author { font-weight: bold; font-size: 13px; }
-#sunshine-comment-status { color: #666; font-weight: bold; }
-#sunshine-comment-status.sunshine-comment-success { color: #00ae08; }
-#sunshine-comment-status.sunshine-comment-error { color: #FF0000; }
 
 #sunshine-next-prev { float: right; margin: 0; }
 #sunshine-prev { padding-right: 10px; }
@@ -208,6 +175,7 @@ html[xmlns] .sunshine-clearfix { display: block; }
 #sunshine-add-form input.sunshine-countdown { border: none; background: transparent; font-size: 12px; color: #000; font-style: italic; box-shadow: none; width: auto; display: inline; padding: 0; }
 
 #sunshine-image-comments { clear: both; padding-top: 40px; }
+
 
 /*
 .sunshine-qty-input {height: 31px; overflow:hidden;zoom:1;position:relative;width:57px !important;margin-right:12px !important;min-width:inherit;}
@@ -229,14 +197,16 @@ html[xmlns] .sunshine-clearfix { display: block; }
 #sunshine table#sunshine-cart-items td.sunshine-cart-item-qty input.sunshine-qty { text-align: center; font-size: 16px; width: 30px !important; box-shadow: none !important; background: #FFF !important; color: #000 !important; padding: 0 !important; }
 #sunshine table#sunshine-cart-items th.sunshine-cart-total, #sunshine table#sunshine-cart-items td.sunshine-cart-item-total { text-align: right; }
 #sunshine table#sunshine-cart-items td.sunshine-cart-item-name h2 { font-weight: bold; font-size: 15px; }
-#sunshine #sunshine-cart-totals { float: right; }
+#sunshine #sunshine-cart-totals { max-width: 50%; float: right; }
 #sunshine #sunshine-cart-totals table { margin: 0 0 15px 0; float: right; }
 #sunshine #sunshine-cart-totals th, #sunshine-cart-totals td { font-size: 15px; }
 #sunshine #sunshine-cart-totals th { text-align: left; }
 #sunshine #sunshine-cart-totals td { text-align: right; padding: 0 0 5px 70px; }
 #sunshine #sunshine-cart-totals .sunshine-total th, #sunshine #sunshine-cart-totals .sunshine-total td { font-size: 18px; font-weight: bold; }
 #sunshine #sunshine-cart-checkout-button { clear: both; }
+#sunshine #sunshine-cart-checkout-button a { display: block; text-align: center; }
 #sunshine #sunshine-cart-update-button { float: left; }
+#sunshine #sunshine-cart-return { float: left; clear: left; margin-top: 10px; }
 #sunshine #sunshine-add-discounts { float: left; clear: left; margin: 30px 0 0 0; }
 #sunshine #sunshine-add-discounts h2, #sunshine #sunshine-add-discounts h3 { font-size: 12px; font-weight: bold; text-transform: uppercase; }
 #sunshine #sunshine-add-discounts input[type="text"] { width: 150px; }
@@ -280,7 +250,7 @@ html[xmlns] .sunshine-clearfix { display: block; }
 #sunshine.sunshine-order .sunshine-form h2 { font-size: 14px; }
 #sunshine.sunshine-order .sunshine-form .field { font-size: 12px; }
 #sunshine.sunshine-order .sunshine-form label { display: block; font-weight: bold; }
-#sunshine-order-billing-fields { width: 48%; float: left; margin: 0 0 20px 0; }
+#sunshine-order-billing-fields { clear: left; width: 48%; float: left; margin: 0 0 20px 0; }
 #sunshine-order-shipping-fields { width: 48%; float: right; }
 #sunshine-order-cart-items { clear: both; }
 #sunshine-order-totals table { margin: 0 0 15px 0; float: right; }
@@ -349,10 +319,6 @@ html[xmlns] .sunshine-clearfix { display: block; }
 	
 	.sunshine-product-category th { display: none; }
 	.sunshine-product-category th:first-child { display: block; }
-	#sunshine-lightbox-add-to-cart tr.sunshine-product { padding-bottom: 20px; }
-	#sunshine-lightbox-add-to-cart tr.sunshine-product td { display: block; width: 100% !important; padding: 5px 0; }
-	#sunshine-lightbox-add-to-cart tr.sunshine-product td.sunshine-lightbox-product-name { font-size: 130%; font-weight: bold; }
-	#sunshine-lightbox-add-to-cart tr.sunshine-product td.sunshine-lightbox-product-action { padding-bottom: 10px; margin-bottom: 10px; border-bottom: 1px solid #CCC; }
 	
 	#sunshine-cart-items th { display: none; }
 	#sunshine-cart-items td { display: block; text-align: left !important; padding: 0; }

@@ -15,7 +15,7 @@ class SunshineEmail extends SunshineSingleton {
 
 	public static function send_email( $template, $to, $subject, $title, $search = array(), $replace = array(), $params=array() ) {
 		global $sunshine;
-		add_filter( 'wp_mail_content_type',create_function( '', 'return "text/html";' ) );
+		add_filter( 'wp_mail_content_type', create_function( '', 'return "text/html";' ) );
 		$content = '';
 		if ( isset( $sunshine->options['email_'.$template] ) && $sunshine->options['email_'.$template] != '' )
 			$content = nl2br( $sunshine->options['email_'.$template] );

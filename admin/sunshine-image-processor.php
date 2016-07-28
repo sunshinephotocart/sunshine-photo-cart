@@ -66,9 +66,12 @@ function sunshine_image_processor() {
 
 add_action( 'wp_ajax_sunshine_file_save', 'sunshine_ajax_file_save' );
 function sunshine_ajax_file_save() {
-		
+	global $sunshine;
+	
 	set_time_limit( 600 );
 	
+    add_filter( 'upload_dir', 'sunshine_custom_upload_dir' );
+
 	$gallery_id = intval( $_POST['gallery_id'] );
 	$item_number = intval( $_POST['item_number'] );
 	$dir = $_POST['dir'];
@@ -107,7 +110,6 @@ function sunshine_ajax_file_save() {
 	$stat = stat( dirname( $new_file_path ) );
 	$perms = $stat['mode'] & 0000666;
 	@ chmod( $new_file, $perms );
-	// Compute the URL
 	$url = $upload_dir['url'] . '/' . $new_file_name;
 	
 	// Apply upload filters
@@ -151,7 +153,9 @@ function sunshine_ajax_file_save() {
 	if ( !is_wp_error( $attachment_id ) ) {
 		$data = wp_generate_attachment_metadata( $attachment_id, $new_file );
 		$attachment_meta_data = wp_update_attachment_metadata( $attachment_id, $data );
-		add_post_meta( $attachment_id, 'created_timestamp', $attachment_meta_data['image_meta']['created_timestamp'] );
+		if ( !empty( $image_meta ) ) {
+			add_post_meta( $attachment_id, 'created_timestamp', $image_meta['created_timestamp'] );
+		}
 		add_post_meta( $attachment_id, 'sunshine_file_name', $file_name );
 
 		if ( $attachment_meta_data['image_meta']['title'] )
@@ -160,43 +164,6 @@ function sunshine_ajax_file_save() {
 		do_action( 'sunshine_after_image_process', $attachment_id );
 		echo json_encode( array( 'status' => 'success', 'file' => $file_name ) );
 	}
-	
-	/*
-	$tmp = download_url( $file_url );
-
-	if ( is_wp_error( $tmp ) ) {
-		$error_string = $tmp->get_error_message();
-		$file = '';
-		if ( is_array( $file_array ) ) {
-			@unlink( $file_array['tmp_name'] );
-			$file = $file_info['basename'];
-		}
-		echo json_encode( array( 'status' => 'error', 'file' => $file, 'error' => $error_string ) );
-		exit;
-	}
-
-	$file_array = array();
-	preg_match( '/[^\?]+\.(jpg|JPG|jpe|JPE|jpeg|JPEG|gif|GIF|png|PNG)/', $file_url, $matches );
-	$file_array['name'] = basename( $matches[0] );
-	$file_array['tmp_name'] = $tmp;
-
-	$attachment_id = media_handle_sideload( $file_array, $gallery_id );
-	if ( is_wp_error( $attachment_id ) ) {
-		$error_string = $attachment_id->get_error_message();
-		echo json_encode( array( 'status' => 'error', 'file' => $file, 'error' => $error_string ) );
-		exit;
-	}
-	$attachment_meta_data = wp_get_attachment_metadata( $attachment_id );
-	add_post_meta( $attachment_id, 'created_timestamp', $attachment_meta_data['image_meta']['created_timestamp'] );
-	add_post_meta( $attachment_id, 'sunshine_file_name', $file );
-
-	if ( $attachment_meta_data['image_meta']['title'] )
-		wp_update_post( array( 'ID' => $attachment_id, 'post_title' => $attachment_meta_data['image_meta']['title'] ) );
-
-	if ( is_wp_error( $attachment_id ) ) {
-		@unlink( $file_array['tmp_name'] );
-	}
-	*/
 	
 	exit;
 	

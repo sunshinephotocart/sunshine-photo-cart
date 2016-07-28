@@ -23,7 +23,7 @@ function sunshine_products_box( $post ) {
 	$currency_symbol_format = sunshine_currency_symbol_format();
 
 	echo '<table class="sunshine-meta">';
-	echo '<tr><th><label for="sunshine_product_price">Price</label></th>';
+	echo '<tr><th><label for="sunshine_product_price">' . __( 'Price', 'sunshine' ) . '</label></th>';
 	echo '<td>';
 	$price_levels = get_terms( 'sunshine-product-price-level', array( 'hide_empty' => false ) );
 	$price_levels_count = count( $price_levels );
@@ -37,18 +37,19 @@ function sunshine_products_box( $post ) {
 		}
 		echo '</ul>';
 	} elseif ( $price_levels_count == 0 ) {
-		echo 'No price levels setup';
+		echo __( 'No price levels setup', 'sunshine' );
 	} else {
 		$text_field = '<input type="text" name="sunshine_product_price_'.$price_levels[0]->term_id.'" value="'.get_post_meta( $post->ID, 'sunshine_product_price_'.$price_levels[0]->term_id, true ).'" />';
 		echo sprintf( $currency_symbol_format, $currency_symbol, $text_field );
 	}
 	echo '</td></tr>';
-	echo '<tr><th><label for="sunshine_product_taxable">Taxable</label></th>';
+	echo '<tr><th><label for="sunshine_product_taxable">' . __( 'Taxable', 'sunshine' ) . '</label></th>';
 	echo '<td><input type="checkbox" name="sunshine_product_taxable" value="1" '.checked( get_post_meta( $post->ID, 'sunshine_product_taxable', true ), 1, 0 ).' /></td></tr>';
-	echo '<tr><th><label for="sunshine_product_shipping">Shipping</label></th>';
+	echo '<tr><th><label for="sunshine_product_shipping">' . __( 'Extra Shipping Fee', 'sunshine' ) . '</label></th>';
 	echo '<td>';
 	$text_field = '<input type="text" name="sunshine_product_shipping" value="'.get_post_meta( $post->ID, 'sunshine_product_shipping', true ).'" />';
 	echo sprintf( $currency_symbol_format, $currency_symbol, $text_field );
+	echo '<span class="desc">' . __( 'This is an additional shipping price which will transparently be added to the total Flat Rate shipping price. Basically use this for large or heavy items like a canvas where shipping costs more than small prints.', 'sunshine' ) . '</span>';
 	echo '</td></tr>';
 	do_action( 'sunshine_admin_products_meta', $post );
 	echo '</table>';
@@ -60,23 +61,28 @@ add_action( 'save_post', 'sunshine_products_save_postdata' );
 function sunshine_products_save_postdata( $post_id ) {
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
 		return;
-	if ( !isset( $_POST['sunshine_noncename'] ) || !wp_verify_nonce( $_POST['sunshine_noncename'], plugin_basename( __FILE__ ) ) )
+	if ( ( isset( $_POST['_inline_edit'] ) && !wp_verify_nonce( $_POST['_inline_edit'], 'inlineeditnonce' ) ) ||
+		( isset( $_POST['sunshine_noncename'] ) && !wp_verify_nonce( $_POST['sunshine_noncename'], plugin_basename( __FILE__ ) ) ) ) {
 		return;
+	}
 	if ( $_POST['post_type'] == 'sunshine-product' ) {
 		$price_levels = get_terms( 'sunshine-product-price-level', array( 'hide_empty' => false ) );
 		foreach ( $price_levels as $price_level ) {
 			$key = 'sunshine_product_price_'.$price_level->term_id;
-			$price = sanitize_text_field( $_POST[$key] );
+			$price = sanitize_text_field( $_POST[ $key ] );
+			if ( !isset( $_POST[ $key ] ) ) continue;
 			if ( $price == '' ) {
 				delete_post_meta( $post_id, 'sunshine_product_price_'.$price_level->term_id );
 			} else {
 				update_post_meta( $post_id, 'sunshine_product_price_'.$price_level->term_id, $price );
 			}
 		}
-		if ( isset( $_POST['sunshine_product_taxable'] ) )
-			update_post_meta( $post_id, 'sunshine_product_taxable', intval( $_POST['sunshine_product_taxable'] ) );
-		if ( isset( $_POST['sunshine_product_shipping'] ) )
-			update_post_meta( $post_id, 'sunshine_product_shipping', sanitize_text_field( $_POST['sunshine_product_shipping'] ) );
+		$taxable = ( isset( $_POST['sunshine_product_taxable'] ) ) ? intval( $_POST['sunshine_product_taxable'] ) : '0';
+		if ( $taxable )
+			update_post_meta( $post_id, 'sunshine_product_taxable', $taxable );
+		else 
+			delete_post_meta( $post_id, 'sunshine_product_taxable' );
+		update_post_meta( $post_id, 'sunshine_product_shipping', sanitize_text_field( $_POST['sunshine_product_shipping'] ) );
 	}
 }
 
@@ -99,7 +105,7 @@ function sunshine_product_columns_content( $column, $post_id ) {
 		case 'category':
 			$package = get_post_meta( $post_id, 'sunshine_product_package', true );
 			if ( $package ) {
-				echo 'Package';
+				_e( 'Package', 'sunshine' );
 				break;
 			}
 			$terms = get_the_terms( $post_id, 'sunshine-product-category' );
@@ -124,10 +130,14 @@ function sunshine_product_columns_content( $column, $post_id ) {
 				echo $price_level->name.': ';
 				if ( $price == '' )
 					echo '&mdash;';
-				else
+				else {
 					sunshine_money_format( $price );
+					echo '<input type="hidden" name="sunshine_product_price_' . $price_level->term_id . '" data-price-level="' . $price_level->term_id . '" value="' . $price . '" />';
+				}
 				echo '<br />';
 			}
+			echo '<input type="hidden" name="sunshine_product_taxable_value" value="' . get_post_meta( $post_id, 'sunshine_product_taxable', true ) . '" />';
+			echo '<input type="hidden" name="sunshine_product_shipping_value" value="' . get_post_meta( $post_id, 'sunshine_product_shipping', true ) . '" />';
 			break;
 		default:
 			break;
@@ -200,5 +210,72 @@ function sunshine_product_post_updated_messages( $messages ) {
 	return $messages;
 }
 
+/* Quick Edit */
+//add_action( 'bulk_edit_custom_box', 'sunshine_product_quick_edit', 10, 2 );
+add_action( 'quick_edit_custom_box', 'sunshine_product_quick_edit', 10, 2 );
+function sunshine_product_quick_edit( $column_name, $post_type ) {
+   switch ( $post_type ) {
+      case 'sunshine-product':
 
+         switch( $column_name ) {
+            case 'price':
+               ?>
+				<fieldset class="inline-edit-col-right">
+                  	<div class="inline-edit-col">
+						<?php
+						$currency_symbol = sunshine_currency_symbol();
+						$currency_symbol_format = sunshine_currency_symbol_format();
+
+						$price_levels = get_terms( 'sunshine-product-price-level', array( 'hide_empty' => false ) );
+						$price_levels_count = count( $price_levels );
+						if ( $price_levels_count > 1 ) {
+							foreach ( $price_levels as $price_level ) {
+								echo '<label><span class="title">' . $price_level->name . '</span>';
+								$text_field = '<input type="text" name="sunshine_product_price_'.$price_level->term_id.'" value="" />';
+								echo sprintf( $currency_symbol_format, $currency_symbol, $text_field );
+								echo '</label>';
+							}
+						} elseif ( $price_levels_count == 0 ) {
+							echo __( 'No price levels setup', 'sunshine' );
+						} else {
+							echo '<label><span class="title">' . __( 'Price', 'sunshine' ) . '</span>';
+							$text_field = '<input type="text" name="sunshine_product_price_'.$price_levels[0]->term_id.'" value="" />';
+							echo sprintf( $currency_symbol_format, $currency_symbol, $text_field );
+						}
+						?>
+						<label>
+	                       <span class="title"><?php _e( 'Taxable', 'sunshine' ); ?></span>
+	                       <input type="checkbox" name="sunshine_product_taxable" value="1" />
+	                    </label>
+						<label>
+	                       <span class="title"><?php _e( 'Extra Shipping Fee', 'sunshine' ); ?></span>
+							<?php
+							$text_field = '<input type="text" name="sunshine_product_shipping" value="" />';
+							echo sprintf( $currency_symbol_format, $currency_symbol, $text_field );
+							?>
+	                    </label>
+                  	</div>
+               	</fieldset>
+				<?php
+               break;
+         }
+         break;
+
+   }
+}
+
+add_action( 'admin_enqueue_scripts', 'sunshine_products_admin_enqueue_scripts' );
+function sunshine_products_admin_enqueue_scripts( $hook ) {
+	if ( 'edit.php' === $hook && isset( $_GET['post_type'] ) && 'sunshine-product' === $_GET['post_type'] ) {
+		wp_enqueue_script( 'sunshine-product-quick-edit', plugins_url('../assets/js/sunshine-product-quick-edit.js', __FILE__), false, null, true );
+	}
+}
+
+add_filter( 'quick_edit_show_taxonomy', 'sunshine_price_level_hide_quick_edit', 10, 3 );
+function sunshine_price_level_hide_quick_edit( $value, $taxonomy, $post_type ) {
+	if ( $taxonomy = 'sunshine-price-level' ) {
+		$value = false;
+	}
+	return $value;
+}
 ?>

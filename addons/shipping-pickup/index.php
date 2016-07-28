@@ -6,7 +6,7 @@ function sunshine_init_pickup( $methods ) {
 		$methods['pickup'] = array(
 			'id' => 'pickup',
 			'title' => $sunshine->options['pickup_name'],
-			'taxable' => ( empty( $sunshine->options['pickup_taxable'] ) ) ? $sunshine->options['pickup_taxable'] : 0,
+			'taxable' => ( !empty( $sunshine->options['pickup_taxable'] ) ) ? $sunshine->options['pickup_taxable'] : 0,
 			'cost' => ( $sunshine->options['pickup_cost'] > 0 ) ? $sunshine->options['pickup_cost'] : 0
 		);
 	}
@@ -54,10 +54,9 @@ function sunshine_pickup_hide_shipping_fields() {
 	$shipping_methods = $sunshine->shipping->get_shipping_methods();
 	if ( count( $shipping_methods ) == 1 && array_key_exists( 'pickup', $shipping_methods ) ) {
 	?>
-		<input type="hidden" name="billing_as_shipping" value="1" />
 		<script>
 		jQuery(document).ready(function(){
-			jQuery( '#sunshine-checkout-step-shipping' ).hide();
+			jQuery( '#sunshine-checkout-step-shipping, #sunshine-billing-toggle' ).hide();
 		});
 		</script>
 	<?php	
@@ -68,8 +67,8 @@ function sunshine_pickup_hide_shipping_fields() {
 			jQuery('input[name="shipping_method"]').change(function(){
 				var shipping_method_pickup_check = jQuery('input[name="shipping_method"]:checked').val();
 				if ( shipping_method_pickup_check == 'pickup' ) {
-					jQuery('#sunshine-checkout-step-shipping').hide();
-					jQuery('#sunshine-checkout').append( '<input type="hidden" name="billing_as_shipping" value="1" id="sunshine-pickup-shipping-billing" />');
+					jQuery('#sunshine-checkout-step-shipping, #sunshine-billing-toggle').hide();
+					//jQuery('#sunshine-checkout').append( '<input type="hidden" name="billing_as_shipping" value="1" id="sunshine-pickup-shipping-billing" />');
 					jQuery('#sunshine-billing-toggle input').attr('checked', false).trigger('change');
 					jQuery('#sunshine-billing-toggle').hide();
 				} else {
@@ -80,7 +79,7 @@ function sunshine_pickup_hide_shipping_fields() {
 			var init_shipping_method_pickup_check = jQuery( 'input[name="shipping_method"]:checked' ).val();
 			if ( init_shipping_method_pickup_check == 'pickup' ) {
 				jQuery('#sunshine-checkout-step-shipping').hide();
-				jQuery('#sunshine-checkout').append( '<input type="hidden" name="billing_as_shipping" value="1" id="sunshine-pickup-shipping-billing" />');
+				//jQuery('#sunshine-checkout').append( '<input type="hidden" name="billing_as_shipping" value="1" id="sunshine-pickup-shipping-billing" />');
 				jQuery('#sunshine-billing-toggle input').attr('checked', false).trigger('change');
 				jQuery('#sunshine-billing-toggle').hide();
 			}

@@ -1,6 +1,7 @@
 <?php
 $order_data = sunshine_get_order_data(SunshineFrontend::$current_order->ID);
 $order_items = sunshine_get_order_items(SunshineFrontend::$current_order->ID);
+$customer_id = get_post_meta( SunshineFrontend::$current_order->ID, '_sunshine_customer_id', true );
 $status = sunshine_get_order_status(SunshineFrontend::$current_order->ID);
 ?>
 <div id="sunshine" class="sunshine-clearfix <?php sunshine_classes(); ?>">
@@ -17,7 +18,9 @@ $status = sunshine_get_order_status(SunshineFrontend::$current_order->ID);
 			<div id="sunshine-order-contact-fields">
 				<h2><?php _e('Contact Information','sunshine'); ?></h2>
 				<div class="field field-left"><label><?php _e('Email','sunshine'); ?></label> <?php echo $order_data['email']; ?></div>
+				<?php if ( $order_data['phone'] ) { ?>
 				<div class="field field-right"><label><?php _e('Phone','sunshine'); ?></label> <?php echo $order_data['phone']; ?></div>
+				<?php } ?>
 			</div>
 			<div id="sunshine-order-billing-fields">
 				<h2><?php _e('Billing Information','sunshine'); ?></h2>
@@ -94,18 +97,24 @@ $status = sunshine_get_order_status(SunshineFrontend::$current_order->ID);
 					<th><?php _e('Subtotal','sunshine'); ?></th>
 					<td><?php sunshine_money_format($order_data['subtotal']); ?></td>
 				</tr>
+				<?php if ( $order_data['tax'] > 0 ) { ?>
 				<tr class="sunshine-tax">
 					<th><?php _e('Tax','sunshine'); ?></th>
 					<td><?php sunshine_money_format($order_data['tax']); ?></td>
 				</tr>
+				<?php } ?>
+				<?php if ( $order_data['shipping_method'] ) { ?>
 				<tr class="sunshine-shipping">
 					<th><?php _e('Shipping','sunshine'); ?> (<?php echo sunshine_get_shipping_method_name( $order_data['shipping_method'] ); ?>)</th>
 					<td><?php sunshine_money_format($order_data['shipping_cost']); ?></td>
 				</tr>
+				<?php } ?>
+				<?php if ( $order_data['discount_total'] > 0 ) { ?>
 				<tr class="sunshine-discounts">
 					<th><?php _e('Discounts','sunshine'); ?></th>
-					<td>-<?php sunshine_money_format($order_data['discount_total']); ?></td>
+					<td>-<?php sunshine_money_format( $order_data['discount_total'] ); ?></td>
 				</tr>
+				<?php } ?>
 				<?php if ($order_data['credits'] > 0) { ?>
 				<tr class="sunshine-credits">
 					<th><?php _e('Credits','sunshine'); ?></th>
@@ -121,8 +130,9 @@ $status = sunshine_get_order_status(SunshineFrontend::$current_order->ID);
 			</div>
 		</div>
 		
+		<?php if ( $customer_id ) { ?>
 		<div id="sunshine-order-comments">
-			<h2>Order Comments</h2>
+			<h2><?php _e( 'Order Comments', 'sunshine' ); ?></h2>
 			<?php
 			$comments = get_comments('post_id='.SunshineFrontend::$current_order->ID.'&post_type=sunshine-order&order=ASC');
 			if ($comments) {
@@ -147,7 +157,7 @@ $status = sunshine_get_order_status(SunshineFrontend::$current_order->ID);
 			); 
 			?>
 		</div>
-
+		<?php } ?>
 	</div>
 
 	<?php do_action('sunshine_after_content'); ?>

@@ -114,7 +114,7 @@ html[xmlns] .sunshine-clearfix { display: block; }
 
 #sunshine-gallery-images li .sunshine-image-name { font-size: 11px; color: #999; margin: 0 0 10px 0; }
 
-#sunshine-gallery-images li img { width: 100%; height: auto; margin: 0; position: relative; z-index: 1; }
+#sunshine-gallery-images li img { max-width: 100%; height: auto; margin: 0; position: relative; z-index: 1; }
 
 #sunshine-gallery-images .sunshine-image-menu-container { width: 100%; text-align: left; position: absolute; top: 0; left: 10px; margin: 0; padding: 0; z-index: 10; }
 #sunshine-gallery-images .sunshine-image-thumbnail:hover .sunshine-image-menu a { opacity: 1; }
@@ -130,9 +130,6 @@ html[xmlns] .sunshine-clearfix { display: block; }
 #sunshine-gallery-images li.sunshine-image-thumbnail.sunshine-favorite .sunshine-image-menu a.add-to-favorites i,
 #sunshine-gallery-images li.sunshine-image-thumbnail.sunshine-has-comments .sunshine-image-menu .sunshine-comments a i,
 #sunshine-gallery-images li.sunshine-image-thumbnail.sunshine-in-cart .sunshine-image-menu .sunshine-purchase a i { background: #FFF; color: #000; }
-.sunshine-lightbox-status-message { padding-left: 15px; font-weight: bold; color: #00ae08; }
-.sunshine-lightbox-status-error { padding-left: 15px; font-weight: bold; color: #FF0000; }
-.sunshine-lightbox-product-action span.sunshine-lightbox-status-error { display: block; padding: 0; }
 
 /* Pagination */
 .sunshine-pagination { text-align: center; padding: 10px 0 0 0; border-top: 1px solid #CCC; clear: both; }
@@ -188,38 +185,6 @@ html[xmlns] .sunshine-clearfix { display: block; }
 	margin-left: -11px;
 }
 .sunshine-product-option-error { font-size: 12px; color: #FF0000; display: block; }
-
-
-#sunshine-lightbox-add-to-cart-header { text-align: center; }
-#sunshine-lightbox-add-to-cart-header h1 { font-size: 15px; margin: 0 0 10px 0; }
-#sunshine-lightbox-add-to-cart #sunshine-add-form { float: none; width: 100%; max-width: 100%; text-align: center; }
-#sunshine-lightbox-add-to-cart-header img { margin: 0 auto 20px auto; max-height: 150px; width: auto; }
-#sunshine-lightbox-add-to-cart-categories li { display: inline-block; margin: 0 5px; }
-#sunshine-lightbox-add-to-cart-categories li a { text-decoration: none; font-size: 10px; text-transform: uppercase; background: #666; border-radius: 15px; padding: 5px 10px; color: #FFF; text-decoration: none; }
-#sunshine-lightbox-add-to-cart-categories li a:hover, #sunshine-lightbox-add-to-cart-categories li a.active { background: #000; }
-#sunshine-lightbox-add-to-cart #sunshine-product-categories { height: 300px; overflow-y: scroll; }
-#sunshine-lightbox-add-to-cart table { width: 100%; }
-#sunshine-lightbox-add-to-cart th { font-weight: bold; font-size: 12px; text-transform: uppercase; border-bottom: 1px solid #CCC; padding: 20px 0 5px 0; }
-#sunshine-lightbox-add-to-cart td { padding: 5px 0 0 0; }
-#sunshine-lightbox-add-to-cart tr td:first-child, #sunshine-lightbox-add-to-cart tr th:first-child { text-align: left; width: 50%; }
-#sunshine-lightbox-add-to-cart td.sunshine-lightbox-product-quantity input { text-align: center; font-size: 16px; border: none; background: none; box-shadow: none; width: 30px; }
-#sunshine-continue { clear: both; text-align: center; margin: 20px 0; }
-#sunshine-continue a { background: #333; display: inline-block; color: #FFF; border-radius: 20px; font-size: 12px; font-weight: bold; padding: 7px 15px; text-decoration: none; text-transform: uppercase; }
-.sunshine-lightbox-product-description td { font-size: 12px; color: #666; }
-.sunshine-lightbox-product-name a { font-size: 80%; margin-left: 10px; }
-
-#sunshine-lightbox-add-to-cart #sunshine-package-select { margin: 0 0 25px 0; }
-#sunshine-lightbox-add-to-cart #sunshine-package-select h2 { display: inline-block; margin-right: 15px; }
-#sunshine-lightbox-add-to-cart #sunshine-package-select select { width: auto; }
-
-#sunshine-lightbox-comments-header { text-align: center; }
-#sunshine-lightbox-comments-header h1 { text-align: center; font-size: 15px; margin: 0 0 10px 0; }
-#sunshine-lightbox-comments-header img { margin: 0 auto 20px auto; max-height: 150px; width: auto; }
-#sunshine-lightbox-comments-list li { list-style: none; margin: 0 0 15px 0; }
-#sunshine-lightbox-comments-list li .sunshine-lightbox-comment-author { font-weight: bold; font-size: 13px; }
-#sunshine-comment-status { color: #666; font-weight: bold; }
-#sunshine-comment-status.sunshine-comment-success { color: #00ae08; }
-#sunshine-comment-status.sunshine-comment-error { color: #FF0000; }
 
 
 #sunshine-next-prev { float: right; }

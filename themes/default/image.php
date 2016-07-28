@@ -1,3 +1,4 @@
+<?php global $sunshine; ?>
 <?php load_template(SUNSHINE_PATH.'themes/default/header.php'); ?>
 
 <div id="sunshine-next-prev">
@@ -6,7 +7,6 @@
 </div>
 <h1>
 	<?php echo get_the_title(SunshineFrontend::$current_image->ID); ?>
-	<span><?php _e('Return to', 'sunshine'); ?> <a href="<?php echo get_permalink(SunshineFrontend::$current_image->post_parent); if (SunshineSession::instance()->current_gallery_page) { echo '?pagination='.SunshineSession::instance()->current_gallery_page[1]; } ?>"><?php echo get_the_title(SunshineFrontend::$current_gallery->ID); ?></a></span>
 </h1>
 <div id="sunshine-action-menu" class="sunshine-clearfix">
 	<?php sunshine_action_menu(); ?>
@@ -18,30 +18,29 @@
 	<?php sunshine_add_to_cart_form(); ?>	
 </div>
 
-<?php if (comments_open(SunshineFrontend::$current_image->ID) && get_post_meta(SunshineFrontend::$current_image->post_parent, 'sunshine_gallery_image_comments', true)) { ?>
+<?php if ( get_post_meta( SunshineFrontend::$current_gallery->ID, 'sunshine_gallery_image_comments', true ) ) { ?>
 <div id="sunshine-image-comments">
+	<h2><?php _e( 'Comments', 'sunshine' ); ?></h2>
 	<?php
 	$comments = get_comments('post_id='.SunshineFrontend::$current_image->ID.'&order=ASC');
 	if ($comments) {
-	?>
-	<ol>
-	<?php 
-	wp_list_comments('type=comment&avatar_size=0', $comments); 
-	?>
-	</ol>
-	<?php 
+		echo '<ol>';
+		wp_list_comments('type=comment&avatar_size=0', $comments); 
+		echo '</ol>';
 	}
+	$sunshine->comment_status = 'IN_SUNSHINE';
 	comment_form(
 		array(
 			'comment_notes_before' => '',
 			'comment_notes_after' => '',
 			'logged_in_as' => '',
-			'id_form' => 'sunshine-order-comment',
+			'id_form' => 'sunshine-image-comment',
 			'id_submit' => 'sunshine-submit',
 			'title_reply' => 'Add Comment'
 		),
 		SunshineFrontend::$current_image->ID
 	); 
+	$sunshine->comment_status = '';
 	?>
 </div>
 <?php } ?>

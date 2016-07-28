@@ -3,35 +3,273 @@
 add_action( 'add_meta_boxes', 'sunshine_order_meta_boxes' );
 function sunshine_order_meta_boxes() {
 	global $post;
-	add_meta_box(
-		'sunshine_order_data',
-		sprintf( __( 'Order #%s', 'sunshine' ), $post->ID ),
-		'sunshine_order_data_inner',
-		'sunshine-order',
-		'normal',
-		'high'
-	);
-	add_meta_box(
-		'sunshine_order_notes',
-		__( 'Order Notes', 'sunshine' ),
-		'sunshine_order_notes_inner',
-		'sunshine-order',
-		'normal',
-		'high'
-	);
-	add_meta_box(
-		'sunshine_order_status',
-		__( 'Order Status', 'sunshine' ),
-		'sunshine_order_status_inner',
-		'sunshine-order',
-		'side',
-		'high'
-	);
+	
+	$screen = get_current_screen();
+	//sunshine_dump_var( $screen );
+	
+	if ( $screen->action == 'add' ) {
+		add_meta_box(
+			'sunshine_order_data',
+			__( 'Add Order', 'sunshine' ),
+			'sunshine_add_order_data',
+			'sunshine-order',
+			'normal',
+			'high'
+		);
+	} else {
+		add_meta_box(
+			'sunshine_order_data',
+			sprintf( __( 'Order #%s', 'sunshine' ), $post->ID ),
+			'sunshine_order_data_inner',
+			'sunshine-order',
+			'normal',
+			'high'
+		);
+		add_meta_box(
+			'sunshine_order_notes',
+			__( 'Order Notes', 'sunshine' ),
+			'sunshine_order_notes_inner',
+			'sunshine-order',
+			'normal',
+			'high'
+		);
+		add_meta_box(
+			'sunshine_order_status',
+			__( 'Order Status', 'sunshine' ),
+			'sunshine_order_status_inner',
+			'sunshine-order',
+			'side',
+			'high'
+		);
+	}
 
 	remove_meta_box( 'trackbacksdiv','sunshine-order','normal' );
 	remove_meta_box( 'commentstatusdiv', 'sunshine-order' , 'normal' );
 	remove_meta_box( 'slugdiv', 'sunshine-order' , 'normal' );
 	remove_meta_box( 'tagsdiv-sunshine-order-status', 'sunshine-order', 'side' );
+}
+
+add_action( 'admin_enqueue_scripts', 'sunshine_order_admin_enqueue_scripts' );
+function sunshine_order_admin_enqueue_scripts( $page ){
+	if ( get_post_type() != 'sunshine-order' ) {
+		return;
+	}
+	wp_enqueue_script( 'select2', '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js', array( 'jquery' ) );
+	wp_enqueue_style( 'select2', '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css' );
+	wp_enqueue_script( 'jquery-ui' );
+}
+
+function sunshine_add_order_data() {
+	
+?>
+	<form method="post">
+	<p>
+		<?php _e( 'Customer', 'sunshine' ); ?>:<br />
+		<select name="customer" class="sunshine-multiselect">
+			<option value=""><?php _e( 'Guest', 'sunshine' ); ?></option>
+			<?php
+			$users = get_users();
+			foreach ( $users as $user ) {
+				echo '<option value="' . $user->ID . '">' . $user->display_name . '</option>';
+			}
+			?>
+		</select>
+	</p>
+	<p id="email">
+		<?php _e( 'Email', 'sunshine' ); ?><br />
+		<input type="email" name="email" />
+	</p>
+	<p>
+		<?php _e( 'Order Date', 'sunshine' ); ?>:<br />
+		<input type="text" name="date" class="datepicker" />
+	</p>
+	<p>
+		<?php _e( 'Order Status', 'sunshine' ); ?><br />
+		<select name="status">
+			<?php
+			$statuses = get_terms( 'sunshine-order-status', 'hide_empty=0&orderby=id&order=ASC' );
+			foreach ( $statuses as $status ) {
+				echo '<option value="' . $status->term_id . '">' . $status->name . '</option>';
+			}
+			?>
+		</select>
+	</p>
+	<div style="width: 45%; float: left;">
+		<h4><?php _e( 'Billing Information', 'sunshine' ); ?></h4>
+		<p>
+			<?php _e( 'Country', 'sunshine' ); ?><br />
+			<?php SunshineCountries::country_only_dropdown( 'country', '' ); ?>
+		</p>
+		<p>
+			<?php _e( 'First Name', 'sunshine' ); ?><br />
+			<input type="text" name="first_name" />
+		</p>
+		<p>
+			<?php _e( 'Last Name', 'sunshine' ); ?><br />
+			<input type="text" name="last_name" />
+		</p>
+		<p>
+			<?php _e( 'Address', 'sunshine' ); ?><br />
+			<input type="text" name="address" />
+		</p>
+		<p>
+			<?php _e( 'Address 2', 'sunshine' ); ?><br />
+			<input type="text" name="address2" />
+		</p>
+		<p>
+			<?php _e( 'City', 'sunshine' ); ?><br />
+			<input type="text" name="city" />
+		</p>
+		<p id="sunshine-billing-state">
+			<?php _e( 'State', 'sunshine' ); ?><br />
+			<?php SunshineCountries::state_dropdown( '', 'state', '' ); ?>
+		</p>
+	</div>
+	<div style="width: 45%; float: right;">
+		<h4><?php _e( 'Shipping Information', 'sunshine' ); ?></h4>
+	<p>
+		<?php _e( 'Country', 'sunshine' ); ?><br />
+		<?php SunshineCountries::country_only_dropdown( 'shipping_country', '' ); ?>
+	</p>
+	<p>
+		<?php _e( 'First Name', 'sunshine' ); ?><br />
+		<input type="text" name="shipping_first_name" />
+	</p>
+	<p>
+		<?php _e( 'Last Name', 'sunshine' ); ?><br />
+		<input type="text" name="shipping_last_name" />
+	</p>
+	<p>
+		<?php _e( 'Address', 'sunshine' ); ?><br />
+		<input type="text" name="shipping_address" />
+	</p>
+	<p>
+		<?php _e( 'Address 2', 'sunshine' ); ?><br />
+		<input type="text" name="shipping_address2" />
+	</p>
+	<p>
+		<?php _e( 'City', 'sunshine' ); ?><br />
+		<input type="text" name="shipping_city" />
+	</p>
+	<p id="sunshine-shipping-state">
+		<?php _e( 'State', 'sunshine' ); ?><br />
+		<?php SunshineCountries::state_dropdown( '', 'shipping_state', '' ); ?>
+	</p>
+	</div>
+	<br clear="both" />
+	
+	<h4><?php _e( 'Order Items', 'sunshine' ); ?></h4>
+	<table style="width: 100%;">
+	<tr>
+		<th><?php _e( 'Gallery', 'sunshine' ); ?></th>
+		<th><?php _e( 'Image', 'sunshine' ); ?></th>
+		<th><?php _e( 'Product', 'sunshine' ); ?></th>
+		<th><?php _e( 'Qty', 'sunshine' ); ?></th>
+		<th><?php _e( 'Item Total', 'sunshine' ); ?></th>
+	</tr>
+	<tr>
+		<td>
+			<select name="gallery">
+				<option value=""><?php _e( 'Select gallery', 'sunshine' ); ?></option>
+				<?php
+				$galleries = get_posts( 'post_type=sunshine-gallery&nopaging=true' );
+				foreach ( $galleries as $gallery ) {
+					echo '<option value="' . $gallery->ID . '">' . $gallery->post_title . '</option>';
+				}
+				?>
+			</select>
+		</td>
+		<td>
+			<select name="image[]">
+			</select>
+		</td>
+		<td>
+			<select name="product[]">
+			
+			</select>
+		</td>
+		<td>
+		</td>
+	</tr>
+	</table>
+	
+	</form>
+	
+	<script>
+	jQuery( document ).ready( function($) {
+		$(".sunshine-multiselect").select2({
+		    width: '100%',
+			allowClear: true
+		});
+		
+		$( 'select[name="customer"]' ).change(function(){
+			if ( $( this ).val() == '' ) {
+				$( '#email' ).show();
+			} else {
+				$( '#email' ).hide();
+			}
+		});
+		
+		jQuery('.datepicker').datepicker( {
+			dateFormat: '<?php echo sunshine_date_format_php_to_js( get_option( 'date_format' ) ); ?>', 
+			gotoCurrent: true,
+		}).keyup(function(e) {
+		    if(e.keyCode == 8 || e.keyCode == 46) {
+		        $.datepicker._clearDate(this);
+		    }
+		});
+		
+		// Changing state selection
+		jQuery('form').on('change', 'select[name="country"]', function(){
+			var country = jQuery(this).val();
+			setTimeout(function () {
+				jQuery.ajax({
+				  	type: 'POST',
+				  	url: '<?php echo admin_url( 'admin-ajax.php' ); ?>',
+				  	data: {
+				  		action: 'sunshine_checkout_update_state',
+						country: country,
+					},
+				  	success: function(data, textStatus, XMLHttpRequest) {
+						var obj = jQuery.parseJSON(data);
+						if (obj.state_options)
+							jQuery('#sunshine-billing-state').html('<label><?php _e( 'State / Province','sunshine' ); ?> '+obj.state_options+'</label>');
+				  	},
+				  	error: function(MLHttpRequest, textStatus, errorThrown) {
+						alert('Sorry, there was an error with your request');
+				  	}
+				});
+			}, 500);
+			return false;
+		});
+		
+		jQuery('form').on('change', 'select[name="shipping_country"]', function(){
+			var shipping_country = jQuery(this).val();
+			setTimeout(function () {
+				jQuery.ajax({
+				  	type: 'POST',
+				  	url: '<?php echo admin_url( 'admin-ajax.php' ); ?>',
+				  	data: {
+				  		action: 'sunshine_checkout_update_shipping_state',
+						shipping_country: shipping_country
+					},
+				  	success: function(data, textStatus, XMLHttpRequest) {
+						var obj = jQuery.parseJSON(data);
+						if (obj.state_options)
+							jQuery('#sunshine-shipping-state').html('<label>State / Province '+obj.state_options+'</label>');
+				  	},
+				  	error: function(MLHttpRequest, textStatus, errorThrown) {
+						alert('Sorry, there was an error with your request');
+				  	}
+				});
+			}, 500);
+			return false;
+		});
+		
+	});
+	</script>
+
+<?php
 }
 
 
@@ -70,12 +308,12 @@ function sunshine_order_data_inner( $post ) {
 		});
 	});
 	</script>
-	<p><strong><?php _e( 'Order Date', 'sunshine' ); ?>:</strong> <?php echo date( 'M j, Y', strtotime( $post->post_date ) ); ?></p>
+	<p><strong><?php _e( 'Order Date', 'sunshine' ); ?>:</strong> <?php echo date( get_option( 'date_format' ), strtotime( $post->post_date ) ); ?></p>
 	<?php if ( $ip = get_post_meta( $post->ID, 'ip', true ) ) { ?>
 		<p><strong>IP Address:</strong> <?php echo $ip; ?></p>
 	<?php } ?>
 	<table width="100%" cellspacing="0" cellpadding="0" id="sunshine-order-data">
-	<tr><th><?php _e( 'Billing Info', 'sunshine' ); ?></th><th><?php _e( 'Shipping Info', 'sunshine' ); ?></th></tr>
+	<tr><th><?php _e( 'Billing Info', 'sunshine' ); ?></th><th><?php if ( isset( $order_data['shipping_first_name'] ) ) { _e( 'Shipping Info', 'sunshine' );  } ?></th></tr>
 	<tr>
 		<td>
 			<?php
@@ -87,7 +325,7 @@ function sunshine_order_data_inner( $post ) {
 		</td>
 		<td>
 			<?php
-			if ( $order_data['shipping_first_name'] ) {
+			if ( isset( $order_data['shipping_first_name'] ) ) {
 				echo $order_data['shipping_first_name'].' '.$order_data['shipping_last_name'].'<br />'.$order_data['shipping_address'];
 				if ( $order_data['shipping_address2'] )
 					echo '<br />'.$order_data['shipping_address2'];
@@ -215,12 +453,11 @@ function sunshine_orders_save_postdata( $post_id ) {
 	wp_set_post_terms( $post_id, sanitize_text_field( $_POST['sunshine_order_status'] ), 'sunshine-order-status' );
 
 	if ( isset( $_POST['sunshine_email_customer_order_change'] ) && $_POST['sunshine_email_customer_order_change'] != '' ) {
-		$customer_id = get_post_meta( $post_id, '_sunshine_customer_id', true );
-		$customer = get_user_by( 'id', $customer_id );
+		$data = maybe_unserialize( get_post_meta( $post_id, '_sunshine_order_data', true ) );
 		$search = array( '[status]', '[status_description]', '[order_id]', '[order_url]', '[first_name]', '[last_name]' );
 		$status = get_term_by( 'slug', sanitize_text_field( $_POST['sunshine_order_status'] ), 'sunshine-order-status' );
-		$replace = array( $status->name, $status->description, $post_id, get_permalink( $post_id ), SunshineUser::get_user_meta_by_id( $customer_id, 'first_name' ), SunshineUser::get_user_meta_by_id( $customer_id, 'last_name' ) );
-		SunshineEmail::send_email( 'order_status', $customer->user_email, $sunshine->options['email_subject_order_status'], $sunshine->options['email_subject_order_status'], $search, $replace );
+		$replace = array( $status->name, $status->description, $post_id, get_permalink( $post_id ), $data['first_name'], $data['last_name'] );
+		SunshineEmail::send_email( 'order_status', $data['email'], $sunshine->options['email_subject_order_status'], $sunshine->options['email_subject_order_status'], $search, $replace );
 	}
 
 }
@@ -241,7 +478,7 @@ function sunshine_show_order_customer_filter() {
 add_filter( 'parse_query', 'sunshine_orders_show_by_user' );
 function sunshine_orders_show_by_user( $query ) {
     global $pagenow;
-    if ( $pagenow == 'edit.php' && isset( $query->query_vars['post_type']) && $query->query_vars['post_type']=='sunshine-order' ) {
+    if ( isset( $_GET['customer'] ) && $pagenow == 'edit.php' && isset( $query->query_vars['post_type']) && $query->query_vars['post_type']=='sunshine-order' ) {
         $query->query_vars['meta_key'] = '_sunshine_customer_id';
 		$query->query_vars['meta_value'] = sanitize_text_field( $_GET['customer'] );
     }
@@ -254,12 +491,11 @@ function sunshine_order_comment_post( $comment_id ) {
 	if ( is_admin() ) {
 		$comment = get_comment( $comment_id );
 		$order = get_post( $comment->comment_post_ID );
-		$customer_id = get_post_meta( $order->ID, '_sunshine_customer_id', true );
+		$data = maybe_unserialize( get_post_meta( $order->ID, '_sunshine_order_data', true ) );
 		if ( get_post_type( $order ) == 'sunshine-order' ) {
-			$customer = get_user_by( 'id', $customer_id );
 			$search = array( '[comment]', '[order_id]', '[order_url]', '[first_name]', '[last_name]' );
-			$replace = array( nl2br( $comment->comment_content ), $order->ID, get_permalink( $order->ID ), SunshineUser::get_user_meta_by_id( $customer_id, 'first_name' ), SunshineUser::get_user_meta_by_id( $customer_id, 'last_name' ) );
-			SunshineEmail::send_email( 'order_comment', $customer->user_email, $sunshine->options['email_subject_order_comment'], $sunshine->options['email_subject_order_comment'], $search, $replace );
+			$replace = array( nl2br( $comment->comment_content ), $order->ID, get_permalink( $order->ID ), $data['first_name'], $data['last_name'] );
+			SunshineEmail::send_email( 'order_comment', $data['email'], $sunshine->options['email_subject_order_comment'], $sunshine->options['email_subject_order_comment'], $search, $replace );
 		}
 	}
 }
@@ -299,7 +535,8 @@ function sunshine_order_columns( $columns ) {
 		'customer' => __( 'Customer', 'sunshine' ),
 		'status' => __( 'Status', 'sunshine' ),
 		'total' => __( 'Order Total', 'sunshine' ),
-		'date_ordered' => __( 'Date', 'sunshine' )
+		'date_ordered' => __( 'Date', 'sunshine' ),
+		'galleries' => __( 'Galleries', 'sunshine' )
 	);
 	return $columns;
 }
@@ -314,9 +551,14 @@ function sunshine_order_columns_content( $column, $post_id ) {
 		break;
 	case 'customer':
 		$customer_id = get_post_meta( $post_id, '_sunshine_customer_id', true );
-		$customer = get_user_by( 'id', $customer_id );
-		if ( !empty( $customer ) )
-			echo '<a href="user-edit.php?user_id='.$customer_id.'">'.$customer->display_name.'</a>';
+		if ( $customer_id ) {
+			$customer = get_user_by( 'id', $customer_id );
+			if ( !empty( $customer ) )
+				echo '<a href="user-edit.php?user_id='.$customer_id.'">'.$customer->display_name.'</a>';
+		} else {
+			$data = maybe_unserialize( get_post_meta( $post_id, '_sunshine_order_data', true ) );
+			echo $data['first_name'] . ' ' . $data['last_name'];
+		}
 		break;
 	case 'status':
 		$current_status = array_values( get_the_terms( $post_id, 'sunshine-order-status' ) );
@@ -327,7 +569,28 @@ function sunshine_order_columns_content( $column, $post_id ) {
 		sunshine_money_format( $order_data['total'] );
 		break;
 	case 'date_ordered':
-		echo mysql2date( 'M j, Y', $post->post_date );
+		echo date( get_option( 'date_format' ), strtotime( $post->post_date ) );
+		break;
+	case 'galleries':
+		$order_items = unserialize( get_post_meta( $post_id, '_sunshine_order_items', true ) );
+		$links = array();
+		$galleries = array();
+		foreach ( $order_items as $item ) {
+			if ( $item['gallery_id'] && !in_array( $item['gallery_id'], $galleries ) ) {
+				$galleries[ $item['gallery_id'] ] = get_the_title( $item['gallery_id'] );
+			} elseif ( $item['image_id'] ) {
+				$image = get_post( $item['image_id'] );
+				if ( $image->post_parent && !in_array( $image->post_parent, $galleries ) ) {
+					$galleries[ $image->post_parent ] = get_the_title( $image->post_parent );
+				}
+			}
+		}
+		foreach( $galleries as $gallery_id => $gallery_title ) {
+			$links[] = '<a href="post.php?post=' . $gallery_id . '&action=edit">' . $gallery_title . '</a>';
+		}
+		echo ( $links ) ? join( ', ', $links )  : '&mdash;';
+		unset( $links );
+		unset( $galleries );
 		break;
 	default:
 		break;
@@ -405,9 +668,11 @@ $order = get_post( $order_id );
 $order_data = unserialize( get_post_meta( $order_id, '_sunshine_order_data', true ) );
 $items = unserialize( get_post_meta( $order_id, '_sunshine_order_items', true ) );
 ?>
+<!DOCTYPE html>
 <html>
 <head>
 	<title>Invoice for Order #<?php echo $order_id; ?></title>
+	<meta charset="UTF-8" />
 	<style type="text/css">
 		*
 		{
@@ -520,7 +785,7 @@ $items = unserialize( get_post_meta( $order_id, '_sunshine_order_items', true ) 
 		<?php sunshine_logo(); ?>
 	</header>
 	<article>
-		<h1>Recipient</h1>
+		<h1><?php _e( 'Recipient', 'sunshine' ); ?></h1>
 		<address>
 			<p>
 				<?php
@@ -532,26 +797,26 @@ echo '<br />'.$order_data['city'].', '.$order_data['state'].' '.$order_data['zip
 		</address>
 		<table class="meta" cellspacing="0" cellpadding="0">
 			<tr>
-				<th><span>Order #</span></th>
+				<th><span><?php _e( 'Order #', 'sunshine' ); ?></span></th>
 				<td><span><?php echo $order_id; ?></span></td>
 			</tr>
 			<tr>
-				<th><span>Date</span></th>
-				<td><span><?php echo get_the_date( 'M j, Y', $order_id ); ?></span></td>
+				<th><span><?php _e( 'Date', 'sunshine' ); ?></span></th>
+				<td><span><?php echo get_the_date( get_option( 'date_format' ), $order_id ); ?></span></td>
 			</tr>
 			<tr>
-				<th><span>Order Total</span></th>
+				<th><span><?php _e( 'Order Total', 'sunshine' ); ?></span></th>
 				<td><span><?php sunshine_money_format( $order_data['total'] ); ?></span></td>
 			</tr>
 		</table>
 		<table class="inventory">
 			<thead>
 				<tr>
-					<th><span>Image</span></th>
-					<th><span>Product</span></th>
-					<th><span>Quantity</span></th>
-					<th><span>Price</span></th>
-					<th><span>Item Total</span></th>
+					<th><span><?php _e( 'Image', 'sunshine' ); ?></span></th>
+					<th><span><?php _e( 'Product', 'sunshine' ); ?></span></th>
+					<th><span><?php _e( 'Quantity', 'sunshine' ); ?></span></th>
+					<th><span><?php _e( 'Price', 'sunshine' ); ?></span></th>
+					<th><span><?php _e( 'Item Total', 'sunshine' ); ?></span></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -559,16 +824,16 @@ echo '<br />'.$order_data['city'].', '.$order_data['state'].' '.$order_data['zip
 					<tr class="item">
 						<td class="image">
 							<?php
-	if ( $item['image_id'] > 0 ) {
-		$image = get_post( $item['image_id'] );
-		$gallery = get_post( $image->post_parent );
-		if( $thumb = wp_get_attachment_image_src( $item['image_id'], 'sunshine-thumbnail' ) )
-			$image_html = '<img src="'.$thumb[0].'" alt="'.$item['image_name'].'" width="100" />';
-		else
-			$image_html = '<img src="http://placehold.it/100&text=Image+deleted" alt="Image has been deleted" />';
-	}
-	echo apply_filters( 'sunshine_cart_image_html', $image_html, $item, $thumb );
-?>
+								if ( $item['image_id'] > 0 ) {
+									$image = get_post( $item['image_id'] );
+									$gallery = get_post( $image->post_parent );
+									if( $thumb = wp_get_attachment_image_src( $item['image_id'], 'sunshine-thumbnail' ) )
+										$image_html = '<img src="'.$thumb[0].'" alt="'.$item['image_name'].'" width="100" />';
+									else
+										$image_html = '<img src="http://placehold.it/100&text=Image+deleted" alt="Image has been deleted" />';
+								}
+								echo apply_filters( 'sunshine_cart_image_html', $image_html, $item, $thumb );
+							?>
 						</td>
 						<td class="name">
 							<strong><?php echo $item['product_name']; ?></strong><br />
@@ -590,47 +855,47 @@ echo '<br />'.$order_data['city'].', '.$order_data['state'].' '.$order_data['zip
 		</table>
 		<table class="balance">
 			<tr class="subtotal totals">
-				<th colspan="4" align="right">Subtotal</th>
+				<th colspan="4" align="right"><?php _e( 'Subtotal', 'sunshine' ); ?></th>
 				<td><?php sunshine_money_format( $order_data['subtotal'] ); ?></td>
 			</tr>
 			<tr class="tax totals">
-				<th colspan="4" align="right">Tax</th>
+				<th colspan="4" align="right"><?php _e( 'Tax', 'sunshine' ); ?></th>
 				<td><?php sunshine_money_format( $order_data['tax'] ); ?></td>
 			</tr>
 			<tr class="shipping totals">
-				<th colspan="4" align="right">Shipping (<?php echo $order_data['shipping_method']; ?>)</th>
+				<th colspan="4" align="right"><?php _e( 'Shipping', 'sunshine' ); ?> (<?php echo $order_data['shipping_method']; ?>)</th>
 				<td>
 					<?php sunshine_money_format( $order_data['shipping_cost'] ); ?>
 				</td>
 			</tr>
 			<tr class="discounts totals">
 				<th colspan="4" align="right">
-					Discounts
+					<?php _e( 'Discounts', 'sunshine' ); ?>
 					<?php
-if ( !empty( $order_data['discount_items'] ) ) {
-	$discount_names = array();
-	foreach ( $order_data['discount_items'] as $discount_item ) {
-		$discount_names[] = $discount_item->name;
-	}
-	echo '<br />('.join( ', ', $discount_names ).')';
-}
-?>
+					if ( !empty( $order_data['discount_items'] ) ) {
+						$discount_names = array();
+						foreach ( $order_data['discount_items'] as $discount_item ) {
+							$discount_names[] = $discount_item->name;
+						}
+						echo '<br />('.join( ', ', $discount_names ).')';
+					}
+					?>
 				</th>
 				<td>-<?php sunshine_money_format( $order_data['discount_total'] ); ?></td>
 			</tr>
 			<?php if ( $order_data['credits'] > 0 ) { ?>
 			<tr class="credits totals">
-				<th colspan="4" align="right">Credits</th>
+				<th colspan="4" align="right"><?php _e( 'Credits', 'sunshine' ); ?></th>
 				<td>-<?php sunshine_money_format( $order_data['credits'] ); ?></td>
 			</tr>
 			<?php } ?>
 
 			<tr class="total totals">
-				<th colspan="4" align="right">Total</th>
+				<th colspan="4" align="right"><?php _e( 'Total', 'sunshine' ); ?></th>
 				<td><?php sunshine_money_format( $order_data['total'] ); ?></td>
 			</tr>
 			<tr class="payment-method totals">
-				<th colspan="4" align="right">Payment Method</th>
+				<th colspan="4" align="right"><?php _e( 'Payment Method', 'sunshine' ); ?></th>
 				<td><?php echo $order_data['payment_method']; ?></td>
 			</tr>
 		</table>

@@ -2,18 +2,24 @@
 Author URI: https://www.sunshinephotocart.com
 Plugin URI: https://www.sunshinephotocart.com
 Contributors: sunshinephotocart
-Tags: photo, photography, gallery, client gallery, client proofing, proofing, e-store, eshop, ecommerce, e commerce, e-commerce, selling, wp-ecommerce, wp ecommerce
+Tags: photo, photography, photo, photographer, gallery, client gallery, client proofing, proofing, cart, photo cart, e-store, eshop, ecommerce, e commerce, e-commerce, selling, wp-ecommerce, wp ecommerce
 Requires at least: 3.7
-Tested up to: 4.4.2
-Stable tag: 2.3
+Tested up to: 4.6
+Stable tag: 2.5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Client Proofing Gallery & Photo Cart Plugin for WordPress
+Client Proofing Gallery & Photo Cart Plugin. Sell prints from your own WordPress website.
 
 == Description ==
 
-[Sunshine Photo Cart](https://www.sunshinephotocart.com) is a complete client proofing gallery and photo cart plugin built specifically for photographers. Since it's first release in 2013, Sunshine was a paid plugin - but now it is free! This free version is fully functional and has the following features:
+[Sunshine Photo Cart](https://www.sunshinephotocart.com) is a WordPress client proofing gallery & photo cart plugin. You can have a full-featured system to sell photos on your own website with no limits or commissions. Easily create galleries, sell to clients, and make more money than ever.
+
+[youtube https://www.youtube.com/watch?v=l6YTzMXMV7k]
+
+**[Create your own standalone demo](http://demo.sunshinephotocart.com) installation of WordPress + Sunshine + all the add-ons pre-installed to see it in action!** This is fully functional WordPress installation where you can test all the features without having to install it on your own site.
+
+This free version is fully functional and has the following features:
 
 * Cart system for letting users choose photo, select product and add to cart for purchase
 * Accept offline payments (check) or online payments (PayPal)
@@ -30,31 +36,31 @@ Client Proofing Gallery & Photo Cart Plugin for WordPress
 * Multiple shipping methods (Flat rate, local delivery, pickup)
 * Easy order management
 * Printable invoices
-* International ready - Works with all currencies and translated into German, French, Spanish, Dutch, Finnish, Portuguese, British, Norwegian
-
-[Check out the demo](http://demo.sunshinephotocart.com) to see it in action!
+* International ready - Works with all currencies and translated into German, French, Spanish, Dutch, Finnish, Portuguese, British, Norwegian. [See all available translations](https://www.transifex.com/wp-translations/sunshine-photo-cart/)
 
 > **Addons**
 > 
-> While the core plugin is free, there are paid add-ons to improve Sunshine's features:
+> While the core plugin is free, there are paid add-ons to improve Sunshine's features. You can pay only for the features you need!
 > 
+> * [Masonry](https://www.sunshinephotocart.com/addon/masonry/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
+> * [Lightbox](https://www.sunshinephotocart.com/addon/lightbox/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
 > * [Analytics](https://www.sunshinephotocart.com/addon/analytics/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
 > * [Digital downloads](https://www.sunshinephotocart.com/addon/digital-downloads/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
+> * [Price levels (price sheets)](https://www.sunshinephotocart.com/addon/price-levels/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
+> * [Packages](https://www.sunshinephotocart.com/addon/packages/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
+> * [Product options](https://www.sunshinephotocart.com/addon/product-options/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
 > * [Discount codes](https://www.sunshinephotocart.com/addon/discounts/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
 > * [Automated email marketing](https://www.sunshinephotocart.com/addon/automated-email-marketing/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
-> * [Lightbox](https://www.sunshinephotocart.com/addon/lightbox/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
-> * [Masonry](https://www.sunshinephotocart.com/addon/masonry/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
 > * [Client messaging](https://www.sunshinephotocart.com/addon/messaging/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
 > * [Minimum order](https://www.sunshinephotocart.com/addon/minimum-order/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
 > * [MailChimp integration](https://www.sunshinephotocart.com/addon/mailchimp/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
 > * [Campaign Monitor integration](https://www.sunshinephotocart.com/addon/campaign-monitor/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
-> * [Packages](https://www.sunshinephotocart.com/addon/packages/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
 > * [PayJunction payment gateway](https://www.sunshinephotocart.com/addon/payjunction/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
 > * [Stripe payment gateway](https://www.sunshinephotocart.com/addon/stripe/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
+> * [Authorize.net payment gateway](https://www.sunshinephotocart.com/addon/authorize-net/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
 > * [Mollie (with iDEAL support) payment gateway](https://www.sunshinephotocart.com/addon/mollie/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
-> * [Price levels (price sheets)](https://www.sunshinephotocart.com/addon/price-levels/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
-> * [Product options](https://www.sunshinephotocart.com/addon/product-options/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
 > * [Tiered pricing](https://www.sunshinephotocart.com/addon/tiered-pricing/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
+> * [Price List](https://www.sunshinephotocart.com/addon/price-list/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
 > 
 > ...and so many more to come! [Feel free to request new features](https://www.sunshinephotocart.com/contact/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
 > 
@@ -63,6 +69,8 @@ Client Proofing Gallery & Photo Cart Plugin for WordPress
 > Get ALL our paid add-ons for an insanely discounted single price - [Learn more](https://www.sunshinephotocart.com/pro/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
 
 == Installation ==
+
+[youtube https://www.youtube.com/watch?v=f8fLSHbpqwU]
 
 1. Activate the plugin
 2. Go to Sunshine > Settings and configure the options
@@ -75,6 +83,26 @@ Client Proofing Gallery & Photo Cart Plugin for WordPress
 = Where can I get help? =
 
 [Use the support section on our website](https://www.sunshinephotocart.com/support/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
+
+= Are there any limits? =
+
+Sunshine itself does not impose any limits on galleries, images, users, etc. You may want to check with your web host about your available file storage. There are many great web hosts which offer huge amounts of storage if you do have a host with small disk space limits. Otherwise, Sunshine does integrate with Amazon S3 for infinite file storage via the [WP Offload S3 plugin](https://wordpress.org/plugins/amazon-s3-and-cloudfront/).
+
+= What payment gateways can I accept? =
+
+Sunshine eomes with PayPal out-of-the-box and has add-ons for [Stripe](https://www.sunshinephotocart.com/addon/stripe/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme), [PayJunction](https://www.sunshinephotocart.com/addon/payjunction/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme) and [Mollie (with iDEAL support)](https://www.sunshinephotocart.com/addon/mollie/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
+
+= Is there a demo? = 
+
+Yes! You can [create your own standalone installation of Sunshine](http://demo.sunshinephotocart.com) to play with to your heart's content.
+
+= Does this work for any currency? =
+
+Yes, we make all currencies available
+
+= Can I help translate Sunshine? =
+
+Yes! Please see our [translation site](https://www.transifex.com/wp-translations/sunshine-photo-cart/) to help refine an existing translation or start a new one. Current Sunshine translations include: Dutch, French, Italian, Portuguese (Portugal and Brazil), German, Spanish, Finnish, Russian, Norwegian, UK.
 
 == Screenshots ==
 
@@ -89,15 +117,149 @@ Client Proofing Gallery & Photo Cart Plugin for WordPress
 
 == Changelog ==
 
+= 2.5.4 =
+* Add - New "Ready for pickup" order status
+* Add - sunshine_after_gallery_emails hook in admin
+* Add - Show billing/shipping address for a user in profile edit screen
+* Add - Show user orders in user profile edit screen
+* Change - Order details - Use date format from WordPress settings
+* Fix - Password required text when guest checkout enabled on Checkout page
+* Fix - Recent orders adjust for guest checkout
+* Add - Show related galleries in admin Order list view
+* Change - Improved order history in user Account
+* Add - Return to last gallery viewed link on Cart page
+* Fix - Invoice in admin to better handle special characters
+* Fix - Issue with WordPress welcome panel always being shown
+* Fix - Additional strings made translatable
+
+= 2.5.3 =
+* Fix - Update process for moving files to sunshine folder when using Amazon S3
+
+= 2.5.2 =
+* Fix - Clear cart after order 
+* Fix - Additional filters when adding order to help payment gateways
+
+= 2.5.1 =
+* Add - Make Guest Checkout on/off setting
+
+= 2.5 =
+* Change - Cleaner redirect if user cancels from PayPal site
+* Fix - Various issues related to setting prices with commas for the European users
+* Fix - Conflict with WooCommerce and some JavaScript that we both try to load
+* Change - Take out CSS for Lightbox, needs to be in Lightbox add-on
+* Add - Shortcodes can use hyphens or underscores
+* Change - Look for style.css file in theme, use it if it exists
+* Change - How Sunshine determines which image to apply watermark to because one specific theme was being weird and needed special accommodation
+* Add - Notice when selecting a parent gallery that the child gallery does not inherit any settings from the parent
+* Change - Remove unnecessary info from the System Info page
+* Add - Remove canonical URL for Sunshine galleries/images, messes with Facebook sharing
+
+= 2.4.4 =
+* Fix - Issue determining when to send shipping information to PayPal, caused problems with Digital Download only orders
+* Fix - Offline payment instructions were not being included in customer receipt email
+
+= 2.4.3 =
+* Fix - Some themes showed comment form for single images when comments were disabled
+
+= 2.4.2 =
+* Fix - Restored the [sunshine-gallery-password] shortcode that somehow got removed
+
+= 2.4.1 =
+* Fix - Billing address not being saved when Pickup address selected
+
+= 2.4 =
+* Change - All images moved back to their own "sunshine" folder in wp-content to prevent conflicts with other Media Library files
+* Change - New placement for phone number field on checkout
+* Change - Pushed back how many days until prompted for survey/review
+* Add - Option for PayPal page style
+* Add - New notice to remind people to ask for help instead of just assuming something is broken
+* Add - Pinterest nopin meta tag when sharing disabled
+* Add - Quick edit for products
+* Add - Filter products by Price Level in admin
+* Fix - If Favorites disabled, was still showing some references to it in places
+* Fix - On Checkout/Account, changing country and available state selection was not working
+* Fix - When user deletes something from cart, delete selected shipping option forcing them to reselect
+* Fix - Issue with certain European date format and setting end date for gallery
+* Fix - If Pickup shipping method selected, billing fields not being checked/confirmed they were filled in
+* Update - Newest version of FontAwesome
+
+= 2.3.11 =
+* Fix - If user creates account on Checkout page but has an error during Checkout process, tax may not get applied
+* Fix - Sometimes tax not shown on order detail page for customer
+
+= 2.3.10 =
+* Fix - Saving billing/shipping info on account page
+* Fix - Different size for featured image meta data
+* Fix - Featured image for galleries not working
+* Fix - Don't show request to login on Checkout page if nothing is in cart
+* Update - German and Dutch languages
+
+= 2.3.9 =
+* Fix - Code warnings for sharing feature
+* Fix - Rare cases billing information not being saved for order
+* Fix - Issues with loading translations
+* Update - Imported all translations from the translation site to be as up-to-date as possible
+
+= 2.3.8 =
+* Add - Disable save image on iOS
+* Fix - Different way of doing thumbnail image for email receipts
+* Fix - CSS in email template fixed
+* Fix - Not saving created_timestamp properly for use in shoot order
+
+= 2.3.7 =
+* Fix - Sometimes wrong tax calculation based on what is in cart
+
+= 2.3.6 =
+* Fix - Color selectors in settings
+* Fix - If digital downloads only in cart and using PayPal, no address is sent and checkout cannot be completed
+
+= 2.3.5 =
+* Add - Option to add watermark to thumbnail images
+* Add - Add "register here" text link to be more clear when a user wants to mark an image as favorite but not yet logged in
+* Fix - Issues using "Billing as Shipping" and error checking
+* Fix - Sharing images/galleries had wrong URLs
+* Fix - Taxable shipping costs not being added
+* Fix - Credits properly applied to PayPal payments
+* Fix - Yoast SEO was overriding Sunshine's own title tags with wrong data for individual galleries and images, not anymore
+* Fix - When using comma as decimal separator, issues with PayPal for payments
+* Update - All translations have been updated. All add-on strings are now included in the core Sunshine translation .pot file so ALL of Sunshine can now be fully translated.
+
+= 2.3.4 =
+* Fix - New checkout order in Sunshine themes had old order
+* Fix - Better FAQ in readme
+
+= 2.3.3 =
+* Fix - Better removal of images in favorites if they no longer exist
+* Fix - Calculation of discounts for % off products
+* Add - Shipping AND billing info in all order confirmation emails
+
+= 2.3.2 =
+* Fix - If not using taxes, don't show on Checkout page
+* Fix - Some additional CSS to help overzealous themes
+* Fix - Not saving user information when using Pickup for an order
+* Fix - Don't show survey and rating nag right after install
+
+= 2.3.1 =
+* Removed Freemius, no longer need it
+
 = 2.3 =
-* Better add-ons page in admin
+* Update - Better add-ons page in admin
 * Update - Re-order Checkout page, putting shipping first for better flow (example: don't ask for shipping info if pickup)
 * Update - Ability to see items in order on Checkout page
 * Update - Confirmation on Cart page if a user changes quantity but doesn't update
 * Update - New admin notices class, much easier way of adding notices in Sunshine to help users out and do promos
+* Update - New meta box styles
 * Fix - Only create Sunshine-related image sizes for Sunshine galleries
 * Fix - Slow servers, uploading large files times out. Set increased time limit for files to upload.
 * Fix - Allow bulk delete of Sunshine's various custom post types
+* Fix - Confirmed PayPal orders should be marked as "new", not "processing"
+* Fix - Logo size issues in email template for some users
+* Fix - Child gallery order not obeying gallery order settings
+* Fix - Phone number no longer required
+* Add - Set email address to receive submitted favorite notifications
+* Add - Link to Client Galleries in admin menu bar
+* Add - More add-on/pro license expiration reminders
+* Add - Link to Setup Guide on installation
 
 = 2.2.12 =
 * Update - Improved methods for how PayPal orders are created and handled for better fallback when issues arise

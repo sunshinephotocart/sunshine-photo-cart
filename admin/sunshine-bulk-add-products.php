@@ -43,7 +43,7 @@ function sunshine_bulk_add_products() {
 				$price_levels = get_terms( 'sunshine-product-price-level', array( 'hide_empty' => false ) );
 				foreach ( $price_levels as $price_level ) {
 					$price = $_POST['price_'.$price_level->term_id][$i];
-					if ( is_numeric( $price ) )
+					if ( $price )
 						update_post_meta( $product_id, 'sunshine_product_price_'.$price_level->term_id, $price );
 				}
 

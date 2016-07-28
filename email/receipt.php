@@ -1,4 +1,4 @@
 <p>[message]</p>
 [items]
-[shipping_address]
+[customer_info]
 [signature]

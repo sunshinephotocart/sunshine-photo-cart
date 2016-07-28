@@ -5,7 +5,7 @@ html[xmlns] .sunshine-clearfix { display: block; }
 #sunshine-header { background: #FFFFFF url(https://www.sunshinephotocart.com/wp-content/themes/sunshine-fremium/images/banner.jpg) center bottom no-repeat; background-size: 100% auto; margin: -20px 0 0 -20px; padding: 90px 0 30px 40px; }
 #sunshine-header h1 { background: transparent url(https://www.sunshinephotocart.com/wp-content/themes/sunshine-fremium/images/icon-sun.png) left center no-repeat; line-height: 77px; padding: 0 0 0 90px; margin: 0 0 70px 0; font-size: 38px; font-weight: normal; }
 #sunshine-header p { font-size: 20px; max-width: 800px; }
-.sunshine-fb-page { float: right; margin: 20px 0 0 50px; width: 300px; }
+.sunshine-fb-page { float: right; margin: 20px 0 0 50px; width: 350px; clear: right; }
 .sunshine-changelog { margin-right: 350px; }
 .sunshine-changelog h3 { margin: 0 0 -15px 0; }
 
@@ -15,9 +15,9 @@ html[xmlns] .sunshine-clearfix { display: block; }
 .sunshine-wrap a { color: #d3ac17; }
 .sunshine-wrap a:hover { color: #f76224; }
 
-#sunshine-pro { float: right; background: url(https://www.sunshinephotocart.com/wp-content/themes/sunshine-fremium/images/pro.jpg) center center no-repeat; background-size: cover; padding: 30px 40px; width: 30%; }
+#sunshine-pro { float: right; background: url(https://www.sunshinephotocart.com/wp-content/themes/sunshine-fremium/images/pro.jpg) center center no-repeat; background-size: cover; padding: 30px 40px; width: 270px; margin: 0 0 30px 50px; }
 #sunshine-pro h2, #sunshine-pro p { color: #FFF; }
-#sunshine-pro h2 { font-size: 24px; }
+#sunshine-pro h2 { margin-top: 0; font-size: 24px; font-weight: bold; }
 #sunshine-pro p { font-size: 18px; }
 #sunshine-addons { width: 65%; }
 #sunshine-addons li { float: left; width: 27%; margin: 0 3% 40px 0; list-style: none; }
@@ -32,12 +32,17 @@ html[xmlns] .sunshine-clearfix { display: block; }
 
 #sunshine-addons-link { color: #d3ac17; font-weight: bold !important; }
 
-.sunshine-meta { border-spacing: 0; border-collapse:collapse; width: 100%; }
-.sunshine-meta th, .sunshine-meta td { text-align: left; padding: 10px 15px 10px 0; vertical-align: top; border-bottom: 1px solid #e2e2e2; }
-.sunshine-meta td td, .sunshine-meta td th { padding-top: 0; padding-bottom: 0; border: none; }
-.sunshine-meta th { width: 100px; word-wrap: break-word; }
+#postbox-container-2 .inside { margin: 0; }
+#postbox-container-2 #sunshine_gallery_images .inside { margin-top: 10px; }
+.sunshine-meta { border-spacing: 0; border-collapse:collapse; width: 100%; margin: 0 -12px -12px -12px; }
+.sunshine-meta th, .sunshine-meta td { text-align: left; padding: 10px 15px; vertical-align: top; border-bottom: 1px solid #f0f0f0; }
+.sunshine-meta td td, .sunshine-meta td th { vertical-align: middle; padding: 0 15px 0 0; border: none; background: none; }
+.sunshine-meta th { width: 150px; word-wrap: break-word; background: #f9f9f9; border-right: 1px solid #dddddd; }
 .sunshine-meta td span.desc { display: block; font-style: italic; color: #666; font-size: 12px; }
 .sunshine-meta input { vertical-align: middle; }
+
+.sunshine-status-options { color: #666; font-size: 90%; border-top: 1px solid #f0f0f0; padding-top: 7px; margin-top: 7px; }
+.sunshine-status-options input { font-size: 90% !important; }
 
 #sunshine-dashboard-orders table { width: 100%; }
 #sunshine-dashboard th { text-align: left; }
@@ -56,7 +61,9 @@ ul.sunshine-price-levels { padding: 0; margin: 0; }
 ul.sunshine-price-levels li { float: left; margin: 0 20px 0 0; }
 ul.sunshine-price-levels li input { width: 50px; }
 
+#sunshine-product-package-choose { margin: 0 0 10px 0; }
 #sunshine-product-package-choose th { width: auto; }
+#sunshine-product-package-choose a { color: #CCC; text-decoration: none; font-size: 70%; cursor: pointer; }
 
 #sunshine-bulk-add-products td { padding: 0 15px 10px 0; }
 #sunshine-bulk-add-products th { padding: 0 4px 10px 0; }
@@ -99,3 +106,16 @@ ul.sunshine-price-levels li input { width: 50px; }
 .postbox h2 span.desc { font-weight: normal; color: #666; display: block; float: right; font-size: 12px; }
 
 #tagsdiv-sunshine-product-price-level { display: none; }
+
+#sunshine-dashboard-widget-stats li { width: 25%; margin: 0; float: left; text-align: center; }
+#sunshine-dashboard-widget-stats li:first-child { margin-left: 0; }
+#sunshine-dashboard-widget-stats li span { font-size: 26px; font-weight: bold; display: block; margin: 0 0 5px 0; }
+#sunshine-dashboard-widget-stats h4 { margin-top: 20px; padding-top: 10px; border-top: 1px solid #EFEFEF; }
+
+#sunshine-get-started ol { counter-reset: custom; margin-bottom: 50px; }
+#sunshine-get-started li { list-style-type: none; font-size: 18px; line-height: 1.6; position: relative; margin: 0 0 25px 15px; }
+#sunshine-get-started li:before { counter-increment: custom; content: counter(custom); position: absolute; left: -50px; top: -7px; font-size: 14px; display: block; text-align: center; color: #FFF; width: 45px; height: 45px; line-height: 45px; background: url(https://www.sunshinephotocart.com/wp-content/themes/sunshine-fremium/images/icon-sun.png) center center no-repeat; background-size: auto 100%;  }
+
+#new-user span { display: block; font-size: 12px; color: #666; font-style: italic; }
+
+#parent-gallery-setting-notice { font-size: 11px; color: #666; font-style: italic; margin: 8px 0 0 0; line-height: 1.2; }

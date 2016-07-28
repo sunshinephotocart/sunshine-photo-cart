@@ -52,17 +52,19 @@ function sunshine_template_head() {
 add_action('sunshine_before_content', 'sunshine_template_before_content', 999);
 function sunshine_template_before_content( ) {
 	global $sunshine;
-	if ( $sunshine->options['main_menu'] ) {
+	if ( isset( $sunshine->options['main_menu'] ) && $sunshine->options['main_menu'] ) {
 		echo do_shortcode( '[sunshine-menu]' );
 	}
-	echo do_shortcode( $sunshine->options['theme_post_header'] );
+	if ( isset( $sunshine->options['theme_post_header'] ) && $sunshine->options['theme_post_header'] ) {
+		echo do_shortcode( $sunshine->options['theme_post_header'] );
+	}
 }
 
 add_action('sunshine_after_content', 'sunshine_template_after_content', 999);
 function sunshine_template_after_content( ) {
 	global $sunshine;
-	echo do_shortcode( $sunshine->options['theme_pre_footer'] );
+	if ( isset( $sunshine->options['theme_pre_footer'] ) && $sunshine->options['theme_pre_footer'] ) {
+		echo do_shortcode( $sunshine->options['theme_pre_footer'] );
+	}
 }
-
-
 ?>

@@ -15,12 +15,13 @@ class SunshineFrontend extends SunshineSingleton {
 		add_action( 'wp', array( $this, 'redirect_to_endpoint_urls' ) );
 		add_action( 'wp', array( $this, 'admin_bar' ) );
 		add_action( 'wp', array( $this, 'check_expirations' ) );
+		add_action( 'wp', array( $this, 'remove_canonical' ), 99 );
 		add_action( 'wp_print_styles', array( $this, 'clear_queue' ) );
 		add_filter( 'body_class',array( $this, 'body_class' ) );
 		add_filter( 'the_password_form', array( $this, 'gallery_password_form' ) );
 		add_filter( 'the_title', array( $this, 'the_title' ), 10, 2 );
-		add_filter( 'wp_title', array( $this, 'wp_title' ) );
-		add_filter( 'pre_get_document_title', array( $this, 'wp_title' ) );
+		add_filter( 'wp_title', array( $this, 'wp_title' ), 999 );
+		add_filter( 'pre_get_document_title', array( $this, 'wp_title' ), 999 );
 		add_filter( 'pre_comment_approved', array( $this, 'order_comment_auto_approve' ) , 99, 2 );
 		//add_filter('comment_post_redirect', array($this, 'order_comment_post_redirect'), 10, 2);
 		add_filter( 'sunshine_main_menu', array( $this, 'build_main_menu' ), 10, 1 );
@@ -188,11 +189,13 @@ class SunshineFrontend extends SunshineSingleton {
 			}
 		} elseif ( is_page( $sunshine->options['page'] ) && isset( $wp_query->query_vars[ $sunshine->options['endpoint_gallery'] ] ) ) {
 			$gallery = get_page_by_path( $wp_query->query_vars[ $sunshine->options['endpoint_gallery'] ], 'OBJECT', 'sunshine-gallery' );
-			if ( $gallery )
+			if ( $gallery ) {
+				SunshineSession::instance()->last_gallery = $gallery->ID;
 				self::$current_gallery = $gallery;
-		} elseif ( is_page( $sunshine->options['page_account'] ) && isset( $wp_query->query_vars[ $sunshine->options['endpoint_order'] ] ) ) {
+			}
+		} elseif ( is_page( $sunshine->options['page'] ) && isset( $wp_query->query_vars[ $sunshine->options['endpoint_order'] ] ) ) {
 			self::$current_order = get_post( $wp_query->query_vars[ $sunshine->options['endpoint_order'] ] );
-		}
+		} 
 	}
 
 	function admin_bar() {
@@ -220,7 +223,6 @@ class SunshineFrontend extends SunshineSingleton {
 		global $sunshine, $post;
 		if ( is_singular( 'sunshine-gallery' ) ) {
 			if ( $post->post_status == 'private' ) { // Don't redirect private galleries, we need to handle some display things elsewhere
-				echo 'PRIVATE GALLERY';
 				return;
 			}
 			$url = trailingslashit( get_permalink( $sunshine->options['page'] ) ).$sunshine->options['endpoint_gallery'].'/'.$post->post_name;
@@ -302,9 +304,13 @@ class SunshineFrontend extends SunshineSingleton {
 	static function frontend_cssjs () {
 		global $sunshine;
 		if ( is_admin() || !is_sunshine() ) return false;
-		if ( !$sunshine->options['disable_sunshine_css'] ) {
-			wp_enqueue_style( 'sunshine-fontawesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' );
-			wp_enqueue_style( 'sunshine', SUNSHINE_URL.'themes/'.$sunshine->options['theme'].'/style.css' );
+		if ( !isset( $sunshine->options['disable_sunshine_css'] ) || !$sunshine->options['disable_sunshine_css'] ) {
+			wp_enqueue_style( 'sunshine-fontawesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' );
+			if ( file_exists( get_stylesheet_directory().'/sunshine/style.css' ) )
+				$css_file = get_stylesheet_directory().'/sunshine/style.css';
+			else
+				$css_file = SUNSHINE_URL.'themes/'.$sunshine->options['theme'].'/style.css';
+			wp_enqueue_style( 'sunshine', $css_file );
 		}
 		wp_enqueue_script( 'jquery' );
 	}
@@ -450,6 +456,11 @@ class SunshineFrontend extends SunshineSingleton {
 
 	function build_image_menu( $menu, $image ) {
 		global $sunshine;
+		
+		if ( empty( SunshineFrontend::$current_gallery->ID ) ) {
+			return $menu;
+		}
+		
 		$disable_products = get_post_meta( SunshineFrontend::$current_gallery->ID, 'sunshine_gallery_disable_products', true );
 		if ( !$disable_products && !$sunshine->options['proofing'] && !sunshine_is_gallery_expired( $image->post_parent ) ) {
 			$menu[10] = array(
@@ -476,12 +487,12 @@ class SunshineFrontend extends SunshineSingleton {
 		// Image page
 		if ( !empty( self::$current_image ) ) {
 
-			$image = wp_get_attachment_image_src( self::$current_image->ID, 'large' );
+			$image = wp_get_attachment_image_src( self::$current_image->ID, 'sunshine-thumbnail' );
 
 			echo '<meta property="og:title" content="'.self::$current_image->post_title.' by '.get_bloginfo( 'name' ).'"/>
 		    <meta property="og:type" content="product"/>
-		    <meta property="og:url" content="'.trailingslashit( get_permalink( self::$current_image->ID ) ).'"/>
-		    <meta property="og:image" content="'.$image[0].'"/>
+		    <meta property="og:url" content="' . trailingslashit( get_permalink( self::$current_image->ID ) ) . '"/>
+		    <meta property="og:image" content="' . $image[0] . '"/>
 		    <meta property="og:image:width" content="' . $image[1] . '"/>
 		    <meta property="og:image:height" content="' . $image[2] . '"/>
 		    <meta property="og:site_name" content="' . get_bloginfo( 'name' ) . '"/>
@@ -489,17 +500,17 @@ class SunshineFrontend extends SunshineSingleton {
 
 		} elseif ( !empty( self::$current_gallery ) ) {
 
-			$image = sunshine_featured_image( 'full', 0 );
+			$image = sunshine_featured_image( self::$current_gallery->ID, 'sunshine-thumbnail', 0 );
 
 			echo '<meta property="og:title" content="'.self::$current_gallery->post_title.' by '.get_bloginfo( 'name' ).'"/>
 		    <meta property="og:type" content="product"/>
 		    <meta property="og:url" content="'.trailingslashit( get_permalink( self::$current_gallery->ID ) ).'"/>
 		    <meta property="og:image" content="'.$image.'"/>
 		    <meta property="og:site_name" content="'.get_bloginfo( 'name' ).'"/>
-		    <meta property="og:description" content="' . sprintf( __( 'A photo in the gallery %s by %s', 'sunshine' ), get_the_title( self::$current_gallery->post_parent ), get_bloginfo( 'name' ) ) . '"/>';
+		    <meta property="og:description" content="' . sprintf( __( 'Photo gallery %s by %s', 'sunshine' ), get_the_title( self::$current_gallery->post_parent ), get_bloginfo( 'name' ) ) . '"/>';
 
 		} elseif ( !empty( self::$current_order ) ) {
-			echo '<meta name="googlebot" content="noindex" />';
+			echo '<meta name="robots" content="noindex" />';
 		}
 
 		if ( is_sunshine() && $sunshine->options['disable_right_click'] ) {
@@ -508,6 +519,7 @@ class SunshineFrontend extends SunshineSingleton {
 			jQuery(document).ready(function() {
 				jQuery(document).bind("contextmenu",function(e){ return false; });
 				jQuery("img").mousedown(function(){ return false; });
+				document.body.style.webkitTouchCallout='none';
 			});
 			</script>
 		<?php
@@ -547,8 +559,15 @@ class SunshineFrontend extends SunshineSingleton {
 		global $wp_query, $current_user;
 		if ( isset( self::$current_order->ID ) ) {
 			$order_customer_id = get_post_meta( self::$current_order->ID, '_sunshine_customer_id', true );
-			if ( !isset( $current_user->ID ) || $current_user->ID != $order_customer_id )
+			if ( current_user_can( 'sunshine_manage_options' ) ) {
+				// Admin, always let through
+			} elseif ( $order_customer_id && $current_user->ID != $order_customer_id ) {
 				wp_die( __( 'Sorry, you are not allowed to access this order information','sunshine' ), __( 'Access denied','sunshine' ), array( 'back_link'=>true ) );
+				exit;
+			} elseif ( !$order_customer_id && SunshineSession::instance()->order_id != self::$current_order->ID ) {
+				wp_die( __( 'Sorry, you are not allowed to access this order information','sunshine' ), __( 'Access denied','sunshine' ), array( 'back_link'=>true ) );
+			}
+
 		}
 	}
 
@@ -663,6 +682,10 @@ class SunshineFrontend extends SunshineSingleton {
 			foreach ( $cart as $item ) {
 				if ( isset( $item['gallery_id'] ) ) {
 					$gallery_id = $item['gallery_id'];
+					if ( sunshine_is_gallery_expired( $gallery_id ) ) {
+						$sunshine->cart->remove_from_cart( $item['key'] );
+						$removed_items = true;
+					}
 				} elseif ( isset( $item['image_id'] ) ) {
 					$image = get_post( $item['image_id'] );
 					if ( !$image ) { // Remove if the image no longer exists as well
@@ -672,10 +695,6 @@ class SunshineFrontend extends SunshineSingleton {
 					} else {
 						$gallery_id = $image->post_parent;
 					}
-				}
-				if ( sunshine_is_gallery_expired( $gallery_id ) ) {
-					$sunshine->cart->remove_from_cart( $item['key'] );
-					$removed_items = true;
 				}
 			}
 			if ( $removed_items ) {
@@ -690,6 +709,12 @@ class SunshineFrontend extends SunshineSingleton {
 	function donotcachepage() {
 		if ( is_sunshine() && !defined('DONOTCACHEPAGE') ) {
 			define( 'DONOTCACHEPAGE', true );
+		}
+	}
+	
+	function remove_canonical() {
+		if ( isset( SunshineFrontend::$current_gallery ) ) {
+			remove_action( 'wp_head', 'rel_canonical' );
 		}
 	}
 

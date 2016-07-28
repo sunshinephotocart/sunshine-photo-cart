@@ -14,14 +14,14 @@
 		<li id="sunshine-checkout-step-contact">
 			<?php sunshine_checkout_contact_fields(); ?>
 		</li>
-		<li id="sunshine-checkout-step-billing">
-			<?php sunshine_checkout_billing_fields(); ?>
+		<li id="sunshine-checkout-step-shipping-methods">
+			<?php sunshine_checkout_shipping_methods(); ?>
 		</li>
 		<li id="sunshine-checkout-step-shipping">
 			<?php sunshine_checkout_shipping_fields(); ?>
 		</li>
-		<li id="sunshine-checkout-step-shipping-methods">
-			<?php sunshine_checkout_shipping_methods(); ?>
+		<li id="sunshine-checkout-step-billing">
+			<?php sunshine_checkout_billing_fields(); ?>
 		</li>
 		<li id="sunshine-checkout-order-review">
 			<?php sunshine_checkout_order_review(); ?>

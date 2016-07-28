@@ -44,6 +44,12 @@ function sunshine_watermark_options( $options ) {
 		'type' => 'text',
 		'css' => 'width: 50px;'
 	);
+	$options[] = array(
+		'name' => __( 'Watermark Thumbnails', 'sunshine' ),
+		'id'   => 'watermark_thumbnail',
+		'type' => 'checkbox',
+		'options' => array( 1 )
+	);
 
 
 	return $options;
@@ -57,11 +63,11 @@ function sunshine_watermark_image( $attachment_id, $metadata = array() ) {
 		$watermark_image = get_attached_file( $sunshine->options['watermark_image'] );
 		$watermark_file_type = wp_check_filetype( $watermark_image );
 		if ( file_exists( $watermark_image ) && $watermark_file_type['ext'] == 'png' ) {
-			if ( empty( $metadata ) ) {
-				$metadata = wp_get_attachment_metadata( $attachment_id );
-			}
 			$image = get_attached_file( $attachment_id, 'full' );
 			$image_size = apply_filters( 'sunshine_image_size', 'full' );
+			if ( empty( $metadata['sizes'][ $image_size ]['file'] ) ) {
+				$metadata = wp_get_attachment_metadata( $attachment_id );
+			}
 			if ( $image_size != 'full' && !empty( $metadata['sizes'][$image_size]['file'] ) ) {
 				$image_basename = basename( $image );
 				$image_path = str_replace( $image_basename, '', $image );
@@ -108,18 +114,19 @@ function sunshine_watermark_image( $attachment_id, $metadata = array() ) {
 			// Output and free memory
 			imagejpeg( $new_image, $image, 100 );
 			imagedestroy( $new_image );
+			
+			// Watermark the thumbnail if needed
+			if ( $sunshine->options['watermark_thumbnail'] ) {
+				$image_editor = wp_get_image_editor( $image );
+				$image_editor->resize( $sunshine->options['thumbnail_width'], $sunshine->options['thumbnail_height'], $sunshine->options['thumbnail_crop'] );
+				$image_editor->save( $image_path . $metadata['sizes']['sunshine-thumbnail']['file'] );
+			}
 		}
 	}
 }
 
-// Images uploaded via FTP
-//add_action('sunshine_after_image_process', 'sunshine_watermark_after_image_process', 10, 4);
-function sunshine_watermark_after_image_process( $filename, $file_info, $attachment_id, $gallery_id ) {
-	sunshine_watermark_image( $attachment_id );
-}
-
-// For images uploaded via wp-admin
-add_filter( 'wp_generate_attachment_metadata', 'sunshine_watermark_media_upload', 10, 2 );
+// Add the watermark
+add_filter( 'wp_generate_attachment_metadata', 'sunshine_watermark_media_upload', 999, 2 );
 function sunshine_watermark_media_upload( $metadata, $attachment_id ) {
 	sunshine_watermark_image( $attachment_id, $metadata );
 	return $metadata;

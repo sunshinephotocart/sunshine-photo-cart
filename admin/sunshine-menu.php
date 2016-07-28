@@ -15,7 +15,7 @@ function sunshine_admin_menu() {
 	$sunshine_admin_submenu[20] = array( __( 'Product Categories','sunshine' ), __( 'Product Categories','sunshine' ), 'edit_sunshine_product', 'edit-tags.php?taxonomy=sunshine-product-category&post_type=sunshine-product' );
 	$sunshine_admin_submenu[30] = array( __( 'Products','sunshine' ), __( 'Products','sunshine' ), 'edit_sunshine_product', 'edit.php?post_type=sunshine-product' );
 	
-	if ( get_option( 'sunshine_pro_license_active') != 'valid' ) {
+	if ( !$sunshine->is_pro() ) {
 		$sunshine_admin_submenu[110] = array( __( 'Add-Ons or Go Pro!','sunshine' ), '<span id="sunshine-addons-link">' . __( 'Add-Ons or Go Pro!','sunshine' ) . '</span>', 'sunshine_manage_options', 'sunshine_addons', 'sunshine_addons' );
 	}
 	

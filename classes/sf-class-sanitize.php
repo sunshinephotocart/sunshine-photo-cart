@@ -3,12 +3,12 @@
 /**
  * Sanitize filters
  *
- * @author Matt Gates <http://mgates.me>
+ * @author  Matt Gates <http://mgates.me>
  * @package WordPress
  */
 
 
-if ( ! class_exists( 'SF_Sanitize' ) ) {
+if ( !class_exists( 'SF_Sanitize' ) ) {
 
 	class SF_Sanitize
 	{
@@ -19,11 +19,11 @@ if ( ! class_exists( 'SF_Sanitize' ) ) {
 		 */
 		function __construct()
 		{
-			//add_filter( 'geczy_sanitize_color', 'sanitize_text_field' );
-			//add_filter( 'geczy_sanitize_text', 'sanitize_text_field' );
+			add_filter( 'geczy_sanitize_color', 'sanitize_text_field' );
+			add_filter( 'geczy_sanitize_text', 'sanitize_text_field' );
 			add_filter( 'geczy_sanitize_number', array( 'SF_Sanitize', 'sanitize_number_field' ) );
 			add_filter( 'geczy_sanitize_textarea', array( 'SF_Sanitize', 'sanitize_textarea' ) );
-			//add_filter( 'geczy_sanitize_wysiwyg', array( 'SF_Sanitize', 'sanitize_wysiwyg' ) );
+			add_filter( 'geczy_sanitize_wysiwyg', array( 'SF_Sanitize', 'sanitize_wysiwyg' ) );
 			add_filter( 'geczy_sanitize_checkbox', array( 'SF_Sanitize', 'sanitize_checkbox' ), 10, 2 );
 			add_filter( 'geczy_sanitize_radio', array( 'SF_Sanitize', 'sanitize_enum' ), 10, 2 );
 			add_filter( 'geczy_sanitize_select', array( 'SF_Sanitize', 'sanitize_enum' ), 10, 2 );
@@ -34,12 +34,14 @@ if ( ! class_exists( 'SF_Sanitize' ) ) {
 		/**
 		 * Numeric sanitization
 		 *
-		 * @param int     $input
+		 * @param int $input
+		 *
 		 * @return int
 		 */
-		public function sanitize_number_field( $input )
+		public static function sanitize_number_field( $input )
 		{
 			$output = is_numeric( $input ) ? (float) $input : false;
+
 			return $input;
 		}
 
@@ -47,13 +49,15 @@ if ( ! class_exists( 'SF_Sanitize' ) ) {
 		/**
 		 * Textarea sanitization
 		 *
-		 * @param string  $input
+		 * @param string $input
+		 *
 		 * @return string
 		 */
-		public function sanitize_textarea( $input )
+		public static function sanitize_textarea( $input )
 		{
 			global $allowedposttags;
 			$output = wp_kses( $input, $allowedposttags );
+
 			return $output;
 		}
 
@@ -61,10 +65,11 @@ if ( ! class_exists( 'SF_Sanitize' ) ) {
 		/**
 		 * WYSIWYG sanitization
 		 *
-		 * @param string  $input
+		 * @param string $input
+		 *
 		 * @return string
 		 */
-		public function sanitize_wysiwyg( $input )
+		public static function sanitize_wysiwyg( $input )
 		{
 			return $input;
 		}
@@ -75,20 +80,21 @@ if ( ! class_exists( 'SF_Sanitize' ) ) {
 		 *
 		 * @param int     $input
 		 * @param unknown $option
+		 *
 		 * @return int
 		 */
-		public function sanitize_checkbox( $input, $option )
+		public static function sanitize_checkbox( $input, $option )
 		{
-			if ( !empty( $option['multiple'] ) ) {
+			if ( !empty( $option[ 'multiple' ] ) ) {
 
-				$defaults = array_keys( $option['options'] );
+				$defaults = array_keys( $option[ 'options' ] );
 
 				foreach ( $defaults as $value ) {
 
 					if ( !is_array( $input ) ) {
-						$output[$value] = 0;
+						$output[ $value ] = 0;
 					} else {
-						$output[$value] = in_array( $value, $input ) ? 1 : 0;
+						$output[ $value ] = in_array( $value, $input ) ? 1 : 0;
 					}
 
 				}
@@ -107,22 +113,25 @@ if ( ! class_exists( 'SF_Sanitize' ) ) {
 		 *
 		 * @param unknown $input
 		 * @param array   $option
+		 *
 		 * @return bool
 		 */
-		public function sanitize_enum( $input, $option )
+		public static function sanitize_enum( $input, $option )
 		{
 			$output = $input;
 
+			$sfs = new SF_Sanitize(); 
+
 			if ( is_array( $input ) ) {
 				foreach ( $input as $value ) {
-					if ( !SF_Sanitize::sanitize_enum( $value, $option ) ) {
+					if ( !$sfs->sanitize_enum( $value, $option ) ) {
 						$output = false;
 						break;
 					}
 				}
 				$output = $output ? serialize( $output ) : $output;
 			} else {
-				$output = array_key_exists( $input, $option['options'] ) ? $input : false;
+				$output = array_key_exists( $input, $option[ 'options' ] ) ? $input : false;
 			}
 
 			return $output;
@@ -132,13 +141,15 @@ if ( ! class_exists( 'SF_Sanitize' ) ) {
 		/**
 		 * Select box for pages sanitize
 		 *
-		 * @param int     $input
-		 * @param int     $option
+		 * @param int $input
+		 * @param int $option
+		 *
 		 * @return int
 		 */
-		public function sanitize_select_pages( $input, $option )
+		public static function sanitize_select_pages( $input, $option )
 		{
 			$output = get_page( $input ) ? (int) $input : 0;
+
 			return $output;
 		}
 

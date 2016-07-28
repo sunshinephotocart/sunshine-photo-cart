@@ -43,10 +43,10 @@ function sunshine_gallery_admin_enqueue_scripts( $page ){
 	if ( get_post_type() != 'sunshine-gallery' ) {
 		return;
 	}
-	wp_enqueue_script( 'plupload-all' );
-	wp_enqueue_script( 'jquery-ui' );
 	wp_enqueue_script( 'select2', '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js', array( 'jquery' ) );
 	wp_enqueue_style( 'select2', '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css' );
+	wp_enqueue_script( 'plupload-all' );
+	wp_enqueue_script( 'jquery-ui' );
 }
 
 function sunshine_remove_add_media(){
@@ -311,12 +311,14 @@ function sunshine_gallery_admin_ajax_upload(){
 
 	check_ajax_referer( 'sunshine_gallery_upload' );
 	
+    add_filter( 'upload_dir', 'sunshine_custom_upload_dir' );
+
 	set_time_limit( 600 );
 	
 	$gallery_id = intval( $_POST['gallery_id'] );
 
 	$menu_order = 0;
-	$last_image = get_posts( 'post_type=attachment&post_parent='.$gallery_id.'&posts_per_page=1&orderby=menu_order&order=DESC' );
+	$last_image = get_posts( 'post_type=attachment&post_parent=' . $gallery_id . '&posts_per_page=1&orderby=menu_order&order=DESC' );
 	if ( $last_image ) {
 		$menu_order = $last_image[0]->menu_order;
 		$menu_order++;		
@@ -325,7 +327,7 @@ function sunshine_gallery_admin_ajax_upload(){
 
 	$file = $_FILES['sunshine_gallery_image'];
 	$result['file'] = $file;
-	$file_upload = wp_handle_upload( $file, array( 'test_form'=>true, 'action' => 'sunshine_gallery_upload' ) );
+	$file_upload = wp_handle_upload( $file, array( 'test_form' => true, 'action' => 'sunshine_gallery_upload' ) );
 	$post_parent_id = $gallery_id;
 
 	//Adds file as attachment to WordPress
@@ -547,6 +549,7 @@ function sunshine_gallery_options_box_html( $post ) {
 	$folders = scandir( $upload_dir['basedir'].'/sunshine' );
 	$folders = apply_filters( 'sunshine_gallery_images_directory', $folders );
 	foreach ( $folders as $item ) {
+		if ( is_numeric( $item ) || is_numeric( str_replace( '-download', '', $item ) ) ) continue; // Skip number folders, those were created by Sunshine
 		if ( $item != '.' && $item != '..' ) {
 			$count = sunshine_image_folder_count( $upload_dir['basedir'].'/sunshine/'.$item );
 			if ( $selected_dir == $item )
@@ -564,8 +567,8 @@ function sunshine_gallery_options_box_html( $post ) {
 function sunshine_date_format_php_to_js( $sFormat ) {
     switch( $sFormat ) {
         //Predefined WP date formats
-        case 'F j, Y':
-            return( 'MM d, yy' );
+        case 'jS F Y':
+            return( 'd MM yy' );
             break;
         case 'Y/m/d':
             return( 'yy/mm/dd' );
@@ -576,19 +579,25 @@ function sunshine_date_format_php_to_js( $sFormat ) {
         case 'd/m/Y':
             return( 'dd/mm/yy' );
             break;
+        default:
+            return( 'MM d, yy' );
+            break;
     }
 }
 
 function sunshine_gallery_emails_box( $post ) {
 	$emails = get_post_meta( $post->ID, 'sunshine_gallery_email' );
+	echo '<ul>';
 	foreach ( $emails as $email ) {
-		echo $email.'<br />';
+		echo '<li>' . $email . '</li>';
 	}
+	do_action( 'sunshine_after_gallery_emails', $emails );
 }
 
 add_action( 'save_post', 'sunshine_gallery_save_postdata', 999 );
 function sunshine_gallery_save_postdata( $post_id ) {
 	global $wpdb;
+
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
 		return;
 	if ( !isset( $_POST['sunshine_noncename'] ) || !wp_verify_nonce( $_POST['sunshine_noncename'], plugin_basename( __FILE__ ) ) )
@@ -603,9 +612,9 @@ function sunshine_gallery_save_postdata( $post_id ) {
 
 function sunshine_gallery_save_postdata_process( $post_id, $data ) {
 	global $wpdb;
-	
+		
 	if ( isset( $data['sunshine_gallery_image_comments'] ) ) {
-		$wpdb->query( "UPDATE $wpdb->posts SET comment_status = 'open' WHERE post_parent = $post_id" );
+		$wpdb->query( "UPDATE $wpdb->posts SET comment_status = 'open' WHERE post_type='attachment' AND post_parent = $post_id" );
 	}
 	
 	if ( isset( $data['sunshine_gallery_status'] ) && $data['sunshine_gallery_status'] == 'password' ) {
@@ -814,6 +823,9 @@ function sunshine_galleries_delete_attachments( $post_id ){
 		foreach ( $attachments as $attachment ) {
 			wp_delete_attachment( $attachment->ID, true );
 		}
+		$upload_dir = wp_upload_dir();
+		$dir = $upload_dir['basedir'] . '/sunshine/' . $post_id;
+		@rmdir( $dir );
 	}
 	// Delete the FTP folder, if it exists
 	if ( $sunshine->options['delete_images_folder'] ) {
@@ -868,15 +880,20 @@ function page_attributes_metabox_add_parents( $dropdown_args, $post = NULL ) {
 add_filter( 'page_attributes_dropdown_pages_args', 'page_attributes_metabox_add_parents', 10, 2 );
 add_filter( 'quick_edit_dropdown_pages_args', 'page_attributes_metabox_add_parents', 10 );
 
-//add_action( 'admin_head', 'sunshine_uploaded_to_page_default' );
+add_action( 'admin_head', 'sunshine_uploaded_to_page_default' );
 function sunshine_uploaded_to_page_default() {
-	global $parent_file;
-	if ( isset( $_GET['action'] ) && $_GET['action'] == 'edit' && isset( $_GET['post'] ) && $parent_file == 'edit.php?post_type=sunshine-gallery' ) {
+	global $post_type;
+	if ( $post_type == 'sunshine-gallery' ) {
 ?>
 	<script>
 	jQuery(document).ready(function($) {
-		$('#wpcontent').ajaxStop(function() {
-			$('.media-modal .media-frame .attachment-filters [value="uploaded"]').attr( 'selected', true ).parent().trigger('change');
+		$('#parent_id').change(function(){
+			var gallery_parent_id = $('#parent_id option:selected').val();
+			if ( gallery_parent_id > 0 ) {
+				$('#parent_id').after( '<div id="parent-gallery-setting-notice"><?php _e( 'Please note that this gallery will not inherit the settings from the selected parent gallery', 'sunshine' ); ?>');
+			} else {
+				$( '#parent-gallery-setting-notice' ).remove();
+			}
 		});
 	});
 	</script>

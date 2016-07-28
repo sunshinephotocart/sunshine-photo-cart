@@ -12,6 +12,7 @@ class Sunshine {
 	public $cart = array();
 	public $is_pro;
 	public $notices;
+	public $comment_status;
 
 	public $session = array();
 	public $current_gallery = array();
@@ -183,7 +184,7 @@ class Sunshine {
 			'hierarchical' => false,
 			'show_ui'  => true,
 			'query_var'=> true,
-			'show_in_nav_menus' => false
+			'show_in_nav_menus' => false,
 		);
 		register_taxonomy( 'sunshine-product-price-level', 'sunshine-product', $args );
 
@@ -254,37 +255,6 @@ class Sunshine {
 
 	}
 
-	function post_type_link( $post_link, $post ) {
-		if ( get_post_type( $post ) == 'sunshine-gallery' )
-			$post_link = trailingslashit( trailingslashit( get_permalink( $this->options['page'] ) ).'gallery/'.$post->post_name );
-		elseif ( get_post_type( $post ) == 'sunshine-order' )
-			$post_link = trailingslashit( trailingslashit( get_permalink( $this->options['page'] ) ).'order/'.$post->ID );
-		return $post_link;
-	}
-
-	function attachment_link( $post_link, $post_id ) {
-		$post = get_post( $post_id );
-		$parent = get_post( $post->post_parent );
-		if ( get_post_type( $parent ) == 'sunshine-gallery' )
-			$post_link = trailingslashit( trailingslashit( get_permalink( $this->options['page'] ) ).'gallery/'.$parent->post_name.'/'.$post->post_name );
-		return $post_link;
-	}
-
-	function preview_post_type_link( $post_link ) {
-		global $post;
-		if ( $post->post_type == 'sunshine-gallery' )
-			$post_link = trailingslashit( get_permalink( $this->options['page'] ).'gallery/'.$post->post_name );
-		elseif ( $post->post_type == 'sunshine-order' )
-			$post_link = trailingslashit( get_permalink( $this->options['page'] ).'order/'.$post->ID );
-		elseif ( $post->post_type == 'attachment' ) {
-			$parent = get_post( $post->ID );
-			if ( $parent->post_type == 'sunshine-gallery' )
-				$post_link = trailingslashit( get_permalink( $this->options['page'] ).'gallery/'.$parent->post_name.'/'.$post->post_name );
-		}
-		return $post_link;
-	}
-
-
 	function image_sizes() {
 		// Allow post thumbnails if current theme doesn't have it already
 		if ( ! current_theme_supports( 'post-thumbnails' ) ) {
@@ -295,9 +265,7 @@ class Sunshine {
 	}
 
 	function sunshine_image_sizes( $image_sizes ) {
-		sunshine_log( $_POST );
-		if ( ( isset( $_POST['action'] ) && $_POST['action'] == 'sunshine_gallery_upload' ) || ( isset( $_GET['page'] ) && $_GET['page'] == 'sunshine_image_processor' ) ) {
-			sunshine_log( $image_sizes );
+		if ( isset( $_POST['action'] ) && ( $_POST['action'] == 'sunshine_gallery_upload' || $_POST['action'] == 'sunshine_file_save' ) ) {
 			$new_image_sizes = array();
 			foreach ( $image_sizes as $image_size ) {
 				if ( strpos( $image_size, 'sunshine' ) ) {
@@ -307,7 +275,6 @@ class Sunshine {
 			$new_image_sizes[] = 'sunshine-thumbnail';
 			$image_sizes = apply_filters( 'sunshine_image_sizes', $new_image_sizes );
 		}
-		sunshine_log( $image_sizes );
 		return $image_sizes;
 	}
 
@@ -590,6 +557,8 @@ class Sunshine {
 			$term[] = wp_insert_term( __( 'Shipped/Completed','sunshine' ), 'sunshine-order-status', array( 'slug' => 'shipped', 'description' => __( 'Your items have shipped (or are available for download)!','sunshine' ) ) );
 		if ( !term_exists( 'cancelled', 'sunshine-order-status' ) )
 			$term[] = wp_insert_term( __( 'Cancelled/Refunded','sunshine' ), 'sunshine-order-status', array( 'slug' => 'cancelled', 'description' => __( 'Your order was cancelled and/or refunded','sunshine' ) ) );
+		if ( !term_exists( 'pickup', 'sunshine-order-status' ) )
+			$term[] = wp_insert_term( __( 'Ready for pickup','sunshine' ), 'sunshine-order-status', array( 'slug' => 'pickup', 'description' => __( 'Your order is ready to be picked up','sunshine' ) ) );
 
 		if ( !$terms = get_terms( 'sunshine-product-price-level', array( 'hide_empty' => 0 ) ) ) {
 			wp_insert_term( __( 'Default','sunshine' ), 'sunshine-product-price-level' );
@@ -598,11 +567,14 @@ class Sunshine {
 		$upload_dir = wp_upload_dir();
 		if ( !is_dir( $upload_dir['basedir'].'/sunshine' ) )
 			wp_mkdir_p( $upload_dir['basedir'].'/sunshine' );
+			
+		update_option( 'sunshine_install_time', current_time( 'timestamp' ) );
+		update_option( 'sunshine_install_redirect', 1 );
 
 		do_action( 'sunshine_install' );
 
 		flush_rewrite_rules();
-
+	
 	}
 
 	function update() {
@@ -661,6 +633,23 @@ class Sunshine {
 		// Default options
 		$options = get_option('sunshine_options');
 		$version = get_option('sunshine_version');
+		
+		if ( !term_exists( 'pending', 'sunshine-order-status' ) )
+			$term[] = wp_insert_term( __( 'Pending','sunshine' ), 'sunshine-order-status', array( 'slug' => 'pending', 'description' => __( 'We have received your order but payment is still pending','sunshine' ) ) );
+		if ( !term_exists( 'new', 'sunshine-order-status' ) )
+			$term[] = wp_insert_term( __( 'New','sunshine' ), 'sunshine-order-status', array( 'slug' => 'new', 'description' => __( 'We have received your order and payment','sunshine' ) ) );
+		if ( !term_exists( 'processing', 'sunshine-order-status' ) )
+			$term[] = wp_insert_term( __( 'Processing','sunshine' ), 'sunshine-order-status', array( 'slug' => 'processing', 'description' => __( 'The images in your order are being processed and/or printed','sunshine' ) ) );
+		if ( !term_exists( 'shipped', 'sunshine-order-status' ) )
+			$term[] = wp_insert_term( __( 'Shipped/Completed','sunshine' ), 'sunshine-order-status', array( 'slug' => 'shipped', 'description' => __( 'Your items have shipped (or are available for download)!','sunshine' ) ) );
+		if ( !term_exists( 'cancelled', 'sunshine-order-status' ) )
+			$term[] = wp_insert_term( __( 'Cancelled/Refunded','sunshine' ), 'sunshine-order-status', array( 'slug' => 'cancelled', 'description' => __( 'Your order was cancelled and/or refunded','sunshine' ) ) );
+		if ( !term_exists( 'pickup', 'sunshine-order-status' ) )
+			$term[] = wp_insert_term( __( 'Ready for pickup','sunshine' ), 'sunshine-order-status', array( 'slug' => 'pickup', 'description' => __( 'Your order is ready to be picked up','sunshine' ) ) );
+
+		if ( !$terms = get_terms( 'sunshine-product-price-level', array( 'hide_empty' => 0 ) ) ) {
+			wp_insert_term( __( 'Default','sunshine' ), 'sunshine-product-price-level' );
+		}
 		
 		if ( version_compare($version, '1.9.5', '<') ) {
 
@@ -747,6 +736,11 @@ class Sunshine {
 			endwhile; wp_reset_postdata();	
 		}
 		
+		if ( version_compare($version, '2.4', '<') ) {
+			update_option('sunshine_update_image_location', 'yes' );
+		}
+		
+		$options = apply_filters( 'sunshine_update_options', $options );
 		update_option('sunshine_options', $options);
 
 		update_option('sunshine_version', SUNSHINE_VERSION);	

@@ -45,62 +45,27 @@ function sunshine_template_options($options) {
 	$options[] = array(
 		'name' => __('Link Color', 'sunshine'),
 		'id'   => 'template_link_color',
-		'type' => 'text',
-		'desc' => '
-			<script>
-			jQuery(document).ready(function($){
-			    $("#template_link_color").wpColorPicker();
-			});
-			</script>
-		'
+		'type' => 'color',
 	);
 	$options[] = array(
 		'name' => __('Button Color', 'sunshine'),
 		'id'   => 'template_button_color',
-		'type' => 'text',
-		'desc' => '
-			<script>
-			jQuery(document).ready(function($){
-			    $("#template_button_color").wpColorPicker();
-			});
-			</script>
-		'
+		'type' => 'color',
 	);
 	$options[] = array(
 		'name' => __('Button Text Color', 'sunshine'),
 		'id'   => 'template_button_text_color',
-		'type' => 'text',
-		'desc' => '
-			<script>
-			jQuery(document).ready(function($){
-			    $("#template_button_text_color").wpColorPicker();
-			});
-			</script>
-		'
+		'type' => 'color',
 	);
 	$options[] = array(
 		'name' => __('Header Background Color', 'sunshine'),
 		'id'   => 'template_header_color',
-		'type' => 'text',
-		'desc' => '
-			<script>
-			jQuery(document).ready(function($){
-			    $("#template_header_color").wpColorPicker();
-			});
-			</script>
-		'
+		'type' => 'color',
 	);
 	$options[] = array(
 		'name' => __('Header Font Color', 'sunshine'),
 		'id'   => 'template_header_font_color',
-		'type' => 'text',
-		'desc' => '
-			<script>
-			jQuery(document).ready(function($){
-			    $("#template_header_font_color").wpColorPicker();
-			});
-			</script>
-		'
+		'type' => 'color',
 	);
 	$options[] = array(
 		'name' => __('Header Font', 'sunshine'),

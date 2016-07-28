@@ -1,2 +1,2 @@
 [items]
-[shipping_address]
+[customer_info]

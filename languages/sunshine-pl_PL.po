@@ -1,0 +1,6199 @@
+#
+# Translators:
+# Damian Kaczorowski <fotografia.damian@gmail.com>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: Sunshine Photo Cart\n"
+"POT-Creation-Date: 2016-07-08 10:49-0600\n"
+"PO-Revision-Date: 2016-07-14 01:16-0600\n"
+"Last-Translator: Derek Ashauer <derek@ashwebstudio.com>\n"
+"Language-Team: Polish (Poland) (http://www.transifex.com/wp-translations/sunshine-photo-cart/language/pl_PL/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pl_PL\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 1.8.8\n"
+"X-Poedit-Basepath: ../..\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-WPHeader: sunshine-photo-cart/sunshine-photo-cart.php\n"
+"X-Poedit-SearchPath-0: sunshine-photo-cart\n"
+"X-Poedit-SearchPath-1: sunshine-analytics\n"
+"X-Poedit-SearchPath-2: sunshine-automated-email-marketing\n"
+"X-Poedit-SearchPath-3: sunshine-campaign-monitor\n"
+"X-Poedit-SearchPath-4: sunshine-digital-downloads\n"
+"X-Poedit-SearchPath-5: sunshine-discounts\n"
+"X-Poedit-SearchPath-6: sunshine-lightbox\n"
+"X-Poedit-SearchPath-7: sunshine-mailchimp\n"
+"X-Poedit-SearchPath-8: sunshine-masonry\n"
+"X-Poedit-SearchPath-9: sunshine-messaging\n"
+"X-Poedit-SearchPath-10: sunshine-minimum-order\n"
+"X-Poedit-SearchPath-11: sunshine-mollie\n"
+"X-Poedit-SearchPath-12: sunshine-packages\n"
+"X-Poedit-SearchPath-13: sunshine-payjunction\n"
+"X-Poedit-SearchPath-14: sunshine-price-levels\n"
+"X-Poedit-SearchPath-15: sunshine-product-options\n"
+"X-Poedit-SearchPath-16: sunshine-stripe\n"
+"X-Poedit-SearchPath-17: sunshine-tiered-pricing\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: sunshine-analytics/analytics.php:48 sunshine-photo-cart/addons/addon-manager/index.php:186
+msgid "Sorry, all Sunshine add-ons require that the main Sunshine Photo Cart plugin first be active"
+msgstr "Niestety, wszystkie dodatki Sunshine wymagają zainstalowanego wcześniej dodatku Sunshine Photo Cart."
+
+#: sunshine-analytics/analytics.php:147
+msgid "Gallery Analytics"
+msgstr "Statystyki galerii"
+
+#: sunshine-analytics/analytics.php:162
+msgid "Total Unique Views"
+msgstr "Unikalne odsłony"
+
+#: sunshine-analytics/analytics.php:163
+msgid "Latest Visitors"
+msgstr "Ostatni odwiedzający"
+
+#: sunshine-analytics/analytics.php:176
+msgid "Anonymous"
+msgstr "Anonim"
+
+#: sunshine-analytics/analytics.php:182
+msgid "No views yet"
+msgstr "Nie oglądane jeszcze"
+
+#: sunshine-analytics/analytics.php:185
+msgid "Images viewed"
+msgstr "Obejrzanych zdjęć"
+
+#: sunshine-analytics/analytics.php:208
+msgid "Total views"
+msgstr "Odsłon łącznie"
+
+#: sunshine-analytics/analytics.php:217
+msgid "No images viewed yet"
+msgstr "Nie ma jeszcze oglądanych zdjęć"
+
+#: sunshine-analytics/analytics.php:220 sunshine-analytics/analytics.php:257 sunshine-digital-downloads/digital-downloads.php:1433
+msgid "No images for this gallery yet"
+msgstr "Ta galeria nie zawiera jeszcze zdjęć"
+
+#: sunshine-analytics/analytics.php:224
+msgid "Images Purchased"
+msgstr "Zdjęcia zakupione"
+
+#: sunshine-analytics/analytics.php:245 sunshine-analytics/analytics.php:611
+msgid "Total purchases"
+msgstr "Wszystkie zamówienia"
+
+#: sunshine-analytics/analytics.php:254 sunshine-digital-downloads/digital-downloads.php:1430
+msgid "No images purchased yet"
+msgstr "N ie zamówiono jeszcze żadnych zdjęć"
+
+#: sunshine-analytics/analytics.php:283
+msgid "Product Cost"
+msgstr "Cena produktu"
+
+#: sunshine-analytics/analytics.php:363
+msgid "No users have logged in yet"
+msgstr "Nikt się jeszcze nie logował"
+
+#: sunshine-analytics/analytics.php:369
+msgid "Recent User Logins"
+msgstr "Ostatnie logowania użytkownika"
+
+#: sunshine-analytics/analytics.php:436
+msgid "Total Sales Revenue"
+msgstr "Łączny przychód ze sprzedaży"
+
+#: sunshine-analytics/analytics.php:438
+msgid "Total Orders Completed"
+msgstr "Zamówienia zrealizowane"
+
+#: sunshine-analytics/analytics.php:440
+msgid "Average Sale Total"
+msgstr "Średnia sprzedaż ogółem"
+
+#: sunshine-analytics/analytics.php:442
+msgid "Actual Profit"
+msgstr "Aktualny zysk"
+
+#: sunshine-analytics/analytics.php:469
+msgid "Last 6 Months Revenue/Profit"
+msgstr "Zysk z ostatnich 6 miesięcy"
+
+#: sunshine-analytics/analytics.php:486
+msgid "You do not have any sales yet"
+msgstr "Nic jeszcze nie sprzedałeś"
+
+#: sunshine-analytics/analytics.php:492
+msgid "Order Totals"
+msgstr "Podsumowanie zamówień"
+
+#: sunshine-analytics/analytics.php:529
+msgid "Popular Products Sold"
+msgstr "Sprzedaż produktów popularnych"
+
+#: sunshine-analytics/analytics.php:544 sunshine-analytics/analytics.php:581 sunshine-analytics/analytics.php:617
+msgid "No sales data currently recorded"
+msgstr "Nie zarejestrowano dotychczas żadnych danych sprzedaży"
+
+#: sunshine-analytics/analytics.php:550
+msgid "Most Popular Products Sold"
+msgstr "Sprzedaż najbardziej popularnych produktów"
+
+#: sunshine-analytics/analytics.php:552 sunshine-analytics/analytics.php:589 sunshine-analytics/analytics.php:625
+msgid "Are you sure? This cannot be undone!"
+msgstr "Jesteś pewien? Tej operacji nie cofniesz!"
+
+#: sunshine-analytics/analytics.php:552 sunshine-analytics/analytics.php:589 sunshine-analytics/analytics.php:625
+msgid "Reset data"
+msgstr "Zresetuj dane"
+
+#: sunshine-analytics/analytics.php:566 sunshine-messaging/messaging.php:115
+msgid "Gallery"
+msgstr "Galeria"
+
+#: sunshine-analytics/analytics.php:566
+msgid "Total Sales"
+msgstr "Łączna sprzedaż"
+
+#: sunshine-analytics/analytics.php:566
+msgid "Profit"
+msgstr "Zysk"
+
+#: sunshine-analytics/analytics.php:566 sunshine-photo-cart/admin/sunshine-bulk-add-products.php:82 sunshine-photo-cart/admin/sunshine-galleries.php:442 sunshine-photo-cart/classes/sunshine.class.php:168 sunshine-photo-cart/classes/sunshine.class.php:169
+#: sunshine-photo-cart/classes/sunshine.class.php:180
+msgid "Price Level"
+msgstr "Poziom cen"
+
+#: sunshine-analytics/analytics.php:587
+msgid "Galleries With Best Sales"
+msgstr "Najlepiej sprzedające się galerie"
+
+#: sunshine-analytics/analytics.php:623
+msgid "Most Purchased Images of All Time"
+msgstr "Najlepiej sprzedające się zdjęcie wszechczasów"
+
+#: sunshine-analytics/analytics.php:670
+msgid "Popular product data has been reset"
+msgstr "Dane na temat popularnego produktu zostały zresetowane"
+
+#: sunshine-analytics/analytics.php:676
+msgid "Gallery sales data has been reset"
+msgstr "Dane na temat sprzedaży w galerii zostały zresetowane"
+
+#: sunshine-analytics/analytics.php:694
+msgid "Popular images data has been reset"
+msgstr "Dane na temat popularności zdjęć zostały zresetowane"
+
+#: sunshine-analytics/analytics.php:823
+msgid "Galleries Viewed"
+msgstr "Odsłony galerii"
+
+#: sunshine-analytics/analytics.php:829
+msgid "total views"
+msgstr "Łącznie odsłon"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:50 sunshine-automated-email-marketing/automated-email-marketing.php:69
+msgid "Automated Emails"
+msgstr "Automatyczne emaile"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:57
+msgctxt "post type general name"
+msgid "Automated Emails"
+msgstr "Automatyczne emaile"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:58
+msgctxt "post type singular name"
+msgid "Automated Email"
+msgstr "Automatyczne emaile"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:59 sunshine-product-options/product-options.php:63
+msgctxt "email"
+msgid "Add New"
+msgstr "Dodaj nowy"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:60
+msgid "Add New Automated Email"
+msgstr "Dodaj nowy automatyczny email"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:61
+msgid "Edit Automated Email"
+msgstr "Edytuj automatyczny email"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:62
+msgid "New Automated Email"
+msgstr "Nowy automatyczny email"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:63
+msgid "All Automated Emails"
+msgstr "Wszystkie automatyczne emaile"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:64
+msgid "View Automated Emails"
+msgstr "Przeglądaj automatyczne emaile"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:65
+msgid "Search Automated Emails"
+msgstr "Szukaj wśród automatycznych emaili"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:66
+msgid "No automated emails found"
+msgstr "Nie znaleziono automatycznych emaili"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:67
+msgid "No automated emails found in trash"
+msgstr "Nie znaleziono automatycznych emaili w koszu"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:97
+msgctxt "post type general name"
+msgid "Email Log"
+msgstr "Log email"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:98
+msgctxt "post type singular name"
+msgid "Email Log"
+msgstr "Log emaili"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:99
+msgctxt "email-log"
+msgid "Add New"
+msgstr "Dodaj nowy"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:100
+msgid "Add New Email Log"
+msgstr "Dodaj nowy log emaili"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:101
+msgid "Edit Email Log"
+msgstr "Edytuj log emaili"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:102
+msgid "New Email Log"
+msgstr "Nowy log emaili"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:103
+msgid "All Email Log"
+msgstr "Wszystkie logi emaili"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:104
+msgid "View Email Log"
+msgstr "Przeglądaj log emaili"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:105
+msgid "Search Email Log"
+msgstr "Szukaj logu emaili"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:106
+msgid "No Email Log found"
+msgstr "Nie znaleziono logu emaili"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:107
+msgid "No Email Log found in trash"
+msgstr "Nie znaleziono logu emaili w koszu"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:109
+msgid "Email Log"
+msgstr "Log email"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:133
+msgid "Email Options"
+msgstr "Opcje emaili"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:141
+msgid "Template Variables"
+msgstr "Zmienne w szablonach"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:153
+msgid "Email Subject"
+msgstr "Temat maila"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:158
+msgid "After user registers"
+msgstr "Po zarejestrowani użytkownika"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:159
+msgid "After user adds item to cart"
+msgstr "Po dodaniu przedmiotu do koszyka przez użytkownika"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:160
+msgid "After user submits order"
+msgstr "Po zatwierdzeni zamówienia przez użytkownika"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:161
+msgid "After user views gallery for first time"
+msgstr "Po obejrzeniu galerii pierwszy raz przez użytkownika"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:162
+msgid "Before gallery expires"
+msgstr "Przed wygaśnięciem ważności galerii"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:163
+msgid "After gallery expires"
+msgstr "Po wygaśnięciu ważności galerii"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:164
+msgid "After providing email to access gallery"
+msgstr "Po wprowadzeniu adresu email z dostępem do galerii"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:173
+msgid "Trigger"
+msgstr "Wyzwalacz"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:182
+msgid "Time"
+msgstr "Czas"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:186 sunshine-automated-email-marketing/automated-email-marketing.php:217
+msgid "Months"
+msgstr "Miesiące"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:187 sunshine-automated-email-marketing/automated-email-marketing.php:218
+msgid "Days"
+msgstr "Dni"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:188 sunshine-automated-email-marketing/automated-email-marketing.php:219
+msgid "Hours"
+msgstr "Godziny"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:189
+msgid "How long before/after the trigger should this email get sent?"
+msgstr "W jakim czasie przed/po wyzwalaczu ma być wysłany email?"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:191
+msgid "Recipients"
+msgstr "Odbiorcy"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:194
+msgid "All users"
+msgstr "Wszyscy użytkownicy"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:195
+msgid "User has favorites"
+msgstr "Użytkownik ma ulubione zdjęcia"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:196
+msgid "User has items in cart"
+msgstr "Użytkownik ma przedmioty w koszyku"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:197
+msgid "User has ordered"
+msgstr "Użytkownik zamówił"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:198
+msgid "User has no orders"
+msgstr "Użytkownik nie ma żadnych zamówień"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:199
+msgid "User has not ordered item from gallery"
+msgstr "Użytkownik nie zamówił niczego z galerii"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:201
+msgid "Select user attributes to determine who should receive this email"
+msgstr "UJstaw atrybuty użytkownika aby zdecydować kto ma otrzymać tego emaila"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:203
+msgid "Discount code (Optional)"
+msgstr "Kod zniżkowy (opcjonalnie)"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:206 sunshine-digital-downloads/digital-downloads.php:1169 sunshine-photo-cart/admin/sunshine-galleries.php:495
+msgid "None"
+msgstr "Brak"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:211
+msgid "A unique coupon code will be generated based on the settings of the selected coupon and assigned to the specific user being emailed"
+msgstr ""
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:213
+msgid "Discount Expiration (Optional)"
+msgstr "Zakończenie promocji (opcjonalnie)"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:220
+msgid "How long should the coupon code be valid for after being created? This will override any expiration date settings of the selected discount code"
+msgstr "Jak długo od utworzenia kupon ma być ważny? Ta opcja nadpisuje wszystkie ustawienia dat ważności dla danego kodu."
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:251
+msgid "Personalize your email with the following tags:"
+msgstr "Spersonalizuj swój email używając poniższych tagów:"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:252
+msgid "Gallery Name"
+msgstr "Nazwa galerii"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:253
+msgid "Gallery URL"
+msgstr "Link do galerii"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:254
+msgid "Gallery Password"
+msgstr "Hasło galerii"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:255
+msgid "Images in the associated gallery"
+msgstr "Zdjęcia w powiązanej galerii"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:256
+msgid "Featured image in the associated gallery"
+msgstr ""
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:257
+msgid "Registration URL"
+msgstr "Link do rejestracji"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:258 sunshine-photo-cart/sunshine-template-functions.php:1137 sunshine-photo-cart/sunshine-template-functions.php:1185 sunshine-photo-cart/themes/2013/order.php:24
+#: sunshine-photo-cart/themes/2013/order.php:35 sunshine-photo-cart/themes/default/order.php:24 sunshine-photo-cart/themes/default/order.php:35 sunshine-photo-cart/themes/theme/order.php:27 sunshine-photo-cart/themes/theme/order.php:39
+msgid "First Name"
+msgstr "Imię"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:259 sunshine-photo-cart/sunshine-template-functions.php:1138 sunshine-photo-cart/sunshine-template-functions.php:1186 sunshine-photo-cart/sunshine-template-functions.php:1271
+#: sunshine-photo-cart/themes/2013/order.php:25 sunshine-photo-cart/themes/2013/order.php:36 sunshine-photo-cart/themes/default/order.php:25 sunshine-photo-cart/themes/default/order.php:36 sunshine-photo-cart/themes/theme/order.php:28
+#: sunshine-photo-cart/themes/theme/order.php:40
+msgid "Last Name"
+msgstr "Nazwisko"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:260
+msgid "Site Name"
+msgstr "Nazwa strony www"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:261
+msgid "Site URL"
+msgstr "Adres strony www"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:262
+msgid "Sunshine Galleries Page"
+msgstr "Strona Sunshine Galleries"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:263
+msgid "Generated Discount Code"
+msgstr "Wygenerowany kod promocyjny"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:264
+msgid "Items in cart"
+msgstr "Przedmioty w koszyku"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:265
+msgid "Images in favorites"
+msgstr "Zdjęcia w ulubionych"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:309
+#, php-format
+msgid "%s for %s"
+msgstr "%s do %s"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:796 sunshine-photo-cart/addons/watermark/index.php:20 sunshine-photo-cart/admin/sunshine-orders.php:103 sunshine-photo-cart/admin/sunshine-orders.php:553
+#: sunshine-photo-cart/admin/sunshine-users.php:41 sunshine-photo-cart/classes/order.class.php:84 sunshine-photo-cart/sunshine-template-functions.php:1286 sunshine-photo-cart/sunshine-template-functions.php:1294 sunshine-photo-cart/themes/2013/cart.php:16
+#: sunshine-photo-cart/themes/2013/cart.php:24 sunshine-photo-cart/themes/2013/order.php:50 sunshine-photo-cart/themes/default/cart.php:16 sunshine-photo-cart/themes/default/cart.php:24 sunshine-photo-cart/themes/default/order.php:50
+#: sunshine-photo-cart/themes/theme/cart.php:16 sunshine-photo-cart/themes/theme/cart.php:24 sunshine-photo-cart/themes/theme/order.php:55
+msgid "Image"
+msgstr "Zdjęcie"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:796 sunshine-mollie/mollie.php:149 sunshine-payjunction/payjunction.php:223 sunshine-photo-cart/addons/payment-offline/index.php:32 sunshine-photo-cart/addons/payment-paypal/index.php:229
+#: sunshine-photo-cart/addons/shipping-flatrate/index.php:26 sunshine-photo-cart/addons/shipping-local/index.php:26 sunshine-photo-cart/addons/shipping-pickup/index.php:26 sunshine-photo-cart/admin/sunshine-bulk-add-products.php:69
+#: sunshine-photo-cart/admin/sunshine-products.php:93 sunshine-photo-cart/classes/order.class.php:84 sunshine-price-levels/price-levels.php:112 sunshine-product-options/product-options.php:120 sunshine-stripe/stripe.php:229
+msgid "Name"
+msgstr "Nazwa"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:796 sunshine-photo-cart/admin/sunshine-orders.php:555 sunshine-photo-cart/admin/sunshine-users.php:43 sunshine-photo-cart/classes/order.class.php:84
+#: sunshine-photo-cart/sunshine-template-functions.php:828
+msgid "Quantity"
+msgstr "Ilość"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:796 sunshine-photo-cart/classes/order.class.php:84
+msgid "Cost"
+msgstr "Cena"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:931
+msgid "For automated email"
+msgstr "Do zautomatyzowanego emaila"
+
+#: sunshine-automated-email-marketing/automated-email-marketing.php:970
+msgid "Exclude from Automated Emails"
+msgstr "Wykluczenie z automatycznych emaili"
+
+#: sunshine-campaign-monitor/campaign-monitor.php:149 sunshine-campaign-monitor/campaign-monitor.php:168 sunshine-campaign-monitor/campaign-monitor.php:187 sunshine-mailchimp/mailchimp.php:145 sunshine-mailchimp/mailchimp.php:164
+#: sunshine-mailchimp/mailchimp.php:184
+msgid "Join  email newsletter"
+msgstr "Przyłącz się do newslettera"
+
+#: sunshine-campaign-monitor/campaign-monitor.php:199
+msgid "Campaign Monitor"
+msgstr "Monitor kampanii"
+
+#: sunshine-campaign-monitor/campaign-monitor.php:202
+msgid "We think Campaign Monitor is by far the best email newsletter system. <a href=\"https://signup.campaignmonitor.com/signup\" target=\"_blank\">Sign up for free!</a>"
+msgstr "Uważamy, że nasz Monitor kampanii jest zdecydowanie najlepszym systemem newslettera. <a href=\"https://signup.campaignmonitor.com/signup\" target=\"_blank\">Zarejestruj się za darmo!</a>"
+
+#: sunshine-campaign-monitor/campaign-monitor.php:233 sunshine-mailchimp/mailchimp.php:218
+msgid "Save this value then you can choose a list"
+msgstr "Zapisz to ustawienie aby móc później wybrać"
+
+#: sunshine-campaign-monitor/campaign-monitor.php:235
+msgid "Invalid Campaign Monitor API key "
+msgstr "Nieparwidłowy klucz API Monitora Kampanii"
+
+#: sunshine-campaign-monitor/campaign-monitor.php:242 sunshine-mailchimp/mailchimp.php:225
+msgid "API Key"
+msgstr "Klucz API"
+
+#: sunshine-campaign-monitor/campaign-monitor.php:253 sunshine-mailchimp/mailchimp.php:236
+msgid "List"
+msgstr "Lista"
+
+#: sunshine-campaign-monitor/campaign-monitor.php:257 sunshine-mailchimp/mailchimp.php:240
+msgid "Please select list"
+msgstr "Wybierz listę"
+
+#: sunshine-campaign-monitor/campaign-monitor.php:261 sunshine-mailchimp/mailchimp.php:244
+msgid "Subscribe Method"
+msgstr "Metoda subskrybcji"
+
+#: sunshine-campaign-monitor/campaign-monitor.php:265 sunshine-mailchimp/mailchimp.php:248
+msgid "Ask users if they want to subscribe"
+msgstr "Pytaj użytkowników jeśli chcą subskrybować"
+
+#: sunshine-campaign-monitor/campaign-monitor.php:266 sunshine-mailchimp/mailchimp.php:249
+msgid "Automatically subscribe"
+msgstr "Automatyczna subskrybcja"
+
+#: sunshine-campaign-monitor/campaign-monitor.php:271 sunshine-mailchimp/mailchimp.php:254 sunshine-photo-cart/classes/sunshine.class.php:562 sunshine-photo-cart/classes/sunshine.class.php:647
+msgid "Default"
+msgstr "Domyślne"
+
+#: sunshine-campaign-monitor/campaign-monitor.php:274 sunshine-mailchimp/mailchimp.php:257
+msgid "If asking users to subscribe, checked by default"
+msgstr "Domyślnie zaznaczyć subskrybcję jako włączoną przy pytaniu o nią?"
+
+#: sunshine-campaign-monitor/campaign-monitor.php:276 sunshine-mailchimp/mailchimp.php:259
+msgid "Checked"
+msgstr ""
+
+#: sunshine-campaign-monitor/campaign-monitor.php:281 sunshine-mailchimp/mailchimp.php:264
+msgid "When to subscribe"
+msgstr ""
+
+#: sunshine-campaign-monitor/campaign-monitor.php:286 sunshine-mailchimp/mailchimp.php:269 sunshine-photo-cart/sunshine-options.php:438
+msgid "Registration"
+msgstr ""
+
+#: sunshine-campaign-monitor/campaign-monitor.php:287 sunshine-mailchimp/mailchimp.php:270
+msgid "Access gallery with email"
+msgstr ""
+
+#: sunshine-campaign-monitor/campaign-monitor.php:288 sunshine-mailchimp/mailchimp.php:271 sunshine-photo-cart/classes/frontend.class.php:415 sunshine-photo-cart/classes/sunshine.class.php:457 sunshine-photo-cart/sunshine-options.php:191
+#: sunshine-photo-cart/sunshine-options.php:305 sunshine-photo-cart/themes/2013/checkout.php:3 sunshine-photo-cart/themes/default/checkout.php:3
+msgid "Checkout"
+msgstr "Zapłata"
+
+#: sunshine-digital-downloads/digital-downloads.php:54
+msgid "Downloadable"
+msgstr "Produkt cyfrowy"
+
+#: sunshine-digital-downloads/digital-downloads.php:60
+msgid "Dimensions"
+msgstr "Wymiary"
+
+#: sunshine-digital-downloads/digital-downloads.php:61
+msgid "Leave blank for full resolution"
+msgstr "Zostaw puste dla pełnej rozdzielczości"
+
+#: sunshine-digital-downloads/digital-downloads.php:62
+msgid "Free Download"
+msgstr "Darmowe pobieranie"
+
+#: sunshine-digital-downloads/digital-downloads.php:63
+msgid "This should be included in any free downloads"
+msgstr "Powinno być załączone do każdego darmowego pobrania"
+
+#: sunshine-digital-downloads/digital-downloads.php:87
+msgid "Allow free downloads?"
+msgstr "Pozwolić na darmowe pobieranie?"
+
+#: sunshine-digital-downloads/digital-downloads.php:89
+msgid "Allow users to download images in this gallery for free (no checkout required)"
+msgstr "Zezwolić użytkownikom na pobieranie zdjęć z tej galerii za darmo (bez konieczności płacenia)"
+
+#: sunshine-digital-downloads/digital-downloads.php:90
+msgid "Allow users to download entire gallery as zip file (no checkout required)"
+msgstr "Zezwolić użytkownikom na pobranie całej galerii w pliku ZIP (bez konieczności płacenia)"
+
+#: sunshine-digital-downloads/digital-downloads.php:94
+msgid "Restrict downloads to users?"
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:139
+msgid "Download"
+msgstr "Pobierz"
+
+#: sunshine-digital-downloads/digital-downloads.php:142 sunshine-packages/packages.php:359
+msgid "Download all images from gallery"
+msgstr "Pobierz wszsytkie obrazy z galerii"
+
+#: sunshine-digital-downloads/digital-downloads.php:154 sunshine-digital-downloads/digital-downloads.php:1247
+msgid "Sorry, you do not have access to this download"
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:161 sunshine-digital-downloads/digital-downloads.php:945
+msgid "Sorry, your item is not available for download yet"
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:219 sunshine-digital-downloads/digital-downloads.php:271 sunshine-digital-downloads/digital-downloads.php:581 sunshine-digital-downloads/digital-downloads.php:629
+#: sunshine-digital-downloads/digital-downloads.php:803
+msgid "Could not create zip file for download"
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:326
+msgid "Sorry, one of the download files does not exist"
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:404 sunshine-digital-downloads/digital-downloads.php:416
+msgid "Download all images from this order"
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:441 sunshine-digital-downloads/digital-downloads.php:476
+msgid "Download Image"
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:448
+msgid "Download All Images"
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:455
+msgid "Purchase entire gallery digital downloads"
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:688
+msgid "Sorry, file not available for download"
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:721
+msgid "Download file does not exist"
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:756
+msgid "Full Resolution"
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:853
+msgid "Could not finalize zip file for download"
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:875
+msgid "You do not have permission to download these files."
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:898
+msgid "You do not have permission to download this file."
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:929
+#, php-format
+msgid "Sorry, you must be <a href=\"%s\">logged in</a> to download this file"
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:938
+msgid "Sorry, this is not your order"
+msgstr "To nie jest Twoje zamówienie"
+
+#: sunshine-digital-downloads/digital-downloads.php:963
+#, php-format
+msgid "You have already added the gallery download for %s to your cart"
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:969
+msgid "Gallery digital negatives added to cart!"
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:969 sunshine-packages/packages.php:599 sunshine-packages/packages.php:636
+msgid "View cart"
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:1018 sunshine-digital-downloads/digital-downloads.php:1130
+msgid "Gallery Digital Negatives"
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:1042
+#, php-format
+msgid "Downloaded count: %s"
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:1103
+msgid "No shipping, download only"
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:1114
+msgid "Downloads"
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:1116
+msgid "Low Resolution Image Options"
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:1118
+msgid "Image Width"
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:1124
+msgid "Image Height"
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:1130
+msgid "Allow users to purchase digital negatives of an the entire session. Leave price blank to disable this feature for a specific price level."
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:1132
+msgid "Tax gallery digital negatives"
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:1135
+msgid "Apply a tax to the gallery digital negatives"
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:1148
+msgid "More Digital Download Options"
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:1150
+msgid "Alternate Download Method"
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:1153
+msgid "Check this if downloads are not working for your users or to integrate with Amazon S3. This method is less efficient but more likely to work."
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:1158
+msgid " (This image will have your selected watermark on it)"
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:1161
+msgid "Include low res files in download"
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:1164
+msgid "Check this if you want to include the low resolution images in downloads"
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:1175
+msgid "Print Release"
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:1180
+msgid "Print release file to be included with any file download. <strong>PDF required</strong>. Upload a file to your <a href=\"upload.php\">Media gallery</a>, then select it here."
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:1254
+msgid "Sorry, your item cannot yet be downloaded"
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:1267 sunshine-digital-downloads/digital-downloads.php:1278
+msgid "Sorry, this is not a downloadable product"
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:1286
+msgid "Sorry, this image was not in your order"
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:1401
+msgid "Images Downloaded"
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:1421
+msgid "Total downloads"
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:1458
+msgid "After user downloads free image"
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:1459
+msgid "After user downloads free gallery"
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:1476
+msgid "An <a href=\"https://en.wikipedia.org/wiki/.htaccess\" target=\"_blank\">.htaccess</a> file has been created for your \"wp-content/uploads\" directory to prevent any direct access to images, protecting your digital download files"
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:1523
+msgid "Sunshine's Digital Downloads add-on requires you to run an upgrade process. Please note this may take a while if you have a lot of galleries and images."
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:1523
+msgid "Click here to start"
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:1566
+msgid "Galleries successfully upgraded!"
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:1583
+msgid "No gallery ID"
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:1694
+msgid "You do not have permission to access this image"
+msgstr ""
+
+#: sunshine-digital-downloads/digital-downloads.php:1694
+msgid "Permission denied"
+msgstr ""
+
+#: sunshine-discounts/discounts.php:50 sunshine-discounts/discounts.php:69 sunshine-photo-cart/admin/sunshine-orders.php:159 sunshine-photo-cart/admin/sunshine-orders.php:611 sunshine-photo-cart/classes/order.class.php:107
+#: sunshine-photo-cart/sunshine-template-functions.php:1016 sunshine-photo-cart/sunshine-template-functions.php:1348 sunshine-photo-cart/themes/2013/order.php:109 sunshine-photo-cart/themes/default/order.php:109
+#: sunshine-photo-cart/themes/theme/order.php:114
+msgid "Discounts"
+msgstr ""
+
+#: sunshine-discounts/discounts.php:57
+msgctxt "post type general name"
+msgid "Discounts"
+msgstr ""
+
+#: sunshine-discounts/discounts.php:58
+msgctxt "post type singular name"
+msgid "Discount"
+msgstr ""
+
+#: sunshine-discounts/discounts.php:59
+msgctxt "coupon"
+msgid "Add New"
+msgstr "Dodaj nowy"
+
+#: sunshine-discounts/discounts.php:60
+msgid "Add New Coupon"
+msgstr ""
+
+#: sunshine-discounts/discounts.php:61
+msgid "Edit Discount"
+msgstr ""
+
+#: sunshine-discounts/discounts.php:62
+msgid "New Discount"
+msgstr ""
+
+#: sunshine-discounts/discounts.php:63
+msgid "All Discounts"
+msgstr ""
+
+#: sunshine-discounts/discounts.php:64
+msgid "View Discounts"
+msgstr ""
+
+#: sunshine-discounts/discounts.php:65
+msgid "Search Discounts"
+msgstr ""
+
+#: sunshine-discounts/discounts.php:66
+msgid "No discounts found"
+msgstr ""
+
+#: sunshine-discounts/discounts.php:67
+msgid "No discounts found in trash"
+msgstr ""
+
+#: sunshine-discounts/discounts.php:103 sunshine-product-options/product-options.php:98
+msgid "Options"
+msgstr ""
+
+#: sunshine-discounts/discounts.php:169
+msgid "Automatic"
+msgstr ""
+
+#: sunshine-discounts/discounts.php:171
+msgid "Apply this discount automatically with no coupon code"
+msgstr ""
+
+#: sunshine-discounts/discounts.php:175
+msgid "Discount Code"
+msgstr ""
+
+#: sunshine-discounts/discounts.php:181
+msgid "Discount Type"
+msgstr ""
+
+#: sunshine-discounts/discounts.php:183 sunshine-discounts/discounts.php:184
+msgid "off order"
+msgstr ""
+
+#: sunshine-discounts/discounts.php:185 sunshine-discounts/discounts.php:186
+msgid "off product(s)"
+msgstr ""
+
+#: sunshine-discounts/discounts.php:190
+msgid "Discount Amount"
+msgstr ""
+
+#: sunshine-discounts/discounts.php:196
+msgid "Start Date"
+msgstr ""
+
+#: sunshine-discounts/discounts.php:202 sunshine-photo-cart/admin/sunshine-galleries.php:507
+msgid "End Date"
+msgstr ""
+
+#: sunshine-discounts/discounts.php:208
+msgid "Max Quantity"
+msgstr ""
+
+#: sunshine-discounts/discounts.php:211
+msgid "The maximum number of any one item this can be applied towards"
+msgstr ""
+
+#: sunshine-discounts/discounts.php:215
+msgid "Total Max Uses"
+msgstr ""
+
+#: sunshine-discounts/discounts.php:221
+msgid "Max Uses Per Person"
+msgstr ""
+
+#: sunshine-discounts/discounts.php:227
+msgid "Only This Discount"
+msgstr ""
+
+#: sunshine-discounts/discounts.php:229
+msgid "Only allow customer to use this coupon, disallow all other coupons"
+msgstr ""
+
+#: sunshine-discounts/discounts.php:233
+msgid "Free Shipping"
+msgstr ""
+
+#: sunshine-discounts/discounts.php:235
+msgid "Make shipping free on entire order"
+msgstr ""
+
+#: sunshine-discounts/discounts.php:239
+msgid "Minimum Purchase Amount"
+msgstr ""
+
+#: sunshine-discounts/discounts.php:249
+msgid "Apply Before Tax"
+msgstr ""
+
+#: sunshine-discounts/discounts.php:251
+msgid "Should this coupon be applied before calculating tax"
+msgstr ""
+
+#: sunshine-discounts/discounts.php:258
+msgid "Allowed Products"
+msgstr ""
+
+#: sunshine-discounts/discounts.php:290
+msgid "Disallowed Products"
+msgstr ""
+
+#: sunshine-discounts/discounts.php:323
+msgid "Allowed Categories"
+msgstr ""
+
+#: sunshine-discounts/discounts.php:341
+msgid "Disallowed Categories"
+msgstr ""
+
+#: sunshine-discounts/discounts.php:359 sunshine-photo-cart/admin/sunshine-dashboard.php:106 sunshine-photo-cart/admin/sunshine-menu.php:14 sunshine-photo-cart/classes/sunshine.class.php:72 sunshine-photo-cart/sunshine-options.php:205
+msgid "Galleries"
+msgstr ""
+
+#: sunshine-discounts/discounts.php:465
+msgid "Add discount code"
+msgstr ""
+
+#: sunshine-discounts/discounts.php:466
+msgid "Enter code"
+msgstr ""
+
+#: sunshine-discounts/discounts.php:466
+msgid "Apply"
+msgstr ""
+
+#: sunshine-discounts/discounts.php:472
+msgid "Discounts Applied"
+msgstr ""
+
+#: sunshine-discounts/discounts.php:475 sunshine-packages/packages.php:301 sunshine-photo-cart/admin/sunshine-bulk-add-products.php:92 sunshine-photo-cart/themes/2013/cart.php:41 sunshine-photo-cart/themes/default/cart.php:41
+#: sunshine-photo-cart/themes/theme/cart.php:41 sunshine-product-options/product-options.php:139 sunshine-product-options/product-options.php:155 sunshine-tiered-pricing/tiered-pricing.php:74
+msgid "Remove"
+msgstr ""
+
+#: sunshine-lightbox/add-to-cart.php:14
+msgid "Back to Favorites"
+msgstr ""
+
+#: sunshine-lightbox/add-to-cart.php:14 sunshine-lightbox/comments.php:44
+msgid "Back to Gallery"
+msgstr ""
+
+#: sunshine-lightbox/add-to-cart.php:15
+msgid "items"
+msgstr "elementów"
+
+#: sunshine-lightbox/add-to-cart.php:16
+msgid "View Cart"
+msgstr ""
+
+#: sunshine-lightbox/comments.php:31 sunshine-photo-cart/themes/2013/order.php:148 sunshine-photo-cart/themes/default/order.php:148 sunshine-photo-cart/themes/theme/order.php:154
+msgid "Add Comment"
+msgstr ""
+
+#: sunshine-lightbox/comments.php:42
+msgid "Back to Image"
+msgstr ""
+
+#: sunshine-lightbox/comments.php:61
+msgid "Comment pending..."
+msgstr ""
+
+#: sunshine-lightbox/comments.php:69
+msgid "You might have left one of the fields blank, or be posting too quickly"
+msgstr ""
+
+#: sunshine-lightbox/comments.php:74
+msgid "Your comment has been added!"
+msgstr ""
+
+#: sunshine-lightbox/comments.php:78
+msgid "Please wait a while before posting your next comment"
+msgstr ""
+
+#: sunshine-lightbox/lightbox.php:329
+msgid "Lightbox Options"
+msgstr ""
+
+#: sunshine-lightbox/lightbox.php:331
+msgid "Enable Lightbox"
+msgstr ""
+
+#: sunshine-lightbox/lightbox.php:337
+msgid "Slideshow Interval"
+msgstr ""
+
+#: sunshine-lightbox/lightbox.php:344
+msgid "Lightbox Background Color"
+msgstr ""
+
+#: sunshine-lightbox/lightbox.php:349
+msgid "Lightbox Text Color"
+msgstr ""
+
+#: sunshine-lightbox/lightbox.php:354
+msgid "Lightbox Highlight Color"
+msgstr ""
+
+#: sunshine-lightbox/lightbox.php:433 sunshine-packages/packages.php:754 sunshine-photo-cart/admin/sunshine-orders.php:556 sunshine-photo-cart/admin/sunshine-products.php:26 sunshine-photo-cart/admin/sunshine-products.php:95
+#: sunshine-photo-cart/admin/sunshine-products.php:241 sunshine-photo-cart/sunshine-template-functions.php:1312 sunshine-photo-cart/themes/2013/cart.php:43 sunshine-photo-cart/themes/default/cart.php:43 sunshine-photo-cart/themes/theme/cart.php:43
+msgid "Price"
+msgstr ""
+
+#: sunshine-lightbox/lightbox.php:434 sunshine-packages/packages.php:221 sunshine-packages/packages.php:755 sunshine-photo-cart/admin/sunshine-orders.php:105 sunshine-photo-cart/sunshine-template-functions.php:1288
+#: sunshine-photo-cart/sunshine-template-functions.php:1309 sunshine-photo-cart/themes/2013/cart.php:18 sunshine-photo-cart/themes/2013/cart.php:39 sunshine-photo-cart/themes/2013/order.php:52 sunshine-photo-cart/themes/default/cart.php:18
+#: sunshine-photo-cart/themes/default/cart.php:39 sunshine-photo-cart/themes/default/order.php:52 sunshine-photo-cart/themes/theme/cart.php:18 sunshine-photo-cart/themes/theme/cart.php:39 sunshine-photo-cart/themes/theme/order.php:57
+#: sunshine-tiered-pricing/tiered-pricing.php:70
+msgid "Qty"
+msgstr ""
+
+#: sunshine-lightbox/lightbox.php:460 sunshine-packages/packages.php:444 sunshine-packages/packages.php:774 sunshine-photo-cart/sunshine-template-functions.php:846
+msgid "Add to Cart"
+msgstr ""
+
+#: sunshine-lightbox/lightbox.php:518
+msgid "Select Quantity"
+msgstr ""
+
+#: sunshine-lightbox/lightbox.php:537
+msgid "Adding..."
+msgstr ""
+
+#: sunshine-lightbox/lightbox.php:547
+msgid "added to cart"
+msgstr ""
+
+#: sunshine-lightbox/lightbox.php:561 sunshine-photo-cart/addons/favorites/index.php:190
+msgid "Sorry, there was an error with your request"
+msgstr ""
+
+#: sunshine-lightbox/lightbox.php:576 sunshine-packages/packages.php:599
+msgid "Item added to package"
+msgstr ""
+
+#: sunshine-lightbox/lightbox.php:601 sunshine-photo-cart/sunshine-template-functions.php:728
+#, php-format
+msgid "You must first <a href=\"%s\">login</a> or <a href=\"%s\">register</a> before you can add pictures to your cart. This allows us to track your favorites and items in your cart when you return."
+msgstr ""
+
+#: sunshine-mailchimp/mailchimp.php:196
+msgid "MailChimp"
+msgstr ""
+
+#: sunshine-mailchimp/mailchimp.php:199
+msgid "MailChimp has a good free program if you have less than 2,000 subscribers"
+msgstr ""
+
+#: sunshine-mailchimp/mailchimp.php:212
+msgid "Invalid MailChimp API key "
+msgstr ""
+
+#: sunshine-masonry/masonry.php:49
+msgid "Masonry"
+msgstr ""
+
+#: sunshine-masonry/masonry.php:51
+msgid "Enable Masonry"
+msgstr ""
+
+#: sunshine-masonry/masonry.php:53
+msgid "Show images in a masonry style (Think Pinterest)"
+msgstr ""
+
+#: sunshine-masonry/masonry.php:58
+msgid "Where to enable"
+msgstr ""
+
+#: sunshine-masonry/masonry.php:63
+msgid "Gallery Thumbnails"
+msgstr ""
+
+#: sunshine-masonry/masonry.php:64
+msgid "Image Thumbnails"
+msgstr ""
+
+#: sunshine-messaging/messaging.php:50 sunshine-messaging/messaging.php:97
+msgid "Messaging"
+msgstr ""
+
+#: sunshine-messaging/messaging.php:56
+msgid "Messaging Templates"
+msgstr ""
+
+#: sunshine-messaging/messaging.php:56
+#, php-format
+msgid "Allowed template variables are: %s"
+msgstr ""
+
+#: sunshine-messaging/messaging.php:58
+msgid "Gallery Invite Subject"
+msgstr ""
+
+#: sunshine-messaging/messaging.php:63
+msgid "Gallery Invite Message"
+msgstr ""
+
+#: sunshine-messaging/messaging.php:69
+msgid "Register Invite Subject"
+msgstr ""
+
+#: sunshine-messaging/messaging.php:74
+msgid "Register Invite"
+msgstr ""
+
+#: sunshine-messaging/messaging.php:105
+msgid "Message Type"
+msgstr ""
+
+#: sunshine-messaging/messaging.php:118 sunshine-messaging/messaging.php:138
+msgid "Please select"
+msgstr ""
+
+#: sunshine-messaging/messaging.php:135
+msgid "To"
+msgstr "Do"
+
+#: sunshine-messaging/messaging.php:139
+msgid "Unregistered user(s)"
+msgstr ""
+
+#: sunshine-messaging/messaging.php:158
+msgid "Email address(es)"
+msgstr ""
+
+#: sunshine-messaging/messaging.php:158
+msgid "Separate multiple email addresses with a comma"
+msgstr ""
+
+#: sunshine-messaging/messaging.php:221
+msgid "Please select a gallery"
+msgstr ""
+
+#: sunshine-messaging/messaging.php:224
+msgid "Please select a user"
+msgstr ""
+
+#: sunshine-messaging/messaging.php:229
+msgid "Invalid email address"
+msgstr ""
+
+#: sunshine-messaging/messaging.php:234
+msgid "Please provide a subject"
+msgstr ""
+
+#: sunshine-messaging/messaging.php:237
+msgid "Please provide a message"
+msgstr ""
+
+#: sunshine-messaging/messaging.php:284
+#, php-format
+msgid "Message has been sent to %s"
+msgstr ""
+
+#: sunshine-messaging/messaging.php:287
+msgid "Sorry, message was not sent"
+msgstr ""
+
+#: sunshine-messaging/messaging.php:307
+#, php-format
+msgid " or <a href=\"%s\">invite a user to this gallery</a>!"
+msgstr ""
+
+#: sunshine-minimum-order/minimum-order.php:55
+#, php-format
+msgid "You have not met the minimum order subtotal of %s"
+msgstr ""
+
+#: sunshine-minimum-order/minimum-order.php:94
+#, php-format
+msgid "You have not met the minimum order of %s for the gallery \"%s\""
+msgstr ""
+
+#: sunshine-minimum-order/minimum-order.php:104 sunshine-minimum-order/minimum-order.php:124
+msgid "Minimum Order"
+msgstr "Minimalne zamówienie"
+
+#: sunshine-minimum-order/minimum-order.php:126
+msgid "Minimum Cart Subtotal ($)"
+msgstr ""
+
+#: sunshine-mollie/mollie.php:55
+msgid "Enable Mollie payment methods including iDEAL"
+msgstr ""
+
+#: sunshine-mollie/mollie.php:84
+#, php-format
+msgid "Sunshine Order #%s"
+msgstr ""
+
+#: sunshine-mollie/mollie.php:99
+#, php-format
+msgid "There was an error processing your payment (%s)"
+msgstr ""
+
+#: sunshine-mollie/mollie.php:143
+msgid "Enable payments via Mollie"
+msgstr ""
+
+#: sunshine-mollie/mollie.php:152
+msgid "Name that users will see on the checkout page, defaults to \"Mollie\""
+msgstr ""
+
+#: sunshine-mollie/mollie.php:155 sunshine-payjunction/payjunction.php:229 sunshine-photo-cart/addons/payment-offline/index.php:38 sunshine-photo-cart/addons/payment-paypal/index.php:235 sunshine-stripe/stripe.php:235
+msgid "Description"
+msgstr ""
+
+#: sunshine-mollie/mollie.php:158 sunshine-payjunction/payjunction.php:232 sunshine-photo-cart/addons/payment-offline/index.php:41 sunshine-photo-cart/addons/payment-paypal/index.php:238 sunshine-stripe/stripe.php:238
+msgid "Description that users will see on the checkout page"
+msgstr ""
+
+#: sunshine-mollie/mollie.php:161 sunshine-payjunction/payjunction.php:242 sunshine-stripe/stripe.php:248
+msgid "Test Mode"
+msgstr ""
+
+#: sunshine-mollie/mollie.php:167 sunshine-stripe/stripe.php:254
+msgid "Test Secret Key"
+msgstr ""
+
+#: sunshine-mollie/mollie.php:172 sunshine-stripe/stripe.php:264
+msgid "Live Secret Key"
+msgstr ""
+
+#: sunshine-packages/packages.php:30 sunshine-packages/packages.php:139 sunshine-packages/packages.php:152 sunshine-photo-cart/themes/2013/packages.php:3 sunshine-photo-cart/themes/default/packages.php:3
+msgid "Packages"
+msgstr ""
+
+#: sunshine-packages/packages.php:66
+msgid "This page is not accessible via this method. Please visit a gallery first."
+msgstr ""
+
+#: sunshine-packages/packages.php:193 sunshine-packages/packages.php:277 sunshine-photo-cart/admin/sunshine-products.php:108
+msgid "Package"
+msgstr ""
+
+#: sunshine-packages/packages.php:194
+msgid "This product is a package"
+msgstr ""
+
+#: sunshine-packages/packages.php:197
+msgid "Choose Products for Package"
+msgstr ""
+
+#: sunshine-packages/packages.php:202 sunshine-photo-cart/admin/sunshine-orders.php:104 sunshine-photo-cart/admin/sunshine-orders.php:554 sunshine-photo-cart/admin/sunshine-users.php:42 sunshine-photo-cart/sunshine-template-functions.php:1287
+#: sunshine-photo-cart/sunshine-template-functions.php:1301 sunshine-photo-cart/themes/2013/cart.php:17 sunshine-photo-cart/themes/2013/cart.php:31 sunshine-photo-cart/themes/2013/order.php:51 sunshine-photo-cart/themes/default/cart.php:17
+#: sunshine-photo-cart/themes/default/cart.php:31 sunshine-photo-cart/themes/default/order.php:51 sunshine-photo-cart/themes/theme/cart.php:17 sunshine-photo-cart/themes/theme/cart.php:31 sunshine-photo-cart/themes/theme/order.php:56
+msgid "Product"
+msgstr ""
+
+#: sunshine-packages/packages.php:217
+msgid "Entire session as digital download"
+msgstr ""
+
+#: sunshine-packages/packages.php:227 sunshine-photo-cart/admin/sunshine-bulk-add-products.php:95
+msgid "Add another product"
+msgstr ""
+
+#: sunshine-packages/packages.php:313
+msgid "Entire gallery digital download"
+msgstr ""
+
+#: sunshine-packages/packages.php:330
+msgid "Unfilled items in package:"
+msgstr ""
+
+#: sunshine-packages/packages.php:390
+msgid "Add image to package"
+msgstr ""
+
+#: sunshine-packages/packages.php:390
+msgid "Select package"
+msgstr ""
+
+#: sunshine-packages/packages.php:429
+msgid "remaining"
+msgstr ""
+
+#: sunshine-packages/packages.php:438
+msgid "Completed"
+msgstr ""
+
+#: sunshine-packages/packages.php:495
+msgid "You have not filled all your packages"
+msgstr ""
+
+#: sunshine-packages/packages.php:526
+msgid "No products have been assigned to this package"
+msgstr ""
+
+#: sunshine-packages/packages.php:546
+msgid "Package added to cart!"
+msgstr ""
+
+#: sunshine-packages/packages.php:552 sunshine-packages/packages.php:556 sunshine-photo-cart/sunshine-functions.php:204
+msgid "Sorry, something went wrong with adding the item to cart."
+msgstr ""
+
+#: sunshine-packages/packages.php:584
+#, php-format
+msgid "Item added to package! <a href=\"%s\" target=\"_top\">View cart</a> or <a href=\"%s\">Return to %s</a>"
+msgstr ""
+
+#: sunshine-packages/packages.php:588
+msgid "Image could not be added to package"
+msgstr ""
+
+#: sunshine-packages/packages.php:636
+msgid "Item removed from package"
+msgstr ""
+
+#: sunshine-payjunction/payjunction.php:55 sunshine-photo-cart/classes/sunshine.class.php:525
+msgid "Pay by credit card (Visa, MasterCard, American Express, Discover)"
+msgstr ""
+
+#: sunshine-payjunction/payjunction.php:147
+#, php-format
+msgid "Payment could not process successfully (%s). %s"
+msgstr ""
+
+#: sunshine-payjunction/payjunction.php:149
+#, php-format
+msgid "Payment could not process successfully because of a server error (%s). %s"
+msgstr ""
+
+#: sunshine-payjunction/payjunction.php:151
+msgid "An unknown error occurred and your payment could not be processed"
+msgstr ""
+
+#: sunshine-payjunction/payjunction.php:161 sunshine-stripe/stripe.php:147
+msgid "Card Number"
+msgstr ""
+
+#: sunshine-payjunction/payjunction.php:162 sunshine-stripe/stripe.php:148
+msgid "CVV"
+msgstr ""
+
+#: sunshine-payjunction/payjunction.php:164 sunshine-stripe/stripe.php:150
+msgid "Expiration Date"
+msgstr ""
+
+#: sunshine-payjunction/payjunction.php:217
+msgid "Enable payments via PayJunction"
+msgstr ""
+
+#: sunshine-payjunction/payjunction.php:226
+msgid "Name that users will see on the checkout page, defaults to \"PayJunction\""
+msgstr ""
+
+#: sunshine-payjunction/payjunction.php:235 sunshine-stripe/stripe.php:241
+msgid "Force HTTPS"
+msgstr ""
+
+#: sunshine-payjunction/payjunction.php:236
+msgid "PayJunction requires an SSL certificate to accept credit card information securely from your website. <a href=\"http://www.sunshinephotocart.com/docs/ssl\" target=\"_blank\">Learn more</a>"
+msgstr ""
+
+#: sunshine-payjunction/payjunction.php:248 sunshine-photo-cart/classes/frontend.class.php:383
+msgid "Login"
+msgstr ""
+
+#: sunshine-payjunction/payjunction.php:253 sunshine-photo-cart/admin/sunshine-galleries.php:469 sunshine-photo-cart/classes/frontend.class.php:339 sunshine-photo-cart/email/register.php:3 sunshine-photo-cart/sunshine-functions.php:816
+#: sunshine-photo-cart/sunshine-template-functions.php:1041
+msgid "Password"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:333
+msgid "Install Required Plugins"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:334
+msgid "Install Plugins"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:335
+#, php-format
+msgid "Installing Plugin: %s"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:336 sunshine-photo-cart/addons/addon-manager/index.php:58
+msgid "Something went wrong with the plugin API."
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:338 sunshine-photo-cart/addons/addon-manager/index.php:59
+#, php-format
+msgid "This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:343 sunshine-photo-cart/addons/addon-manager/index.php:60
+#, php-format
+msgid "This theme recommends the following plugin: %1$s."
+msgid_plural "This theme recommends the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:348
+#, php-format
+msgid "Sorry, but you do not have the correct permissions to install the %1$s plugin."
+msgid_plural "Sorry, but you do not have the correct permissions to install the %1$s plugins."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:353 sunshine-photo-cart/addons/addon-manager/index.php:65
+#, php-format
+msgid "The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s."
+msgid_plural "The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:358
+#, php-format
+msgid "There is an update available for: %1$s."
+msgid_plural "There are updates available for the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:363
+#, php-format
+msgid "Sorry, but you do not have the correct permissions to update the %1$s plugin."
+msgid_plural "Sorry, but you do not have the correct permissions to update the %1$s plugins."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:368 sunshine-photo-cart/addons/addon-manager/index.php:62
+#, php-format
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:373 sunshine-photo-cart/addons/addon-manager/index.php:63
+#, php-format
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:378
+#, php-format
+msgid "Sorry, but you do not have the correct permissions to activate the %1$s plugin."
+msgid_plural "Sorry, but you do not have the correct permissions to activate the %1$s plugins."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:383 sunshine-photo-cart/addons/addon-manager/index.php:67
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:388
+msgid "Begin updating plugin"
+msgid_plural "Begin updating plugins"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:393 sunshine-photo-cart/addons/addon-manager/index.php:68
+msgid "Begin activating plugin"
+msgid_plural "Begin activating plugins"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:397
+msgid "Return to Required Plugins Installer"
+msgstr "Wróć do instalatora wymaganych dodatków"
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:398
+msgid "Return to the dashboard"
+msgstr "Wróć do strony głównej"
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:399 sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:3029 sunshine-photo-cart/addons/addon-manager/index.php:70
+msgid "Plugin activated successfully."
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:400 sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:2832
+msgid "The following plugin was activated successfully:"
+msgid_plural "The following plugins were activated successfully:"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:401
+#, php-format
+msgid "No action taken. Plugin %1$s was already active."
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:402
+#, php-format
+msgid "Plugin not activated. A higher version of %s is needed for this theme. Please update the plugin."
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:403
+#, php-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:404
+msgid "Dismiss this notice"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:405
+msgid "Please contact the administrator of this site for help."
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:520
+msgid "This plugin needs to be updated to be compatible with your theme."
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:521
+msgid "Update Required"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:635
+msgid "Set the parent_slug config variable instead."
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:828 sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:3438
+msgid "Return to the Dashboard"
+msgstr "Wróć do strony głównej"
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:935
+msgid "The remote plugin package does not contain a folder with the desired slug and renaming did not work."
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:935 sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:938
+msgid "Please contact the plugin provider and ask them to package their plugin according to the WordPress guidelines."
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:938
+msgid "The remote plugin package consists of more than one file, but the files are not packaged in a folder."
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:1116 sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:2828
+msgctxt "plugin A *and* plugin B"
+msgid "and"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:1881
+#, php-format
+msgctxt "%s = version number"
+msgid "TGMPA v%s"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:2167
+msgid "Required"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:2170
+msgid "Recommended"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:2186
+msgid "WordPress Repository"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:2189
+msgid "External Source"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:2192
+msgid "Pre-Packaged"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:2209
+msgid "Not Installed"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:2213
+msgid "Installed But Not Activated"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:2215
+msgid "Active"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:2221
+msgid "Required Update not Available"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:2224
+msgid "Requires Update"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:2227
+msgid "Update recommended"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:2235
+#, php-format
+msgctxt "%1$s = install status, %2$s = update status"
+msgid "%1$s, %2$s"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:2280
+#, php-format
+msgctxt "plugins"
+msgid "All <span class=\"count\">(%s)</span>"
+msgid_plural "All <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:2283
+#, php-format
+msgid "To Install <span class=\"count\">(%s)</span>"
+msgid_plural "To Install <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:2286
+#, php-format
+msgid "Update Available <span class=\"count\">(%s)</span>"
+msgid_plural "Update Available <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:2289
+#, php-format
+msgid "To Activate <span class=\"count\">(%s)</span>"
+msgid_plural "To Activate <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:2371
+msgctxt "as in: \"version nr unknown\""
+msgid "unknown"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:2379
+msgid "Installed version:"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:2387
+msgid "Minimum required version:"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:2399
+msgid "Available version:"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:2422
+#, php-format
+msgid "No plugins to install, update or activate. <a href=\"%1$s\">Return to the Dashboard</a>"
+msgstr "Nie ma żadnych dodatków do instalacji, aktualizacji ani aktywacji. <a href=\"%1$s\">Wróć do strony głównej</a>"
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:2436
+msgid "Plugin"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:2437
+msgid "Source"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:2438 sunshine-photo-cart/admin/sunshine-orders.php:102
+msgid "Type"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:2442
+msgid "Version"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:2443 sunshine-photo-cart/admin/sunshine-dashboard.php:11 sunshine-photo-cart/admin/sunshine-orders.php:298
+msgid "Status"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:2491
+#, php-format
+msgctxt "%2$s = plugin name in screen reader markup"
+msgid "Install %2$s"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:2495
+#, php-format
+msgctxt "%2$s = plugin name in screen reader markup"
+msgid "Update %2$s"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:2500
+#, php-format
+msgctxt "%2$s = plugin name in screen reader markup"
+msgid "Activate %2$s"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:2570
+msgid "Upgrade message from the plugin author:"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:2603
+msgid "Install"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:2609
+msgid "Update"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:2612
+msgid "Activate"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:2643
+msgid "No plugins were selected to be installed. No action taken."
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:2645
+msgid "No plugins were selected to be updated. No action taken."
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:2681
+msgid "No plugins are available to be installed at this time."
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:2683
+msgid "No plugins are available to be updated at this time."
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:2788
+msgid "No plugins were selected to be activated. No action taken."
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:2814
+msgid "No plugins are available to be activated at this time."
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:3028
+msgid "Plugin activation failed."
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:3362
+#, php-format
+msgid "Updating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:3364
+#, php-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:3365
+#, php-format
+msgid "The installation of %1$s failed."
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:3369
+msgid "The installation and activation process is starting. This process may take a while on some hosts, so please be patient."
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:3370
+#, php-format
+msgid "%1$s installed and activated successfully."
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:3370 sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:3376
+msgid "Show Details"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:3370 sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:3376
+msgid "Hide Details"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:3371
+msgid "All installations and activations have been completed."
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:3372
+#, php-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:3375
+msgid "The installation process is starting. This process may take a while on some hosts, so please be patient."
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:3376
+#, php-format
+msgid "%1$s installed successfully."
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:3377
+msgid "All installations have been completed."
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/class-tgm-plugin-activation.php:3378
+#, php-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/index.php:53
+msgid "Please only install the add-ons you need. Hint: You <em>absolutely</em> do not need all of them"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/index.php:55
+msgid "Sunshine Pro Add-on Manager"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/index.php:56
+msgid "Add-on Manager"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/index.php:57
+#, php-format
+msgid "Installing Add-on: %s"
+msgstr ""
+
+#: sunshine-photo-cart/addons/addon-manager/index.php:61
+#, php-format
+msgid "Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed."
+msgid_plural "Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: sunshine-photo-cart/addons/addon-manager/index.php:64
+#, php-format
+msgid "Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated."
+msgid_plural "Sorry, but you do not have the correct permissions to activate the %s plugins. Contact the administrator of this site for help on getting the plugins activated."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: sunshine-photo-cart/addons/addon-manager/index.php:66
+#, php-format
+msgid "Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated."
+msgid_plural "Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: sunshine-photo-cart/addons/addon-manager/index.php:69
+msgid "Return to Sunshine Pro Add-on Manager"
+msgstr "Wróć do menedżera dodatków Sunshine Pro"
+
+#: sunshine-photo-cart/addons/addon-manager/index.php:71
+#, php-format
+msgid "All plugins installed and activated successfully. %s"
+msgstr ""
+
+#: sunshine-photo-cart/addons/favorites/index.php:46 sunshine-photo-cart/addons/favorites/index.php:220 sunshine-photo-cart/addons/favorites/index.php:233 sunshine-photo-cart/themes/2013/favorites.php:3 sunshine-photo-cart/themes/default/favorites.php:3
+msgid "Favorites"
+msgstr ""
+
+#: sunshine-photo-cart/addons/favorites/index.php:67 sunshine-photo-cart/addons/favorites/index.php:81 sunshine-photo-cart/addons/favorites/index.php:130
+msgid "Add to Favorites"
+msgstr ""
+
+#: sunshine-photo-cart/addons/favorites/index.php:76
+msgid "Remove from Favorites"
+msgstr ""
+
+#: sunshine-photo-cart/addons/favorites/index.php:92
+msgid "Remove All Favorites"
+msgstr ""
+
+#: sunshine-photo-cart/addons/favorites/index.php:98
+msgid "Submit Favorites"
+msgstr ""
+
+#: sunshine-photo-cart/addons/favorites/index.php:173
+msgid "Remove from favorites"
+msgstr "Usuń z ulubionych"
+
+#: sunshine-photo-cart/addons/favorites/index.php:180
+msgid "Add to favorites"
+msgstr "Dodaj do ulubionych"
+
+#: sunshine-photo-cart/addons/favorites/index.php:248
+msgid "Disable Favorites"
+msgstr ""
+
+#: sunshine-photo-cart/addons/favorites/index.php:306
+msgid "Image added to favorites"
+msgstr ""
+
+#: sunshine-photo-cart/addons/favorites/index.php:314
+#, php-format
+msgid "A user account is required to track your favorites so you can come back any time to see them. <a href=\"%s\">Register here</a> or login to an existing account below."
+msgstr ""
+
+#: sunshine-photo-cart/addons/favorites/index.php:340
+msgid "Favorites cleared"
+msgstr ""
+
+#: sunshine-photo-cart/addons/favorites/index.php:351
+#, php-format
+msgid "%s has submitted their favorites, <a href=\"%s\">view them here</a>"
+msgstr ""
+
+#: sunshine-photo-cart/addons/favorites/index.php:360
+#, php-format
+msgid "%s has submitted favorites"
+msgstr ""
+
+#: sunshine-photo-cart/addons/favorites/index.php:362
+msgid "Your favorite images have been sent"
+msgstr ""
+
+#: sunshine-photo-cart/addons/favorites/index.php:444
+msgid "Sunshine Favorites"
+msgstr ""
+
+#: sunshine-photo-cart/addons/favorites/index.php:446 sunshine-photo-cart/admin/sunshine-orders.php:46
+msgid "Image File List"
+msgstr ""
+
+#: sunshine-photo-cart/addons/favorites/index.php:457 sunshine-photo-cart/admin/sunshine-orders.php:63
+msgid ""
+"Copy and paste the file names above into Lightroom's search feature (Library filter) to quickly find and create a new collection to make processing this order easier. Make sure you are using the \"Contains\" (and not \"Contains All\") search parameter."
+msgstr "Skopiuj i wklej tutaj wynik  opcji Szukaj z Lightrooma (filtr Biblioteki) aby szybko znaleźć i stworzyć nową kolekcję aby łatwiej przetworzyć to zamówienie. Upewnij się, że używasz parametru wyszukiwania \"Zawiera\" (a nie  \"Zawiera wszystkie\")."
+
+#: sunshine-photo-cart/addons/favorites/index.php:502
+msgid "Images in your favorites have been removed because they are no longer available"
+msgstr ""
+
+#: sunshine-photo-cart/addons/favorites/index.php:515
+msgid "After user adds image to favorites"
+msgstr ""
+
+#: sunshine-photo-cart/addons/payment-offline/index.php:6 sunshine-photo-cart/addons/payment-offline/index.php:24 sunshine-photo-cart/classes/sunshine.class.php:511
+msgid "Offline"
+msgstr ""
+
+#: sunshine-photo-cart/addons/payment-offline/index.php:7
+msgid "Send payment in outside of website"
+msgstr ""
+
+#: sunshine-photo-cart/addons/payment-offline/index.php:24
+msgid "Offline payments can be anything you want, most likely for accepting checks"
+msgstr ""
+
+#: sunshine-photo-cart/addons/payment-offline/index.php:26
+msgid "Enable offline payments"
+msgstr ""
+
+#: sunshine-photo-cart/addons/payment-offline/index.php:35
+msgid "Name that users will see on the checkout page, defaults to \"Offline\""
+msgstr ""
+
+#: sunshine-photo-cart/addons/payment-offline/index.php:44
+msgid "Instructions"
+msgstr ""
+
+#: sunshine-photo-cart/addons/payment-offline/index.php:45
+msgid "Use this to instruct customers how to submit payment (if check, mailing address would be a good idea)"
+msgstr ""
+
+#: sunshine-photo-cart/addons/payment-paypal/index.php:9 sunshine-photo-cart/classes/sunshine.class.php:517
+msgid "Submit payment via PayPal account or use a credit card"
+msgstr ""
+
+#: sunshine-photo-cart/addons/payment-paypal/index.php:33 sunshine-photo-cart/addons/payment-paypal/index.php:40
+msgid "Redirecting to PayPal"
+msgstr ""
+
+#: sunshine-photo-cart/addons/payment-paypal/index.php:65
+#, php-format
+msgid "Shipping via %s"
+msgstr ""
+
+#: sunshine-photo-cart/addons/payment-paypal/index.php:129
+msgid "Submit payment via PayPal"
+msgstr ""
+
+#: sunshine-photo-cart/addons/payment-paypal/index.php:222
+msgid "Enable payments via PayPal"
+msgstr ""
+
+#: sunshine-photo-cart/addons/payment-paypal/index.php:226
+#, php-format
+msgid "Please make sure you have enabled your <a href=\"%s\" target=\"_blank\">PayPal IPN settings</a>. Set the URL to \"%s\"."
+msgstr ""
+
+#: sunshine-photo-cart/addons/payment-paypal/index.php:232
+msgid "Name that users will see on the checkout page, defaults to \"PayPal\""
+msgstr ""
+
+#: sunshine-photo-cart/addons/payment-paypal/index.php:241
+msgid "PayPal Email"
+msgstr ""
+
+#: sunshine-photo-cart/addons/payment-paypal/index.php:246
+msgid "Enable test mode (Sandbox)"
+msgstr ""
+
+#: sunshine-photo-cart/addons/payment-paypal/index.php:248
+msgid "More for developers, this lets you accept test transactions via PayPal. Requires developer account and being logged into the developer account."
+msgstr ""
+
+#: sunshine-photo-cart/addons/payment-paypal/index.php:253
+msgid "Page Style"
+msgstr ""
+
+#: sunshine-photo-cart/addons/payment-paypal/index.php:255
+msgid "Optionally enter the name of the page style you wish to use. These are defined in your PayPal account."
+msgstr ""
+
+#: sunshine-photo-cart/addons/payment-paypal/index.php:301
+msgid "Order has been cancelled"
+msgstr ""
+
+#: sunshine-photo-cart/addons/reports/index.php:4 sunshine-photo-cart/addons/reports/index.php:13
+msgid "Reports"
+msgstr "Raporty"
+
+#: sunshine-photo-cart/addons/reports/index.php:39
+msgid "No taxes have been collected thus far"
+msgstr ""
+
+#: sunshine-photo-cart/addons/share/index.php:44 sunshine-photo-cart/addons/share/index.php:71
+msgid "Share This"
+msgstr ""
+
+#: sunshine-photo-cart/addons/share/index.php:106
+msgid "Gallery Sharing"
+msgstr ""
+
+#: sunshine-photo-cart/addons/share/index.php:119
+msgid "Image Sharing"
+msgstr ""
+
+#: sunshine-photo-cart/addons/share/index.php:149
+msgid "Sharing on Gallery Pages"
+msgstr ""
+
+#: sunshine-photo-cart/addons/share/index.php:150
+msgid "Let users share a gallery on social networks like Facebook, Twitter, Pinterest"
+msgstr ""
+
+#: sunshine-photo-cart/addons/share/index.php:156
+msgid "Sharing on Image Detail Pages"
+msgstr ""
+
+#: sunshine-photo-cart/addons/share/index.php:157
+msgid "Let users share an image on social networks like Facebook, Twitter, Pinterest"
+msgstr ""
+
+#: sunshine-photo-cart/addons/shipping-flatrate/index.php:20
+msgid "Enable Flat Rate Shipping"
+msgstr ""
+
+#: sunshine-photo-cart/addons/shipping-flatrate/index.php:31
+msgid "Flat Rate Shipping Cost"
+msgstr ""
+
+#: sunshine-photo-cart/addons/shipping-flatrate/index.php:37 sunshine-photo-cart/addons/shipping-local/index.php:43 sunshine-photo-cart/addons/shipping-pickup/index.php:42 sunshine-photo-cart/admin/sunshine-bulk-add-products.php:89
+#: sunshine-photo-cart/admin/sunshine-products.php:46 sunshine-photo-cart/admin/sunshine-products.php:247
+msgid "Taxable"
+msgstr ""
+
+#: sunshine-photo-cart/addons/shipping-local/index.php:20
+msgid "Enable Local Delivery Shipping"
+msgstr ""
+
+#: sunshine-photo-cart/addons/shipping-local/index.php:31
+msgid "Local Delivery Shipping Cost"
+msgstr ""
+
+#: sunshine-photo-cart/addons/shipping-local/index.php:37
+msgid "Allowed zip/post codes"
+msgstr ""
+
+#: sunshine-photo-cart/addons/shipping-local/index.php:40
+msgid "What zip/post codes is this allowed for? Separate each zip/post code with a comma."
+msgstr ""
+
+#: sunshine-photo-cart/addons/shipping-local/index.php:58
+#, php-format
+msgid "Cannot choose %s shipping, not within allowed area"
+msgstr ""
+
+#: sunshine-photo-cart/addons/shipping-pickup/index.php:18
+msgid "Pickup"
+msgstr ""
+
+#: sunshine-photo-cart/addons/shipping-pickup/index.php:20
+msgid "Enable Pickup Shipping"
+msgstr ""
+
+#: sunshine-photo-cart/addons/shipping-pickup/index.php:31
+msgid "Pickup Shipping Cost"
+msgstr ""
+
+#: sunshine-photo-cart/addons/shipping-pickup/index.php:37
+msgid "Pickup Instructions"
+msgstr ""
+
+#: sunshine-photo-cart/addons/watermark/index.php:13
+msgid "Watermark"
+msgstr ""
+
+#: sunshine-photo-cart/addons/watermark/index.php:13
+msgid "Add image to all files uploaded to Sunshine (except digital download files)"
+msgstr ""
+
+#: sunshine-photo-cart/addons/watermark/index.php:15 sunshine-photo-cart/sunshine-options.php:341 sunshine-photo-cart/themes/default/functions.php:27
+msgid "No image"
+msgstr ""
+
+#: sunshine-photo-cart/addons/watermark/index.php:25
+msgid "<strong>Image must be a transparent PNG.</strong> Upload a file to your <a href=\"upload.php\">Media gallery</a>, then select it here"
+msgstr ""
+
+#: sunshine-photo-cart/addons/watermark/index.php:28
+msgid "Position"
+msgstr ""
+
+#: sunshine-photo-cart/addons/watermark/index.php:32
+msgid "Top Left"
+msgstr ""
+
+#: sunshine-photo-cart/addons/watermark/index.php:33
+msgid "Top Right"
+msgstr ""
+
+#: sunshine-photo-cart/addons/watermark/index.php:34
+msgid "Bottom Left"
+msgstr ""
+
+#: sunshine-photo-cart/addons/watermark/index.php:35
+msgid "Bottom Right"
+msgstr ""
+
+#: sunshine-photo-cart/addons/watermark/index.php:36
+msgid "Center"
+msgstr ""
+
+#: sunshine-photo-cart/addons/watermark/index.php:37
+msgid "Repeat"
+msgstr ""
+
+#: sunshine-photo-cart/addons/watermark/index.php:41
+msgid "Margin from edge"
+msgstr ""
+
+#: sunshine-photo-cart/addons/watermark/index.php:42
+msgid "Number only, not used for \"Center\" position"
+msgstr ""
+
+#: sunshine-photo-cart/addons/watermark/index.php:48
+msgid "Watermark Thumbnails"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-admin.php:32
+msgid "Update completed"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-admin.php:65
+#, php-format
+msgid "Welcome to Sunshine Photo Cart %s"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-admin.php:69
+msgid "Thank you for updating to the latest version!"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-admin.php:71
+msgid "Thank you for installing!"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-admin.php:74
+#, php-format
+msgid "<strong>%s</strong> Sunshine %s is the most comprehensive client proofing and photo cart plugin for WordPress. We hope you enjoy greater selling success!"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-admin.php:214
+msgid "Add-ons for Sunshine Photo Cart"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-admin.php:216
+msgid "Go beyond the basics, Sunshine’s add-ons let you maximize your profits to help you build a more profitable client photo sales process."
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-admin.php:253
+msgid "Learn more & buy &raquo;"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-admin.php:304
+#, php-format
+msgid "Thank you for using <a href=\"%1$s\" target=\"_blank\">Sunshine Photo Cart</a>! Please <a href=\"%2$s\" target=\"_blank\">rate us</a> on <a href=\"%2$s\" target=\"_blank\">WordPress.org</a>"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-admin.php:371
+msgid "View Client Galleries"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-admin.php:498
+msgid "Your galleries have been updated!"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-admin.php:515
+msgid "Image could not be found, just moving on"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-admin.php:530
+msgid "Could not make new folder for gallery"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-admin.php:537
+#, php-format
+msgid "Could not move full size image: %s"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-admin.php:547
+#, php-format
+msgid "Could not move %s"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-admin.php:560
+#, php-format
+msgid "Successfully moved %s"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-bulk-add-products.php:9
+msgid "Bulk add products"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-bulk-add-products.php:19
+msgid "Bulk Add Products"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-bulk-add-products.php:71 sunshine-photo-cart/admin/sunshine-products.php:94
+msgid "Category"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-bulk-add-products.php:97
+msgid "Before you add these, please double check everything is accurate!"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-bulk-add-products.php:99
+msgid "Add these products"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-dashboard.php:9 sunshine-photo-cart/admin/sunshine-orders.php:296 sunshine-photo-cart/admin/sunshine-orders.php:538
+msgid "Order #"
+msgstr "Numer zamówienia"
+
+#: sunshine-photo-cart/admin/sunshine-dashboard.php:10 sunshine-photo-cart/admin/sunshine-orders.php:297
+msgid "Customer"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-dashboard.php:12 sunshine-photo-cart/admin/sunshine-orders.php:180 sunshine-photo-cart/admin/sunshine-orders.php:632 sunshine-photo-cart/classes/order.class.php:112
+#: sunshine-photo-cart/sunshine-template-functions.php:1027 sunshine-photo-cart/sunshine-template-functions.php:1315 sunshine-photo-cart/themes/2013/cart.php:46 sunshine-photo-cart/themes/2013/order.php:121 sunshine-photo-cart/themes/default/cart.php:46
+#: sunshine-photo-cart/themes/default/order.php:121 sunshine-photo-cart/themes/theme/cart.php:46 sunshine-photo-cart/themes/theme/order.php:126
+msgid "Total"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-dashboard.php:40
+msgid "Recent Orders"
+msgstr "Najnowsze zamówienia"
+
+#: sunshine-photo-cart/admin/sunshine-dashboard.php:45 sunshine-photo-cart/admin/sunshine-menu.php:9
+msgid "Dashboard"
+msgstr "Strona główna"
+
+#: sunshine-photo-cart/admin/sunshine-dashboard.php:84
+msgid "Sunshine Photo Cart Overview"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-dashboard.php:109
+msgid "Images"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-dashboard.php:121 sunshine-photo-cart/admin/sunshine-menu.php:16 sunshine-photo-cart/classes/sunshine.class.php:114 sunshine-price-levels/price-levels.php:114
+msgid "Products"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-dashboard.php:144 sunshine-photo-cart/admin/sunshine-menu.php:13 sunshine-photo-cart/classes/sunshine.class.php:205 sunshine-photo-cart/themes/2013/account.php:16 sunshine-photo-cart/themes/default/account.php:16
+#: sunshine-photo-cart/themes/theme/account.php:18
+msgid "Orders"
+msgstr "Zamówienia"
+
+#: sunshine-photo-cart/admin/sunshine-galleries.php:10
+msgid "Photos"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-galleries.php:10
+msgid "images"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-galleries.php:18
+msgid "Gallery Options"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-galleries.php:27
+msgid "Gallery Emails"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-galleries.php:66
+msgid "Drop files here"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-galleries.php:67
+msgid "or"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-galleries.php:68
+msgid "Select Files"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-galleries.php:86
+#, php-format
+msgid "Load %s more images"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-galleries.php:110
+msgid "Loading"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-galleries.php:179
+msgid "Sorry, the image could not be deleted for some reason"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-galleries.php:199
+msgid "Allowed Files"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-galleries.php:460
+msgid "Gallery Type"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-galleries.php:462
+msgid "Standard"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-galleries.php:463
+msgid "Password Protected"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-galleries.php:464
+msgid "Private (only specified users)"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-galleries.php:471
+msgid "Password Hint"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-galleries.php:487
+msgid "Private Access Users"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-galleries.php:493
+msgid "Access Type"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-galleries.php:496
+msgid "Registered and logged in"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-galleries.php:497
+msgid "Provide email address"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-galleries.php:539
+msgid "Disable products"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-galleries.php:542
+msgid "Allow image comments"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-galleries.php:545
+msgid "FTP Images Folder"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-galleries.php:753
+#, php-format
+msgid "%1$s-%2$s"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-galleries.php:764
+#, php-format
+msgid "%1$s%2$s, %3$s @ %4$s : %5$s"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-galleries.php:779
+msgid "OK"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-galleries.php:780
+msgid "Cancel"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-galleries.php:857
+#, php-format
+msgid "<strong>Gallery updated</strong>, <a href=\"%s\">view gallery</a>"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-galleries.php:858
+#, php-format
+msgid "<strong>Gallery created</strong>, <a href=\"%s\">view gallery</a>"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-galleries.php:891
+msgid "Please note that this gallery will not inherit the settings from the selected parent gallery"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-image-processor.php:20
+msgid "Image Processor"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-image-processor.php:21
+msgid "We are processing your images! Please be patient, especially if you have a lot."
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-image-processor.php:28
+msgid "Abort Import"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-image-processor.php:29
+msgid "Return to Gallery"
+msgstr "Wróć do galerii"
+
+#: sunshine-photo-cart/admin/sunshine-image-processor.php:92
+msgid "Already uploaded to gallery"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-image-processor.php:107
+#, php-format
+msgid "The selected file could not be copied to %s."
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-menu.php:10 sunshine-photo-cart/classes/sf-class-settings.php:153
+msgid "Settings"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-menu.php:15 sunshine-photo-cart/classes/sunshine.class.php:143
+msgid "Product Categories"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-menu.php:19
+msgid "Add-Ons or Go Pro!"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-menu.php:22
+msgid "System Info"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-menu.php:23
+msgid "Documentation"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-menu.php:31
+msgid "About Sunshine Photo Cart"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-notices.php:138
+#, php-format
+msgid "Sunshine does not work using the Default Permalink settings. <a href=\"%s\">Please choose another option</a> (we recommend \"Post name\")."
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-notices.php:141
+#, php-format
+msgid "Sunshine cannot be the front page of your WordPress installation. <a href=\"%s\" target=\"_blank\">Learn more on how to resolve this issue</a>."
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-notices.php:148
+msgid "You having been using Sunshine Photo Cart for a bit and that's awesome! Could you please do Sunshine a big favor and give it a 5-star rating on WordPress?  Reviews from users like you really help Sunshine to grow and continue to improve."
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-notices.php:149 sunshine-photo-cart/admin/sunshine-notices.php:159
+msgid "Thank You"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-notices.php:151 sunshine-photo-cart/admin/sunshine-notices.php:161
+msgid "Sure thing!"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-notices.php:152 sunshine-photo-cart/admin/sunshine-notices.php:162
+msgid "Maybe later"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-notices.php:153 sunshine-photo-cart/admin/sunshine-notices.php:163
+msgid "I already did"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-notices.php:158
+msgid "Would you like to earn $10 credit towards an add-on or a license renewal? Then go take the Sunshine survey! It will help us learn more about how you use Sunshine and what we can do to make it better."
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-notices.php:168
+#, php-format
+msgid ""
+"I hope Sunshine is working well for you so far! <strong>If you do run into <em>any</em> issues using Sunshine or integrating it into your theme</strong>, please check out our <a href=\"%s\" target=\"_blank\">support area</a> to look at our help articles "
+"or the <a href=\"%s\" target=\"_blank\">support forums</a> to ask a specific question. I want to make sure Sunshine is working well for you. In almost all cases Sunshine works great out of the box, but with the infinite number of plugin and theme "
+"combinations in WordPress a few tweaks might be necessary and I am here to help."
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-notices.php:195
+#, php-format
+msgid ""
+"<p>Sunshine 2.4 is now saving all images in a dedicated folder at \"wp-content/uploads/sunshine\". As such, it needs to move all past uploaded image files. If you have a lot of galleries and images, this could take a little while to complete, but is "
+"necessary.</p><p><strong><a href=\"%s\" class=\"button\">Please click here to run the update process</a></strong></p>"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-orders.php:8
+#, php-format
+msgid "Order #%s"
+msgstr "Zamówienie nr %s"
+
+#: sunshine-photo-cart/admin/sunshine-orders.php:16
+msgid "Order Notes"
+msgstr "Uwagi do zamówienia"
+
+#: sunshine-photo-cart/admin/sunshine-orders.php:24 sunshine-photo-cart/classes/sunshine.class.php:234 sunshine-photo-cart/classes/sunshine.class.php:235 sunshine-photo-cart/sunshine-options.php:411 sunshine-photo-cart/sunshine-options.php:445
+msgid "Order Status"
+msgstr "Status zamówienia"
+
+#: sunshine-photo-cart/admin/sunshine-orders.php:46 sunshine-photo-cart/admin/sunshine-orders.php:387
+msgid "Invoice"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-orders.php:73
+msgid "Order Date"
+msgstr "Data zamówienia"
+
+#: sunshine-photo-cart/admin/sunshine-orders.php:78 sunshine-photo-cart/classes/order.class.php:117
+msgid "Billing Info"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-orders.php:78 sunshine-photo-cart/classes/order.class.php:133
+msgid "Shipping Info"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-orders.php:106 sunshine-photo-cart/admin/sunshine-users.php:44 sunshine-photo-cart/sunshine-template-functions.php:1289 sunshine-photo-cart/themes/2013/cart.php:19 sunshine-photo-cart/themes/2013/order.php:53
+#: sunshine-photo-cart/themes/default/cart.php:19 sunshine-photo-cart/themes/default/order.php:53 sunshine-photo-cart/themes/theme/cart.php:19 sunshine-photo-cart/themes/theme/order.php:58
+msgid "Item Price"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-orders.php:107 sunshine-photo-cart/admin/sunshine-orders.php:557 sunshine-photo-cart/sunshine-template-functions.php:1290 sunshine-photo-cart/themes/2013/cart.php:20 sunshine-photo-cart/themes/2013/order.php:54
+#: sunshine-photo-cart/themes/default/cart.php:20 sunshine-photo-cart/themes/default/order.php:54 sunshine-photo-cart/themes/theme/cart.php:20 sunshine-photo-cart/themes/theme/order.php:59
+msgid "Item Total"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-orders.php:144 sunshine-photo-cart/admin/sunshine-orders.php:596 sunshine-photo-cart/classes/order.class.php:101 sunshine-photo-cart/sunshine-template-functions.php:1001 sunshine-photo-cart/themes/2013/order.php:92
+#: sunshine-photo-cart/themes/default/order.php:92 sunshine-photo-cart/themes/theme/order.php:97
+msgid "Subtotal"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-orders.php:148 sunshine-photo-cart/admin/sunshine-orders.php:600 sunshine-photo-cart/classes/order.class.php:104 sunshine-photo-cart/sunshine-template-functions.php:1006
+#: sunshine-photo-cart/sunshine-template-functions.php:1338 sunshine-photo-cart/themes/2013/order.php:97 sunshine-photo-cart/themes/default/order.php:97 sunshine-photo-cart/themes/theme/order.php:102
+msgid "Tax"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-orders.php:152 sunshine-photo-cart/admin/sunshine-orders.php:604 sunshine-photo-cart/classes/order.class.php:102 sunshine-photo-cart/sunshine-options.php:324 sunshine-photo-cart/sunshine-template-functions.php:1011
+#: sunshine-photo-cart/sunshine-template-functions.php:1343 sunshine-photo-cart/themes/2013/order.php:103 sunshine-photo-cart/themes/default/order.php:103 sunshine-photo-cart/themes/theme/order.php:108
+msgid "Shipping"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-orders.php:174 sunshine-photo-cart/admin/sunshine-orders.php:626 sunshine-photo-cart/admin/sunshine-users.php:10 sunshine-photo-cart/admin/sunshine-users.php:85 sunshine-photo-cart/classes/order.class.php:110
+#: sunshine-photo-cart/sunshine-template-functions.php:1022 sunshine-photo-cart/sunshine-template-functions.php:1353 sunshine-photo-cart/themes/2013/account.php:9 sunshine-photo-cart/themes/2013/order.php:115
+#: sunshine-photo-cart/themes/default/account.php:9 sunshine-photo-cart/themes/default/order.php:115 sunshine-photo-cart/themes/theme/account.php:11 sunshine-photo-cart/themes/theme/order.php:120
+msgid "Credits"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-orders.php:184 sunshine-photo-cart/admin/sunshine-orders.php:636
+msgid "Payment Method"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-orders.php:194
+msgid "This is for internal use only and is not visible to your customer"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-orders.php:231
+msgid "Show all Customers"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-orders.php:275
+msgid "Email customer about status change"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-orders.php:299 sunshine-photo-cart/admin/sunshine-orders.php:546 sunshine-photo-cart/sunshine-template-functions.php:1357
+msgid "Order Total"
+msgstr "Podsumowanie zamówienia"
+
+#: sunshine-photo-cart/admin/sunshine-orders.php:300 sunshine-photo-cart/admin/sunshine-orders.php:542
+msgid "Date"
+msgstr "Data"
+
+#: sunshine-photo-cart/admin/sunshine-orders.php:364 sunshine-photo-cart/classes/sunshine.class.php:551 sunshine-photo-cart/classes/sunshine.class.php:636
+msgid "Pending"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-orders.php:365 sunshine-photo-cart/classes/sunshine.class.php:553 sunshine-photo-cart/classes/sunshine.class.php:638
+msgid "New"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-orders.php:366 sunshine-photo-cart/classes/sunshine.class.php:555 sunshine-photo-cart/classes/sunshine.class.php:640
+msgid "Processing"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-orders.php:367 sunshine-photo-cart/classes/sunshine.class.php:557 sunshine-photo-cart/classes/sunshine.class.php:642
+msgid "Shipped/Completed"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-orders.php:368
+msgid "Cancelled"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-orders.php:402
+msgid "Sorry, no order specified"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-orders.php:526
+msgid "Recipient"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-products.php:7
+msgid "Product Info"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-products.php:40 sunshine-photo-cart/admin/sunshine-products.php:239
+msgid "No price levels setup"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-products.php:48 sunshine-photo-cart/admin/sunshine-products.php:251
+msgid "Extra Shipping Fee"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-products.php:52
+msgid "This is an additional shipping price which will transparently be added to the total Flat Rate shipping price. Basically use this for large or heavy items like a canvas where shipping costs more than small prints."
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-products.php:123
+msgid "No categories"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-products.php:207
+msgid "<strong>Product updated</strong>"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-products.php:208
+msgid "<strong>Product created</strong>"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-users.php:7
+msgid "Sunshine Gallery Credits for Purchases"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-users.php:37
+msgid "Sunshine Items in Cart"
+msgstr ""
+
+#: sunshine-photo-cart/admin/sunshine-users.php:73
+msgid "No items in cart"
+msgstr ""
+
+#: sunshine-photo-cart/classes/cart.class.php:259
+msgid "Free shipping via discount code"
+msgstr ""
+
+#: sunshine-photo-cart/classes/cart.class.php:386
+#, php-format
+msgid "Discount %s has now expired and has been removed from your cart"
+msgstr ""
+
+#: sunshine-photo-cart/classes/cart.class.php:393
+#, php-format
+msgid "Discount %s has now exceeded the maximum uses and has been removed from your cart"
+msgstr ""
+
+#: sunshine-photo-cart/classes/cart.class.php:543
+msgid "Free"
+msgstr ""
+
+#: sunshine-photo-cart/classes/cart.class.php:657
+msgid "You are not allowed to add any more discounts to your cart"
+msgstr ""
+
+#: sunshine-photo-cart/classes/cart.class.php:661
+msgid "This discount is already applied to your cart"
+msgstr ""
+
+#: sunshine-photo-cart/classes/cart.class.php:676
+msgid "Your order does not yet meet the minimum order amount for this discount"
+msgstr ""
+
+#: sunshine-photo-cart/classes/cart.class.php:682
+msgid "This coupon is not yet valid, please try again later"
+msgstr ""
+
+#: sunshine-photo-cart/classes/cart.class.php:687
+msgid "This coupon has expired"
+msgstr ""
+
+#: sunshine-photo-cart/classes/cart.class.php:695
+msgid "This coupon has exceeded the number of uses allowed"
+msgstr ""
+
+#: sunshine-photo-cart/classes/cart.class.php:702
+msgid "This coupon has exceeded the number of uses allowed per user"
+msgstr ""
+
+#: sunshine-photo-cart/classes/cart.class.php:708
+msgid "discount added"
+msgstr ""
+
+#: sunshine-photo-cart/classes/cart.class.php:713
+msgid "Not a valid discount code"
+msgstr ""
+
+#: sunshine-photo-cart/classes/cart.class.php:724
+msgid "Discount removed"
+msgstr ""
+
+#: sunshine-photo-cart/classes/cart.class.php:728
+msgid "Discount not applied to your cart and cannot be removed"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:10
+msgid "Afghanistan"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:11
+msgid "&#197;land Islands"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:12
+msgid "Albania"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:13
+msgid "Algeria"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:14
+msgid "American Samoa"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:15
+msgid "Andorra"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:16
+msgid "Angola"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:17
+msgid "Anguilla"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:18
+msgid "Antarctica"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:19
+msgid "Antigua and Barbuda"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:20
+msgid "Argentina"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:21
+msgid "Armenia"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:22
+msgid "Aruba"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:23
+msgid "Australia"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:24
+msgid "Austria"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:25
+msgid "Azerbaijan"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:26
+msgid "Bahamas"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:27
+msgid "Bahrain"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:28
+msgid "Bangladesh"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:29
+msgid "Barbados"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:30
+msgid "Belarus"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:31
+msgid "Belgium"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:32
+msgid "Belize"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:33
+msgid "Benin"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:34
+msgid "Bermuda"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:35
+msgid "Bhutan"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:36
+msgid "Bolivia"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:37
+msgid "Bosnia and Herzegovina"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:38
+msgid "Botswana"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:39
+msgid "Brazil"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:40
+msgid "British Indian Ocean Territory"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:41
+msgid "British Virgin Islands"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:42
+msgid "Brunei"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:43
+msgid "Bulgaria"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:44
+msgid "Burkina Faso"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:45
+msgid "Burundi"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:46
+msgid "Cambodia"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:47
+msgid "Cameroon"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:48
+msgid "Canada"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:49
+msgid "Cape Verde"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:50
+msgid "Cayman Islands"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:51
+msgid "Central African Republic"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:52
+msgid "Chad"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:53
+msgid "Chile"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:54
+msgid "China"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:55
+msgid "Christmas Island"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:56
+msgid "Cocos (Keeling) Islands"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:57
+msgid "Colombia"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:58
+msgid "Comoros"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:59
+msgid "Congo (Brazzaville)"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:60
+msgid "Congo (Kinshasa)"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:61
+msgid "Cook Islands"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:62
+msgid "Costa Rica"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:63
+msgid "Croatia"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:64
+msgid "Cuba"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:65
+msgid "Cyprus"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:66
+msgid "Czech Republic"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:67
+msgid "Denmark"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:68
+msgid "Djibouti"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:69
+msgid "Dominica"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:70
+msgid "Dominican Republic"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:71
+msgid "Ecuador"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:72
+msgid "Egypt"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:73
+msgid "El Salvador"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:74
+msgid "Equatorial Guinea"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:75
+msgid "Eritrea"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:76
+msgid "Estonia"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:77
+msgid "Ethiopia"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:78
+msgid "Falkland Islands"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:79
+msgid "Faroe Islands"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:80
+msgid "Fiji"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:81
+msgid "Finland"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:82
+msgid "France"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:83
+msgid "French Guiana"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:84
+msgid "French Polynesia"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:85
+msgid "French Southern Territories"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:86
+msgid "Gabon"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:87
+msgid "Gambia"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:88 sunshine-photo-cart/classes/countries.class.php:360
+msgid "Georgia"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:89
+msgid "Germany"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:90
+msgid "Ghana"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:91
+msgid "Gibraltar"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:92
+msgid "Greece"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:93
+msgid "Greenland"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:94
+msgid "Grenada"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:95
+msgid "Guadeloupe"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:96
+msgid "Guam"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:97
+msgid "Guatemala"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:98
+msgid "Guernsey"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:99
+msgid "Guinea"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:100
+msgid "Guinea-Bissau"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:101
+msgid "Guyana"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:102
+msgid "Haiti"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:103
+msgid "Honduras"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:104
+msgid "Hong Kong"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:105
+msgid "Hungary"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:106
+msgid "Iceland"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:107
+msgid "India"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:108
+msgid "Indonesia"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:109
+msgid "Iran"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:110
+msgid "Iraq"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:111
+msgid "Republic of Ireland"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:112
+msgid "Isle of Man"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:113
+msgid "Israel"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:114
+msgid "Italy"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:115
+msgid "Ivory Coast"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:116
+msgid "Jamaica"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:117
+msgid "Japan"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:118
+msgid "Jersey"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:119
+msgid "Jordan"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:120
+msgid "Kazakhstan"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:121
+msgid "Kenya"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:122
+msgid "Kiribati"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:123
+msgid "Kuwait"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:124
+msgid "Kyrgyzstan"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:125
+msgid "Laos"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:126
+msgid "Latvia"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:127
+msgid "Lebanon"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:128
+msgid "Lesotho"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:129
+msgid "Liberia"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:130
+msgid "Libya"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:131
+msgid "Liechtenstein"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:132
+msgid "Lithuania"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:133
+msgid "Luxembourg"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:134
+msgid "Macao S.A.R., China"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:135
+msgid "Macedonia"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:136
+msgid "Madagascar"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:137
+msgid "Malawi"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:138
+msgid "Malaysia"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:139
+msgid "Maldives"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:140
+msgid "Mali"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:141
+msgid "Malta"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:142
+msgid "Marshall Islands"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:143
+msgid "Martinique"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:144
+msgid "Mauritania"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:145
+msgid "Mauritius"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:146
+msgid "Mayotte"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:147
+msgid "Mexico"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:148
+msgid "Micronesia"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:149
+msgid "Moldova"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:150
+msgid "Monaco"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:151
+msgid "Mongolia"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:152
+msgid "Montenegro"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:153
+msgid "Montserrat"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:154
+msgid "Morocco"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:155
+msgid "Mozambique"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:156
+msgid "Myanmar"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:157
+msgid "Namibia"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:158
+msgid "Nauru"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:159
+msgid "Nepal"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:160
+msgid "Netherlands"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:161
+msgid "Netherlands Antilles"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:162
+msgid "New Caledonia"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:163
+msgid "New Zealand"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:164
+msgid "Nicaragua"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:165
+msgid "Niger"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:166
+msgid "Nigeria"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:167
+msgid "Niue"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:168
+msgid "Norfolk Island"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:169
+msgid "North Korea"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:170
+msgid "Northern Mariana Islands"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:171
+msgid "Norway"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:172
+msgid "Oman"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:173
+msgid "Pakistan"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:174
+msgid "Palau"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:175
+msgid "Palestinian Territory"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:176
+msgid "Panama"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:177
+msgid "Papua New Guinea"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:178
+msgid "Paraguay"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:179
+msgid "Peru"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:180
+msgid "Philippines"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:181
+msgid "Pitcairn"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:182
+msgid "Poland"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:183
+msgid "Portugal"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:184
+msgid "Puerto Rico"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:185
+msgid "Qatar"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:186
+msgid "Reunion"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:187
+msgid "Romania"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:188
+msgid "Russia"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:189
+msgid "Rwanda"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:190
+msgid "Saint Barth&eacute;lemy"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:191
+msgid "Saint Helena"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:192
+msgid "Saint Kitts and Nevis"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:193
+msgid "Saint Lucia"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:194
+msgid "Saint Martin (French part)"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:195
+msgid "Saint Pierre and Miquelon"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:196
+msgid "Saint Vincent and the Grenadines"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:197
+msgid "Samoa"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:198
+msgid "San Marino"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:199
+msgid "S&atilde;o Tom&eacute; and Pr&iacute;ncipe"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:200
+msgid "Saudi Arabia"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:201
+msgid "Senegal"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:202
+msgid "Serbia"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:203
+msgid "Seychelles"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:204
+msgid "Sierra Leone"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:205
+msgid "Singapore"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:206
+msgid "Slovakia"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:207
+msgid "Slovenia"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:208
+msgid "Solomon Islands"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:209
+msgid "Somalia"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:210
+msgid "South Africa"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:211
+msgid "South Georgia/Sandwich Islands"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:212
+msgid "South Korea"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:213
+msgid "Spain"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:214
+msgid "Sri Lanka"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:215
+msgid "Sudan"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:216
+msgid "Suriname"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:217
+msgid "Svalbard and Jan Mayen"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:218
+msgid "Swaziland"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:219
+msgid "Sweden"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:220
+msgid "Switzerland"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:221
+msgid "Syria"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:222
+msgid "Taiwan"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:223
+msgid "Tajikistan"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:224
+msgid "Tanzania"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:225
+msgid "Thailand"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:226
+msgid "Timor-Leste"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:227
+msgid "Togo"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:228
+msgid "Tokelau"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:229
+msgid "Tonga"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:230
+msgid "Trinidad and Tobago"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:231
+msgid "Tunisia"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:232
+msgid "Turkey"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:233
+msgid "Turkmenistan"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:234
+msgid "Turks and Caicos Islands"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:235
+msgid "Tuvalu"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:236
+msgid "U.S. Virgin Islands"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:237
+msgid "US Armed Forces"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:238
+msgid "US Minor Outlying Islands"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:239
+msgid "Uganda"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:240
+msgid "Ukraine"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:241
+msgid "United Arab Emirates"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:242
+msgid "United Kingdom"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:243
+msgid "United States"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:244
+msgid "Uruguay"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:245
+msgid "Uzbekistan"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:246
+msgid "Vanuatu"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:247
+msgid "Vatican"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:248
+msgid "Venezuela"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:249
+msgid "Vietnam"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:250
+msgid "Wallis and Futuna"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:251
+msgid "Western Sahara"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:252
+msgid "Yemen"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:253
+msgid "Zambia"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:254
+msgid "Zimbabwe"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:259
+msgid "Australian Capital Territory"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:260
+msgid "New South Wales"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:261
+msgid "Northern Territory"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:262
+msgid "Queensland"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:263
+msgid "South Australia"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:264
+msgid "Tasmania"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:265
+msgid "Victoria"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:266
+msgid "Western Australia"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:269
+msgid "Amazonas"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:270
+msgid "Acre"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:271
+msgid "Alagoas"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:272
+msgid "Amap&aacute;"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:273
+msgid "Cear&aacute;"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:274
+msgid "Distrito Federal"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:275
+msgid "Esp&iacute;rito Santo"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:276
+msgid "Maranh&atilde;o"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:277
+msgid "Paran&aacute;"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:278
+msgid "Pernambuco"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:279
+msgid "Piau&iacute;"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:280
+msgid "Rio Grande do Norte"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:281 sunshine-photo-cart/classes/countries.class.php:294
+msgid "Rio Grande do Sul"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:282
+msgid "Rond&ocirc;nia"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:283
+msgid "Roraima"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:284
+msgid "Santa Catarina"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:285
+msgid "Sergipe"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:286
+msgid "Tocantins"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:287
+msgid "Par&aacute;"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:288
+msgid "Bahia"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:289
+msgid "Goi&aacute;s"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:290
+msgid "Mato Grosso"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:291
+msgid "Mato Grosso do Sul"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:292
+msgid "Rio de Janeiro"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:293
+msgid "S&atilde;o Paulo"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:295
+msgid "Minas Gerais"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:296
+msgid "Para&iacute;ba"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:299
+msgid "Alberta"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:300
+msgid "British Columbia"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:301
+msgid "Manitoba"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:302
+msgid "New Brunswick"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:303
+msgid "Newfoundland"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:304
+msgid "Northwest Territories"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:305
+msgid "Nova Scotia"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:306
+msgid "Nunavut"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:307
+msgid "Ontario"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:308
+msgid "Prince Edward Island"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:309
+msgid "Quebec"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:310
+msgid "Saskatchewan"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:311
+msgid "Yukon Territory"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:314
+msgid "Hong Kong Island"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:315
+msgid "Kowloon"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:316
+msgid "New Territories"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:319
+msgid "Drenthe"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:320
+msgid "Flevoland"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:321
+msgid "Friesland"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:322
+msgid "Gelderland"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:323
+msgid "Groningen"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:324
+msgid "Limburg"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:325
+msgid "Noord-Brabant"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:326
+msgid "Noord-Holland"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:327
+msgid "Overijssel"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:328
+msgid "Utrecht"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:329
+msgid "Zeeland"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:330
+msgid "Zuid-Holland"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:333
+msgid "Northland"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:334
+msgid "Auckland"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:335
+msgid "Waikato"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:336
+msgid "Bay of Plenty"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:337
+msgid "Taranaki"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:338
+msgid "Hawke&rsquo;s Bay"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:339
+msgid "Manawatu-Wanganui"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:340
+msgid "Wellington"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:341
+msgid "Nelson"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:342
+msgid "Marlborough"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:343
+msgid "Tasman"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:344
+msgid "West Coast"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:345
+msgid "Canterbury"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:346
+msgid "Otago"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:347
+msgid "Southland"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:350
+msgid "Alabama"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:351
+msgid "Alaska"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:352
+msgid "Arizona"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:353
+msgid "Arkansas"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:354
+msgid "California"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:355
+msgid "Colorado"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:356
+msgid "Connecticut"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:357
+msgid "Delaware"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:358
+msgid "District Of Columbia"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:359
+msgid "Florida"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:361
+msgid "Hawaii"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:362
+msgid "Idaho"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:363
+msgid "Illinois"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:364
+msgid "Indiana"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:365
+msgid "Iowa"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:366
+msgid "Kansas"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:367
+msgid "Kentucky"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:368
+msgid "Louisiana"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:369
+msgid "Maine"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:370
+msgid "Maryland"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:371
+msgid "Massachusetts"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:372
+msgid "Michigan"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:373
+msgid "Minnesota"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:374
+msgid "Mississippi"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:375
+msgid "Missouri"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:376
+msgid "Montana"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:377
+msgid "Nebraska"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:378
+msgid "Nevada"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:379
+msgid "New Hampshire"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:380
+msgid "New Jersey"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:381
+msgid "New Mexico"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:382
+msgid "New York"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:383
+msgid "North Carolina"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:384
+msgid "North Dakota"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:385
+msgid "Ohio"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:386
+msgid "Oklahoma"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:387
+msgid "Oregon"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:388
+msgid "Pennsylvania"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:389
+msgid "Rhode Island"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:390
+msgid "South Carolina"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:391
+msgid "South Dakota"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:392
+msgid "Tennessee"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:393
+msgid "Texas"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:394
+msgid "Utah"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:395
+msgid "Vermont"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:396
+msgid "Virginia"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:397
+msgid "Washington"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:398
+msgid "West Virginia"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:399
+msgid "Wisconsin"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:400
+msgid "Wyoming"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:403
+msgid "Americas"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:404
+msgid "Europe"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:405
+msgid "Pacific"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:433
+msgid "Select country"
+msgstr ""
+
+#: sunshine-photo-cart/classes/countries.class.php:468 sunshine-photo-cart/sunshine-functions.php:499 sunshine-photo-cart/sunshine-functions.php:536
+msgid "Select state"
+msgstr ""
+
+#: sunshine-photo-cart/classes/frontend.class.php:277
+msgid "Search for"
+msgstr ""
+
+#: sunshine-photo-cart/classes/frontend.class.php:288 sunshine-photo-cart/themes/2013/account.php:23 sunshine-photo-cart/themes/2013/order.php:10 sunshine-photo-cart/themes/default/account.php:23 sunshine-photo-cart/themes/default/order.php:10
+#: sunshine-photo-cart/themes/theme/account.php:25
+msgid "Order"
+msgstr ""
+
+#: sunshine-photo-cart/classes/frontend.class.php:330
+msgid "Expires on"
+msgstr ""
+
+#: sunshine-photo-cart/classes/frontend.class.php:338
+#, php-format
+msgid "The gallery \"%s\" is password protected. To view it, please enter your password below:"
+msgstr ""
+
+#: sunshine-photo-cart/classes/frontend.class.php:341
+msgid "Hint"
+msgstr ""
+
+#: sunshine-photo-cart/classes/frontend.class.php:342 sunshine-photo-cart/sunshine-template-functions.php:1609
+msgid "Submit"
+msgstr ""
+
+#: sunshine-photo-cart/classes/frontend.class.php:370
+msgid "Logout"
+msgstr ""
+
+#: sunshine-photo-cart/classes/frontend.class.php:376 sunshine-photo-cart/classes/sunshine.class.php:435 sunshine-photo-cart/sunshine-options.php:197 sunshine-photo-cart/themes/2013/account.php:3 sunshine-photo-cart/themes/default/account.php:3
+msgid "Account"
+msgstr ""
+
+#: sunshine-photo-cart/classes/frontend.class.php:388 sunshine-photo-cart/sunshine-options.php:401
+msgid "Register"
+msgstr ""
+
+#: sunshine-photo-cart/classes/frontend.class.php:408 sunshine-photo-cart/classes/sunshine.class.php:446 sunshine-photo-cart/sunshine-options.php:185 sunshine-photo-cart/themes/2013/cart.php:3 sunshine-photo-cart/themes/default/cart.php:3
+msgid "Cart"
+msgstr ""
+
+#: sunshine-photo-cart/classes/frontend.class.php:434 sunshine-photo-cart/classes/frontend.class.php:445 sunshine-photo-cart/themes/default/image.php:10
+msgid "Return to"
+msgstr "Wróć do"
+
+#: sunshine-photo-cart/classes/frontend.class.php:497
+#, php-format
+msgid "A photo from the gallery %s by %s"
+msgstr ""
+
+#: sunshine-photo-cart/classes/frontend.class.php:508
+#, php-format
+msgid "Photo gallery %s by %s"
+msgstr ""
+
+#: sunshine-photo-cart/classes/frontend.class.php:551
+msgid "Sorry, you are not allowed to view this image"
+msgstr ""
+
+#: sunshine-photo-cart/classes/frontend.class.php:551 sunshine-photo-cart/classes/frontend.class.php:563 sunshine-photo-cart/classes/frontend.class.php:566
+msgid "Access denied"
+msgstr ""
+
+#: sunshine-photo-cart/classes/frontend.class.php:563 sunshine-photo-cart/classes/frontend.class.php:566
+msgid "Sorry, you are not allowed to access this order information"
+msgstr ""
+
+#: sunshine-photo-cart/classes/frontend.class.php:611
+msgid "To continue to checkout, please enter your email address and password to establish an account. You can complete your purchase on the next page."
+msgstr ""
+
+#: sunshine-photo-cart/classes/frontend.class.php:614
+#, php-format
+msgid "The gallery you are accessing requires you to have a user account to access. Please register below or <a href=\"%s\">login here</a>"
+msgstr ""
+
+#: sunshine-photo-cart/classes/frontend.class.php:617
+#, php-format
+msgid "The gallery you are accessing requires you to have a user account to access. Please login below or <a href=\"%s\">register here</a>"
+msgstr ""
+
+#: sunshine-photo-cart/classes/frontend.class.php:620
+msgid "The gallery you are accessing is private and only allowed for specific users. Please login below:"
+msgstr ""
+
+#: sunshine-photo-cart/classes/frontend.class.php:699
+msgid "Images in your cart have been removed because they are no longer available"
+msgstr ""
+
+#: sunshine-photo-cart/classes/license.class.php:132
+msgid "You have a very special lifetime license, congrats!"
+msgstr ""
+
+#: sunshine-photo-cart/classes/license.class.php:135
+#, php-format
+msgid "Your license expires on %s"
+msgstr ""
+
+#: sunshine-photo-cart/classes/license.class.php:139
+msgid "Invalid license key"
+msgstr ""
+
+#: sunshine-photo-cart/classes/license.class.php:141
+#, php-format
+msgid "Your license expired on %s. <a href=\"https://www.sunshinephotocart.com/account\" target=\"_blank\">click here to renew</a>"
+msgstr ""
+
+#: sunshine-photo-cart/classes/license.class.php:143
+msgid "Deactivate this license"
+msgstr ""
+
+#: sunshine-photo-cart/classes/license.class.php:330
+#, php-format
+msgid "Your license for %s has expired - you are no longer eligible for further updates but you may continue to use it. <a href=\"https://www.sunshinephotocart.com/account\" target=\"_blank\">Go here to renew</a>"
+msgstr ""
+
+#: sunshine-photo-cart/classes/license.class.php:367
+msgid "This license does not belong to the product you have entered it for."
+msgstr ""
+
+#: sunshine-photo-cart/classes/license.class.php:372
+msgid "This license does not have any activations left"
+msgstr ""
+
+#: sunshine-photo-cart/classes/license.class.php:377
+msgid "This license key is expired. Please renew it."
+msgstr ""
+
+#: sunshine-photo-cart/classes/license.class.php:382
+#, php-format
+msgid "There was a problem activating your license key for %s, please try again or contact support. Error code: %s"
+msgstr ""
+
+#: sunshine-photo-cart/classes/order.class.php:63
+msgid "Order completed successfully!"
+msgstr ""
+
+#: sunshine-photo-cart/classes/order.class.php:82
+msgid "Cart Items"
+msgstr ""
+
+#: sunshine-photo-cart/classes/order.class.php:155
+#, php-format
+msgid "Order #%s placed on %s"
+msgstr ""
+
+#: sunshine-photo-cart/classes/order.class.php:155
+#, php-format
+msgid "<a href=\"%s\">Order #%s</a> placed on %s"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sf-class-format-options.php:209 sunshine-photo-cart/classes/sf-class-settings.php:784
+msgid "Select a page..."
+msgstr ""
+
+#: sunshine-photo-cart/classes/sf-class-settings.php:300
+msgid "Could not load settings at: "
+msgstr ""
+
+#: sunshine-photo-cart/classes/sf-class-settings.php:300
+msgid "Error - WP Settings Framework"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sf-class-settings.php:366
+msgid "Settings saved."
+msgstr ""
+
+#: sunshine-photo-cart/classes/sf-class-settings.php:482
+#, php-format
+msgid "Save %s changes"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:60
+msgctxt "post type general name"
+msgid "Galleries"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:61
+msgctxt "post type singular name"
+msgid "Gallery"
+msgstr "Galeria"
+
+#: sunshine-photo-cart/classes/sunshine.class.php:62
+msgctxt "gallery"
+msgid "Add New"
+msgstr "Dodaj nowy"
+
+#: sunshine-photo-cart/classes/sunshine.class.php:63
+msgid "Add New Gallery"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:64 sunshine-photo-cart/sunshine-functions.php:1220
+msgid "Edit Gallery"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:65
+msgid "New Gallery"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:66
+msgid "All Galleries"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:67
+msgid "View Gallery"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:68
+msgid "Search Galleries"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:69
+msgid "No galleries found"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:70
+msgid "No galleries found in trash"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:102
+msgctxt "post type general name"
+msgid "Products"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:103
+msgctxt "post type singular name"
+msgid "Product"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:104
+msgctxt "product"
+msgid "Add Single Product"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:105
+msgid "Add New Product"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:106
+msgid "Edit Product"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:107
+msgid "New Product"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:108
+msgid "All Products"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:109
+msgid "View Products"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:110
+msgid "Search Products"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:111
+msgid "No products found"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:112
+msgid "No products found in trash"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:144 sunshine-photo-cart/classes/sunshine.class.php:158
+msgid "Product Category"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:145
+msgid "Search Product Categories"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:146
+msgid "All Product Categories"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:147
+msgid "Parent Product Category"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:148
+msgid "Parent Product Category:"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:149
+msgid "Edit Product Category"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:150
+msgid "Update Product Category"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:151
+msgid "Add New Product Category"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:152
+msgid "New Product Category Name"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:153
+msgid "Separate categories with commas"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:154
+msgid "Choose from the most used categories"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:170
+msgid "Search Price Levels"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:171
+msgid "All Price Levels"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:172
+msgid "Parent Price Level"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:173
+msgid "Parent Price Level:"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:174
+msgid "Edit Price Level"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:175
+msgid "Update Price Level"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:176
+msgid "Add New Price Level"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:177
+msgid "New Price Level"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:193
+msgctxt "post type general name"
+msgid "Orders"
+msgstr "Zamówienia"
+
+#: sunshine-photo-cart/classes/sunshine.class.php:194
+msgctxt "post type singular name"
+msgid "Order"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:195
+msgctxt "order"
+msgid "Add New"
+msgstr "Dodaj nowy"
+
+#: sunshine-photo-cart/classes/sunshine.class.php:196
+msgid "Add New Order"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:197
+msgid "Edit Order"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:198
+msgid "New Order"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:199
+msgid "All Orders"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:200
+msgid "View Orders"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:201
+msgid "Search Orders"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:202
+msgid "No orders found"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:203
+msgid "No orders found in trash"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:236
+msgid "Search Order Status"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:237
+msgid "All Order Status"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:238
+msgid "Parent Order Status"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:239
+msgid "Parent Order Status:"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:240
+msgid "Edit Order Status"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:241
+msgid "Update Order Status"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:242
+msgid "Add New Order Status"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:243
+msgid "New Order Status"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:426
+msgid "This is a placeholder page that Sunshine uses to display itself. You can edit this text by going to Pages > Client Galleries."
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:477
+msgid "Thank you for registering! You can now mark your favorite photos and make purchases on the website."
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:479
+msgid "Thank you for your order! Below is a summary of the order for your records. You will receive a separate email when your item(s) have shipped."
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:481
+msgid "Thank you!"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:505
+msgid "Flat Rate Shipping"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:507
+msgid "Local Delivery"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:509
+msgid "Local Pickup"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:513
+msgid "Send payment outside of website (ie, check, phone call, other)"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:515
+msgid "PayPal"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:521 sunshine-stripe/stripe.php:55
+msgid "Pay by credit card (Visa, MasterCard, American Express, Discover, JCB, and Diners Club)"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:531
+msgid "New user account info at [sitename]"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:533
+msgid "Receipt for order #[order_id] from [sitename]"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:535
+msgid "Your order #[order_id] from [sitename] has been updated"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:537
+msgid "A new comment on order #[order_id] at [sitename]"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:551 sunshine-photo-cart/classes/sunshine.class.php:636
+msgid "We have received your order but payment is still pending"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:553 sunshine-photo-cart/classes/sunshine.class.php:638
+msgid "We have received your order and payment"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:555 sunshine-photo-cart/classes/sunshine.class.php:640
+msgid "The images in your order are being processed and/or printed"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:557 sunshine-photo-cart/classes/sunshine.class.php:642
+msgid "Your items have shipped (or are available for download)!"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:559 sunshine-photo-cart/classes/sunshine.class.php:644
+msgid "Cancelled/Refunded"
+msgstr ""
+
+#: sunshine-photo-cart/classes/sunshine.class.php:559 sunshine-photo-cart/classes/sunshine.class.php:644
+msgid "Your order was cancelled and/or refunded"
+msgstr ""
+
+#: sunshine-photo-cart/classes/update.class.php:186
+#, php-format
+msgid "There is a new version of %1$s available. %2$sView version %3$s details%4$s."
+msgstr ""
+
+#: sunshine-photo-cart/classes/update.class.php:194
+#, php-format
+msgid "There is a new version of %1$s available. %2$sView version %3$s details%4$s or %5$supdate now%6$s."
+msgstr ""
+
+#: sunshine-photo-cart/classes/update.class.php:337
+msgid "You do not have permission to install plugin updates"
+msgstr ""
+
+#: sunshine-photo-cart/classes/update.class.php:337
+msgid "Error"
+msgstr ""
+
+#: sunshine-photo-cart/email/order_comment_admin.php:1
+msgid "Comment from"
+msgstr ""
+
+#: sunshine-photo-cart/email/register.php:2 sunshine-photo-cart/sunshine-template-functions.php:1270
+msgid "Username"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-functions.php:199
+#, php-format
+msgid "Item added to cart! <a href=\"%s\" target=\"_top\">View cart</a> or <a href=\"%s\">Return to %s</a>"
+msgstr "Dodano do koszyka! <a href=\"%s\" target=\"_top\">Zobacz koszyk</a> albo <a href=\"%s\">wróć do %s</a>"
+
+#: sunshine-photo-cart/sunshine-functions.php:254
+msgid "Cart updated"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-functions.php:277
+msgid "Item removed from cart"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-functions.php:305
+msgid "Valid email is required"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-functions.php:307 sunshine-photo-cart/sunshine-template-functions.php:1080
+#, php-format
+msgid "Email already exists, <a href=\"%s\">please login first</a>"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-functions.php:331
+msgid "Valid email required"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-functions.php:387
+msgid "Shipping country required"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-functions.php:389
+msgid "Shipping first name required"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-functions.php:391
+msgid "Shipping last name required"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-functions.php:393
+msgid "Shipping address required"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-functions.php:395
+msgid "Shipping city required"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-functions.php:397
+msgid "Shipping state required"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-functions.php:399
+msgid "Shipping zip required"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-functions.php:404
+msgid "Billing country required"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-functions.php:406
+msgid "Billing first name required"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-functions.php:408
+msgid "Billing last name required"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-functions.php:410
+msgid "Billing address required"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-functions.php:412
+msgid "Billing city required"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-functions.php:414
+msgid "Billing state required"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-functions.php:416
+msgid "Billing zip required"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-functions.php:419
+msgid "Shipping method required"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-functions.php:421
+msgid "Payment method required"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-functions.php:424
+msgid "You must approve our terms"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-functions.php:668
+msgid "Agree to Terms"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-functions.php:672
+msgid "I agree to the above terms"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-functions.php:700
+msgid "New user registration on your Sunshine Photo Cart"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-functions.php:701
+#, php-format
+msgid "E-mail: %s"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-functions.php:702
+#, php-format
+msgid "Name: %s"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-functions.php:704
+#, php-format
+msgid "[%s] New User Registration"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-functions.php:739
+msgid "Thank you for registering! You have been automatically logged into your new account"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-functions.php:838
+msgid "Passwords must be at least six characters long"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-functions.php:960 sunshine-photo-cart/sunshine-functions.php:964
+msgid "Username or Email"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-functions.php:964
+msgid "username"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-functions.php:1040
+msgid "Account updated"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-functions.php:1133
+msgid "Sorry, no galleries matched that password."
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-functions.php:1163
+msgid "Not a valid email address"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:8
+msgid "General"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:10
+msgid "Localization"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:12
+msgid "Default Country"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:19
+msgid "Taxes"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:30
+msgid "Do not use taxes"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:32
+msgid "Country / State"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:33
+msgid "What country or state should have taxes applied"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:40
+msgid "Tax rate (%)"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:41
+msgid "Number only"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:55
+msgid "Currency Formatting"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:59
+msgid "United Arab Emirates Dirham"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:60
+msgid "Australian Dollars"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:61
+msgid "Bangladeshi Taka"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:62
+msgid "Brazilian Real"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:63
+msgid "Bulgarian Lev"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:64
+msgid "Canadian Dollars"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:65
+msgid "Chilean Peso"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:66
+msgid "Chinese Yuan"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:67
+msgid "Colombian Peso"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:68
+msgid "Czech Koruna"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:69
+msgid "Danish Krone"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:70
+msgid "Dominican Peso"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:71
+msgid "Euros"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:72
+msgid "Hong Kong Dollar"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:73
+msgid "Croatia kuna"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:74
+msgid "Hungarian Forint"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:75
+msgid "Icelandic krona"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:76
+msgid "Indonesia Rupiah"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:77
+msgid "Indian Rupee"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:78
+msgid "Nepali Rupee"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:79
+msgid "Israeli Shekel"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:80
+msgid "Japanese Yen"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:81
+msgid "Lao Kip"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:82
+msgid "South Korean Won"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:83
+msgid "Malaysian Ringgits"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:84
+msgid "Mexican Peso"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:85
+msgid "Nigerian Naira"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:86
+msgid "Norwegian Krone"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:87
+msgid "New Zealand Dollar"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:88
+msgid "Paraguayan Guaraní"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:89
+msgid "Philippine Pesos"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:90
+msgid "Polish Zloty"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:91
+msgid "Pounds Sterling"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:92
+msgid "Qatari Riyal"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:93
+msgid "Romanian Leu"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:94
+msgid "Russian Ruble"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:95
+msgid "Seychelles Rupee"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:96
+msgid "Singapore Dollar"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:97
+msgid "South African rand"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:98
+msgid "Swedish Krona"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:99
+msgid "Swiss Franc"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:100
+msgid "Taiwan New Dollars"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:101
+msgid "Thai Baht"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:102
+msgid "Turkish Lira"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:103
+msgid "Ukrainian Hryvnia"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:104
+msgid "US Dollars"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:105
+msgid "Vietnamese Dong"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:106
+msgid "Egyptian Pound"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:111
+msgid "Currency"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:118
+msgid "Currency symbol position"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:121
+msgid "Left"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:121
+msgid "Right"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:121
+msgid "Left space"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:121
+msgid "Right space"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:124
+msgid "Thousands separator"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:130
+msgid "Decimal separator"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:136
+msgid "Number of decimals"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:142
+msgid "Cart, Checkout and Accounts"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:144
+msgid "Require account to see products"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:147
+msgid "Enabling this option means users cannot see products or add them to cart unless they have created an account and are logged in."
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:151
+msgid "URLs"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:153
+msgid "Gallery Endpoint"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:159
+msgid "Image Endpoint"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:165
+msgid "Order Endpoint"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:174
+msgid "Pages"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:175
+msgid "Page options"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:175
+msgid "The following pages need selecting so that Sunshine knows where they are. These pages should have been created upon installation, if not you will need to create them."
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:178
+msgid "Sunshine page"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:179
+msgid "Choose which page Sunshine will be displayed on"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:206
+msgid "Administration Options"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:209
+msgid "Delete Media Library images"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:212
+msgid "This will remove all images from the Media Library AND the actual image files from your server when a gallery is permanently deleted"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:216
+msgid "Delete FTP folder"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:219
+msgid "This will remove the folder and images added via FTP, if this was used to create the gallery"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:224
+msgid "Display Options"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:226
+msgid "Gallery Order"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:230 sunshine-photo-cart/sunshine-options.php:241
+msgid "Custom ordering"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:231
+msgid "Gallery Creation Date (New to Old)"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:232
+msgid "Gallery Creation Date (Old to New)"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:233 sunshine-photo-cart/sunshine-options.php:245
+msgid "Alphabetical"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:237
+msgid "Image Order"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:242
+msgid "Order images shot (Images MUST have EXIF field \"DateTimeDigitized\")"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:243
+msgid "Image Upload Date (New to Old)"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:244
+msgid "Image Upload Date (Old to New)"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:250
+msgid "Columns"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:256
+msgid "Rows"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:262
+msgid "Image Theft Prevention"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:265
+#, php-format
+msgid "Enabling this option will disable the right click menu and also not allow images to be dragged/dropped to the desktop. NOT a 100% effective method, but should stop most people."
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:269
+msgid "Proofing Only"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:272
+msgid "This will remove all aspects of purchasing abilities throughout the site, leaving just image viewing and adding to favorites"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:276
+msgid "Thumbnail Width"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:282
+msgid "Thumbnail Height"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:288
+msgid "Crop"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:290
+#, php-format
+msgid "Enabling this option will not affect already uploaded images. <a href=\"%s\" target=\"_blank\">Please see this help article</a>"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:291
+msgid "Should images be cropped to the exact dimensions of your thumbnail width / height"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:296
+msgid "Show Image Names"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:298
+msgid "Show the file name of the image under the thumbnail"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:308 sunshine-photo-cart/sunshine-options.php:317
+msgid "Terms"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:310
+msgid "Require Approval of Terms"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:313
+msgid "Force users to check that they have read and agree to the terms (below)"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:328
+msgid "Design"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:329 sunshine-photo-cart/themes/default/functions.php:13
+msgid "Design Elements"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:331
+msgid "Theme"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:335
+msgid "My WordPress Theme"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:336
+msgid "Default Sunshine Theme"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:337
+msgid "Sunshine 2013 Theme"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:346
+msgid "Logo"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:351
+msgid "Logo should be no more than 320px wide transparent PNG. Upload a file to your <a href=\"upload.php\">Media gallery</a>, then select it here"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:354
+msgid "Miscellaneous Elements"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:356
+msgid "Disable breadcrumbs"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:359
+msgid "Do not show breadcrumbs throughout Sunshine pages. Helpful if you want users to stick to just a single gallery."
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:366 sunshine-photo-cart/sunshine-template-functions.php:1038 sunshine-photo-cart/sunshine-template-functions.php:1607 sunshine-photo-cart/themes/2013/order.php:19 sunshine-photo-cart/themes/default/order.php:19
+#: sunshine-photo-cart/themes/theme/order.php:20
+msgid "Email"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:367
+msgid "Notifications"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:370
+msgid "Order Notifications"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:371
+msgid "Email address(es) to receive order notifications. Separate multiple emails with a comma."
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:376
+msgid "Favorite Notifications"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:377
+msgid "Email address(es) to receive submitted favorites notifications. Separate multiple emails with a comma."
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:383
+msgid "Email From"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:386
+msgid "From Name"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:387
+msgid "When emails are sent to customers, what name should they come from"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:392
+msgid "From Email"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:393
+msgid "When emails are sent to customers, what email address should they come from"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:399
+msgid "Email Subjects"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:399
+msgid "Allowed template variables are:"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:406
+msgid "Order Receipt"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:416
+msgid "Order Comment"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:422
+msgid "Email Text"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:424
+msgid "Email Signature"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:425
+msgid "Appears at the end of every email message"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:431
+msgid "Receipt"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:432
+msgid "Message at the top of email receipts"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:439
+msgid "Message at top of new user registration email"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:446
+msgid "Message added to bottom order status change email"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:457
+msgid "Licenses"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-options.php:457
+msgid "Manage licenses for your Sunshine add-ons here"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-template-functions.php:288
+msgid "Select shipping method above"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-template-functions.php:290
+msgid "Select on checkout page"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-template-functions.php:699 sunshine-photo-cart/themes/theme/image.php:7
+msgid "Previous"
+msgstr "Poprzedni"
+
+#: sunshine-photo-cart/sunshine-template-functions.php:707 sunshine-photo-cart/themes/theme/image.php:8
+msgid "Next"
+msgstr "Następny"
+
+#: sunshine-photo-cart/sunshine-template-functions.php:731
+msgid "This gallery this image belongs to has expired."
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-template-functions.php:770
+msgid "Select Product Type"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-template-functions.php:788
+msgid "Select Product"
+msgstr "Wybierz produkt"
+
+#: sunshine-photo-cart/sunshine-template-functions.php:804
+msgid "See Product"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-template-functions.php:808
+msgid "Details"
+msgstr "Szczegóły"
+
+#: sunshine-photo-cart/sunshine-template-functions.php:818
+msgid "No products for this category"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-template-functions.php:841 sunshine-photo-cart/themes/2013/image.php:26 sunshine-photo-cart/themes/default/image.php:24 sunshine-photo-cart/themes/theme/image.php:31
+msgid "Comments"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-template-functions.php:843
+#, php-format
+msgid "You have %s characters left"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-template-functions.php:991
+#, php-format
+msgid "Already have an account? <a href=\"%s\">Click here to login</a>"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-template-functions.php:1037
+msgid "Account & Contact Information"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-template-functions.php:1039 sunshine-photo-cart/themes/2013/order.php:20 sunshine-photo-cart/themes/default/order.php:20 sunshine-photo-cart/themes/theme/order.php:22
+msgid "Phone"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-template-functions.php:1041
+msgid "Optionally set a password to create an account"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-template-functions.php:1120 sunshine-photo-cart/sunshine-template-functions.php:1142 sunshine-photo-cart/sunshine-template-functions.php:1190 sunshine-photo-cart/themes/2013/order.php:29
+#: sunshine-photo-cart/themes/2013/order.php:40 sunshine-photo-cart/themes/default/order.php:29 sunshine-photo-cart/themes/default/order.php:40 sunshine-photo-cart/themes/theme/order.php:32 sunshine-photo-cart/themes/theme/order.php:44
+msgid "State / Province"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-template-functions.php:1133 sunshine-photo-cart/themes/2013/order.php:23 sunshine-photo-cart/themes/default/order.php:23 sunshine-photo-cart/themes/theme/order.php:26
+msgid "Billing Information"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-template-functions.php:1134
+msgid "Billing same as shipping"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-template-functions.php:1136 sunshine-photo-cart/sunshine-template-functions.php:1184 sunshine-photo-cart/themes/2013/order.php:31 sunshine-photo-cart/themes/2013/order.php:42 sunshine-photo-cart/themes/default/order.php:31
+#: sunshine-photo-cart/themes/default/order.php:42 sunshine-photo-cart/themes/theme/order.php:34 sunshine-photo-cart/themes/theme/order.php:46
+msgid "Country"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-template-functions.php:1139 sunshine-photo-cart/sunshine-template-functions.php:1187 sunshine-photo-cart/themes/2013/order.php:26 sunshine-photo-cart/themes/2013/order.php:37 sunshine-photo-cart/themes/default/order.php:26
+#: sunshine-photo-cart/themes/default/order.php:37 sunshine-photo-cart/themes/theme/order.php:29 sunshine-photo-cart/themes/theme/order.php:41
+msgid "Address"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-template-functions.php:1140 sunshine-photo-cart/sunshine-template-functions.php:1188 sunshine-photo-cart/themes/2013/order.php:27 sunshine-photo-cart/themes/2013/order.php:38 sunshine-photo-cart/themes/default/order.php:27
+#: sunshine-photo-cart/themes/default/order.php:38 sunshine-photo-cart/themes/theme/order.php:30 sunshine-photo-cart/themes/theme/order.php:42
+msgid "Address 2"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-template-functions.php:1141 sunshine-photo-cart/sunshine-template-functions.php:1189 sunshine-photo-cart/themes/2013/order.php:28 sunshine-photo-cart/themes/2013/order.php:39 sunshine-photo-cart/themes/default/order.php:28
+#: sunshine-photo-cart/themes/default/order.php:39 sunshine-photo-cart/themes/theme/order.php:31 sunshine-photo-cart/themes/theme/order.php:43
+msgid "City"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-template-functions.php:1143 sunshine-photo-cart/sunshine-template-functions.php:1191 sunshine-photo-cart/themes/2013/order.php:30 sunshine-photo-cart/themes/2013/order.php:41 sunshine-photo-cart/themes/default/order.php:30
+#: sunshine-photo-cart/themes/default/order.php:41 sunshine-photo-cart/themes/theme/order.php:33 sunshine-photo-cart/themes/theme/order.php:45
+msgid "Zip / Postcode"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-template-functions.php:1183 sunshine-photo-cart/themes/2013/order.php:34 sunshine-photo-cart/themes/default/order.php:34 sunshine-photo-cart/themes/theme/order.php:38
+msgid "Shipping Information"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-template-functions.php:1201
+msgid "Shipping Methods"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-template-functions.php:1222
+msgid "Select shipping method"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-template-functions.php:1240
+msgid "Payment Methods"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-template-functions.php:1243
+#, php-format
+msgid "Use my %s in credit"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-template-functions.php:1269
+msgid "Create Account"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-template-functions.php:1281
+msgid "Order Summary"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-template-functions.php:1282
+msgid "View items in cart"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-template-functions.php:1333
+msgid "Item(s) total"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-template-functions.php:1540 sunshine-photo-cart/sunshine-template-functions.php:1591
+msgid "Go"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-template-functions.php:1554
+#, php-format
+msgid "This gallery is set to expire on <strong>%s</strong>"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-template-functions.php:1606
+#, php-format
+msgid "To view the gallery \"%s\", please enter your email address:"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-widgets.php:14
+msgid "Display a gallery password box"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-widgets.php:74 sunshine-photo-cart/sunshine-widgets.php:158 sunshine-photo-cart/sunshine-widgets.php:243
+msgid "Title (Optional):"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-widgets.php:78 sunshine-photo-cart/sunshine-widgets.php:162 sunshine-photo-cart/sunshine-widgets.php:247
+msgid "Visibility (Optional):"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-widgets.php:96
+msgid "Display Sunshine's main menu links"
+msgstr ""
+
+#: sunshine-photo-cart/sunshine-widgets.php:181
+msgid "Display a search box"
+msgstr ""
+
+#: sunshine-photo-cart/themes/2013/account.php:11 sunshine-photo-cart/themes/default/account.php:11 sunshine-photo-cart/themes/theme/account.php:13
+#, php-format
+msgid "You have %s in credit"
+msgstr ""
+
+#: sunshine-photo-cart/themes/2013/account.php:24 sunshine-photo-cart/themes/default/account.php:24 sunshine-photo-cart/themes/theme/account.php:26
+#, php-format
+msgid "%d item"
+msgid_plural "%d items"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: sunshine-photo-cart/themes/2013/account.php:37 sunshine-photo-cart/themes/default/account.php:37 sunshine-photo-cart/themes/theme/account.php:39
+msgid "Update Account Info"
+msgstr ""
+
+#: sunshine-photo-cart/themes/2013/cart.php:61 sunshine-photo-cart/themes/default/cart.php:61 sunshine-photo-cart/themes/theme/cart.php:61
+msgid "Update Cart"
+msgstr ""
+
+#: sunshine-photo-cart/themes/2013/cart.php:70 sunshine-photo-cart/themes/default/cart.php:70 sunshine-photo-cart/themes/theme/cart.php:70
+msgid "Continue to checkout"
+msgstr ""
+
+#: sunshine-photo-cart/themes/2013/cart.php:74 sunshine-photo-cart/themes/default/cart.php:74 sunshine-photo-cart/themes/theme/cart.php:91
+msgid "You do not have anything in your cart yet!"
+msgstr ""
+
+#: sunshine-photo-cart/themes/2013/checkout.php:36 sunshine-photo-cart/themes/default/checkout.php:36 sunshine-photo-cart/themes/theme/checkout.php:36
+msgid "Complete my purchase"
+msgstr ""
+
+#: sunshine-photo-cart/themes/2013/checkout.php:40 sunshine-photo-cart/themes/default/checkout.php:40 sunshine-photo-cart/themes/theme/checkout.php:40
+msgid "You do not have anything in your cart yet"
+msgstr ""
+
+#: sunshine-photo-cart/themes/2013/favorites.php:33 sunshine-photo-cart/themes/default/favorites.php:33 sunshine-photo-cart/themes/theme/favorites.php:35
+msgid "You have no images marked as a favorite"
+msgstr ""
+
+#: sunshine-photo-cart/themes/2013/functions.php:5 sunshine-photo-cart/themes/default/functions.php:4
+msgid "Functionality"
+msgstr ""
+
+#: sunshine-photo-cart/themes/2013/functions.php:7 sunshine-photo-cart/themes/default/functions.php:6
+msgid "Gallery Login Box"
+msgstr ""
+
+#: sunshine-photo-cart/themes/2013/functions.php:10 sunshine-photo-cart/themes/default/functions.php:9
+msgid "Enabling this option will have the gallery login box appear in the left sidebar."
+msgstr ""
+
+#: sunshine-photo-cart/themes/2013/functions.php:14
+msgid "Main Area"
+msgstr ""
+
+#: sunshine-photo-cart/themes/2013/functions.php:16 sunshine-photo-cart/themes/2013/functions.php:55 sunshine-photo-cart/themes/2013/functions.php:73 sunshine-photo-cart/themes/default/functions.php:15
+msgid "Background Color"
+msgstr ""
+
+#: sunshine-photo-cart/themes/2013/functions.php:21 sunshine-photo-cart/themes/default/functions.php:71
+msgid "Header Font"
+msgstr ""
+
+#: sunshine-photo-cart/themes/2013/functions.php:27
+msgid "Header Text Color"
+msgstr ""
+
+#: sunshine-photo-cart/themes/2013/functions.php:32
+msgid "Body Text Font"
+msgstr ""
+
+#: sunshine-photo-cart/themes/2013/functions.php:38
+msgid "Body Text Color"
+msgstr ""
+
+#: sunshine-photo-cart/themes/2013/functions.php:43 sunshine-photo-cart/themes/2013/functions.php:66 sunshine-photo-cart/themes/default/functions.php:46
+msgid "Link Color"
+msgstr ""
+
+#: sunshine-photo-cart/themes/2013/functions.php:48
+msgid "Secondary Color"
+msgstr ""
+
+#: sunshine-photo-cart/themes/2013/functions.php:53
+msgid "Left Sidebar"
+msgstr ""
+
+#: sunshine-photo-cart/themes/2013/functions.php:60
+msgid "Font"
+msgstr ""
+
+#: sunshine-photo-cart/themes/2013/functions.php:71
+msgid "Buttons"
+msgstr ""
+
+#: sunshine-photo-cart/themes/2013/functions.php:78
+msgid "Text Color"
+msgstr ""
+
+#: sunshine-photo-cart/themes/2013/functions.php:83 sunshine-photo-cart/themes/default/functions.php:94
+msgid "Custom Styles"
+msgstr ""
+
+#: sunshine-photo-cart/themes/2013/functions.php:85 sunshine-photo-cart/themes/default/functions.php:96
+msgid "CSS"
+msgstr ""
+
+#: sunshine-photo-cart/themes/2013/gallery.php:74 sunshine-photo-cart/themes/default/gallery.php:71 sunshine-photo-cart/themes/theme/gallery.php:66
+msgid "Sorry, no images have been added to this gallery yet"
+msgstr ""
+
+#: sunshine-photo-cart/themes/2013/gallery.php:79 sunshine-photo-cart/themes/default/gallery.php:76 sunshine-photo-cart/themes/theme/gallery.php:70
+msgid "Sorry, this gallery has expired."
+msgstr ""
+
+#: sunshine-photo-cart/themes/2013/header.php:34 sunshine-photo-cart/themes/default/header.php:34
+msgid "Enter gallery password"
+msgstr ""
+
+#: sunshine-photo-cart/themes/2013/home.php:25 sunshine-photo-cart/themes/default/home.php:25 sunshine-photo-cart/themes/theme/home.php:21
+msgid "Sorry, no galleries have been setup yet"
+msgstr ""
+
+#: sunshine-photo-cart/themes/2013/order.php:18 sunshine-photo-cart/themes/default/order.php:18 sunshine-photo-cart/themes/theme/order.php:19
+msgid "Contact Information"
+msgstr ""
+
+#: sunshine-photo-cart/themes/2013/order.php:46 sunshine-photo-cart/themes/default/order.php:46 sunshine-photo-cart/themes/theme/order.php:51
+msgid "Items"
+msgstr ""
+
+#: sunshine-photo-cart/themes/2013/search-results.php:34 sunshine-photo-cart/themes/default/search-results.php:34 sunshine-photo-cart/themes/theme/search-results.php:35
+msgid "Sorry, no images match your search"
+msgstr ""
+
+#: sunshine-photo-cart/themes/default/functions.php:32
+msgid "Background Image"
+msgstr ""
+
+#: sunshine-photo-cart/themes/default/functions.php:37
+msgid "Upload a file to your <a href=\"upload.php\">Media gallery</a>, then select it here"
+msgstr ""
+
+#: sunshine-photo-cart/themes/default/functions.php:40
+msgid "Background Repeat"
+msgstr ""
+
+#: sunshine-photo-cart/themes/default/functions.php:43
+msgid "Horizontally and Vertically"
+msgstr ""
+
+#: sunshine-photo-cart/themes/default/functions.php:43
+msgid "Horizontally"
+msgstr ""
+
+#: sunshine-photo-cart/themes/default/functions.php:43
+msgid "Vertically"
+msgstr ""
+
+#: sunshine-photo-cart/themes/default/functions.php:43
+msgid "No repeat"
+msgstr ""
+
+#: sunshine-photo-cart/themes/default/functions.php:51
+msgid "Button Color"
+msgstr ""
+
+#: sunshine-photo-cart/themes/default/functions.php:56
+msgid "Button Text Color"
+msgstr ""
+
+#: sunshine-photo-cart/themes/default/functions.php:61
+msgid "Header Background Color"
+msgstr ""
+
+#: sunshine-photo-cart/themes/default/functions.php:66
+msgid "Header Font Color"
+msgstr ""
+
+#: sunshine-photo-cart/themes/default/functions.php:77
+msgid "Secondary Header Font"
+msgstr ""
+
+#: sunshine-photo-cart/themes/default/functions.php:83
+msgid "Menu Font"
+msgstr ""
+
+#: sunshine-photo-cart/themes/default/functions.php:89
+msgid "Main Body Copy Font"
+msgstr ""
+
+#: sunshine-photo-cart/themes/theme/cart.php:81
+msgid "You have changed items in your cart but have not yet updated. Do you want to continue to checkout?"
+msgstr ""
+
+#: sunshine-photo-cart/themes/theme/functions.php:5
+msgid "Auto-include main menu"
+msgstr ""
+
+#: sunshine-photo-cart/themes/theme/functions.php:8
+msgid "Automatically have the Sunshine Main Menu appear above the Sunshine content"
+msgstr ""
+
+#: sunshine-photo-cart/themes/theme/functions.php:11
+msgid "Custom Code"
+msgstr ""
+
+#: sunshine-photo-cart/themes/theme/functions.php:13
+msgid "Disable Sunshine CSS"
+msgstr ""
+
+#: sunshine-photo-cart/themes/theme/functions.php:19
+msgid "Custom CSS"
+msgstr ""
+
+#: sunshine-photo-cart/themes/theme/functions.php:25
+msgid "Before Sunshine"
+msgstr ""
+
+#: sunshine-photo-cart/themes/theme/functions.php:32
+msgid "After Sunshine"
+msgstr ""
+
+#: sunshine-price-levels/price-levels.php:50
+msgid "Price Levels"
+msgstr ""
+
+#: sunshine-price-levels/price-levels.php:60
+msgid "Base pricing off:"
+msgstr ""
+
+#: sunshine-price-levels/price-levels.php:70
+msgid "Optionally select an existing price level to generate prices for this new price level on all existing products"
+msgstr ""
+
+#: sunshine-price-levels/price-levels.php:74
+msgid "Percentage:"
+msgstr ""
+
+#: sunshine-price-levels/price-levels.php:76
+msgid "What percent of the selected price level to create prices for this new price level. To make higher prices, enter a value greater than 100. To make smaller prices, enter a value less than 100."
+msgstr ""
+
+#: sunshine-price-levels/price-levels.php:141
+msgid "All price levels"
+msgstr ""
+
+#: sunshine-product-options/product-options.php:53 sunshine-product-options/product-options.php:73 sunshine-product-options/product-options.php:214 sunshine-product-options/product-options.php:402
+msgid "Product Options"
+msgstr ""
+
+#: sunshine-product-options/product-options.php:61
+msgctxt "post type general name"
+msgid "Product Options"
+msgstr ""
+
+#: sunshine-product-options/product-options.php:62
+msgctxt "post type singular name"
+msgid "Product Option"
+msgstr ""
+
+#: sunshine-product-options/product-options.php:64
+msgid "Add New Product Option"
+msgstr ""
+
+#: sunshine-product-options/product-options.php:65
+msgid "Edit Product Option"
+msgstr ""
+
+#: sunshine-product-options/product-options.php:66
+msgid "New Product Option"
+msgstr ""
+
+#: sunshine-product-options/product-options.php:67
+msgid "All Product Options"
+msgstr ""
+
+#: sunshine-product-options/product-options.php:68
+msgid "View Product Options"
+msgstr ""
+
+#: sunshine-product-options/product-options.php:69
+msgid "Search Product Option"
+msgstr ""
+
+#: sunshine-product-options/product-options.php:70
+msgid "No Product Options found"
+msgstr ""
+
+#: sunshine-product-options/product-options.php:71
+msgid "No Product Options found in trash"
+msgstr ""
+
+#: sunshine-product-options/product-options.php:121
+msgid "Default Price"
+msgstr ""
+
+#: sunshine-product-options/product-options.php:161
+msgid "Add another option"
+msgstr ""
+
+#: sunshine-product-options/product-options.php:215
+msgid "This product has options"
+msgstr ""
+
+#: sunshine-product-options/product-options.php:218
+msgid "Product Option Pricing"
+msgstr ""
+
+#: sunshine-product-options/product-options.php:268
+msgid "Leave price blank to make it unavailable for respective Price Level, enter \"0\" to make it free"
+msgstr ""
+
+#: sunshine-product-options/product-options.php:412
+msgid "Select option"
+msgstr ""
+
+#: sunshine-product-options/product-options.php:439 sunshine-product-options/product-options.php:454
+msgid "You must select an option"
+msgstr ""
+
+#: sunshine-product-options/product-options.php:541
+msgid "Select Option"
+msgstr ""
+
+#: sunshine-stripe/stripe.php:101
+msgid "Too many requests make to the API"
+msgstr ""
+
+#: sunshine-stripe/stripe.php:104
+msgid "Invalid parameters were supplied to Stripe API"
+msgstr ""
+
+#: sunshine-stripe/stripe.php:108
+msgid "Stripe API keys are not valid"
+msgstr ""
+
+#: sunshine-stripe/stripe.php:111
+msgid "Could not connect to Stripe server"
+msgstr ""
+
+#: sunshine-stripe/stripe.php:115 sunshine-stripe/stripe.php:118
+msgid "Could not process your transaction"
+msgstr ""
+
+#: sunshine-stripe/stripe.php:153
+msgid "January"
+msgstr ""
+
+#: sunshine-stripe/stripe.php:154
+msgid "February"
+msgstr ""
+
+#: sunshine-stripe/stripe.php:155
+msgid "March"
+msgstr ""
+
+#: sunshine-stripe/stripe.php:156
+msgid "April"
+msgstr ""
+
+#: sunshine-stripe/stripe.php:157
+msgid "May"
+msgstr ""
+
+#: sunshine-stripe/stripe.php:158
+msgid "June"
+msgstr ""
+
+#: sunshine-stripe/stripe.php:159
+msgid "July"
+msgstr ""
+
+#: sunshine-stripe/stripe.php:160
+msgid "August"
+msgstr ""
+
+#: sunshine-stripe/stripe.php:161
+msgid "September"
+msgstr ""
+
+#: sunshine-stripe/stripe.php:162
+msgid "October"
+msgstr ""
+
+#: sunshine-stripe/stripe.php:163
+msgid "November"
+msgstr ""
+
+#: sunshine-stripe/stripe.php:164
+msgid "December"
+msgstr ""
+
+#: sunshine-stripe/stripe.php:223
+msgid "Enable payments via Stripe"
+msgstr ""
+
+#: sunshine-stripe/stripe.php:232
+msgid "Name that users will see on the checkout page, defaults to \"Stripe\""
+msgstr ""
+
+#: sunshine-stripe/stripe.php:242
+msgid "Stripe requires an SSL certificate to accept credit card information securely from your website. <a href=\"http://www.sunshinephotocart.com/docs/ssl\" target=\"_blank\">Learn more</a>"
+msgstr ""
+
+#: sunshine-stripe/stripe.php:259
+msgid "Test Publishable Key"
+msgstr ""
+
+#: sunshine-stripe/stripe.php:269
+msgid "Live Publishable Key"
+msgstr ""
+
+#: sunshine-tiered-pricing/tiered-pricing.php:61
+msgid "Tiered Pricing"
+msgstr ""
+
+#: sunshine-tiered-pricing/tiered-pricing.php:62
+msgid "This product uses tiered pricing"
+msgstr ""
+
+#: sunshine-tiered-pricing/tiered-pricing.php:65
+msgid "Create price tiers"
+msgstr ""
+
+#: sunshine-tiered-pricing/tiered-pricing.php:72
+msgid "Discount"
+msgstr ""
+
+#: sunshine-tiered-pricing/tiered-pricing.php:78
+msgid "Add another tier"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+#. Author of the plugin/theme
+msgid "Sunshine Photo Cart"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+#. Author URI of the plugin/theme
+msgid "https://www.sunshinephotocart.com"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Client Gallery Photo Cart & Proofing Plugin for WordPress"
+msgstr ""

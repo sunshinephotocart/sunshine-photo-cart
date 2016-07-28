@@ -303,6 +303,16 @@ $options = apply_filters( 'sunshine_options_galleries', $options );
 
 /* Payment Methods */
 $options[] = array( 'name' => __( 'Checkout', 'sunshine' ), 'type' => 'heading' );
+
+$options[] = array(
+	'name' => __( 'Allow Guest Checkout', 'sunshine' ),
+	'id'   => 'allow_guest_checkout',
+	'type' => 'checkbox',
+	'tip' => __( 'Allow users to checkout as a guest (do not require a user account)','sunshine' ),
+	'options' => array( 1 )
+);
+
+
 $options = apply_filters( 'sunshine_options_payment_methods', $options );
 
 $options[] = array( 'name' => __( 'Terms','sunshine' ), 'type' => 'title', 'desc' => '' );
@@ -364,14 +374,21 @@ $options = apply_filters( 'sunshine_options_templates', $options );
 
 /* Email Settings */
 $options[] = array( 'name' => __( 'Email', 'sunshine' ), 'type' => 'heading' );
-$options[] = array( 'name' => __( 'Order Notifications', 'sunshine' ), 'type' => 'title', 'desc' => '' );
+$options[] = array( 'name' => __( 'Notifications', 'sunshine' ), 'type' => 'title', 'desc' => '' );
 
 $options[] = array(
-	'name' => __( 'Email(s)', 'sunshine' ),
+	'name' => __( 'Order Notifications', 'sunshine' ),
 	'desc' => __( 'Email address(es) to receive order notifications. Separate multiple emails with a comma.','sunshine' ),
 	'id'   => 'order_notifications',
 	'type' => 'text',
 );
+$options[] = array(
+	'name' => __( 'Favorite Notifications', 'sunshine' ),
+	'desc' => __( 'Email address(es) to receive submitted favorites notifications. Separate multiple emails with a comma.','sunshine' ),
+	'id'   => 'favorite_notifications',
+	'type' => 'text',
+);
+
 
 $options[] = array( 'name' => __( 'Email From', 'sunshine' ), 'type' => 'title', 'desc' => '' );
 

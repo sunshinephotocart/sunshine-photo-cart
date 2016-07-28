@@ -13,7 +13,7 @@ add_action( 'tgmpa_register', 'sunshine_addon_manager', 9999 );
 function sunshine_addon_manager() {
 	global $sunshine;
 	
-	if ( get_option( 'sunshine_pro_license_active') != 'valid' ) return;
+	if ( !$sunshine->is_pro() ) return;
 
 	$plugins = array();
 
@@ -43,14 +43,14 @@ function sunshine_addon_manager() {
 
     $config = array(
         'default_path' => '',                      // Default absolute path to pre-packaged plugins.
-        'menu'         => 'sunshine_addons', 	// Menu slug.
+        'menu'         => 'sunshine_addon_manager', 	// Menu slug.
 		'parent_slug'  => 'sunshine_admin',
 		'capability'   => 'sunshine_manage_options',
         'has_notices'  => false,                    // Show admin notices or not.
         'dismissable'  => true,                    // If false, a user cannot dismiss the nag message.
         'dismiss_msg'  => '',                      // If 'dismissable' is false, this message will be output at top of nag.
         'is_automatic' => true,                   // Automatically activate plugins after installation or not.
-        'message'      => '',                      // Message to output right before the plugins table.
+        'message'      => '<div class="notice notice-info"><p>' . __( 'Please only install the add-ons you need. Hint: You <em>absolutely</em> do not need all of them', 'sunshine' ) . '</p></div>',                      // Message to output right before the plugins table.
         'strings'      => array(
             'page_title'                      => __( 'Sunshine Pro Add-on Manager', 'sunshine' ),
             'menu_title'                      => __( 'Add-on Manager', 'sunshine' ),

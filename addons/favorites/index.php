@@ -37,7 +37,7 @@ function sunshine_favorites_body_class( $classes ) {
 add_filter( 'sunshine_main_menu', 'sunshine_favorites_build_main_menu', '20', 1 );
 function sunshine_favorites_build_main_menu( $menu ) {
 	global $sunshine;
-	if ( $sunshine->options['page_favorites'] && is_user_logged_in() ) {
+	if ( $sunshine->options['page_favorites'] && is_user_logged_in() && !$sunshine->options['disable_favorites'] ) {
 		$count = '';
 		if ( sunshine_favorite_count( false ) )
 			$count = '<span class="sunshine-count sunshine-favorite-count">'.sunshine_favorite_count( false ).'</span>';
@@ -55,6 +55,11 @@ function sunshine_favorites_build_main_menu( $menu ) {
 add_filter( 'sunshine_action_menu', 'sunshine_favorites_build_action_menu', 20, 1 );
 function sunshine_favorites_build_action_menu( $menu ) {
 	global $post, $wp_query, $sunshine;
+	
+	if ( $sunshine->options['disable_favorites'] ) {
+		return $menu;
+	}
+	
 	if ( !empty( SunshineFrontend::$current_image ) ) {
 		if ( is_user_logged_in() ) {
 			$menu[15] = array(
@@ -148,7 +153,7 @@ function sunshine_favorites_build_image_menu( $menu, $image ) {
 add_action( 'wp_head', 'sunshine_favorites_add_to_favorites_js' );
 function sunshine_favorites_add_to_favorites_js() {
 	global $sunshine;
-	if ( is_sunshine() ) {
+	if ( is_sunshine() && !$sunshine->options['disable_favorites'] ) {
 ?>
 	<script>
 	function sunshine_add_image_to_favorites(e) {
@@ -252,7 +257,7 @@ add_filter( 'sunshine_content', 'sunshine_favorites_content' );
 function sunshine_favorites_content( $content ) {
 	global $sunshine;
 	if ( is_page( $sunshine->options['page_favorites'] ) )
-		$content = SunshineFrontend::get_template( 'favorites' );
+		$content .= SunshineFrontend::get_template( 'favorites' );
 	return $content;
 }
 
@@ -298,7 +303,7 @@ function sunshine_favorites_listener() {
 	global $sunshine;
 	if ( is_user_logged_in() && isset( $_GET['sunshine_favorite'] ) ) {
 		sunshine_add_favorite( $_GET['sunshine_favorite'] );
-		$sunshine->add_message( 'Image added to favorites' );
+		$sunshine->add_message( __( 'Image added to favorites', 'sunshine' ) );
 		wp_redirect( remove_query_arg( 'sunshine_favorite', sunshine_current_url( false ) ) );
 	}
 }
@@ -306,7 +311,7 @@ function sunshine_favorites_listener() {
 add_filter( 'login_message', 'sunshine_favorites_login_message' );
 function sunshine_favorites_login_message( $message ) {
 	if ( isset( $_GET['redirect_to'] ) && strpos( $_GET['redirect_to'],'sunshine_favorite' ) !== false ) {
-		return $message = __( 'A user account is required to track your favorites so you can come back any time to see them.','sunshine' );
+		return $message = sprintf( __( 'A user account is required to track your favorites so you can come back any time to see them. <a href="%s">Register here</a> or login to an existing account below.','sunshine' ), wp_registration_url() );
 	}
 	return $message;
 }
@@ -342,8 +347,18 @@ add_action( 'init', 'sunshine_favorites_submit', 110 );
 function sunshine_favorites_submit() {
 	global $sunshine, $current_user;
 	if ( isset( $_GET['submit_favorites'] ) && isset( $_GET['nonce'] ) && wp_verify_nonce( $_GET['nonce'], 'sunshine_submit_favorites' ) ) {
-		$content = $current_user->display_name.' has submitted their favorites, view them here - '.admin_url( 'user-edit.php?user_id='.$current_user->ID.'#sunshine-favorites' );
-		wp_mail( get_bloginfo( 'admin_email' ), $current_user->display_name.' has submitted their favorites!', $content );
+		
+		$content = sprintf( __( '%s has submitted their favorites, <a href="%s">view them here</a>', 'sunshine' ), $current_user->display_name, admin_url( 'user-edit.php?user_id='.$current_user->ID.'#sunshine-favorites' ) );
+		$search = array( '[message_content]' );
+		$replace = array( $content );
+		
+		if ( $sunshine->options['order_notifications'] )
+			$admin_emails = explode( ',',$sunshine->options['order_notifications'] );
+		else
+			$admin_emails = array( get_bloginfo( 'admin_email' ) );
+		foreach ( $admin_emails as $admin_email )
+			$mail_result = SunshineEmail::send_email( 'favorites', trim( $admin_email ), sprintf( __( '%s has submitted favorites' ), $current_user->display_name ), '', $search, $replace );
+		
 		$sunshine->add_message( __( 'Your favorite images have been sent','sunshine' ) );
 		wp_redirect( sunshine_url( 'favorites' ) );
 		exit;
@@ -361,7 +376,11 @@ function sunshine_favorites_lightbox_menu( $menu, $image ) {
 	$class = '';
 	if ( sunshine_is_image_favorite( $image->ID ) )
 		$class = 'sunshine-favorite';
-	$menu .= ' <a href="#" data-image-id="'.$image->ID.'" onclick="sunshine_add_image_to_favorites(this); return false;" class="'.$class.'"><i class="fa fa-heart"></i></a>';
+	if ( is_user_logged_in() ) {
+		$menu .= ' <a href="#" data-image-id="'.$image->ID.'" onclick="sunshine_add_image_to_favorites(this); return false;" class="'.$class.'"><i class="fa fa-heart"></i></a>';
+	} else {
+		$menu .= '<a href="' . wp_login_url( add_query_arg( 'sunshine_favorite', $image->ID, sunshine_current_url( false ) . '#' . $image->ID ) ) . '"><i class="fa fa-heart"></i></a>';
+	}
 	return $menu;
 }
 
@@ -477,7 +496,8 @@ function sunshine_favorites_check_availability() {
 		$removed_items = false;
 		foreach ( $sunshine->favorites as $favorite_id ) {
 			$image = get_post( $favorite_id );
-			if ( !$image ) {
+			$image_url = get_attached_file( $favorite_id );
+			if ( !$image || !file_exists( $image_url ) ) {
 				sunshine_delete_favorite( $favorite_id );
 				$removed_items = true;
 			}

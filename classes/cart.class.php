@@ -35,6 +35,7 @@ class SunshineCart {
 		$this->set_tax();
 		$this->set_total();
 		$this->set_item_count();
+		//$this->apply_price_filters();
 		$this->set_number_format();
 	}
 
@@ -46,9 +47,14 @@ class SunshineCart {
 		$product_id = intval( $product_id );
 		$qty = intval( $qty );
 		$price_level = intval( $price_level );
+		if ( $image_id > 0 ) {
+			$image = get_post( $image_id );
+			$gallery_id = $image->post_parent;
+		}
 
 		$item = array(
 			'image_id' => $image_id,
+			'gallery_id' => $gallery_id,
 			'product_id' => $product_id,
 			'price_level' => $price_level,
 			'qty' => $qty,
@@ -85,6 +91,7 @@ class SunshineCart {
 		// Update to current cart
 		$this->content = $current_cart;
 		$this->set_item_count();
+		$this->set_subtotal();
 
 		// Set user cart values
 		if ( is_user_logged_in() ) {
@@ -103,8 +110,10 @@ class SunshineCart {
 		if ( is_user_logged_in() ) {
 			$cart_item = $cart[ $key ];
 			SunshineUser::delete_user_meta( 'cart', $cart_item );
+			SunshineUser::delete_user_meta( 'shipping_method' );
 		} else {
 			SunshineSession::instance()->cart = $cart;
+			SunshineSession::instance()->shipping_method = array();
 		}
 		unset( $cart[ $key ] );
 
@@ -205,7 +214,6 @@ class SunshineCart {
 			sunshine_setcookie( 'sunshine_cart_hash', '', time() - ( 30 * DAY_IN_SECONDS ) );
 			delete_option( 'sunshine_cart_hash_' . $_COOKIE['sunshine_cart_hash'] );
 			unset( $_COOKIE['sunshine_cart_hash'] );
-			sunshine_log( 'Clearing cart cookies' );
 		}
 	}
 	
@@ -213,6 +221,17 @@ class SunshineCart {
 	public function set_discounts() {
 		global $current_user;
 		$this->discounts = SunshineSession::instance()->discounts;
+		$auto_discounts = get_posts( array(
+			'post_type' => 'sunshine-discount',
+			'nopaging' => 1,
+			'meta_key' => 'auto',
+			'meta_value' => 1
+		) );
+		if ( is_array( $auto_discounts ) ) {
+			foreach( $auto_discounts as $auto_discount ) {
+				$this->discounts[] = $auto_discount->ID;
+			}
+		}
 	}
 
 	public function set_discount_items() {
@@ -222,26 +241,14 @@ class SunshineCart {
 				$ids[] = $discount_id;
 			$discounts = get_posts( 'post_type=sunshine-discount&include='.join( ',',$ids ) );
 			foreach ( $discounts as $discount ) {
-				$d = new stdClass;
-				$d->ID = $discount->ID;
-				$d->name = $discount->post_title;
-				$d->code = get_post_meta( $discount->ID, 'code', true );
-				$d->discount_type = get_post_meta( $discount->ID, 'discount_type', true );
-				$d->amount = get_post_meta( $discount->ID, 'amount', true );
-				$d->start_date = get_post_meta( $discount->ID, 'start_date', true );
-				$d->end_date = get_post_meta( $discount->ID, 'end_date', true );
-				$d->max_uses = get_post_meta( $discount->ID, 'max_uses', true );
-				$d->use_count = get_post_meta( $discount->ID, 'use_count', true );
-				$d->max_product_quantity = get_post_meta( $discount->ID, 'max_product_quantity', true );
-				$d->max_uses_per_person = get_post_meta( $discount->ID, 'max_uses_per_person', true );
-				$d->solo = get_post_meta( $discount->ID, 'solo', true );
-				$d->free_shipping = get_post_meta( $discount->ID, 'free_shipping', true );
-				$d->min_amount = get_post_meta( $discount->ID, 'min_amount', true );
-				$d->before_tax = get_post_meta( $discount->ID, 'before_tax', true );
-				$d->allowed_products = get_post_meta( $discount->ID, 'allowed_products', true );
-				$d->disallowed_products = get_post_meta( $discount->ID, 'disallowed_products', true );
-				$d->allowed_categories = get_post_meta( $discount->ID, 'allowed_categories', true );
-				$d->disallowed_categories = get_post_meta( $discount->ID, 'disallowed_categories', true );
+				$d = array();
+				$d['ID'] = $discount->ID;
+				$d['name'] = $discount->post_title;
+				$meta = get_post_meta( $discount->ID );
+				foreach ( $meta as $key => $m ) {
+					$d[ $key ] = maybe_unserialize( $m[ 0 ] );
+				}
+				$d = (object) $d;
 				$this->discount_items[] = $d;
 
 				if ( $d->free_shipping ) {
@@ -387,7 +394,7 @@ class SunshineCart {
 			}
 
 			// Check max uses
-			if ( !$this->discount_valid_max_uses( $discount->use_count, $discount->max_uses ) ){
+			if ( isset( $discount->use_count ) && !$this->discount_valid_max_uses( $discount->use_count, $discount->max_uses ) ){
 				$sunshine->add_error( sprintf( __( 'Discount %s has now exceeded the maximum uses and has been removed from your cart','sunshine' ), $discount->name ) );
 				$this->remove_discount( $discount->ID, false );
 				break;
@@ -395,7 +402,8 @@ class SunshineCart {
 
 			if ( !$this->discount_valid_max_uses_per_person( $discount->code, $discount->max_uses_per_person ) )
 				break;
-
+			
+				
 			// Passed all the tests!
 			switch ( $discount->discount_type ) {
 				case 'percent-total':
@@ -414,23 +422,29 @@ class SunshineCart {
 			
 					$discount_items = array();
 					foreach ( $this->content as $item ) {
+						if ( is_array( $discount->galleries ) && isset( $item['image_id'] ) ) {
+							$image = get_post( $item['image_id'] );
+							if ( !in_array( $image->post_parent, $discount->galleries ) ) 
+								continue;
+						}
 						if ( empty( $discount_items[ $item[ 'product_id' ] ] ) ) {
-							$discount_item_quantities[ $item[ 'product_id' ] ] = $item[ 'qty' ];
+							$discount_items[ $item[ 'product_id' ] ] = $item[ 'qty' ];
 						} else {
-							$discount_item_quantities[ $item[ 'product_id' ] ] += $item[ 'qty' ];
+							$discount_items[ $item[ 'product_id' ] ] += $item[ 'qty' ];
 						}
 						$discount_products[ $item[ 'product_id' ] ] = $item;
 					}
-				
+			
 					if ( !empty( $discount_items ) ) {
 						foreach ( $discount_items as $product_id => $item ) {
 							if ( $this->product_can_be_discounted( $product_id, $discount ) ) {
-								if ( $discount->max_product_quantity > 0 && $discount_item_quantities[ $product_id ] > $discount->max_product_quantity )
-									$price_to_discount = $item['price'] * $discount->max_product_quantity;
-								else
-									$price_to_discount = $item['price'] * $discount_item_quantities[ $product_id ];
+								if ( $discount->max_product_quantity > 0 && $discount_items[ $product_id ] > $discount->max_product_quantity ) {
+									$price_to_discount = $discount_products[ $product_id ]['price'] * $discount->max_product_quantity;
+								} else {
+									$price_to_discount = $discount_products[ $product_id ]['price'] * $discount_items[ $product_id ];
+								}
 								$discount_total = $discount_total + ( $price_to_discount * ( $discount->amount / 100 ) );
-							}
+							} 
 						}
 					}
 
@@ -439,6 +453,11 @@ class SunshineCart {
 				
 					$discount_items = array();
 					foreach ( $this->content as $item ) {
+						if ( is_array( $discount->galleries ) && isset( $item['image_id'] ) ) {
+							$image = get_post( $item['image_id'] );
+							if ( !in_array( $image->post_parent, $discount->galleries ) ) 
+								continue;
+						}
 						if ( empty( $discount_items[ $item[ 'product_id' ] ] ) ) {
 							$discount_items[ $item[ 'product_id' ] ] = $item[ 'qty' ];
 						} else {
@@ -492,6 +511,7 @@ class SunshineCart {
 					return false;
 			}
 		}
+				
 		return true;
 	}
 
@@ -518,8 +538,9 @@ class SunshineCart {
 		$price = get_post_meta( $product_id, 'sunshine_product_price_'.$price_level, true );
 		$result = '';
 		if ( $price ) {
-			if ( $formatted )
-				$result = sunshine_money_format( $price,false );
+			if ( $formatted ) {
+				$result = sunshine_money_format( $price, false );
+			}
 			else
 				$result = $price;
 		} else {
@@ -528,6 +549,8 @@ class SunshineCart {
 			else
 				$result = '0';
 		}
+		
+		
 		return $result;
 	}
 
@@ -592,8 +615,9 @@ class SunshineCart {
 		}
 
 		// If shipping method is taxable
-		if ( is_array( $this->shipping_method ) && isset( $this->shipping_method['cost'] ) && isset( $this->shipping_method['taxable'] ) && $this->shipping_method['taxable'] == 1 )
+		if ( is_array( $this->shipping_method ) && isset( $this->shipping_method['cost'] ) && isset( $this->shipping_method['taxable'] ) && $this->shipping_method['taxable'] == 1 ) {
 			$taxable_total += $this->shipping_method['cost'];
+		}
 
 		return max( 0, $taxable_total * ( $sunshine->options['tax_rate']/100 ) );
 	}

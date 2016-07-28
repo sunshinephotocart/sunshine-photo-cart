@@ -15,14 +15,7 @@ function sunshine_2013_options($options) {
 	$options[] = array(
 		'name' => __('Background Color', 'sunshine'),
 		'id'   => '2013_main_background_color',
-		'type' => 'text',
-		'desc' => '
-			<script>
-			jQuery(document).ready(function($){
-			    $("#2013_main_background_color").wpColorPicker();
-			});
-			</script>
-		'
+		'type' => 'color',
 	);
 	$options[] = array(
 		'name' => __('Header Font', 'sunshine'),
@@ -33,14 +26,7 @@ function sunshine_2013_options($options) {
 	$options[] = array(
 		'name' => __('Header Text Color', 'sunshine'),
 		'id'   => '2013_header_text_color',
-		'type' => 'text',
-		'desc' => '
-			<script>
-			jQuery(document).ready(function($){
-			    $("#2013_header_text_color").wpColorPicker();
-			});
-			</script>
-		'
+		'type' => 'color',
 	);
 	$options[] = array(
 		'name' => __('Body Text Font', 'sunshine'),
@@ -51,52 +37,24 @@ function sunshine_2013_options($options) {
 	$options[] = array(
 		'name' => __('Body Text Color', 'sunshine'),
 		'id'   => '2013_main_color',
-		'type' => 'text',
-		'desc' => '
-			<script>
-			jQuery(document).ready(function($){
-			    $("#2013_main_color").wpColorPicker();
-			});
-			</script>
-		'
+		'type' => 'color',
 	);
 	$options[] = array(
 		'name' => __('Link Color', 'sunshine'),
 		'id'   => '2013_link_color',
-		'type' => 'text',
-		'desc' => '
-			<script>
-			jQuery(document).ready(function($){
-			    $("#2013_link_color").wpColorPicker();
-			});
-			</script>
-		'
+		'type' => 'color',
 	);
 	$options[] = array(
 		'name' => __('Secondary Color', 'sunshine'),
 		'id'   => '2013_secondary_color',
-		'type' => 'text',
-		'desc' => '
-			<script>
-			jQuery(document).ready(function($){
-			    $("#2013_secondary_color").wpColorPicker();
-			});
-			</script>
-		'
+		'type' => 'color',
 	);
 
 	$options[] = array( 'name' => __('Left Sidebar', 'sunshine'), 'type' => 'title', 'desc' => '' );
 	$options[] = array(
 		'name' => __('Background Color', 'sunshine'),
 		'id'   => '2013_sidebar_background_color',
-		'type' => 'text',
-		'desc' => '
-			<script>
-			jQuery(document).ready(function($){
-			    $("#2013_sidebar_background_color").wpColorPicker();
-			});
-			</script>
-		'
+		'type' => 'color',
 	);
 	$options[] = array(
 		'name' => __('Font', 'sunshine'),
@@ -107,40 +65,19 @@ function sunshine_2013_options($options) {
 	$options[] = array(
 		'name' => __('Link Color', 'sunshine'),
 		'id'   => '2013_menu_link_color',
-		'type' => 'text',
-		'desc' => '
-			<script>
-			jQuery(document).ready(function($){
-			    $("#2013_menu_link_color").wpColorPicker();
-			});
-			</script>
-		'
+		'type' => 'color',
 	);
 	
 	$options[] = array( 'name' => __('Buttons', 'sunshine'), 'type' => 'title', 'desc' => '' );
 	$options[] = array(
 		'name' => __('Background Color', 'sunshine'),
 		'id'   => '2013_button_color',
-		'type' => 'text',
-		'desc' => '
-			<script>
-			jQuery(document).ready(function($){
-			    $("#2013_button_color").wpColorPicker();
-			});
-			</script>
-		'
+		'type' => 'color',
 	);
 	$options[] = array(
 		'name' => __('Text Color', 'sunshine'),
 		'id'   => '2013_button_text_color',
-		'type' => 'text',
-		'desc' => '
-			<script>
-			jQuery(document).ready(function($){
-			    $("#2013_button_text_color").wpColorPicker();
-			});
-			</script>
-		'
+		'type' => 'color',
 	);
 	
 	$options[] = array( 'name' => __('Custom Styles', 'sunshine'), 'type' => 'title', 'desc' => '' );
