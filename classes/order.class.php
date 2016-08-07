@@ -5,13 +5,13 @@ class SunshineOrder extends SunshineSingleton {
 		global $sunshine;
 
 		$order_id = wp_insert_post( array(
-				'post_title' => 'Order &ndash; '.date( get_option( 'date_format' ).' @ '.get_option( 'time_format' ) ),
-				'post_content' => '',
-				'post_type' => 'sunshine-order',
-				'post_status' => 'publish',
-				'comment_status' => 'open',
-				'post_author' => ( $data['user_id'] ) ? $data['user_id'] : 1
-			) );
+			'post_title' => 'Order &ndash; '.date( get_option( 'date_format' ).' @ '.get_option( 'time_format' ) ),
+			'post_content' => '',
+			'post_type' => 'sunshine-order',
+			'post_status' => 'publish',
+			'comment_status' => 'open',
+			'post_author' => ( $data['user_id'] ) ? $data['user_id'] : 1
+		) );
 		wp_update_post( array(
 			'ID' => $order_id,
 			'post_title' => 'Order #'.$order_id,
@@ -47,7 +47,7 @@ class SunshineOrder extends SunshineSingleton {
 				update_post_meta( $discount->ID, 'use_count', $current_count + 1 );
 			}
 		}
-		
+
 		// Meta data
 		if ( is_array( $data['meta'] ) ) {
 			foreach ( $data['meta'] as $key => $value ) {
@@ -65,14 +65,14 @@ class SunshineOrder extends SunshineSingleton {
 
 		return $order_id;
 	}
-	
+
 	public static function notify( $order_id ) {
 		global $sunshine;
-		
+
 		$data = maybe_unserialize( get_post_meta( $order_id, '_sunshine_order_data', true ) );
 		$order_items = maybe_unserialize( get_post_meta( $order_id, '_sunshine_order_items', true ) );
 		$discount_items = maybe_unserialize( get_post_meta( $order_id, '_sunshine_order_discounts', true ) );
-		
+
 		// Send confirmation email
 		$th_style = 'padding: 0 20px 5px 0; border-bottom: 1px solid #CCC; text-align: left; font-size: 10px; color: #999; text-decoration: none;';
 		$td_style = 'padding: 5px 20px 5px 0; text-align: left; font-size: 12px;';
@@ -106,7 +106,7 @@ class SunshineOrder extends SunshineSingleton {
 					$items_html .= ' <tr><td colspan="3" style="'.$td_style.' text-align: right;">' . __('Discounts', 'sunshine') . '</td><td style="'.$td_style.'">'.sunshine_money_format( $data['discount_total'], false ).'</td></tr>';
 		}
 		if ( $data['credits'] ) {
-			$items_html .= ' <tr><td colspan="3" style="'.$td_style.' text-align: right;">' . __('Credits', 'sunshine') . '</td><td style="'.$td_style.'">-'.sunshine_money_format( $data['credits'], false ).'</td></tr>';			
+			$items_html .= ' <tr><td colspan="3" style="'.$td_style.' text-align: right;">' . __('Credits', 'sunshine') . '</td><td style="'.$td_style.'">-'.sunshine_money_format( $data['credits'], false ).'</td></tr>';
 		}
 		$items_html .= ' <tr><td colspan="3" style="'.$td_style.' text-align: right; font-size: 16px;">' . __('Total', 'sunshine') . '</td><td style="'.$td_style.' font-size: 16px;">'.sunshine_money_format( $data['total'],false ).'</td></tr>';
 		$items_html .= ' </table></div>';
@@ -140,7 +140,7 @@ class SunshineOrder extends SunshineSingleton {
 			$customer_info .= '</p></td>';
 		}
 		$customer_info .= '</tr></table>';
-		
+
 
 		$search = array( '[message]', '[items]', '[customer_info]', '[order_id]', '[order_url]', '[first_name]', '[last_name]' );
 		$replace = array( nl2br( $sunshine->options['email_receipt'] ), $items_html, $customer_info, $order_id, get_permalink( $order_id ), $data['first_name'], $data['last_name'] );
@@ -152,7 +152,7 @@ class SunshineOrder extends SunshineSingleton {
 			$admin_emails = array( get_bloginfo( 'admin_email' ) );
 		foreach ( $admin_emails as $admin_email )
 			$mail_result = SunshineEmail::send_email( 'receipt_admin', trim( $admin_email ), sprintf( __( 'Order #%s placed on %s' ), $order_id, get_option( 'blogname' ) ), sprintf( __( '<a href="%s">Order #%s</a> placed on %s' ), admin_url( '/post.php?post=' . $order_id . '&action=edit' ), $order_id, get_option( 'blogname' ) ), $search, $replace, $data );
-		
+
 	}
 
 }

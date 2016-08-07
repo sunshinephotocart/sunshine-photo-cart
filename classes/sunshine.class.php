@@ -261,7 +261,9 @@ class Sunshine {
 			add_theme_support( 'post-thumbnails' );
 		}
 		add_image_size( 'sunshine-thumbnail', $this->options['thumbnail_width'], $this->options['thumbnail_height'], $this->options['thumbnail_crop'] );
-		set_post_thumbnail_size( $this->options['thumbnail_width'], $this->options['thumbnail_height'], $this->options['thumbnail_crop'] );
+		if ( is_sunshine() ) {
+			set_post_thumbnail_size( $this->options['thumbnail_width'], $this->options['thumbnail_height'], $this->options['thumbnail_crop'] );
+		}
 	}
 
 	function sunshine_image_sizes( $image_sizes ) {
@@ -341,7 +343,7 @@ class Sunshine {
 		SunshineSession::instance()->messages = $this->messages;
 		return $location;
 	}
-	
+
 	public function is_pro() {
 		if ( !empty( $this->is_pro ) ) {
 			return $this->is_pro;
@@ -359,7 +361,7 @@ class Sunshine {
 		global $sunshine;
 
 		$this->post_types();
-		
+
 		update_option( 'sunshine_version', SUNSHINE_VERSION );
 
 		flush_rewrite_rules();
@@ -399,7 +401,7 @@ class Sunshine {
 		$admin->add_cap( 'delete_others_sunshine_products' );
 		$admin->add_cap( 'edit_private_sunshine_products' );
 		$admin->add_cap( 'edit_published_sunshine_products' );
-		
+
 		$admin->add_cap( 'edit_sunshine_order' );
 		$admin->add_cap( 'read_sunshine_order' );
 		$admin->add_cap( 'delete_sunshine_order' );
@@ -413,8 +415,8 @@ class Sunshine {
 		$admin->add_cap( 'delete_published_sunshine_orders' );
 		$admin->add_cap( 'delete_others_sunshine_orders' );
 		$admin->add_cap( 'edit_private_sunshine_orders' );
-		$admin->add_cap( 'edit_published_sunshine_orders' );		
-		
+		$admin->add_cap( 'edit_published_sunshine_orders' );
+
 		$admin->add_cap( 'sunshine_manage_options' );
 
 		// Default options
@@ -567,24 +569,24 @@ class Sunshine {
 		$upload_dir = wp_upload_dir();
 		if ( !is_dir( $upload_dir['basedir'].'/sunshine' ) )
 			wp_mkdir_p( $upload_dir['basedir'].'/sunshine' );
-			
+
 		update_option( 'sunshine_install_time', current_time( 'timestamp' ) );
 		update_option( 'sunshine_install_redirect', 1 );
 
 		do_action( 'sunshine_install' );
 
 		flush_rewrite_rules();
-	
+
 	}
 
 	function update() {
-		
+
 		global $sunshine, $wpdb;
-		
+
 		flush_rewrite_rules();
-		
+
 		$admin = get_role( 'administrator' );
-	
+
 		$admin->add_cap( 'edit_sunshine_gallery' );
 		$admin->add_cap( 'read_sunshine_gallery' );
 		$admin->add_cap( 'delete_sunshine_gallery' );
@@ -614,7 +616,7 @@ class Sunshine {
 		$admin->add_cap( 'delete_others_sunshine_products' );
 		$admin->add_cap( 'edit_private_sunshine_products' );
 		$admin->add_cap( 'edit_published_sunshine_products' );
-		
+
 		$admin->add_cap( 'edit_sunshine_order' );
 		$admin->add_cap( 'read_sunshine_order' );
 		$admin->add_cap( 'delete_sunshine_order' );
@@ -628,12 +630,12 @@ class Sunshine {
 		$admin->add_cap( 'delete_published_sunshine_orders' );
 		$admin->add_cap( 'delete_others_sunshine_orders' );
 		$admin->add_cap( 'edit_private_sunshine_orders' );
-		$admin->add_cap( 'edit_published_sunshine_orders' );		
-		
+		$admin->add_cap( 'edit_published_sunshine_orders' );
+
 		// Default options
 		$options = get_option('sunshine_options');
 		$version = get_option('sunshine_version');
-		
+
 		if ( !term_exists( 'pending', 'sunshine-order-status' ) )
 			$term[] = wp_insert_term( __( 'Pending','sunshine' ), 'sunshine-order-status', array( 'slug' => 'pending', 'description' => __( 'We have received your order but payment is still pending','sunshine' ) ) );
 		if ( !term_exists( 'new', 'sunshine-order-status' ) )
@@ -650,7 +652,7 @@ class Sunshine {
 		if ( !$terms = get_terms( 'sunshine-product-price-level', array( 'hide_empty' => 0 ) ) ) {
 			wp_insert_term( __( 'Default','sunshine' ), 'sunshine-product-price-level' );
 		}
-		
+
 		if ( version_compare($version, '1.9.5', '<') ) {
 
 			if (!isset($options['endpoint_gallery'])) {
@@ -660,14 +662,14 @@ class Sunshine {
 						$options['endpoint_gallery'] = 'sgallery';
 				}
 			}
-			
+
 		}
 
 		if ( version_compare($version, '1.9.6', '<') ) {
 
-			$wpdb->query( 
+			$wpdb->query(
 				$wpdb->prepare("DELETE FROM $wpdb->usermeta WHERE meta_key = %s", 'sunshine_card_number')
-			);		
+			);
 
 			// Changes for all galleries
 			$args = array(
@@ -678,11 +680,11 @@ class Sunshine {
 			while ( $the_query->have_posts() ) : $the_query->the_post();
 				// Change values for gallery access
 				$require_account = get_post_meta(get_the_ID(), 'sunshine_gallery_require_account', true);
-				if ($require_account) 
+				if ($require_account)
 					update_post_meta(get_the_ID(), 'sunshine_gallery_access', 'account');
-			endwhile; wp_reset_postdata();	
+			endwhile; wp_reset_postdata();
 		}
-		
+
 		if ( version_compare($version, '2.2.5', '<') ) {
 			// Changes for all galleries
 			$args = array(
@@ -693,9 +695,9 @@ class Sunshine {
 			$the_query = new WP_Query( $args );
 			while ( $the_query->have_posts() ) : $the_query->the_post();
 				update_post_meta(get_the_ID(), 'sunshine_gallery_access', 'password');
-			endwhile; wp_reset_postdata();	
+			endwhile; wp_reset_postdata();
 		}
-		
+
 		if ( version_compare($version, '2.2.10', '<') ) {
 			// Changes for requiring email for all galleries
 			$args = array(
@@ -716,8 +718,8 @@ class Sunshine {
 				}
 				if ( is_array( $new_access ) ) {
 					update_post_meta( get_the_ID(), 'sunshine_gallery_access', $new_access );
-				} 
-			endwhile; wp_reset_postdata();	
+				}
+			endwhile; wp_reset_postdata();
 		}
 
 		if ( version_compare($version, '2.2.7', '<') ) {
@@ -733,21 +735,21 @@ class Sunshine {
 					update_post_meta( get_the_ID(), 'sunshine_gallery_access', '' );
 					update_post_meta( get_the_ID(), 'sunshine_gallery_require_email', '1' );
 				}
-			endwhile; wp_reset_postdata();	
+			endwhile; wp_reset_postdata();
 		}
-		
+
 		if ( version_compare($version, '2.4', '<') ) {
 			update_option('sunshine_update_image_location', 'yes' );
 		}
-		
+
 		$options = apply_filters( 'sunshine_update_options', $options );
 		update_option('sunshine_options', $options);
 
-		update_option('sunshine_version', SUNSHINE_VERSION);	
+		update_option('sunshine_version', SUNSHINE_VERSION);
 		$sunshine->version = SUNSHINE_VERSION;
-		
+
 		do_action('sunshine_update');
-		
+
 		wp_redirect( admin_url( '/admin.php?page=sunshine_about&sunshine_updated' ) );
 		exit;
 

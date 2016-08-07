@@ -42,7 +42,7 @@ class SunshineCart {
 	function add_to_cart( $image_id, $product_id, $qty, $price_level, $comments='', $type='', $extra = '' ) {
 
 		$current_cart = $this->content;
-		
+
 		$image_id = intval( $image_id );
 		$product_id = intval( $product_id );
 		$qty = intval( $qty );
@@ -98,13 +98,13 @@ class SunshineCart {
 			$result = SunshineUser::add_user_meta( 'cart', $item, false );
 		} else {
 			$this->set_cart_cookies( true, 'add_to_cart' );
-		} 
+		}
 
 		do_action( 'sunshine_add_cart_item', $item );
 
 		return true;
 	}
-	
+
 	function remove_from_cart( $key ) {
 		$cart = $this->get_cart();
 		if ( is_user_logged_in() ) {
@@ -166,7 +166,7 @@ class SunshineCart {
 			$this->content = SunshineUser::get_user_meta( 'cart', false );
 		} elseif ( isset( $_COOKIE['sunshine_cart_hash'] ) ) {
 			$this->content = maybe_unserialize( get_option( 'sunshine_cart_hash_' . $_COOKIE['sunshine_cart_hash'] ) );
-		} 
+		}
 
 		sunshine_array_sort_by_column( $this->content, 'type' );
 	}
@@ -178,10 +178,10 @@ class SunshineCart {
 	function get_cart_by_user( $user_id ) {
 		if ( $user_id > 0 ) {
 			return SunshineUser::get_user_meta_by_id( $user_id, 'cart', false );
-		} 
+		}
 		return;
 	}
-	
+
 	/*
 	* Original Source: WooCommerce
 	*/
@@ -189,10 +189,10 @@ class SunshineCart {
 		if ( ! headers_sent() ) {
 			if ( !empty( $this->content ) ) {
 				$this->set_cart_cookies( true, 'maybe_set_cart_cookies' );
-			} 
+			}
 		}
 	}
-	
+
 	/**
 	 * Set cart hash cookie and items in cart.
 	 *
@@ -216,20 +216,24 @@ class SunshineCart {
 			unset( $_COOKIE['sunshine_cart_hash'] );
 		}
 	}
-	
+
 
 	public function set_discounts() {
-		global $current_user;
+		global $sunshine;
 		$this->discounts = SunshineSession::instance()->discounts;
-		$auto_discounts = get_posts( array(
-			'post_type' => 'sunshine-discount',
-			'nopaging' => 1,
-			'meta_key' => 'auto',
-			'meta_value' => 1
-		) );
-		if ( is_array( $auto_discounts ) ) {
-			foreach( $auto_discounts as $auto_discount ) {
-				$this->discounts[] = $auto_discount->ID;
+		if ( !empty( $this->content ) ) {
+			$auto_discounts = get_posts( array(
+				'post_type' => 'sunshine-discount',
+				'nopaging' => 1,
+				'meta_key' => 'auto',
+				'meta_value' => 1
+			) );
+			if ( is_array( $auto_discounts ) ) {
+				foreach( $auto_discounts as $auto_discount ) {
+					$code = get_post_meta( $auto_discount->ID, 'code', true );
+					$this->apply_discount( $code, false );
+					//$this->discounts[] = $auto_discount->ID;
+				}
 			}
 		}
 	}
@@ -402,8 +406,8 @@ class SunshineCart {
 
 			if ( !$this->discount_valid_max_uses_per_person( $discount->code, $discount->max_uses_per_person ) )
 				break;
-			
-				
+
+
 			// Passed all the tests!
 			switch ( $discount->discount_type ) {
 				case 'percent-total':
@@ -419,12 +423,12 @@ class SunshineCart {
 						$discount_total = $discount->amount;
 					break;
 				case 'percent-product':
-			
+
 					$discount_items = array();
 					foreach ( $this->content as $item ) {
 						if ( is_array( $discount->galleries ) && isset( $item['image_id'] ) ) {
 							$image = get_post( $item['image_id'] );
-							if ( !in_array( $image->post_parent, $discount->galleries ) ) 
+							if ( !in_array( $image->post_parent, $discount->galleries ) )
 								continue;
 						}
 						if ( empty( $discount_items[ $item[ 'product_id' ] ] ) ) {
@@ -434,7 +438,7 @@ class SunshineCart {
 						}
 						$discount_products[ $item[ 'product_id' ] ] = $item;
 					}
-			
+
 					if ( !empty( $discount_items ) ) {
 						foreach ( $discount_items as $product_id => $item ) {
 							if ( $this->product_can_be_discounted( $product_id, $discount ) ) {
@@ -444,18 +448,18 @@ class SunshineCart {
 									$price_to_discount = $discount_products[ $product_id ]['price'] * $discount_items[ $product_id ];
 								}
 								$discount_total = $discount_total + ( $price_to_discount * ( $discount->amount / 100 ) );
-							} 
+							}
 						}
 					}
 
 					break;
 				case 'amount-product':
-				
+
 					$discount_items = array();
 					foreach ( $this->content as $item ) {
 						if ( is_array( $discount->galleries ) && isset( $item['image_id'] ) ) {
 							$image = get_post( $item['image_id'] );
-							if ( !in_array( $image->post_parent, $discount->galleries ) ) 
+							if ( !in_array( $image->post_parent, $discount->galleries ) )
 								continue;
 						}
 						if ( empty( $discount_items[ $item[ 'product_id' ] ] ) ) {
@@ -464,8 +468,8 @@ class SunshineCart {
 							$discount_items[ $item[ 'product_id' ] ] += $item[ 'qty' ];
 						}
 					}
-				
-					if ( !empty( $discount_items ) ) { 
+
+					if ( !empty( $discount_items ) ) {
 						foreach ( $discount_items as $product_id => $qty ) {
 							if ( $this->product_can_be_discounted( $product_id, $discount ) ) {
 								if ( $discount->max_product_quantity > 0 && $qty > $discount->max_product_quantity ) {
@@ -511,7 +515,7 @@ class SunshineCart {
 					return false;
 			}
 		}
-				
+
 		return true;
 	}
 
@@ -549,8 +553,8 @@ class SunshineCart {
 			else
 				$result = '0';
 		}
-		
-		
+
+
 		return $result;
 	}
 
@@ -579,7 +583,7 @@ class SunshineCart {
 
 		$tax_location_array = explode( '|', $sunshine->options['tax_location'] );
 		if (( isset( $this->shipping_method['id'] ) && $this->shipping_method['id'] == 'pickup' ) ) {
-			
+
 		} elseif ( isset( $tax_location_array[1] ) ) {
 			$tax_location = $tax_location_array[1];
 			$tax_state = SunshineUser::get_user_meta( 'shipping_state' );
@@ -655,7 +659,7 @@ class SunshineCart {
 		return $result;
 	}
 
-	function apply_discount( $code ) {
+	function apply_discount( $code, $errors = true ) {
 		global $current_user, $sunshine;
 		if ( $code ) {
 			if ( !$this->can_add_discount() ) {
@@ -675,21 +679,26 @@ class SunshineCart {
 			$discounts = get_posts( $args );
 			if ( $discounts ) {
 				foreach ( $discounts as $discount ) {
+					// Is it already applied
+					if ( in_array( $discount->ID, $this->discounts ) ) {
+						if ( $errors ) $sunshine->add_error( __( 'This discount is already applied', 'sunshine' ) );
+						break;
+					}
 					// Check minimum order amount
 					$min_amount = get_post_meta( $discount->ID, 'min_amount', true );
 					if ( !$this->discount_valid_min_amount( $min_amount ) ) {
-						$sunshine->add_error( __( 'Your order does not yet meet the minimum order amount for this discount','sunshine' ) );
+						if ( $errors ) $sunshine->add_error( __( 'Your order does not yet meet the minimum order amount for this discount','sunshine' ) );
 						break;
 					}
 					// Check start/end date
 					$start_date = get_post_meta( $discount->ID, 'start_date', true );
 					if ( !$this->discount_valid_start_date( $start_date ) ) {
-						$sunshine->add_error( __( 'This coupon is not yet valid, please try again later','sunshine' ) );
+						if ( $errors ) $sunshine->add_error( __( 'This coupon is not yet valid, please try again later','sunshine' ) );
 						break;
 					}
 					$end_date = get_post_meta( $discount->ID, 'end_date', true );
 					if ( !$this->discount_valid_end_date( $end_date ) ) {
-						$sunshine->add_error( __( 'This coupon has expired','sunshine' ) );
+						if ( $errors ) $sunshine->add_error( __( 'This coupon has expired','sunshine' ) );
 						break;
 					}
 
@@ -697,14 +706,14 @@ class SunshineCart {
 					$use_count = get_post_meta( $discount->ID, 'use_count', true );
 					$max_uses = get_post_meta( $discount->ID, 'max_uses', true );
 					if ( !$this->discount_valid_max_uses( $use_count, $max_uses ) ) {
-						$sunshine->add_error( __( 'This coupon has exceeded the number of uses allowed','sunshine' ) );
+						if ( $errors ) $sunshine->add_error( __( 'This coupon has exceeded the number of uses allowed','sunshine' ) );
 						break;
 					}
 
 					$code = get_post_meta( $discount->ID, 'code', true );
 					$max_uses_per_person = get_post_meta( $discount->ID, 'max_uses_per_person', true );
 					if ( !$this->discount_valid_max_uses_per_person( $code, $max_uses_per_person ) ) {
-						$sunshine->add_error( __( 'This coupon has exceeded the number of uses allowed per user','sunshine' ) );
+						if ( $errors ) $sunshine->add_error( __( 'This coupon has exceeded the number of uses allowed per user','sunshine' ) );
 						break;
 					}
 
@@ -714,19 +723,20 @@ class SunshineCart {
 
 					return true;
 				}
-			} else
+			} else {
 				$sunshine->add_error( __( 'Not a valid discount code','sunshine' ) );
+			}
 		}
 		return false;
 	}
 
-	function remove_discount( $discount_id, $add_message=true ) {
+	function remove_discount( $discount_id, $add_message = true ) {
 		global $current_user, $sunshine;
 		if ( $this->discounts ) {
 			if( ( $key = array_search( $discount_id, $this->discounts ) ) !== false ) {
 				unset( $this->discounts[$key] );
 				SunshineSession::instance()->discounts = $this->discounts;
-				$sunshine->add_message( __( 'Discount removed','sunshine' ) );
+				if ( $add_message ) $sunshine->add_message( __( 'Discount removed','sunshine' ) );
 				return true;
 			}
 		}

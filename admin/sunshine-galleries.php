@@ -31,6 +31,14 @@ function sunshine_gallery_meta_boxes() {
 			'low'
 		);
 	}
+	$meta_boxes[87] = array(
+		'sunshine_gallery_orders',
+		__( 'Orders From Gallery', 'sunshine' ),
+		'sunshine_gallery_orders_meta_box',
+		'sunshine-gallery',
+		'advanced',
+		'low'
+	);
 	$meta_boxes = apply_filters( 'sunshine_gallery_meta_boxes', $meta_boxes );
 	ksort( $meta_boxes );
 	foreach ( $meta_boxes as $meta_box ) {
@@ -121,7 +129,7 @@ function sunshine_gallery_upload_meta_box(){
 					$(this).data( 'start', ( start + 20 ) );
 					$('#images').append( images );
 					$('#sunshine-gallery-images-loaded').html( start );
-				} 
+				}
 			});
 			start = start + count;
 			if ( start > total_images ) {
@@ -129,8 +137,8 @@ function sunshine_gallery_upload_meta_box(){
 			}
 			return false;
 		});
-		
-		
+
+
 	    var itemList = $('#sunshine-gallery-images ul');
 
 	    itemList.sortable({
@@ -310,18 +318,18 @@ add_action( 'wp_ajax_sunshine_gallery_upload', 'sunshine_gallery_admin_ajax_uplo
 function sunshine_gallery_admin_ajax_upload(){
 
 	check_ajax_referer( 'sunshine_gallery_upload' );
-	
+
     add_filter( 'upload_dir', 'sunshine_custom_upload_dir' );
 
 	set_time_limit( 600 );
-	
+
 	$gallery_id = intval( $_POST['gallery_id'] );
 
 	$menu_order = 0;
 	$last_image = get_posts( 'post_type=attachment&post_parent=' . $gallery_id . '&posts_per_page=1&orderby=menu_order&order=DESC' );
 	if ( $last_image ) {
 		$menu_order = $last_image[0]->menu_order;
-		$menu_order++;		
+		$menu_order++;
 	}
 	$result['menu_order'] = $menu_order;
 
@@ -345,7 +353,7 @@ function sunshine_gallery_admin_ajax_upload(){
 		$attachment_meta_data = wp_generate_attachment_metadata( $attachment_id, $file_upload['file'] );
 		if ( !empty( $attachment_meta_data['image_meta']['title'] ) ) {
 			wp_update_post( array(
-				'ID' => $attachment_id, 
+				'ID' => $attachment_id,
 				'post_title' => $attachment_meta_data['image_meta']['title']
 			) );
 		}
@@ -415,16 +423,16 @@ function sunshine_gallery_options_box( $post ) {
 
 ?>
 	<script type="text/javascript">
-		jQuery(document).ready(function($) {			
+		jQuery(document).ready(function($) {
 			$(".sunshine-multiselect").select2({
 			    width: '100%',
 				allowClear: true
 			});
-			
+
 			$(".sunshine-multiselect").change(function() {
 			    var selections = ( JSON.stringify($(this).select2('data')) );
 			    console.log('Selected options: ' + selections);
-			});			
+			});
 		});
 	</script>
 <?php
@@ -433,7 +441,7 @@ function sunshine_gallery_options_box( $post ) {
 function sunshine_gallery_options_box_html( $post ) {
 	if ( empty( $post ) ) {
 		$post_id = '';
-	} else { 
+	} else {
 		$post_id = $post->ID;
 	}
 
@@ -463,7 +471,7 @@ function sunshine_gallery_options_box_html( $post ) {
 	echo '<option value="password" '.selected( $gallery_status, 'password', 0 ).'>'.__( 'Password Protected', 'sunshine' ).'</option>';
 	echo '<option value="private" '.selected( $gallery_status, 'private', 0 ).'>'.__( 'Private (only specified users)', 'sunshine' ).'</option>';
 	echo '</select>';
-	
+
 	/* Options basde on access type */
 	/* Password protected */
 	echo '<div class="sunshine-status-password sunshine-status-options" style="display: ' . ( ( $gallery_status == 'password' ) ? '' : 'none' ) . ';"><label for="sunshine_gallery_password">' . __('Password', 'sunshine') . '</label> ';
@@ -471,7 +479,7 @@ function sunshine_gallery_options_box_html( $post ) {
 	echo '<label for="sunshine_gallery_password_hint">' . __('Password Hint', 'sunshine') . '</label> ';
 	echo '<input name="sunshine_gallery_password_hint" value="' . esc_attr( get_post_meta( $post_id, 'sunshine_gallery_password_hint', true )
 	 ) . '" /></div>';
-	
+
 	/* Private */
 	$clients = get_users();
 	if ( $clients ) {
@@ -483,12 +491,12 @@ function sunshine_gallery_options_box_html( $post ) {
 		}
 		$client_list .= '</select>';
 	}
-	
+
 	echo '<div class="sunshine-status-private sunshine-status-options" style="display: ' . ( ( $post->post_status == 'private' ) ? '' : 'none' ) . ';"><label for="sunshine_gallery_private_user">' . __('Private Access Users', 'sunshine').'</label> ';
 	echo $client_list . '</div>';
-	
+
 	echo '</td></tr>';
-	
+
 	$gallery_access = get_post_meta( $post_id, 'sunshine_gallery_access', true );
 	echo '<tr><th><label for="sunshine_gallery_access">' . __( 'Access Type', 'sunshine' ) . '</label></th>';
 	echo '<td><select name="sunshine_gallery_access">';
@@ -496,7 +504,7 @@ function sunshine_gallery_options_box_html( $post ) {
 	echo '<option value="account" '.selected( $gallery_access, 'account', 0 ).'>'.__( 'Registered and logged in', 'sunshine' ).'</option>';
 	echo '<option value="email" '.selected( $gallery_access, 'email', 0 ).'>'.__( 'Provide email address', 'sunshine' ).'</option>';
 	echo '</select></td></tr>';
-	
+
 	$end_date = get_post_meta( $post_id, 'sunshine_gallery_end_date', true );
 	$end_date_hidden = $end_date_picker = $end_hour = '';
 	if ( $end_date ) {
@@ -511,7 +519,7 @@ function sunshine_gallery_options_box_html( $post ) {
 	}
 	echo '</select>';
 	echo '</td></tr>';
-	
+
 	?>
 	<script>
 	jQuery(document).ready(function($){
@@ -521,7 +529,7 @@ function sunshine_gallery_options_box_html( $post ) {
 			$('.sunshine-status-' + gallery_status ).show();
 		});
 		jQuery('.datepicker').datepicker( {
-			dateFormat: '<?php echo sunshine_date_format_php_to_js( get_option( 'date_format' ) ); ?>', 
+			dateFormat: '<?php echo sunshine_date_format_php_to_js( get_option( 'date_format' ) ); ?>',
 			gotoCurrent: true,
 			altField: '#sunshine-end-date',
 			altFormat: 'yy-mm-dd'
@@ -532,9 +540,9 @@ function sunshine_gallery_options_box_html( $post ) {
 		});
 	});
 	</script>
-	
+
 	<?php
-	
+
 
 	echo '<tr><th><label for="sunshine_gallery_disable_products">' . __( 'Disable products', 'sunshine' ) . '</label></th>';
 	echo '<td><label><input type="checkbox" name="sunshine_gallery_disable_products" value="1" '.checked( get_post_meta( $post_id, 'sunshine_gallery_disable_products', true ), 1, 0 ).' /> Users will not be able to purchase any products for this gallery</label></td></tr>';
@@ -561,7 +569,7 @@ function sunshine_gallery_options_box_html( $post ) {
 		}
 	}
 	echo '</select></td></tr>';
-	
+
 }
 
 function sunshine_date_format_php_to_js( $sFormat ) {
@@ -612,11 +620,11 @@ function sunshine_gallery_save_postdata( $post_id ) {
 
 function sunshine_gallery_save_postdata_process( $post_id, $data ) {
 	global $wpdb;
-		
+
 	if ( isset( $data['sunshine_gallery_image_comments'] ) ) {
 		$wpdb->query( "UPDATE $wpdb->posts SET comment_status = 'open' WHERE post_type='attachment' AND post_parent = $post_id" );
 	}
-	
+
 	if ( isset( $data['sunshine_gallery_status'] ) && $data['sunshine_gallery_status'] == 'password' ) {
 		$password = sanitize_text_field( $data['sunshine_gallery_password'] );
 		$wpdb->query( "UPDATE $wpdb->posts SET post_password = '$password' WHERE ID = $post_id" );
@@ -624,12 +632,12 @@ function sunshine_gallery_save_postdata_process( $post_id, $data ) {
 		$wpdb->query( "UPDATE $wpdb->posts SET post_password = '' WHERE ID = $post_id" );
 		delete_post_meta( $post_id, 'sunshine_gallery_password_hint' );
 	}
-	
+
 	if ( $_POST['post_status'] == 'draft' ) {
-		
+
 	} elseif ( isset( $data['sunshine_gallery_status'] ) && $data['sunshine_gallery_status'] == 'private' ) {
 		$wpdb->query( "UPDATE $wpdb->posts SET post_status = 'private' WHERE ID = $post_id" );
-	} else { 
+	} else {
 		$wpdb->query( "UPDATE $wpdb->posts SET post_status = 'publish' WHERE ID = $post_id" );
 	}
 
@@ -662,8 +670,8 @@ function sunshine_gallery_save_postdata_process( $post_id, $data ) {
 		$end_date = '';
 	}
 	update_post_meta( $post_id, 'sunshine_gallery_end_date', $end_date );
-	
-	
+
+
 }
 
 add_action( 'admin_notices', 'sunshine_gallery_notice_more_images' );
@@ -898,6 +906,64 @@ function sunshine_uploaded_to_page_default() {
 	});
 	</script>
 <?php
+	}
+}
+
+
+function sunshine_gallery_orders_meta_box() {
+	$gallery_id = $_GET['post'];
+	$args = array(
+		'post_type' => 'sunshine-order',
+		'nopaging' => true
+	);
+	$orders = get_posts( $args );
+	$gallery_orders = array();
+	foreach( $orders as $order ) {
+		$order_items = maybe_unserialize( get_post_meta( $order->ID, '_sunshine_order_items', true ) );
+		foreach ( $order_items as $item ) {
+			if ( $item['image_id'] ) {
+				$image = get_post( $item['image_id'] );
+				if ( $image->post_parent == $gallery_id ) {
+					$gallery_orders[] = $order->ID;
+					continue 2;
+				}
+			}
+		}
+	}
+	if ( !empty( $gallery_orders ) ) {
+	?>
+	<table>
+	<tr>
+		<th><?php _e( 'Order #','sunshine' ); ?></th>
+		<th><?php _e( 'Customer','sunshine' ); ?></th>
+		<th><?php _e( 'Status','sunshine' ); ?></th>
+		<th><?php _e( 'Total','sunshine' ); ?></th>
+	</tr>
+	<?php
+		foreach ( $gallery_orders as $order_id ) {
+			$customer_id = get_post_meta( $order_id, '_sunshine_customer_id', true );
+			if ( $customer_id ) {
+				$customer = get_user_by( 'id', $customer_id );
+			}
+			$current_status = get_the_terms( $order_id, 'sunshine-order-status' );
+			$status = array_values( $current_status );
+			$order_data = unserialize( get_post_meta( $order_id, '_sunshine_order_data', true ) );
+	?>
+			<tr>
+				<td><a href="post.php?post=<?php echo $order_id; ?>&action=edit"><?php echo sprintf( __( 'Order #%s', 'sunshine' ), $order_id ); ?></a></td>
+				<td>
+					<?php if ( $customer_id ) { ?>
+						<a href="user-edit.php?user_id=<?php echo $customer_id; ?>"><?php echo $customer->display_name; ?></a>
+					<?php } else {
+						 echo __( 'Guest', 'sunshine' ) . ' &mdash; ' . $order_data['first_name'] . ' ' . $order_data['last_name'];
+					} ?>
+				</td>
+				<td><?php echo $status[0]->name; ?></td>
+				<td><?php sunshine_money_format( $order_data['total'] ); ?>
+			</tr>
+		<?php } ?>
+	</table>
+	<?php
 	}
 }
 

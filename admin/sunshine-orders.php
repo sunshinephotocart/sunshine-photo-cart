@@ -3,10 +3,10 @@
 add_action( 'add_meta_boxes', 'sunshine_order_meta_boxes' );
 function sunshine_order_meta_boxes() {
 	global $post;
-	
+
 	$screen = get_current_screen();
 	//sunshine_dump_var( $screen );
-	
+
 	if ( $screen->action == 'add' ) {
 		add_meta_box(
 			'sunshine_order_data',
@@ -60,7 +60,7 @@ function sunshine_order_admin_enqueue_scripts( $page ){
 }
 
 function sunshine_add_order_data() {
-	
+
 ?>
 	<form method="post">
 	<p>
@@ -157,7 +157,7 @@ function sunshine_add_order_data() {
 	</p>
 	</div>
 	<br clear="both" />
-	
+
 	<h4><?php _e( 'Order Items', 'sunshine' ); ?></h4>
 	<table style="width: 100%;">
 	<tr>
@@ -185,23 +185,23 @@ function sunshine_add_order_data() {
 		</td>
 		<td>
 			<select name="product[]">
-			
+
 			</select>
 		</td>
 		<td>
 		</td>
 	</tr>
 	</table>
-	
+
 	</form>
-	
+
 	<script>
 	jQuery( document ).ready( function($) {
 		$(".sunshine-multiselect").select2({
 		    width: '100%',
 			allowClear: true
 		});
-		
+
 		$( 'select[name="customer"]' ).change(function(){
 			if ( $( this ).val() == '' ) {
 				$( '#email' ).show();
@@ -209,16 +209,16 @@ function sunshine_add_order_data() {
 				$( '#email' ).hide();
 			}
 		});
-		
+
 		jQuery('.datepicker').datepicker( {
-			dateFormat: '<?php echo sunshine_date_format_php_to_js( get_option( 'date_format' ) ); ?>', 
+			dateFormat: '<?php echo sunshine_date_format_php_to_js( get_option( 'date_format' ) ); ?>',
 			gotoCurrent: true,
 		}).keyup(function(e) {
 		    if(e.keyCode == 8 || e.keyCode == 46) {
 		        $.datepicker._clearDate(this);
 		    }
 		});
-		
+
 		// Changing state selection
 		jQuery('form').on('change', 'select[name="country"]', function(){
 			var country = jQuery(this).val();
@@ -242,7 +242,7 @@ function sunshine_add_order_data() {
 			}, 500);
 			return false;
 		});
-		
+
 		jQuery('form').on('change', 'select[name="shipping_country"]', function(){
 			var shipping_country = jQuery(this).val();
 			setTimeout(function () {
@@ -265,7 +265,7 @@ function sunshine_add_order_data() {
 			}, 500);
 			return false;
 		});
-		
+
 	});
 	</script>
 
@@ -320,7 +320,7 @@ function sunshine_order_data_inner( $post ) {
 			echo $order_data['first_name'].' '.$order_data['last_name'].'<br />'.$order_data['address'];
 			if ( $order_data['address2'] )
 				echo '<br />'.$order_data['address2'];
-			echo '<br />'.$order_data['city'].', '.$order_data['state'].' '.$order_data['zip'].'<br />'.$order_data['country'].'<br />'.$order_data['email'].'<br />'.$order_data['phone']; 
+			echo '<br />'.$order_data['city'].', '.$order_data['state'].' '.$order_data['zip'].'<br />'.$order_data['country'].'<br />'.$order_data['email'].'<br />'.$order_data['phone'];
 			?>
 		</td>
 		<td>
@@ -903,6 +903,7 @@ echo '<br />'.$order_data['city'].', '.$order_data['state'].' '.$order_data['zip
 </body>
 </html>
 
-<?php 
+<?php
 exit;
-} ?>
+}
+?>

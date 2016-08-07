@@ -39,9 +39,9 @@ This free version is fully functional and has the following features:
 * International ready - Works with all currencies and translated into German, French, Spanish, Dutch, Finnish, Portuguese, British, Norwegian. [See all available translations](https://www.transifex.com/wp-translations/sunshine-photo-cart/)
 
 > **Addons**
-> 
+>
 > While the core plugin is free, there are paid add-ons to improve Sunshine's features. You can pay only for the features you need!
-> 
+>
 > * [Masonry](https://www.sunshinephotocart.com/addon/masonry/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
 > * [Lightbox](https://www.sunshinephotocart.com/addon/lightbox/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
 > * [Analytics](https://www.sunshinephotocart.com/addon/analytics/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
@@ -61,9 +61,9 @@ This free version is fully functional and has the following features:
 > * [Mollie (with iDEAL support) payment gateway](https://www.sunshinephotocart.com/addon/mollie/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
 > * [Tiered pricing](https://www.sunshinephotocart.com/addon/tiered-pricing/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
 > * [Price List](https://www.sunshinephotocart.com/addon/price-list/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
-> 
+>
 > ...and so many more to come! [Feel free to request new features](https://www.sunshinephotocart.com/contact/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
-> 
+>
 > **Go PRO!**
 >
 > Get ALL our paid add-ons for an insanely discounted single price - [Learn more](https://www.sunshinephotocart.com/pro/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
@@ -92,7 +92,7 @@ Sunshine itself does not impose any limits on galleries, images, users, etc. You
 
 Sunshine eomes with PayPal out-of-the-box and has add-ons for [Stripe](https://www.sunshinephotocart.com/addon/stripe/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme), [PayJunction](https://www.sunshinephotocart.com/addon/payjunction/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme) and [Mollie (with iDEAL support)](https://www.sunshinephotocart.com/addon/mollie/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
 
-= Is there a demo? = 
+= Is there a demo? =
 
 Yes! You can [create your own standalone installation of Sunshine](http://demo.sunshinephotocart.com) to play with to your heart's content.
 
@@ -126,17 +126,21 @@ Yes! Please see our [translation site](https://www.transifex.com/wp-translations
 * Fix - Password required text when guest checkout enabled on Checkout page
 * Fix - Recent orders adjust for guest checkout
 * Add - Show related galleries in admin Order list view
+* Add - When viewing gallery edit screen, new meta box to show all orders associated with the gallery
 * Change - Improved order history in user Account
 * Add - Return to last gallery viewed link on Cart page
 * Fix - Invoice in admin to better handle special characters
 * Fix - Issue with WordPress welcome panel always being shown
 * Fix - Additional strings made translatable
+* Fix - Cart totals CSS for mobile site
+* Fix - Better process for adding auto discounts
+* Change - No more ShareThis.com, now using direct links to social sharing services
 
 = 2.5.3 =
 * Fix - Update process for moving files to sunshine folder when using Amazon S3
 
 = 2.5.2 =
-* Fix - Clear cart after order 
+* Fix - Clear cart after order
 * Fix - Additional filters when adding order to help payment gateways
 
 = 2.5.1 =
@@ -287,9 +291,9 @@ Yes! Please see our [translation site](https://www.transifex.com/wp-translations
 * Fix - At some point defining DONOTCACHEPAGE got removed accidentally
 * Fix - When going to registration page from a Sunshine page, custom password was not being saved
 * Change - Itemize everything when sent to PayPal instead of a single lump sum order
-* Change - How items in cart are handled when logged in/out 
+* Change - How items in cart are handled when logged in/out
 
-= 2.2.7 = 
+= 2.2.7 =
 * Fix - If gallery has expired, remove items from cart
 * Fix - If gallery has expired, don't allow items to be added to cart from Favorites page
 * Fix - If no cost for a shipping method is entered, default it to 0/free
@@ -322,7 +326,7 @@ Yes! Please see our [translation site](https://www.transifex.com/wp-translations
 * Update - Made Image Processor ajax queued so it will not import the next image until the previous one is done. This helps slow servers from getting overwhelmed and causing errors.
 * Update - Remove automatically switching to "Uploaded to this page" when trying to set a featured image. Easy enough to do manually and causes issues when you don't want it from the current page.
 
-= 2.2.2 = 
+= 2.2.2 =
 * Fix - Issues saving proper private users for a gallery
 * Fix - Issues saving proper expiration date for a gallery
 * Add - New option to include instructions for Pickup shipping method
@@ -546,7 +550,7 @@ Yes! Please see our [translation site](https://www.transifex.com/wp-translations
 * Fix - Don't load colorbox when not needed
 * Fix - Tons of small changes/fixes that most won't notice but we did. Honestly just forgot to write them all down.
 
-= 1.8.1 = 
+= 1.8.1 =
 * Add - Gallery name after image name on order detail page in admin
 * Add - Invite user to gallery link from gallery edit screen
 * Fix - JavaScript errors when certain content entered for default messages
@@ -570,7 +574,7 @@ Yes! Please see our [translation site](https://www.transifex.com/wp-translations
 * Fix - Images uploaded to Media Gallery are not having various sizes created
 * Fix - Adding same item to cart did not update total line item price
 * Change - Default theme is now your WordPress theme during plugin activation
-* Change - Ability to dismiss the user registration enabled nag notice in admin 
+* Change - Ability to dismiss the user registration enabled nag notice in admin
 
 = 1.7.1 =
 * Fix - PHP fatal error for users in the Default Sunshine theme
@@ -596,14 +600,14 @@ Yes! Please see our [translation site](https://www.transifex.com/wp-translations
 * Fix - Update cart when using WordPress theme wasn't working
 * Update - All languages updated
 
-= 1.6.9 = 
+= 1.6.9 =
 * Fix - Image processor not finding image URL properly in certain cases
 
 = 1.6.8 =
 * Fix - Conflict with WordPress SEO plugin introduced by trying to handle ProPhoto5
 
 = 1.6.7 =
-* Fix - Image processor didn't work with a custom upload folder 
+* Fix - Image processor didn't work with a custom upload folder
 * Fix - Nothing showing for ProPhoto5
 
 = 1.6.6 =
@@ -612,7 +616,7 @@ Yes! Please see our [translation site](https://www.transifex.com/wp-translations
 * Add - Option to make gallery download products taxable
 * Fix - Orders do not contain image_name
 
-= 1.6.5 = 
+= 1.6.5 =
 * Add - Allow users to see products/pricing and add items to cart without registering or being logged in
 * Fix - Bulk add products weren't visible until you resaved each manually
 * Change - Redo how content is replaced to display current gallery/image to work with WP 3.8 and ProPhoto themes
@@ -629,19 +633,19 @@ Yes! Please see our [translation site](https://www.transifex.com/wp-translations
 * Fix - Image download links not working in 3.8.1
 * Fix - PHP error when adding order comment from admin
 * Fix - Gallery download link visible when gallery is expired
-* Add - Hide "Add New" link for orders in admin - can't manually add orders 
+* Add - Hide "Add New" link for orders in admin - can't manually add orders
 * Add - Hide permalink for discounts in admin, can't view a discount page anyway
 * Fix - Showing no shipping options when only digital products are in cart
 * Add - Print release document can be added to all digital downloads
 * Fix - When multiple of same package in cart, updating/deleting doesn't update/delete all of the packages
 * Add - "Remove" link added for each item in cart
-* Change - Redo how images are imported from FTP folder. Large size and thumbnails are put into normal wp-uploads folder, originals stay in FTP created folder. 
+* Change - Redo how images are imported from FTP folder. Large size and thumbnails are put into normal wp-uploads folder, originals stay in FTP created folder.
 * Add - Option to delete all images attached to a gallery when gallery is permanently deleted
 * Add - Hide attachments for Sunshine galleries throughout WordPress admin except when editing a Sunshine gallery
 
 = 1.6.4 =
 * Fix - Issues when image not set to use lightbox but add to cart link is
-* Fix - Remove error message on Sunshine dashboard when no recently logged in users 
+* Fix - Remove error message on Sunshine dashboard when no recently logged in users
 * Fix - When package added to cart, can only add image to package if it matches the price level of the package
 * Fix - Price for entire gallery downloads not available in some cases
 * Add - Use the before/after HTML in custom theme again
@@ -710,7 +714,7 @@ Yes! Please see our [translation site](https://www.transifex.com/wp-translations
 * Fix - Only include Stripe JS on checkout page
 * Fix - Only include Favorites JS on Sunshine pages
 * Fix - Favorites page wasn't using Lightbox when enabled
-* Fix - Fail login, click register, successful register didn't redirect back 
+* Fix - Fail login, click register, successful register didn't redirect back
 * Fix - Admin bar is shown for admin users only
 * Add - Extra shipping costs per product (for heavy items), applied only to Flat Rate shipping method
 
@@ -739,7 +743,7 @@ Yes! Please see our [translation site](https://www.transifex.com/wp-translations
 * Fix - Some users seeing PHP error in footer of their theme
 
 = 1.5.2 =
-* Add - Gallery Password Box - a new widget and option in themes to include a form where a user enters just a password and if a gallery matches then automatically be taken to said gallery. 
+* Add - Gallery Password Box - a new widget and option in themes to include a form where a user enters just a password and if a gallery matches then automatically be taken to said gallery.
 * Fix - Gallery/image stats not always being collected
 * Fix - Digital downloads was showing wrong number of files in each folder
 * Fix - Image processor handles filename.JPG (all caps file extensions) better
@@ -766,7 +770,7 @@ Yes! Please see our [translation site](https://www.transifex.com/wp-translations
 * Fix - Allow saving product prices with commas for international users
 * Fix - Adding new user in admin would log you in as that new user
 * Fix - Proper link to login/register pages when WordPress is not installed in root directory
-* Fix - Updated languages with all new text added. 
+* Fix - Updated languages with all new text added.
 * Add - Add Dutch Language translation
 
 = 1.4.3 =
@@ -800,7 +804,7 @@ Yes! Please see our [translation site](https://www.transifex.com/wp-translations
 * Fix - Digital downloads folder selection now works for .jpg or .JPG images
 * Add - Digital downloads now allows for various file types: .jpg, .zip, .tif, .tiff, .dng, .png
 
-= 1.3 = 
+= 1.3 =
 * New - Internationalization: Users can select country at checkout, tax can be applied to entire country or state within country
 * New - AddOn: PayJunction payment gateway
 * Update - Complete update of Custom Theme to use header/footer instead of overcomplicated previous method of replacing content. ProPhotoBlogs no longer supported as they do not build proper WordPress themes and was compromising the quality of everyone else's theme integration.

@@ -43,7 +43,7 @@ class SunshineFrontend extends SunshineSingleton {
 			add_filter( 'the_content', array( $this, 'sunshine_content' ), 999 );
 		else
 			add_filter( 'template_include', array( $this, 'sunshine_theme' ), 999 );
-			
+
 	}
 
 	function sunshine_content( $content ) {
@@ -55,12 +55,12 @@ class SunshineFrontend extends SunshineSingleton {
 		if ( isset( $_GET['sunshine_search'] ) ) {
 			$content = self::get_template( 'search-results' );
 		} elseif ( isset( self::$current_image ) ) {
-			if ( post_password_required( self::$current_gallery->ID ) )
+			if ( post_password_required( self::$current_gallery ) )
 				$content = get_the_password_form();
 			else
 				$content = self::get_template( 'image' );
 		} elseif ( isset( self::$current_gallery ) ) {
-			if ( post_password_required( self::$current_gallery->ID ) )
+			if ( post_password_required( self::$current_gallery ) )
 				$content = get_the_password_form();
 			elseif ( !current_user_can( 'sunshine_manage_options' ) && sunshine_gallery_requires_email( self::$current_gallery->ID ) ) {
 				$content = sunshine_gallery_email_form();
@@ -195,7 +195,7 @@ class SunshineFrontend extends SunshineSingleton {
 			}
 		} elseif ( is_page( $sunshine->options['page'] ) && isset( $wp_query->query_vars[ $sunshine->options['endpoint_order'] ] ) ) {
 			self::$current_order = get_post( $wp_query->query_vars[ $sunshine->options['endpoint_order'] ] );
-		} 
+		}
 	}
 
 	function admin_bar() {
@@ -429,38 +429,38 @@ class SunshineFrontend extends SunshineSingleton {
 
 		// Single gallery page
 		if ( isset( SunshineFrontend::$current_gallery->ID ) ) {
-					
+
 			if ( SunshineFrontend::$current_gallery->post_parent != 0 ) { // If sub gallery
 				$menu[10] = array(
 					'icon' => 'undo',
 					'name' => __( 'Return to','sunshine' ) . ' ' . get_the_title( SunshineFrontend::$current_gallery->post_parent ),
 					'url' => get_permalink( SunshineFrontend::$current_gallery->post_parent ),
 				);
-			} 
+			}
 		}
-		
+
 		// Single image page
 		if ( isset( SunshineFrontend::$current_image->ID ) ) {
-			if ( SunshineFrontend::$current_image->post_parent != 0 ) { 
+			if ( SunshineFrontend::$current_image->post_parent != 0 ) {
 				$menu[10] = array(
 					'icon' => 'undo',
 					'name' => __( 'Return to','sunshine' ) . ' ' . get_the_title( SunshineFrontend::$current_image->post_parent ),
 					'url' => get_permalink( SunshineFrontend::$current_image->post_parent ),
 				);
-			} 
+			}
 		}
-		
+
 
 		return $menu;
 	}
 
 	function build_image_menu( $menu, $image ) {
 		global $sunshine;
-		
+
 		if ( empty( SunshineFrontend::$current_gallery->ID ) ) {
 			return $menu;
 		}
-		
+
 		$disable_products = get_post_meta( SunshineFrontend::$current_gallery->ID, 'sunshine_gallery_disable_products', true );
 		if ( !$disable_products && !$sunshine->options['proofing'] && !sunshine_is_gallery_expired( $image->post_parent ) ) {
 			$menu[10] = array(
@@ -670,7 +670,7 @@ class SunshineFrontend extends SunshineSingleton {
 		}
 		return $classes;
 	}
-	
+
 	function check_expirations() {
 		global $sunshine;
 		if ( isset( self::$current_image ) && sunshine_is_gallery_expired() ) {
@@ -702,16 +702,16 @@ class SunshineFrontend extends SunshineSingleton {
 				wp_redirect( get_permalink( $sunshine->options['page_cart'] ) );
 				exit;
 			}
-		} 
-		
+		}
+
 	}
-	
+
 	function donotcachepage() {
 		if ( is_sunshine() && !defined('DONOTCACHEPAGE') ) {
 			define( 'DONOTCACHEPAGE', true );
 		}
 	}
-	
+
 	function remove_canonical() {
 		if ( isset( SunshineFrontend::$current_gallery ) ) {
 			remove_action( 'wp_head', 'rel_canonical' );

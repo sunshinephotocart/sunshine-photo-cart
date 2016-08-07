@@ -35,7 +35,7 @@ function sunshine_manual_update() {
 add_action( 'admin_enqueue_scripts', 'sunshine_admin_cssjs' );
 function sunshine_admin_cssjs() {
 	global $post_type;
-	
+
 	wp_register_style( 'sunshine-admin-css', plugins_url( 'assets/css/admin.css', dirname( __FILE__ ) ), '', SUNSHINE_VERSION );
 	wp_enqueue_style( 'sunshine-admin-css' );
 	wp_enqueue_script( 'jquery-ui-datepicker' );
@@ -60,7 +60,7 @@ function sunshine_about() {
 	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=228213277229357";
 	  fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));</script>
-	
+
 	<div id="sunshine-header">
 		<h1><?php printf( __( 'Welcome to Sunshine Photo Cart %s', 'sunshine' ), $sunshine->version ); ?></h1>
 		<p>
@@ -75,7 +75,7 @@ function sunshine_about() {
 			?>
 		</p>
 	</div>
-	
+
 	<div class="wrap about-wrap sunshine-about-wrap">
 
 		<?php if ( !$sunshine->is_pro() ) { ?>
@@ -83,7 +83,7 @@ function sunshine_about() {
 			<h2>Go PRO for only $149!</h2>
 			<p>Get every single Sunshine add-on and access to premium support for one low price of $149</p>
 			<p>Oh, and we offer a 30 day money back guarantee to sweeten the deal... because we know you won’t need it.</p>
-			<p><a href="https://www.sunshinephotocart.com/pro" class="sunshine-button">Learn More</a></p>
+			<p><a href="https://www.sunshinephotocart.com/pro/?utm_source=plugin&utm_medium=link&utm_campaign=about" class="sunshine-button">Learn More</a></p>
 		</div>
 		<?php } ?>
 		<div class="fb-page sunshine-fb-page" data-href="https://www.facebook.com/sunshinephotocart" data-width="300" data-height="400" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="false" data-show-posts="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/sunshinephotocart"><a href="https://www.facebook.com/sunshinephotocart">Sunshine Photo Cart</a></blockquote></div></div>
@@ -100,43 +100,43 @@ function sunshine_about() {
 					<li><a href="<?php echo admin_url('edit.php?post_type=sunshine-gallery'); ?>">Create a gallery</a></li>
 					<li>Invite your clients/users to view your galleries</li>
 				</ol>
-				<p><strong>Get more in depth help and how-to articles by going through the <a href="https://www.sunshinephotocart.com/docs">documentation</a></strong></p>
+				<p><strong>Get more in depth help and how-to articles by going through the <a href="https://www.sunshinephotocart.com/docs/?utm_source=plugin&utm_medium=link&utm_campaign=docs">documentation</a></strong></p>
 			</div>
 		<?php } ?>
 
 		<div class="sunshine-changelog">
-			<?php 
-			$readme = file_get_contents( SUNSHINE_PATH . '/readme.txt' ); 
+			<?php
+			$readme = file_get_contents( SUNSHINE_PATH . '/readme.txt' );
 			$readme_pieces = explode( '== Changelog ==', $readme );
-			$changelog = nl2br( htmlspecialchars( trim( $readme_pieces[1] ) ) ); 
+			$changelog = nl2br( htmlspecialchars( trim( $readme_pieces[1] ) ) );
 			$changelog = str_replace( array( ' =', '= ' ), array( '</h3>', '<h3>' ), $changelog );
-			if (($nth = nth_strpos($changelog, '<h3>', 7, true)) !== false) { 
-			    $changelog = substr($changelog, 0, $nth); 
-			} 
+			if (($nth = nth_strpos($changelog, '<h3>', 7, true)) !== false) {
+			    $changelog = substr($changelog, 0, $nth);
+			}
 			?>
 			<h2>What's Improved Recently</h2>
-			<div class="changelog"><?php echo $changelog; ?></div>					
+			<div class="changelog"><?php echo $changelog; ?></div>
 		</div>
-		
+
 	</div>
 	<?php
 }
 
-function nth_strpos($str, $substr, $n, $stri = false) 
-{ 
-    if ($stri) { 
-        $str = strtolower($str); 
-        $substr = strtolower($substr); 
-    } 
-    $ct = 0; 
-    $pos = 0; 
-    while (($pos = strpos($str, $substr, $pos)) !== false) { 
-        if (++$ct == $n) { 
-            return $pos; 
-        } 
-        $pos++; 
-    } 
-    return false; 
+function nth_strpos($str, $substr, $n, $stri = false)
+{
+    if ($stri) {
+        $str = strtolower($str);
+        $substr = strtolower($substr);
+    }
+    $ct = 0;
+    $pos = 0;
+    while (($pos = strpos($str, $substr, $pos)) !== false) {
+        if (++$ct == $n) {
+            return $pos;
+        }
+        $pos++;
+    }
+    return false;
 }
 
 function sunshine_system_info() {
@@ -208,7 +208,7 @@ SUNSHINE SETTINGS:
 function sunshine_addons() {
 	global $sunshine;
 	if ( get_option( 'sunshine_pro_license_active') == 'valid' ) return;
-	
+
 ?>
 	<div id="sunshine-header">
 		<h1><?php _e( 'Add-ons for Sunshine Photo Cart', 'sunshine' ); ?></h1>
@@ -218,9 +218,9 @@ function sunshine_addons() {
 	</div>
 
 	<div class="wrap sunshine-wrap" id="sunshine-addons-wrap">
-	
+
 		<?php sunshine_promos(); ?>
-		
+
 	</div>
 <?php
 }
@@ -229,18 +229,18 @@ function sunshine_addons() {
 
 function sunshine_promos() {
 	global $sunshine;
-	if ( $sunshine->is_pro() ) return; 
+	if ( $sunshine->is_pro() ) return;
 ?>
 	<div id="sunshine-promos">
-	
+
 		<div id="sunshine-pro">
 			<h2>Go PRO for only $149!</h2>
 			<p>Get every single Sunshine add-on and access to premium support for one low price of $149</p>
 			<p>Oh, and we offer a 30 day money back guarantee to sweeten the deal... because we know you won’t need it.</p>
-			<p><a href="https://www.sunshinephotocart.com/pro" class="sunshine-button">Learn More</a></p>
+			<p><a href="https://www.sunshinephotocart.com/pro/?utm_source=plugin&utm_medium=link&utm_campaign=admin-promo" class="sunshine-button">Learn More</a></p>
 		</div>
 
-		<?php	
+		<?php
 		$addons = get_transient( 'sunshine_addons' );
 		if ( $addons ) {
 			$addons = json_decode( $addons );
@@ -276,14 +276,14 @@ function sunshine_get_addons() {
 				$addons = wp_remote_retrieve_body( $feed );
 				set_transient( 'sunshine_addons', $addons, WEEK_IN_SECONDS );
 			}
-		} 
+		}
 	}
 }
 
-add_action( 'admin_init', 'sunshine_docs' );
-function sunshine_docs() {
-	if ( isset( $_GET['page'] ) && $_GET['page'] == 'sunshine_docs' ) {
-		wp_redirect( 'https://www.sunshinephotocart.com/docs/' );
+add_action( 'admin_init', 'sunshine_help' );
+function sunshine_help() {
+	if ( isset( $_GET['page'] ) && $_GET['page'] == 'sunshine_help' ) {
+		wp_redirect( 'https://www.sunshinephotocart.com/support/?utm_source=plugin&utm_medium=link&utm_campaign=help' );
 		exit;
 	}
 }
@@ -302,7 +302,7 @@ function sunshine_admin_footer_text( $footer_text ) {
 
 	if ( $typenow == 'sunshine-gallery' || $typenow == 'sunshine-product' || $typenow == 'sunshine-order' || $typenow == 'sunshine-product' || isset( $_GET['page'] ) && strpos( $_GET['page'], 'sunshine' ) !== false ) {
 		$rate_text = sprintf( __( 'Thank you for using <a href="%1$s" target="_blank">Sunshine Photo Cart</a>! Please <a href="%2$s" target="_blank">rate us</a> on <a href="%2$s" target="_blank">WordPress.org</a>', 'sunshine' ),
-			'https://www.sunshinephotocart.com',
+			'https://www.sunshinephotocart.com?utm_source=plugin&utm_medium=link&utm_campaign=rate',
 			'https://wordpress.org/support/view/plugin-reviews/sunshine-photo-cart?filter=5#postform'
 		);
 
@@ -321,7 +321,7 @@ Clean up Media Library
 add_action( 'pre_get_posts', 'sunshine_clean_media_library' );
 function sunshine_clean_media_library( $query ) {
 	if ( is_admin() && $query->is_main_query() && $query->get( 'post_type' ) == 'attachment' ) {
-		if ( ! function_exists( 'get_current_screen' ) ) { 
+		if ( ! function_exists( 'get_current_screen' ) ) {
 			return;
 		}
 		$screen = get_current_screen();
@@ -380,14 +380,14 @@ Move images from pre 2.4
 ***********************/
 add_action( 'admin_enqueue_scripts', 'sunshine_update_image_location_ajaxq' );
 function sunshine_update_image_location_ajaxq( $hook ) {
-	if ( isset( $_GET['page'] ) && $_GET['page'] == 'sunshine_update_image_location' ) { 
+	if ( isset( $_GET['page'] ) && $_GET['page'] == 'sunshine_update_image_location' ) {
     	wp_enqueue_script( 'ajaxq', SUNSHINE_URL . 'assets/js/ajaxq.js' );
 	}
 }
 
 add_action( 'admin_menu', 'sunshine_register_update_image_location_page' );
 function sunshine_register_update_image_location_page() {
-    add_submenu_page( 
+    add_submenu_page(
         null,
         'Update Image Location',
         'Update Image Location',
@@ -398,7 +398,7 @@ function sunshine_register_update_image_location_page() {
 }
 
 function sunshine_update_image_location_page() {
-	
+
 	$start = ( isset( $_GET['start'] ) ) ? $_GET['start'] : 0;
 	$args = array(
 		'post_type' => 'sunshine-gallery',
@@ -420,10 +420,10 @@ function sunshine_update_image_location_page() {
 		$image_count = 0;
 		$image_ids = array();
 		foreach ( $galleries as $gallery ) {
-			$args = array( 
-				'post_type' => 'attachment', 
-				'posts_per_page' => -1, 
-				'post_status' =>'any', 
+			$args = array(
+				'post_type' => 'attachment',
+				'posts_per_page' => -1,
+				'post_status' =>'any',
 				'post_parent' => $gallery->ID,
 				'meta_query' => array(
 					array(
@@ -432,7 +432,7 @@ function sunshine_update_image_location_page() {
 				     	'value' => ''
 					)
 				)
-			); 
+			);
 			$images = get_posts( $args );
 			$image_count = count( $images );
 			foreach ( $images as $image ) {
@@ -445,7 +445,7 @@ function sunshine_update_image_location_page() {
 	$start++;
 	$redirect_url = 'admin.php?page=sunshine_update_image_location&start=' . $start;
 	?>
-	
+
 	<div class="wrap sunshine">
 		<h2>Sunshine Upgrade Process</h2>
 		<?php if ( $gallery_count > 0 ) { ?>
@@ -490,7 +490,7 @@ function sunshine_update_image_location_page() {
 					$('#percentage').css('width', percent+'%');
 				});
 			}
-			for (i = 0; i < total; i++) { 
+			for (i = 0; i < total; i++) {
 			    sunshine_update_image( images[i] );
 			}
 		});
@@ -499,8 +499,8 @@ function sunshine_update_image_location_page() {
 			<p id="done" style="font-size: 18px; color: green;"><?php _e( 'Your galleries have been updated!', 'sunshine' ); ?></p>
 		<?php } ?>
 	</div>
-	
-<?php	
+
+<?php
 }
 
 add_action( 'wp_ajax_sunshine_update_image_location', 'sunshine_update_image_location_ajax' );
@@ -519,7 +519,7 @@ function sunshine_update_image_location_ajax() {
 		echo json_encode( array( 'result' => 'success', 'message' => __( 'Image could not be found, just moving on', 'sunshine' ) ) );
 		exit;
 	}
-	
+
 	// New folder path
 	$new_path = $upload_dir['basedir'] . '/sunshine/' . $gallery_id;
 	if ( !is_dir( $new_path ) ) {
@@ -540,23 +540,23 @@ function sunshine_update_image_location_ajax() {
 	$folder = str_replace( basename( $meta['file'] ), '', $meta['file'] );
 	foreach ( $meta['sizes'] as $size ) {
 		if ( file_exists( $upload_dir['basedir'] . '/' . $folder . $size['file'] ) ) {
-			$rename = rename( $upload_dir['basedir'] . '/' . $folder . $size['file'], $new_path . '/' . $size['file'] );		
+			$rename = rename( $upload_dir['basedir'] . '/' . $folder . $size['file'], $new_path . '/' . $size['file'] );
 			if ( !$rename ) {
 				echo json_encode( array( 'result' => 'error', 'message' => sprintf( __( 'Could not move %s', 'sunshine' ), $size['file'] ) ) );
 				exit;
 			}
 		}
 	}
-	
+
 	// Update meta data
 	$new_meta = $meta;
 	$new_meta['file'] = 'sunshine/' . $gallery_id . '/' . $file_name;
 	wp_update_attachment_metadata( $image_id, $new_meta );
 	update_attached_file( $image_id, $new_path . '/' . $file_name );
 	update_post_meta( $image_id, '24_update', 'yes' );
-	
+
 	echo json_encode( array( 'result' => 'success', 'message' => sprintf( __( 'Successfully moved %s', 'sunshine' ), $file_name ) ) );
-	
+
 	exit;
 }
 ?>

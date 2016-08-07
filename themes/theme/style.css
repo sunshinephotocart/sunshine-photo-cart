@@ -4,7 +4,7 @@
 #sunshine ol, #sunshine ul, #sunshine li, #sunshine table, #sunshine th, #sunshine td, #sunshine fieldset { margin: 0; padding: 0; background: none; border: none; }
 div.sunshine-clear { clear: both; overflow: hidden; height: 1px; }
 .sunshine-clearfix:after { content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0; }
-html[xmlns] .sunshine-clearfix { display: block; } 
+html[xmlns] .sunshine-clearfix { display: block; }
 * html .sunshine-clearfix { height: 1%; }
 
 #sunshine .sunshine-button { border: none; cursor: pointer; background: #666; padding: 8px 15px; color: #FFF; text-transform: uppercase; text-decoration: none; font-size: 15px; border-radius: 3px; text-shadow: none; }
@@ -88,7 +88,7 @@ html[xmlns] .sunshine-clearfix { display: block; }
 #sunshine #sunshine-gallery-images .sunshine-image-menu li i { background: rgba(0,0,0,.3); color: #FFF; padding: 5px; font-size: 13px; border-radius: 0 0 3px 3px;  }
 #sunshine #sunshine-gallery-images .sunshine-image-menu li a:hover i { background: #000; }
 #sunshine #sunshine-gallery-images .sunshine-image-menu li span { display: none; }
-/* Below Image 
+/* Below Image
 #sunshine #sunshine-gallery-images .sunshine-image-menu-container { text-align: center; }
 #sunshine #sunshine-gallery-images .sunshine-image-menu-container .sunshine-image-menu { margin: 0; padding: 0; }
 #sunshine #sunshine-gallery-images .sunshine-image-menu-container .sunshine-image-menu li { float: none; width: auto; display: inline-block; margin: 0 5px !important; }
@@ -120,7 +120,7 @@ html[xmlns] .sunshine-clearfix { display: block; }
 #sunshine .sunshine-action-menu .sunshine-share-buttons { display: inline-block; margin: 0 0 0 5px; vertical-align: top; }
 #sunshine .stButton .chicklets { margin: -1px 0 0 0; padding: 0 0 0 16px !important; }
 #sunshine img { border: 0; padding: 0; box-shadow: none; }
- 
+
 
 /* Image Detail Page */
 #sunshine h2 { clear: none; } /* Twenty Twelve */
@@ -130,7 +130,7 @@ html[xmlns] .sunshine-clearfix { display: block; }
 #sunshine-image img { max-width: 100%; height: auto; margin: 0 auto; }
 .hide-add-to-cart #sunshine-image, .proofing #sunshine-image { max-width: 100%; float: none; }
 .sunshine-product-options {
-	margin-top: 10px; 
+	margin-top: 10px;
 	position: relative;
 	background: #FFFFFF;
 	border: 1px solid #EFEFEF;
@@ -307,6 +307,13 @@ html[xmlns] .sunshine-clearfix { display: block; }
 .sunshine-main-menu .sunshine-count { display: inline-block; width: 16px; height: 16px; text-align: center; font-size: 9px; line-height: 17px; border-radius: 50%; background: #EFEFEF; margin-left: 5px; }
 
 
+/* Sharing */
+.sunshine-action-share, .sunshine-image-share { position: relative; }
+#sunshine-action-menu ul.sunshine-share-links { position: absolute; top: 15px; left: 0; z-index: 999; padding: 8px 15px; background: #FFF; }
+#sunshine-action-menu ul.sunshine-share-links li { margin: 4px 0 0 0; }
+#sunshine #sunshine-gallery-images .sunshine-image-menu li ul.sunshine-share-links { position: absolute; top: 23px; left: 0; z-index: 999; padding: 6px 10px !important; background: #FFF !important;  width: auto; }
+#sunshine #sunshine-gallery-images .sunshine-image-menu li ul.sunshine-share-links li {  float: none; display: block; }
+
 @media screen and (max-width: 600px) {
 	#sunshine #sunshine-main #sunshine-gallery-list li { float: none; width: 100%; margin: 0 0 30px 0; }
 	#sunshine #sunshine-main #sunshine-gallery-images li { float: none; width: 100%; margin: 0 0 30px 0; }
@@ -316,14 +323,16 @@ html[xmlns] .sunshine-clearfix { display: block; }
 	#sunshine #sunshine-main #sunshine-image { max-width: 100%; float: none; text-align: center; }
 	#sunshine #sunshine-next-prev { float: none; margin: 0 0 10px 0; }
 	#sunshine #sunshine-main h2 span { display: block; padding: 0; }
-	
+
 	.sunshine-product-category th { display: none; }
 	.sunshine-product-category th:first-child { display: block; }
-	
+
 	#sunshine-cart-items th { display: none; }
 	#sunshine-cart-items td { display: block; text-align: left !important; padding: 0; }
 	#sunshine-cart-items td:before { content: attr(data-label); font-size: 13px; font-weight: bold; display: block; width: 100%; }
 	#sunshine-cart-items tr.sunshine-cart-item { border-top: 1px solid #CCC; }
+
+    #sunshine #sunshine-cart-totals { max-width: 100%; }
 }
 @media screen and (max-width: 480px) {
 	#sunshine .sunshine-form .field-left { width: 100%; float: none; clear: both; }
