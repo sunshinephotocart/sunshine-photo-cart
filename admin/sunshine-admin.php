@@ -12,8 +12,8 @@ require_once ( 'sunshine-users.php' );
 
 add_filter( 'jpeg_quality', function( $arg ) { return 100; } );
 
-add_filter( 'wp_image_editors', 'force_imagick' );
-function force_imagick( $editors ) {
+add_filter( 'wp_image_editors', 'sunshine_force_imagick' );
+function sunshine_force_imagick( $editors ) {
 	if ( extension_loaded( 'imagick' ) ) {
 		$editors = array( 'WP_Image_Editor_Imagick' );
 	}
@@ -169,6 +169,7 @@ WordPress Version:        <?php echo get_bloginfo( 'version' ) . "\n"; ?>
 PHP Version:              <?php echo PHP_VERSION . "\n"; ?>
 PHP Memory Limit:         <?php echo ini_get( 'memory_limit' ) . "\n"; ?>
 WordPress Memory Limit:   <?php echo ( sunshine_let_to_num( WP_MEMORY_LIMIT )/( 1024*1024 ) )."MB"; ?><?php echo "\n"; ?>
+ImageMagick:              <?php echo ( extension_loaded( 'imagick' ) ) ? 'Yes' : 'No'; echo  "\n"; ?>
 
 ACTIVE PLUGINS:
 

@@ -5,7 +5,7 @@ Contributors: sunshinephotocart
 Tags: photo, photography, photo, photographer, gallery, client gallery, client proofing, proofing, best client proofing, cart, photo cart, e-store, eshop, ecommerce, e commerce, e-commerce, selling, wp-ecommerce, wp ecommerce
 Requires at least: 4.5
 Tested up to: 5.0
-Stable tag: 2.7.1
+Stable tag: 2.7.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -120,7 +120,7 @@ Yes! Please see our [translation site](https://www.transifex.com/wp-translations
 == Changelog ==
 
 = 2.7.2 =
-* Add - Use Imagick when it is available for higher quality images
+* Add - Use ImageMagick when it is available for higher quality images
 * Fix - Local Pickup shipping cost being removed from order data
 * Fix - Issues with discount codes being removed
 
