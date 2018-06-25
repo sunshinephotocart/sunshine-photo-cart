@@ -13,7 +13,8 @@ class SunshineShipping {
 
 	public function get_shipping_method_cost( $method ) {
 		global $sunshine;
-		return $sunshine->options[$method.'_cost'];
+		$cost = ( isset( $sunshine->options[ $method . '_cost' ] ) ? $sunshine->options[ $method . '_cost' ] : 0 );
+		return apply_filters( 'sunshine_shipping_method_cost', $cost, $method );
 	}
 
 	public function clear() {

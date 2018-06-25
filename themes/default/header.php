@@ -28,11 +28,18 @@
 		<a href="#" id="sunshine-mobile-menu"><i class="fa fa-bars"></i> Menu</a>
 		<?php sunshine_main_menu(); ?>
 	</div>
-	
+
 	<?php if ($sunshine->options['template_gallery_password_box']) { ?>
 	<div id="sunshine-gallery-password-form">
 		<label for="sunshine_gallery_password"><?php _e('Enter gallery password', 'sunshine'); ?></label>
 		<?php sunshine_gallery_password_form(); ?>
+	</div>
+	<?php } ?>
+
+	<?php if (!empty($sunshine->options['template_search_box'])) { ?>
+	<div id="sunshine-search-form">
+		<label for="sunshine_search"><?php _e('Search', 'sunshine'); ?></label>
+		<?php sunshine_search(); ?>
 	</div>
 	<?php } ?>
 

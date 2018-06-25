@@ -1,5 +1,5 @@
 <div id="sunshine" class="sunshine-clearfix <?php sunshine_classes(); ?>">
-	
+
 	<?php do_action('sunshine_before_content'); ?>
 
 	<div id="sunshine-main">
@@ -9,7 +9,7 @@
 		<input type="hidden" name="nonce" value="<?php echo wp_create_nonce( 'sunshine_update_cart' ); ?>" />
 
 		<?php do_action('sunshine_before_cart_items'); ?>
-	
+
 		<?php if (sunshine_cart_items()) { ?>
 			<table id="sunshine-cart-items">
 			<tr>
@@ -29,9 +29,9 @@
 						?>
 					</td>
 					<td class="sunshine-cart-item-name" data-label="<?php _e('Product', 'sunshine'); ?>">
-						<?php 
-						$product = get_post($item['product_id']);
-						$cat = wp_get_post_terms($item['product_id'], 'sunshine-product-category');
+						<?php
+						$product = get_post( $item['product_id'] );
+						$cat = wp_get_post_terms( $item['product_id'], 'sunshine-product-category' );
 						?>
 						<h2><span class="sunshine-item-cat"><?php echo apply_filters('sunshine_cart_item_category', (isset($cat[0]->name)) ? $cat[0]->name : '', $item); ?></span> - <span class="sunshine-item-name"><?php echo apply_filters('sunshine_cart_item_name', $product->post_title, $item); ?></span></h2>
 						<div class="sunshine-item-comments"><?php echo apply_filters('sunshine_cart_item_comments', $item['comments'], $item); ?></div>
@@ -40,11 +40,24 @@
 						<input type="number" name="item[<?php echo $i; ?>][qty]" class="sunshine-qty" value="<?php echo $item['qty']; ?>" size="4" tabindex="<?php echo $tabindex; ?>" min="0" />
 						<a href="?delete_cart_item=<?php echo $item['hash']; ?>&nonce=<?php echo wp_create_nonce( 'sunshine_delete_cart_item' ); ?>"><?php _e('Remove','sunshine'); ?></a>
 					</td>
-					<td class="sunshine-cart-item-price" data-label="<?php _e('Price', 'sunshine'); ?>">
-						<?php sunshine_money_format($item['price']); ?>
+					<td class="sunshine-cart-item-price" data-label="<?php _e( 'Price', 'sunshine' ); ?>">
+						<?php
+						if ( empty( $item['price_with_tax'] ) ) {
+							sunshine_money_format( $item['price'] );
+						} else {
+							sunshine_money_format( $item['price_with_tax'] );
+						}
+						?>
 					</td>
-					<td class="sunshine-cart-item-total" data-label="<?php _e('Total', 'sunshine'); ?>">
-						<?php sunshine_money_format($item['total']); ?>
+					<td class="sunshine-cart-item-total" data-label="<?php _e( 'Total', 'sunshine' ); ?>">
+						<?php
+						if ( empty( $item['total_with_tax'] ) ) {
+							sunshine_money_format( $item['total'] );
+						} else {
+							sunshine_money_format( $item['total_with_tax'] );
+							echo ' <small class="sunshine-cart-item-price-suffix">' . __( '(incl. tax)', 'sunshine' ) . '</small>';
+						}
+						?>
 						<input type="hidden" name="item[<?php echo $i; ?>][image_id]" value="<?php echo $item['image_id']; ?>" />
 						<input type="hidden" name="item[<?php echo $i; ?>][product_id]" value="<?php echo $item['product_id']; ?>" />
 						<input type="hidden" name="item[<?php echo $i; ?>][comments]" value="<?php echo $item['comments']; ?>" />
@@ -54,22 +67,22 @@
 
 			<?php $i++; } ?>
 			</table>
-	
+
 			<?php do_action('sunshine_after_cart_items'); ?>
 
 			<div id="sunshine-cart-update-button">
 				<input type="submit" value="<?php _e('Update Cart', 'sunshine'); ?>" class="sunshine-button-alt" />
 			</div>
-			
+
 			</form>
 
 			<?php do_action('sunshine_after_cart_form'); ?>
-	
+
 			<div id="sunshine-cart-totals">
 				<?php sunshine_cart_totals(); ?>
 				<p id="sunshine-cart-checkout-button"><a href="<?php echo sunshine_url('checkout'); ?>" class="sunshine-button"><?php _e('Continue to checkout', 'sunshine'); ?> &rarr;</a></p>
 			</div>
-			
+
 			<script>
 			jQuery(document).ready(function($){
 				var sunshine_cart_change = false;
@@ -86,7 +99,7 @@
 				});
 			});
 			</script>
-	
+
 		<?php } else { ?>
 			<p><?php _e('You do not have anything in your cart yet!', 'sunshine'); ?></p>
 		<?php } ?>

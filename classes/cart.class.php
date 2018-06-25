@@ -3,6 +3,8 @@ class SunshineCart {
 
 	public $item_count = 0;
 	public $subtotal = 0;
+	public $tax_cart = 0;
+	public $tax_shipping = 0;
 	public $tax = 0;
 	public $shipping_extra = 0;
 	public $shipping_method = array();
@@ -28,18 +30,19 @@ class SunshineCart {
 		$this->set_cart_content();
 		$this->set_subtotal();
 		$this->set_shipping();
-		$this->set_credits();
+		$this->set_tax();
 		$this->set_discounts();
 		$this->set_discount_items();
 		$this->set_discount_total();
-		$this->set_tax();
+		$this->set_credits();
+		$this->apply_final_filters();
 		$this->set_total();
 		$this->set_item_count();
-		//$this->apply_price_filters();
 		$this->set_number_format();
 	}
 
 	function add_to_cart( $image_id, $product_id, $qty, $price_level, $comments='', $type='', $extra = '' ) {
+		global $sunshine;
 
 		$current_cart = $this->content;
 
@@ -60,12 +63,13 @@ class SunshineCart {
 			'qty' => $qty,
 			'price' => $this->get_product_price( $product_id, $price_level, false ),
 			'shipping' => get_post_meta( $product_id, 'sunshine_product_shipping', true ),
-			'comments' => $comments,
+			'comments' => sanitize_text_field( $comments ),
 			'type' => ( $type ) ? $type : 'image',
 			'hash' => md5( time() )
 		);
-		if ( is_array( $extra ) )
+		if ( is_array( $extra ) ) {
 			$item = array_merge( $item, $extra );
+		}
 
 		$item = apply_filters( 'sunshine_add_to_cart_item', $item );
 
@@ -84,6 +88,15 @@ class SunshineCart {
 		}
 
 		$item['total'] = $item['price'] * $item['qty'];
+
+		if ( $sunshine->options['display_price'] == 'with_tax' && $sunshine->options['price_has_tax'] == 'no' ) {
+			$item['price_with_tax'] = $item['price'] + ( $item['price'] * ( $sunshine->options['tax_rate'] / 100 ) );
+			$item['total_with_tax'] = $item['price_with_tax'] * $item['qty'];
+		}
+
+		if ( !$item ) {
+			return false;
+		}
 
 		// Add item to the current cart
 		$current_cart[] = $item;
@@ -167,8 +180,7 @@ class SunshineCart {
 		} elseif ( isset( $_COOKIE['sunshine_cart_hash'] ) ) {
 			$this->content = maybe_unserialize( get_option( 'sunshine_cart_hash_' . $_COOKIE['sunshine_cart_hash'] ) );
 		}
-
-		sunshine_array_sort_by_column( $this->content, 'type' );
+		sunshine_array_sort_by_column( $this->content, 'image_id' );
 	}
 
 	function get_cart() {
@@ -220,6 +232,7 @@ class SunshineCart {
 
 	public function set_discounts() {
 		global $sunshine;
+
 		$this->discounts = SunshineSession::instance()->discounts;
 		if ( !empty( $this->content ) ) {
 			$auto_discounts = get_posts( array(
@@ -231,35 +244,44 @@ class SunshineCart {
 			if ( is_array( $auto_discounts ) ) {
 				foreach( $auto_discounts as $auto_discount ) {
 					$code = get_post_meta( $auto_discount->ID, 'code', true );
-					$this->apply_discount( $code, false );
-					//$this->discounts[] = $auto_discount->ID;
+					if ( empty( $this->discounts ) || !in_array( $auto_discount->ID, $this->discounts ) ) {
+						$result = $this->apply_discount( $code, false );
+					}
 				}
 			}
 		}
+
+		$this->discounts = apply_filters( 'sunshine_after_set_discounts', $this->discounts );
+
 	}
 
 	public function set_discount_items() {
+
 		if ( !empty( $this->discounts ) ) {
+			$this->discount_items = array();
 			$ids = array( 0 );
-			foreach ( $this->discounts as $discount_id )
-				$ids[] = $discount_id;
+			foreach ( $this->discounts as $discount_id ) {
+				if ( is_numeric( $discount_id ) ) {
+					$ids[] = $discount_id;
+				}
+			}
 			$discounts = get_posts( 'post_type=sunshine-discount&include='.join( ',',$ids ) );
 			foreach ( $discounts as $discount ) {
 				$d = array();
 				$d['ID'] = $discount->ID;
 				$d['name'] = $discount->post_title;
+				$d['discount_applied'] = 0;
 				$meta = get_post_meta( $discount->ID );
 				foreach ( $meta as $key => $m ) {
 					$d[ $key ] = maybe_unserialize( $m[ 0 ] );
 				}
 				$d = (object) $d;
 				$this->discount_items[] = $d;
-
-				if ( $d->free_shipping ) {
-					add_filter( 'sunshine_shipping_methods', array( $this,'add_free_shipping_method' ), 5 );
-				}
 			}
 		}
+
+		$this->discount_items = apply_filters( 'sunshine_after_set_discount_items', $this->discount_items );
+
 	}
 
 	function add_free_shipping_method( $methods ) {
@@ -291,24 +313,31 @@ class SunshineCart {
 		// Subtotal
 		$subtotal = 0;
 		if ( $this->content ) {
-			foreach ( $this->content as $item )
-				$subtotal = $subtotal + $item['total'];
+			foreach ( $this->content as $item ) {
+				$subtotal += $item['total'];
+			}
 		}
-		$this->subtotal = $subtotal;
+		$this->subtotal = apply_filters( 'sunshine_after_set_subtotal', $subtotal );
 	}
 
 	public function set_tax() {
 		global $sunshine;
 		// Get tax
-		$this->tax = 0;
-		if ( ( isset( $this->shipping_method['id'] ) && $this->shipping_method['id'] == 'pickup' ) || ( $sunshine->options['tax_location'] && $sunshine->options['tax_rate'] ) ) {
-			$this->tax = $this->get_cart_taxes();
+		if ( ( isset( $this->shipping_method['id'] ) && $this->shipping_method['id'] == 'pickup' ) || ( !empty( $sunshine->options['tax_location'] ) && !empty( $sunshine->options['tax_rate'] ) ) ) {
+			$taxes = $this->get_cart_taxes();
+			$this->tax_cart = $taxes['cart'];
+			$this->tax_shipping = $taxes['shipping'];
+			$this->tax = $taxes['cart'] + $taxes['shipping'];
 		}
 	}
 
 	public function set_shipping() {
 		global $sunshine, $current_user;
 		if ( !$current_user ) return;
+
+		if ( !isset( $this->shipping_method['cost'] ) )
+			$this->shipping_method['cost'] = 0;
+
 		$user_shipping_method = SunshineUser::get_user_meta( 'shipping_method' );
 		$shipping_methods = $sunshine->shipping->methods;
 		if ( isset( $shipping_methods[$user_shipping_method] ) )
@@ -324,8 +353,13 @@ class SunshineCart {
 			if ( $shipping_method['id'] == 'flat_rate' )
 				$this->shipping_method['cost'] += $this->shipping_extra;
 		}
-		if ( !isset( $this->shipping_method['cost'] ) )
-			$this->shipping_method['cost'] = 0;
+
+		if ( !empty( $this->shipping_method['id'] ) ) {
+			$this->shipping_method['cost'] = apply_filters( 'sunshine_shipping_set_shipping_cost', $this->shipping_method['cost'], $this );
+		}
+
+		$this->shipping_method = apply_filters( 'sunshine_after_set_shipping', $this->shipping_method );
+
 	}
 
 	function discount_valid_min_amount( $min_amount ) {
@@ -348,9 +382,31 @@ class SunshineCart {
 		return true;
 	}
 
-	function discount_valid_max_uses( $use_count, $max_uses ) {
-		if ( $max_uses > 0 && $use_count >= $max_uses )
-			return false;
+	function discount_valid_max_uses( $code, $max_uses ) {
+		if ( $max_uses > 0 ) {
+			// Look for any order that has the discount code in the meta data
+			$args = array(
+				'post_type' => 'sunshine-order',
+				'tax_query' => array(
+					array(
+						'taxonomy' => 'sunshine-order-status',
+						'field' => 'slug',
+						'terms' => array( 'cancelled', 'pending' ),
+						'operator'  => 'NOT IN'
+					)
+				),
+				'meta_query' => array(
+					array(
+						'key' => '_sunshine_order_data',
+						'value' => $code,
+						'compare' => 'LIKE'
+					)
+				)
+			);
+			$orders = get_posts( $args );
+			if ( count( $orders ) >= $max_uses )
+				return false;
+		}
 		return true;
 	}
 
@@ -360,11 +416,19 @@ class SunshineCart {
 			// Look for any order that has the discount code in the meta data
 			$args = array(
 				'post_type' => 'sunshine-order',
+				'tax_query' => array(
+					array(
+						'taxonomy' => 'sunshine-order-status',
+						'field' => 'slug',
+						'terms' => array( 'cancelled', 'pending' ),
+						'operator'  => 'NOT IN'
+					)
+				),
 				'meta_query' => array(
 					'relation' => 'AND',
 					array(
-						'key' => '_sunshine_order_discounts',
-						'value' => '"%'.$code.'%"',
+						'key' => '_sunshine_order_data',
+						'value' => $code,
 						'compare' => 'LIKE'
 					),
 					array(
@@ -380,50 +444,73 @@ class SunshineCart {
 		return true;
 	}
 
-	public function set_discount_total() {
+	public function set_discount_total( $before_tax = false ) {
 		global $sunshine;
+
 		$discount_total = 0;
+		$redo_taxes = false;
 		foreach ( $this->discount_items as $discount ) {
+
 			// Check minimum order amount
 			if ( !$this->discount_valid_min_amount( $discount->min_amount ) )
-				break;
+				continue;
 
 			// Check start/end date
 			if ( !$this->discount_valid_start_date( $discount->start_date ) )
-				break;
+				continue;
 			if ( !$this->discount_valid_end_date( $discount->end_date ) ) {
 				$sunshine->add_error( sprintf( __( 'Discount %s has now expired and has been removed from your cart','sunshine' ), $discount->name ) );
 				$this->remove_discount( $discount->ID, false );
-				break;
+				continue;
 			}
 
 			// Check max uses
-			if ( isset( $discount->use_count ) && !$this->discount_valid_max_uses( $discount->use_count, $discount->max_uses ) ){
+			if ( $discount->max_uses > 0 && !$this->discount_valid_max_uses( $discount->code, $discount->max_uses ) ){
 				$sunshine->add_error( sprintf( __( 'Discount %s has now exceeded the maximum uses and has been removed from your cart','sunshine' ), $discount->name ) );
 				$this->remove_discount( $discount->ID, false );
-				break;
+				continue;
 			}
 
-			if ( !$this->discount_valid_max_uses_per_person( $discount->code, $discount->max_uses_per_person ) )
-				break;
+			if ( $discount->max_uses_per_person > 0 && !$this->discount_valid_max_uses_per_person( $discount->code, $discount->max_uses_per_person ) ) {
+				continue;
+			}
 
+			$galleries = get_post_meta( $discount->ID, 'galleries', true );
+			if ( is_array( $galleries ) ) {
+				$gallery_match = false;
+				foreach ( $this->content as $item ) {
+					if ( isset( $item['gallery_id'] ) && in_array( $item['gallery_id'], $galleries ) ) {
+						$gallery_match = true;
+					}
+				}
+				if ( !$gallery_match ) {
+					$this->remove_discount( $discount->ID, false );
+					continue;
+				}
+			}
+
+			$free_shipping = get_post_meta( $discount->ID, 'free_shipping', true );
+			if ( $free_shipping ) {
+				add_filter( 'sunshine_shipping_methods', array( $this,'add_free_shipping_method' ), 5 );
+			}
 
 			// Passed all the tests!
 			switch ( $discount->discount_type ) {
 				case 'percent-total':
 					if ( $discount->before_tax == 1 )
-						$discount_total = $this->subtotal * ( $discount->amount / 100 );
+						$this_discount = $this->subtotal * ( $discount->amount / 100 );
 					else
-						$discount_total = ( $this->subtotal + $this->tax ) * ( $discount->amount / 100 );
+						$this_discount = ( $this->subtotal + $this->tax_cart ) * ( $discount->amount / 100 );
+					$discount_total = $discount_total + $this_discount;
 					break;
 				case 'amount-total':
 					if ( $discount_total > $this->subtotal )
-						$discount_total = $this->subtotal;
+						$this_discount = $this->subtotal;
 					else
-						$discount_total = $discount->amount;
+						$this_discount = $discount->amount;
+					$discount_total = $discount_total + $this_discount;
 					break;
 				case 'percent-product':
-
 					$discount_items = array();
 					foreach ( $this->content as $item ) {
 						if ( is_array( $discount->galleries ) && isset( $item['image_id'] ) ) {
@@ -447,6 +534,7 @@ class SunshineCart {
 								} else {
 									$price_to_discount = $discount_products[ $product_id ]['price'] * $discount_items[ $product_id ];
 								}
+								$discount->discount_applied += $price_to_discount * ( $discount->amount / 100 );
 								$discount_total = $discount_total + ( $price_to_discount * ( $discount->amount / 100 ) );
 							}
 						}
@@ -478,6 +566,7 @@ class SunshineCart {
 								else {
 									$discount_item_amount = $discount->amount * $qty;
 								}
+								$discount->discount_applied += $price_to_discount * ( $discount->amount / 100 );
 								$discount_total += $discount_item_amount;
 							}
 						}
@@ -486,14 +575,25 @@ class SunshineCart {
 					break;
 				default:
 					break;
+
+			}
+
+			if ( $discount->before_tax ) {
+				$redo_taxes = true;
 			}
 
 		}
 
-		if ( $discount_total > ( $this->subtotal + $this->shipping_method['cost'] + $this->tax ) )
-			$discount_total = $this->subtotal + $this->shipping_method['cost'] + $this->tax;
+		$discount_total = apply_filters( 'sunshine_discount_total', $discount_total, $this );
 
-		$this->discount_total = apply_filters( 'sunshine_discount_total', $discount_total, $this );
+		if ( $discount_total > ( $this->subtotal + $this->tax ) )
+			$discount_total = $this->subtotal + $this->tax;
+
+		$this->discount_total = $discount_total;
+
+		if ( $redo_taxes ) {
+			$this->set_tax();
+		}
 
 	}
 
@@ -539,8 +639,10 @@ class SunshineCart {
 
 	// Retrieval functions
 	public function get_product_price( $product_id, $price_level, $formatted = true ) {
-		$price = get_post_meta( $product_id, 'sunshine_product_price_'.$price_level, true );
+		$price = get_post_meta( $product_id, 'sunshine_product_price_' . $price_level, true );
+		$price = str_replace( ',', '.', $price );
 		$result = '';
+
 		if ( $price ) {
 			if ( $formatted ) {
 				$result = sunshine_money_format( $price, false );
@@ -553,8 +655,26 @@ class SunshineCart {
 			else
 				$result = '0';
 		}
+		return $result;
+	}
 
-
+	public function get_product_display_price( $product_id, $price_level, $formatted = true ) {
+		global $sunshine;
+		if ( $sunshine->options['display_price'] == 'with_tax' && $sunshine->options['price_has_tax'] == 'no' ) {
+			$price = $this->get_product_price( $product_id, $price_level, false );
+			$price = $price + ( $price * ( $sunshine->options['tax_rate'] / 100 ) );
+			if ( $formatted ) {
+				$result = sunshine_money_format( $price, false );
+			}
+			else {
+				$result = $price;
+			}
+		} else {
+			$result = $this->get_product_price( $product_id, $price_level, $formatted );
+		}
+		if ( !empty( $sunshine->options['price_with_tax_suffix'] ) ) {
+			$result .= ' <small class="sunshine-price-tax-suffix">' . $sunshine->options['price_with_tax_suffix'] . '</small>';
+		}
 		return $result;
 	}
 
@@ -565,8 +685,9 @@ class SunshineCart {
 		if ( is_numeric( $price ) )
 			$price = $price * $qty;
 		$price = apply_filters( 'sunshine_get_line_item_price', $price, $item );
+		$price = str_replace( ',', '.', $price );
 		if ( $sign )
-			$price = sunshine_money_format( $price,false );
+			$price = sunshine_money_format( $price, false );
 		if ( $echo )
 			echo $price;
 		else
@@ -582,48 +703,84 @@ class SunshineCart {
 			return 0;
 
 		$tax_location_array = explode( '|', $sunshine->options['tax_location'] );
-		if (( isset( $this->shipping_method['id'] ) && $this->shipping_method['id'] == 'pickup' ) ) {
+		$basis = $sunshine->options['tax_basis'];
+		$meta_prefix = '';
+		if ( $basis && $basis == 'shipping' ) {
+			$meta_prefix = $basis . '_';
+		}
+
+		$taxable = true;
+
+		if ( ( isset( $this->shipping_method['id'] ) && $this->shipping_method['id'] == 'pickup' ) ) {
+
+		} elseif ( $basis == 'all' ) {
 
 		} elseif ( isset( $tax_location_array[1] ) ) {
 			$tax_location = $tax_location_array[1];
-			$tax_state = SunshineUser::get_user_meta( 'shipping_state' );
-			if ( empty( $tax_state ) || $tax_state != $tax_location )
-				return 0;
+			$tax_state = SunshineUser::get_user_meta( $meta_prefix . 'state' );
+			if ( empty( $tax_state ) || $tax_state != $tax_location ) {
+				$taxable = false;
+			}
 		} else {
 			$tax_location = $sunshine->options['tax_location'];
-			$tax_country = SunshineUser::get_user_meta( 'shipping_country' );
-			if ( empty( $tax_country ) || $tax_country != $tax_location )
-				return 0;
+			$tax_country = SunshineUser::get_user_meta( $meta_prefix . 'country' );
+			if ( empty( $tax_country ) || $tax_country != $tax_location ) {
+				$taxable = false;
+			}
+		}
+
+		$taxable = apply_filters( 'sunshine_taxable', $taxable, $this->content );
+		if ( !$taxable ) {
+			return 0;
 		}
 
 		if ( $this->content ) {
 			$order_total = $taxable_total = 0;
 			foreach ( $this->content as $item ) {
 				$order_total += $item['total'];
-				if ( get_post_meta( $item['product_id'], 'sunshine_product_taxable', true ) )
+				if ( get_post_meta( $item['product_id'], 'sunshine_product_taxable', true ) ) {
+					if ( $sunshine->options['tax_entire_order_one_item'] ) {
+						$taxable_total = $this->subtotal;
+						break;
+					}
 					$taxable_total += $item['total'];
-				elseif ( $item['type'] == 'gallery_download' && $sunshine->options['tax_gallery_download'] )
+				}
+				elseif ( $item['type'] == 'gallery_download' && $sunshine->options['tax_gallery_download'] ) {
 					$taxable_total += $item['total'];
+				}
 			}
 		}
 
 		if ( $this->discount_total > 0 ) {
+			foreach ( $this->discount_items as $discount ) {
+				if ( $discount->before_tax ) {
+					$taxable_total -= $discount->discount_applied;
+				}
+			}
 			// Apply discount to non-taxable items first when discount is greater than taxable total
 			if ( $this->discount_total > $taxable_total ) {
 				$non_taxable = $order_total - $taxable_total;
 				$new_val = $non_taxable - $this->discount_total;
 				$new_val2 = $taxable_total - abs( $new_val );
 				$taxable_total = $new_val2;
-			} else
-				$taxable_total -= $this->discount_total;
+			}
 		}
+
+		$taxes = array(
+			'cart' => $taxable_total,
+			'shipping' => 0
+		);
 
 		// If shipping method is taxable
 		if ( is_array( $this->shipping_method ) && isset( $this->shipping_method['cost'] ) && isset( $this->shipping_method['taxable'] ) && $this->shipping_method['taxable'] == 1 ) {
-			$taxable_total += $this->shipping_method['cost'];
+			$taxes['shipping'] = $this->shipping_method['cost'];
 		}
 
-		return max( 0, $taxable_total * ( $sunshine->options['tax_rate']/100 ) );
+		foreach ( $taxes as $key => $value ) {
+			$taxes[ $key ] = max( 0, $value * ( $sunshine->options['tax_rate'] / 100 ) );
+		}
+
+		return $taxes;
 	}
 
 
@@ -664,11 +821,7 @@ class SunshineCart {
 		if ( $code ) {
 			if ( !$this->can_add_discount() ) {
 				$sunshine->add_error( __( 'You are not allowed to add any more discounts to your cart','sunshine' ) );
-				return;
-			}
-			if ( $this->is_discount_applied( $code ) ) {
-				$sunshine->add_error( __( 'This discount is already applied to your cart','sunshine' ) );
-				return;
+				return false;
 			}
 
 			$args = array(
@@ -677,17 +830,17 @@ class SunshineCart {
 				'meta_value' => $code
 			);
 			$discounts = get_posts( $args );
-			if ( $discounts ) {
+			if ( !empty( $discounts ) ) {
 				foreach ( $discounts as $discount ) {
 					// Is it already applied
-					if ( in_array( $discount->ID, $this->discounts ) ) {
+					if ( is_array( $this->discounts ) && in_array( $discount->ID, $this->discounts ) ) {
 						if ( $errors ) $sunshine->add_error( __( 'This discount is already applied', 'sunshine' ) );
 						break;
 					}
 					// Check minimum order amount
 					$min_amount = get_post_meta( $discount->ID, 'min_amount', true );
 					if ( !$this->discount_valid_min_amount( $min_amount ) ) {
-						if ( $errors ) $sunshine->add_error( __( 'Your order does not yet meet the minimum order amount for this discount','sunshine' ) );
+						if ( $errors ) $sunshine->add_error( sprintf( __( 'Your order does not yet meet the minimum order amount (%s) for this discount','sunshine' ), sunshine_money_format( $min_amount, false ) ) );
 						break;
 					}
 					// Check start/end date
@@ -702,19 +855,33 @@ class SunshineCart {
 						break;
 					}
 
+					$code = get_post_meta( $discount->ID, 'code', true );
+
 					// Check max uses
-					$use_count = get_post_meta( $discount->ID, 'use_count', true );
 					$max_uses = get_post_meta( $discount->ID, 'max_uses', true );
-					if ( !$this->discount_valid_max_uses( $use_count, $max_uses ) ) {
+					if ( $max_uses > 0 && !$this->discount_valid_max_uses( $code, $max_uses ) ) {
 						if ( $errors ) $sunshine->add_error( __( 'This coupon has exceeded the number of uses allowed','sunshine' ) );
 						break;
 					}
 
-					$code = get_post_meta( $discount->ID, 'code', true );
 					$max_uses_per_person = get_post_meta( $discount->ID, 'max_uses_per_person', true );
-					if ( !$this->discount_valid_max_uses_per_person( $code, $max_uses_per_person ) ) {
+					if ( $max_uses_per_person > 0 && !$this->discount_valid_max_uses_per_person( $code, $max_uses_per_person ) ) {
 						if ( $errors ) $sunshine->add_error( __( 'This coupon has exceeded the number of uses allowed per user','sunshine' ) );
 						break;
+					}
+
+					$galleries = get_post_meta( $discount->ID, 'galleries', true );
+					if ( is_array( $galleries ) ) {
+						$gallery_match = false;
+						foreach ( $this->content as $item ) {
+							if ( isset( $item['gallery_id'] ) && in_array( $item['gallery_id'], $galleries ) ) {
+								$gallery_match = true;
+							}
+						}
+						if ( !$gallery_match ) {
+							if ( $errors ) $sunshine->add_error( __( 'This discount code does not work with any items in your cart','sunshine' ) );
+							continue;
+						}
 					}
 
 					$this->discounts[] = $discount->ID;
@@ -736,10 +903,12 @@ class SunshineCart {
 			if( ( $key = array_search( $discount_id, $this->discounts ) ) !== false ) {
 				unset( $this->discounts[$key] );
 				SunshineSession::instance()->discounts = $this->discounts;
-				if ( $add_message ) $sunshine->add_message( __( 'Discount removed','sunshine' ) );
+				if ( $add_message ) $sunshine->add_message( sprintf( __( 'Discount "%s" removed','sunshine' ), get_the_title( $discount_id ) ) );
 				return true;
 			}
 		}
+		unset( SunshineSession::instance()->discounts );
+		unset( $this->discounts );
 		$sunshine->add_error( __( 'Discount not applied to your cart and cannot be removed','sunshine' ) );
 		return false;
 	}
@@ -755,20 +924,20 @@ class SunshineCart {
 		}
 	}
 
-	function set_number_format() {
-		$this->subtotal = number_format( $this->subtotal,2,'.','' );
-		$this->tax = number_format( $this->tax,2,'.','' );
-		$this->shipping_method['cost'] = number_format( $this->shipping_method['cost'],2,'.','' );
-		$this->discount_total = number_format( $this->discount_total,2,'.','' );
-		$this->total = number_format( $this->total,2,'.','' );
+	function apply_final_filters() {
+		$this->subtotal = apply_filters( 'sunshine_cart_subtotal', $this->subtotal, $this );
+		$this->tax = apply_filters( 'sunshine_cart_tax', $this->tax, $this );
+		$this->shipping_method['cost'] = apply_filters( 'sunshine_cart_shipping_method_cost', $this->shipping_method['cost'], $this );
+		$this->discount_total = apply_filters( 'sunshine_cart_discount_total', $this->discount_total, $this );
+		$this->total = apply_filters( 'sunshine_cart_total', $this->total, $this );
 	}
 
-	function apply_price_filters() {
-		$this->subtotal = apply_filters( 'sunshine_cart_subtotal', $this->subtotal );
-		$this->tax = apply_filters( 'sunshine_cart_tax', $this->tax );
-		$this->shipping_method['cost'] = apply_filters( 'sunshine_cart_shipping_method_cost', $this->shipping_method['cost'] );
-		$this->discount_total = apply_filters( 'sunshine_cart_discount_total', $this->discount_total );
-		$this->total = apply_filters( 'sunshine_cart_total', $this->total );
+	function set_number_format() {
+		$this->subtotal = number_format( floatval( $this->subtotal ), 2, '.', '' );
+		$this->tax = number_format( floatval( $this->tax ), 2, '.', '' );
+		$this->shipping_method['cost'] = number_format( floatval( $this->shipping_method['cost'] ), 2, '.', '' );
+		$this->discount_total = number_format( floatval( $this->discount_total ), 2, '.', '' );
+		$this->total = number_format( floatval( $this->total ), 2, '.', '' );
 	}
 
 	function get_default_price_level() {

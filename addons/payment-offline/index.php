@@ -2,11 +2,13 @@
 add_action( 'init', 'sunshine_init_offline', 20 );
 function sunshine_init_offline() {
 	global $sunshine;
-	if ( $sunshine->options['offline_active'] ) {
-		$name = ( $sunshine->options['offline_name'] ) ? $sunshine->options['offline_name'] : __( 'Offline','sunshine' );
-		$desc = ( $sunshine->options['offline_desc'] ) ? $sunshine->options['offline_desc'] : __( 'Send payment in outside of website','sunshine' );
-		SunshinePaymentMethods::add_payment_method( 'offline', $name, $desc, 20 );
-	}
+
+	if ( !isset( $sunshine->options['offline_active'] ) || $sunshine->options['offline_active'] != 1 ) return;
+
+	$name = ( $sunshine->options['offline_name'] ) ? $sunshine->options['offline_name'] : __( 'Offline','sunshine' );
+	$desc = ( $sunshine->options['offline_desc'] ) ? $sunshine->options['offline_desc'] : __( 'Send payment in outside of website','sunshine' );
+	SunshinePaymentMethods::add_payment_method( 'offline', $name, $desc, 20 );
+
 }
 
 add_filter( 'sunshine_order_status_description', 'sunshine_offline_order_status', 1, 3 );

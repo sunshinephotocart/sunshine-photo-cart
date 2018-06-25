@@ -4,13 +4,31 @@ function sunshine_admin_menu() {
 	global $menu, $sunshine;
 	$plugin_dir_path = dirname( __FILE__ );
 
-	add_menu_page( 'Sunshine', 'Sunshine', 'sunshine_manage_options', 'sunshine_admin', 'sunshine_dashboard_display', plugins_url( 'assets/images/sunshine-icon.png' , $plugin_dir_path ) );
+	$counter = '';
+	$orders = get_posts( array(
+		'post_type' => 'sunshine-order',
+		'nopaging' => true,
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'sunshine-order-status',
+				'field' => 'slug',
+				'terms' => 'new'
+			)
+		)
+	));
+	$order_count = count( $orders );
+	if ( $order_count > 0 ) {
+		$notifications = sprintf( _n( '%s order', '%s orders', $order_count, 'sunshine' ), number_format_i18n( $order_count ) );
+		$counter = sprintf( '<span class="update-plugins count-%1$d"><span class="plugin-count" aria-hidden="true">%1$d</span><span class="screen-reader-text">%2$s</span></span>', $order_count, $notifications );
+	}
+
+	add_menu_page( 'Sunshine', 'Sunshine ' . $counter, 'sunshine_manage_options', 'sunshine_admin', 'sunshine_dashboard_display', plugins_url( 'assets/images/sunshine-icon.png' , $plugin_dir_path ) );
 	//add_submenu_page('sunshine', 'Settings', 'Settings', 10,  'sunshine');
 	add_submenu_page( 'sunshine_admin', __( 'Dashboard','sunshine' ), __( 'Dashboard','sunshine' ), 'sunshine_manage_options',  'sunshine_admin', 'sunshine_dashboard_display' );
 	add_submenu_page( 'sunshine_admin', __( 'Settings','sunshine' ),  __( 'Settings','sunshine' ), 'sunshine_manage_options', 'admin.php?page=sunshine' );
 
 	$sunshine_admin_submenu = array();
-	$sunshine_admin_submenu[9] = array( __( 'Orders','sunshine' ), __( 'Orders','sunshine' ), 'edit_sunshine_order', 'edit.php?post_type=sunshine-order' );
+	$sunshine_admin_submenu[9] = array( __( 'Orders','sunshine' ), __( 'Orders','sunshine' ) . ' ' . $counter, 'edit_sunshine_order', 'edit.php?post_type=sunshine-order' );
 	$sunshine_admin_submenu[10] = array( __( 'Galleries','sunshine' ), __( 'Galleries','sunshine' ), 'edit_sunshine_gallery', 'edit.php?post_type=sunshine-gallery' );
 	$sunshine_admin_submenu[20] = array( __( 'Product Categories','sunshine' ), __( 'Product Categories','sunshine' ), 'edit_sunshine_product', 'edit-tags.php?taxonomy=sunshine-product-category&post_type=sunshine-product' );
 	$sunshine_admin_submenu[30] = array( __( 'Products','sunshine' ), __( 'Products','sunshine' ), 'edit_sunshine_product', 'edit.php?post_type=sunshine-product' );

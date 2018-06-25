@@ -1,6 +1,7 @@
 <?php load_template(SUNSHINE_PATH.'themes/default/header.php'); ?>
 
 <?php
+global $sunshine;
 $order_data = sunshine_get_order_data(SunshineFrontend::$current_order->ID);
 $order_items = sunshine_get_order_items(SunshineFrontend::$current_order->ID);
 $customer_id = get_post_meta( SunshineFrontend::$current_order->ID, '_sunshine_customer_id', true );
@@ -9,12 +10,12 @@ $status = sunshine_get_order_status(SunshineFrontend::$current_order->ID);
 <h1>
 	<?php _e('Order','sunshine'); ?> #<?php echo SunshineFrontend::$current_order->ID; ?>
 </h1>
-<p id="sunshine-order-status" class="sunshine-status-<?php echo $status->slug; ?>"> 
+<p id="sunshine-order-status" class="sunshine-status-<?php echo $status->slug; ?>">
 	<strong><?php echo $status->name; ?>:</strong> <?php echo $status->description; ?>
 </p>
 <?php do_action( 'sunshine_order_notes', SunshineFrontend::$current_order->ID ); ?>
 <div class="sunshine-form" id="sunshine-order">
-	<div id="sunshine-order-contact-fields">
+	<div id="sunshine-order-contact-fields" class="sunshine-clearfix">
 		<h2><?php _e('Contact Information','sunshine'); ?></h2>
 		<div class="field field-left"><label><?php _e('Email','sunshine'); ?></label> <?php echo $order_data['email']; ?></div>
 		<div class="field field-right"><label><?php _e('Phone','sunshine'); ?></label> <?php echo $order_data['phone']; ?></div>
@@ -26,7 +27,7 @@ $status = sunshine_get_order_status(SunshineFrontend::$current_order->ID);
 		<div class="field field-left"><label><?php _e('Address','sunshine'); ?></label> <?php echo $order_data['address']; ?></div>
 		<div class="field field-right"><label><?php _e('Address 2','sunshine'); ?>	</label> <?php echo $order_data['address2']; ?></div>
 		<div class="field field-left"><label><?php _e('City','sunshine'); ?></label> <?php echo $order_data['city']; ?></div>
-		<div class="field field-right"><label><?php _e('State / Province','sunshine'); ?></label> <?php echo SunshineCountries::$states[$order_data['country']][$order_data['state']]; ?></div>
+		<div class="field field-right"><label><?php _e('State / Province','sunshine'); ?></label> <?php echo ( isset( SunshineCountries::$states[$order_data['country']][$order_data['state']] ) ) ? SunshineCountries::$states[$order_data['country']][$order_data['state']] : $order_data['state']; ?></div>
 		<div class="field field-left"><label><?php _e('Zip / Postcode','sunshine'); ?></label> <?php echo $order_data['zip']; ?></div>
 		<div class="field field-right"><label><?php _e('Country','sunshine'); ?></label> <?php echo SunshineCountries::$countries[$order_data['country']]; ?></div>
 	</div>
@@ -37,7 +38,7 @@ $status = sunshine_get_order_status(SunshineFrontend::$current_order->ID);
 		<div class="field field-left"><label><?php _e('Address','sunshine'); ?></label> <?php echo $order_data['shipping_address']; ?></div>
 		<div class="field field-right"><label><?php _e('Address 2','sunshine'); ?>	</label> <?php echo $order_data['shipping_address2']; ?></div>
 		<div class="field field-left"><label><?php _e('City','sunshine'); ?></label> <?php echo $order_data['shipping_city']; ?></div>
-		<div class="field field-right"><label><?php _e('State / Province','sunshine'); ?></label> <?php echo SunshineCountries::$states[$order_data['shipping_country']][$order_data['shipping_state']]; ?></div>
+		<div class="field field-right"><label><?php _e('State / Province','sunshine'); ?></label> <?php echo ( isset( SunshineCountries::$states[$order_data['shipping_country']][$order_data['shipping_state']] ) ) ? SunshineCountries::$states[$order_data['shipping_country']][$order_data['shipping_state']] : $order_data['shipping_state']; ?></div>
 		<div class="field field-left"><label><?php _e('Zip / Postcode','sunshine'); ?></label> <?php echo $order_data['shipping_zip']; ?></div>
 		<div class="field field-right"><label><?php _e('Country','sunshine'); ?></label> <?php echo SunshineCountries::$countries[$order_data['shipping_country']]; ?></div>
 	</div>
@@ -53,8 +54,8 @@ $status = sunshine_get_order_status(SunshineFrontend::$current_order->ID);
 		<th class="sunshine-cart-price"><?php _e('Item Price','sunshine'); ?></th>
 		<th class="sunshine-cart-total"><?php _e('Item Total','sunshine'); ?></th>
 	</tr>
-	<?php 
-	$i = 1; foreach ($order_items as $item) { 
+	<?php
+	$i = 1; foreach ($order_items as $item) {
 	?>
 		<tr class="sunshine-cart-item">
 			<td class="sunshine-cart-item-image">
@@ -65,7 +66,7 @@ $status = sunshine_get_order_status(SunshineFrontend::$current_order->ID);
 				?>
 			</td>
 			<td class="sunshine-cart-item-name">
-				<?php 
+				<?php
 				$product = get_post($item['product_id']);
 				$cat = wp_get_post_terms($item['product_id'], 'sunshine-product-category');
 				?>
@@ -76,10 +77,23 @@ $status = sunshine_get_order_status(SunshineFrontend::$current_order->ID);
 				<?php echo $item['qty']; ?>
 			</td>
 			<td class="sunshine-cart-item-price">
-				<?php sunshine_money_format($item['price']); ?>
+				<?php
+				if ( empty( $item['price_with_tax'] ) ) {
+					sunshine_money_format( $item['price'] );
+				} else {
+					sunshine_money_format( $item['price_with_tax'] );
+				}
+				?>
 			</td>
 			<td class="sunshine-cart-item-total">
-				<?php sunshine_money_format($item['total']); ?>
+				<?php
+				if ( empty( $item['total_with_tax'] ) ) {
+					sunshine_money_format( $item['total'] );
+				} else {
+					sunshine_money_format( $item['total_with_tax'] );
+					echo ' <small class="sunshine-cart-item-price-suffix">' . __( '(incl. tax)', 'sunshine' ) . '</small>';
+				}
+				?>
 			</td>
 		</tr>
 
@@ -90,9 +104,18 @@ $status = sunshine_get_order_status(SunshineFrontend::$current_order->ID);
 		<table>
 		<tr class="sunshine-subtotal">
 			<th><?php _e('Subtotal','sunshine'); ?></th>
-			<td><?php sunshine_money_format($order_data['subtotal']); ?></td>
+			<td>
+				<?php
+				if ( empty( $order_data['subtotal_with_tax'] ) ) {
+					sunshine_money_format( $order_data['subtotal'] );
+				} else {
+					sunshine_money_format( $order_data['subtotal_with_tax'] );
+					echo ' <small class="sunshine-cart-item-price-suffix">' . __( '(incl. tax)', 'sunshine' ) . '</small>';
+				}
+				?>
+			</td>
 		</tr>
-		<?php if ( $order_data['tax'] > 0 ) { ?>
+		<?php if ( empty( $order_data['subtotal_with_tax'] ) && $order_data['tax'] > 0 ) { ?>
 		<tr class="sunshine-tax">
 			<th><?php _e('Tax','sunshine'); ?></th>
 			<td><?php sunshine_money_format($order_data['tax']); ?></td>
@@ -119,11 +142,24 @@ $status = sunshine_get_order_status(SunshineFrontend::$current_order->ID);
 
 		<tr class="sunshine-total">
 			<th><?php _e('Total','sunshine'); ?></th>
-			<td><?php sunshine_money_format($order_data['total']); ?></td>
+			<td>
+				<?php
+				sunshine_money_format( $order_data['total'] );
+				if ( $order_data['subtotal_with_tax'] && $order_data['tax'] ) {
+					echo ' <small class="sunshine-cart-item-price-suffix">' . sprintf( __( '(includes %s tax)', 'sunshine' ), sunshine_money_format( $order_data['tax'], false ) ) . '</small>';
+				}
+				?>
+			</td>
 		</tr>
 		</table>
 	</div>
 </div>
+
+<?php if ( $order_data['notes'] ) { ?>
+	<h3><?php _e( 'Additional Order Notes', 'sunshine' ); ?></h3>
+	<p><?php echo nl2br( htmlspecialchars( $order_data['notes'] ) ); ?></p>
+<?php } ?>
+
 <?php if ( $customer_id ) { ?>
 <div id="sunshine-order-comments">
 	<h2><?php _e( 'Order Comments', 'sunshine' ); ?></h2>
@@ -132,12 +168,13 @@ $status = sunshine_get_order_status(SunshineFrontend::$current_order->ID);
 	if ($comments) {
 	?>
 	<ol>
-	<?php 
-	wp_list_comments('type=comment&avatar_size=0', $comments); 
+	<?php
+	wp_list_comments('type=comment&avatar_size=0', $comments);
 	?>
 	</ol>
-	<?php 
+	<?php
 	}
+	$sunshine->comment_status = 'IN_SUNSHINE';
 	comment_form(
 		array(
 			'comment_notes_before' => '',
@@ -148,7 +185,8 @@ $status = sunshine_get_order_status(SunshineFrontend::$current_order->ID);
 			'title_reply' => __('Add Comment', 'sunshine')
 		),
 		SunshineFrontend::$current_order->ID
-	); 
+	);
+	$sunshine->comment_status = '';
 	?>
 </div>
 <?php } ?>

@@ -43,7 +43,7 @@ function sunshine_current_url( $echo = 1 ) {
 *				$echo = Display the result or not
 *	@return Number formatted with currency (optional)
 */
-function sunshine_money_format( $value, $echo=true ) {
+function sunshine_money_format( $value, $echo = true ) {
 	global $sunshine;
 	if ( !$value )
 		$value = 0;
@@ -244,13 +244,22 @@ function sunshine_currency_symbol_format() {
 *
 *	@return Cart subtotal
 */
-function sunshine_subtotal( $echo=true, $raw=false ) {
+function sunshine_subtotal( $echo = true, $raw = false ) {
 	global $sunshine;
 	$subtotal = $sunshine->cart->subtotal;
-	if ( $raw )
+	// If we are showing prices with tax, add to subtotal for display purposes
+	if ( $sunshine->options['display_price'] == 'with_tax' && $sunshine->cart->tax > 0 ) {
+		$subtotal += $sunshine->cart->tax_cart;
+	}
+	if ( $raw ) {
 		return sunshine_money_format( $subtotal, false );
-	if ( $echo )
+	}
+	if ( $echo ) {
 		sunshine_money_format( $subtotal );
+		if ( $sunshine->options['display_price'] == 'with_tax' && $sunshine->cart->tax > 0 ) {
+			echo ' <small class="sunshine-price-tax-suffix">' . __( '(incl. tax)', 'sunshine' ) . '</small>';
+		}
+	}
 }
 
 /*
@@ -261,7 +270,7 @@ function sunshine_subtotal( $echo=true, $raw=false ) {
 function sunshine_tax_total( $echo=true, $raw=false ) {
 	global $sunshine;
 	$tax = $sunshine->cart->tax;
-	
+
 	if ( $raw )
 		return sunshine_money_format( $tax, false );
 	if ( $echo )
@@ -278,32 +287,41 @@ function sunshine_shipping_method( $echo=true, $raw=false ) {
 	global $sunshine;
 	if ( $raw ) {
 		$shipping['name'] = $sunshine->cart->shipping_method['title'];
-		$shipping['cost'] = $sunshine->cart->shipping_method['cost'];
+		$shipping['cost'] = $sunshine->shipping->get_shipping_method_cost( $sunshine->cart->shipping_method['id'] );
 		return $shipping;
 	} else {
-		if ( isset( $sunshine->cart->shipping_method['id'] ) )
-			$shipping_method = sunshine_money_format( $sunshine->cart->shipping_method['cost'], false );
-		else {
+		if ( isset( $sunshine->cart->shipping_method['id'] ) ) {
+			$shipping_cost = $sunshine->shipping->get_shipping_method_cost( $sunshine->cart->shipping_method['id'] );
+			// If we are showing prices with tax, add to subtotal for display purposes
+			if ( $sunshine->options['display_price'] == 'with_tax' && $sunshine->cart->tax > 0 ) {
+				$shipping_cost += $sunshine->cart->tax_shipping;
+			}
+			$shipping_method = sunshine_money_format( $shipping_cost, false );
+			if ( $sunshine->options['display_price'] == 'with_tax' && $sunshine->cart->tax > 0 ) {
+				$shipping_method .= ' <small class="sunshine-price-tax-suffix">' . __( '(incl. tax)', 'sunshine' ) . '</small>';
+			}
+		} else {
 			if ( is_page( $sunshine->options['page_checkout'] ) )
 				$shipping_method = __( 'Select shipping method above','sunshine' );
 			else
 				$shipping_method = __( 'Select on checkout page','sunshine' );
 		}
 	}
-	if ( $echo )
+	if ( $echo ) {
 		echo $shipping_method;
-	else
+	} else {
 		return $shipping_method;
+	}
 }
 
 function sunshine_get_shipping_method_name( $id ) {
 	global $sunshine;
-	
+
 	if ( isset( $sunshine->options[ $id . '_name' ] ) )
 		return $sunshine->options[ $id . '_name' ];
-	
+
 	return $id;
-	
+
 }
 
 
@@ -327,13 +345,17 @@ function sunshine_discount_total( $echo=true, $raw=false ) {
 * 	Total of the current cart
 *	(Total value of line items, tax, discounts & shipping)
 *
-*	@return Cart subtotal
+*	@return Cart total
 */
-function sunshine_total( $echo=true, $raw=false ) {
+function sunshine_total( $echo = true, $raw = false ) {
 	global $sunshine;
 	$total = $sunshine->cart->total;
-	if ( !$raw )
-		$total = sunshine_money_format( $total, false );
+	if ( !$raw ) {
+		$total = '<span class="sunshine-total">' . sunshine_money_format( $total, false ) . '</span>';
+		if ( $sunshine->options['display_price'] == 'with_tax' && $sunshine->cart->tax > 0 ) {
+			$total .= ' <small class="sunshine-cart-item-price-suffix">' . sprintf( __( '(incl. %s tax)', 'sunshine' ), sunshine_money_format( $sunshine->cart->tax, false ) ) . '</small>';
+		}
+	}
 	if ( $echo )
 		echo $total;
 	else
@@ -393,7 +415,7 @@ function sunshine_action_menu() {
 	if ( $menu ) {
 		ksort( $menu );
 		$menu_html = '<ul class="sunshine-action-menu sunshine-clearfix">';
-		foreach ( $menu as $item ) {
+		foreach ( $menu as $key => $item ) {
 			$attributes = '';
 			if ( isset( $item['attr'] ) ) {
 				foreach ( $item['attr'] as $attr => $value )
@@ -401,7 +423,7 @@ function sunshine_action_menu() {
 			}
 			$menu_html .=  '<li';
 			if ( isset( $item['class'] ) )
-				$menu_html .= ' class="'.$item['class'].'"';
+				$menu_html .= ' class="'.$item['class'].' sunshine-action-menu-item-' . $key . '"';
 			$menu_html .= '>';
 			if ( isset( $item['before_a'] ) )
 				$menu_html .= $item['before_a'];
@@ -448,7 +470,14 @@ function sunshine_get_galleries() {
 		'post_parent' => 0,
 		'orderby' => $order,
 		'order' => $orderby,
-		'nopaging' => true
+		'nopaging' => true,
+		'meta_query' => array(
+			array(
+				'key' => 'sunshine_gallery_access',
+				'value' => 'url',
+				'compare' => '!='
+			),
+		)
 	);
 	if ( is_user_logged_in() && !current_user_can( 'sunshine_manage_options' ) ) {
 		$args['post_status'] = array( 'publish', 'private' );
@@ -474,13 +503,14 @@ function sunshine_get_galleries() {
 function sunshine_gallery_class() {
 	global $post;
 	$classes = array();
+	$classes[] = 'sunshine-gallery-'.$post->ID;
 	if ( post_password_required( $post->ID ) )
 		$classes[] = 'password-required';
 	$classes = apply_filters( 'sunshine_gallery_class', $classes );
 	echo join( ' ', $classes );
 }
 
-function sunshine_image_class( $image_id, $classes = array() ) {
+function sunshine_image_class( $image_id, $classes = array(), $echo = true ) {
 	global $sunshine;
 	if ( is_array( $sunshine->cart->content ) ) {
 		foreach ( $sunshine->cart->content as $item ) {
@@ -493,7 +523,13 @@ function sunshine_image_class( $image_id, $classes = array() ) {
 	$comments = get_comments( array( 'post_id' => $image_id ) );
 	if ( $comments )
 		$classes[] = 'sunshine-has-comments';
-	echo join( ' ', apply_filters( 'sunshine_image_class', $image_id, $classes ) );
+
+	$class_names = join( ' ', apply_filters( 'sunshine_image_class', $image_id, $classes ) );
+	if ( $echo ) {
+		echo $class_names;
+	} else {
+		return $class_names;
+	}
 }
 
 function sunshine_classes() {
@@ -503,7 +539,7 @@ function sunshine_classes() {
 		$classes .= ' sunshine-image '.SunshineFrontend::$current_image->post_name;
 		$disable_products = get_post_meta( SunshineFrontend::$current_gallery->ID, 'sunshine_gallery_disable_products', true );
 		$hide_add_to_cart = false;
-		if ( $sunshine->options['add_to_cart_require_account'] && !is_user_logged_in() )
+		if ( isset( $sunshine->options['add_to_cart_require_account'] ) && $sunshine->options['add_to_cart_require_account'] && !is_user_logged_in() )
 			$classes .= ' hide-add-to-cart';
 	} elseif ( isset( SunshineFrontend::$current_gallery ) && !isset( SunshineFrontend::$current_image ) ) {
 		$classes .= ' sunshine-gallery '.SunshineFrontend::$current_gallery->post_name;
@@ -541,6 +577,27 @@ function sunshine_featured_image( $gallery_id = '', $size="sunshine-thumbnail", 
 	}
 }
 
+function sunshine_featured_image_id( $gallery_id = '' ) {
+	global $post;
+	if ( empty( $gallery_id ) ) {
+		$gallery_id = $post->ID;
+	}
+	if ( has_post_thumbnail( $gallery_id ) ) {
+		return get_post_thumbnail_id( $gallery_id );
+	} else if ( $images = get_children( array(
+				'post_parent' => $gallery_id,
+				'post_type' => 'attachment',
+				'numberposts' => 1,
+				'post_mime_type' => 'image',
+				'orderby' => 'menu_order ID',
+				'order' => 'ASC' ) ) ) {
+		foreach( $images as $image )
+			return $image->ID;
+	}
+	return false;
+}
+
+
 function sunshine_gallery_image_count() {
 	global $post;
 	$attachments = get_children( array( 'post_parent' => $post->ID, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image' ) );
@@ -567,7 +624,14 @@ function sunshine_get_child_galleries() {
 		'post_parent' => SunshineFrontend::$current_gallery->ID,
 		'orderby' => $order,
 		'order' => $orderby,
-		'nopaging' => true
+		'nopaging' => true,
+		'meta_query' => array(
+			array(
+				'key' => 'sunshine_gallery_access',
+				'value' => 'url',
+				'compare' => '!='
+			),
+		)
 	);
 	if ( is_user_logged_in() && !current_user_can( 'sunshine_manage_options' ) ) {
 		$args['post_status'] = array( 'publish', 'private' );
@@ -597,7 +661,7 @@ function sunshine_is_gallery_expired( $gallery_id = '' ) {
 		$gallery_id = SunshineFrontend::$current_gallery->ID;
 	}
 	$end_date = get_post_meta( $gallery_id, 'sunshine_gallery_end_date', true );
-	if ( $end_date == '' || $end_date >= current_time( 'timestamp' ) ) 
+	if ( $end_date == '' || $end_date >= current_time( 'timestamp' ) )
 		$expired = false;
 	else
 		$expired = true;
@@ -624,11 +688,37 @@ function sunshine_get_search_images() {
 
 	if ( !empty( $_GET['sunshine_search'] ) ) {
 
-		$galleries = sunshine_get_galleries();
-		while ( $galleries->have_posts() ) : $galleries->the_post();
-		if ( !post_password_required( get_the_ID() ) )
-			$searchable_galleries[] = get_the_ID();
-		endwhile; wp_reset_postdata();
+		if ( !empty( $_GET['sunshine_gallery'] ) ) {
+			$searchable_galleries = array( $_GET['sunshine_gallery'] );
+		} else {
+			$args = array(
+				'post_type' => 'sunshine-gallery',
+				'nopaging' => true
+			);
+			if ( is_user_logged_in() && !current_user_can( 'sunshine_manage_options' ) ) {
+				$args['post_status'] = array( 'publish', 'private' );
+				$args['meta_query'] = array(
+					'relation' => 'OR',
+					array(
+						'key' => 'sunshine_gallery_private_user',
+						'value' => $current_user->ID
+					),
+					array(
+						'key' => 'sunshine_gallery_private_user',
+						'value' => '0'
+					),
+				);
+			}
+			if ( current_user_can( 'sunshine_manage_options' ) ) {
+				unset( $args['post_status'] );
+			}
+			$galleries = new WP_Query( $args );
+			while ( $galleries->have_posts() ) : $galleries->the_post();
+				if ( !post_password_required( get_the_ID() ) ) {
+					$searchable_galleries[] = get_the_ID();
+				}
+			endwhile; wp_reset_postdata();
+		}
 
 		$args = array(
 			'post_type' => 'attachment',
@@ -647,15 +737,51 @@ function sunshine_get_search_images() {
 	return $images;
 }
 
+add_filter('posts_join', 'sunshine_search_join' );
+function sunshine_search_join( $join ) {
+    global $wpdb;
+
+    if ( !empty( $_GET['sunshine_search'] ) ) {
+        $join .=' LEFT JOIN '.$wpdb->postmeta. ' ON '. $wpdb->posts . '.ID = ' . $wpdb->postmeta . '.post_id ';
+    }
+
+    return $join;
+}
+
+add_filter( 'posts_where', 'sunshine_search_where' );
+function sunshine_search_where( $where ) {
+    global $pagenow, $wpdb;
+
+    if ( !empty( $_GET['sunshine_search'] ) ) {
+        $where = preg_replace(
+            "/\(\s*".$wpdb->posts.".post_title\s+LIKE\s*(\'[^\']+\')\s*\)/",
+            "(".$wpdb->posts.".post_title LIKE $1) OR (".$wpdb->postmeta.".meta_value LIKE $1)", $where );
+    }
+
+    return $where;
+}
+
+add_filter( 'posts_distinct', 'sunshine_search_distinct' );
+function sunshine_search_distinct( $where ) {
+    global $wpdb;
+
+    if ( !empty( $_GET['sunshine_search'] ) ) {
+        return "DISTINCT";
+    }
+
+    return $where;
+}
+
+
 function sunshine_get_gallery_images() {
 	global $sunshine;
 	$args = array(
 		'post_type' => 'attachment',
 		'post_parent' => SunshineFrontend::$current_gallery->ID,
-		'posts_per_page' => $sunshine->options['rows'] * $sunshine->options['columns'],
+		'posts_per_page' => sunshine_gallery_images_per_page(),
 		'post_mime_type' => 'image'
 	);
-	
+
 	if ( $sunshine->options['image_order'] == 'shoot_order' ) {
 		$args['meta_key'] = 'created_timestamp';
 		$args['orderby'] = 'meta_value';
@@ -673,11 +799,11 @@ function sunshine_get_gallery_images() {
 		$args['orderby'] = 'menu_order ID';
 		$args['order'] = 'ASC';
 	}
-	
+
 	if ( isset( $_GET['pagination'] ) && $_GET['pagination'] > 1 ) {
-		$args['offset'] = ( $_GET['pagination'] - 1 ) * ( $sunshine->options['columns'] * $sunshine->options['rows'] );
+		$args['offset'] = ( $_GET['pagination'] - 1 ) * sunshine_gallery_images_per_page();
 	}
-	
+
 	$images = get_posts( $args );
 	return $images;
 }
@@ -715,7 +841,7 @@ function sunshine_image() {
 	$image = wp_get_attachment_image_src( SunshineFrontend::$current_image->ID, apply_filters( 'sunshine_image_size', 'full' ) );
 	do_action( 'sunshine_before_image', $image );
 	echo '<img src="'.$image[0].'" alt="" />';
-	do_action( 'sunshine_after_image', $image );
+	do_action( 'sunshine_after_image', SunshineFrontend::$current_image->ID );
 }
 
 function sunshine_add_to_cart_form() {
@@ -724,7 +850,7 @@ function sunshine_add_to_cart_form() {
 	$disable_products = get_post_meta( SunshineFrontend::$current_gallery->ID, 'sunshine_gallery_disable_products', true );
 	$disable_products = get_post_meta( SunshineFrontend::$current_gallery->ID, 'sunshine_gallery_disable_products', true );
 	$hide_add_to_cart = false;
-	if ( $sunshine->options['add_to_cart_require_account'] && !is_user_logged_in() ) {
+	if ( isset( $sunshine->options['add_to_cart_require_account'] ) && $sunshine->options['add_to_cart_require_account'] && !is_user_logged_in() ) {
 		echo '<p>' . sprintf( __( 'You must first <a href="%s">login</a> or <a href="%s">register</a> before you can add pictures to your cart. This allows us to track your favorites and items in your cart when you return.','sunshine' ), wp_login_url( sunshine_current_url( false ) ), wp_registration_url() . '&redirect_to=' . sunshine_current_url( false ) ) . '</p>';
 		return;
 	} elseif ( sunshine_is_gallery_expired() ) {
@@ -737,7 +863,11 @@ function sunshine_add_to_cart_form() {
 		<ul id="sunshine-add-to-cart">
 			<?php
 		$price_level = get_post_meta( SunshineFrontend::$current_gallery->ID, 'sunshine_gallery_price_level', true );
-		$product_categories = get_terms( 'sunshine-product-category', 'orderby=slug&order=ASC' );
+		$product_categories = get_terms( array(
+			'taxonomy' => 'sunshine-product-category',
+			'orderby' => 'slug',
+			'order' => 'ASC'
+		) );
 		foreach ( $product_categories as $product_category ) {
 			$args = array(
 				'post_type' => 'sunshine-product',
@@ -778,6 +908,7 @@ function sunshine_add_to_cart_form() {
 				<?php
 				do_action( 'sunshine_after_product_category', $product_category, $price_level );
 			}
+			do_action( 'sunshine_after_product_categories', $price_level );
 ?>
 				</ul>
 				<?php do_action( 'sunshine_after_product_category_select', $price_level ); ?>
@@ -799,7 +930,7 @@ function sunshine_add_to_cart_form() {
 										<input type="radio" name="sunshine_product" value="<?php the_ID(); ?>">
 										<span class="sunshine-product-name"><?php the_title(); ?></span>
 										<span class="sunshine-product-divider">-</span>
-										<span class="sunshine-product-price"><?php echo $sunshine->cart->get_product_price( get_the_ID(), $price_level ); ?></span>
+										<span class="sunshine-product-price"><?php echo $sunshine->cart->get_product_display_price( get_the_ID(), $price_level ); ?></span>
 										<?php if ( $product_image_id = get_post_thumbnail_id()  ) { ?>
 											<span class="sunshine-product-image-link"><a href="<?php echo wp_get_attachment_url( $product_image_id ); ?>" target="_blank"><?php _e( 'See Product', 'sunshine' ); ?></a></span>
 										<?php } ?>
@@ -826,7 +957,7 @@ function sunshine_add_to_cart_form() {
 			<?php } ?>
 			<li id="sunshine-add-qty" style="display: none;">
 				<h2><?php _e( 'Quantity', 'sunshine' ); ?></h2>
-				<input type="number" name="sunshine_qty" class="sunshine-qty" value="1" size="4" />
+				<input type="number" name="sunshine_qty" class="sunshine-qty" min="1" value="1" size="4" />
 			</li>
 			<li id="sunshine-add-comments" style="display: none;">
 				<script>
@@ -865,7 +996,7 @@ function sunshine_add_to_cart_form() {
 		});
 		</script>
 
-	<?php } 
+	<?php }
 
 	do_action( 'sunshine_after_add_to_cart_form' );
 
@@ -927,10 +1058,10 @@ function sunshine_main_menu( $echo=true ) {
 		return $menu_html;
 }
 
-function sunshine_image_menu( $image ) {
+function sunshine_image_menu( $image, $echo = true ) {
 	if ( !is_array( $image ) )
 		$image = get_post( $image );
-	$menu = array();	
+	$menu = array();
 	$menu = apply_filters( 'sunshine_image_menu', $menu, $image );
 	if ( $menu ) {
 		ksort( $menu );
@@ -967,7 +1098,11 @@ function sunshine_image_menu( $image ) {
 			$menu_html .= '</li>';
 		}
 		$menu_html .= '</ul>';
-		echo $menu_html;
+		if ( $echo ) {
+			echo $menu_html;
+		} else {
+			return $menu_html;
+		}
 	}
 }
 
@@ -990,7 +1125,7 @@ function sunshine_checkout_login_form() {
 
 	<div id="sunshine-checkout-login"><?php echo sprintf( __( 'Already have an account? <a href="%s">Click here to login</a>', 'sunshine' ), wp_login_url( sunshine_current_url( false ) ) ); ?></div>
 
-<?php	
+<?php
 }
 
 function sunshine_cart_totals() {
@@ -1001,12 +1136,6 @@ function sunshine_cart_totals() {
 		<th><?php _e( 'Subtotal', 'sunshine' ); ?></th>
 		<td><?php sunshine_subtotal(); ?></td>
 	</tr>
-	<?php if ( $sunshine->options['tax_location'] && $sunshine->options['tax_rate'] ) { ?>
-	<tr class="sunshine-tax">
-		<th><?php _e( 'Tax', 'sunshine' ); ?></th>
-		<td><?php sunshine_tax_total(); ?></td>
-	</tr>
-	<?php } ?>
 	<tr class="sunshine-shipping">
 		<th><?php _e( 'Shipping', 'sunshine' ); ?></th>
 		<td><?php sunshine_shipping_method(); ?></td>
@@ -1015,6 +1144,12 @@ function sunshine_cart_totals() {
 	<tr class="sunshine-discount">
 		<th><?php _e( 'Discounts', 'sunshine' ); ?></th>
 		<td><?php sunshine_discount_total(); ?></td>
+	</tr>
+	<?php } ?>
+	<?php if ( $sunshine->options['display_price'] != 'with_tax' && ( isset( $sunshine->options['tax_location'] ) && $sunshine->options['tax_location'] != '' && isset( $sunshine->options['tax_rate'] ) && $sunshine->options['tax_rate'] != '' ) ) { ?>
+	<tr class="sunshine-tax">
+		<th><?php _e( 'Tax', 'sunshine' ); ?></th>
+		<td><?php sunshine_tax_total(); ?></td>
 	</tr>
 	<?php } ?>
 	<?php if ( $sunshine->cart->use_credits ) { ?>
@@ -1033,13 +1168,43 @@ function sunshine_cart_totals() {
 
 function sunshine_checkout_contact_fields() {
 	global $sunshine;
+	$general_fields = maybe_unserialize( $sunshine->options['general_fields'] );
+	$general_fields_required = maybe_unserialize( $sunshine->options['general_fields_required'] );
 ?>
 	<fieldset>
 	<h2><?php _e( 'Account & Contact Information', 'sunshine' ); ?></h2>
 	<div class="field field-left required"><label><?php _e( 'Email', 'sunshine' ); ?><span class="required">*</span> <input type="text" name="email" value="<?php echo esc_attr( ( isset( $_POST['email'] ) ) ? $_POST['email'] : SunshineUser::get_user_meta( 'email' ) ); ?>" /></label></div>
-	<div class="field field-right"><label><?php _e( 'Phone', 'sunshine' ); ?><input type="tel" name="phone" value="<?php echo esc_attr( SunshineUser::get_user_meta( 'phone' ) ); ?>" /></label></div>
+	<?php if ( $general_fields['phone'] ) { ?>
+		<div class="field field-right <?php echo ( $general_fields_required['phone'] ) ? 'required' : ''; ?>"><label><?php _e( 'Phone', 'sunshine' ); ?><?php echo ( $general_fields_required['phone'] ) ? '<span class="required">*</span>' : ''; ?> <input type="tel" name="phone" value="<?php echo esc_attr( SunshineUser::get_user_meta( 'phone' ) ); ?>" /></label></div>
+	<?php } ?>
 	<?php if ( !is_user_logged_in() ) { ?>
-		<div class="field field-left <?php if ( !$sunshine->options['allow_guest_checkout'] ) { echo 'required'; } ?>"><label><?php _e( 'Password', 'sunshine' ); ?><?php if ( !$sunshine->options['allow_guest_checkout'] ) { echo '<span class="required">*</span>'; } ?><input type="password" name="password" value="" /></label><span class="field-desc"><?php if ( $sunshine->options['allow_guest_checkout'] ) { _e( 'Optionally set a password to create an account', 'sunshine' );  } ?></span></div>
+		<div class="field field-left <?php if ( !$sunshine->options['allow_guest_checkout'] ) { echo 'required'; } ?>">
+			<label><?php _e( 'Password', 'sunshine' ); ?>
+				<?php if ( !$sunshine->options['allow_guest_checkout'] ) { echo '<span class="required">*</span>'; } ?>
+				<input type="password" name="password" id="password" value="" />
+			</label>
+			<span class="field-desc">
+				<?php if ( $sunshine->options['allow_guest_checkout'] ) { _e( 'Optionally set a password to create an account', 'sunshine' ); echo '<br />';  } ?>
+				<label for="checkbox-unmask" class="label-unmask"><input id="checkbox-unmask" class="checkbox-unmask" type="checkbox" /><?php _e( 'Show my password', 'sunshine' ); ?></label>
+				<script>
+					var pw = jQuery( "#password" ),
+					cb = jQuery( "#checkbox-unmask" ),
+					mask = true;
+
+					cb.on("click", function(){
+
+					if( mask === true ){
+						mask = false;
+						pw.attr( "type", "text" );
+					} else {
+						mask = true;
+						pw.attr( "type", "password" );
+					}
+				});
+				</script>
+
+			</span>
+		</div>
 	<?php } ?>
 	<?php
 	do_action( 'sunshine_checkout_contact_fields' );
@@ -1057,7 +1222,7 @@ function sunshine_checkout_contact_fields() {
 		  	typingTimer = setTimeout(sunshine_done_email, doneTypingInterval);
 		});
 
-		//on keydown, clear the countdown 
+		//on keydown, clear the countdown
 		$input.on('keydown', function () {
 		  	clearTimeout(typingTimer);
 		});
@@ -1079,7 +1244,7 @@ function sunshine_checkout_contact_fields() {
 					$('#sunshine-email-exists-error').remove();
 					if ( obj.exists ) {
 						$input.after('<span id="sunshine-email-exists-error" class="field-desc error"><?php echo sprintf( __( 'Email already exists, <a href="%s">please login first</a>', 'sunshine' ), wp_login_url( sunshine_current_url( false ) ) ); ?></span>');
-					} 
+					}
 			  	},
 			  	error: function(MLHttpRequest, textStatus, errorThrown) {
 					alert('Sorry, there was an error with your request');
@@ -1092,10 +1257,13 @@ function sunshine_checkout_contact_fields() {
 }
 
 function sunshine_checkout_billing_fields() {
+	global $sunshine;
+	$fields = maybe_unserialize( $sunshine->options['billing_fields'] );
+	$required = maybe_unserialize( $sunshine->options['billing_fields_required'] );
 ?>
 	<script type="text/javascript">
 	jQuery(document).ready(function(){
-		
+
 		// Toggle Billing/Shipping
 		jQuery('#sunshine-billing-toggle input').change(function(){
 			jQuery('#sunshine-billing-fields-use').hide();
@@ -1103,7 +1271,7 @@ function sunshine_checkout_billing_fields() {
 				jQuery('#sunshine-billing-fields-use').show();
 			}
 		}).change();
-		
+
 		// Changing state selection
 		jQuery('form').on('change', 'select[name="country"]', function(){
 			var country = jQuery(this).val();
@@ -1127,21 +1295,37 @@ function sunshine_checkout_billing_fields() {
 			}, 500);
 			return false;
 		});
-		
+
 	});
 	</script>
 	<fieldset id="sunshine-billing-fields">
 	<h2><?php _e( 'Billing Information', 'sunshine' ); ?></h2>
 	<div class="field field-full" id="sunshine-billing-toggle"><label><input type="checkbox" name="billing_as_shipping" value="1" <?php checked( SunshineUser::get_user_meta( 'billing_as_shipping' ), 1 ); ?> /> <?php _e( 'Billing same as shipping', 'sunshine' ); ?></label></div>
 	<div id="sunshine-billing-fields-use">
-		<div class="field field-left required" id="sunshine-billing-country"><label><?php _e( 'Country', 'sunshine' ); ?><span class="required">*</span> <?php SunshineCountries::country_only_dropdown( 'country', SunshineUser::get_user_meta( 'country' ) ); ?></label></div>
-		<div class="field field-left required" id="sunshine-billing-first-name"><label><?php _e( 'First Name', 'sunshine' ); ?><span class="required">*</span> <input type="text" name="first_name" value="<?php echo esc_attr( SunshineUser::get_user_meta( 'first_name' ) ); ?>" /></label></div>
-		<div class="field field-right required" id="sunshine-billing-last-name"><label><?php _e( 'Last Name', 'sunshine' ); ?><span class="required">*</span> <input type="text" name="last_name" value="<?php echo esc_attr( SunshineUser::get_user_meta( 'last_name' ) ); ?>" /></label></div>
-		<div class="field field-left required" id="sunshine-billing-address"><label><?php _e( 'Address', 'sunshine' ); ?><span class="required">*</span> <input type="text" name="address" value="<?php echo esc_attr( SunshineUser::get_user_meta( 'address' ) ); ?>" /></label></div>
-		<div class="field field-right" id="sunshine-billing-address2"><label><?php _e( 'Address 2', 'sunshine' ); ?> <input type="text" name="address2" value="<?php echo esc_attr( SunshineUser::get_user_meta( 'address2' ) ); ?>" /></label></div>
-		<div class="field field-left required" id="sunshine-billing-city"><label><?php _e( 'City', 'sunshine' ); ?><span class="required">*</span> <input type="text" name="city" value="<?php echo esc_attr( SunshineUser::get_user_meta( 'city' ) ); ?>" /></label></div>
-		<div class="field field-right required" id="sunshine-billing-state"><label><?php _e( 'State / Province', 'sunshine' ); ?><span class="required">*</span> <?php SunshineCountries::state_dropdown( SunshineUser::get_user_meta( 'country' ), 'state', SunshineUser::get_user_meta( 'state' ) ); ?></label></div>
-		<div class="field field-left required" id="sunshine-billing-zip"><label><?php _e( 'Zip / Postcode', 'sunshine' ); ?><span class="required">*</span> <input type="text" name="zip" value="<?php echo esc_attr( SunshineUser::get_user_meta( 'zip' ) ); ?>" /></label></div>
+		<?php if ( $fields['country'] ) { ?>
+			<div class="field field-left" id="sunshine-billing-country"><label><?php _e( 'Country', 'sunshine' ); ?><?php echo ( $required['country'] == 1 ) ? '<span class="required">*</span> ' : ''; ?><?php SunshineCountries::country_only_dropdown( 'country', SunshineUser::get_user_meta( 'country' ) ); ?></label></div>
+		<?php } ?>
+		<?php if ( $fields['first_name'] ) { ?>
+			<div class="field field-left" id="sunshine-billing-first-name"><label><?php _e( 'First Name', 'sunshine' ); ?><?php echo ( $required['first_name'] == 1 ) ? '<span class="required">*</span> ' : ''; ?><input type="text" name="first_name" value="<?php echo esc_attr( SunshineUser::get_user_meta( 'first_name' ) ); ?>" /></label></div>
+		<?php } ?>
+		<?php if ( $fields['last_name'] ) { ?>
+			<div class="field field-right" id="sunshine-billing-last-name"><label><?php _e( 'Last Name', 'sunshine' ); ?><?php echo ( $required['last_name'] == 1 ) ? '<span class="required">*</span> ' : ''; ?><input type="text" name="last_name" value="<?php echo esc_attr( SunshineUser::get_user_meta( 'last_name' ) ); ?>" /></label></div>
+		<?php } ?>
+		<?php if ( $fields['address'] ) { ?>
+			<div class="field field-left" id="sunshine-billing-address"><label><?php _e( 'Address', 'sunshine' ); ?><?php echo ( $required['address'] == 1 ) ? '<span class="required">*</span> ' : ''; ?><input type="text" name="address" value="<?php echo esc_attr( SunshineUser::get_user_meta( 'address' ) ); ?>" /></label></div>
+		<?php } ?>
+		<?php if ( $fields['address2'] ) { ?>
+			<div class="field field-right" id="sunshine-billing-address2"><label><?php _e( 'Address 2', 'sunshine' ); ?><?php echo ( $required['address2'] == 1 ) ? '<span class="required">*</span> ' : ''; ?><input type="text" name="address2" value="<?php echo esc_attr( SunshineUser::get_user_meta( 'address2' ) ); ?>" /></label></div>
+		<?php } ?>
+		<?php if ( $fields['city'] ) { ?>
+			<div class="field field-left" id="sunshine-billing-city"><label><?php _e( 'City', 'sunshine' ); ?><?php echo ( $required['city'] == 1 ) ? '<span class="required">*</span> ' : ''; ?><input type="text" name="city" value="<?php echo esc_attr( SunshineUser::get_user_meta( 'city' ) ); ?>" /></label></div>
+		<?php } ?>
+		<?php if ( $fields['state'] ) { ?>
+			<div class="field field-right" id="sunshine-billing-state"><label><?php _e( 'State / Province', 'sunshine' ); ?><?php echo ( $required['state'] == 1 ) ? '<span class="required">*</span> ' : ''; ?><?php SunshineCountries::state_dropdown( SunshineUser::get_user_meta( 'country' ), 'state', SunshineUser::get_user_meta( 'state' ) ); ?></label></div>
+		<?php } ?>
+		<?php if ( $fields['zip'] ) { ?>
+			<div class="field field-left" id="sunshine-billing-zip"><label><?php _e( 'Zip / Postcode', 'sunshine' ); ?><?php echo ( $required['zip'] == 1 ) ? '<span class="required">*</span> ' : ''; ?><input type="text" name="zip" value="<?php echo esc_attr( SunshineUser::get_user_meta( 'zip' ) ); ?>" /></label></div>
+		<?php } ?>
 	</div>
 <?php
 	do_action( 'sunshine_checkout_billing_fields' );
@@ -1149,6 +1333,9 @@ function sunshine_checkout_billing_fields() {
 }
 
 function sunshine_checkout_shipping_fields() {
+	global $sunshine;
+	$fields = maybe_unserialize( $sunshine->options['shipping_fields'] );
+	$required = maybe_unserialize( $sunshine->options['shipping_fields_required'] );
 ?>
 	<script type="text/javascript">
 	jQuery(document).ready(function() {
@@ -1175,19 +1362,35 @@ function sunshine_checkout_shipping_fields() {
 			}, 500);
 			return false;
 		});
-	
+
 	});
 	</script>
 	<fieldset id="sunshine-shipping-fields">
 		<h2><?php _e( 'Shipping Information', 'sunshine' ); ?></h2>
-		<div class="field field-left required"><label><?php _e( 'Country', 'sunshine' ); ?><span class="required">*</span> <?php SunshineCountries::country_only_dropdown( 'shipping_country', SunshineUser::get_user_meta( 'shipping_country' ) ); ?></label></div>
-		<div class="field field-left required"><label><?php _e( 'First Name', 'sunshine' ); ?><span class="required">*</span> <input type="text" name="shipping_first_name" value="<?php echo esc_attr( SunshineUser::get_user_meta( 'shipping_first_name' ) ); ?>" /></label></div>
-		<div class="field field-right required"><label><?php _e( 'Last Name', 'sunshine' ); ?><span class="required">*</span> <input type="text" name="shipping_last_name" value="<?php echo esc_attr( SunshineUser::get_user_meta( 'shipping_last_name' ) ); ?>" /></label></div>
-		<div class="field field-left required"><label><?php _e( 'Address', 'sunshine' ); ?><span class="required">*</span> <input type="text" name="shipping_address" value="<?php echo esc_attr( SunshineUser::get_user_meta( 'shipping_address' ) ); ?>" /></label></div>
-		<div class="field field-right"><label><?php _e( 'Address 2', 'sunshine' ); ?> <input type="text" name="shipping_address2" value="<?php echo esc_attr( SunshineUser::get_user_meta( 'shipping_address2' ) ); ?>" /></label></div>
-		<div class="field field-left required"><label><?php _e( 'City', 'sunshine' ); ?><span class="required">*</span> <input type="text" name="shipping_city" value="<?php echo esc_attr( SunshineUser::get_user_meta( 'shipping_city' ) ); ?>" /></label></div>
-		<div class="field field-right required" id="sunshine-shipping-state"><label><?php _e( 'State / Province', 'sunshine' ); ?><span class="required">*</span> <?php SunshineCountries::state_dropdown( SunshineUser::get_user_meta( 'shipping_country' ), 'shipping_state', SunshineUser::get_user_meta( 'shipping_state' ) ); ?></label></div>
-		<div class="field field-left required"><label><?php _e( 'Zip / Postcode', 'sunshine' ); ?><span class="required">*</span> <input type="text" name="shipping_zip" value="<?php echo esc_attr( SunshineUser::get_user_meta( 'shipping_zip' ) ); ?>" /></label></div>
+		<?php if ( $fields['country'] ) { ?>
+			<div class="field field-left"><label><?php _e( 'Country', 'sunshine' ); ?><?php echo ( $required['country'] == 1 ) ? '<span class="required">*</span> ' : ''; ?><?php SunshineCountries::country_only_dropdown( 'shipping_country', SunshineUser::get_user_meta( 'shipping_country' ) ); ?></label></div>
+		<?php } ?>
+		<?php if ( $fields['first_name'] ) { ?>
+			<div class="field field-left"><label><?php _e( 'First Name', 'sunshine' ); ?><?php echo ( $required['first_name'] == 1 ) ? '<span class="required">*</span> ' : ''; ?><input type="text" name="shipping_first_name" value="<?php echo esc_attr( SunshineUser::get_user_meta( 'shipping_first_name' ) ); ?>" /></label></div>
+		<?php } ?>
+		<?php if ( $fields['last_name'] ) { ?>
+			<div class="field field-right"><label><?php _e( 'Last Name', 'sunshine' ); ?><?php echo ( $required['last_name'] == 1 ) ? '<span class="required">*</span> ' : ''; ?><input type="text" name="shipping_last_name" value="<?php echo esc_attr( SunshineUser::get_user_meta( 'shipping_last_name' ) ); ?>" /></label></div>
+		<?php } ?>
+		<?php if ( $fields['address'] ) { ?>
+			<div class="field field-left"><label><?php _e( 'Address', 'sunshine' ); ?><?php echo ( $required['address'] == 1 ) ? '<span class="required">*</span> ' : ''; ?><input type="text" name="shipping_address" value="<?php echo esc_attr( SunshineUser::get_user_meta( 'shipping_address' ) ); ?>" /></label></div>
+		<?php } ?>
+		<?php if ( $fields['address2'] ) { ?>
+			<div class="field field-right"><label><?php _e( 'Address 2', 'sunshine' ); ?><?php echo ( $required['address2'] == 1 ) ? '<span class="required">*</span> ' : ''; ?><input type="text" name="shipping_address2" value="<?php echo esc_attr( SunshineUser::get_user_meta( 'shipping_address2' ) ); ?>" /></label></div>
+		<?php } ?>
+		<?php if ( $fields['city'] ) { ?>
+			<div class="field field-left"><label><?php _e( 'City', 'sunshine' ); ?><?php echo ( $required['city'] == 1 ) ? '<span class="required">*</span> ' : ''; ?><input type="text" name="shipping_city" value="<?php echo esc_attr( SunshineUser::get_user_meta( 'shipping_city' ) ); ?>" /></label></div>
+		<?php } ?>
+		<?php if ( $fields['state'] ) { ?>
+			<div class="field field-right" id="sunshine-shipping-state"><label><?php _e( 'State / Province', 'sunshine' ); ?><?php echo ( $required['state'] == 1 ) ? '<span class="required">*</span> ' : ''; ?><?php SunshineCountries::state_dropdown( SunshineUser::get_user_meta( 'shipping_country' ), 'shipping_state', SunshineUser::get_user_meta( 'shipping_state' ) ); ?></label></div>
+		<?php } ?>
+		<?php if ( $fields['zip'] ) { ?>
+			<div class="field field-left"><label><?php _e( 'Zip / Postcode', 'sunshine' ); ?><?php echo ( $required['zip'] == 1 ) ? '<span class="required">*</span> ' : ''; ?><input type="text" name="shipping_zip" value="<?php echo esc_attr( SunshineUser::get_user_meta( 'shipping_zip' ) ); ?>" /></label></div>
+		<?php } ?>
 <?php
 	do_action( 'sunshine_checkout_shipping_fields' );
 	echo '</fieldset>';
@@ -1202,10 +1405,8 @@ function sunshine_checkout_shipping_methods() {
 <?php
 	$shipping_methods = $sunshine->shipping->get_shipping_methods();
 	foreach ( $shipping_methods as $id => $method ) {
-		if ( $id == 'flat_rate' )
-			$method['cost'] += $sunshine->cart->shipping_extra;
 		echo '<li><label><input type="radio" name="shipping_method" value="'.$id.'" '.checked( $id, ( isset( $sunshine->cart->shipping_method['id'] ) ) ? $sunshine->cart->shipping_method['id'] : '', 0 ).'> '.$method['title'];
-		echo ' - '.sunshine_money_format( $method['cost'], false );
+		echo ' - ' . sunshine_money_format( $sunshine->shipping->get_shipping_method_cost( $id ), false );
 		echo '</label></li>';
 	}
 ?>
@@ -1224,7 +1425,7 @@ function sunshine_checkout_shipping_methods_dropdown() {
 		if ( $id == 'flat_rate' )
 			$method['cost'] += $sunshine->cart->shipping_extra;
 		$dropdown .= '<option value="'.$id.'" '.selected( $id, ( isset( $sunshine->cart->shipping_method['id'] ) ) ? $sunshine->cart->shipping_method['id'] : '', 0 ).'> '.$method['title'];
-		$dropdown .= ' - '.sunshine_money_format( $method['cost'], false );
+		$dropdown .= ' - '.sunshine_money_format( $sunshine->shipping->get_shipping_method_cost( $sunshine->cart->shipping_method['id'] ), false );
 		$dropdown .= '</option>';
 	}
 	$dropdown .= '</select>';
@@ -1298,7 +1499,7 @@ function sunshine_checkout_order_review() {
 						?>
 					</td>
 					<td class="sunshine-cart-item-name" data-label="<?php _e('Product', 'sunshine'); ?>">
-						<?php 
+						<?php
 						$product = get_post($item['product_id']);
 						$cat = wp_get_post_terms($item['product_id'], 'sunshine-product-category');
 						?>
@@ -1309,10 +1510,23 @@ function sunshine_checkout_order_review() {
 						<?php echo $item['qty']; ?>
 					</td>
 					<td class="sunshine-cart-item-price" data-label="<?php _e('Price', 'sunshine'); ?>">
-						<?php sunshine_money_format($item['price']); ?>
+						<?php
+						if ( empty( $item['price_with_tax'] ) ) {
+							sunshine_money_format( $item['price'] );
+						} else {
+							sunshine_money_format( $item['price_with_tax'] );
+						}
+						?>
 					</td>
 					<td class="sunshine-cart-item-total" data-label="<?php _e('Total', 'sunshine'); ?>">
-						<?php sunshine_money_format($item['total']); ?>
+						<?php
+						if ( empty( $item['total_with_tax'] ) ) {
+							sunshine_money_format( $item['total'] );
+						} else {
+							sunshine_money_format( $item['total_with_tax'] );
+							echo ' <small class="sunshine-cart-item-price-suffix">' . __( '(incl. tax)', 'sunshine' ) . '</small>';
+						}
+						?>
 					</td>
 				</tr>
 
@@ -1332,12 +1546,6 @@ function sunshine_checkout_order_review() {
 			<th><?php _e( 'Item(s) total', 'sunshine' ); ?></th>
 			<td><?php sunshine_subtotal(); ?></td>
 		</tr>
-		<?php if ( $sunshine->options['tax_location'] && $sunshine->options['tax_rate'] ) { ?>
-		<tr class="sunshine-tax">
-			<th><?php _e( 'Tax', 'sunshine' ); ?></th>
-			<td><?php sunshine_tax_total(); ?></td>
-		</tr>
-		<?php } ?>
 		<tr class="sunshine-shipping">
 			<th><?php _e( 'Shipping', 'sunshine' ); ?></th>
 			<td><?php sunshine_shipping_method(); ?></td>
@@ -1346,6 +1554,12 @@ function sunshine_checkout_order_review() {
 		<tr class="sunshine-discount">
 			<th><?php _e( 'Discounts', 'sunshine' ); ?></th>
 			<td><?php sunshine_discount_total(); ?></td>
+		</tr>
+		<?php } ?>
+		<?php if ( $sunshine->options['display_price'] != 'with_tax' && ( !empty( $sunshine->options['tax_location'] ) && !empty( $sunshine->options['tax_rate'] ) ) ) { ?>
+		<tr class="sunshine-tax">
+			<th><?php _e( 'Tax', 'sunshine' ); ?></th>
+			<td><?php sunshine_tax_total(); ?></td>
 		</tr>
 		<?php } ?>
 		<tr class="sunshine-credits"<?php if ( !$sunshine->cart->use_credits ) { echo 'style="display: none;"'; } ?>>
@@ -1363,6 +1577,7 @@ function sunshine_checkout_order_review() {
 
 add_action( 'sunshine_checkout_end_form', 'sunshine_checkout_ajax_js' );
 function sunshine_checkout_ajax_js() {
+	global $sunshine;
 ?>
 	<script type="text/javascript">
 	jQuery(document).ready(function() {
@@ -1377,6 +1592,10 @@ function sunshine_checkout_ajax_js() {
 			var shipping_method = jQuery('input[name="shipping_method"]:checked').val();
 			var use_credits = jQuery('input[name="use_credits"]:checked').val();
 			var billing_as_shipping = jQuery('input[name="billing_as_shipping"]:checked').val();
+			var shipping_suffix = "";
+			<?php if ( $sunshine->options['display_price'] == 'with_tax' ) {
+				echo 'shipping_suffix = " <small>' . __( '(incl. tax)') . '</small>";';
+			} ?>
 			setTimeout(function () {
 				jQuery.ajax({
 				  	type: 'POST',
@@ -1394,10 +1613,10 @@ function sunshine_checkout_ajax_js() {
 				  	success: function(data, textStatus, XMLHttpRequest) {
 						var obj = jQuery.parseJSON(data);
 						if (obj) {
-							jQuery('#sunshine-checkout-order-review .sunshine-shipping td').html(obj.shipping);
-							jQuery('#sunshine-checkout-order-review .sunshine-tax td').html(obj.tax);
-							jQuery('#sunshine-checkout-order-review .sunshine-credits td').html(obj.credits);
-							jQuery('#sunshine-checkout-order-review .sunshine-total td').html(obj.total);
+							jQuery('#sunshine-checkout-order-review .sunshine-shipping td').html( obj.shipping + shipping_suffix );
+							jQuery('#sunshine-checkout-order-review .sunshine-tax td').html( obj.tax );
+							jQuery('#sunshine-checkout-order-review .sunshine-credits td').html( obj.credits );
+							jQuery('#sunshine-checkout-order-review .sunshine-total td .sunshine-total').html( obj.total );
 							if (jQuery('input[name="use_credits"]:checked').val() == 1)
 								jQuery('#sunshine-checkout-order-review .sunshine-credits').show();
 							else
@@ -1431,7 +1650,7 @@ function sunshine_checkout_ajax_js() {
 
 		var payment_method = jQuery('input[name="payment_method"]:checked').val();
 		jQuery('#sunshine-payment-method-'+payment_method+' .sunshine-payment-method-extra').show();
-		
+
 	});
 	</script>
 <?php
@@ -1439,18 +1658,19 @@ function sunshine_checkout_ajax_js() {
 
 
 function sunshine_get_order_items( $order_id ) {
-	$order_items = unserialize( get_post_meta( $order_id, '_sunshine_order_items', true ) );
+	$order_items = maybe_unserialize( get_post_meta( $order_id, '_sunshine_order_items', true ) );
 	return apply_filters( 'sunshine_order_items', $order_items );
 }
 
 function sunshine_get_order_data( $order_id ) {
-	$order_data = unserialize( get_post_meta( $order_id, '_sunshine_order_data', true ) );
+	$order_data = maybe_unserialize( get_post_meta( $order_id, '_sunshine_order_data', true ) );
 	return apply_filters( 'sunshine_order_data', $order_data );
 }
 
 function sunshine_get_order_status( $order_id ) {
 	$status = array_values( get_the_terms( $order_id, 'sunshine-order-status' ) );
-	$status[0]->description = apply_filters( 'sunshine_order_status_description', $status[0]->description, $status[0], $order_id );
+	$status[0]->name = apply_filters( 'sunshine_order_status_name', __( $status[0]->name, 'sunshine' ), $status[0], $order_id );
+	$status[0]->description = apply_filters( 'sunshine_order_status_description', __( $status[0]->description, 'sunshine' ), $status[0], $order_id );
 	return $status[0];
 }
 
@@ -1539,6 +1759,7 @@ function sunshine_gallery_password_form( $echo = true ) {
 			<input type="submit" value="'.__( 'Go', 'sunshine' ).'" class="sunshine-button" />
 		</div>
 	</form>';
+	$form = apply_filters( 'sunshine_gallery_password_form', $form );
 	if ( $echo )
 		echo $form;
 	else
@@ -1571,7 +1792,18 @@ function sunshine_cart_item_name( $html, $item, $thumb ) {
 		$html .= '<br />'.$image->post_title;
 		if ( $image->post_parent ) {
 			$gallery = get_post( $image->post_parent );
-			$html .= ' in <a href="'.get_permalink( $gallery->ID ).'">'.$gallery->post_title.'</a>';
+			if ( $gallery->post_parent > 0 && is_admin() ) {
+				$ancestors = get_ancestors( $gallery->ID, 'sunshine-gallery', 'post_type' );
+				$ancestor_links = array( '<a href="'.get_permalink( $gallery->ID ).'">'.$gallery->post_title.'</a>' );
+				foreach ( $ancestors as $ancestor_id ) {
+					$ancestor_links[] = '<a href="' . get_permalink( $ancestor_id ) . '">' . get_the_title( $ancestor_id ) . '</a>';
+				}
+				$ancestor_links = array_reverse( $ancestor_links );
+				$gallery_link = join( ' > ', $ancestor_links );
+			} else {
+				$gallery_link = '<a href="'.get_permalink( $gallery->ID ).'">'.$gallery->post_title.'</a>';
+			}
+			$html .= ' ' . __( 'in', 'sunshine' ) . ' ' . $gallery_link;
 		}
 	}
 	return $html;
@@ -1582,12 +1814,18 @@ function sunshine_cart_item_name( $html, $item, $thumb ) {
 *
 *	@return void
 */
-function sunshine_search( $echo = true ) {
+function sunshine_search( $gallery = '', $echo = true ) {
 	global $sunshine;
-	$form = '<form method="get" action="'.get_permalink( $sunshine->options['page'] ).'">
+	if ( $gallery ) {
+		$action_url = get_permalink( $gallery );
+	} else {
+		$action_url = get_permalink( $sunshine->options['page'] );
+	}
+	$form = '<form method="get" action="' . $action_url . '">
 		<div>
+			<input type="hidden" name="sunshine_gallery" value="' . $gallery . '" />
 			<input type="text" name="sunshine_search" />
-			<input type="submit" value="'.__( 'Go', 'sunshine' ).'" class="sunshine-button" />
+			<input type="submit" value="' . __( 'Go', 'sunshine' ) . '" class="sunshine-button" />
 		</div>
 	</form>';
 	if ( $echo )
@@ -1626,18 +1864,19 @@ function sunshine_gallery_requires_email( $gallery_id ) {
 			return false;
 		}
 		return true;
-	} 
+	}
 	return false;
 }
 
-add_action( 'sunshine_after_cart_form', 'sunshine_cart_return', 5 );
+add_action( 'sunshine_after_cart', 'sunshine_cart_return', 5 );
 function sunshine_cart_return() {
-	if ( SunshineSession::instance()->last_gallery ) {
+	if ( SunshineSession::instance()->last_gallery && $title = get_the_title( SunshineSession::instance()->last_gallery ) ) {
 ?>
 	<div id="sunshine-cart-return">
-		<a href="<?php echo get_permalink( SunshineSession::instance()->last_gallery ); ?>"><?php echo sprintf( __( 'Return to gallery "%s"', 'sunshine' ), get_the_title( SunshineSession::instance()->last_gallery ) ); ?></a>
+		<a href="<?php echo get_permalink( SunshineSession::instance()->last_gallery ); ?>"><?php echo sprintf( __( 'Return to gallery "%s"', 'sunshine' ), $title ); ?></a>
 	</div>
-<?php		
+<?php
 	}
 }
+
 ?>

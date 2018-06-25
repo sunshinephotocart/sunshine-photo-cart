@@ -1,6 +1,6 @@
 <?php global $sunshine; ?>
 <div id="sunshine" class="sunshine-clearfix <?php sunshine_classes(); ?>">
-	
+
 	<?php do_action('sunshine_before_content'); ?>
 
 	<div id="sunshine-main">
@@ -31,13 +31,13 @@
 		?>
 			<div class="sunshine-package">
 			<h2><?php the_title(); ?></h2>
-			<p class="sunshine-package-price"><?php echo $sunshine->cart->get_product_price(get_the_ID(), $price_level); ?> </p>
+			<p class="sunshine-package-price"><?php echo $sunshine->cart->get_product_display_price(get_the_ID(), $price_level); ?> </p>
 			<?php the_content(); ?>
 			<p><a href="?package_add_to_cart=1&amp;package_id=<?php the_ID(); ?>&amp;gallery_id=<?php echo $gallery_id; ?>&amp;image_id=<?php echo $image_id; ?>" class="sunshine-button">Add to cart</a></p>
 			</div>
 		<?php endwhile; else: ?>
 			<p>Sorry, no packages are available</p>
-		<?php endif; wp_reset_postdata(); ?>	
+		<?php endif; wp_reset_postdata(); ?>
 
 	</div>
 

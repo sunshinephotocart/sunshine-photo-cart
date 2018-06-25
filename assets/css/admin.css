@@ -1,5 +1,5 @@
 .sunshine-clearfix:after { content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0; }
-html[xmlns] .sunshine-clearfix { display: block; } 
+html[xmlns] .sunshine-clearfix { display: block; }
 * html .sunshine-clearfix { height: 1%; }
 
 #sunshine-header { background: #FFFFFF url(https://www.sunshinephotocart.com/wp-content/themes/sunshine-fremium/images/banner.jpg) center bottom no-repeat; background-size: 100% auto; margin: -20px 0 0 -20px; padding: 90px 0 30px 40px; }
@@ -54,7 +54,7 @@ html[xmlns] .sunshine-clearfix { display: block; }
 #sunshine-cart-items img { height: 50px; width: auto; }
 #sunshine-cart-items .item td { padding: 10px 0; }
 #sunshine-cart-items .subtotal td, #sunshine-cart-items .subtotal th { border-top: 2px solid #000; }
-#sunshine-cart-items .totals th, #sunshine-cart-items .totals td { font-size: 16px; white-space: nowrap; padding: 10px 0; }
+#sunshine-cart-items .totals th, #sunshine-cart-items .totals td { font-size: 16px; padding: 10px 0; }
 #sunshine-cart-items .totals th { text-align: right; padding-right: 10px;  vertical-align: middle;}
 
 ul.sunshine-price-levels { padding: 0; margin: 0; }
@@ -119,3 +119,12 @@ ul.sunshine-price-levels li input { width: 50px; }
 #new-user span { display: block; font-size: 12px; color: #666; font-style: italic; }
 
 #parent-gallery-setting-notice { font-size: 11px; color: #666; font-style: italic; margin: 8px 0 0 0; line-height: 1.2; }
+
+#sunshine-gallery-image-comments { border-collapse: separate; border-spacing: 10px; }
+#sunshine-gallery-image-comments img { max-width: 150px; height: auto; }
+
+body.post-new-php.post-type-sunshine-gallery a.preview.button, body.post-new-php.post-type-sunshine-gallery #edit-slug-box { display: none !important; }
+
+body.taxonomy-sunshine-product-category .term-parent-wrap { display: none !important; } /* Hide parent option for product categories */
+
+body.taxonomy-sunshine-order-status .tablenav .actions { display: none !important; }

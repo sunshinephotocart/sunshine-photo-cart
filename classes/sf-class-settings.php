@@ -192,8 +192,8 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 		 */
 		public function admin_enqueue_scripts()
 		{
-			global $pagenow; 
-			if (is_admin()) { 
+			global $pagenow;
+			if (is_admin()) {
 				wp_register_script( 'bootstrap-tooltip', $this->assets_url . 'js/bootstrap-tooltip.js', array( 'jquery' ), '1.0' );
 				//wp_register_script( 'select2', $this->assets_url . 'js/select2/select2.min.js', array( 'jquery' ), '3.5.2' );
 				wp_register_script( 'sf-scripts', $this->assets_url . 'js/sf-jquery.js', array( 'jquery' ), '1.0' );
@@ -257,7 +257,7 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 		{
 			$options = $this->options;
 
-			foreach ( $options as $option ) {
+			foreach ( $options as $key => $option ) {
 
 				if ( $option[ 'type' ] == 'heading' ) {
 					$tab_name          = sanitize_title( $option[ 'name' ] );
@@ -479,9 +479,9 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 				<p class="submit">
 					<input type="hidden" name="currentTab" value="<?php echo $tabname; ?>">
 					<input type="submit" name="update" class="button-primary"
-						   value="<?php echo sprintf( __( 'Save %s changes', 'sunshine' ), $this->tab_headers[ $tabname ] ); ?>"/>
+						   value="<?php _e( 'Save changes', 'sunshine' ); ?>"/>
 				</p>
-			</form> 
+			</form>
 			<script>
 			jQuery(document).ready(function($){
 			    $(".colorpick").wpColorPicker();
@@ -597,7 +597,7 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 
 		public function settings_options_format( $setting )
 		{
-			if ( empty( $setting ) ) return false; 
+			if ( empty( $setting ) ) return false;
 
 			$defaults = apply_filters( $this->id . '_options_defaults', array(
 																			 'name'        => '',
@@ -668,7 +668,7 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 
 			<?php foreach ( $header_types as $header ) :
 			if ( $type != $header ) continue; ?>
-			<tr>
+			<tr id="option-<?php echo sanitize_title( $title ); ?>">
 				<th scope="col" colspan="2">
 					<h3 class="title"><?php echo $title; ?></h3>
 					<?php echo $description; ?>
@@ -765,7 +765,7 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 
 				$selected = ( $value !== false ) ? $value : $std;
 
-				if ( $value == 0 ) $selected = $std; 
+				if ( $value == 0 ) $selected = $std;
 
 				$args = array(
 					'name'       => $name,

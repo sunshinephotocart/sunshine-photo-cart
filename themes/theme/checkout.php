@@ -8,7 +8,7 @@
 		<?php do_action('sunshine_checkout_start_form'); ?>
 		<input type="hidden" name="sunshine_checkout" value="1" />
 		<?php if (sunshine_cart_items()) { ?>
-	
+
 			<ol id="sunshine-checkout-steps">
 				<?php do_action( 'sunshine_before_checkout_steps' ); ?>
 				<li id="sunshine-checkout-step-contact">
@@ -42,7 +42,7 @@
 
 			<?php do_action('sunshine_checkout_end_form'); ?>
 		</form>
-		
+
 	</div>
 
 	<?php do_action('sunshine_after_content'); ?>

@@ -6,8 +6,8 @@
 <div id="sunshine-action-menu" class="sunshine-clearfix">
 	<?php sunshine_action_menu(); ?>
 </div>
-<div id="sunshine-gallery-images">
-	<?php 
+<div id="sunshine-image-list">
+	<?php
 	if (!empty($sunshine->favorites)) {
 		echo '<ul class="sunshine-col-'.$sunshine->options['columns'].'">';
 		foreach ( $sunshine->favorites as $favorite_id ) {

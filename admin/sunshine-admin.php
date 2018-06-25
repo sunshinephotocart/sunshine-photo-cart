@@ -10,6 +10,16 @@ require_once ( 'sunshine-bulk-add-products.php' );
 require_once ( 'sunshine-orders.php' );
 require_once ( 'sunshine-users.php' );
 
+add_filter( 'jpeg_quality', function( $arg ) { return 100; } );
+
+add_filter( 'wp_image_editors', 'force_imagick' );
+function force_imagick( $editors ) {
+	if ( extension_loaded( 'imagick' ) ) {
+		$editors = array( 'WP_Image_Editor_Imagick' );
+	}
+	return $editors;
+}
+
 if ( ( isset( $_GET['page'] ) && $_GET['page'] == 'sunshine' ) || ( isset( $_POST['currentTab'] ) && isset( $_POST['action'] ) && $_POST['action'] == 'update' ) ) {
 	include_once( SUNSHINE_PATH.'classes/sf-class-settings.php' );
 	$sunshine_options = new SF_Settings_API( $id = 'sunshine', $title = 'Sunshine Settings', $menu = 'admin.php', __FILE__ );
@@ -42,7 +52,7 @@ function sunshine_admin_cssjs() {
 	wp_enqueue_style( 'jquery.ui.theme', plugins_url( 'assets/jqueryui/smoothness/jquery-ui-1.9.2.custom.css', dirname( __FILE__ ) ) );
 	wp_enqueue_style( 'wp-color-picker' );
 	wp_enqueue_script( 'wp-color-picker' );
-	if ( isset( $_GET ) && $_GET['page'] == 'sunshine' ) {
+	if ( isset( $_GET['page'] ) && $_GET['page'] == 'sunshine' ) {
 		wp_enqueue_script( 'select2', '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js', array( 'jquery' ) );
 		wp_enqueue_style( 'select2', '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css' );
 	}
@@ -196,6 +206,17 @@ SUNSHINE SETTINGS:
 
 <?php endforeach; ?>
 
+IMAGE SIZES:
+
+<?php
+global $_wp_additional_image_sizes;
+foreach ( $_wp_additional_image_sizes as $name => $image_size ) {
+	$crop = ( $image_size['crop'] ) ? 'cropped' : 'not cropped';
+?>
+<?php echo $name . ': ' . $image_size['width'] . 'x' . $image_size['height'] . ' (' .$crop . ')'; ?>
+
+<?php } ?>
+
 ### End System Info ###
 </textarea>
 
@@ -207,7 +228,7 @@ SUNSHINE SETTINGS:
 
 function sunshine_addons() {
 	global $sunshine;
-	if ( get_option( 'sunshine_pro_license_active') == 'valid' ) return;
+	//if ( get_option( 'sunshine_pro_license_active') == 'valid' ) return;
 
 ?>
 	<div id="sunshine-header">
@@ -241,9 +262,9 @@ function sunshine_promos() {
 		</div>
 
 		<?php
-		$addons = get_transient( 'sunshine_addons' );
+		$addons = get_option( 'sunshine_addons' );
 		if ( $addons ) {
-			$addons = json_decode( $addons );
+			$addons = (object) json_decode( $addons );
 			echo '<ul id="sunshine-addons">';
 			foreach ( $addons as $addon ) {
 				if ( is_plugin_active( 'sunshine-' . $addon->slug . '/' . $addon->slug . '.php' ) ) {
@@ -263,19 +284,43 @@ function sunshine_promos() {
 <?php
 }
 
-add_action( 'admin_init', 'sunshine_get_addons' );
+add_filter( 'cron_schedules', 'sunshine_cron_add_weekly' );
+function sunshine_cron_add_weekly( $schedules ) {
+	// add a 'weekly' schedule to the existing set
+	$schedules['weekly'] = array(
+		'interval' => 604800,
+		'display' => __('Once Weekly')
+	);
+	return $schedules;
+}
+
+add_action( 'admin_init', 'sunshine_addon_check_cron' );
+function sunshine_addon_check_cron() {
+	if (! wp_next_scheduled ( 'sunshine_addon_check' )) {
+		wp_schedule_event(time(), 'weekly', 'sunshine_addon_check');
+	}
+	if ( isset( $_GET['page'] ) && $_GET['page'] == 'sunshine_addons' ) {
+		$plugins = get_option( 'sunshine_addons' );
+		if ( empty( $plugins ) ) {
+			sunshine_get_addons();
+		}
+	}
+}
+
+add_action( 'sunshine_addon_check', 'sunshine_get_addons' );
+add_action( 'sunshine_install', 'sunshine_get_addons' );
 function sunshine_get_addons() {
-	if ( false === ( $addons = get_transient( 'sunshine_addons' ) ) ) {
+	global $sunshine;
 
-		$url = SUNSHINE_STORE_URL . '/?sunshine_addons_feed';
+	if ( $sunshine->is_pro() ) return;
 
-		$feed = wp_remote_get( esc_url_raw( $url ), array( 'sslverify' => false ) );
+	$url = SUNSHINE_STORE_URL . '/?sunshine_addons_feed';
 
-		if ( ! is_wp_error( $feed ) ) {
-			if ( isset( $feed['body'] ) && strlen( $feed['body'] ) > 0 ) {
-				$addons = wp_remote_retrieve_body( $feed );
-				set_transient( 'sunshine_addons', $addons, WEEK_IN_SECONDS );
-			}
+	$feed = wp_remote_get( esc_url_raw( $url ), array( 'sslverify' => false ) );
+	if ( ! is_wp_error( $feed ) ) {
+		if ( isset( $feed['body'] ) && strlen( $feed['body'] ) > 0 ) {
+			$addons = wp_remote_retrieve_body( $feed );
+			update_option( 'sunshine_addons', $addons );
 		}
 	}
 }
@@ -320,7 +365,8 @@ Clean up Media Library
 // For main Media Gallery page
 add_action( 'pre_get_posts', 'sunshine_clean_media_library' );
 function sunshine_clean_media_library( $query ) {
-	if ( is_admin() && $query->is_main_query() && $query->get( 'post_type' ) == 'attachment' ) {
+	global $sunshine;
+	if ( is_admin() && $query->is_main_query() && $query->get( 'post_type' ) == 'attachment' && !empty( $sunshine->options['show_media_library'] ) ) {
 		if ( ! function_exists( 'get_current_screen' ) ) {
 			return;
 		}
@@ -345,8 +391,9 @@ function sunshine_clean_media_library( $query ) {
 // For popup Media Gallery, this is done via AJAX call and has different filter
 add_filter( 'ajax_query_attachments_args', 'sunshine_wp_ajax_query_attachments', 1 );
 function sunshine_wp_ajax_query_attachments( $query ) {
+	global $sunshine;
 	$this_post = get_post( $_POST['post_id'] );
-	if ( is_admin() && $query['post_type'] == 'attachment' && $this_post->post_type != 'sunshine-gallery' ) {
+	if ( is_admin() && $query['post_type'] == 'attachment' && $this_post->post_type != 'sunshine-gallery' && $sunshine->options['show_media_library'] != 1 ) {
 		$args = array(
 			'post_type' => 'sunshine-gallery',
 			'nopaging' => true,
@@ -475,7 +522,6 @@ function sunshine_update_image_location_page() {
 					'gallery_id': <?php echo $galleries[0]->ID; ?>
 				};
 				$.postq('imageupdatelocation', ajaxurl, data, function(response) {
-					console.log( response );
 					var obj = $.parseJSON( response );
 					if ( obj.result == 'error' ) {
 						$( '#errors' ).append( '<li><strong>' + obj.error + '</li>' );
@@ -559,4 +605,184 @@ function sunshine_update_image_location_ajax() {
 
 	exit;
 }
-?>
+
+
+add_action( 'admin_notices', 'sunshine_order_admin_debug' );
+function sunshine_order_admin_debug() {
+	if ( isset( $_GET['post'] ) && isset( $_GET['sunshine_debug'] ) ) {
+		echo '<div class="notice error">';
+		$meta = get_post_meta( $_GET['post'] );
+		foreach ( $meta as $key => $values ) {
+			echo '<strong>' . $key . '</strong><br />';
+			foreach ( $values as $value ) {
+				$value = maybe_unserialize( $value );
+				sunshine_dump_var( $value );
+			}
+		}
+		echo '</div>';
+	}
+}
+
+/* Customizations for Order Status admin */
+add_action( 'admin_head', 'sunshine_order_status_admin_customizations' );
+function sunshine_order_status_admin_customizations() {
+	$screen = get_current_screen();
+	if ( $screen->id == 'edit-sunshine-order-status' && isset( $_GET['tag_ID'] ) ) {
+		if ( isset( $_GET['tag_ID'] ) ) {
+			$current_status = get_term( $_GET['tag_ID'] );
+		}
+	?>
+	<script>
+	jQuery( document ).ready( function($) {
+		$( '.inline-edit-row label:nth-child(2)' ).remove();
+		<?php
+		if ( isset( $_GET['tag_ID'] ) ) {
+			$core_statuses = sunshine_core_order_statuses();
+			if ( in_array( $current_status->slug, $core_statuses ) ) {
+		?>
+			$( '#delete-link' ).remove();
+			$( '.form-table tr:nth-child(2) p.description' ).html( '<?php echo esc_attr( __( 'The slug for core order statuses is not editable as it could break Sunshine functionality', 'sunshine' ) ); ?>' );
+			$( '.form-field input[name="slug"]' ).attr( 'disabled', 'disabled' );
+		<?php } } ?>
+	});
+	</script>
+	<?php
+	}
+}
+
+add_filter( 'sunshine-order-status_row_actions', 'sunshine_order_status_row_actions', 10, 2 );
+function sunshine_order_status_row_actions( $actions, $term ) {
+	$core_statuses = sunshine_core_order_statuses();
+	if ( in_array( $term->slug, $core_statuses ) ) {
+		unset( $actions['delete'] );
+	}
+	return $actions;
+}
+
+
+/* GDPR */
+function sunshine_personal_data_exporter( $email_address, $page = 1 ) {
+
+	$number = 500; // Limit us to avoid timing out
+	$page = (int) $page;
+
+	$export_items = array();
+
+	$orders = get_posts(
+	  	array(
+		  	'post_type' => 'sunshine-order',
+		  	'number' => $number,
+		  	'paged' => $page
+	  	)
+	);
+
+	foreach ( (array) $orders as $order ) {
+
+		$item_id = "sunshine-order-{$order->ID}";
+		$group_id = 'sunshine-order';
+		$group_label = __( 'Orders', 'sunshine' );
+
+		$order_data = sunshine_get_order_data( $order->ID );
+
+		// Plugins can add as many items in the item data array as they want
+		$data = array(
+		  	array(
+			  	'name'  => __( 'Order ID' ),
+			  	'value' => $order->ID
+		  	),
+		  	array(
+			  	'name'  => __( 'Email' ),
+			  	'value' => $order_data['email']
+		  	),
+		  	array(
+			  	'name'  => __( 'Phone' ),
+			  	'value' => $order_data['phone']
+		  	),
+		  	array(
+			  	'name'  => __( 'Billing First Name' ),
+			  	'value' => $order_data['first_name']
+		  	),
+		  	array(
+			  	'name'  => __( 'Billing Last Name' ),
+			  	'value' => $order_data['last_name']
+		  	),
+		  	array(
+			  	'name'  => __( 'Billing Address' ),
+			  	'value' => $order_data['address']
+		  	),
+		  	array(
+			  	'name'  => __( 'Billing Address 2' ),
+			  	'value' => $order_data['address2']
+		  	),
+		  	array(
+			  	'name'  => __( 'Billing City' ),
+			  	'value' => $order_data['city']
+		  	),
+		  	array(
+			  	'name'  => __( 'Billing State' ),
+			  	'value' => $order_data['state']
+		  	),
+		  	array(
+			  	'name'  => __( 'Billing Country' ),
+			  	'value' => $order_data['country']
+		  	),
+		  	array(
+			  	'name'  => __( 'Shipping First Name' ),
+			  	'value' => $order_data['shipping_first_name']
+		  	),
+		  	array(
+			  	'name'  => __( 'Shipping Last Name' ),
+			  	'value' => $order_data['shipping_last_name']
+		  	),
+		  	array(
+			  	'name'  => __( 'Shipping Address' ),
+			  	'value' => $order_data['shipping_address']
+		  	),
+		  	array(
+			  	'name'  => __( 'Shipping Address 2' ),
+			  	'value' => $order_data['shipping_address2']
+		  	),
+		  	array(
+			  	'name'  => __( 'Shipping City' ),
+			  	'value' => $order_data['shipping_city']
+		  	),
+		  	array(
+			  	'name'  => __( 'Shipping State' ),
+			  	'value' => $order_data['shipping_state']
+		  	),
+		  	array(
+			  	'name'  => __( 'Shipping Country' ),
+			  	'value' => $order_data['shipping_country']
+		  	),
+		  	array(
+			  	'name'  => __( 'Notes' ),
+			  	'value' => $order_data['notes']
+			)
+		);
+
+	  	$export_items[] = array(
+	    	'group_id'    => $group_id,
+	    	'group_label' => $group_label,
+	    	'item_id'     => $item_id,
+	    	'data'        => $data,
+	  	);
+	}
+
+  	// Tell core if we have more comments to work on still
+  	$done = count( $orders ) < $number;
+
+  	return array(
+    	'data' => $export_items,
+    	'done' => $done,
+  	);
+}
+
+function register_sunshine_personal_data_exporter( $exporters ) {
+  	$exporters[] = array(
+    	'exporter_friendly_name' => __( 'Comment Location Plugin' ),
+    	'callback'               => 'sunshine_personal_data_exporter',
+    );
+  	return $exporters;
+}
+
+add_filter( 'wp_privacy_personal_data_exporters', 'register_sunshine_personal_data_exporter', 10 );

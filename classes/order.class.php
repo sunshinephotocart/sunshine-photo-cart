@@ -14,18 +14,19 @@ class SunshineOrder extends SunshineSingleton {
 		) );
 		wp_update_post( array(
 			'ID' => $order_id,
-			'post_title' => 'Order #'.$order_id,
+			'post_title' => 'Order #' . $order_id,
 			'post_name' => $order_id,
 		) );
 		$data = apply_filters( 'sunshine_order_data', $data, $order_id );
 		$order_items = apply_filters( 'sunshine_order_items', $data['items'], $order_id );
-		update_post_meta( $order_id, '_sunshine_order_data', serialize( $data ) );
-		update_post_meta( $order_id, '_sunshine_order_items', serialize( $order_items ) );
-		update_post_meta( $order_id, 'ip', $_SERVER['REMOTE_ADDR'] );
-		if ( $data['discounts'] ) {
-			$discount_items = apply_filters( 'sunshine_order_discounts', $data['discounts'], $order_id );
-			update_post_meta( $order_id, '_sunshine_order_discounts', serialize( $discount_items ) );
-		}
+		unset( $data['items'] );
+
+		// Sanitize everything
+		$data = sunshine_order_sanitize_array( $data );
+
+		update_post_meta( $order_id, '_sunshine_order_data', $data );
+		update_post_meta( $order_id, '_sunshine_order_items', $order_items );
+		//update_post_meta( $order_id, 'ip', $_SERVER['REMOTE_ADDR'] );
 		if ( isset( $data['user_id'] ) ) {
 			update_post_meta( $order_id, '_sunshine_customer_id', $data['user_id'] );
 		}
@@ -41,7 +42,7 @@ class SunshineOrder extends SunshineSingleton {
 		}
 
 		// Update discount code usage
-		if ( !empty( $sunshine->cart->discount_items ) ) {
+		if ( !empty( $sunshine->cart->discount_items ) && $status != 'pending' ) {
 			foreach ( $sunshine->cart->discount_items as $discount ) {
 				$current_count = get_post_meta( $discount->ID, 'use_count', true );
 				update_post_meta( $discount->ID, 'use_count', $current_count + 1 );
@@ -49,17 +50,16 @@ class SunshineOrder extends SunshineSingleton {
 		}
 
 		// Meta data
-		if ( is_array( $data['meta'] ) ) {
+		if ( isset( $data['meta'] ) && is_array( $data['meta'] ) ) {
 			foreach ( $data['meta'] as $key => $value ) {
 				update_post_meta( $order_id, $key, $value );
 			}
 		}
 
-		if ( $email ) {
+		if ( $email && $order_id ) {
+			$sunshine->add_message( __( 'Order completed successfully!','sunshine' ) );
 			self::notify( $order_id );
 		}
-
-		$sunshine->add_message( __( 'Order completed successfully!','sunshine' ) );
 
 		do_action( 'sunshine_add_order_end', $order_id, $data, $order_items );
 
@@ -69,9 +69,12 @@ class SunshineOrder extends SunshineSingleton {
 	public static function notify( $order_id ) {
 		global $sunshine;
 
+		if ( !$order_id ) {
+			return;
+		}
+
 		$data = maybe_unserialize( get_post_meta( $order_id, '_sunshine_order_data', true ) );
 		$order_items = maybe_unserialize( get_post_meta( $order_id, '_sunshine_order_items', true ) );
-		$discount_items = maybe_unserialize( get_post_meta( $order_id, '_sunshine_order_discounts', true ) );
 
 		// Send confirmation email
 		$th_style = 'padding: 0 20px 5px 0; border-bottom: 1px solid #CCC; text-align: left; font-size: 10px; color: #999; text-decoration: none;';
@@ -80,7 +83,7 @@ class SunshineOrder extends SunshineSingleton {
 		$items_html = apply_filters( 'sunshine_before_order_receipt_items', $items_html, $order_id, $order_items );
 		$items_html .= '<div class="order-items"><h3 style="font-size: 14px;">' . __('Cart Items','sunshine') . '</h3>';
 		$items_html .= ' <table border="0" cellspacing="0" cellpadding="0" width="100%">';
-		$items_html .= ' <tr><th style="'.$th_style.'">'.__( 'Image','sunshine' ).'</th><th style="'.$th_style.'">'.__( 'Name','sunshine' ).'</th><th style="'.$th_style.'">'.__( 'Quantity','sunshine' ).'</th><th style="'.$th_style.'">'.__( 'Cost','sunshine' ).'</th></tr>';
+		$items_html .= ' <tr><th style="'.$th_style.'">'.__( 'Image','sunshine' ).'</th><th style="'.$th_style.'">'.__( 'Name','sunshine' ).'</th><th style="'.$th_style.'">'.__( 'Quantity','sunshine' ).'</th><th style="'.$th_style.'">'.__( 'Item Price','sunshine' ).'</th><th style="'.$th_style.'">'.__( 'Cost','sunshine' ).'</th></tr>';
 
 		foreach ( $order_items as $key => $order_item ) {
 
@@ -90,29 +93,50 @@ class SunshineOrder extends SunshineSingleton {
 			$items_html .= ' <td style="'.$td_style.'">'.apply_filters( 'sunshine_order_image_html', $image_html, $order_item, $thumb ).'</td>';
 			$items_html .= ' <td style="'.$td_style.'">' . $order_item['product_name'] . '<br />'.apply_filters( 'sunshine_order_line_item_comments', $order_item['comments'], $order_id, $order_item ).'</td>';
 			$items_html .= ' <td style="'.$td_style.'">' . $order_item['qty'] . '</td>';
-			$items_html .= ' <td style="'.$td_style.'">' . sunshine_money_format( $order_item['total'], false ) . '</td>';
+			if ( !empty( $order_item['price_with_tax'] ) ) {
+				$items_html .= ' <td style="'.$td_style.'">' . sunshine_money_format( $order_item['price_with_tax'], false ) . '</td>';
+			} else {
+				$items_html .= ' <td style="'.$td_style.'">' . sunshine_money_format( $order_item['price'], false ) . '</td>';
+			}
+			if ( !empty( $order_item['total_with_tax'] ) ) {
+				$items_html .= ' <td style="'.$td_style.'">' . sunshine_money_format( $order_item['total_with_tax'], false ) . ' <small class="sunshine-cart-item-price-suffix">' . __( '(incl. tax)', 'sunshine' ) . '</small></td>';
+			} else {
+				$items_html .= ' <td style="'.$td_style.'">' . sunshine_money_format( $order_item['total'], false ) . '</td>';
+			}
 			$items_html .= ' </tr>';
 
 		}
 
 		$td_style .= ' font-weight: bold;';
 		$th_style = 'padding: 0 20px 5px 0; text-align: left; font-size: 12px;';
-		$items_html .= ' <tr><td colspan="3" style="'.$td_style.' text-align: right; border-top: 2px solid #CCC;">' . __('Subtotal', 'sunshine') . '</td><td style="'.$td_style.' border-top: 2px solid #CCC;">'.sunshine_money_format( $data['subtotal'],false ).'</td></tr>';
+		if ( $data['subtotal_with_tax'] ) {
+			$items_html .= ' <tr><td colspan="3" style="'.$td_style.' text-align: right; border-top: 2px solid #CCC;">' . __('Subtotal', 'sunshine') . '</td><td style="'.$td_style.' border-top: 2px solid #CCC;">'.sunshine_money_format( $data['subtotal_with_tax'],false ).' ' . __( '(incl. tax)', 'sunshine' ) . '</td></tr>';
+		} else {
+			$items_html .= ' <tr><td colspan="3" style="'.$td_style.' text-align: right; border-top: 2px solid #CCC;">' . __('Subtotal', 'sunshine') . '</td><td style="'.$td_style.' border-top: 2px solid #CCC;">'.sunshine_money_format( $data['subtotal'],false ).'</td></tr>';
+		}
 		$items_html .= ' <tr><td colspan="3" style="'.$td_style.' text-align: right;">' . __('Shipping', 'sunshine') . ' ('.sunshine_get_shipping_method_name( $data['shipping_method'] ).')</td><td style="'.$td_style.'">'.sunshine_money_format( $data['shipping_cost'], false ).'</td></tr>';
-		if ( $sunshine->options['tax_location'] && $sunshine->options['tax_rate'] ) {
+		if ( $sunshine->options['display_price'] == 'with_tax' && $sunshine->options['tax_location'] && $sunshine->options['tax_rate'] ) {
 			$items_html .= ' <tr><td colspan="3" style="'.$td_style.' text-align: right;">' . __('Tax', 'sunshine') . '</td><td style="'.$td_style.'">'.sunshine_money_format( $data['tax'], false ).'</td></tr>';
 		}
 		if ( $data['discount_total'] > 0 ) {
-					$items_html .= ' <tr><td colspan="3" style="'.$td_style.' text-align: right;">' . __('Discounts', 'sunshine') . '</td><td style="'.$td_style.'">'.sunshine_money_format( $data['discount_total'], false ).'</td></tr>';
+			$items_html .= ' <tr><td colspan="3" style="'.$td_style.' text-align: right;">' . __('Discounts', 'sunshine') . '</td><td style="'.$td_style.'">'.sunshine_money_format( $data['discount_total'], false ).'</td></tr>';
 		}
 		if ( $data['credits'] ) {
 			$items_html .= ' <tr><td colspan="3" style="'.$td_style.' text-align: right;">' . __('Credits', 'sunshine') . '</td><td style="'.$td_style.'">-'.sunshine_money_format( $data['credits'], false ).'</td></tr>';
 		}
-		$items_html .= ' <tr><td colspan="3" style="'.$td_style.' text-align: right; font-size: 16px;">' . __('Total', 'sunshine') . '</td><td style="'.$td_style.' font-size: 16px;">'.sunshine_money_format( $data['total'],false ).'</td></tr>';
+		if ( $sunshine->options['display_price'] == 'with_tax' ) {
+			$items_html .= ' <tr><td colspan="3" style="'.$td_style.' text-align: right; font-size: 16px;">' . __('Total', 'sunshine') . '</td><td style="'.$td_style.' font-size: 16px;">'.sunshine_money_format( $data['total'],false );
+			if ( $data['tax'] > 0 ) {
+				$items_html .= ' <small>' . sprintf( __( '(includes %s tax)', 'sunshine' ), sunshine_money_format( $data['tax'], false ) ) . '</small>';
+			}
+			$items_html .= '</td></tr>';
+		} else {
+			$items_html .= ' <tr><td colspan="3" style="'.$td_style.' text-align: right; font-size: 16px;">' . __('Total', 'sunshine') . '</td><td style="'.$td_style.' font-size: 16px;">'.sunshine_money_format( $data['total'],false ).'</td></tr>';
+		}
 		$items_html .= ' </table></div>';
 
 		$customer_info = '<br /><br /><table border="0" cellspacing="0" cellpadding="0"><tr>';
-		if ( $data['country'] ) {
+		if ( isset( $data['country'] ) || isset( $data['address'] ) || isset( $data['address2'] ) || isset( $data['city'] ) || isset( $data['state'] ) || isset( $data['zip'] ) ) {
 			$customer_info .= '<td class="billing-address" valign="top"><h3 style="font-size: 14px;">' . __('Billing Info','sunshine') . '</h3><p>';
 			$customer_info .= $data['first_name'].' '.$data['last_name'].'<br>';
 			$customer_info .= $data['address'];
@@ -128,7 +152,7 @@ class SunshineOrder extends SunshineSingleton {
 			$customer_info .= '</p></td>';
 		}
 
-		if ( $data['shipping_country'] ) {
+		if ( isset( $data['shipping_country'] ) ) {
 			$customer_info .= '<td class="shipping-address" valign="top"><h3 style="font-size: 14px;">' . __('Shipping Info','sunshine') . '</h3><p>';
 			$customer_info .= $data['shipping_first_name'].' '.$data['shipping_last_name'].'<br>';
 			$customer_info .= $data['shipping_address'];
@@ -142,19 +166,31 @@ class SunshineOrder extends SunshineSingleton {
 		$customer_info .= '</tr></table>';
 
 
-		$search = array( '[message]', '[items]', '[customer_info]', '[order_id]', '[order_url]', '[first_name]', '[last_name]' );
-		$replace = array( nl2br( $sunshine->options['email_receipt'] ), $items_html, $customer_info, $order_id, get_permalink( $order_id ), $data['first_name'], $data['last_name'] );
+		$search = array( '[message]', '[items]', '[customer_info]', '[order_id]', '[order_url]', '[first_name]', '[last_name]', '[notes]' );
+		$replace = array( nl2br( $sunshine->options['email_receipt'] ), $items_html, $customer_info, $order_id, get_permalink( $order_id ), $data['first_name'], $data['last_name'], nl2br( htmlspecialchars( $data['notes'] ) ) );
 		$mail_result = SunshineEmail::send_email( 'receipt', $data['email'], $sunshine->options['email_subject_order_receipt'], $sunshine->options['email_subject_order_receipt'], $search, $replace, $data );
 
 		if ( $sunshine->options['order_notifications'] )
 			$admin_emails = explode( ',',$sunshine->options['order_notifications'] );
 		else
 			$admin_emails = array( get_bloginfo( 'admin_email' ) );
-		foreach ( $admin_emails as $admin_email )
-			$mail_result = SunshineEmail::send_email( 'receipt_admin', trim( $admin_email ), sprintf( __( 'Order #%s placed on %s' ), $order_id, get_option( 'blogname' ) ), sprintf( __( '<a href="%s">Order #%s</a> placed on %s' ), admin_url( '/post.php?post=' . $order_id . '&action=edit' ), $order_id, get_option( 'blogname' ) ), $search, $replace, $data );
+		foreach ( $admin_emails as $admin_email ) {
+			$data['reply_email'] = $data['email'];
+			$data['reply_name'] = $data['first_name'] . ' ' . $data['last_name'];
+			$mail_result = SunshineEmail::send_email( 'receipt_admin', trim( $admin_email ), sprintf( __( 'Order #%s placed on %s', 'sunshine' ), $order_id, get_option( 'blogname' ) ), sprintf( __( '<a href="%s">Order #%s</a> placed on %s', 'sunshine' ), admin_url( '/post.php?post=' . $order_id . '&action=edit' ), $order_id, get_option( 'blogname' ) ), $search, $replace, $data );
+		}
 
 	}
 
+}
+
+function sunshine_order_sanitize_array( $array ) {
+	foreach ( $array as $key => $value ) {
+		if ( !empty( $value ) && !is_array( $value ) ) {
+			$array[ $key ] = sanitize_text_field( $value );
+		}
+	}
+	return $array;
 }
 
 ?>

@@ -31,13 +31,15 @@ class SunshineFrontend extends SunshineSingleton {
 		add_filter( 'lostpassword_url', array( $this, 'login_url' ) );
 		add_filter( 'site_url', array( $this, 'site_url' ), 99, 3 );
 		add_action( 'login_message', array( $this, 'login_message' ) );
-		add_action( 'wp_head', array( $this, 'head' ), 999 );
+		add_action( 'wp_head', array( $this, 'meta' ), 1 );
+		add_action( 'wp_head', array( $this, 'protection' ) );
 		add_action( 'template_redirect', array( $this, 'can_view_gallery' ) );
 		//add_action('template_redirect', array($this, 'can_view_image'));
 		add_action( 'template_redirect', array( $this, 'can_view_order' ) );
 		add_action( 'template_redirect', array( $this, 'can_use_cart' ) );
 		//add_filter('comments_open', array($this, 'hide_image_comments'), 10 , 2);
 		add_filter( 'nav_menu_css_class', array( $this, 'add_class_to_wp_nav_menu' ), 10, 2 );
+
 
 		if ( $sunshine->options['theme'] == 'theme' )
 			add_filter( 'the_content', array( $this, 'sunshine_content' ), 999 );
@@ -49,23 +51,54 @@ class SunshineFrontend extends SunshineSingleton {
 	function sunshine_content( $content ) {
 		global $post, $wp_query, $sunshine;
 
-		if ( !is_sunshine() )
+		if ( !is_sunshine() || !in_the_loop() )
 			return $content;
 
 		if ( isset( $_GET['sunshine_search'] ) ) {
 			$content = self::get_template( 'search-results' );
 		} elseif ( isset( self::$current_image ) ) {
-			if ( post_password_required( self::$current_gallery ) )
-				$content = get_the_password_form();
-			else
-				$content = self::get_template( 'image' );
+			$parent_password = false;
+			if ( self::$current_gallery->post_parent ) {
+				$ancestors = get_ancestors( self::$current_gallery->ID, 'sunshine-gallery', 'post_type' );
+				foreach ( $ancestors as $ancestor ) {
+					if ( post_password_required( $ancestor ) ) {
+						$content = '<div class="sunshine-gallery-password-description"><p>' . sprintf( __( 'The parent gallery "%s" is password protected. To view "%s", please enter the password below:', 'sunshine' ), get_the_title( $ancestor ), self::$current_gallery->post_title ) . '</p></div>';
+						$content .= get_the_password_form( $ancestor );
+						$parent_password = true;
+					}
+				}
+			}
+			if ( post_password_required( self::$current_gallery ) ) {
+				$content = '<div class="sunshine-gallery-password-description"><p>' . sprintf( __( 'The gallery "%s" is password protected. To view it, please enter the password below:', 'sunshine' ), self::$current_gallery->post_title ) . '</p></div>';
+				$content .= get_the_password_form( self::$current_gallery );
+			} else {
+				if ( !$parent_password ) {
+					$content = self::get_template( 'image' );
+				}
+			}
 		} elseif ( isset( self::$current_gallery ) ) {
-			if ( post_password_required( self::$current_gallery ) )
-				$content = get_the_password_form();
-			elseif ( !current_user_can( 'sunshine_manage_options' ) && sunshine_gallery_requires_email( self::$current_gallery->ID ) ) {
+			/*
+			$parent_password = false;
+			if ( self::$current_gallery->post_parent ) {
+				$ancestors = get_ancestors( self::$current_gallery->ID, 'sunshine-gallery', 'post_type' );
+				foreach ( $ancestors as $ancestor ) {
+					if ( post_password_required( $ancestor ) ) {
+						$content = '<div class="sunshine-gallery-password-description"><p>' . sprintf( __( 'The parent gallery "%s" is password protected. To view "%s", please enter the password below:', 'sunshine' ), get_the_title( $ancestor ), self::$current_gallery->post_title ) . '</p></div>';
+						$content .= get_the_password_form( $ancestor );
+						$parent_password = true;
+					}
+				}
+			}
+			*/
+			if ( post_password_required( self::$current_gallery ) ) {
+				$content = '<div class="sunshine-gallery-password-description"><p>' . sprintf( __( 'The gallery "%s" is password protected. To view it, please enter the password below:', 'sunshine' ), self::$current_gallery->post_title ) . '</p></div>';
+				$content .= get_the_password_form( self::$current_gallery );
+			} elseif ( !current_user_can( 'sunshine_manage_options' ) && sunshine_gallery_requires_email( self::$current_gallery->ID ) ) {
 				$content = sunshine_gallery_email_form();
 			} else {
-				$content = self::get_template( 'gallery' );
+				/*if ( !$parent_password ) {*/
+					$content = self::get_template( 'gallery' );
+				/*}*/
 			}
 		} elseif ( isset( self::$current_order ) ) {
 			$content = self::get_template( 'order' );
@@ -234,9 +267,10 @@ class SunshineFrontend extends SunshineSingleton {
 			exit;
 		} elseif ( is_singular( 'attachment' ) ) {
 			$parent = get_post( $post->post_parent );
-			if ( $parent->post_type == 'sunshine-gallery' )
+			if ( $parent->post_type == 'sunshine-gallery' ) {
 				$url = trailingslashit( get_permalink( $sunshine->options['page'] ) ).$sunshine->options['endpoint_image'].'/'.$post->post_name;
-			wp_redirect( $url );
+				wp_redirect( $url );
+			}
 			exit;
 		}
 	}
@@ -337,7 +371,6 @@ class SunshineFrontend extends SunshineSingleton {
 		if ( isset( self::$current_gallery->ID ) ) {
 			$label = 'pwbox-'.( empty( self::$current_gallery ) ? rand() : self::$current_gallery->ID );
 			$form = '<form class="sunshine-gallery-password-form" action="'.esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ).'" method="post">';
-			$form .= '<div class="sunshine-gallery-password-description"><p>' . sprintf( __( 'The gallery "%s" is password protected. To view it, please enter your password below:', 'sunshine' ), self::$current_gallery->post_title ) . '</p></div>';
 			$form .= '<div class="sunshine-gallery-password-input"><label for="' . $label . '">' . __( "Password", 'sunshine' ) . ': </label><input name="post_password" id="' . $label . '" type="password" size="20" /></div>';
 			if ( $hint = get_post_meta( self::$current_gallery->ID, 'sunshine_gallery_password_hint', true ) )
 				$form .= '<div class="sunshine-gallery-password-hint"><span>' . __( "Hint", 'sunshine' ) . ':</span> '.$hint.'</div>';
@@ -375,7 +408,7 @@ class SunshineFrontend extends SunshineSingleton {
 			);
 
 			$menu[100] = array(
-				'name' => __( 'Account','sunshine' ),
+				'name' => get_the_title( $sunshine->options['page_account'] ),
 				'url' => sunshine_url( 'account' ),
 				'class' => 'sunshine-account'
 			);
@@ -394,11 +427,13 @@ class SunshineFrontend extends SunshineSingleton {
 			);
 		}
 
-		$menu[10] = array(
-			'name' => get_the_title( $sunshine->options['page'] ),
-			'url' => sunshine_url( 'home' ),
-			'class' => 'sunshine-galleries'
-		);
+		if ( !isset( $sunshine->options['hide_galleries_link'] ) || $sunshine->options['hide_galleries_link'] != 1 ) {
+			$menu[10] = array(
+				'name' => get_the_title( $sunshine->options['page'] ),
+				'url' => sunshine_url( 'home' ),
+				'class' => 'sunshine-galleries'
+			);
+		}
 
 		if ( !$sunshine->options['proofing'] ) {
 			$cart_count = '';
@@ -407,14 +442,14 @@ class SunshineFrontend extends SunshineSingleton {
 				$cart_count = '<span class="sunshine-count sunshine-cart-count">'.$sunshine->cart->item_count.'</span>';
 
 			$menu[40] = array(
-				'name' => __( 'Cart','sunshine' ),
+				'name' => get_the_title( $sunshine->options['page_cart'] ),
 				'url' => sunshine_url( 'cart' ),
 				'class' => 'sunshine-cart',
 				'after_a' => $cart_count
 			);
 
 			$menu[50] = array(
-				'name' => __( 'Checkout','sunshine' ),
+				'name' => get_the_title( $sunshine->options['page_checkout'] ),
 				'url' => sunshine_url( 'checkout' ),
 				'class' => 'sunshine-checkout'
 			);
@@ -457,11 +492,13 @@ class SunshineFrontend extends SunshineSingleton {
 	function build_image_menu( $menu, $image ) {
 		global $sunshine;
 
+		/*
 		if ( empty( SunshineFrontend::$current_gallery->ID ) ) {
 			return $menu;
 		}
+		*/
 
-		$disable_products = get_post_meta( SunshineFrontend::$current_gallery->ID, 'sunshine_gallery_disable_products', true );
+		$disable_products = get_post_meta( $image->post_parent, 'sunshine_gallery_disable_products', true );
 		if ( !$disable_products && !$sunshine->options['proofing'] && !sunshine_is_gallery_expired( $image->post_parent ) ) {
 			$menu[10] = array(
 				'icon' => 'shopping-cart',
@@ -469,7 +506,7 @@ class SunshineFrontend extends SunshineSingleton {
 				'class' => 'sunshine-purchase',
 			);
 		}
-		$allow_comments = get_post_meta( SunshineFrontend::$current_gallery->ID, 'sunshine_gallery_image_comments', true );
+		$allow_comments = get_post_meta( $image->post_parent, 'sunshine_gallery_image_comments', true );
 		if ( $allow_comments ) {
 			$menu[30] = array(
 				'icon' => 'comments',
@@ -481,37 +518,67 @@ class SunshineFrontend extends SunshineSingleton {
 		return $menu;
 	}
 
-	function head() {
+	function meta() {
 		global $post, $sunshine;
+
+		// Play god with open graph data from other plugins
+		if ( isset( self::$current_image ) ) {
+			add_filter( 'jetpack_enable_open_graph', '__return_false' );
+			add_filter( 'wpseo_opengraph_title', '__return_false' );
+			add_filter( 'wpseo_opengraph_desc', '__return_false' );
+			add_filter( 'wpseo_opengraph_type', '__return_false' );
+			add_filter( 'wpseo_opengraph_site_name', '__return_false' );
+			add_filter( 'wpseo_opengraph_url', '__return_false' );
+			add_filter( 'wpseo_og_image', '__return_false' );
+			add_filter( 'wpseo_canonical', '__return_false' );
+		}
 
 		// Image page
 		if ( !empty( self::$current_image ) ) {
 
-			$image = wp_get_attachment_image_src( self::$current_image->ID, 'sunshine-thumbnail' );
+			if ( !post_password_required( self::$current_gallery->ID ) ) {
 
-			echo '<meta property="og:title" content="'.self::$current_image->post_title.' by '.get_bloginfo( 'name' ).'"/>
-		    <meta property="og:type" content="product"/>
-		    <meta property="og:url" content="' . trailingslashit( get_permalink( self::$current_image->ID ) ) . '"/>
-		    <meta property="og:image" content="' . $image[0] . '"/>
-		    <meta property="og:image:width" content="' . $image[1] . '"/>
-		    <meta property="og:image:height" content="' . $image[2] . '"/>
-		    <meta property="og:site_name" content="' . get_bloginfo( 'name' ) . '"/>
-		    <meta property="og:description" content="' . sprintf( __( 'A photo from the gallery %s by %s', 'sunshine' ), strip_tags( get_the_title( self::$current_image->post_parent ) ), get_bloginfo( 'name' ) ) . '"/>';
+				$image = wp_get_attachment_image_src( self::$current_image->ID, apply_filters( 'sunshine_image_size', 'full' ) );
+
+				echo '<meta property="og:title" content="' . apply_filters( 'sunshine_open_graph_image_title', self::$current_image->post_title . ' by ' . get_bloginfo( 'name' ) ) . '"/>
+			    <meta property="og:type" content="website"/>
+			    <meta property="og:url" content="' . trailingslashit( get_permalink( self::$current_image->ID ) ) . '"/>
+			    <meta property="og:image" content="' . $image[0] . '"/>
+				<meta property="og:image:height" content="' . $image[2] . '"/>
+			    <meta property="og:image:width" content="' . $image[1] . '"/>
+			    <meta property="og:site_name" content="' . get_bloginfo( 'name' ) . '"/>
+			    <meta property="og:description" content="' . sprintf( __( 'A photo from the gallery %s by %s', 'sunshine' ), strip_tags( get_the_title( self::$current_image->post_parent ) ), get_bloginfo( 'name' ) ) . '"/>';
+
+			} else {
+
+				echo '<meta name="robots" content="noindex" />';
+
+			}
+
 
 		} elseif ( !empty( self::$current_gallery ) ) {
 
-			$image = sunshine_featured_image( self::$current_gallery->ID, 'sunshine-thumbnail', 0 );
-
-			echo '<meta property="og:title" content="'.self::$current_gallery->post_title.' by '.get_bloginfo( 'name' ).'"/>
-		    <meta property="og:type" content="product"/>
-		    <meta property="og:url" content="'.trailingslashit( get_permalink( self::$current_gallery->ID ) ).'"/>
-		    <meta property="og:image" content="'.$image.'"/>
-		    <meta property="og:site_name" content="'.get_bloginfo( 'name' ).'"/>
-		    <meta property="og:description" content="' . sprintf( __( 'Photo gallery %s by %s', 'sunshine' ), get_the_title( self::$current_gallery->post_parent ), get_bloginfo( 'name' ) ) . '"/>';
+			$image_id = sunshine_featured_image_id( self::$current_gallery->ID );
+			$image = wp_get_attachment_image_src( $image_id, apply_filters( 'sunshine_image_size', 'full' ) );
+			if ( $image ) {
+				echo '<meta property="og:title" content="' . apply_filters( 'sunshine_open_graph_gallery_title', self::$current_gallery->post_title . ' by ' . get_bloginfo( 'name' ) ) . '"/>
+			    <meta property="og:type" content="website"/>
+			    <meta property="og:url" content="'.trailingslashit( get_permalink( self::$current_gallery->ID ) ).'"/>
+			    <meta property="og:image" content="'.$image[0].'"/>
+				<meta property="og:image:height" content="' . $image[2] . '"/>
+				<meta property="og:image:width" content="' . $image[1] . '"/>
+			    <meta property="og:site_name" content="'.get_bloginfo( 'name' ).'"/>
+			    <meta property="og:description" content="' . sprintf( __( 'Photo gallery %s by %s', 'sunshine' ), get_the_title( self::$current_gallery->post_parent ), get_bloginfo( 'name' ) ) . '"/>';
+			}
 
 		} elseif ( !empty( self::$current_order ) ) {
 			echo '<meta name="robots" content="noindex" />';
 		}
+
+	}
+
+	function protection() {
+		global $sunshine;
 
 		if ( is_sunshine() && $sunshine->options['disable_right_click'] ) {
 ?>
@@ -679,21 +746,23 @@ class SunshineFrontend extends SunshineSingleton {
 		} elseif ( is_page( $sunshine->options['page_cart'] ) ) { // Remove items from cart if gallery is expired
 			$cart = $sunshine->cart->get_cart();
 			$removed_items = false;
-			foreach ( $cart as $item ) {
-				if ( isset( $item['gallery_id'] ) ) {
-					$gallery_id = $item['gallery_id'];
-					if ( sunshine_is_gallery_expired( $gallery_id ) ) {
-						$sunshine->cart->remove_from_cart( $item['key'] );
-						$removed_items = true;
-					}
-				} elseif ( isset( $item['image_id'] ) ) {
-					$image = get_post( $item['image_id'] );
-					if ( !$image ) { // Remove if the image no longer exists as well
-						$sunshine->cart->remove_from_cart( $item['key'] );
-						$removed_items = true;
-						continue;
-					} else {
-						$gallery_id = $image->post_parent;
+			if ( !empty( $cart ) ) {
+				foreach ( $cart as $item ) {
+					if ( isset( $item['gallery_id'] ) ) {
+						$gallery_id = $item['gallery_id'];
+						if ( sunshine_is_gallery_expired( $gallery_id ) ) {
+							$sunshine->cart->remove_from_cart( $item['key'] );
+							$removed_items = true;
+						}
+					} elseif ( isset( $item['image_id'] ) ) {
+						$image = get_post( $item['image_id'] );
+						if ( !$image ) { // Remove if the image no longer exists as well
+							$sunshine->cart->remove_from_cart( $item['key'] );
+							$removed_items = true;
+							continue;
+						} else {
+							$gallery_id = $image->post_parent;
+						}
 					}
 				}
 			}

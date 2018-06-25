@@ -13,6 +13,16 @@ function sunshine_init_flat_rate( $methods ) {
 	return $methods;
 }
 
+add_filter( 'sunshine_shipping_method_cost', 'sunshine_flat_rate_extra_shipping', 10, 2 );
+function sunshine_flat_rate_extra_shipping( $cost, $method ) {
+	global $sunshine;
+	if ( $method == 'flat_rate' && !empty( $sunshine->cart->shipping_extra ) ) {
+		$cost += $sunshine->cart->shipping_extra;
+	}
+	return $cost;
+}
+
+
 add_filter( 'sunshine_options_shipping_methods', 'sunshine_flat_rate_options', 10 );
 function sunshine_flat_rate_options( $options ) {
 	$options[] = array( 'name' => 'Flat Rate', 'type' => 'title', 'desc' => '' );

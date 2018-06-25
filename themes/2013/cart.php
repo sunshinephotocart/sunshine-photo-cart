@@ -29,7 +29,7 @@
 				?>
 			</td>
 			<td class="sunshine-cart-item-name" data-label="<?php _e('Product', 'sunshine'); ?>">
-				<?php 
+				<?php
 				$product = get_post($item['product_id']);
 				$cat = wp_get_post_terms($item['product_id'], 'sunshine-product-category');
 				?>
@@ -40,11 +40,24 @@
 				<input type="number" name="item[<?php echo $i; ?>][qty]" class="sunshine-qty" value="<?php echo $item['qty']; ?>" size="4" tabindex="<?php echo $tabindex; ?>" min="0" />
 				<a href="?delete_cart_item=<?php echo $item['hash']; ?>&nonce=<?php echo wp_create_nonce( 'sunshine_delete_cart_item' ); ?>"><?php _e('Remove','sunshine'); ?></a>
 			</td>
-			<td class="sunshine-cart-item-price" data-label="<?php _e('Price', 'sunshine'); ?>">
-				<?php sunshine_money_format($item['price']); ?>
+			<td class="sunshine-cart-item-price" data-label="<?php _e( 'Price', 'sunshine' ); ?>">
+				<?php
+				if ( empty( $item['price_with_tax'] ) ) {
+					sunshine_money_format( $item['price'] );
+				} else {
+					sunshine_money_format( $item['price_with_tax'] );
+				}
+				?>
 			</td>
-			<td class="sunshine-cart-item-total" data-label="<?php _e('Total', 'sunshine'); ?>">
-				<?php sunshine_money_format($item['total']); ?>
+			<td class="sunshine-cart-item-total" data-label="<?php _e( 'Total', 'sunshine' ); ?>">
+				<?php
+				if ( empty( $item['total_with_tax'] ) ) {
+					sunshine_money_format( $item['total'] );
+				} else {
+					sunshine_money_format( $item['total_with_tax'] );
+					echo ' <small class="sunshine-cart-item-price-suffix">' . __( '(incl. tax)', 'sunshine' ) . '</small>';
+				}
+				?>
 				<input type="hidden" name="item[<?php echo $i; ?>][image_id]" value="<?php echo $item['image_id']; ?>" />
 				<input type="hidden" name="item[<?php echo $i; ?>][product_id]" value="<?php echo $item['product_id']; ?>" />
 				<input type="hidden" name="item[<?php echo $i; ?>][comments]" value="<?php echo $item['comments']; ?>" />
@@ -62,7 +75,7 @@
 	</div>
 
 	</form>
-	
+
 	<?php do_action('sunshine_after_cart_form'); ?>
 
 	<div id="sunshine-cart-totals">

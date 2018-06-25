@@ -59,7 +59,7 @@ function sunshine_pickup_hide_shipping_fields() {
 			jQuery( '#sunshine-checkout-step-shipping, #sunshine-billing-toggle' ).hide();
 		});
 		</script>
-	<?php	
+	<?php
 	} else {
 	?>
 		<script>
@@ -83,7 +83,7 @@ function sunshine_pickup_hide_shipping_fields() {
 				jQuery('#sunshine-billing-toggle input').attr('checked', false).trigger('change');
 				jQuery('#sunshine-billing-toggle').hide();
 			}
-			
+
 		});
 		</script>
 	<?php
@@ -94,7 +94,7 @@ add_filter( 'sunshine_order_data', 'sunshine_pickup_remove_shipping_from_order_d
 function sunshine_pickup_remove_shipping_from_order_data( $data ) {
 	if ( $data['shipping_method'] == 'pickup' ) {
 		foreach ( $data as $key => $value ) {
-			if ( $key == 'shipping_method' ) continue;
+			if ( $key == 'shipping_method' || $key == 'shipping_cost' ) continue;
 			if ( strpos( $key, 'shipping_' ) !== false ) {
 				unset( $data[ $key ] );
 			}
@@ -109,7 +109,7 @@ function sunshine_pickup_order_notes( $order_id ) {
 	$order_data = sunshine_get_order_data( $order_id );
 	if ( $order_data['shipping_method'] == 'pickup' && !empty( $sunshine->options['pickup_instructions'] ) ) {
 	?>
-	<p id="sunshine-pickup-instructions"> 
+	<p id="sunshine-pickup-instructions">
 		<?php echo $sunshine->options['pickup_instructions']; ?>
 	</p>
 	<?php

@@ -18,7 +18,7 @@ function sunshine_share_build_action_menu( $menu ) {
 			$share_text = __( 'Share Gallery', 'sunshine' );
 		}
 
-		$menu[65] = array(
+		$menu[5] = array(
 			'icon' => 'share-square',
 			'name' => $share_text,
 			//'url' => 'http://www.sharethis.com/share?url=' . urlencode( $url ) . '&title=' . urlencode( $title ) . '&img=' . urlencode( $img ),
@@ -36,6 +36,14 @@ function sunshine_share_build_action_menu( $menu ) {
 add_action( 'wp_footer', 'sunshine_share_javascript' );
 function sunshine_share_javascript() {
 	global $sunshine;
+
+	if ( empty( SunshineFrontend::$current_gallery ) ) {
+		return;
+	}
+
+	$gallery_share = get_post_meta( SunshineFrontend::$current_gallery->ID, 'sunshine_gallery_share', true );
+	$image_share = get_post_meta( SunshineFrontend::$current_gallery->ID, 'sunshine_image_share', true );
+
 	if ( ( SunshineFrontend::$current_image && ( $sunshine->options['sharing_image'] || $image_share == 'allow' ) && $image_share != 'disallow' ) || ( SunshineFrontend::$current_gallery && ( $sunshine->options['sharing_gallery'] || $gallery_share == 'allow' ) && $gallery_share != 'disallow' && !SunshineFrontend::$current_image ) ) {
 
 		$size = apply_filters( 'sunshine_image_size', 'full' );
@@ -65,15 +73,20 @@ function sunshine_share_javascript() {
 			}
 		}
 
+		$url = urlencode( trailingslashit( $url ) );
+
 		$services = maybe_unserialize( $sunshine->options['sharing_services'] );
+		if ( !is_array( $services ) ) {
+			return;
+		}
 		$html = '<ul class="sunshine-share-links sunshine-action-share-links">';
 		$image_html = '<ul class="sunshine-share-links sunshine-image-share-links">';
 		foreach ( $services as $service => $active ) {
 			if ( $active == 0 ) continue;
 			switch ( $service ) {
 				case 'facebook':
-					$service_url = 'http://www.facebook.com/sharer.php?u=' . $url . '&title=' . $title;
-					$image_service_url = "http://www.facebook.com/sharer.php?u='+url+'&title='+title+'";
+					$service_url = 'http://www.facebook.com/sharer.php?u=' . $url;
+					$image_service_url = "http://www.facebook.com/sharer.php?u='+url+'";
 					$service_name = 'Facebook';
 					break;
 				case 'twitter':
@@ -82,8 +95,8 @@ function sunshine_share_javascript() {
 					$service_name = 'Twitter';
 					break;
 				case 'pinterest':
-					$service_url = 'http://www.pinterest.com/pin/find/?url=' . $url;
-					$image_service_url = "http://www.pinterest.com/pin/find/?url='+url+'";
+					$service_url = 'http://pinterest.com/pin/create/button/?url=' . $url . '&media=' . $img . '&description=' . $title;
+					$image_service_url = "http://pinterest.com/pin/create/button/?url='+url+'&media='+img+'&title='+title+'";
 					$service_name = 'Pinterest';
 					break;
 				case 'google':
@@ -108,6 +121,7 @@ function sunshine_share_javascript() {
 		});
 		$( '.sunshine-image-share' ).hover(function(){
 			var url = $( this ).children( 'a' ).data( 'url' );
+			var img = $( this ).children( 'a' ).data( 'img' );
 			var title = $( this ).children( 'a' ).data( 'title' );
 			$( this ).append( '<?php echo $image_html; ?>' );
 		}, function() {
@@ -124,26 +138,27 @@ function sunshine_share_build_image_menu( $menu, $image ) {
 	global $post, $wp_query, $sunshine;
 
 	$image_share = get_post_meta( $image->post_parent, 'sunshine_image_share', true );
+	$services = maybe_unserialize( $sunshine->options['sharing_services'] );
 
-	if ( ( $sunshine->options['sharing_image'] ) && $image_share != 'disallow' || $image_share == 'allow' ) {
+	if ( is_array( $services ) && ( $sunshine->options['sharing_image'] || $image_share == 'allow' ) && $image_share != 'disallow' ) {
 
-		$url = get_permalink( $image->ID );
-		$title = get_the_title( $image->ID ) . ' - ' . get_the_title( $image->post_parent );
+		$url = trailingslashit( get_permalink( $image->ID ) );
+		//$title = get_the_title( $image->ID ) . ' - ' . get_the_title( $image->post_parent );
 		$size = apply_filters( 'sunshine_image_size', 'full' );
 		$img = wp_get_attachment_image_src( $image->ID, $size );
 		$img = $img[0];
 
 		$menu[] = array(
 			'icon' => 'share-square',
-			'name' => __('Share This', 'sunshine'),
+			//'name' => __('Share This', 'sunshine'),
 			//'url' => 'http://www.sharethis.com/share?url=' . urlencode( $url ) . '&title=' . urlencode( $title ) . '&img=' . urlencode( $img ),
 			'url' => '#',
 			//'target' => '_blank',
 			'class' => 'sunshine-image-share',
 			'attr' => array(
-				'data-url' => urlencode( $url ),
-				'data-title' => urlencode( $title ),
-				'data-img' => urlencode( $img )
+				'data-url' => urlencode( esc_attr( $url ) ),
+				//'data-title' => urlencode( esc_attr( $title ) ),
+				'data-img' => urlencode( esc_attr( $img ) )
 			)
 		);
 
@@ -158,19 +173,49 @@ function sunshine_share_lightbox_menu( $menu, $image ) {
 	global $sunshine;
 
 	$image_share = get_post_meta( $image->post_parent, 'sunshine_image_share', true );
+	$services = maybe_unserialize( $sunshine->options['sharing_services'] );
 
-	if ( ( $sunshine->options['sharing_image'] ) && $image_share != 'disallow' || $image_share == 'allow' ) {
-		$url = get_permalink( $image->ID );
-		$title = get_the_title( $image->ID ) . ' - ' . get_the_title( $image->post_parent );
+	if ( is_array( $services ) && ( $sunshine->options['sharing_image'] || $image_share == 'allow' ) && $image_share != 'disallow' ) {
+
 		$size = apply_filters( 'sunshine_image_size', 'full' );
+		$title = get_the_title( $image ) . ' - ' . get_the_title( $image->post_parent );
+		$url = trailingslashit( get_permalink( $image->ID ) );
 		$img = wp_get_attachment_image_src( $image->ID, $size );
 		$img = $img[0];
 
-		$menu .= ' <a href="http://www.sharethis.com/share?url=' . urlencode( $url ) . '&title=' . urlencode( $title ) . '&img=' . urlencode( $img ) .'" target="_blank"><i class="fa fa-share-square"></i></a>';
+		$menu .= ' <div class="sunshine-lightbox-share"><i class="fa fa-share-square"></i> <ul class="sunshine-lightbox-share-links">';
+		foreach ( $services as $service => $active ) {
+			if ( $active == 0 ) continue;
+			switch ( $service ) {
+				case 'facebook':
+					$service_url = 'http://www.facebook.com/sharer.php?u=' . $url;
+					$image_service_url = "http://www.facebook.com/sharer.php?u='+url+'";
+					$service_name = 'Facebook';
+					break;
+				case 'twitter':
+					$service_url = 'https://twitter.com/intent/tweet?url=' . $url . '&text=' . $title;
+					$image_service_url = "https://twitter.com/intent/tweet?url='+url+'&text='+title+'";
+					$service_name = 'Twitter';
+					break;
+				case 'pinterest':
+					$service_url = 'http://pinterest.com/pin/create/button/?url=' . $url . '&media=' . $img . '&description=' . $title;
+					$image_service_url = "http://pinterest.com/pin/create/button/?url='+url+'&media='+img+'&title='+title+'";
+					$service_name = 'Pinterest';
+					break;
+				case 'google':
+					$service_url = 'http://plus.google.com/share?url=' . $url;
+					$image_service_url = "http://plus.google.com/share?url='+url+'";
+					$service_name = 'Google+';
+					break;
+			}
+			$menu .= '<li><a href="' . $service_url . '" target="_blank">' . $service_name . '</a></li>';
+		}
+		$menu .= '</ul></div>';
 	}
 
 	return $menu;
 }
+
 
 add_action( 'sunshine_admin_galleries_meta', 'sunshine_share_gallery_meta', 865 );
 function sunshine_share_gallery_meta( $post ) {
@@ -180,9 +225,9 @@ function sunshine_share_gallery_meta( $post ) {
 	echo '<tr><th><label for="sunshine_gallery_share">'.__( 'Gallery Sharing', 'sunshine' ).'</label></th>';
 	echo '<td><select name="sunshine_gallery_share">';
 	$share_options = array(
-		'default' => 'Default',
-		'allow' => 'Allow',
-		'disallow' => 'Disallow'
+		'default' => __( 'Default', 'sunshine' ),
+		'allow' => __( 'Allow', 'sunshine' ),
+		'disallow' => __( 'Disallow', 'sunshine' )
 	);
 	foreach ( $share_options as $key => $option ) {
 		echo '<option value="' . $key . '" ' . selected( $key, $gallery_share, false ) . '>' . $option . '</option>';
@@ -193,9 +238,9 @@ function sunshine_share_gallery_meta( $post ) {
 	echo '<tr><th><label for="sunshine_image_share">'.__( 'Image Sharing', 'sunshine' ).'</label></th>';
 	echo '<td><select name="sunshine_image_share">';
 	$share_options = array(
-		'default' => 'Default',
-		'allow' => 'Allow',
-		'disallow' => 'Disallow'
+		'default' => __( 'Default', 'sunshine' ),
+		'allow' => __( 'Allow', 'sunshine' ),
+		'disallow' => __( 'Disallow', 'sunshine' )
 	);
 	foreach ( $share_options as $key => $option ) {
 		echo '<option value="' . $key . '" ' . selected( $key, $image_share, false ) . '>' . $option . '</option>';

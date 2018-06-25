@@ -2,17 +2,14 @@
 
 <h1><?php echo get_the_title($post->ID); ?></h1>
 
-<div id="sunshine-gallery-images" class="sunshine-clearfix">
+<div id="sunshine-image-list">
 
 <?php
 $images = sunshine_get_search_images();
 if ($images) {
-	echo '<ul class="sunshine-col-'.$sunshine->options['columns'].'">';
+	echo '<ul class="sunshine-clearfix sunshine-col-'.$sunshine->options['columns'].'">';
 	foreach ($images as $image) {
-		if (post_password_required($image->post_parent))
-			$thumb = wp_get_attachment_image_src(get_post_thumbnail_id($image->post_parent), 'sunshine-thumbnail');
-		else
-			$thumb = wp_get_attachment_image_src($image->ID, 'sunshine-thumbnail');
+		$thumb = wp_get_attachment_image_src( $image->ID, 'sunshine-thumbnail' );
 		$image_html = '<a href="'.get_permalink($image->ID).'"><img src="'.$thumb[0].'" alt="" /></a>';
 		$image_html = apply_filters('sunshine_gallery_image_html', $image_html, $image->ID, $thumb);
 ?>

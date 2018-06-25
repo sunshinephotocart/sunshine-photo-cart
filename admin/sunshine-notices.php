@@ -118,7 +118,8 @@ class SunshineNotices {
 	}
 
 	public function delete_notice( $id ) {
-		return delete_option( $id );
+		unset( $this->notices[ $id ] );
+		return delete_option( $this->option_prefix . $id );
 	}
 }
 
@@ -133,6 +134,13 @@ function sunshine_admin_notices() {
 	if ( get_option( 'page_on_front' ) == $sunshine->options['page'] ) {
 		$sunshine->notices->add_notice( 'page_on_front', sprintf( __( 'Sunshine cannot be the front page of your WordPress installation. <a href="%s" target="_blank">Learn more on how to resolve this issue</a>.','sunshine' ),'https://www.sunshinephotocart.com/docs/sunshine-cannot-be-your-front-page/' ), 'notice-error', false );
 	}
+	if ( !get_option( 'users_can_register' ) ) {
+		$sunshine->notices->add_notice( 'users_can_register', sprintf( __( 'For some Sunshine features to work, such as favorites, users are required to register. However, you do not have registration enabled. <a href="%s">Please consider updating this option</a>.','sunshine' ),'options-general.php' ), 'notice-error', false );
+	}
+
+	if ( class_exists( 'Jetpack_Photon' ) && Jetpack::is_module_active( 'photon' ) ) {
+		$sunshine->notices->add_notice( 'jetpack_photon', sprintf( __( 'Sunshine Photo Cart is not compatible with the Photon module in Jetpack. This will cause your images to not show. In order for Sunshine to function properly you will need to disable the "Speed up images and photos" feature <a href="%s">here</a>.','sunshine' ), 'admin.php?page=jetpack#/settings' ), 'notice-error', false );
+	}
 
 	if ( defined( 'SUNSHINE_DISABLE_PROMOS' ) ) return;
 
@@ -144,16 +152,16 @@ function sunshine_admin_notices() {
 		$sunshine->notices->add_notice( 'support', $support_text, 'notice-info', true );
 	}
 
-	if ( ( current_time('timestamp') - $install_time ) >= DAY_IN_SECONDS * 30 ) {
+	if ( ( current_time('timestamp') - $install_time ) >= DAY_IN_SECONDS * 15 ) {
 		$survey_text = '<p>' . __( 'Would you like to earn $10 credit towards an add-on or a license renewal? Then go take the Sunshine survey! It will help us learn more about how you use Sunshine and what we can do to make it better.', 'sunshine') . '<br /><br />
 	    				' . __( 'Thank You', 'sunshine' ) . '<br />
 	    				Derek, Sunshine Developer</p>
-	    				<p><a href="https://www.sunshinephotocart.com/survey" target="_blank" class="button-primary notice-dismiss-button">' . __( 'Sure thing!', 'sunshine' ) . '</a> &nbsp;
+	    				<p><a href="https://www.sunshinephotocart.com/survey/?utm_source=plugin&utm_medium=notice&utm_content=survey&utm_campaign=survey" target="_blank" class="button-primary notice-dismiss-button">' . __( 'Sure thing!', 'sunshine' ) . '</a> &nbsp;
 						<a href="#" class="button notice-dismiss-button">' . __( 'No thanks', 'sunshine' ) . '</a></p>';
 		$sunshine->notices->add_notice( 'survey', $survey_text, 'notice-info', true );
 	}
 
-	if ( !$sunshine->is_pro() && ( ( current_time('timestamp') - $install_time ) >= DAY_IN_SECONDS * 45 ) ) {
+	if ( !$sunshine->is_pro() && ( ( current_time('timestamp') - $install_time ) >= DAY_IN_SECONDS * 30 ) ) {
 		$all_plugins = get_plugins();
 		$install_plugins = array();
 		foreach ( $all_plugins as $plugin => $plugin_data ) {
@@ -184,7 +192,7 @@ function sunshine_admin_notices() {
 		$sunshine->notices->add_notice( 'superdiscount', $discount_text, 'notice-info', true );
 	}
 
-	if ( ( current_time('timestamp') - $install_time ) >= DAY_IN_SECONDS * 60 ) {
+	if ( ( current_time('timestamp') - $install_time ) >= DAY_IN_SECONDS * 45 ) {
 		$review_text = '<p>' . __( 'You having been using Sunshine Photo Cart for a bit and that\'s awesome! Could you please do Sunshine a big favor and give it a 5-star rating on WordPress?  Reviews from users like you really help Sunshine to grow and continue to improve.', 'sunshine') . '<br /><br />
 	    				' . __( 'Thank You', 'sunshine' ) . '<br />
 	    				Derek, Sunshine Developer</p>

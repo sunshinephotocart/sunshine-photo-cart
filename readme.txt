@@ -2,10 +2,10 @@
 Author URI: https://www.sunshinephotocart.com
 Plugin URI: https://www.sunshinephotocart.com
 Contributors: sunshinephotocart
-Tags: photo, photography, photo, photographer, gallery, client gallery, client proofing, proofing, cart, photo cart, e-store, eshop, ecommerce, e commerce, e-commerce, selling, wp-ecommerce, wp ecommerce
-Requires at least: 3.7
-Tested up to: 4.6
-Stable tag: 2.5.3
+Tags: photo, photography, photo, photographer, gallery, client gallery, client proofing, proofing, best client proofing, cart, photo cart, e-store, eshop, ecommerce, e commerce, e-commerce, selling, wp-ecommerce, wp ecommerce
+Requires at least: 4.5
+Tested up to: 5.0
+Stable tag: 2.7.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -57,10 +57,12 @@ This free version is fully functional and has the following features:
 > * [Campaign Monitor integration](https://www.sunshinephotocart.com/addon/campaign-monitor/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
 > * [PayJunction payment gateway](https://www.sunshinephotocart.com/addon/payjunction/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
 > * [Stripe payment gateway](https://www.sunshinephotocart.com/addon/stripe/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
+> * [Square payment gateway](https://www.sunshinephotocart.com/addon/square/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
 > * [Authorize.net payment gateway](https://www.sunshinephotocart.com/addon/authorize-net/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
 > * [Mollie (with iDEAL support) payment gateway](https://www.sunshinephotocart.com/addon/mollie/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
 > * [Tiered pricing](https://www.sunshinephotocart.com/addon/tiered-pricing/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
 > * [Price List](https://www.sunshinephotocart.com/addon/price-list/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
+> * [Tiered Shipping](https://www.sunshinephotocart.com/addon/tiered-shipping/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
 >
 > ...and so many more to come! [Feel free to request new features](https://www.sunshinephotocart.com/contact/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
 >
@@ -90,7 +92,7 @@ Sunshine itself does not impose any limits on galleries, images, users, etc. You
 
 = What payment gateways can I accept? =
 
-Sunshine eomes with PayPal out-of-the-box and has add-ons for [Stripe](https://www.sunshinephotocart.com/addon/stripe/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme), [PayJunction](https://www.sunshinephotocart.com/addon/payjunction/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme) and [Mollie (with iDEAL support)](https://www.sunshinephotocart.com/addon/mollie/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
+Sunshine eomes with PayPal out-of-the-box and has add-ons for [Stripe](https://www.sunshinephotocart.com/addon/stripe/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme), [Square](https://www.sunshinephotocart.com/addon/square/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme), [PayJunction](https://www.sunshinephotocart.com/addon/payjunction/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme) and [Mollie (with iDEAL support)](https://www.sunshinephotocart.com/addon/mollie/?utm_source=wordpress.org&utm_medium=link&utm_campaign=readme)
 
 = Is there a demo? =
 
@@ -117,6 +119,204 @@ Yes! Please see our [translation site](https://www.transifex.com/wp-translations
 
 == Changelog ==
 
+= 2.7.2 =
+* Add - Use Imagick when it is available for higher quality images
+* Fix - Local Pickup shipping cost being removed from order data
+* Fix - Issues with discount codes being removed
+
+= 2.7.1 =
+* Add - New option (Sunshine > Settings > Design) to hide main galleries page link in all Sunshine menus
+* Change - Stop tracking IP on order, never was really necessary and now not good for GDPR compliance
+* Fix - Updates to work with new licensing database structures on sunshinephotocart.com
+* Fix - Proper Reply To for order notification emails
+
+= 2.7 =
+* Add - Option to show prices with tax included
+* Add - Integrate with upcoming WordPress Personal Data Exporter for GDPR compliance
+* Add - New Gallery Access Type: Direct URL only (A gallery is not listed with others but can be accessed if direct URL is known)
+* Add - Make Sunshine Galleries available in Menus
+* Add - Setting to allow Sunshine gallery images to be seen in Media Library. Enable at your own risk.
+* Update - More efficient query to get total images in a gallery for better admin performance
+* Update - All available translations updated
+
+= 2.6.8 =
+* Fix - Issues with discount codes applied to specific galleries
+* Fix - Redid how discount codes are checked for max use
+* Fix - Issues with discounts and tax
+
+= 2.6.7 =
+* Add - Searching now looks at image/attachment metadata such as keywords if set in image when uploaded
+* Change - Try to set unlimited timeout when permanently deleting a gallery and trying to remove all images as well
+* Change - Adjustments to how product category ordering is pulled
+* Fix - Issues with multiple coupon codes applying properly
+* Fix - Unfortunately even more unserialize PHP warnings
+* Fix - Add item to cart filter was being run twice
+* Fix - Further fixes for admin Order search
+* Fix - Don't keep applying an auto discount if it's already applied
+* Fix - Only apply auto discount if it matches criteria
+
+= 2.6.6 =
+* Fix - More unserialize PHP warnings
+* Fix - Sanitizing order data was causing some orders to not be completed
+* Fix - Do not show Open Graph data on individual image URLs if gallery is still password protected. Actively block robots with "noindex" for these URLs when password protected.
+
+= 2.6.5 =
+* Change - Sort cart/order items by image ID
+* Change - Show custom Order Status filter in admin
+* Fix - Can search orders by order ID or meta data
+* Fix - Extra closing div in single gallery template for themes
+* Fix - Shipping rates calculated if State field is not used
+* Fix - Order data sanitization process updated to account for more cases
+* Fix - If nothing entered into Gallery Password field, fixed bug that sent user to first non-password gallery
+* Fix - PHP warnings about serialized data in admin
+
+= 2.6.4 =
+* Change - Order notification email to admin reply-to set to order email
+* Fix - Custom colors for Modern theme not being applied
+* Fix - Sanitize order data better so no issues with special characters in Notes
+
+= 2.6.3 =
+* Add - Ability to manage Order Statuses in admin
+* Add - Red notification thingy in Sunshine admin menu to show how many "new" orders there are
+* Add - Filter for gallery password form
+* Fix - Further refinements of gallery HTML/CSS for masonry
+
+= 2.6.2 =
+* Fix - Adjusting various theme stylings for masonry
+
+= 2.6.1 =
+* Fix - Change filter name on Sunshine options as it had a conflict
+* Fix - Only allow Sunshine admin users to see Dashboard widget with sales data
+* Fix - Registering on checkout resulted in $0 order total, new bug since 2.6
+* Fix - Thumbnail images not having watermark applied properly
+* Change - Hide the option to select parent category, not supported in Sunshine
+
+= 2.6 =
+* Add - Order notes field option on checkout
+* Add - Sub-galleries will look for parent gallery password
+* Add - Phone field optional in settings
+* Add - Phone/Notes optionally required
+* Change - If no country set at checkout, set it to default country from settings
+* Change - Altering styles to work with updated Masonry add-on
+* Change - Remove preview links when creating new gallery, they are not compatible with Sunshine URL structure
+* Change - Work with new digital download feature to add watermarks
+* Fix - If item is added to cart with no quantity set somehow, it defaults to 1
+* Fix - Sanitize add to cart comments for improved security
+* Fix - Issue when removing item from cart and doing guest checkout, deleted items still in order
+* Fix - In some cases not all images would be deleted when a gallery was permanently deleted
+* Fix - Prevent ProPhoto retina display in Sunshine galleries as it causes lots of issues
+
+= 2.5.24 =
+* Fix - Order data not saving properly from recent change
+
+= 2.5.23 =
+* Fix - Left some debug code in Order Details in admin causing order display issues
+* Add - Show Password option on Checkout page
+
+= 2.5.22 =
+* Fix - Prevent negative quantities
+* Fix - Don't allow products to be assigned to multiple categories
+* Add - Show Password option on registration
+* Fix - Stop "password updated" email when user registers
+
+= 2.5.21 =
+* Fix - Non-Sunshine images in edit mode were using wrong image size
+* Add - Show images which have comments in gallery edit screen
+
+= 2.5.20 =
+* Change - In Media popup, use sunshine-thumbnail image size since thumbnail size doesn't exist and WP defaults to full size and can cause long loading times when doing high res images
+* Fix - Add to cart and comments links for images in search results
+* Fix - No error notice on Package products saying it needs to be in a category
+* Add - Added PEN currency
+* Fix - Do not increase discount code usage count when order is added as pending
+* Fix - When PayPal processes IPN update discount code usage count
+* Fix - When cart is updated, check all currently applied discount codes to make sure they are still valid
+* Fix - PayPal doesn't like numbers for price with commas in them
+
+= 2.5.19 =
+* Fix - Allowed countries PHP error (even more fixing required)
+* Fix - Issues with discount applied after tax
+* Add - Show gallery hierarchy for images in order in admin
+
+= 2.5.18 =
+* Fix - Allowed countries PHP error
+* Fix - [sunshine-search] fixes issues with restricting search to specific gallery and working with Lightbox add-on
+
+= 2.5.17 =
+* Fix - Further improvements for getting add-on data from sunshinephotocart.com API
+* Add - Image comments on printable order invoice
+
+= 2.5.16 =
+* Fix - Fixing issue with getting add-ons from sunshinephotocart.com API
+
+= 2.5.15 =
+* Fix - Bug preventing add to cart in Lightbox from working
+
+= 2.5.14 =
+* Change - Better handling of checking for Pro add-ons so it doesn't kill admin every page load when a server has issues connecting to sunshinephotocart.com
+* Fix - Image meta data not saving properly causing wrong image sizes to be displayed
+* Fix - Adjustments to work with Tiered Shipping
+* Add - Admin error notice when a product has not been assigned to a category (which is required for it to be visible)
+* Add - Kenyan Shilling currency
+
+= 2.5.13 =
+* Fix - Not saving searchable image caption with browser file upload
+* Change - Menu link hover style update
+* Fix - Shipping method cost at checkout not using filter
+* Fix - Bug fixes to EDD update class
+* Change - Don't just use full size image for social sharing, use sunshine_image_size
+* Add - Remove any Jetpack/Yoast open graph data on individual images as it conflicts with Sunshine's data
+
+= 2.5.12 =
+* Add - [sunshine-search] shortcode, includes option to limiting to specific gallery
+* Add - See comments for an image on the order detail page in admin
+* Update - Improvements to Sharing add-on to work with Lightbox add-on
+* Add - Option to include search box in sidebar for Sunshine theme's
+
+= 2.5.11 =
+* Update - Update class updated. Yep.
+* Fix - Issue with getimagesize error
+
+= 2.5.10 =
+* Fix - Bug in passing user credits to PayPal
+* Update - Better database queries for Dashboard widget with gallery and image totals, thanks Rex Valkering!
+* Fix - Refinements to how og meta data is grabbed for images and galleries
+* Fix - Extra product shipping cost was recently dropped from being added to shipping total
+* Fix - Remove error when no allowed countries have yet been selected
+* Add - Hungarian translation
+
+= 2.5.9 =
+* Fix - Handle meta data for gallery better
+* Fix - Social media sharing drop down fixed in Sunshine themes
+* Change - New placement for "Return to gallery" on Cart page
+* Change - Use better method to get cost for shipping, allows more shipping plugins to easily integrate (example: tiered shipping add-on)
+* Change - Output our meta data really early to prevent other plugins overriding it
+
+= 2.5.8 =
+* Fix - Image theft prevention JS was being output before jQuery was even loaded causing JS error.
+* Fix - Favorite notifications going to order notifications email settings
+* Add - Include Order # on order detail page in custom theme template
+* Fix - Remove notice about user registration setting once it is changed
+* Fix - Update sharing URLs
+* Update - Updated translations
+
+= 2.5.7 =
+* Fix - On update, make sure to set default the billing/shipping fields and what is required FOR REALS
+
+= 2.5.6 =
+* Fix - On update, make sure to default the billing/shipping fields and what is required
+* Fix - Admin notifications were not being sent on new order
+
+= 2.5.5 =
+* Fix - Add to cart and comment links for images on Favorites page
+* Fix - Search only searched top level galleries, not child galleries
+* Add - Ability to set allowed countries for billing/shipping
+* Add - Checkout field options, display and required
+* Add - Option to select which address is basis for tax (billing, shipping or everyone)
+* Fix - Prevent order notify email being sent when not a valid order
+* Fix - Improved/optimized is_sunshine a bit
+* Fix - Changing order status email was not being sent
+
 = 2.5.4 =
 * Add - New "Ready for pickup" order status
 * Add - sunshine_after_gallery_emails hook in admin
@@ -135,6 +335,8 @@ Yes! Please see our [translation site](https://www.transifex.com/wp-translations
 * Fix - Cart totals CSS for mobile site
 * Fix - Better process for adding auto discounts
 * Change - No more ShareThis.com, now using direct links to social sharing services
+* Fix - Additional strings available for translation in admin
+* Fix - Issue with proper credit attribution for an order
 
 = 2.5.3 =
 * Fix - Update process for moving files to sunshine folder when using Amazon S3

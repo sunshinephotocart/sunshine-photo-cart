@@ -1,6 +1,6 @@
 <?php global $sunshine; ?>
 <div id="sunshine" class="sunshine-clearfix <?php sunshine_classes(); ?>">
-	
+
 	<?php do_action('sunshine_before_content'); ?>
 
 	<div id="sunshine-main">
@@ -8,10 +8,10 @@
 		<div id="sunshine-action-menu" class="sunshine-clearfix">
 			<?php sunshine_action_menu(); ?>
 		</div>
-		<div id="sunshine-gallery-images">
-		<?php 
+		<div id="sunshine-image-list">
+		<?php
 		if (!empty($sunshine->favorites)) {
-			echo '<ul class="sunshine-image-list sunshine-clearfix sunshine-col-'.$sunshine->options['columns'].'">';
+			echo '<ul class="sunshine-clearfix sunshine-col-'.$sunshine->options['columns'].'">';
 			foreach ($sunshine->favorites as $image_id) {
 				$image = get_post($image_id);
 				$thumb = wp_get_attachment_image_src($image->ID, 'sunshine-thumbnail');
@@ -34,11 +34,11 @@
 		} else {
 			echo '<p>'.__('You have no images marked as a favorite', 'sunshine').'</p>';
 		}
-		
+
 		do_action('sunshine_after_favorites');
 		?>
 		</div>
-		
+
 	</div>
 
 	<?php do_action('sunshine_after_content'); ?>

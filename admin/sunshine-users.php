@@ -22,13 +22,13 @@ function sunshine_admin_user_cart( $user ) {
 		$orders = get_posts( 'post_type=sunshine-order&meta_key=_sunshine_customer_id&meta_value=' . $user->ID . '&nopaging=1' );
 ?>
 		<h3><?php _e( 'Orders', 'sunshine' ); ?></h3>
-		<?php 
+		<?php
 		if ( $orders ) {
 			echo '<ul>';
 			foreach ( $orders as $order ) {
-				$order_data = unserialize( get_post_meta( $order->ID, '_sunshine_order_data', true ) );
+				$order_data = maybe_unserialize( get_post_meta( $order->ID, '_sunshine_order_data', true ) );
 				$total = sunshine_money_format( $order_data['total'], false );
-				echo '<li><a href="post.php?post=124&action=edit">' . $order->post_title . '</a>, ' .  date( get_option( 'date_format' ), strtotime( $order->post_date ) ) . ' &mdash; ' . $total . '</li>';
+				echo '<li><a href="post.php?post=' . $order->ID . '&action=edit">' . $order->post_title . '</a>, ' .  date( get_option( 'date_format' ), strtotime( $order->post_date ) ) . ' &mdash; ' . $total . '</li>';
 			}
 		} else {
 			echo '<li><em>' . __( 'User has no orders yet', 'sunshine' ) . '</em></li>';
@@ -90,7 +90,7 @@ function sunshine_admin_user_cart( $user ) {
 				$currency_symbol = sunshine_currency_symbol();
 				$currency_symbol_format = sunshine_currency_symbol_format();
 				$text_field = '<input type="text" name="sunshine_credits" id="sunshine_credits" value="'.esc_attr( SunshineUser::get_user_meta_by_id( $user->ID, 'credits' ) ).'" />';
-				echo sprintf( $currency_symbol_format, $currency_symbol, $text_field );			
+				echo sprintf( $currency_symbol_format, $currency_symbol, $text_field );
 				?>
 			</td>
 	 	</tr>

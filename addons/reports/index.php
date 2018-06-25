@@ -27,11 +27,11 @@ function sunshine_reports_page() {
 			);
 			$orders = get_posts( $args );
 			foreach ( $orders as $order ) {
-				$order_data = unserialize( get_post_meta( $order->ID, '_sunshine_order_data', true ) );
+				$order_data = maybe_unserialize( get_post_meta( $order->ID, '_sunshine_order_data', true ) );
 				$year = date( 'Y',strtotime( $order->post_date ) );
 				$tax_years[$year] += $order_data['tax'];
 			}
-			if ( !empty( $tax_years ) ) { 
+			if ( !empty( $tax_years ) ) {
 				foreach ( $tax_years as $tax_year => $tax_amount ) {
 					echo '<p><strong>'.$tax_year.'</strong>: '.sunshine_money_format( $tax_amount,false ).'</p>';
 				}

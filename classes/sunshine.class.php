@@ -21,7 +21,7 @@ class Sunshine {
 
 	public function __construct() {
 
-		$this->options = apply_filters( 'sunshine_options', get_option( 'sunshine_options' ) );
+		$this->options = apply_filters( 'sunshine_option_values', get_option( 'sunshine_options' ) );
 		$this->options['endpoint_gallery'] = ( !empty( $this->options['endpoint_gallery'] ) ) ? $this->options['endpoint_gallery'] : 'gallery';
 		$this->options['endpoint_image'] = ( !empty( $this->options['endpoint_image'] ) ) ? $this->options['endpoint_image'] : 'image';
 		$this->options['endpoint_order'] = ( !empty( $this->options['endpoint_order'] ) ) ? $this->options['endpoint_order'] : 'purchase';
@@ -42,9 +42,9 @@ class Sunshine {
 	function init() {
 		$this->post_types();
 		$this->image_sizes();
+
 		$this->set_base_url();
 		$this->set_pages();
-
 		$this->shipping = new SunshineShipping();
 		$this->cart = new SunshineCart();
 
@@ -77,7 +77,7 @@ class Sunshine {
 			'exclude_from_search' => true,
 			'publicly_queryable' => true,
 			'show_ui' => true,
-			'show_in_nav_menus' => false,
+			'show_in_nav_menus' => true,
 			'show_in_menu' => false,
 			'query_var' => true,
 			'has_archive' => false,
@@ -95,7 +95,7 @@ class Sunshine {
 			    ),
 			'supports' => array( 'title', 'editor', 'page-attributes', 'thumbnail' )
 		);
-		register_post_type( 'sunshine-gallery',$args );
+		register_post_type( 'sunshine-gallery', $args );
 
 		/* SUNSHINE_PRODUCTS Custom Post Type */
 		$labels = array(
@@ -529,6 +529,12 @@ class Sunshine {
 			$options['country'] = 'US';
 		if ( isset( $options['tax_state'] ) && $options['tax_state'] != '' )
 			$options['tax_location'] = 'US|'.$options['tax_state'];
+		if ( !$options['tax_basis'] )
+			$options['tax_basis'] = 'shipping';
+		if ( !$options['display_price'] )
+			$options['display_price'] = 'without_tax';
+		if ( !$options['price_has_tax'] )
+			$options['price_has_tax'] = 'no';
 		if ( !$options['email_subject_register'] )
 			$options['email_subject_register'] = __( 'New user account info at [sitename]','sunshine' );
 		if ( !$options['email_subject_order_receipt'] )
@@ -537,6 +543,17 @@ class Sunshine {
 			$options['email_subject_order_status'] = __( 'Your order #[order_id] from [sitename] has been updated','sunshine' );
 		if ( !$options['email_subject_order_comment'] )
 			$options['email_subject_order_comment'] = __( 'A new comment on order #[order_id] at [sitename]','sunshine' );
+
+		if ( !$options['allowed_countries'] )
+			$options['allowed_countries'] = 'all';
+		if ( !$options['billing_fields'] || !array_search( 1, maybe_unserialize( $options['billing_fields' ] ) ) )
+			$options['billing_fields'] = array( 'country' => 1, 'first_name' => 1, 'last_name' => 1, 'address' => 1, 'address2' => 1, 'city' => 1, 'state' => 1, 'zip' => 1 );
+		if ( !$options['shipping_fields'] || !array_search( 1, maybe_unserialize( $options['shipping_fields' ] ) ) )
+			$options['shipping_fields'] = array( 'country' => 1, 'first_name' => 1, 'last_name' => 1, 'address' => 1, 'address2' => 1, 'city' => 1, 'state' => 1, 'zip' => 1 );
+		if ( !$options['billing_fields_required'] || !array_search( 1, maybe_unserialize( $options['billing_fields_required' ] ) ) )
+			$options['billing_fields_required'] = array( 'country' => 1, 'first_name' => 1, 'last_name' => 1, 'address' => 1, 'city' => 1, 'state' => 1, 'zip' => 1 );
+		if ( !$options['shipping_fields_required'] || !array_search( 1, maybe_unserialize( $options['shipping_fields_required' ] ) ) )
+			$options['shipping_fields_required'] = array( 'country' => 1, 'first_name' => 1, 'last_name' => 1, 'address' => 1, 'city' => 1, 'state' => 1, 'zip' => 1 );
 
 		if ( !isset( $options['endpoint_gallery'] ) ) {
 			$post_types = get_post_types();
@@ -742,13 +759,45 @@ class Sunshine {
 			update_option('sunshine_update_image_location', 'yes' );
 		}
 
-		$options = apply_filters( 'sunshine_update_options', $options );
-		update_option('sunshine_options', $options);
+		if ( version_compare($version, '2.5.4', '<') ) {
+			if ( empty( $options['sharing_services'] ) ) {
+				$options['sharing_services'] = array( 'facebook', 'twitter', 'pinterest', 'google' );
+			}
+		}
 
-		update_option('sunshine_version', SUNSHINE_VERSION);
+		if ( version_compare( $version, '2.5.7', '<' ) ) {
+			if ( !$options['allowed_countries'] )
+				$options['allowed_countries'] = 'all';
+			if ( !$options['tax_basis'] )
+				$options['tax_basis'] = 'shipping';
+
+			if ( !$options['billing_fields'] || !array_search( 1, maybe_unserialize( $options['billing_fields' ] ) ) )
+				$options['billing_fields'] = array( 'country' => 1, 'first_name' => 1, 'last_name' => 1, 'address' => 1, 'address2' => 1, 'city' => 1, 'state' => 1, 'zip' => 1 );
+			if ( !$options['shipping_fields'] || !array_search( 1, maybe_unserialize( $options['shipping_fields' ] ) ) )
+				$options['shipping_fields'] = array( 'country' => 1, 'first_name' => 1, 'last_name' => 1, 'address' => 1, 'address2' => 1, 'city' => 1, 'state' => 1, 'zip' => 1 );
+			if ( !$options['billing_fields_required'] || !array_search( 1, maybe_unserialize( $options['billing_fields_required' ] ) ) )
+				$options['billing_fields_required'] = array( 'country' => 1, 'first_name' => 1, 'last_name' => 1, 'address' => 1, 'city' => 1, 'state' => 1, 'zip' => 1 );
+			if ( !$options['shipping_fields_required'] || !array_search( 1, maybe_unserialize( $options['shipping_fields_required' ] ) ) )
+				$options['shipping_fields_required'] = array( 'country' => 1, 'first_name' => 1, 'last_name' => 1, 'address' => 1, 'city' => 1, 'state' => 1, 'zip' => 1 );
+		}
+
+		if ( version_compare( $version, '2.6', '<' ) ) {
+			$options['other_fields_required'] = array( 'phone' => 1 );
+		}
+
+		if ( !$options['display_price'] )
+			$options['display_price'] = 'without_tax';
+		if ( !$options['price_has_tax'] )
+			$options['price_has_tax'] = 'no';
+
+
+		$options = apply_filters( 'sunshine_update_options', $options );
+		update_option( 'sunshine_options', $options );
+
+		update_option( 'sunshine_version', SUNSHINE_VERSION );
 		$sunshine->version = SUNSHINE_VERSION;
 
-		do_action('sunshine_update');
+		do_action( 'sunshine_update' );
 
 		wp_redirect( admin_url( '/admin.php?page=sunshine_about&sunshine_updated' ) );
 		exit;

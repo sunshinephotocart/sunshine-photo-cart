@@ -10,4 +10,16 @@ add_shortcode( 'sunshine_menu', 'sunshine_menu_shortcode' );
 function sunshine_menu_shortcode() {
 	return sunshine_main_menu();
 }
+
+add_shortcode( 'sunshine-search', 'sunshine_search_shortcode' );
+add_shortcode( 'sunshine_search', 'sunshine_search_shortcode' );
+function sunshine_search_shortcode( $atts ) {
+	$atts = shortcode_atts( array(
+		'gallery' => ''
+	), $atts, 'sunshine-search' );
+	if ( !$atts['gallery'] && isset( SunshineFrontend::$current_gallery ) ) {
+		$atts['gallery'] = SunshineFrontend::$current_gallery->ID;
+	}
+	sunshine_search( $atts['gallery'] );
+}
 ?>

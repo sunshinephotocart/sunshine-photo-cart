@@ -3,10 +3,17 @@ add_filter('sunshine_options_templates', 'sunshine_template_options');
 function sunshine_template_options($options) {
 	$options[] = array( 'name' => __('Functionality', 'sunshine'), 'type' => 'title', 'desc' => '' );
 	$options[] = array(
-		'name' => __('Gallery Login Box', 'sunshine'),
+		'name' => __('Gallery Password Box', 'sunshine'),
 		'id'   => 'template_gallery_password_box',
 		'type' => 'checkbox',
-		'tip' => __('Enabling this option will have the gallery login box appear in the left sidebar.','sunshine'),
+		'tip' => __('Enabling this option will have the gallery password box appear in the left sidebar.','sunshine'),
+		'options' => array(1)
+	);
+	$options[] = array(
+		'name' => __('Search Box', 'sunshine'),
+		'id'   => 'template_search_box',
+		'type' => 'checkbox',
+		'tip' => __('Enabling this option will have the search box appear in the left sidebar.','sunshine'),
 		'options' => array(1)
 	);
 
@@ -103,7 +110,7 @@ function sunshine_template_options($options) {
 
 add_action('wp_head', 'sunshine_template_head');
 function sunshine_template_head() {
-	global $sunshine; 
+	global $sunshine;
 	$css = '';
 	if (!empty($sunshine->options['template_header_color']))
 		$css .= '#sunshine-main h1, .sunshine-main-menu .sunshine-count { background: '.$sunshine->options['template_header_color'].'; }';

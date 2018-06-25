@@ -2,11 +2,11 @@
 add_action( 'admin_head', 'sunshine_product_bulk_add_link' );
 function sunshine_product_bulk_add_link() {
 	$screen = get_current_screen();
-	if ( $screen->id == 'edit-sunshine-product' || $screen->id == 'sunshine-product' ) {
+	if ( $screen->id == 'edit-sunshine-product' ) {
 ?>
 	<script type="text/javascript">
 	jQuery(document).ready(function(){
-		jQuery('.wrap h1').append('<a href="<?php echo get_admin_url().'admin.php?page=sunshine_bulk_add_products'; ?>" class="page-title-action"><?php _e( 'Bulk add products', 'sunshine' ); ?></a>');
+		jQuery('.wp-header-end').before('<a href="<?php echo get_admin_url().'admin.php?page=sunshine_bulk_add_products'; ?>" class="page-title-action"><?php _e( 'Bulk add products', 'sunshine' ); ?></a>');
 	});
 	</script>
 <?php

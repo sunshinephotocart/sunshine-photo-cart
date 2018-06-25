@@ -25,15 +25,15 @@ function sunshine_dashboard_display() {
 		}
 		$current_status = get_the_terms( get_the_ID(), 'sunshine-order-status' );
 		$status = array_values( $current_status );
-		$order_data = unserialize( get_post_meta( get_the_ID(), '_sunshine_order_data', true ) );
+		$order_data = maybe_unserialize( get_post_meta( get_the_ID(), '_sunshine_order_data', true ) );
 ?>
 		<tr>
 			<td><a href="post.php?post=<?php the_ID(); ?>&action=edit"><?php the_title(); ?></a></td>
 			<td>
 				<?php if ( $customer_id ) { ?>
 					<a href="user-edit.php?user_id=<?php echo $customer_id; ?>"><?php echo $customer->display_name; ?></a>
-				<?php } else { 
-					 echo __( 'Guest', 'sunshine' ) . ' &mdash; ' . $order_data['first_name'] . ' ' . $order_data['last_name']; 
+				<?php } else {
+					 echo __( 'Guest', 'sunshine' ) . ' &mdash; ' . $order_data['first_name'] . ' ' . $order_data['last_name'];
 				} ?>
 			</td>
 			<td><?php echo $status[0]->name; ?></td>
@@ -52,7 +52,7 @@ function sunshine_dashboard_display() {
 ?>
 <div class="wrap sunshine">
 	<h2><?php _e( 'Dashboard' ); ?></h2>
-	
+
 	<?php do_action( 'sunshine_dashboard_before' ); ?>
 
 	<div id="sunshine-dashboard">
@@ -78,9 +78,9 @@ function sunshine_dashboard_display() {
 
 		</div>
 	</div>
-	
+
 	<?php do_action( 'sunshine_dashboard_after' ); ?>
-	
+
 </div>
 <?php
 }
@@ -90,44 +90,33 @@ MAIN DASHBOARD
 */
 add_action( 'wp_dashboard_setup', 'add_sunshine_dashboard_widgets', 1 );
 function add_sunshine_dashboard_widgets() {
-	wp_add_dashboard_widget( 'dashboard_widget', __( 'Sunshine Photo Cart Overview', 'sunshine' ), 'sunshine_dashboard_widget_stats' );
+	if ( current_user_can( 'sunshine_manage_options' ) ) {
+		wp_add_dashboard_widget( 'dashboard_widget', __( 'Sunshine Photo Cart Overview', 'sunshine' ), 'sunshine_dashboard_widget_stats' );
+	}
 }
 
 function sunshine_dashboard_widget_stats( $post, $callback_args ) {
 	echo '<ul id="sunshine-dashboard-widget-stats" class="sunshine-clearfix">';
-	$args = array(
-		'post_type' => 'sunshine-gallery',
-		'nopaging' => true
-	);
-	$galleries = get_posts( $args );
-	if ( is_array( $galleries ) ) {
-		$gallery_total = count( $galleries );
-		$image_total = 0;
-		foreach ( $galleries as $gallery ) {
-			$images = get_children( array(
-				'post_parent' => $gallery->ID,
-				'post_type' => 'attachment'
-			) );
-			$image_total += count( $images );
-		}
-	}
+	global $wpdb;
+
+	/* Provided by Rex Valkering */
+	$image_sql = "SELECT COUNT(*) as total FROM {$wpdb->posts}
+				  WHERE post_type = 'attachment' AND post_parent IN (
+				  	SELECT ID FROM {$wpdb->posts}
+				  	WHERE post_type = 'sunshine-gallery'
+				  );";
+	$image_total = $wpdb->get_row($image_sql)->total;
+
+	$gallery_sql = "SELECT COUNT(*) as total FROM {$wpdb->posts}
+				    WHERE post_type = 'sunshine-gallery' AND post_status='publish';";
+	$gallery_total = $wpdb->get_row($gallery_sql)->total;
+	/* */
+
 	if ( $gallery_total ) {
 		echo '<li><span class="data">' . $gallery_total . '</span><a href="edit.php?post_type=sunshine-gallery">' . __( 'Galleries', 'sunshine' ) . '</a></li>';
 	}
 	if ( $image_total ) {
 		echo '<li><span class="data">' . $image_total . '</span>' . __( 'Images', 'sunshine' ) . '</li>';
-	}
-
-	$args = array(
-		'post_type' => 'sunshine-product',
-		'nopaging' => true
-	);
-	$products = get_posts( $args );
-	if ( is_array( $products ) ) {
-		$product_total = count( $products );
-	}
-	if ( $gallery_total ) {
-		echo '<li><span class="data">' . $product_total . '</span><a href="edit.php?post_type=sunshine-product">' . __( 'Products', 'sunshine' ) . '</a></li>';
 	}
 
 	$args = array(
@@ -145,7 +134,7 @@ function sunshine_dashboard_widget_stats( $post, $callback_args ) {
 	if ( is_array( $orders ) ) {
 		$order_total = 0;
 		foreach ( $orders as $order ) {
-			$order_data = unserialize( get_post_meta( $order->ID, '_sunshine_order_data', true ) );
+			$order_data = maybe_unserialize( get_post_meta( $order->ID, '_sunshine_order_data', true ) );
 			$order_total += $order_data['total'];
 		}
 	}

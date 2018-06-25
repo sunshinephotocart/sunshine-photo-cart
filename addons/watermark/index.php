@@ -55,16 +55,20 @@ function sunshine_watermark_options( $options ) {
 	return $options;
 }
 
-function sunshine_watermark_image( $attachment_id, $metadata = array() ) {
+function sunshine_watermark_image( $attachment_id, $metadata = array(), $passed_image_size = '' ) {
 	global $sunshine;
 	$attachment = get_post( $attachment_id );
 	if ( get_post_type( $attachment->post_parent ) == 'sunshine-gallery' && $sunshine->options['watermark_image'] ) {
 
 		$watermark_image = get_attached_file( $sunshine->options['watermark_image'] );
 		$watermark_file_type = wp_check_filetype( $watermark_image );
+
 		if ( file_exists( $watermark_image ) && $watermark_file_type['ext'] == 'png' ) {
 			$image = get_attached_file( $attachment_id, 'full' );
-			$image_size = apply_filters( 'sunshine_image_size', 'full' );
+			$image_size = $passed_image_size;
+			if ( !$image_size ) {
+				$image_size = apply_filters( 'sunshine_image_size', 'full' );
+			}
 			if ( empty( $metadata['sizes'][ $image_size ]['file'] ) ) {
 				$metadata = wp_get_attachment_metadata( $attachment_id );
 			}
@@ -74,7 +78,7 @@ function sunshine_watermark_image( $attachment_id, $metadata = array() ) {
 				$image = $image_path . $metadata['sizes'][$image_size]['file'];
 			}
 
-			if ( !file_exists( $image ) || !file_exists( $watermark_image ) ) {
+			if ( !file_exists( $image ) ) {
 				return;
 			}
 
@@ -116,7 +120,7 @@ function sunshine_watermark_image( $attachment_id, $metadata = array() ) {
 			imagedestroy( $new_image );
 
 			// Watermark the thumbnail if needed
-			if ( $sunshine->options['watermark_thumbnail'] ) {
+			if ( $sunshine->options['watermark_thumbnail'] && !$passed_image_size ) {
 				$image_editor = wp_get_image_editor( $image );
 				$image_editor->resize( $sunshine->options['thumbnail_width'], $sunshine->options['thumbnail_height'], $sunshine->options['thumbnail_crop'] );
 				$image_editor->save( $image_path . $metadata['sizes']['sunshine-thumbnail']['file'] );

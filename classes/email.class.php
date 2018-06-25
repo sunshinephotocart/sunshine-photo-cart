@@ -13,7 +13,7 @@ class SunshineEmail extends SunshineSingleton {
 		return $template_content;
 	}
 
-	public static function send_email( $template, $to, $subject, $title, $search = array(), $replace = array(), $params=array() ) {
+	public static function send_email( $template, $to, $subject, $title, $search = array(), $replace = array(), $params = array() ) {
 		global $sunshine;
 		add_filter( 'wp_mail_content_type', create_function( '', 'return "text/html";' ) );
 		$content = '';
@@ -36,8 +36,12 @@ class SunshineEmail extends SunshineSingleton {
 		// Main content part
 		$email = self::get_template( $template );
 		$email = str_replace( array_merge( $base_search, $search ), array_merge( $base_replace, $replace ), $email );
-		if ( $sunshine->options['from_name'] != '' && $sunshine->options['from_email'] != '' )
+		if ( !empty( $params['reply_email'] ) ) {
+			$headers[] = "Reply-to: ".$params['reply_name']." <".$params['reply_email'].">\r\n";
+		}
+		if ( $sunshine->options['from_name'] != '' && $sunshine->options['from_email'] != '' ) {
 			$headers[] = "From: ".$sunshine->options['from_name']." <".$sunshine->options['from_email'].">\r\n";
+		}
 
 		// Put into overall template
 		$base_search[] = '[content]';

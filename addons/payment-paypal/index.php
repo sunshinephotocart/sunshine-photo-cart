@@ -3,7 +3,7 @@ add_action( 'init', 'sunshine_paypal_init' );
 function sunshine_paypal_init() {
 	global $sunshine;
 
-	if ( $sunshine->options['paypal_active'] != 1 ) return;
+	if ( !isset( $sunshine->options['paypal_active'] ) || $sunshine->options['paypal_active'] != 1 ) return;
 
 	$name = ( $sunshine->options['paypal_name'] ) ? $sunshine->options['paypal_name'] : 'PayPal';
 	$desc = ( $sunshine->options['paypal_desc'] ) ? $sunshine->options['paypal_desc'] : __( 'Submit payment via PayPal account or use a credit card','sunshine' );
@@ -14,7 +14,7 @@ add_action( 'template_redirect', 'sunshine_paypal_redirect' );
 function sunshine_paypal_redirect() {
 	global $current_user, $sunshine;
 	if ( is_page( $sunshine->options['page_checkout'] ) && isset( $_GET['paypal_redirect'] ) && isset( $_GET['order_id'] ) ) {
-		
+
 		$order = get_post( (int)$_GET['order_id'] );
 		if ( !$order ) {
 			wp_die( __( 'ERROR, something went really wrong', 'sunshine' ) . ' (1)' );
@@ -25,7 +25,7 @@ function sunshine_paypal_redirect() {
 			wp_die( __( 'ERROR, something went really wrong', 'sunshine' ) . ' (2)' );
 			exit;
 		}
-					
+
 		$paypal_args = array();
 		$paypal_args['custom'] = $order->ID;
 		$paypal_url = ( $sunshine->options['paypal_test_mode'] ) ? 'https://www.sandbox.paypal.com/cgi-bin/webscr' : 'https://www.paypal.com/cgi-bin/webscr';
@@ -46,6 +46,14 @@ function sunshine_paypal_redirect() {
 			// Cart info
 			$order_data = maybe_unserialize( get_post_meta( $order->ID, '_sunshine_order_data', true ) );
 			$order_items = maybe_unserialize( get_post_meta( $order->ID, '_sunshine_order_items', true ) );
+
+			// Restore any credits as we have not finalized the payment
+			if ( $order_data['credits'] > 0 ) {
+				$user_id = get_post_meta( $order->ID, 'user_id', true );
+				$current_credits = SunshineUser::get_user_meta_by_id( $current_user->ID, 'credits', true );
+				SunshineUser::update_user_meta_by_id( $current_user->ID, 'credits', $current_credits + $order_data['credits'] );
+			}
+
 			$i = 1;
 			foreach ( $order_items as $item ) {
 				$name_key = 'item_name_' . $i;
@@ -60,23 +68,23 @@ function sunshine_paypal_redirect() {
 				}
 				$paypal_args[ $name_key ] = $name;
 				$paypal_args[ $quantity_key ] = $item['qty'];
-				$paypal_args[ $amount_key ] = number_format( $item['price'], 2 );
+				$paypal_args[ $amount_key ] = round( $item['price'], 2 );
 				$i++;
 			}
-			if ( $sunshine->cart->shipping_method['cost'] > 0 ) {
+			if ( $sunshine->shipping->get_shipping_method_cost( $sunshine->cart->shipping_method['id'] ) > 0 ) {
 				$paypal_args['item_name_' . $i ] = sprintf( __( 'Shipping via %s', 'sunshine' ), $sunshine->cart->shipping_method['title'] );
 				$paypal_args['quantity_' . $i ] = 1;
-				$paypal_args['amount_' . $i ] = number_format( $sunshine->cart->shipping_method['cost'], 2 );
+				$paypal_args['amount_' . $i ] = round( $sunshine->shipping->get_shipping_method_cost( $sunshine->cart->shipping_method['id'] ), 2 );
 			}
-			$paypal_args['tax_cart'] = number_format( $sunshine->cart->tax, 2 );
+			$paypal_args['tax_cart'] = round( $sunshine->cart->tax, 2 );
 			$discount_total = 0;
 			if ( $sunshine->cart->discount_total ) {
 				$discount_total = $sunshine->cart->discount_total;
 			}
-			if ( $sunshine->cart->useable_credits ) {
-				$discount_total += $sunshine->cart->useable_credits;
+			if ( $order_data['credits'] > 0 ) {
+				$discount_total += $order_data['credits'];
 			}
-			$paypal_args['discount_amount_cart'] = number_format( $discount_total, 2 );
+			$paypal_args['discount_amount_cart'] = round( $discount_total, 2 );
 			/*
 			$paypal_args['item_name_1'] = __( 'Order from ','sunshine' ).get_bloginfo( 'name' );
 			$paypal_args['quantity_1'] = 1;
@@ -95,7 +103,7 @@ function sunshine_paypal_redirect() {
 			$paypal_args['return'] = add_query_arg( array( 'paypal_complete' => '1' ), get_permalink( $order->ID ) );
 			$paypal_args['cancel_return'] = wp_nonce_url( add_query_arg( 'order_id', $order->ID, sunshine_url( 'checkout' ) ), 'paypal_cancel', 'paypal_cancel' );
 			$paypal_args['notify_url'] = trailingslashit( get_bloginfo( 'url' ) ).'?sunshine_paypal_ipn=paypal_standard_ipn';
-			if ( isset( $order_data['shipping_method'] ) && ( $order_data['shipping_method'] == 'pickup' || $order_data['shipping_method'] == 'download' ) ) { 
+			if ( isset( $order_data['shipping_method'] ) && ( $order_data['shipping_method'] == 'pickup' || $order_data['shipping_method'] == 'download' ) ) {
 				// Don't need any shipping info, so don't pass anything
 				$paypal_args['no_shipping'] = 1;
 			} else {
@@ -119,9 +127,9 @@ function sunshine_paypal_redirect() {
 			$paypal_args['night_phone_a'] = substr( $phone, 0, 3 );
 			$paypal_args['night_phone_b'] = substr( $phone, 3, 3 );
 			$paypal_args['night_phone_c'] = substr( $phone, 6, 4 );
-			
+
 			$paypal_args = apply_filters( 'sunshine_paypal_args', $paypal_args );
-			
+
 			foreach ( $paypal_args as $key => $value ) {
 				$paypal_args_array[] = '<input type="hidden" name="'.esc_attr( $key ).'" value="'.esc_attr( $value ).'" />';
 			}
@@ -143,12 +151,12 @@ function sunshine_paypal_redirect() {
 add_filter( 'sunshine_add_order_notify', 'sunshine_paypal_add_order_notify', 10, 2 );
 add_filter( 'sunshine_add_order_clear_cart', 'sunshine_paypal_add_order_notify', 10, 2 );
 function sunshine_paypal_add_order_notify( $value, $order_data ) {
-	
+
 	if ( $order_data['payment_method'] == 'paypal' ) {
 		return false;
 	}
 	return $value;
-	
+
 }
 
 
@@ -157,7 +165,7 @@ function sunshine_paypal_purchase_redirect( $url, $order_id, $order_data ) {
 	global $sunshine;
 	if ( $order_data['payment_method'] == 'paypal' ) {
 		$url = add_query_arg( array( 'paypal_redirect' => 1, 'order_id' => $order_id ), get_permalink( $sunshine->options['page_checkout'] ) );
-	} 
+	}
 	return $url;
 }
 
@@ -179,10 +187,10 @@ function sunshine_paypal_process_ipn() {
 		$req = 'cmd=_notify-validate';
 		if( function_exists( 'get_magic_quotes_gpc' ) ) {
 		   $get_magic_quotes_exists = true;
-		} 
-		foreach ( $myPost as $key => $value ) {        
-		   if ( $get_magic_quotes_exists == true && get_magic_quotes_gpc() == 1 ) { 
-		        $value = urlencode(stripslashes($value)); 
+		}
+		foreach ( $myPost as $key => $value ) {
+		   if ( $get_magic_quotes_exists == true && get_magic_quotes_gpc() == 1 ) {
+		        $value = urlencode(stripslashes($value));
 		   } else {
 		        $value = urlencode($value);
 		   }
@@ -212,8 +220,12 @@ function sunshine_paypal_process_ipn() {
 		if (strcmp ($res, "VERIFIED") != 0) {
 			exit;
 		}
-			
+
 		$order_id = intval( $_POST['custom'] );
+		$order = get_post( $order_id );
+		if ( !$order ) {
+			exit;
+		}
 		wp_set_post_terms( $order_id, 'new', 'sunshine-order-status' );
 		add_post_meta( $order_id, 'txn_id', $myPost['txn_id'] );
 		add_post_meta( $order_id, 'payment_fee', $myPost['payment_fee'] );
@@ -221,9 +233,15 @@ function sunshine_paypal_process_ipn() {
 		add_post_meta( $order_id, 'verify_sign', $myPost['verify_sign'] );
 		add_post_meta( $order_id, 'payer_id', $myPost['payer_id'] );
 		add_post_meta( $order_id, 'mode', ( $sunshine->options['paypal_test_mode'] ) ? 'test' : 'live' );
-		
+
+		$order_data = maybe_unserialize( get_post_meta( $order_id, '_sunshine_order_data', true ) );
+		if ( isset( $data['user_id'] ) && $data['credits'] > 0 ) {
+			$available_credits = SunshineUser::get_user_meta_by_id( $data['user_id'], 'credits', true );
+			SunshineUser::update_user_meta_by_id( $data['user_id'], 'credits', $available_credits - $data['credits'] );
+		}
+
 		SunshineOrder::notify( $order_id );
-		
+
 		exit;
 	}
 }
@@ -319,7 +337,7 @@ function sunshine_paypal_order_meta_box_inner() {
 	$payer_id = get_post_meta( $post->ID, 'payer_id', true );
 	$mode = get_post_meta( $post->ID, 'mode', true );
 	$paypal_url = ( $mode == 'test' ) ? 'https://www.sandbox.paypal.com/cgi-bin/webscr' : 'https://www.paypal.com/cgi-bin/webscr';
-	
+
     ?>
     <p><strong>PayPal Transaction ID</strong>: <a href="<?php echo $paypal_url; ?>?cmd=_view-a-trans&id=<?php echo $txn_id; ?>" target="_blank"><?php echo $txn_id; ?></a></p>
     <p><strong>Transaction Fee</strong>: <?php sunshine_money_format( $payment_fee ); ?></p>

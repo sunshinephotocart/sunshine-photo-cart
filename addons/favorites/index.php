@@ -133,6 +133,26 @@ function sunshine_favorites_build_image_menu( $menu, $image ) {
 		);
 	}
 
+	if ( is_page( $sunshine->options['page_favorites'] ) ) {
+		$disable_products = get_post_meta( $image->post_parent, 'sunshine_gallery_disable_products', true );
+		if ( !$disable_products && !$sunshine->options['proofing'] && !sunshine_is_gallery_expired( $image->post_parent ) ) {
+			$menu[10] = array(
+				'icon' => 'shopping-cart',
+				'url' => get_permalink( $image->ID ),
+				'class' => 'sunshine-purchase',
+			);
+		}
+		$allow_comments = get_post_meta( $image->post_parent, 'sunshine_gallery_image_comments', true );
+		if ( $allow_comments ) {
+			$menu[30] = array(
+				'icon' => 'comments',
+				'url' => get_permalink( $image->ID ).'#respond',
+				'class' => 'sunshine-comments',
+			);
+		}
+
+	}
+
 	/*
 	if (is_page($sunshine->options['page_favorites'])) {
 		$menu[60] = array(
@@ -257,8 +277,9 @@ function sunshine_favorites_options( $options ) {
 add_filter( 'sunshine_content', 'sunshine_favorites_content' );
 function sunshine_favorites_content( $content ) {
 	global $sunshine;
-	if ( is_page( $sunshine->options['page_favorites'] ) )
+	if ( $sunshine->options['page_favorites'] > 0 && is_page( $sunshine->options['page_favorites'] ) ) {
 		$content .= SunshineFrontend::get_template( 'favorites' );
+	}
 	return $content;
 }
 
@@ -353,8 +374,8 @@ function sunshine_favorites_submit() {
 		$search = array( '[message_content]' );
 		$replace = array( $content );
 
-		if ( $sunshine->options['order_notifications'] )
-			$admin_emails = explode( ',',$sunshine->options['order_notifications'] );
+		if ( $sunshine->options['favorite_notifications'] )
+			$admin_emails = explode( ',',$sunshine->options['favorite_notifications'] );
 		else
 			$admin_emails = array( get_bloginfo( 'admin_email' ) );
 		foreach ( $admin_emails as $admin_email )

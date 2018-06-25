@@ -12,7 +12,7 @@ function sunshine_theme_options($options) {
 	$options[] = array(
 		'name' => __('Disable Sunshine CSS', 'sunshine'),
 		'id'   => 'disable_sunshine_css',
-		'desc' => 'Checking this will prevent the default sunshine CSS file from being loaded',
+		'desc' => __( 'Checking this will prevent the default sunshine CSS file from being loaded', 'sunshine' ),
 		'type' => 'checkbox',
 	);
 	$options[] = array(
@@ -40,7 +40,7 @@ function sunshine_theme_options($options) {
 
 add_action('wp_head', 'sunshine_template_head');
 function sunshine_template_head() {
-	global $sunshine; 
+	global $sunshine;
 	if (isset($sunshine->options['theme_css'])) {
 		echo '<!-- CUSTOM CSS FOR SUNSHINE -->';
 		echo '<style type="text/css">';

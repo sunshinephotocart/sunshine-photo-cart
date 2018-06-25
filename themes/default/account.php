@@ -2,9 +2,9 @@
 
 <h1><?php _e('Account', 'sunshine'); ?></h1>
 
-<?php 
+<?php
 $credits = SunshineUser::get_user_meta('credits');
-if ($credits > 0) { 
+if ($credits > 0) {
 ?>
 	<h2><?php _e('Credits', 'sunshine'); ?></h2>
 	<p>
@@ -27,8 +27,8 @@ if ($credits > 0) {
 		</tr>
 		<?php
 		while ( $the_query->have_posts() ) : $the_query->the_post();
-			$items = unserialize(get_post_meta($post->ID, '_sunshine_order_items', true));
-			$order_data = unserialize(get_post_meta($post->ID, '_sunshine_order_data', true));
+			$items = maybe_unserialize(get_post_meta($post->ID, '_sunshine_order_items', true));
+			$order_data = maybe_unserialize(get_post_meta($post->ID, '_sunshine_order_data', true));
 		?>
 			<tr>
 			<td><a href="<?php the_permalink(); ?>"><?php _e('Order', 'sunshine'); ?> #<?php the_ID(); ?></a></td>
@@ -38,12 +38,12 @@ if ($credits > 0) {
 				<?php
 				$order_status = wp_get_object_terms( $post->ID,  'sunshine-order-status' );
 				echo $order_status[0]->name
-				?>			
+				?>
 			</td>
 			</tr>
 		<?php endwhile; wp_reset_postdata(); ?>
 		</table>
-	<?php } ?>		
+	<?php } ?>
 </div>
 
 <form method="post" action="" id="sunshine-account" class="sunshine-form">

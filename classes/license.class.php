@@ -85,9 +85,9 @@ class Sunshine_License {
 		add_action( 'admin_init', array( $this, 'auto_updater' ), 1 );
 
 		add_action( 'admin_notices', array( $this, 'notices' ) );
-		
+
 		add_action( 'admin_init', array( $this, 'check_license' ), 99 );
-		
+
 	}
 
 	/**
@@ -97,7 +97,7 @@ class Sunshine_License {
 	 * @return  void
 	 */
 	public function auto_updater() {
-					
+
 		if ( 'valid' !== get_option( $this->item_shortname . '_license_active' ) || $this->item_shortname == 'sunshine_pro' )
 			return;
 
@@ -144,7 +144,7 @@ class Sunshine_License {
 			if ( $expiration_readable ) {
 				$desc .= ' ' . $expiration_readable;
 			}
-		}		
+		}
 
 		$options[] = array(
 			'name'    => $this->item_name,
@@ -222,6 +222,8 @@ class Sunshine_License {
 		update_option( $this->item_shortname . '_license_active', $license_data->license );
 		set_transient( $this->item_shortname . '_license_expiration', $license_data->expires, WEEK_IN_SECONDS );
 
+		do_action( $this->item_shortname . '_license_activate', $license_data->success );
+
 		if( ! (bool) $license_data->success ) {
 			set_transient( $this->item_shortname . '_license_error', $license_data, 1000 );
 		} else {
@@ -238,6 +240,7 @@ class Sunshine_License {
 	 */
 	public function deactivate_license() {
 
+
 		// Run on deactivate button press
 		if ( isset( $_GET['deactivate'] ) && $_GET['deactivate'] == $this->item_shortname . '_license_key' && check_admin_referer( 'deactivate_sunshine_license', 'deactivate_' . $this->item_shortname . '_license_key' ) ) {
 
@@ -246,7 +249,7 @@ class Sunshine_License {
 				'edd_action' => 'deactivate_license',
 				'license'    => $this->license,
 				'item_name'  => urlencode( $this->item_name ),
-				'url'        => home_url()
+				'url'        => SUNSHINE_STORE_URL
 			);
 
 			// Call the API
@@ -274,12 +277,12 @@ class Sunshine_License {
 			} else {
 				delete_transient( $this->item_shortname . '_license_error' );
 			}
-			
+
 			wp_redirect( admin_url( 'admin.php?page=sunshine&tab=licenses' ) );
 			exit;
 		}
 	}
-	
+
 	/**
 	 * Deactivate the license key
 	 *
@@ -292,11 +295,11 @@ class Sunshine_License {
 		if ( $sunshine->is_pro() && $this->item_name != 'Sunshine Photo Cart Pro' ) {
 			return;
 		}
-		
+
 		$expiration = get_transient( $this->item_shortname . '_license_expiration' );
-		
+
 		if ( $expiration === FALSE ) {
-			
+
 			// Data to send to the API
 			$api_params = array(
 				'edd_action' => 'check_license',
@@ -325,15 +328,15 @@ class Sunshine_License {
 
 			update_option( $this->item_shortname . '_license_active', $license_data->license );
 			set_transient( $this->item_shortname . '_license_expiration', $license_data->expires, WEEK_IN_SECONDS );
-			
+
 			if ( $license_data->license == 'expired' ) {
 				$sunshine->notices->add_notice( $this->item_shortname . '_expired', sprintf( __('Your license for %s has expired - you are no longer eligible for further updates but you may continue to use it. <a href="https://www.sunshinephotocart.com/account" target="_blank">Go here to renew</a>', 'sunshine' ), $this->item_name ), 'notice-error', true );
 			}
 		}
-		
+
 
 	}
-	
+
 
 
 	/**

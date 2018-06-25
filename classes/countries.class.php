@@ -414,31 +414,35 @@ class SunshineCountries extends SunshineSingleton {
 
 	public static function get_allowed_countries() {
 		global $sunshine;
-		if ( !isset( $sunshine->options['allowed_countries'] ) || $sunshine->options['allowed_countries'] == '' )
+		if ( empty( $sunshine->options['allowed_countries'] ) || !is_array( $sunshine->options['allowed_countries'] ) || in_array( 'all', $sunshine->options['allowed_countries'] ) ) {
 			return;
-		$country_codes = maybe_unserialize( $sunshine->options['allowed_countries'] );
-		foreach ( $country_codes as $code )
-			$allowed_countries[$code] = self::$countries[$code];
+		}
+		$allowed_countries = array();
+		foreach ( $sunshine->options['allowed_countries'] as $code ) {
+			$allowed_countries[ $code ] = self::$countries[ $code ];
+		}
 		return $allowed_countries;
 	}
 
 	public static function country_only_dropdown( $name = 'country', $selected = '' ) {
 		global $sunshine;
 		$countries = self::get_allowed_countries();
-		if ( !$countries )
+		if ( empty( $countries ) )
 			$countries = self::$countries;
 		if ( $selected == '' )
 			$selected = $sunshine->options['country'];
-		asort( $countries );
-		echo '<select name="'.$name.'"><option value="">'.__( 'Select country', 'sunshine' ).'</option>';
-		foreach ( $countries as $key => $value )
-			echo '<option value="'.$key.'" '.selected( $key, $selected, 0 ).'>'.$value.'</option>';
-		echo '</select>';
+		if ( !empty( $countries ) ) {
+			asort( $countries );
+			echo '<select name="'.$name.'"><option value="">'.__( 'Select country', 'sunshine' ).'</option>';
+			foreach ( $countries as $key => $value )
+				echo '<option value="'.$key.'" '.selected( $key, $selected, 0 ).'>'.$value.'</option>';
+			echo '</select>';
+		}
 	}
 
 	public static function countries_dropdown( $name = 'state', $selected = '' ) {
-		asort( self::$countries );
-		if ( self::$countries ) :
+		if ( !empty( self::$countries ) ) :
+			asort( self::$countries );
 			foreach ( self::$countries as $key=>$value ) :
 				if ( $states =  self::get_states( $key ) ) :
 					echo '<optgroup label="'.$value.'">';

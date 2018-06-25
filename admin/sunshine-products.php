@@ -65,7 +65,7 @@ function sunshine_products_save_postdata( $post_id ) {
 		( isset( $_POST['sunshine_noncename'] ) && !wp_verify_nonce( $_POST['sunshine_noncename'], plugin_basename( __FILE__ ) ) ) ) {
 		return;
 	}
-	if ( $_POST['post_type'] == 'sunshine-product' ) {
+	if ( isset( $_POST['post_type'] ) && $_POST['post_type'] == 'sunshine-product' ) {
 		$price_levels = get_terms( 'sunshine-product-price-level', array( 'hide_empty' => false ) );
 		foreach ( $price_levels as $price_level ) {
 			$key = 'sunshine_product_price_'.$price_level->term_id;
@@ -80,7 +80,7 @@ function sunshine_products_save_postdata( $post_id ) {
 		$taxable = ( isset( $_POST['sunshine_product_taxable'] ) ) ? intval( $_POST['sunshine_product_taxable'] ) : '0';
 		if ( $taxable )
 			update_post_meta( $post_id, 'sunshine_product_taxable', $taxable );
-		else 
+		else
 			delete_post_meta( $post_id, 'sunshine_product_taxable' );
 		update_post_meta( $post_id, 'sunshine_product_shipping', sanitize_text_field( $_POST['sunshine_product_shipping'] ) );
 	}
@@ -277,5 +277,62 @@ function sunshine_price_level_hide_quick_edit( $value, $taxonomy, $post_type ) {
 		$value = false;
 	}
 	return $value;
+}
+
+add_action( 'admin_notices', 'sunshine_product_admin_no_category' );
+function sunshine_product_admin_no_category() {
+	$screen = get_current_screen();
+	if ( $screen->post_type == 'sunshine-product' && $screen->parent_base == 'edit' && isset( $_GET['post'] ) ) {
+		$categories = wp_get_post_terms( $_GET['post'], 'sunshine-product-category' );
+		$package = get_post_meta( $_GET['post'], 'sunshine_product_package', true );
+		if ( empty( $categories ) && !$package ) {
+			echo '<div class="notice error"><p>' . __( '<strong>This product is not assigned to any categories.</strong> Products must be assigned to at least one category before they are visible.', 'sunshine' ) . '</p></div>';
+		}
+	}
+}
+
+
+add_filter('wp_terms_checklist_args', 'sunshine_products_single_category', '', 2);
+function sunshine_products_single_category( $args, $post_id ) {
+	if ( get_post_type( $post_id ) == 'sunshine-product' ) {
+		$args['walker'] = new SunshineProductsSingleCategory;
+	}
+    return $args;
+}
+
+class SunshineProductsSingleCategory extends Walker {
+    var $tree_type = 'category';
+    var $db_fields = array ('parent' => 'parent', 'id' => 'term_id'); //TODO: decouple this
+
+    function start_lvl( &$output, $depth = 0, $args = array() ) {
+        $indent = str_repeat("\t", $depth);
+        $output .= "$indent<ul class='children'>\n";
+    }
+
+    function end_lvl( &$output, $depth = 0, $args = array() ) {
+        $indent = str_repeat("\t", $depth);
+        $output .= "$indent</ul>\n";
+    }
+
+    function start_el( &$output, $category, $depth = 0, $args = array(), $id = 0 ) {
+        extract($args);
+        if ( empty($taxonomy) )
+            $taxonomy = 'category';
+
+        if ( $taxonomy == 'category' )
+            $name = 'post_category';
+        else
+            $name = 'tax_input['.$taxonomy.']';
+
+        $class = in_array( $category->term_id, $popular_cats ) ? ' class="popular-category"' : '';
+        if ( $taxonomy == 'sunshine-product-category' )
+            $output .= "\n<li id='{$taxonomy}-{$category->term_id}'$class>" . '<label class="selectit"><input value="' . $category->term_id . '" type="radio" name="'.$name.'[]" id="in-'.$taxonomy.'-' . $category->term_id . '"' . checked( in_array( $category->term_id, $selected_cats ), true, false ) . disabled( empty( $args['disabled'] ), false, false ) . ' /> ' . esc_html( apply_filters('the_category', $category->name )) . '</label>';
+        else
+            $output .= "\n<li id='{$taxonomy}-{$category->term_id}'$class>" . '<label class="selectit"><input value="' . $category->term_id . '" type="checkbox" name="'.$name.'[]" id="in-'.$taxonomy.'-' . $category->term_id . '"' . checked( in_array( $category->term_id, $selected_cats ), true, false ) . disabled( empty( $args['disabled'] ), false, false ) . ' /> ' . esc_html( apply_filters('the_category', $category->name )) . '</label>';
+    }
+
+    function end_el( &$output, $category, $depth = 0, $args = array() ) {
+            $output .= "</li>\n";
+    }
 }
 ?>

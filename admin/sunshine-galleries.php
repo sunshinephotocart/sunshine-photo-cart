@@ -21,24 +21,37 @@ function sunshine_gallery_meta_boxes() {
 		'advanced',
 		'high'
 	);
-	if ( get_post_meta( $post->ID, 'sunshine_gallery_access', true ) == 'email' ) {
-		$meta_boxes[30] = array(
-			'sunshine_gallery_emails',
-			__( 'Gallery Emails', 'sunshine' ),
-			'sunshine_gallery_emails_box',
+	$screen = get_current_screen();
+	if( 'add' != $screen->action ) {
+		if ( get_post_meta( $post->ID, 'sunshine_gallery_access', true ) == 'email' ) {
+			$meta_boxes[30] = array(
+				'sunshine_gallery_emails',
+				__( 'Gallery Emails', 'sunshine' ),
+				'sunshine_gallery_emails_box',
+				'sunshine-gallery',
+				'advanced',
+				'low'
+			);
+		}
+		$meta_boxes[87] = array(
+			'sunshine_gallery_orders',
+			__( 'Orders From Gallery', 'sunshine' ),
+			'sunshine_gallery_orders_meta_box',
 			'sunshine-gallery',
 			'advanced',
 			'low'
 		);
+		if ( get_post_meta( $post->ID, 'sunshine_gallery_image_comments', true ) == 1 ) {
+			$meta_boxes[97] = array(
+				'sunshine_gallery_image_comments',
+				__( 'Image Comments', 'sunshine' ),
+				'sunshine_gallery_image_comments_box',
+				'sunshine-gallery',
+				'advanced',
+				'low'
+			);
+		}
 	}
-	$meta_boxes[87] = array(
-		'sunshine_gallery_orders',
-		__( 'Orders From Gallery', 'sunshine' ),
-		'sunshine_gallery_orders_meta_box',
-		'sunshine-gallery',
-		'advanced',
-		'low'
-	);
 	$meta_boxes = apply_filters( 'sunshine_gallery_meta_boxes', $meta_boxes );
 	ksort( $meta_boxes );
 	foreach ( $meta_boxes as $meta_box ) {
@@ -57,12 +70,13 @@ function sunshine_gallery_admin_enqueue_scripts( $page ){
 	wp_enqueue_script( 'jquery-ui' );
 }
 
+add_action( 'admin_head', 'sunshine_remove_add_media' );
 function sunshine_remove_add_media(){
 	global $post;
-	if ( !empty( $post ) && $post->post_type == 'sunshine-gallery' )
+	if ( !empty( $post ) && $post->post_type == 'sunshine-gallery' ) {
 		remove_action( 'media_buttons', 'media_buttons' );
+	}
 }
-add_action( 'admin_head', 'sunshine_remove_add_media' );
 
 function sunshine_gallery_upload_meta_box(){
 	global $post, $wpdb;
@@ -350,15 +364,23 @@ function sunshine_gallery_admin_ajax_upload(){
 		), $file_upload['file'], $post_parent_id );
 
 	if ( $attachment_id ) {
-		$attachment_meta_data = wp_generate_attachment_metadata( $attachment_id, $file_upload['file'] );
-		if ( !empty( $attachment_meta_data['image_meta']['title'] ) ) {
-			wp_update_post( array(
-				'ID' => $attachment_id,
-				'post_title' => $attachment_meta_data['image_meta']['title']
-			) );
+		$attachment_image_meta = wp_generate_attachment_metadata( $attachment_id, $file_upload['file'] );
+		$image_meta = $attachment_image_meta['image_meta'];
+		$update_args = array();
+		if ( '' != trim( $image_meta['title'] ) ) {
+			$update_args['post_title'] = trim( $image_meta['title'] );
 		}
-		add_post_meta( $attachment_id, 'created_timestamp', $attachment_meta_data['image_meta']['created_timestamp'] );
-		wp_update_attachment_metadata( $attachment_id, $attachment_meta_data );
+		if ( '' != trim( $image_meta['caption'] ) ) {
+			$update_args['post_content'] = trim( $image_meta['caption'] );
+		}
+		if ( !empty( $update_args ) ) {
+			$update_args['ID'] = $attachment_id;
+			wp_update_post( $update_args );
+		}
+		wp_update_attachment_metadata( $attachment_id, $attachment_image_meta );
+		if ( $image_meta['created_timestamp'] ) {
+			add_post_meta( $attachment_id, 'created_timestamp', $image_meta['created_timestamp'] );
+		}
 		add_post_meta( $attachment_id, 'sunshine_file_name', sanitize_file_name( basename( $file['name'] ) ) );
 		$result['result'] = 'success';
 		$result['image_id'] = $attachment_id;
@@ -472,7 +494,7 @@ function sunshine_gallery_options_box_html( $post ) {
 	echo '<option value="private" '.selected( $gallery_status, 'private', 0 ).'>'.__( 'Private (only specified users)', 'sunshine' ).'</option>';
 	echo '</select>';
 
-	/* Options basde on access type */
+	/* Options based on access type */
 	/* Password protected */
 	echo '<div class="sunshine-status-password sunshine-status-options" style="display: ' . ( ( $gallery_status == 'password' ) ? '' : 'none' ) . ';"><label for="sunshine_gallery_password">' . __('Password', 'sunshine') . '</label> ';
 	echo '<input name="sunshine_gallery_password" value="' . esc_attr( $post->post_password ) . '" /> ';
@@ -503,6 +525,7 @@ function sunshine_gallery_options_box_html( $post ) {
 	echo '<option value="">'.__( 'None', 'sunshine' ).'</option>';
 	echo '<option value="account" '.selected( $gallery_access, 'account', 0 ).'>'.__( 'Registered and logged in', 'sunshine' ).'</option>';
 	echo '<option value="email" '.selected( $gallery_access, 'email', 0 ).'>'.__( 'Provide email address', 'sunshine' ).'</option>';
+	echo '<option value="url" '.selected( $gallery_access, 'url', 0 ).'>'.__( 'Direct URL only', 'sunshine' ).'</option>';
 	echo '</select></td></tr>';
 
 	$end_date = get_post_meta( $post_id, 'sunshine_gallery_end_date', true );
@@ -545,13 +568,13 @@ function sunshine_gallery_options_box_html( $post ) {
 
 
 	echo '<tr><th><label for="sunshine_gallery_disable_products">' . __( 'Disable products', 'sunshine' ) . '</label></th>';
-	echo '<td><label><input type="checkbox" name="sunshine_gallery_disable_products" value="1" '.checked( get_post_meta( $post_id, 'sunshine_gallery_disable_products', true ), 1, 0 ).' /> Users will not be able to purchase any products for this gallery</label></td></tr>';
+	echo '<td><label><input type="checkbox" name="sunshine_gallery_disable_products" value="1" '.checked( get_post_meta( $post_id, 'sunshine_gallery_disable_products', true ), 1, 0 ).' /> ' . __( 'Users will not be able to purchase any products for this gallery', 'sunshine' ) . '</label></td></tr>';
 
 	echo '<tr><th><label for="sunshine_gallery_image_comments">' . __( 'Allow image comments', 'sunshine' ) . '</label></th>';
-	echo '<td><label><input type="checkbox" name="sunshine_gallery_image_comments" value="1" '.checked( get_post_meta( $post_id, 'sunshine_gallery_image_comments', true ), 1, 0 ).' /> Allow users to make comments on images</label></td></tr>';
+	echo '<td><label><input type="checkbox" name="sunshine_gallery_image_comments" value="1" '.checked( get_post_meta( $post_id, 'sunshine_gallery_image_comments', true ), 1, 0 ).' /> ' . __( 'Allow users to make comments on images', 'sunshine' ) . '</label></td></tr>';
 
 	echo '<tr><th><label for="sunshine_gallery_images_directory">' . __( 'FTP Images Folder', 'sunshine' ) . '</label></th>';
-	echo '<td><select id="sunshine_gallery_images_directory" name="sunshine_gallery_images_directory"><option value="">Please select folder</option>';
+	echo '<td><select id="sunshine_gallery_images_directory" name="sunshine_gallery_images_directory"><option value="">' . __( 'Please select folder', 'sunshine' ) . '</option>';
 	$upload_dir = wp_upload_dir();
 	$selected_dir = get_post_meta( $post_id, 'sunshine_gallery_images_directory', true );
 	$folders = scandir( $upload_dir['basedir'].'/sunshine' );
@@ -793,19 +816,19 @@ function touch_time_end( $edit = 1, $for_post = 1, $tab_index = 0, $multi = 0 ) 
 }
 
 function sunshine_galleries_product_columns( $columns ) {
-	$columns['expires'] = 'Expires';
-	$columns['images'] = 'Images';
-	//$columns['profit'] = 'Profit';
+	$columns['expires'] = __( 'Expires', 'sunshine' );
+	$columns['images'] = __( 'Images', 'sunshine' );
 	return $columns;
 }
 add_filter( 'manage_edit-sunshine-gallery_columns', 'sunshine_galleries_product_columns', 99 );
 
 function sunshine_galleries_columns_content( $column, $post_id ) {
-	global $post;
+	global $post, $wpdb;
 	switch( $column ) {
 	case 'images':
-		$total_images = get_children( array( 'post_parent'=>$post_id ) );
-		$image_count = count( $total_images );
+		$image_sql = "SELECT COUNT(*) as total FROM {$wpdb->posts}
+				  WHERE post_type = 'attachment' AND post_parent = $post_id;";
+		$image_count = $wpdb->get_row($image_sql)->total;
 		echo $image_count;
 		break;
 	case 'expires':
@@ -826,6 +849,9 @@ add_action( 'manage_sunshine-gallery_posts_custom_column', 'sunshine_galleries_c
 add_action( 'before_delete_post', 'sunshine_galleries_delete_attachments' );
 function sunshine_galleries_delete_attachments( $post_id ){
 	global $sunshine;
+
+	set_time_limit(0);
+
 	if ( $sunshine->options['delete_images'] && get_post_type( $post_id ) == 'sunshine-gallery' ) {
 		$attachments = get_posts( array( 'post_type' => 'attachment', 'post_parent' => $post_id, 'nopaging' => 1 ) );
 		foreach ( $attachments as $attachment ) {
@@ -833,6 +859,10 @@ function sunshine_galleries_delete_attachments( $post_id ){
 		}
 		$upload_dir = wp_upload_dir();
 		$dir = $upload_dir['basedir'] . '/sunshine/' . $post_id;
+		$images = glob( $dir . '/*' );
+		foreach ( $images as $image ) {
+			@unlink( $image );
+		}
 		@rmdir( $dir );
 	}
 	// Delete the FTP folder, if it exists
@@ -920,12 +950,14 @@ function sunshine_gallery_orders_meta_box() {
 	$gallery_orders = array();
 	foreach( $orders as $order ) {
 		$order_items = maybe_unserialize( get_post_meta( $order->ID, '_sunshine_order_items', true ) );
-		foreach ( $order_items as $item ) {
-			if ( $item['image_id'] ) {
-				$image = get_post( $item['image_id'] );
-				if ( $image->post_parent == $gallery_id ) {
-					$gallery_orders[] = $order->ID;
-					continue 2;
+		if ( !empty( $order_items ) ) {
+			foreach ( $order_items as $item ) {
+				if ( $item['image_id'] ) {
+					$image = get_post( $item['image_id'] );
+					if ( !empty( $image ) && $image->post_parent == $gallery_id ) {
+						$gallery_orders[] = $order->ID;
+						continue 2;
+					}
 				}
 			}
 		}
@@ -947,7 +979,7 @@ function sunshine_gallery_orders_meta_box() {
 			}
 			$current_status = get_the_terms( $order_id, 'sunshine-order-status' );
 			$status = array_values( $current_status );
-			$order_data = unserialize( get_post_meta( $order_id, '_sunshine_order_data', true ) );
+			$order_data = maybe_unserialize( get_post_meta( $order_id, '_sunshine_order_data', true ) );
 	?>
 			<tr>
 				<td><a href="post.php?post=<?php echo $order_id; ?>&action=edit"><?php echo sprintf( __( 'Order #%s', 'sunshine' ), $order_id ); ?></a></td>
@@ -964,7 +996,62 @@ function sunshine_gallery_orders_meta_box() {
 		<?php } ?>
 	</table>
 	<?php
+	} else {
+		echo '<p>' . __( 'No orders from this gallery yet', 'sunshine' ) . '</p>';
 	}
 }
 
+function sunshine_gallery_image_comments_box() {
+	$gallery_id = $_GET['post'];
+	$image_comments = array();
+	$images = get_children( 'post_type=attachment&post_parent='.$gallery_id.'&nopaging=1&orderby=menu_order&order=ASC&post_mime_type=image' );
+	foreach( $images as $image ) {
+		if ( $image->comment_count > 0 ) {
+			$image_comments[] = $image;
+		}
+	}
+	if ( !empty( $image_comments ) ) {
+	?>
+	<table id="sunshine-gallery-image-comments">
+	<?php
+		foreach ( $image_comments as $image ) {
+	?>
+			<tr>
+				<td valign="top"><?php echo wp_get_attachment_image( $image->ID, 'sunshine-thumbnail' ); ?><br /><?php echo $image->post_title; ?></td>
+				<td valign="top">
+					<?php
+					$comments = get_comments( array( 'post_id' => $image->ID ) );
+					foreach ( $comments as $comment ) {
+						echo '<p><i>' . $comment->comment_author . '</i><br />' . $comment->comment_content . '</p>';
+					}
+					?>
+				</td>
+			</tr>
+		<?php } ?>
+	</table>
+	<?php
+	} else {
+		echo '<p>' . __( 'No images have comments yet', 'sunshine' ) . '</p>';
+	}
+}
+
+
+add_filter( 'image_downsize', 'sunshine_image_downsize_admin', 99, 3 );
+function sunshine_image_downsize_admin( $downsize, $id, $size ) {
+	if ( is_admin() && isset( $_POST['action'] ) && $_POST['action'] == 'query-attachments' && isset( $_POST['post_id'] ) ) {
+		$image = get_post( $id );
+		if ( get_post_type( $image->post_parent ) == 'sunshine-gallery' ) {
+			if ( $intermediate = image_get_intermediate_size( $id, 'sunshine-thumbnail' ) ) {
+				$img_url = wp_get_attachment_url( $id );
+				$img_url_basename = wp_basename($img_url);
+				$img_url = str_replace( $img_url_basename, $intermediate['file'], $img_url );
+				$width = $intermediate['width'];
+				$height = $intermediate['height'];
+				$is_intermediate = true;
+				return array( $img_url, $width, $height, $is_intermediate );
+			}
+		}
+	}
+	return $downsize;
+}
 ?>

@@ -30,7 +30,7 @@ asort( $tax_options );
 $tax_options = array_merge( array( '' => __( 'Do not use taxes', 'sunshine' ) ), $tax_options );
 $options[] = array(
 	'name' => __( 'Country / State', 'sunshine' ),
-	'desc' => __( 'What country or state should have taxes applied','sunshine' ),
+	'tip' => __( 'What country or state should have taxes applied','sunshine' ),
 	'id'   => 'tax_location',
 	'type' => 'select',
 	'select2' => true,
@@ -43,12 +43,62 @@ $options[] = array(
 	'type' => 'text',
 	'css' => 'width: 50px;'
 );
+$options[] = array(
+	'name' => __( 'Calculate tax based on', 'sunshine' ),
+	'tip' => __( 'Which address is used to determine if tax is calculated','sunshine' ),
+	'id'   => 'tax_basis',
+	'type' => 'select',
+	'options' => array(
+		'shipping' => __( 'Shipping Address', 'sunshine' ),
+		'billing' => __( 'Billing Address', 'sunshine' ),
+		'all' => __( 'Tax everyone', 'sunshine' )
+	)
+);
+$options[] = array(
+	'name' => __( 'Tax entire order', 'sunshine' ),
+	'id'   => 'tax_entire_order_one_item',
+	'type' => 'checkbox',
+	'desc' => __( 'If just one item in cart is taxable, apply tax to the entire order', 'sunshine' ),
+	'options' => array( 1 => 'Tax entire order' )
+);
+$options[] = array(
+	'name' => __( 'Display prices', 'sunshine' ),
+	'id'   => 'display_price',
+	'type' => 'radio',
+	'options' => array( 'without_tax' => 'Excluding tax', 'with_tax' => 'Including tax' )
+);
+$options[] = array(
+	'name' => __( 'Prices entered with tax', 'sunshine' ),
+	'id'   => 'price_has_tax',
+	'type' => 'radio',
+	'options' => array( 'no' => 'No, prices do not have tax included', 'yes' => 'Yes, prices do have tax included' )
+);
+$options[] = array(
+	'name' => __( 'Price display suffix', 'sunshine' ),
+	'id'   => 'price_with_tax_suffix',
+	'type' => 'text',
+	'desc' => __( 'This shows after the price', 'sunshine' )
+);
+
+
 /*
 $options[] = array(
-	'name' => __( 'Show all prices with tax included', 'sunshine' ),
-	'id'   => 'show_price_including_tax',
-	'type' => 'checkbox',
-	'tip' => __( 'All prices will have the tax % automatically added to each item price','sunshine' ),
+	'name' => __( 'Display Prices in Galleries', 'sunshine' ),
+	'id'   => 'gallery_price_tax_display',
+	'type' => 'radio',
+	'options' => array(
+		'1' => __( 'Including Tax', 'sunshine' ),
+		'0' => __( 'Excluding Tax', 'sunshine' )
+	)
+);
+$options[] = array(
+	'name' => __( 'Display Prices in Cart/Checkout', 'sunshine' ),
+	'id'   => 'cart_price_tax_display',
+	'type' => 'radio',
+	'options' => array(
+		'1' => __( 'Including Tax', 'sunshine' ),
+		'0' => __( 'Excluding Tax', 'sunshine' )
+	)
 );
 */
 
@@ -78,6 +128,7 @@ $currencies = apply_filters( 'sunshine_currencies',
 		'NPR' => __( 'Nepali Rupee', 'sunshine' ),
 		'ILS' => __( 'Israeli Shekel', 'sunshine' ),
 		'JPY' => __( 'Japanese Yen', 'sunshine' ),
+		'KES' => __( 'Kenyan Shilling', 'sunshine' ),
 		'KIP' => __( 'Lao Kip', 'sunshine' ),
 		'KRW' => __( 'South Korean Won', 'sunshine' ),
 		'MYR' => __( 'Malaysian Ringgits', 'sunshine' ),
@@ -86,6 +137,7 @@ $currencies = apply_filters( 'sunshine_currencies',
 		'NOK' => __( 'Norwegian Krone', 'sunshine' ),
 		'NZD' => __( 'New Zealand Dollar', 'sunshine' ),
 		'PYG' => __( 'Paraguayan Guaraní', 'sunshine' ),
+		'PEN' => __( 'Peruvian Sol', 'sunshine' ),
 		'PHP' => __( 'Philippine Pesos', 'sunshine' ),
 		'PLN' => __( 'Polish Zloty', 'sunshine' ),
 		'GBP' => __( 'Pounds Sterling', 'sunshine' ),
@@ -102,6 +154,7 @@ $currencies = apply_filters( 'sunshine_currencies',
 		'TRY' => __( 'Turkish Lira', 'sunshine' ),
 		'UAH' => __( 'Ukrainian Hryvnia', 'sunshine' ),
 		'USD' => __( 'US Dollars', 'sunshine' ),
+		'VEF' => __( 'Venezuelan bol&iacute;var', 'sunshine' ),
 		'VND' => __( 'Vietnamese Dong', 'sunshine' ),
 		'EGP' => __( 'Egyptian Pound', 'sunshine' ),
 	)
@@ -168,6 +221,8 @@ $options[] = array(
 	'desc' => 'Current order URL example: <pre style="display: inline;">'.get_permalink( $sunshine->options['page'] ).'<strong>'.$sunshine->options['endpoint_order'].'</strong>/42</pre>'
 );
 
+$options[] = array( 'name' => __( 'Order Statuses', 'sunshine' ), 'type' => 'title', 'desc' => sprintf( __( 'To manage order status names and descriptions, <a href="%s">click here</a>', 'sunshine' ), admin_url( 'edit-tags.php?taxonomy=sunshine-order-status&post_type=sunshine-order' ) ) );
+
 $options = apply_filters( 'sunshine_options_general', $options );
 
 /* Pages */
@@ -219,6 +274,13 @@ $options[] = array(
 	'tip' => __( 'This will remove the folder and images added via FTP, if this was used to create the gallery','sunshine' ),
 	'options' => array( 1 )
 );
+$options[] = array(
+	'name' => __( 'Show images in Media Library', 'sunshine' ),
+	'id'   => 'show_media_library',
+	'type' => 'checkbox',
+	'tip' => __( 'By default Sunshine hides images uploaded to Sunshine galleries in the Media Library, enabling this option will show them instead. Use at your own risk.','sunshine' ),
+	'options' => array( 1 )
+);
 
 
 $options[] = array( 'name' => __( 'Display Options', 'sunshine' ), 'type' => 'title', 'desc' => '' );
@@ -226,23 +288,23 @@ $options[] = array(
 	'name' => __( 'Gallery Order', 'sunshine' ),
 	'id'   => 'gallery_order',
 	'type' => 'select',
-	'options' => array( 
-		'menu_order' => __( 'Custom ordering', 'sunshine' ), 
-		'date_new_old' => __( 'Gallery Creation Date (New to Old)', 'sunshine' ), 
-		'date_old_new' => __( 'Gallery Creation Date (Old to New)', 'sunshine' ), 
-		'title' => __( 'Alphabetical', 'sunshine' ) 
+	'options' => array(
+		'menu_order' => __( 'Custom ordering', 'sunshine' ),
+		'date_new_old' => __( 'Gallery Creation Date (New to Old)', 'sunshine' ),
+		'date_old_new' => __( 'Gallery Creation Date (Old to New)', 'sunshine' ),
+		'title' => __( 'Alphabetical', 'sunshine' )
 	)
 );
 $options[] = array(
 	'name' => __( 'Image Order', 'sunshine' ),
 	'id'   => 'image_order',
 	'type' => 'select',
-	'options' => array( 
-		'menu_order' => __( 'Custom ordering', 'sunshine' ), 
-		'shoot_order' => __( 'Order images shot (Images MUST have EXIF field "DateTimeDigitized")', 'sunshine' ), 
-		'date_new_old' => __( 'Image Upload Date (New to Old)', 'sunshine' ), 
-		'date_old_new' => __( 'Image Upload Date (Old to New)', 'sunshine' ), 
-		'title' => __( 'Alphabetical', 'sunshine' ) 
+	'options' => array(
+		'menu_order' => __( 'Custom ordering', 'sunshine' ),
+		'shoot_order' => __( 'Order images shot (Images MUST have EXIF field "DateTimeDigitized")', 'sunshine' ),
+		'date_new_old' => __( 'Image Upload Date (New to Old)', 'sunshine' ),
+		'date_old_new' => __( 'Image Upload Date (Old to New)', 'sunshine' ),
+		'title' => __( 'Alphabetical', 'sunshine' )
 	)
 );
 
@@ -301,7 +363,7 @@ $options[] = array(
 
 $options = apply_filters( 'sunshine_options_galleries', $options );
 
-/* Payment Methods */
+/* Checkout */
 $options[] = array( 'name' => __( 'Checkout', 'sunshine' ), 'type' => 'heading' );
 
 $options[] = array(
@@ -312,6 +374,115 @@ $options[] = array(
 	'options' => array( 1 )
 );
 
+$options[] = array(
+	'name' => __( 'Allowed Countries', 'sunshine' ),
+	'tip' => __( 'Which countries users can select at checkout','sunshine' ),
+	'id'   => 'allowed_countries',
+	'type' => 'select',
+	'select2' => true,
+	'multiple' => true,
+	'options' => array_merge( array( 'all' => __( 'All countries', 'sunshine' ) ), SunshineCountries::$countries )
+);
+
+$options[] = array( 'name' => __( 'Display Fields', 'sunshine' ), 'type' => 'title', 'desc' => '' );
+$options[] = array(
+	'name' => __( 'Billing Fields', 'sunshine' ),
+	'id'   => 'billing_fields',
+	'type' => 'checkbox',
+	'tip' => __( 'Check fields you want visible','sunshine' ),
+	'multiple' => true,
+	'options' => array(
+		'country' => __( 'Country', 'sunshine' ),
+		'first_name' => __( 'First Name', 'sunshine' ),
+		'last_name' => __( 'Last Name', 'sunshine' ),
+		'address' => __( 'Address', 'sunshine' ),
+		'address2' => __( 'Address 2', 'sunshine' ),
+		'city' => __( 'City', 'sunshine' ),
+		'state' => __( 'State / Province', 'sunshine' ),
+		'zip' => __( 'Zip / Postcode', 'sunshine' ),
+	)
+);
+$options[] = array(
+	'name' => __( 'Shipping Fields', 'sunshine' ),
+	'id'   => 'shipping_fields',
+	'type' => 'checkbox',
+	'tip' => __( 'Check fields you want visible','sunshine' ),
+	'multiple' => true,
+	'options' => array(
+		'country' => __( 'Country', 'sunshine' ),
+		'first_name' => __( 'First Name', 'sunshine' ),
+		'last_name' => __( 'Last Name', 'sunshine' ),
+		'address' => __( 'Address', 'sunshine' ),
+		'address2' => __( 'Address 2', 'sunshine' ),
+		'city' => __( 'City', 'sunshine' ),
+		'state' => __( 'State / Province', 'sunshine' ),
+		'zip' => __( 'Zip / Postcode', 'sunshine' ),
+	)
+);
+$options[] = array(
+	'name' => __( 'Other Fields', 'sunshine' ),
+	'id'   => 'general_fields',
+	'type' => 'checkbox',
+	//'tip' => __( 'Check fields you want to be displayed','sunshine' ),
+	'multiple' => true,
+	'options' => array(
+		'phone' => __( 'Phone', 'sunshine' ),
+		'notes' => __( 'Notes', 'sunshine' )
+	)
+);
+
+$options[] = array( 'name' => __( 'Required Fields', 'sunshine' ), 'type' => 'title', 'desc' => '' );
+$options[] = array(
+	'name' => __( 'Billing Fields', 'sunshine' ),
+	'id'   => 'billing_fields_required',
+	'type' => 'checkbox',
+	'tip' => __( 'Check fields you want to be required','sunshine' ),
+	'multiple' => true,
+	'options' => array(
+		'country' => __( 'Country', 'sunshine' ),
+		'first_name' => __( 'First Name', 'sunshine' ),
+		'last_name' => __( 'Last Name', 'sunshine' ),
+		'address' => __( 'Address', 'sunshine' ),
+		'address2' => __( 'Address 2', 'sunshine' ),
+		'city' => __( 'City', 'sunshine' ),
+		'state' => __( 'State / Province', 'sunshine' ),
+		'zip' => __( 'Zip / Postcode', 'sunshine' ),
+	)
+);
+$options[] = array(
+	'name' => __( 'Shipping Fields', 'sunshine' ),
+	'id'   => 'shipping_fields_required',
+	'type' => 'checkbox',
+	'tip' => __( 'Check fields you want to be required','sunshine' ),
+	'multiple' => true,
+	'options' => array(
+		'country' => __( 'Country', 'sunshine' ),
+		'first_name' => __( 'First Name', 'sunshine' ),
+		'last_name' => __( 'Last Name', 'sunshine' ),
+		'address' => __( 'Address', 'sunshine' ),
+		'address2' => __( 'Address 2', 'sunshine' ),
+		'city' => __( 'City', 'sunshine' ),
+		'state' => __( 'State / Province', 'sunshine' ),
+		'zip' => __( 'Zip / Postcode', 'sunshine' ),
+	)
+);
+$options[] = array(
+	'name' => __( 'Other Fields', 'sunshine' ),
+	'id'   => 'general_fields_required',
+	'type' => 'checkbox',
+	//'tip' => __( 'Check fields you want to be displayed','sunshine' ),
+	'multiple' => true,
+	'options' => array(
+		'phone' => __( 'Phone', 'sunshine' ),
+		'notes' => __( 'Notes', 'sunshine' )
+	)
+);
+
+
+$options = apply_filters( 'sunshine_options_checkout', $options );
+
+/* Payment Methods */
+$options[] = array( 'name' => __( 'Payments', 'sunshine' ), 'type' => 'heading' );
 
 $options = apply_filters( 'sunshine_options_payment_methods', $options );
 
@@ -344,10 +515,10 @@ $options[] = array(
 	'options' => array(
 		'theme' => __( 'My WordPress Theme', 'sunshine' ),
 		'default' => __( 'Default Sunshine Theme', 'sunshine' ),
-		'2013' => __( 'Sunshine 2013 Theme', 'sunshine' )
+		'2013' => __( 'Modern Sunshine Theme', 'sunshine' )
 	)
 );
-$attachments = get_posts( array( 'post_type' => 'attachment', 'post_parent' => 0, 'posts_per_page' => 250 ) );
+$attachments = get_posts( array( 'post_type' => 'attachment', 'post_parent' => 0, 'posts_per_page' => 250, 'post_mime_type' => 'image/png' ) );
 $media[0] = __( 'No image', 'sunshine' );
 foreach ( $attachments as $attachment ) {
 	$media[$attachment->ID] = $attachment->post_title;
@@ -367,6 +538,13 @@ $options[] = array(
 	'id'   => 'disable_breadcrumbs',
 	'type' => 'checkbox',
 	'desc' => __( 'Do not show breadcrumbs throughout Sunshine pages. Helpful if you want users to stick to just a single gallery.','sunshine' ),
+	'options' => array( 1 )
+);
+$options[] = array(
+	'name' => __( 'Hide link to main galleries page', 'sunshine' ),
+	'id'   => 'hide_galleries_link',
+	'type' => 'checkbox',
+	'desc' => __( 'Hide the link to your main galleries page in any Sunshine menus. Helpful if you want users to stick to just a single gallery.','sunshine' ),
 	'options' => array( 1 )
 );
 
